@@ -299,7 +299,7 @@ country_event = { # National party Calls vigil for Hitler
 	immediate = {log = "[GetDateText]: [Root.GetName]: event SAF.18"}
 	title = SAF.18.t
 	desc = SAF.18.desc
-	picture = GFX_report_event_germany_reich_funeral
+	picture = GFX_reich_funeral
 
 	immediate = {
 		hidden_effect = {
@@ -322,11 +322,8 @@ country_event = { # National party Calls vigil for Hitler
 			937 = {
 				set_demilitarized_zone = yes
 			}
-			if = {
-				limit = { has_country_flag = SAF_anti_anc }
-				1050 = {
-					set_demilitarized_zone = yes
-				}
+			936 = {
+				set_demilitarized_zone = yes
 			}
 		}
 	}
@@ -821,6 +818,7 @@ country_event = { #ANC Revolts
 	immediate = {
 		hidden_effect = {
 			ANC = {
+				transfer_state = 545
 				transfer_state = 936
 				transfer_state = 884
 				transfer_state = 719
@@ -965,9 +963,6 @@ country_event = { #Boers Revolt
 				BOR = {
 					transfer_state = 1050
 				}
-				1050 = {
-					set_demilitarized_zone = yes
-				}
 			}
 			if = {
 				limit = { has_country_flag = SAF_pro_anc }
@@ -996,6 +991,7 @@ country_event = { #Boers Revolt
 				}
 			}
 			BOR = {
+				
 				transfer_state = 275
 				transfer_state = 939
 				transfer_state = 940
@@ -1174,6 +1170,12 @@ country_event = { # US Joins the War
 			}
 		}
 		hidden_effect = {
+			#SAF = {
+			#	add_named_threat = {
+			#		threat = 25
+			#		name = threat.10.t
+			#	}
+			#}
 			ANG = {
 				add_ideas = ANG_USN_Blockade
 			}
@@ -2747,10 +2749,7 @@ country_event = { # Small Success
 			ideology = liberal_conservatism
 			popularity = 0.05
 		}
-		set_temp_variable = { SAF_ANC_power_temp = -0.05 }
-		SAF_ANC_power_change = yes
-		set_temp_variable = { SAF_Boers_power_temp = -0.03 }
-		SAF_Boers_power_change = yes
+
 	}
 }
 
@@ -2781,10 +2780,7 @@ country_event = { # Small Failure
 			ideology = liberal_conservatism
 			popularity = -0.02
 		}
-		set_temp_variable = { SAF_ANC_power_temp = 0.04 }
-		SAF_ANC_power_change = yes
-		set_temp_variable = { SAF_Boers_power_temp = 0.02 }
-		SAF_Boers_power_change = yes
+
 	}
 }
 
@@ -2816,10 +2812,6 @@ country_event = { # Big Success
 			ideology = liberal_conservatism
 			popularity = 0.1
 		}
-		set_temp_variable = { SAF_ANC_power_temp = -0.15 }
-		SAF_ANC_power_change = yes
-		set_temp_variable = { SAF_Boers_power_temp = -0.10 }
-		SAF_Boers_power_change = yes
 		set_temp_variable = { SAF_monarchy_support_temp = 0.03 }
 		SAF_monarchy_support_change = yes
 	}
@@ -2853,10 +2845,6 @@ country_event = { # Big Failure
 			ideology = liberal_conservatism
 			popularity = -0.1
 		}
-		set_temp_variable = { SAF_ANC_power_temp = 0.15 }
-		SAF_ANC_power_change = yes
-		set_temp_variable = { SAF_Boers_power_temp = 0.12 }
-		SAF_Boers_power_change = yes
 		set_temp_variable = { SAF_monarchy_support_temp = -0.05 }
 		SAF_monarchy_support_change = yes
 	}
@@ -2909,7 +2897,7 @@ country_event = { # American Journalist arrested in a raid
 		}
 		add_equipment_to_stockpile = {
 			type = anti_tank_equipment
-			amount = 300
+			amount = 400
 			producer = USA
 		}
 
@@ -3079,7 +3067,7 @@ country_event = { # Nelson Mandela is Free
 	}
 }
 
-country_event = { # Robert Sobukwe is killed in prison
+country_event = { #    Robert Sobukwe is killed in prison
 	id = SAF.124
 	immediate = { log = "[GetDateText]: [Root.GetName]: event SAF.124" }
 	title = SAF.124.t
@@ -3524,7 +3512,7 @@ country_event = { # Republic Epilogue
 	immediate = { log = "[GetDateText]: [Root.GetName]: event SAF.157" }
 	title = SAF.157.t
 	desc = SAF.157.desc
-	picture = GFX_report_event_generic_radio_mic
+	picture = GFX_Radio_Mic
 	fire_only_once = yes
 	is_triggered_only = yes
 
