@@ -1,0 +1,1585 @@
+add_namespace = serbia
+
+country_event = { # Ljotic dies
+	id = serbia.0
+	title = serbia.0.t
+	desc = serbia.0.d
+	picture = GFX_report_event_austin_cambridge
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {log = "[GetDateText]: [Root.GetName]: event serbia.0"}
+
+	option = {
+		name = serbia.0.a
+		effect_tooltip = {
+			kill_country_leader = yes
+		}
+		hidden_effect = {
+			add_country_leader_role = {
+				character = SER_Collapsed_Authority
+				country_leader = {
+					expire = "1999.1.1.1"
+					ideology = national_socialism_clerical_fascism_subtype
+					traits = { }
+				}
+				promote_leader = yes
+			}
+		}
+		country_event = { id = serbia.1 days = 5 }
+	}
+}
+
+country_event = { # CIVIL WAR NOW!!! GMS/Collabs vs Chetniks vs ASNOS
+	id = serbia.1
+	title = serbia.1.t
+	desc = serbia.1.d
+	picture = GFX_report_event_austin_cambridge
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event serbia.1"
+		BUL = {
+			country_event = { id = BUL.1 days = 60 }
+		}
+		SER_blow_up_the_country = yes
+	}
+
+	option = { # German Garrison
+		name = "garrison coup"
+		ai_chance = { factor = 50
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = NATSOC_SERBIA_PATH option = NATSOC_SERBIA_PATH_COLLAB }
+			}
+		}
+		set_country_flag = SER_GMS_Garrison
+		GMS = {
+			add_country_leader_role = {
+				character = SER_Konstantin_Musicki
+				country_leader = {
+					expire = "1999.1.1.1"
+					ideology = fascism_subtype
+					traits = { }
+				}
+				promote_leader = yes
+			}
+			promote_character = GMS_Emanuel_Schafer
+			transfer_state = 1272
+			transfer_state = 968
+			transfer_state = 1273
+			load_oob = GMS_Garrison
+			declare_war_on = {
+				target = SER
+				type = civil_war
+			}
+			declare_war_on = {
+				target = SRN
+				type = civil_war
+			}
+		}
+		SER = {
+			declare_war_on = {
+				target = SRN
+				type = civil_war
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = SERBIA_CIVIL_WAR_OUTCOME
+					option = SERBIA_CIVIL_WAR_OUTCOME_SER
+				}
+			}
+			SER = { apply_war_buff_with_5_divisions = yes }
+		}
+		else_if = {
+			limit = {
+				has_game_rule = {
+					rule = SERBIA_CIVIL_WAR_OUTCOME
+					option = SERBIA_CIVIL_WAR_OUTCOME_GMS
+				}
+			}
+			GMS = { apply_war_buff_with_5_divisions = yes }
+		}
+		every_country = {
+			news_event = { id = WORLD.566 days = 1 }
+		}
+	}
+
+	option = { # GNS
+		name = "keep collabs"
+		ai_chance = { factor = 50
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = NATSOC_SERBIA_PATH option = NATSOC_SERBIA_PATH_GARRISION_COUP }
+			}
+		}
+		set_country_flag = SER_GMS_Collabs
+		GMS = {
+			set_cosmetic_tag = GMS_COLLAB
+			set_popularities = {
+				national_socialism = 93
+				esoteric_nazism = 7
+			}
+			remove_all_ministers = yes
+			remove_ideas = {
+				SER_Reichsfestung_Belgrad
+				SER_Serbian_Collaborators
+				SER_Banat_Deutsche
+			}
+			add_ideas = {
+				SER_Ratko_Parezanin_hog
+				SER_Jakov_Ljotic_for
+				SER_Velibor_Jonic_eco
+				SER_Dragomir_Jovanovic_sec
+				
+				SER_Our_Great_Teachers_Legacy
+				#SER_The_Fatherland_In_Disarray
+			}
+			set_party_name = {
+				ideology = national_socialism
+				long_name = SER_national_socialism_party_long
+				name = SER_national_socialism_party
+			}
+			set_party_name = {
+				ideology = ultranationalism
+				long_name = SER_national_socialism_party_long
+				name = SER_national_socialism_party
+			}
+			set_party_name = {
+				ideology = fascism
+				long_name = SER_collab_fascism_party_long
+				name = SER_collab_fascism_party
+			}
+			set_party_name = {
+				ideology = esoteric_nazism
+				long_name = SER_collab_esoteric_nazism_party_long
+				name = SER_collab_esoteric_nazism_party
+			}
+			promote_character = SER_Konstantin_Musicki
+			promote_character = SER_Dragomir_Jovanovic
+			promote_character = SER_Dobrivoje_Cilerdzic
+			promote_character = SER_Strahinja_Janjic
+			transfer_state = 1272
+			transfer_state = 968
+			transfer_state = 1273
+			load_oob = GMS_Garrison
+			declare_war_on = {
+				target = SER
+				type = civil_war
+			}
+			declare_war_on = {
+				target = SRN
+				type = civil_war
+			}
+		}
+		SER = {
+			declare_war_on = {
+				target = SRN
+				type = civil_war
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = SERBIA_CIVIL_WAR_OUTCOME
+					option = SERBIA_CIVIL_WAR_OUTCOME_SER
+				}
+			}
+			SER = { apply_war_buff_with_5_divisions = yes }
+		}
+		else_if = {
+			limit = {
+				has_game_rule = {
+					rule = SERBIA_CIVIL_WAR_OUTCOME
+					option = SERBIA_CIVIL_WAR_OUTCOME_GMS
+				}
+			}
+			GMS = { apply_war_buff_with_5_divisions = yes }
+		}
+		every_country = {
+			news_event = { id = WORLD.567 days = 1 }
+		}
+	}
+}
+
+country_event = { # Chetnik victory post war
+	id = serbia.2
+	title = serbia.2.t
+	desc = serbia.2.desc
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event serbia.2"
+		clr_global_flag = SER_CW_ongoing
+	}
+
+	option = {
+		name = serbia.2.a
+		set_popularities = {
+			communist = 6
+			progressivism = 8
+			liberalism = 9
+			liberal_conservatism = 5
+			conservatism = 6
+			paternalism = 7
+			despotism = 59
+		}
+		set_politics = {
+			ruling_party = despotism
+			elections_allowed = no
+		}
+		set_party_name = {
+			ideology = communist
+			long_name = SER_communist_remnants_long
+			name = SER_communist_remnants
+		}
+		set_party_name = {
+			ideology = progressivism
+			long_name = SER_otpor_long
+			name = SER_otpor
+		}
+		set_party_name = {
+			ideology = liberalism
+			long_name = SER_otpor_long
+			name = SER_otpor
+		}
+		set_party_name = {
+			ideology = liberal_conservatism
+			long_name = SER_otpor_long
+			name = SER_otpor
+		}
+		set_party_name = {
+			ideology = conservatism
+			long_name = SER_otpor_long
+			name = SER_otpor
+		}
+		set_party_name = {
+			ideology = paternalism
+			long_name = SER_otpor_long
+			name = SER_otpor
+		}
+		set_party_name = {
+			ideology = despotism
+			long_name = SRN_despotism_party_long
+			name = SRN_despotism_party
+		}
+		SER_Nikola_Kalabic = {
+			set_portraits = {
+				civilian = {
+					large = "gfx/leaders/SER/Portrait_Serbia_Nikola_Kalabic_Post_War.dds"
+				}
+				army = {
+					large = "gfx/leaders/SER/Portrait_Serbia_Nikola_Kalabic_Post_War.dds"
+				}
+			}
+		}
+		remove_country_leader_role = {
+			character = SER_Various_Leaders
+			ideology = progressivism_subtype
+		}
+		add_country_leader_role = {
+			character = SER_Various_Leaders
+			country_leader = {
+				expire = "1999.1.1.1"
+				ideology = communist_subtype
+				traits = { }
+			}
+			promote_leader = yes
+		}
+		promote_character = SER_Marko_Nikezic
+		promote_character = SER_Borislav_Pekic
+		promote_character = SER_Nikola_Milosevic
+		promote_character = SER_Veljko_Guberina
+		set_cosmetic_tag = SER_KINGDOM
+		add_ideas = {
+			SER_Return_Of_The_Kingdom
+			SER_Thin_Facade_Of_Constitutionalism_I
+		}
+		country_event = { id = serbia.5 days = 1095 } # Democratic influence growing
+		#country_event = { id = serbia.100 days = 400 } # Italy diplo - temporarily disabled
+		every_country = {
+			news_event = { id = WORLD.1301 days = 1 }
+		}
+	}
+}
+
+country_event = { # ASNOS victory post war
+	id = serbia.3
+	title = serbia.3.t
+	desc = serbia.3.desc
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event serbia.3"
+		clr_global_flag = SER_CW_ongoing
+	}
+
+	option = { # Young Guard
+		name = serbia.3.a
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = SOCIALIST_SER_CHAIRMAN_PATH option = SOCIALIST_SER_CHAIRMAN_PATH_COMMUNIST_RANKOVIC }
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = SOCIALIST_SER_CHAIRMAN_PATH option = SOCIALIST_SER_CHAIRMAN_PATH_COMMUNIST_TITO }
+			}
+		}
+		set_popularities = {
+			communist = 6
+			socialist = 56
+			progressivism = 4
+			liberalism = 9
+			liberal_conservatism = 7
+			conservatism = 5
+			paternalism = 7
+			despotism = 6
+		}
+		set_party_name = {
+			ideology = communist
+			long_name = SER_hardliner_remnants_long
+			name = SER_hardliner_remnants
+		}
+		set_party_name = {
+			ideology = socialist
+			long_name = SER_socialist_vic_party_long
+			name = SER_socialist_vic_party
+		}
+		set_party_name = {
+			ideology = progressivism
+			long_name = SER_otpor_long
+			name = SER_otpor
+		}
+		set_party_name = {
+			ideology = liberalism
+			long_name = SER_otpor_long
+			name = SER_otpor
+		}
+		set_party_name = {
+			ideology = liberal_conservatism
+			long_name = SER_otpor_long
+			name = SER_otpor
+		}
+		set_party_name = {
+			ideology = conservatism
+			long_name = SER_otpor_long
+			name = SER_otpor
+		}
+		set_party_name = {
+			ideology = paternalism
+			long_name = SER_otpor_long
+			name = SER_otpor
+		}
+		set_party_name = {
+			ideology = despotism
+			long_name = SER_chetniks_remnants_long
+			name = SER_chetniks_remnants
+		}
+		promote_character = SER_Dobrica_Cosic
+		promote_character = SER_Marko_Nikezic
+		promote_character = SER_Borislav_Pekic_lib
+		promote_character = SER_Borislav_Pekic_libcon
+		promote_character = SER_Nikola_Milosevic
+		promote_character = SER_Veljko_Guberina
+		add_country_leader_role = {
+			character = SER_Various_Leaders
+			country_leader = {
+				expire = "1999.1.1.1"
+				ideology = communist_subtype
+				traits = { }
+			}
+			promote_leader = yes
+		}
+		add_country_leader_role = {
+			character = SER_Various_Leaders
+			country_leader = {
+				expire = "1999.1.1.1"
+				ideology = despotism_subtype
+				traits = { }
+			}
+			promote_leader = yes
+		}
+		remove_ideas = {
+			SER_A_Divided_Front
+			SER_Death_To_Fascism_Freedom_To_The_People
+			SER_Violence
+		}
+		remove_all_ministers = yes
+		add_ideas = {
+			SER_Mihajlo_Markovic_hog
+			SER_Borka_Vucic_for
+			SER_Dragutin_Zelenovic_eco
+			SER_Sejdo_Bajramovic_sec
+
+			SER_Between_Revolutionaries_And_Royalists
+			SER_Resurgent_Nationalism
+			SER_SPS_Dominance
+		}
+		meta_effect = { #sets up next election date in country ui
+			text = {
+				set_politics = {
+					ruling_party = socialist
+					last_election = "[current_election_date]"
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+			current_election_date = "[?global.date.GetDateStringNoHour]"
+		}
+		country_event = { id = serbia.7 days = 1826 } # Second SPS election
+		set_cosmetic_tag = SER_ASNOS_POST_WAR_YOUNG_SOCIALISTS
+		if = {
+			limit = {
+				ITA = {
+					NOT = {
+						has_country_leader = {
+							character = ITA_Carlo_Scorza
+							ruling_only = yes
+						}
+					}
+				}
+			}
+			#country_event = { id = serbia.103 days = 400 } # Italy diplo - temporarily disabled
+		}
+		every_country = {
+			news_event = { id = WORLD.1302 days = 1 }
+		}
+	}
+	option = { # Rankovic
+		name = serbia.3.b
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = SOCIALIST_SER_CHAIRMAN_PATH option = SOCIALIST_SER_CHAIRMAN_PATH_YOUNG_GUARD }
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = SOCIALIST_SER_CHAIRMAN_PATH option = SOCIALIST_SER_CHAIRMAN_PATH_COMMUNIST_TITO }
+			}
+		}
+		promote_character = {
+			character = SER_Aleksandar_Rankovic
+			ideology = communist_national_communism_subtype
+		}
+		SER_Aleksandar_Rankovic = {
+			set_portraits = {
+				civilian = {
+					large = "gfx/leaders/SER/Portrait_Serbia_Aleksandar_Rankovic_postwar.dds"
+				}
+			}
+		}
+		set_politics = {
+			ruling_party = communist
+			elections_allowed = no
+		}
+		set_popularities = {
+			communist = 52
+			socialist = 33
+			progressivism = 9
+			despotism = 6
+		}
+		set_party_name = {
+			ideology = communist
+			long_name = SER_communist_party_yugoslav_SER_long
+			name = SER_communist_party_yugoslav_SER
+		}
+		set_party_name = {
+			ideology = socialist
+			long_name = SER_communist_party_yugoslav_SER_long
+			name = SER_communist_party_yugoslav_SER
+		}
+		set_party_name = {
+			ideology = progressivism
+			long_name = SER_communist_party_yugoslav_SER_long
+			name = SER_communist_party_yugoslav_SER
+		}
+		set_party_name = {
+			ideology = despotism
+			long_name = SER_chetniks_remnants_long
+			name = SER_chetniks_remnants
+		}
+		remove_ideas = { SER_Violence }
+		add_ideas = {
+			SER_Milos_against_Murad
+			SER_Rebirth_of_a_Nation
+		}
+		#country_event = { id = serbia.6 days = 400 } # AVNOJ Party Conference
+		set_cosmetic_tag = SER_ASNOS_POST_WAR_YUGOSLAV
+	}
+	option = { # Tito
+		name = serbia.3.c
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = SOCIALIST_SER_CHAIRMAN_PATH option = SOCIALIST_SER_CHAIRMAN_PATH_YOUNG_GUARD }
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = SOCIALIST_SER_CHAIRMAN_PATH option = SOCIALIST_SER_CHAIRMAN_PATH_COMMUNIST_RANKOVIC }
+			}
+		}
+		promote_character = SER_Josip_Broz_Tito
+		set_politics = {
+			ruling_party = communist
+			elections_allowed = no
+		}
+		set_popularities = {
+			communist = 52
+			socialist = 33
+			progressivism = 9
+			despotism = 6
+		}
+		set_party_name = {
+			ideology = communist
+			long_name = SER_communist_party_yugoslav_SER_long
+			name = SER_communist_party_yugoslav_SER
+		}
+		set_party_name = {
+			ideology = socialist
+			long_name = SER_communist_party_yugoslav_SER_long
+			name = SER_communist_party_yugoslav_SER
+		}
+		set_party_name = {
+			ideology = progressivism
+			long_name = SER_communist_party_yugoslav_SER_long
+			name = SER_communist_party_yugoslav_SER
+		}
+		set_party_name = {
+			ideology = despotism
+			long_name = SER_chetniks_remnants_long
+			name = SER_chetniks_remnants
+		}
+		remove_ideas = { SER_Violence }
+		add_ideas = {
+			SER_Milos_against_Murad
+			SER_Rebirth_of_a_Nation
+		}
+		set_cosmetic_tag = SER_ASNOS_POST_WAR_YUGOSLAV
+	}
+}
+
+country_event = { # Collab victory post war
+	id = serbia.4
+	title = serbia.4.t
+	desc = serbia.4.desc
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event serbia.4"
+		clr_global_flag = SER_CW_ongoing
+	}
+
+	option = { # Collab led GMS
+		trigger = { has_country_flag = SER_GMS_Collabs }
+		name = serbia.4.a
+		add_ideas = { 
+			SER_All_For_One 
+		}
+		every_country = {
+			news_event = { id = WORLD.1305 days = 1 }
+		}
+		country_event = { id = serbia.12 days = 365 } # Declaration of a new Serbian State
+	}
+	option = { # Garrison led GNS
+		trigger = { has_country_flag = SER_GMS_Garrison }
+		name = serbia.4.b
+		every_country = {
+			news_event = { id = WORLD.1304 days = 1 }
+		}
+		country_event = { id = serbia.13 days = 100 } # Jovanovic
+	}
+}
+
+country_event = { # Growing Otpor influence
+	id = serbia.5
+	title = serbia.5.t
+	desc = serbia.5.desc
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = { log = "[GetDateText]: [Root.GetName]: event serbia.5" }
+
+	option = {
+		name = serbia.5.a
+		swap_ideas = {
+			remove_idea = SER_Thin_Facade_Of_Constitutionalism_I
+			add_idea = SER_Thin_Facade_Of_Constitutionalism_II
+		}
+	}
+}
+
+## serbia.6 is currently unused
+
+country_event = { # haha no way SPS won again?? legit
+	id = serbia.7
+	title = serbia.7.t
+	desc = serbia.7.desc
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = { log = "[GetDateText]: [Root.GetName]: event serbia.7" }
+
+	option = {
+		name = serbia.7.a
+		add_popularity = { ideology = socialist popularity = -0.07 }
+	}
+}
+
+country_event = { # Oil Crisis forces new elections
+	id = serbia.8
+	title = serbia.8.t
+	desc = serbia.8.desc
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = { log = "[GetDateText]: [Root.GetName]: event serbia.8" }
+
+	option = { # SPS wins for the third time
+		name = serbia.8.a
+		ai_chance = {
+			factor = 1
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SOCIALIST_SER_ELECTIONS_UNREST option = SOCIALIST_SER_ELECTIONS_UNREST_SPS_NRS }
+			#}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SOCIALIST_SER_ELECTIONS_UNREST option = SOCIALIST_SER_ELECTIONS_UNREST_SPRING }
+			#}
+		}
+		add_country_leader_role = {
+			character = SER_Dobrica_Cosic
+			country_leader = {
+				expire = "1999.1.1.1"
+				ideology = paternalism_dominant_party_democracy_subtype
+				traits = { }
+			}
+			promote_leader = yes
+		}
+		meta_effect = { #sets up next election date in country ui
+			text = {
+				set_politics = {
+					ruling_party = paternalism
+					last_election = "[current_election_date]"
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+			current_election_date = "[?global.date.GetDateStringNoHour]"
+		}
+		set_variable = { SER_SPS_support = party_popularity@paternalism }
+		add_popularity = { ideology = socialist popularity = var:SER_SPS_support }
+		set_political_party = {
+			ideology = paternalism
+			popularity = 0
+		}
+		set_party_name = {
+			ideology = paternalism
+			long_name = SER_socialist_vic_party_long
+			name = SER_socialist_vic_party
+		}
+		add_popularity = { ideology = socialist popularity = 0.1 }
+		every_country = {
+			news_event = { id = WORLD.1306 days = 1 }
+		}
+		remove_all_ministers = yes
+		fill_empty_minister_nochecks = yes
+	}
+	option = { # SPS-NRS coalition
+		name = serbia.8.b
+		ai_chance = {
+			factor = 1
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SOCIALIST_SER_ELECTIONS_UNREST option = SOCIALIST_SER_ELECTIONS_UNREST_SPS }
+			#}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SOCIALIST_SER_ELECTIONS_UNREST option = SOCIALIST_SER_ELECTIONS_UNREST_SPRING }
+			#}
+		}
+		add_country_leader_role = {
+			character = SER_Dobrica_Cosic
+			country_leader = {
+				expire = "1999.1.1.1"
+				ideology = paternalism_social_nationalism_subtype
+				traits = { }
+			}
+			promote_leader = yes
+		}
+		meta_effect = { #sets up next election date in country ui
+			text = {
+				set_politics = {
+					ruling_party = paternalism
+					last_election = "[current_election_date]"
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+			current_election_date = "[?global.date.GetDateStringNoHour]"
+		}
+		set_popularities = {
+			communist = 5
+			socialist = 35
+			progressivism = 4
+			liberalism = 5
+			liberal_conservatism = 6
+			conservatism = 5
+			paternalism = 35
+			despotism = 5
+		}
+		set_party_name = {
+			ideology = paternalism
+			long_name = SER_paternalism_coalition_party_long
+			name = SER_paternalism_coalition_party
+		}
+		set_party_name = {
+			ideology = socialist
+			long_name = SER_paternalism_coalition_party_long
+			name = SER_paternalism_coalition_party
+		}
+		every_country = {
+			news_event = { id = WORLD.1307 days = 1 }
+		}
+		remove_all_ministers = yes
+		fill_empty_minister_nochecks = yes
+	}
+	option = { # Serbian Spring
+		name = serbia.8.c
+		ai_chance = {
+			factor = 1
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SOCIALIST_SER_ELECTIONS_UNREST option = SOCIALIST_SER_ELECTIONS_UNREST_SPS }
+			#}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SOCIALIST_SER_ELECTIONS_UNREST option = SOCIALIST_SER_ELECTIONS_UNREST_SPS_NRS }
+			#}
+		}
+		country_event = { id = serbia.10 days = 10 } # Serbian Spring
+	}
+}
+
+country_event = { # Otpor unrest
+	id = serbia.9
+	title = serbia.9.t
+	desc = serbia.9.desc
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = { log = "[GetDateText]: [Root.GetName]: event serbia.9" }
+
+	option = { # Crack down
+		name = serbia.9.a
+		ai_chance = {
+			factor = 1
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DESPOT_OIL_CRISIS option = SER_DESPOT_OIL_CRISIS_COMPROMISE }
+			#}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DESPOT_OIL_CRISIS option = SER_DESPOT_OIL_CRISIS_SPRING }
+			#}
+		}
+		add_popularity = { ideology = despotism popularity = 0.2 }
+		remove_ideas = {
+			SER_Thin_Facade_Of_Constitutionalism_II
+			SER_Thin_Facade_Of_Constitutionalism_I
+		}
+		remove_all_ministers = yes
+		fill_empty_minister_nochecks = yes
+	}
+	option = { # Negotiate
+		name = serbia.9.b
+		ai_chance = {
+			factor = 1
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DESPOT_OIL_CRISIS option = SER_DESPOT_OIL_CRISIS_CRACKDOWN }
+			#}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DESPOT_OIL_CRISIS option = SER_DESPOT_OIL_CRISIS_SPRING }
+			#}
+		}
+		add_country_leader_role = {
+			character = SER_Nikola_Kalabic
+			country_leader = {
+				expire = "1999.1.1.1"
+				ideology = paternalism_national_conservatism_subtype
+				traits = { }
+			}
+			promote_leader = yes
+		}
+		set_politics = {
+			ruling_party = paternalism
+		}
+		set_variable = { SER_CNK_support = party_popularity@despotism }
+		divide_variable = { SER_CNK_support = 2 }
+		round_variable = SER_CNK_support
+		add_popularity = { ideology = paternalism popularity = var:SER_CNK_support }
+		set_party_name = {
+			ideology = paternalism
+			long_name = SRN_paternalism_party_long
+			name = SRN_paternalism_party
+		}
+		remove_all_ministers = yes
+		fill_empty_minister_nochecks = yes
+	}
+	option = { # Serbian Spring
+		name = serbia.9.c
+		ai_chance = {
+			factor = 1
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DESPOT_OIL_CRISIS option = SER_DESPOT_OIL_CRISIS_CRACKDOWN }
+			#}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DESPOT_OIL_CRISIS option = SER_DESPOT_OIL_CRISIS_COMPROMISE }
+			#}
+		}
+		country_event = { id = serbia.10 days = 10 } # Serbian Spring
+	}
+}
+
+country_event = { # Serbian Spring
+	id = serbia.10
+	title = serbia.10.t
+	desc = serbia.10.desc
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = { log = "[GetDateText]: [Root.GetName]: event serbia.10" }
+
+	option = { # Provisional government
+		name = serbia.10.a
+		add_country_leader_role = {
+			character = SER_Otpor_Provisional_Government
+			country_leader = {
+				expire = "1999.1.1.1"
+				ideology = paternalism_provisional_government_subtype
+				traits = { }
+			}
+			promote_leader = yes
+		}
+		remove_ideas = {
+			SER_Between_Revolutionaries_And_Royalists
+			SER_Resurgent_Nationalism
+			SER_SPS_Dominance
+			SER_Return_Of_The_Kingdom
+			SER_Bolshevik_Resistance
+			SER_Thin_Facade_Of_Constitutionalism_I
+			SER_Thin_Facade_Of_Constitutionalism_II
+		}
+		remove_all_ministers = yes
+		fill_empty_minister_nochecks = yes
+		meta_effect = { #sets up next election date in country ui
+			text = {
+				set_politics = {
+					ruling_party = paternalism
+					last_election = "[current_election_date]"
+					elections_allowed = yes
+					election_frequency = 3
+				}
+			}
+			current_election_date = "[?global.date.GetDateStringNoHour]"
+		}
+		set_party_name = {
+			ideology = communist
+			long_name = SER_communist_party_democratic_long
+			name = SER_communist_party_democratic
+		}
+		set_party_name = {
+			ideology = socialist
+			long_name = SER_socialist_party_democratic_long
+			name = SER_socialist_party_democratic
+		}
+		set_party_name = {
+			ideology = progressivism
+			long_name = SER_progressivism_party_democratic_long
+			name = SER_progressivism_party_democratic
+		}
+		set_party_name = {
+			ideology = liberalism
+			long_name = SER_liberalism_party_democratic_long
+			name = SER_liberalism_party_democratic
+		}
+		set_party_name = {
+			ideology = liberal_conservatism
+			long_name = SER_liberal_conservatism_party_democratic_long
+			name = SER_liberal_conservatism_party_democratic
+		}
+		set_party_name = {
+			ideology = conservatism
+			long_name = SER_conservatism_party_democratic_long
+			name = SER_conservatism_party_democratic
+		}
+		set_popularities = {
+			communist = 8
+			socialist = 14
+			progressivism = 19
+			liberalism = 20
+			liberal_conservatism = 5
+			conservatism = 20
+			paternalism = 14
+		}
+		if = {
+			limit = {
+				SER = {
+					has_cosmetic_tag = SER_ASNOS_POST_WAR_YOUNG_SOCIALISTS
+				}
+			}
+			add_popularity = { ideology = paternalism popularity = 0.07 }
+			add_popularity = { ideology = conservatism popularity = 0.02 }
+			set_variable = { past_lead = 2 }
+		}
+		if = {
+			limit = {
+				SER = {
+					has_cosmetic_tag = SER_KINGDOM
+				}
+			}
+			add_popularity = { ideology = socialist popularity = 0.07 }
+			add_popularity = { ideology = progressivism popularity = 0.02 }
+			set_cosmetic_tag = SER_ASNOS_POST_WAR_YOUNG_SOCIALISTS
+			set_variable = { past_lead = 1 }
+		}
+		country_event = { id = serbia.11 days = 90 } # Serbian Spring - Elections
+		every_country = {
+			news_event = { id = WORLD.1308 days = 1 }
+		}
+	}
+}
+
+country_event = { # Serbian Spring - Elections
+	id = serbia.11
+	title = serbia.11.t
+	desc = serbia.11.desc
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event serbia.11"
+		set_party_name = {
+			ideology = paternalism
+			long_name = SER_paternalism_party_democratic_long
+			name = SER_paternalism_party_democratic
+		}
+	}
+
+	option = { # SPS
+		name = serbia.11.a
+		ai_chance = {
+			factor = 1
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DEM_ELECTION option = SER_DEM_ELECTION_SSS }
+			#}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DEM_ELECTION option = SER_DEM_ELECTION_DOS_LIB }
+			#}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DEM_ELECTION option = SER_DEM_ELECTION_DOS_LIBCON }
+			#}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DEM_ELECTION option = SER_DEM_ELECTION_DOS_CON }
+			#}
+		}
+		trigger = { check_variable = { past_lead = 1 } }
+		promote_character = SER_Milovan_Dilas
+		meta_effect = { #sets up next election date in country ui
+			text = {
+				set_politics = {
+					ruling_party = socialist
+					last_election = "[current_election_date]"
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+			current_election_date = "[?global.date.GetDateStringNoHour]"
+		}
+		add_popularity = { ideology = socialist popularity = 0.07 }
+	}
+	option = { # SSS
+		name = serbia.11.b
+		ai_chance = {
+			factor = 1
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DEM_ELECTION option = SER_DEM_ELECTION_SPS }
+			#}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DEM_ELECTION option = SER_DEM_ELECTION_DOS_LIB }
+			#}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DEM_ELECTION option = SER_DEM_ELECTION_DOS_LIBCON }
+			#}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DEM_ELECTION option = SER_DEM_ELECTION_DOS_CON }
+			#}
+		}
+		trigger = { check_variable = { past_lead = 1} }
+		meta_effect = { #sets up next election date in country ui
+			text = {
+				set_politics = {
+					ruling_party = progressivism
+					last_election = "[current_election_date]"
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+			current_election_date = "[?global.date.GetDateStringNoHour]"
+		}
+		add_popularity = { ideology = progressivism popularity = 0.07 }
+	}
+	option = { # DoS - DS (Liberal)
+		name = serbia.11.c
+		ai_chance = {
+			factor = 1
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DEM_ELECTION option = SER_DEM_ELECTION_SPS }
+			#}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DEM_ELECTION option = SER_DEM_ELECTION_SSS }
+			#}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DEM_ELECTION option = SER_DEM_ELECTION_DOS_LIBCON }
+			#}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DEM_ELECTION option = SER_DEM_ELECTION_DOS_CON }
+			#}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DEM_ELECTION option = SER_DEM_ELECTION_NRS }
+			#}
+		}
+		meta_effect = { #sets up next election date in country ui
+			text = {
+				set_politics = {
+					ruling_party = liberalism
+					last_election = "[current_election_date]"
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+			current_election_date = "[?global.date.GetDateStringNoHour]"
+		}
+		add_popularity = { ideology = liberalism popularity = 0.07 }
+	}
+	option = { # DoS - DS (Liberal Conservative)
+		name = serbia.11.d
+		ai_chance = {
+			factor = 1
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DEM_ELECTION option = SER_DEM_ELECTION_SPS }
+			#}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DEM_ELECTION option = SER_DEM_ELECTION_SSS }
+			#}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DEM_ELECTION option = SER_DEM_ELECTION_DOS_LIB }
+			#}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DEM_ELECTION option = SER_DEM_ELECTION_DOS_CON }
+			#}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DEM_ELECTION option = SER_DEM_ELECTION_NRS }
+			#}
+		}
+		meta_effect = { #sets up next election date in country ui
+			text = {
+				set_politics = {
+					ruling_party = liberal_conservatism
+					last_election = "[current_election_date]"
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+			current_election_date = "[?global.date.GetDateStringNoHour]"
+		}
+		set_political_party = {
+			ideology = liberal_conservatism
+			popularity = 20
+		}
+		set_political_party = {
+			ideology = liberalism
+			popularity = 5
+		}
+	}
+	option = { # DoS - SLS
+		name = serbia.11.e
+		ai_chance = {
+			factor = 1
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DEM_ELECTION option = SER_DEM_ELECTION_SPS }
+			#}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DEM_ELECTION option = SER_DEM_ELECTION_SSS }
+			#}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DEM_ELECTION option = SER_DEM_ELECTION_DOS_LIB }
+			#}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DEM_ELECTION option = SER_DEM_ELECTION_DOS_LIBCON }
+			#}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DEM_ELECTION option = SER_DEM_ELECTION_NRS }
+			#}
+		}
+		meta_effect = { #sets up next election date in country ui
+			text = {
+				set_politics = {
+					ruling_party = conservatism
+					last_election = "[current_election_date]"
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+			current_election_date = "[?global.date.GetDateStringNoHour]"
+		}
+		add_popularity = { ideology = conservatism popularity = 0.07 }
+	}
+	option = { # NRS
+		name = serbia.11.f
+		ai_chance = {
+			factor = 1
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DEM_ELECTION option = SER_DEM_ELECTION_DOS_CON }
+			#}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DEM_ELECTION option = SER_DEM_ELECTION_DOS_LIBCON }
+			#}
+			#modifier = {
+			#	factor = 0
+			#	has_game_rule = { rule = SER_DEM_ELECTION option = SER_DEM_ELECTION_DOS_LIB }
+			#}
+		}
+		trigger = { check_variable = { past_lead = 2 } }
+		promote_character = SER_Veljko_Guberina
+		meta_effect = { #sets up next election date in country ui
+			text = {
+				set_politics = {
+					ruling_party = paternalism
+					last_election = "[current_election_date]"
+					elections_allowed = yes
+					election_frequency = 60
+				}
+			}
+			current_election_date = "[?global.date.GetDateStringNoHour]"
+		}
+		add_popularity = { ideology = paternalism popularity = 0.07 }
+	}
+}
+
+country_event = { # Declaration of a new Serbian State
+	id = serbia.12
+	title = serbia.12.t
+	desc = serbia.12.desc
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = { log = "[GetDateText]: [Root.GetName]: event serbia.12" }
+
+	option = { # Align with Germany
+		name = serbia.12.a
+		set_cosmetic_tag = SER_GNS_COLLAB_POST_WAR
+		GER = { add_to_faction = SER }
+		if = {
+			limit = { has_global_flag = german_civil_war_speervic }
+			join_zollverein = yes
+		}
+		econ_join_sphere_GER = yes
+		remove_faction_status = yes
+		add_ideas = {
+			Pakt_Mitstreiter
+			SER_All_For_One
+		}
+		hidden_effect = {
+			remove_ideas = { SER_Refugee_Question }
+			add_timed_idea = { idea = SER_Refugee_Question days = 365 }
+			set_temp_variable = { gdp_growth_temp = 3.5 }
+			econ_gdp_growth_change = yes
+		}
+		remove_all_ministers = yes
+		fill_empty_minister_nochecks = yes
+		clr_global_flag = SER_join_pakt_properly
+	}
+	option = { # Align with Italy
+		name = serbia.12.b
+		set_cosmetic_tag = SER_GNS_COLLAB_POST_WAR
+		if = {
+			limit = {
+				ITA = {
+					has_country_leader = {
+						character = ITA_Carlo_Scorza
+						ruling_only = yes
+					}
+				}
+			}
+			#country_event = { id = serbia.105 days = 400 } # Italy diplo
+		}
+		remove_all_ministers = yes
+		fill_empty_minister_nochecks = yes
+	}
+}
+
+country_event = { # Reichsprotektorat Serbien
+	id = serbia.13
+	title = serbia.13.t
+	desc = serbia.13.desc
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = { log = "[GetDateText]: [Root.GetName]: event serbia.13" }
+
+	option = { # Align with Germany
+		name = serbia.13.a
+		set_cosmetic_tag = SER_GNS_GERMANS_POST_WAR
+		GER = { 
+			add_to_faction = SER 
+			set_autonomy = {
+				target = SER
+				autonomy_state = autonomy_reichsprotektorat
+			}
+		}
+		if = {
+			limit = { has_global_flag = german_civil_war_speervic }
+			join_zollverein = yes
+		}
+		econ_join_sphere_GER = yes
+		remove_faction_status = yes
+		add_ideas = {
+			Pakt_Protektorat
+		}
+		hidden_effect = {
+			remove_ideas = { SER_Refugee_Question }
+			add_timed_idea = { idea = SER_Refugee_Question days = 365 }
+			set_temp_variable = { gdp_growth_temp = 3.5 }
+			econ_gdp_growth_change = yes
+		}
+		remove_all_ministers = yes
+		fill_empty_minister_nochecks = yes
+		set_popularities = {
+			fascism = 12
+			national_socialism = 88
+		}
+		set_party_name = {
+			ideology = national_socialism
+			long_name = SER_protektorat_national_socialism_party_long
+			name = SER_protektorat_national_socialism_party
+		}
+		add_country_leader_role = {
+			character = SER_Dragomir_Jovanovic
+			country_leader = {
+				expire = "1999.1.1.1"
+				ideology = national_socialism_subtype
+					traits = { }
+			}
+			promote_leader = yes
+		}
+		set_politics = {
+			ruling_party = national_socialism
+		}
+		clr_global_flag = SER_join_pakt_properly
+	}
+}
+
+# serbia.100 beyond for diplo
+
+country_event = { # Chetniks diplo with Italy
+	id = serbia.100
+	title = serbia.100.t
+	desc = serbia.100.desc
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = { log = "[GetDateText]: [Root.GetName]: event serbia.100" }
+
+	option = { # Fascist Italy
+		trigger = {
+			ITA = {
+				has_country_leader = {
+					character = ITA_Carlo_Scorza
+					ruling_only = yes
+				}
+			}
+		}
+		name = serbia.100.a
+		ITA = { country_event = { id = serbia.101 days = 7 } }
+	}
+	option = { # Democratic Italy
+		trigger = {
+			ITA = {
+				NOT = {
+					has_country_leader = {
+						character = ITA_Carlo_Scorza
+						ruling_only = yes
+					}
+				}
+			}
+		}
+		name = serbia.100.b
+		ITA = { country_event = { id = serbia.102 days = 7 } }
+	}
+}
+
+country_event = { # Scorza - Chetniks want to diplo, montenegro for Serbia for econ sphere and allinace
+	id = serbia.101
+	title = serbia.101.t
+	desc = serbia.101.desc
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = { log = "[GetDateText]: [Root.GetName]: event serbia.101" }
+
+	option = { # Yes
+		name = serbia.101.a
+		ITA = {
+			set_variable = { SER_ITA_Influence = 200 }
+		}
+		SER = {
+			hidden_effect = {
+				add_state_core = 745
+				remove_ideas = { SER_Refugee_Question }
+				add_timed_idea = { idea = SER_Refugee_Question days = 365 }
+			}
+			transfer_state = 745
+			econ_join_sphere_ITA = yes
+			if = {
+				limit = {
+					ITA = { is_faction_leader = yes }
+				}
+				ITA = { add_to_faction = SER }
+			}
+		}
+	}
+}
+
+country_event = { # Dem Italy - Chetniks want to diplo, montenegro for Serbia for econ sphere and allinace
+	id = serbia.102
+	title = serbia.102.t
+	desc = serbia.102.desc
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = { log = "[GetDateText]: [Root.GetName]: event serbia.102" }
+
+	option = { # Yes
+		name = serbia.102.a
+		ITA = {
+			set_variable = { SER_ITA_Influence = 200 }
+		}
+		SER = {
+			hidden_effect = {
+				add_state_core = 745
+				remove_ideas = { SER_Refugee_Question }
+				add_timed_idea = { idea = SER_Refugee_Question days = 365 }
+			}
+			transfer_state = 745
+			econ_join_sphere_ITA = yes
+			if = {
+				limit = {
+					USA = { is_faction_leader = yes }
+					ITA = { is_in_faction_with = USA }
+				}
+				USA = { add_to_faction = SER }
+				add_ideas = OFN_Independent_Member
+			}
+			else_if = {
+				limit = {
+					JAP = { is_faction_leader = yes }
+					ITA = { is_in_faction_with = JAP }
+				}
+				JAP = { add_to_faction = SER }
+				add_ideas = Sphere_Coequal
+			}
+			else_if = {
+				limit = {
+					ITA = { is_faction_leader = yes }
+				}
+				ITA = { add_to_faction = SER }
+			}
+		}
+	}
+}
+
+country_event = { # SPS diplo with Italy
+	id = serbia.103
+	title = serbia.103.t
+	desc = serbia.103.desc
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = { log = "[GetDateText]: [Root.GetName]: event serbia.103" }
+
+	option = { # Democratic Italy
+		name = serbia.103.b
+		ITA = { country_event = { id = serbia.104 days = 7 } }
+	}
+}
+
+country_event = { # Dem Italy - SPS want to diplo, montenegro for Serbia for econ sphere and allinace
+	id = serbia.104
+	title = serbia.104.t
+	desc = serbia.104.desc
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = { log = "[GetDateText]: [Root.GetName]: event serbia.104" }
+
+	option = { # Yes
+		name = serbia.104.a
+		ITA = {
+			set_variable = { SER_ITA_Influence = 200 }
+		}
+		SER = {
+			hidden_effect = {
+				add_state_core = 745
+				remove_ideas = { SER_Refugee_Question }
+				add_timed_idea = { idea = SER_Refugee_Question days = 365 }
+			}
+			transfer_state = 745
+			econ_join_sphere_ITA = yes
+			if = {
+				limit = {
+					USA = { is_faction_leader = yes }
+					ITA = { is_in_faction_with = USA }
+				}
+				USA = { add_to_faction = SER }
+				add_ideas = OFN_Independent_Member
+			}
+			else_if = {
+				limit = {
+					JAP = { is_faction_leader = yes }
+					ITA = { is_in_faction_with = JAP }
+				}
+				JAP = { add_to_faction = SER }
+				add_ideas = Sphere_Coequal
+			}
+			else_if = {
+				limit = {
+					ITA = { is_faction_leader = yes }
+				}
+				ITA = { add_to_faction = SER }
+			}
+		}
+	}
+}
+
+country_event = { # ZBOR diplo with Italy
+	id = serbia.105
+	title = serbia.105.t
+	desc = serbia.105.desc
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = { log = "[GetDateText]: [Root.GetName]: event serbia.105" }
+
+	option = { # Fascist Italy
+		name = serbia.105.b
+		ITA = { country_event = { id = serbia.106 days = 7 } }
+	}
+}
+
+country_event = { # Scorza - ZBOR want to diplo, montenegro for Serbia for econ sphere and allinace
+	id = serbia.106
+	title = serbia.106.t
+	desc = serbia.106.desc
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = { log = "[GetDateText]: [Root.GetName]: event serbia.106" }
+
+	option = { # Yes
+		name = serbia.106.a
+		ITA = {
+			set_variable = { SER_ITA_Influence = 200 }
+		}
+		SER = {
+			hidden_effect = {
+				add_state_core = 745
+				remove_ideas = { SER_Refugee_Question }
+				add_timed_idea = { idea = SER_Refugee_Question days = 365 }
+			}
+			transfer_state = 745
+			econ_join_sphere_ITA = yes
+			if = {
+				limit = {
+					USA = { is_faction_leader = yes }
+					ITA = { is_in_faction_with = USA }
+				}
+				USA = { add_to_faction = SER }
+				add_ideas = OFN_Independent_Member
+			}
+			else_if = {
+				limit = {
+					JAP = { is_faction_leader = yes }
+					ITA = { is_in_faction_with = JAP }
+				}
+				JAP = { add_to_faction = SER }
+				add_ideas = Sphere_Coequal
+			}
+			else_if = {
+				limit = {
+					ITA = { is_faction_leader = yes }
+				}
+				ITA = { add_to_faction = SER }
+			}
+		}
+	}
+}

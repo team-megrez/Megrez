@@ -1,0 +1,690 @@
+﻿add_namespace = xik
+
+country_event = { #
+	id = xik.1
+	immediate = {log = "[GetDateText]: [Root.GetName]: event xik.1"}
+	title = xik.1.t
+	desc = xik.1.d
+	picture = GFX_report_event_china_russia
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = xik.1.a
+		hidden_effect = {
+			country_event = {
+				id = xik.5
+				days = 2
+			}
+		}
+	}
+}
+
+country_event = { #Some nationalist want to fight with Yunnan
+	id = xik.2
+	immediate = {log = "[GetDateText]: [Root.GetName]: event xik.2"}
+	title = xik.2.t
+	desc = xik.2.d
+	picture = GFX_report_event_china_russia
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #yes
+		name = xik.2.a
+		add_manpower = -800
+		YUN = {
+			load_oob = YUN_volunteers
+		}
+		set_country_flag = XIK_yes_volunteers
+	}
+
+	option = { #No
+		name = xik.2.b
+		add_stability = -0.1
+		set_country_flag = XIK_deny_volunteers
+	}
+}
+
+country_event = { #Refugees
+	id = xik.3
+	immediate = {log = "[GetDateText]: [Root.GetName]: event xik.3"}
+	title = xik.3.t
+	desc = xik.3.d
+	picture = GFX_report_event_china_russia
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #all
+		name = xik.3.a
+		add_manpower = 1000
+		add_stability = -0.05
+	}
+	option = { #except Yi
+		name = xik.3.b
+		add_manpower = 800
+		add_stability = -0.04
+	}
+	option = { #only the best
+		name = xik.3.c
+		add_manpower = 150
+		add_stability = -0.02
+	}
+	option = { #only the best except Yi
+		name = xik.3.d
+		add_manpower = 100
+		add_stability = -0.01
+	}
+	option = {
+		name = xik.3.e
+	}
+}
+
+country_event = { #Yunnan Warning
+	id = xik.4
+	immediate = {log = "[GetDateText]: [Root.GetName]: event xik.4"}
+	title = xik.4.t
+	desc = xik.4.d
+	picture = GFX_report_event_china_russia
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = xik.1.a
+		declare_war_on = {
+			target = XIK
+			type = annex_everything
+		}
+	}
+	option = {
+		name = xik.4.b
+	}
+}
+
+country_event = { #Crises in Ya'an police station
+	id = xik.5
+	immediate = {log = "[GetDateText]: [Root.GetName]: event xik.5" }
+	title = xik.5.t
+	desc = xik.5.d
+	picture = GFX_report_event_china_russia
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = xik.5.a
+		hidden_effect = {
+			country_event = {
+				id = xik.13
+				days = 4
+			}
+		}
+	}
+	option = {
+		name = xik.5.b
+		hidden_effect = {
+			country_event = {
+				id = xik.6
+				days = 4
+			}
+		}
+	}
+}
+
+country_event = { #Police brigade thrown back!
+	id = xik.6
+	immediate = {log = "[GetDateText]: [Root.GetName]: event xik.6" }
+	title = xik.6.t
+	desc = xik.6.d
+	picture = GFX_report_event_china_russia
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = xik.6.a
+		random_list = {
+			50 = {
+				country_event = {
+					id = xik.7
+				}
+			}
+			50 = {
+				country_event = {
+					id = xik.9
+				}
+			}
+		}
+	}
+	option = {
+		name = xik.6.b
+		hidden_effect = {
+			country_event = {
+				id = xik.11
+				days = 4
+			}
+		}
+	}
+	option = {
+		name = xik.6.c
+		hidden_effect = {
+			country_event = {
+				id = xik.16
+				days = 4
+			}
+		}
+	}
+}
+
+country_event = { #Success in full!
+	id = xik.7
+	immediate = {log = "[GetDateText]: [Root.GetName]: event xik.7"}
+	title = xik.7.t
+	desc = xik.7.d
+	picture = GFX_report_event_china_russia
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = xik.7.a
+		add_popularity = {
+			ideology = despotism
+			popularity = -0.1
+		}
+		country_event = {
+			id = xik.8
+			days = 4
+		}
+	}
+}
+
+country_event = { #What to do with the prisoners?
+	id = xik.8
+	immediate = {log = "[GetDateText]: [Root.GetName]: event xik.8"}
+	title = xik.8.t
+	desc = xik.8.desc
+	picture = GFX_report_event_china_russia
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = xik.8.a
+	}
+	option = {
+		name = xik.8.d
+	}
+	option = {
+		name = xik.8.c
+	}
+	option = {
+		name = xik.8.d
+	}
+}
+
+country_event = { #The bonfire
+	id = xik.9
+	immediate = {log = "[GetDateText]: [Root.GetName]: event xik.9"}
+	title = xik.9.t
+	desc = xik.9.d
+	picture = GFX_report_event_china_russia
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = xik.9.a
+		add_political_power = -200
+		add_popularity = {
+			ideology = despotism
+			popularity = -0.1
+		}
+		country_event = {
+			id = xik.10
+			days = 4
+		}
+	}
+}
+
+country_event = { #Burying the corpses
+	id = xik.10
+	immediate = {log = "[GetDateText]: [Root.GetName]: event xik.10"}
+	title = xik.10.t
+	desc = xik.10.d
+	picture = GFX_report_event_china_russia
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = xik.10.a
+		hidden_effect = {
+			country_event = {
+				id = xik.9999
+				days = 2
+			}
+		}
+	}
+	option = {
+		name = xik.10.b
+	}
+}
+
+country_event = { #
+	id = xik.9999
+	immediate = {log = "[GetDateText]: [Root.GetName]: event xik.9999"}
+	title = xik.9999.t
+	desc = xik.9999.desc
+	picture = GFX_report_event_china_russia
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = xik.9999.a
+	}
+	option = {
+		name = xik.9999.d
+	}
+	option = {
+		name = xik.9999.c
+	}
+}
+
+country_event = { #They threaten a bomb!
+	id = xik.11
+	immediate = {log = "[GetDateText]: [Root.GetName]: event xik.11"}
+	title = xik.11.t
+	desc = xik.11.d
+	picture = GFX_report_event_china_russia
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = xik.11.a
+		hidden_effect = {
+			country_event = {
+				id = xik.12
+				days = 4
+			}
+		}
+	}
+	option = {
+		name = xik.11.b
+		hidden_effect = {
+			country_event = {
+				id = xik.16
+				days = 4
+			}
+		}
+	}
+}
+
+country_event = { #The station retaken
+	id = xik.12
+	immediate = {log = "[GetDateText]: [Root.GetName]: event xik.12"}
+	title = xik.12.t
+	desc = xik.12.d
+	picture = GFX_report_event_china_russia
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = xik.12.a
+	}
+}
+
+country_event = { #The students demand to see Wenhui!
+	id = xik.13
+	immediate = {log = "[GetDateText]: [Root.GetName]: event xik.13"}
+	title = xik.13.t
+	desc = xik.13.d
+	picture = GFX_report_event_china_russia
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = xik.13.a
+		hidden_effect = {
+			country_event = {
+				id = xik.6
+				days = 4
+			}
+		}
+	}
+	option = {
+		name = xik.13.b
+		hidden_effect = {
+			country_event = {
+				id = xik.16
+				days = 4
+			}
+		}
+	}
+	option = {
+		name = xik.13.c
+		hidden_effect = {
+			country_event = {
+				id = xik.14
+				days = 4
+			}
+		}
+	}
+}
+
+country_event = { #Students want to meet elsewhere
+	id = xik.14
+	immediate = {log = "[GetDateText]: [Root.GetName]: event xik.14"}
+	title = xik.14.t
+	desc = xik.14.d
+	picture = GFX_report_event_china_russia
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = xik.14.a
+		hidden_effect = {
+			country_event = {
+				id = xik.15
+				days = 4
+			}
+		}
+	}
+	option = {
+		name = xik.14.b
+		hidden_effect = {
+			country_event = {
+				id = xik.16
+				days = 4
+			}
+		}
+	}
+}
+
+country_event = { #Students refuse to move (police assault)
+	id = xik.15
+	immediate = {log = "[GetDateText]: [Root.GetName]: event xik.15"}
+	title = xik.15.t
+	desc = xik.15.d
+	picture = GFX_report_event_china_russia
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = xik.15.a
+		hidden_effect = {
+			country_event = {
+				id = xik.6
+				days = 4
+			}
+		}
+	}
+}
+
+country_event = { #Student Manifesto
+	id = xik.16
+	immediate = {log = "[GetDateText]: [Root.GetName]: event xik.16"}
+	title = xik.16.t
+	desc = xik.16.d
+	picture = GFX_report_event_china_russia
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = xik.16.a
+		set_country_flag = respond_negatively
+		set_country_flag = cancel_attack
+		hidden_effect = {
+			country_event = {
+				id = xik.17
+				days = 10
+			}
+		}
+	}
+	option = {
+		name = xik.16.b
+		set_country_flag = respond_sympathetically
+		set_country_flag = cancel_attack
+		hidden_effect = {
+			country_event = {
+				id = xik.17
+				days = 10
+			}
+		}
+	}
+}
+
+country_event = { #How, and who, to punish
+	id = xik.17
+	immediate = {log = "[GetDateText]: [Root.GetName]: event xik.17"}
+	title = xik.17.t
+	desc = {
+		text = xik.17.d_negatively
+		trigger = {
+			has_country_flag = respond_negatively
+		}
+	}
+	desc = {
+		text = xik.17.d_sympathetically
+		trigger = {
+			has_country_flag = respond_sympathetically
+		}
+	}
+	picture = GFX_report_event_china_russia
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = xik.17.a
+		trigger = {
+			has_country_flag = respond_negatively
+		}
+		clr_country_flag = respond_negatively
+		clr_country_flag = respond_sympathetically
+	}
+	option = {
+		name = xik.17.b
+		trigger = {
+			has_country_flag = respond_negatively
+		}
+		clr_country_flag = respond_negatively
+		clr_country_flag = respond_sympathetically
+	}
+	option = {
+		name = xik.17.c
+		clr_country_flag = respond_negatively
+		clr_country_flag = respond_sympathetically
+	}
+	option = {
+		name = xik.17.d
+		clr_country_flag = respond_negatively
+		clr_country_flag = respond_sympathetically
+	}
+	option = {
+		name = xik.17.e
+		trigger = {
+			has_country_flag = respond_sympathetically
+		}
+		clr_country_flag = respond_negatively
+		clr_country_flag = respond_sympathetically
+	}
+	option = {
+		name = xik.17.f
+		trigger = {
+			has_country_flag = respond_sympathetically
+		}
+		clr_country_flag = respond_negatively
+		clr_country_flag = respond_sympathetically
+	}
+}
+
+country_event = { #Not what we ordered
+	id = xik.50
+	immediate = {log = "[GetDateText]: [Root.GetName]: event xik.50" }
+	title = xik.50.t
+	desc = xik.50.d
+	picture = GFX_report_event_china_russia
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = xik.50.a
+		hidden_effect = {
+			country_event = {
+				id = xik.51
+				days = 4
+			}
+		}
+	}
+}
+
+country_event = { #Confronting the thief
+	id = xik.51
+	immediate = {log = "[GetDateText]: [Root.GetName]: event xik.51" }
+	title = xik.51.t
+	desc = xik.51.d
+	picture = GFX_report_event_china_russia
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = xik.51.a
+		hidden_effect = {
+			country_event = {
+				id = xik.55
+				days = 4
+			}
+		}
+	}
+	option = {
+		name = xik.51.b
+		hidden_effect = {
+			country_event = {
+				id = xik.53
+				days = 4
+			}
+		}
+	}
+	option = {
+		name = xik.51.c
+		hidden_effect = {
+			country_event = {
+				id = xik.52
+				days = 4
+			}
+		}
+	}
+}
+
+country_event = { #A slap on the wrist
+	id = xik.52
+	immediate = {log = "[GetDateText]: [Root.GetName]: event xik.52" }
+	title = xik.52.t
+	desc = xik.52.d
+	picture = GFX_report_event_china_russia
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = xik.52.a
+	}
+}
+
+country_event = { #Unexpected resistance
+	id = xik.53
+	immediate = {log = "[GetDateText]: [Root.GetName]: event xik.53" }
+	title = xik.53.t
+	desc = xik.53.d
+	picture = GFX_report_event_china_russia
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = xik.53.a
+		hidden_effect = {
+			country_event = {
+				id = xik.55
+				days = 4
+			}
+		}
+	}
+	option = {
+		name = xik.53.b
+		hidden_effect = {
+			country_event = {
+				id = xik.54
+				days = 4
+			}
+		}
+	}
+}
+
+country_event = { #the men are ours
+	id = xik.54
+	immediate = {log = "[GetDateText]: [Root.GetName]: event xik.54" }
+	title = xik.54.t
+	desc = xik.54.d
+	picture = GFX_report_event_china_russia
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = xik.54.a
+	}
+}
+
+
+country_event = { #Bandit flees into tibet!
+	id = xik.55
+	immediate = {log = "[GetDateText]: [Root.GetName]: event xik.55" }
+	title = xik.55.t
+	desc = xik.55.d
+	picture = GFX_report_event_china_russia
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = xik.55.a
+		hidden_effect = {
+			country_event = {
+				id = xik.56
+				days = 4
+			}
+		}
+	}
+	option = {
+		name = xik.55.b
+	}
+}
+
+country_event = { #Brought to justices
+	id = xik.56
+	immediate = {log = "[GetDateText]: [Root.GetName]: event xik.56" }
+	title = xik.56.t
+	desc = xik.56.d
+	picture = GFX_report_event_china_russia
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = xik.56.a
+	}
+}

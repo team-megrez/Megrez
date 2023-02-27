@@ -1,0 +1,147 @@
+add_namespace = SWI
+
+
+country_event = { 
+	id = SWI.1
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SWI.1"}
+	title = SWI.1.t
+	desc = SWI.1.desc
+	picture = x
+	
+	trigger = {
+		has_country_leader = {
+			character = SWI_Ludwig_von_Moos
+			ruling_only = yes
+		}
+		date > 1961.12.31
+	}
+	
+	fire_only_once = yes
+	
+	option = { #
+		name = SWI.1.a
+		promote_character = SWI_Friedrich_Traugott_Wahlen
+		set_politics = {	
+			ruling_party = conservatism
+			last_election = "1963.1.1"
+			election_frequency = 24
+			elections_allowed = yes
+		}
+	}
+}
+
+country_event = { 
+	id = SWI.2
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SWI.2"}
+	title = SWI.2.t
+	desc = SWI.2.desc
+	picture = x
+	
+	trigger = {
+		has_country_leader = {
+			character = SWI_Friedrich_Traugott_Wahlen
+			ruling_only = yes
+		}
+		date > 1964.12.31
+	}
+	
+	fire_only_once = yes
+	
+	option = { #
+		name = SWI.2.a
+		promote_character = SWI_Hans_Schaffner
+		set_politics = {	
+			ruling_party = liberalism
+			last_election = "1965.1.1"
+			election_frequency = 24
+			elections_allowed = yes
+		}
+	}
+}
+
+country_event = { 
+	id = SWI.3
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SWI.3"}
+	title = SWI.3.t
+	desc = SWI.3.desc
+	picture = x
+	
+	trigger = {
+		has_country_leader = {
+			character = SWI_Hans_Schaffner
+			ruling_only = yes
+		}
+		date > 1966.12.31
+	}
+	
+	fire_only_once = yes
+	
+	option = { #
+		name = SWI.3.a
+		promote_character = SWI_Josef_Condrau
+		set_politics = {	
+			ruling_party = liberal_conservatism
+			last_election = "1967.1.1"
+			election_frequency = 24
+			elections_allowed = yes
+		}
+	}
+}
+
+country_event = { 
+	id = SWI.4
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SWI.4"}
+	title = SWI.4.t
+	desc = SWI.4.desc
+	picture = x
+	
+	trigger = {
+		has_country_leader = {
+			character = SWI_Josef_Condrau
+			ruling_only = yes
+		}
+		date > 1968.12.31
+	}
+	
+	fire_only_once = yes
+	
+	option = { #
+		name = SWI.4.a
+		promote_character = SWI_Hans_Peter_Tschudi
+		set_politics = {	
+			ruling_party = progressivism
+			last_election = "1969.1.1"
+			election_frequency = 24
+			elections_allowed = yes
+		}
+	}
+}
+
+country_event = { 
+	id = SWI.5
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SWI.5"}
+	title = SWI.5.t
+	desc = SWI.5.desc
+	picture = x
+	
+	trigger = {
+		has_country_leader = {
+			character = SWI_Hans_Peter_Tschudi
+			ruling_only = yes
+		}
+		date > 1970.12.31
+	}
+	
+	fire_only_once = yes
+	
+	option = { #
+		name = SWI.5.a
+		promote_character = SWI_Rudolf_Gnagi
+		set_politics = {	
+			ruling_party = conservatism
+			last_election = "1971.1.1"
+			election_frequency = 24
+			elections_allowed = yes
+		}
+	}
+}

@@ -1,0 +1,721 @@
+############################
+## Ukraine Events
+############################
+
+add_namespace = UKR
+add_namespace = UKR_UCW_startup
+
+### Old events for Göring timeline content ###
+country_event = { #The war begins
+	id = UKR.1
+	title = UKR.1.t
+	desc = UKR.1.d
+	picture = GFX_report_event_MAD_palace
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {log = "[GetDateText]: [Root.GetName]: event UKR.1"}
+
+	option = {
+		name = UKR.1
+		#if = {
+		#	limit = {
+		#		GER = {
+		#			has_completed_focus = GGR_in_the_villages
+		#			NOT = {
+		#				has_global_flag = GGR_betrayed_loyalists
+		#			}
+		#		}
+		#	}
+		#	add_ideas = UKR_goerings_interference
+		#}
+
+		#else_if = {
+		#	limit = {
+		#		GER = {
+		#			has_completed_focus = GGR_in_the_villages
+		#			NOT = {
+		#				has_global_flag = GGR_betrayed_loyalists
+		#			}
+		#		}
+		#	}
+		#	add_ideas = UKR_goerings_interference3
+		#}
+	}
+}
+
+country_event = { # Cossacks attack eastern holdings
+	id = UKR.2
+	title = UKR.2.t
+	desc = UKR.2.d
+	picture = GFX_report_event_MAD_palace
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {log = "[GetDateText]: [Root.GetName]: event UKR.2"}
+
+	option = {
+		name = UKR.2.a
+	}
+}
+
+country_event = { # Cossacks pledge to our cause
+	id = UKR.4
+	title = UKR.4.t
+	desc = UKR.4.d
+	picture = GFX_report_event_MAD_palace
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {log = "[GetDateText]: [Root.GetName]: event UKR.4"}
+
+	option = {
+		name = UKR.4.a
+		hidden_effect = {
+			division_template = {
+				name = "Free Cossack Brigades"
+				regiments = {
+					cavalry= { x = 0 y = 0 }
+					cavalry = { x = 0 y = 1 }
+					cavalry = { x = 0 y = 2 }
+					cavalry = { x = 1 y = 0 }
+					cavalry = { x = 1 y = 1 }
+					cavalry = { x = 1 y = 2 }
+				}
+				support = {
+					recon = { x = 0 y = 0}
+				}
+			}
+		}
+		228 = {
+			create_unit = {
+				division = "name = \"1. Cossack brigade \" division_template = \"Free Cossack Brigades\" start_experience_factor = 1 start_equipment_factor = 1"
+				owner = UKR
+			}
+			create_unit = {
+				division = "name = \"2. Cossack brigade \" division_template = \"Free Cossack Brigades\" start_experience_factor = 1 start_equipment_factor = 1"
+				owner = UKR
+			}
+			create_unit = {
+				division = "name = \"3. Cossack brigade \" division_template = \"Free Cossack Brigades\" start_experience_factor = 1 start_equipment_factor = 1"
+				owner = UKR
+			}
+		}
+		218 = {
+			create_unit = {
+				division = "name = \"4. Cossack brigade \" division_template = \"Free Cossack Brigades\" start_experience_factor = 1 start_equipment_factor = 1"
+				owner = UKR
+			}
+			create_unit = {
+				division = "name = \"5. Cossack brigade \" division_template = \"Free Cossack Brigades\" start_experience_factor = 1 start_equipment_factor = 1"
+				owner = UKR
+			}
+			create_unit = {
+				division = "name = \"6. Cossack brigade \" division_template = \"Free Cossack Brigades\" start_experience_factor = 1 start_equipment_factor = 1"
+				owner = UKR
+			}
+		}
+		add_war_support = 0.15
+	}
+}
+
+country_event = { # German loyalists defect to our side
+	id = UKR.5
+	title = UKR.5.t
+	desc = UKR.5.d
+	picture = GFX_report_event_MAD_palace
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {log = "[GetDateText]: [Root.GetName]: event UKR.5"}
+
+	option = {
+		name = UKR.5.a
+		hidden_effect = {
+			load_oob = GGR_rurik
+			set_division_template_lock = {
+				division_template = "Loyalist Partisans"
+				is_locked = no
+			}
+		}
+		add_war_support = 0.15
+	}
+}
+### End of Göring timeline content ###
+
+### Old events for choosing a new leader and destiny of RKU ###
+### They are dead now (thankfully) ###
+#country_event = { # Try to resolve Cossacks problem
+#	id = UKR.10
+#	title = UKR.10.t
+#	desc = UKR.10.desc
+#	picture = GFX_report_event_MAD_palace
+#
+#	fire_only_once = yes
+#	is_triggered_only = yes
+#
+#	immediate = {log = "[GetDateText]: [Root.GetName]: event UKR.10"}
+#
+#	option = { # Win of fail
+#		name = UKR.10.a
+#		random_list = {
+#			60 = {
+#				country_event = { id = UKR.11 days = 5 }
+#			}
+#			40 = {
+#				country_event = { id = UKR.12 days = 5 }
+#			}
+#		}
+#	}
+#}
+#
+#country_event = { # Cossacks succesfully defeated
+#	id = UKR.11
+#	title = UKR.11.t
+#	desc = UKR.11.desc
+#	picture = GFX_report_event_MAD_palace
+#
+#	fire_only_once = yes
+#	is_triggered_only = yes
+#
+#	immediate = {log = "[GetDateText]: [Root.GetName]: event UKR.11"}
+#
+#	option = {
+#		name = UKR.11.a
+#		custom_effect_tooltip = UKR_cossack_pacified
+#		set_country_flag = UKR_cossacks_pacified
+#	}
+#}
+#
+#country_event = { # Cossacks are still quite strong
+#	id = UKR.12
+#	title = UKR.12.t
+#	desc = UKR.12.desc
+#	picture = GFX_report_event_MAD_palace
+#
+#	fire_only_once = yes
+#	is_triggered_only = yes
+#
+#	immediate = {log = "[GetDateText]: [Root.GetName]: event UKR.12"}
+#
+#	option = {
+#		name = UKR.12.a
+#		add_stability = -0.1
+#		add_war_support = -0.1
+#	}
+#}
+
+country_event = { # Koch's Assassination (also makes Leib RK leader)
+	id = UKR.38
+	title = UKR.38.t
+	desc = UKR.38.desc
+	picture = GFX_report_event_MAD_palace
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {log = "[GetDateText]: [Root.GetName]: event UKR.38"}
+
+	option = {
+		name = UKR.38.a
+		every_country = {
+			news_event = WORLD_REICH.1400
+		}
+		set_global_flag = UKR_leibbrandt
+		promote_character = UKR_Georg_Leibbrandt
+		#hidden_effect = { # Set up ministers later
+		#	remove_all_ministers = yes
+		#	add_ideas = {
+		#		UKR_Gerhard_Schroder_hog
+		#		UKR_Friedrich_Thielen_for
+		#		UKR_Hermann_Hocherl_eco
+		#		UKR_Albrecht_Mertz_von_Quirnheim_sec
+		#	}
+		#}
+	}
+}
+
+country_event = { #
+	id = UKR_UCW_startup.0
+	immediate = { log = "[GetDateText]: [Root.GetName]: event UKR_UCW_startup.0" }
+	title = UKR_UCW_startup.0.t
+	desc = UKR_UCW_startup.0.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = UKR_UCW_startup.0.a
+		ai_chance = { factor = 1 }
+		country_event = {
+			id = UKR_UCW_startup.1
+			days = 1
+		}
+		hidden_effect = {
+			if = {
+				limit = { has_template = "Infanterie-Division" }
+				delete_unit_template_and_units = { division_template = "Infanterie-Division" }
+			}
+			if = {
+				limit = { has_template = "Panzer-Division" }
+				delete_unit_template_and_units = { division_template = "Panzer-Division" }
+			}
+			if = {
+				limit = { has_template = "Panzergrenadier-Division" }
+				delete_unit_template_and_units = { division_template = "Panzergrenadier-Division" }
+			}
+			if = {
+				limit = { has_template = "Sicherungs-Division" }
+				delete_unit_template_and_units = { division_template = "Sicherungs-Division" }
+			}
+			if = {
+				limit = { has_template = "SS Grenadier-Division" }
+				delete_unit_template_and_units = { division_template = "SS Grenadier-Division" }
+			}
+			if = {
+				limit = { has_template = "Polizei-Regiment" }
+				delete_unit_template_and_units = { division_template = "Polizei-Regiment" }
+			}
+			if = {
+				limit = { has_template = "Schutzmannschaft-Brigade" }
+				delete_unit_template_and_units = { division_template = "Schutzmannschaft-Brigade" }
+			}
+			load_oob = UKR_UCW
+		}
+	}
+}
+
+country_event = { #
+	id = UKR_UCW_startup.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event UKR_UCW_startup.1" }
+	title = UKR_UCW_startup.1.t
+	desc = UKR_UCW_startup.1.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = UKR_UCW_startup.1.a
+		ai_chance = { factor = 1 }
+		228 = {
+			set_demilitarized_zone = yes
+		}
+		add_stability = -0.05
+		country_event = {
+			id = UKR_UCW_startup.3
+			days = 1
+		}
+		add_to_array = { global.UKR_contenders = UKR }
+		add_to_array = { global.UKR_contenders = UKS }
+		add_to_array = { global.UKR_contenders = FUK }
+		add_to_array = { global.UKR_contenders = BOV }
+	}
+}
+
+country_event = { #
+	id = UKR_UCW_startup.3
+	immediate = { log = "[GetDateText]: [Root.GetName]: event UKR_UCW_startup.3" }
+	title = UKR_UCW_startup.3.t
+	desc = UKR_UCW_startup.3.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = UKR_UCW_startup.3.a
+		ai_chance = { factor = 1 }
+		199 = {
+			set_demilitarized_zone = yes
+		}
+		93 = {
+			set_demilitarized_zone = yes
+		}
+		add_stability = -0.1
+		country_event = {
+			id = UKR_UCW_startup.4
+			days = 2
+		}
+		random_owned_controlled_state = {
+			set_demilitarized_zone = yes
+		}
+	}
+}
+
+country_event = { #
+	id = UKR_UCW_startup.4
+	immediate = { log = "[GetDateText]: [Root.GetName]: event UKR_UCW_startup.4" }
+	title = UKR_UCW_startup.4.t
+	desc = UKR_UCW_startup.4.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = UKR_UCW_startup.4.a
+		ai_chance = { factor = 1 }
+		remove_ideas = {
+			Pakt_Autonomous_Reichskommissariat
+			UKR_breadbasket_of_the_reich
+			UKR_land_of_contrasts
+			UKR_paradise_undone
+		}
+		1431 = {
+			set_demilitarized_zone = yes
+		}
+		227 = {
+			set_demilitarized_zone = yes
+		}
+		218 = {
+			set_demilitarized_zone = yes
+		}
+		country_event = {
+			id = UKR_UCW_startup.5
+			days = 1
+		}
+	}
+}
+
+country_event = { #
+	id = UKR_UCW_startup.5
+	immediate = { log = "[GetDateText]: [Root.GetName]: event UKR_UCW_startup.5" }
+	title = UKR_UCW_startup.5.t
+	desc = UKR_UCW_startup.5.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = UKR_UCW_startup.5.a
+		ai_chance = { factor = 1 }
+		221 = {
+			set_demilitarized_zone = yes
+		}
+		1430 = {
+			set_demilitarized_zone = yes
+		}
+		country_event = {
+			id = UKR_UCW_startup.7
+			days = 2
+		}
+	}
+}
+
+country_event = { #
+	id = UKR_UCW_startup.7
+	immediate = { log = "[GetDateText]: [Root.GetName]: event UKR_UCW_startup.7" }
+	title = UKR_UCW_startup.7.t
+	desc = UKR_UCW_startup.7.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = UKR_UCW_startup.7.a
+		ai_chance = { factor = 1 }
+		773 = {
+			set_demilitarized_zone = yes
+		}
+		country_event = {
+			id = UKR_UCW_startup.12
+		}
+		218 = {
+			set_demilitarized_zone = no
+		}
+		228 = {
+			set_demilitarized_zone = no
+		}
+		227 = {
+			set_demilitarized_zone = no
+		}
+		221 = {
+			set_demilitarized_zone = no
+		}
+		UKS = { 
+			TNO_startup_nation = yes
+			set_capital = {
+				state = 221
+				remember_old_capital = yes
+			}
+			add_state_core = 218
+			add_state_core = 228
+			add_state_core = 227
+			add_state_core = 221
+			transfer_state = 218
+			transfer_state = 228
+			transfer_state = 227
+			transfer_state = 221
+			set_variable = { poverty_rate = UKR.poverty_rate }
+			TNO_improve_slavery_policy_effectiveness_monthly_high = yes
+			TNO_worsen_poverty_high = yes
+		}
+		country_event = {
+			id = UKR_UCW_startup.10
+			days = 1
+		}
+	}
+}
+
+country_event = { #
+	id = UKR_UCW_startup.10
+	immediate = { log = "[GetDateText]: [Root.GetName]: event UKR_UCW_startup.10" }
+	title = UKR_UCW_startup.10.t
+	desc = UKR_UCW_startup.10.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = UKR_UCW_startup.10.a
+		ai_chance = { factor = 1 }
+		1431 = {
+			set_demilitarized_zone = no
+		}
+		93 = {
+			set_demilitarized_zone = no
+		}
+		1430 = {
+			set_demilitarized_zone = no
+		}
+		199 = {
+			set_demilitarized_zone = no
+		}
+		773 = {
+			set_demilitarized_zone = no
+		}
+		BOV = {
+			TNO_startup_nation = yes
+			add_state_core = 93
+			transfer_state = 93
+			add_state_core = 1430
+			transfer_state = 1430
+			set_variable = { poverty_rate = UKR.poverty_rate }
+			inherit_technology = PREV
+			load_oob = BOV_UCW
+			add_ideas = UKR_galicia_buffs_racist
+		}
+		FUK = {
+			TNO_startup_nation = yes
+			add_state_core = 1431
+			add_state_core = 199
+			transfer_state = 1431
+			transfer_state = 199
+			add_state_core = 773
+			transfer_state = 773
+			set_variable = { poverty_rate = UKR.poverty_rate }
+			inherit_technology = PREV
+			load_oob = FUK_UCW
+			add_ideas = UKR_galicia_buffs
+			TNO_improve_slavery_policy_effectiveness_monthly_high = yes
+		}
+		country_event = {
+			id = UKR_UCW_startup.11
+			hours = 8
+		}
+		add_ideas = UKR_not_their_war #RK debuffs
+		add_ideas = UKR_UCW_fight_eachother #so they actually fight
+		random_owned_controlled_state = { #so they have electricity
+			add_building_construction = {
+				type = thermoelectric_plant
+				level = 1
+				instant_build = yes
+			}
+		}
+		UKS = {
+			add_ideas = UKR_UCW_fight_eachother #so they actually fight
+			add_equipment_to_stockpile = { #guns to shoot with
+				type = infantry_equipment
+				amount = 10000
+				producer = UKR
+			}
+			random_owned_controlled_state = { #so they have electricity
+				add_building_construction = {
+					type = thermoelectric_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		FUK = {
+			add_ideas = UKR_UCW_fight_eachother #so they actually fight
+			add_equipment_to_stockpile = { #guns to shoot with
+				type = infantry_equipment
+				amount = 10000
+				producer = UKR
+			}
+			random_owned_controlled_state = { #so they have electricity
+				add_building_construction = {
+					type = thermoelectric_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		BOV = {
+			add_ideas = UKR_UCW_fight_eachother #so they actually fight
+			add_equipment_to_stockpile = { #guns to shoot with
+				type = infantry_equipment
+				amount = 10000
+				producer = UKR
+			}
+			random_owned_controlled_state = { #so they have electricity
+				add_building_construction = {
+					type = thermoelectric_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+}
+
+country_event = { #
+	id = UKR_UCW_startup.11
+	immediate = { log = "[GetDateText]: [Root.GetName]: event UKR_UCW_startup.11" }
+	title = UKR_UCW_startup.11.t
+	desc = UKR_UCW_startup.11.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = UKR_UCW_startup.11.a
+		ai_chance = { factor = 1 }
+		UKR = { declare_war_on = { target = UKS type = civil_war } }
+		UKR = { declare_war_on = { target = FUK type = civil_war } }
+		UKR = { declare_war_on = { target = BOV type = civil_war } }
+		BOV = { declare_war_on = { target = FUK type = civil_war } }
+		BOV = { declare_war_on = { target = UKS type = civil_war } }
+		FUK = { declare_war_on = { target = UKS type = civil_war } }
+		set_global_flag = UKR_UCW_ongoing
+	}
+}
+
+country_event = { # sometimes the U-SSR oob is fucky, this makes sure it works properly
+	id = UKR_UCW_startup.12
+	immediate = { log = "[GetDateText]: [Root.GetName]: event UKR_UCW_startup.12" }
+	title = UKR_UCW_startup.12.t
+	desc = UKR_UCW_startup.12.desc
+	#picture = 
+	hidden = yes
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = UKR_UCW_startup.12.a
+		ai_chance = { factor = 1 }
+		UKS = {
+			inherit_technology = PREV
+			load_oob = UKS_UCW
+		}
+	}
+}
+
+#country_event = { # Choose your succesor after Koch's death
+#	id = UKR.27
+#	title = UKR.27.t
+#	desc = UKR.27.desc
+#	picture = GFX_report_event_MAD_palace
+#
+#	fire_only_once = yes
+#	is_triggered_only = yes
+#
+#	immediate = {log = "[GetDateText]: [Root.GetName]: event UKR.27"}
+#	option = { # Leibbrandt, in requiem of speertard oberländer
+#		name = UKR.27.b
+#		ai_chance = { factor = 2 }
+#		set_global_flag = UKR_leibbrandt
+#		promote_character = UKR_Georg_Leibbrandt
+#		hidden_effect = {
+#			remove_all_ministers = yes
+#			add_ideas = {
+#				UKR_Gerhard_Schroder_hog
+#				UKR_Friedrich_Thielen_for
+#				UKR_Hermann_Hocherl_eco
+#				UKR_Albrecht_Mertz_von_Quirnheim_sec
+#			}
+#		}
+#	}
+#}
+
+#country_event = { # Koch is alive!
+#	id = UKR.28
+#	title = UKR.28.t
+#	desc = UKR.28.desc
+#	picture = GFX_report_event_MAD_palace
+#
+#	fire_only_once = yes
+#	is_triggered_only = yes
+#
+#	immediate = {log = "[GetDateText]: [Root.GetName]: event UKR.28"}
+#
+#	option = { # Koch
+#		name = UKR.28.a
+#		if = { limit = { has_country_flag = UKR_cossacks_pacified } # If Cossacks still strong - they gonna take power after GCW
+#			set_global_flag = UKR_koch
+#			#country_event = { id = UKR.30 days = 7 } - event does not exist
+#		}
+#		hidden_effect = {
+#			remove_all_ministers = yes
+#			add_ideas = {
+#				UKR_Ernst_Ludwig_Leyser_hog
+#				UKR_Waldemar_Magunia_for
+#				UKR_Fritz_Sauckel_eco
+#				UKR_Paul_Reichelt_sec
+#			}
+#		}
+#	}
+#}
+
+#country_event = { # Partisans take power from a weak Koch
+#	id = UKR.29
+#	title = UKR.29.t
+#	desc = UKR.29.desc
+#	picture = GFX_report_event_MAD_palace
+#
+#	fire_only_once = yes
+#	is_triggered_only = yes
+#
+#	immediate = {log = "[GetDateText]: [Root.GetName]: event UKR.29"}
+#
+#	option = {
+#		name = UKR.29.a
+#		set_global_flag = UKR_freedom
+#		set_cosmetic_tag = UKR_the_ukraine_is_free
+#		load_oob = FUK_uprising
+#		set_politics = {
+#			ruling_party = paternalism
+#			elections_allowed = no
+#		}
+#		set_temp_variable = { TNO_economy_type_temp = 1 }
+#		econ_type_change = yes
+#		econ_leave_sphere = yes
+#		add_popularity = {
+#			ideology = paternalism
+#			popularity = 0.25
+#		}
+#		add_popularity = {
+#			ideology = socialist
+#			popularity = 0.15
+#		}
+#		add_ideas = {
+#			UKR_Boris_Levytsky_hog
+#			UKR_Ivan_Maistrenko_for
+#			UKR_Vsevolod_Holubnychyi_eco
+#			UKR_Roman_Dashkevich_sec
+#		}
+#		remove_ideas = UKR_partyzanschyna
+#		GER = { end_puppet = UKR }
+#	}
+#}

@@ -1,0 +1,169 @@
+﻿# Division template historical names system. Is a new method of naming the divisions based on the names-group assigned to it's template.
+# If we run out of all historical names, the names will be assigned in the old way.
+#
+# Each group has a made up tag. Use it if you want to append more, or replace existing names with the extra txt files (modding).
+#
+# for_countries - lists all countries that can use it. If empty, or entire tag is missing, all countries in the world can use it.
+#
+# can_use - is a trigger that locks/unlocks the group under specific circumstances. The trigger is in a country scope.
+#
+# division_types - is a list of tokens to corresponding unit types. A player can in fact use any group of names for a div.template
+#					however this tag is a helper for an automated choice (for AI, or if the group must switch on it's own, because
+#					for example the current one is no longer available due to the can_use trigger saying so).
+#					In automated choice, the division template must have at least 1 of the following types for it to be chosen.
+#
+# fallback_name - Is going to be used if we run out of the scripted historical names. If you want to use the old division naming
+#					mechanics to be used for fallbacks, then just skip this option.
+#
+# unordered - It's a list of historical division names that did not have a number. Regardless if such names happened in history or not
+#				this option is available here mainly for a mods.
+#
+# ordered - Is a list of all historical names.
+#			Numbers must start from 1 and up.
+#			Numbers can't repeat in one scope.
+#			If you script the name for this group, at the same number (for example in a mod in another file), the name will be override.
+#			All arguments between the brackets must be separated by spaces. Each argument is wrapped in "quotas".
+#			1st argument = The name. It must contain either:
+#							%d (for decimal number placement)
+#							%s (for string number placement - ROMAN numbers like XIV).
+#			2nd argument is optional = A localizable text describing this historical division. The text will be visible in the tooltip
+#										where you choose the historical division name.
+#			3rd argument is optional = An URL preferably pointing to the WIKI. It's a future feature that is not currently working in
+#										the current game version.
+
+DER_Islamic_Militia = {
+	name = "Islamic Anti-terrorist Brigade" #Antïterrorïstïkaliq brïgadasi
+
+	for_countries = { DER }
+
+	can_use = { always = yes }
+
+	division_types = { "light_infantry" }
+
+	fallback_name = "%d. Antïterrorïstïkaliq brïgadasi"
+
+	ordered = {
+		1 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+		2 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+		3 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+		4 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+		5 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+		6 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+		7 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+		8 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+		9 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+		10 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+		11 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+		12 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+		13 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+		14 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+		15 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+		16 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+		17 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+		18 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+		19 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+		20 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+		21 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+		22 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+		23 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+		24 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+		25 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+		26 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+		27 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+		28 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+		29 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+		30 = { "%d. Antïterrorïstïkaliq brïgadasi" }
+	}
+}
+
+DER_Cavalry = {
+	name = "Garrison Division" #Beybitşilikti saqtawşi äskeri
+
+	for_countries = { DER }
+
+	can_use = { always = yes }
+
+	division_types = { "cavalry" }
+
+	fallback_name = "%d. Beybitşilikti saqtawşi äskeri"
+
+	ordered = {
+		1 = { "%d. Beybitşilikti saqtawşi äskeri" }
+		2 = { "%d. Beybitşilikti saqtawşi äskeri" }
+		3 = { "%d. Beybitşilikti saqtawşi äskeri" }
+		4 = { "%d. Beybitşilikti saqtawşi äskeri" }
+		5 = { "%d. Beybitşilikti saqtawşi äskeri" }
+		6 = { "%d. Beybitşilikti saqtawşi äskeri" }
+		7 = { "%d. Beybitşilikti saqtawşi äskeri" }
+		8 = { "%d. Beybitşilikti saqtawşi äskeri" }
+		9 = { "%d. Beybitşilikti saqtawşi äskeri" }
+		10 = { "%d. Beybitşilikti saqtawşi äskeri" }
+		11 = { "%d. Beybitşilikti saqtawşi äskeri" }
+		12 = { "%d. Beybitşilikti saqtawşi äskeri" }
+		13 = { "%d. Beybitşilikti saqtawşi äskeri" }
+		14 = { "%d. Beybitşilikti saqtawşi äskeri" }
+		15 = { "%d. Beybitşilikti saqtawşi äskeri" }
+		16 = { "%d. Beybitşilikti saqtawşi äskeri" }
+		17 = { "%d. Beybitşilikti saqtawşi äskeri" }
+		18 = { "%d. Beybitşilikti saqtawşi äskeri" }
+		19 = { "%d. Beybitşilikti saqtawşi äskeri" }
+		20 = { "%d. Beybitşilikti saqtawşi äskeri" }
+		21 = { "%d. Beybitşilikti saqtawşi äskeri" }
+		22 = { "%d. Beybitşilikti saqtawşi äskeri" }
+		23 = { "%d. Beybitşilikti saqtawşi äskeri" }
+		24 = { "%d. Beybitşilikti saqtawşi äskeri" }
+		25 = { "%d. Beybitşilikti saqtawşi äskeri" }
+		26 = { "%d. Beybitşilikti saqtawşi äskeri" }
+		27 = { "%d. Beybitşilikti saqtawşi äskeri" }
+		28 = { "%d. Beybitşilikti saqtawşi äskeri" }
+		29 = { "%d. Beybitşilikti saqtawşi äskeri" }
+		30 = { "%d. Beybitşilikti saqtawşi äskeri" }
+	}
+}
+
+DER_Infantry = {
+	name = "Jihad Brigade" #Jihad Brïgada
+
+	for_countries = { DER }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	fallback_name = "%d. Jihad Brïgada"
+
+	ordered = {
+		1 = { "%d. Jihad Brïgada" }
+		2 = { "%d. Jihad Brïgada" }
+		3 = { "%d. Jihad Brïgada" }
+		4 = { "%d. Jihad Brïgada" }
+		5 = { "%d. Jihad Brïgada" }
+		6 = { "%d. Jihad Brïgada" }
+		7 = { "%d. Jihad Brïgada" }
+		8 = { "%d. Jihad Brïgada" }
+		9 = { "%d. Jihad Brïgada" }
+		10 = { "%d. Jihad Brïgada" }
+		11 = { "%d. Jihad Brïgada" }
+		12 = { "%d. Jihad Brïgada" }
+		13 = { "%d. Jihad Brïgada" }
+		14 = { "%d. Jihad Brïgada" }
+		15 = { "%d. Jihad Brïgada" }
+		16 = { "%d. Jihad Brïgada" }
+		17 = { "%d. Jihad Brïgada" }
+		18 = { "%d. Jihad Brïgada" }
+		19 = { "%d. Jihad Brïgada" }
+		20 = { "%d. Jihad Brïgada" }
+		21 = { "%d. Jihad Brïgada" }
+		22 = { "%d. Jihad Brïgada" }
+		23 = { "%d. Jihad Brïgada" }
+		24 = { "%d. Jihad Brïgada" }
+		25 = { "%d. Jihad Brïgada" }
+		26 = { "%d. Jihad Brïgada" }
+		27 = { "%d. Jihad Brïgada" }
+		28 = { "%d. Jihad Brïgada" }
+		29 = { "%d. Jihad Brïgada" }
+		30 = { "%d. Jihad Brïgada" }
+	}
+}
+
+

@@ -1,0 +1,1106 @@
+#########################
+## Indonesia Events
+############################
+add_namespace = INS_scripted
+add_namespace = INS_soekarno
+add_namespace = INS_hatta
+add_namespace = INS_duumvirate
+add_namespace = indonesia
+add_namespace = INS_GNG_helper
+
+country_event = { # New PM
+	id = INS_scripted.1
+	immediate = {log = "[GetDateText]: [Root.GetName]: event INS_scripted.1"}
+	title = INS_scripted.1.t
+	desc = INS_scripted.1.desc
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = INS_scripted.1.a
+		retire_character = INS_Djuanda_Kartawidjaja
+		add_ideas = INS_Generic_Vacant_hog
+		country_event = { id = INS_scripted.2 days = 7 }
+		every_country = {
+			news_event = { id = WORLD.16515 days = 1 }
+		}
+	}
+}
+
+country_event = { # New PM
+	id = INS_scripted.2
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event INS_scripted.2"
+		country_event = { id = INS_scripted.3 days = 390 }
+	}
+	title = INS_scripted.2.t
+	desc = INS_scripted.2.desc
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = INS_scripted.2.a
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = INS_POLITICS_ROUTE
+						option = INS_POLITICS_ROUTE_CONSERVATISM
+					}
+					has_game_rule = {
+						rule = INS_POLITICS_ROUTE
+						option = INS_POLITICS_ROUTE_FASCISM
+					}
+				}
+			}
+		}
+		remove_ideas = INS_Generic_Vacant_hog
+		add_ideas = INS_Johannes_Leimena_hog
+		every_country = {
+			news_event = { id = WORLD.16518 days = 1 }
+		}
+		USA = {
+			if = {
+				limit = {
+					is_ai = no
+				}
+			country_event = { id = TT_ICW_AP.1 days = 60 }
+			}
+		}
+		JAP = {
+			if = {
+				limit = {
+					is_ai = no
+				}
+			country_event = { id = TT_ICW_AP.1 days = 60 }
+			}
+		}
+	}
+
+	option = {
+		name = INS_scripted.2.b
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = INS_POLITICS_ROUTE
+						option = INS_POLITICS_ROUTE_CONSERVATISM
+					}
+					has_game_rule = {
+						rule = INS_POLITICS_ROUTE
+						option = INS_POLITICS_ROUTE_PATERNATISM
+					}
+				}
+			}
+		}
+		remove_ideas = INS_Generic_Vacant_hog
+		add_ideas = INS_Ruslan_Abdulgani_hog
+		INS_Sukarno = {
+			promote_character = fascism_revolutionary_nationalism_subtype
+		}
+		set_politics = {
+			ruling_party = fascism
+		}
+		every_country = {
+			news_event = { id = WORLD.16516 days = 1 }
+		}
+		USA = {
+			if = {
+				limit = {
+					is_ai = no
+				}
+			country_event = { id = TT_ICW_AP.1 days = 60 }
+			}
+		}
+		JAP = {
+			if = {
+				limit = {
+					is_ai = no
+				}
+			country_event = { id = TT_ICW_AP.1 days = 60 }
+			}
+		}
+	}
+
+	option = {
+		name = INS_scripted.2.c
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = INS_POLITICS_ROUTE
+						option = INS_POLITICS_ROUTE_PATERNATISM
+					}
+					has_game_rule = {
+						rule = INS_POLITICS_ROUTE
+						option = INS_POLITICS_ROUTE_FASCISM
+					}
+				}
+			}
+		}
+		remove_ideas = INS_Generic_Vacant_hog
+		add_ideas = INS_Burhanuddin_Harahap_hog
+		INS_Sukarno = {
+			promote_character = progressivism_islamic_modernism_subtype
+		}
+		set_politics = {
+			ruling_party = progressivism
+		}
+		set_party_name = {
+			ideology = progressivism
+			long_name = INS_pni_prm_party_long
+			name = INS_pni_prm_party
+		}
+		every_country = {
+			news_event = { id = WORLD.16517 days = 1 }
+		}
+		USA = {
+			if = {
+				limit = {
+					is_ai = no
+				}
+			country_event = { id = TT_ICW_AP.1 days = 60 }
+			}
+		}
+		JAP = {
+			if = {
+				limit = {
+					is_ai = no
+				}
+			country_event = { id = TT_ICW_AP.1 days = 60 }
+			}
+		}
+	}
+}
+
+country_event = { # Halim Affair
+	id = INS_scripted.3
+	immediate = {log = "[GetDateText]: [Root.GetName]: event INS_scripted.3"}
+	title = INS_scripted.3.t
+	desc = INS_scripted.3.desc
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = INS_scripted.3.a
+		trigger = {
+			OR = {
+				has_idea = INS_Burhanuddin_Harahap_hog
+				has_idea = INS_Johannes_Leimena_hog
+			}
+		}
+		country_event = { id = INS_scripted.4 days = 7 }
+		#Put Effects to Weaken the FRI
+	}
+
+	option = {
+		name = INS_scripted.3.b
+		trigger = {
+			OR = {
+				has_idea = INS_Ruslan_Abdulgani_hog
+				has_idea = INS_Johannes_Leimena_hog
+			}
+		}
+		country_event = { id = INS_scripted.4 days = 7 }
+		#Put Effects to Strengthen the FRI
+	}
+}
+
+country_event = { # Martial Law and A lot of Stuffs before the ICW
+	id = INS_scripted.4
+	immediate = {log = "[GetDateText]: [Root.GetName]: event INS_scripted.4"}
+	title = INS_scripted.4.t
+	desc = INS_scripted.4.desc
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = INS_scripted.4.a
+		set_cosmetic_tag = INS_ICW
+		INS_Sukarno = {
+			promote_character = despotism_civilian_dictatorship_subtype
+		}
+		INS_Manai_Sophiaan = {
+			promote_character = socialist_left_wing_nationalism_subtype
+		}
+		INS_Suwirjo = {
+			promote_character = paternalism_social_nationalism_subtype
+		}
+		INS_Jusuf_Wibisono = {
+			promote_character = conservatism_islamic_conservatism_subtype
+		}
+		INS_Supomo = {
+			promote_character = fascism_revolutionary_nationalism_subtype
+		}
+		set_popularities = {
+			socialist = 4
+			conservatism = 7
+			paternalism = 21
+			despotism = 60
+			fascism = 8
+		}
+		set_politics = {
+			ruling_party = despotism
+		}
+		set_party_name = {
+			ideology = despotism
+			long_name = INS_ICW_despotism_party_long
+			name = INS_ICW_despotism_party
+		}
+		set_party_name = {
+			ideology = socialist
+			long_name = INS_ICW_socialist_party_long
+			name = INS_ICW_socialist_party
+		}
+		set_party_name = {
+			ideology = paternalism
+			long_name = INS_ICW_paternalism_party_long
+			name = INS_ICW_paternalism_party
+		}
+		remove_all_ministers = yes
+		add_ideas = {
+			INS_Suwirjo_hog
+			INS_Ruslan_Abdulgani_for
+			INS_Jusuf_Wibisono_eco
+			INS_Bambang_Supeno_sec
+		}
+		every_country = {
+			news_event = { id = WORLD.16519 days = 1}
+		}
+		country_event = { id = INS_scripted.5 days = 90 }
+		USA = {
+			if = {
+				limit = {
+					is_ai = no
+				}
+			country_event = { id = TT_ICW_Arafura.1 days = 14 }
+			country_event = { id = USA_INS.104 days = 3 } 
+			}
+		}
+		JAP = {
+			if = {
+				limit = {
+					is_ai = no
+				}
+			country_event = { id = TT_ICW_Arafura.1 days = 14 }
+			country_event = { id = JAP_ICW.103 days = 1 }
+			}
+		}
+	}
+}
+
+country_event = { # In 1965, war was beginning
+	id = INS_scripted.5
+	immediate = {log = "[GetDateText]: [Root.GetName]: event INS_scripted.5"}
+	title = INS_scripted.5.t
+	desc = INS_scripted.5.desc
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = INS_scripted.5.a
+		every_country = {
+			news_event = { id = WORLD.16520 days = 1 }
+		}
+		JAP = {
+			country_event = { id = JAP_ICW.1 days = 3 }
+		}
+		USA = {
+			country_event = { id = USA_INS.1 days = 3}
+		}
+		INS_ICW_spawn_all_tags = yes
+	}
+}
+
+country_event = { # Duumvirate
+	id = INS_scripted.6
+	immediate = {log = "[GetDateText]: [Root.GetName]: event INS_scripted.6"}
+	title = INS_scripted.6.t
+	desc = INS_scripted.6.desc
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+
+	trigger = {
+		has_global_flag = TNO_indonesian_civil_war_ongoing
+	}
+
+	option = {
+		name = INS_scripted.6.a
+		INS_ICW_duumvirate_goncang_time = yes
+	}
+}
+
+##Indonesia Guangdong Helper Event
+country_event = { #
+	id = INS_GNG_helper.1
+	immediate = {log = "[GetDateText]: [Root.GetName]: event INS_GNG_helper.1"}
+	title = INS_GNG_helper.1.t
+	desc = INS_GNG_helper.1.desc
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+
+	trigger = {
+		has_global_flag = TNO_indonesian_civil_war_ongoing
+	}
+
+	option = {
+		name = INS_GNG_helper.1.a
+		if = {
+			limit = { 
+				check_variable = { global.ICW_phase < 3 }
+			}
+			set_variable = { global.ICW_phase = 2 }
+			INS_ICW_escalate_conflict = yes
+		}
+	}
+}
+
+#INS war
+country_event = {
+	id = indonesia.100
+	title = indonesia.100.t
+	desc = indonesia.100.desc
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event indonesia.100"
+		hidden_effect = {
+			every_state = {
+				limit = {
+					is_core_of = INS
+				}
+				FRI = {
+					add_state_core = PREV
+				}
+			}
+			set_global_flag = INS_war
+			JAP = {
+				TNO_fopo_add_indonesia_tab = yes
+				set_temp_variable = { target = INS }
+				set_temp_variable = { to_add = 1 }
+				TNO_set_num_volunteers = yes
+			}
+			INS = {
+				set_variable = {INS_ac_java = 95}
+				set_variable = {INS_ac_sumatra = 70}
+				set_variable = {INS_ac_kalimantan = 70}
+				set_variable = {INS_ac_sulawesi = 50}
+				set_variable = {INS_ac_papua = 50}
+				set_variable = {INS_ac_moluccas = 50}
+				set_variable = {INS_industry_productivity = -0.10}
+				set_variable = {INS_resources_security = -0.20}
+				set_variable = {INS_political_security = -0.20}
+				set_variable = {INS_army_motivation = 0.10}
+				set_variable = {INS_equipment_reliability = 0.10}
+				set_country_flag = INS_Civil_War
+				set_country_flag = INS_Military_Status_Ended_flag
+				set_country_flag = INS_SKN_Status_Ended_flag
+				set_country_flag = INS_Political_Status_Ended_flag
+				set_country_flag = INS_Disable_Military_Buttons_flag
+				set_country_flag = INS_Disable_SKN_Buttons_flag
+				set_country_flag = INS_Disable_Political_Buttons_flag
+				set_popularities = {
+					ultranationalism = 0
+					national_socialism = 0
+					fascism = 25
+					despotism = 30
+					paternalism = 45
+				}
+				set_party_name = {
+					ideology = despotism
+					long_name = INS_despotism_party_civilwar_long
+					name = INS_despotism_party_civilwar
+				}
+				set_party_name = {
+					ideology = paternalism
+					long_name = INS_paternalism_party_civilwar_long
+					name = INS_paternalism_party_civilwar
+				}
+				load_oob = "INS_revolt"
+				delete_unit_template_and_units = {
+					division_template = "Divisi Infanteri"
+				}
+				delete_unit_template_and_units = {
+					division_template = "Divisi Infantri Bermotor"
+				}
+				delete_unit_template_and_units = {
+					division_template = "Divisi Marinir"
+				}
+				remove_ideas = {
+					Sphere_Imp_Protectorate
+				}
+				add_ideas = INS_Generic_Vacant_hog
+				leave_faction = yes
+				add_dynamic_modifier = { modifier = INS_populace_morale_modifier }
+				add_dynamic_modifier = { modifier = INS_army_morale_modifier }
+				country_event = {id = indonesia.1000 days = 30}
+				activate_targeted_decision = {
+					target = INS
+					decision = INS_Stalemate_Timer_Mission
+				}
+				every_unit_leader = {
+					limit = { has_id =2039 }
+					set_nationality = FRI
+				}
+			}
+			FRI = {
+				transfer_state = 334
+				transfer_state = 794
+				transfer_state = 672
+				transfer_state = 821
+				transfer_state = 335
+				transfer_state = 817
+				transfer_state = 672
+				transfer_state = 1330
+				transfer_state = 523
+				transfer_state = 669
+				transfer_state = 1331
+				transfer_state = 1332
+				transfer_state = 721
+				transfer_state = 738
+				set_variable = {FRI_cs_north_sumatra = 5}
+				set_variable = {FRI_cs_south_sumatra = 7}
+				set_variable = {FRI_cs_west_java = 2}
+				set_variable = {FRI_cs_east_java = 3}
+				set_variable = {FRI_cs_kalimantan = 7}
+				set_variable = {FRI_cs_sulawesi = 5}
+				set_variable = {FRI_cs_papua = 8}
+				set_variable = {FRI_cs_moluccas = 4}
+				declare_war_on = {
+					target = INS
+					type = civil_war
+				}
+				set_country_flag = FRI_Civil_War
+				TNO_startup_nation = yes
+				add_ideas = {
+					FRI_the_romusha_issue
+					FRI_disorganized_forces
+					FRI_critical_supply_shortage
+				}
+				if = {
+					limit = {
+						has_country_flag = FRI_have_supply_lines
+					}
+					swap_ideas = {
+						remove_idea = FRI_critical_supply_shortage
+						add_idea = FRI_Malayan_supply_lines
+					}
+				}
+				division_template = {
+					name = "Free Indonesian Militia"
+					#division_names_group = FRI_infantry
+					is_locked = yes
+
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						light_infantry = { x = 0 y = 1 }
+						light_infantry = { x = 1 y = 0 }
+						light_infantry = { x = 1 y = 1 }
+					}
+				}
+				load_oob = "FRI_revolt_Main"
+				load_focus_tree = {tree = FRI_Hatta keep_completed = yes}
+				inherit_technology = INS
+				activate_targeted_decision = {
+					target = FRI
+					decision = FRI_Stalemate_Timer_Mission
+				}
+			}
+			AST = {
+				transfer_state = 711
+				set_temp_variable = { target = FRI }
+				set_temp_variable = { to_add = 1 }
+				TNO_set_num_volunteers = yes
+			}
+			711 = {
+				add_core_of = AST
+			}
+			every_country = {
+				limit = {
+					is_ai = no
+				}
+				set_temp_variable = { TNO_temp_super_event = token:SE_INDONESIAN_WAR }
+				TNO_fire_super_event = yes
+			}
+			USA = {
+				if = {
+					limit = {
+						has_country_flag = USA_support_FRI
+					}
+					send_equipment = {
+						type = infantry_equipment
+						amount = 2500
+						target = FRI
+					}
+				}
+				country_event = USA_RD_INS.01
+			}
+			#JAP = { country_event = japindonesiawar.0 } } # Cut for now
+		}
+	}
+
+	picture = GFX_report_event_algerian_war_4
+
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {#play INS
+		name = indonesia.100.a
+		hidden_effect = {
+			FRI = {
+				complete_national_focus = FRI_to_arms_for_a_free_indonesia
+			}
+		}
+	}
+
+	option = {#play FRI
+		name = indonesia.100.b
+		FRI = {
+			hidden_effect = {
+				complete_national_focus = FRI_to_arms_for_a_free_indonesia
+			}
+			change_tag_from = PREV
+		}
+	}
+}
+
+#ICW Peace
+add_namespace = indonesiapeace
+
+country_event = { #INS perspective stalemate
+	id = indonesiapeace.1
+	title = indonesiapeace.1.t
+	desc = indonesiapeace.1.desc
+	picture = GFX_report_event_peace_deal
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			log = "[GetDateText]: [Root.GetName]: event indonesiapeace.1"
+			INS = {
+				annex_country = {
+					target = FRI
+					transfer_troops = no
+				}
+				JAP = { JAP_tree_swap = yes }
+				kill_country_leader = yes
+				create_country_leader = {
+					name = "Mohammad Hatta"
+					desc = "POLITICS_MOHAMMAD_HATTA_DESC"
+					picture = "Portrait_Indonesia_Mohammad_Hatta.dds"
+					expire = "1999.1.1"
+					ideology = liberalism_subtype
+					traits = {
+					}
+				}
+				set_politics = {
+					ruling_party = liberalism
+					elections_allowed = no
+				}
+				set_popularities = {
+					fascism = 15
+					despotism = 20
+					paternalism = 15
+					liberalism = 15
+					conservatism = 15
+					progressivism = 10
+					communist = 10
+				}
+				set_stability = 0.4
+				set_war_support = 0.2
+				clear_superpower_embargoes = yes
+				clr_country_flag = INS_Civil_War
+				clr_global_flag = INS_war
+				JAP = {
+					TNO_fopo_remove_indonesia_tab = yes
+				}
+				if = {
+					limit = {
+						has_global_flag = german_civil_war_speervic
+					}
+					GER = {
+						TNO_fopo_remove_indonesia_tab = yes
+					}
+				}
+			}
+			USA = {
+				if = { #USA involved
+					limit = {
+						has_country_flag = USA_INS_CW_meddling
+					}
+					country_event = USA_INS.4
+				}
+				else = { #USA not involved
+					country_event = USA_INS.7
+				}
+			}
+			GNG = {
+				GNG_PTRG_Indonesia_END = yes
+			}
+			AST = {
+				set_temp_variable = { target = FRI }
+				TNO_clear_num_volunteers = yes
+			}
+			every_country = {
+				news_event = {
+					id = WORLD.16517
+				}
+			}
+		}
+	}
+
+	option = { #the war is over - unity gov
+		name = indonesiapeace.1.a
+		add_political_power = 50
+		hidden_effect = {
+			TNO_Country_Closing_Screen_Show = yes
+		}
+	}
+}
+
+country_event = { #FRI victory
+	id = indonesiapeace.2
+	title = indonesiapeace.2.t
+	desc = indonesiapeace.2.desc
+	picture = GFX_report_event_scotland_up_victory
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			log = "[GetDateText]: [Root.GetName]: event indonesiapeace.2"
+			load_focus_tree = FRI_blank
+			JAP = { JAP_tree_swap = yes }
+			remove_ideas = {
+				FRI_the_romusha_issue
+				FRI_the_romusha_issue1
+				FRI_the_romusha_issue2
+				FRI_disorganized_forces
+				FRI_disorganized_forces1
+				FRI_disorganized_forces2
+				FRI_the_free_indonesian_army
+				FRI_sutomos_plan
+				FRI_sutomos_plan1
+				FRI_sutomos_plan2
+				FRI_rijadis_strategy
+				FRI_rijadis_strategy1
+				FRI_rijadis_strategy2
+				FRI_rijadis_strategy3
+				FRI_rijadis_strategy4
+				FRI_critical_supply_shortage
+				FRI_smuggler_assistance
+				FRI_unified_supply_lines
+				FRI_air_mail
+				FRI_USA_backchannels
+				FRI_USA_secure_supply_lines
+				FRI_USA_saf_lessons
+			}
+			add_ideas = {
+				tno_conscription_volunteer_only
+			}
+			set_capital = { state = 795 remember_old_capital = no }
+			set_stability = 0.70
+			set_war_support = 0.40
+			clr_country_flag = FRI_Civil_War
+			clr_global_flag = INS_war
+			JAP = {
+				TNO_fopo_remove_indonesia_tab = yes
+				country_event = jap_fopo.5
+			}
+			if = {
+				limit = {
+					has_global_flag = german_civil_war_speervic
+				}
+				GER = {
+					TNO_fopo_remove_indonesia_tab = yes
+				}
+			}
+			GNG = {
+				GNG_PTRG_Indonesia_END = yes
+			}
+			USA = {
+				if = { #USA involved
+					limit = {
+						has_country_flag = USA_INS_CW_meddling
+					}
+					country_event = USA_INS.2
+				}
+				else = { #USA not involved
+					country_event = USA_INS.5
+				}
+			}
+			AST = {
+				set_temp_variable = { target = FRI }
+				TNO_clear_num_volunteers = yes
+			}
+			every_country = {
+				news_event = {
+					id = WORLD.16516
+				}
+			}
+		}
+	}
+
+	option = { #the war is over
+		name = indonesiapeace.2.a
+		hidden_effect = {
+			TNO_Country_Closing_Screen_Show = yes
+			#country_event = { id = hattavic.1 days = 10 }
+		}
+	}
+}
+
+country_event = { #Sukarno victory
+	id = indonesiapeace.3
+	title = indonesiapeace.3.t
+	desc = indonesiapeace.3.desc
+	picture = GFX_report_event_protest
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			log = "[GetDateText]: [Root.GetName]: event indonesiapeace.3"
+			load_focus_tree = FRI_blank
+			JAP = { JAP_tree_swap = yes }
+			remove_ideas = {
+				FRI_100_day_campaign
+				FRI_scaled_back_rations
+				FRI_more_rations
+				FRI_security_of_capture
+				FRI_security_of_capture2
+				FRI_landfall
+				FRI_landfall2
+				FRI_what_we_have
+				FRI_what_we_have2
+				FRI_preparations
+				FRI_preparations2
+				FRI_preparations3
+				FRI_disruption
+				FRI_disruption1
+			}
+			add_ideas = {
+				tno_conscription_limited_conscription
+			}
+			remove_dynamic_modifier = {
+				modifier = INS_army_morale_modifier
+			}
+			remove_dynamic_modifier = {
+				modifier = INS_populace_morale_modifier
+			}
+			clr_country_flag = INS_Civil_War
+			clr_global_flag = INS_war
+			JAP = {
+				TNO_fopo_remove_indonesia_tab = yes
+				country_event = jap_fopo.4
+			}
+			GNG = {
+				GNG_PTRG_Indonesia_END = yes
+			}
+			if = {
+				limit = {
+					has_global_flag = german_civil_war_speervic
+				}
+				GER = {
+					TNO_fopo_remove_indonesia_tab = yes
+				}
+			}
+			USA = {
+				if = { #USA involved
+					limit = {
+						has_country_flag = USA_INS_CW_meddling
+					}
+					country_event = USA_INS.3
+				}
+				else = { #USA not involved
+					country_event = USA_INS.6
+				}
+			}
+			AST = {
+				set_temp_variable = { target = FRI }
+				TNO_clear_num_volunteers = yes
+			}
+			every_country = {
+				news_event = {
+					id = WORLD.16515
+				}
+			}
+		}
+	}
+
+	option = { #the war is over
+		name = indonesiapeace.3.a
+		hidden_effect = {
+			country_event = {
+				id = soekonthesenutsvic.1
+				days = 10
+			}
+		}
+	}
+}
+
+country_event = { #FRI perspective stalemate
+	id = indonesiapeace.4
+	fire_only_once = yes
+	is_triggered_only = yes
+	title = indonesiapeace.4.t
+	desc = indonesiapeace.4.desc
+	picture = GFX_report_event_peace_deal
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event indonesiapeace.4"
+	}
+
+	option = {
+		name = indonesiapeace.4.a
+		hidden_effect = {
+			TNO_Country_Closing_Screen_Show = yes
+		}
+	}
+}
+
+add_namespace = usindoflavor
+
+country_event = {
+	id = usindoflavor.1
+	title = usindoflavor.1.t
+	desc = usindoflavor.1.d
+	picture = GFX_report_event_IJA_soldiers_jungle
+
+	trigger = { has_country_flag = INS_war }
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = usindoflavor.1.a
+		hidden_effect = {
+			country_event = {
+				id = usindoflavor.2
+				days = 20
+			}
+		}
+	}
+}
+
+country_event = {
+	id = usindoflavor.2
+	title = usindoflavor.2.t
+	desc = usindoflavor.2.d
+	picture = GFX_report_event_IJA_soldiers_jungle
+
+	trigger = { has_country_flag = INS_war }
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = usindoflavor.2.a
+		hidden_effect = {
+			country_event = {
+				id = usindoflavor.3
+				days = 20
+			}
+		}
+	}
+}
+
+country_event = {
+	id = usindoflavor.3
+	title = usindoflavor.3.t
+	desc = usindoflavor.3.d
+	picture = GFX_report_event_IJA_soldiers_jungle
+
+	trigger = { has_country_flag = INS_war }
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = usindoflavor.3.a
+		hidden_effect = {
+			country_event = {
+				id = usindoflavor.4
+				days = 20
+			}
+		}
+	}
+}
+
+country_event = {
+	id = usindoflavor.4
+	title = usindoflavor.4.t
+	desc = usindoflavor.4.d
+	picture = GFX_report_event_IJA_soldiers_jungle
+
+	trigger = { has_country_flag = INS_war }
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = usindoflavor.4.a
+		hidden_effect = {
+			country_event = {
+				id = usindoflavor.5
+				days = 20
+			}
+		}
+	}
+}
+
+country_event = {
+	id = usindoflavor.5
+	title = usindoflavor.5.t
+	desc = usindoflavor.5.d
+	picture = GFX_report_event_IJA_soldiers_jungle
+
+	trigger = { has_country_flag = INS_war }
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = usindoflavor.5.a
+	}
+}
+
+country_event = { #US Victory Flavor Event
+	id = usindoflavor.6
+	title = usindoflavor.6.t
+	desc = usindoflavor.6.d
+	picture = GFX_report_event_IJA_soldiers_jungle
+
+	trigger = { has_country_flag = INS_war }
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = usindoflavor.6.a
+	}
+}
+
+country_event = { #US Defeat Flavor Event
+	id = usindoflavor.7
+	title = usindoflavor.7.t
+	desc = usindoflavor.7.d
+	picture = GFX_report_event_IJA_soldiers_jungle
+
+	trigger = { has_country_flag = INS_war }
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = usindoflavor.7.a
+	}
+}
+
+add_namespace = ins_newflavor
+
+country_event = {
+	id = ins_newflavor.1
+	title = ins_newflavor.1.t
+	desc = ins_newflavor.1.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_report_event_IJA_soldiers_jungle
+	trigger = {
+		has_global_flag = INS_war
+	}
+	option = {
+		name = ins_newflavor.1.a
+		hidden_effect = {
+			country_event = {
+				id = ins_newflavor.2
+				days = 20
+			}
+		}
+	}
+}
+
+country_event = {
+	id = ins_newflavor.2
+	title = ins_newflavor.2.t
+	desc = ins_newflavor.2.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_report_event_IJA_soldiers_jungle
+	option = {
+		name = ins_newflavor.2.a
+		hidden_effect = {
+			country_event = {
+				id = ins_newflavor.3
+				days = 20
+			}
+		}
+	}
+}
+
+country_event = {
+	id = ins_newflavor.3
+	title = ins_newflavor.3.t
+	desc = ins_newflavor.3.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_report_event_IJA_soldiers_jungle
+	option = {
+		name = ins_newflavor.3.a
+		hidden_effect = {
+			country_event = {
+				id = ins_newflavor.4
+				days = 20
+			}
+		}
+	}
+}
+
+country_event = {
+	id = ins_newflavor.4
+	title = ins_newflavor.4.t
+	desc = ins_newflavor.4.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_report_event_IJA_soldiers_jungle
+	option = {
+		name = ins_newflavor.4.a
+		hidden_effect = {
+			country_event = {
+				id = ins_newflavor.5
+				days = 20
+			}
+		}
+	}
+}
+
+country_event = {
+	id = ins_newflavor.5
+	title = ins_newflavor.5.t
+	desc = ins_newflavor.5.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_report_event_IJA_soldiers_jungle
+	option = {
+		name = ins_newflavor.5.a
+	}
+}

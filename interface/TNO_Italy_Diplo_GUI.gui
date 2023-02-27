@@ -1,0 +1,738 @@
+guiTypes = {
+
+	containerWindowType = {
+		name = "TNO_ita_influence_window_open"
+		size = { width = 220 height = 128 }
+		position = { x = 0 y = 289 }
+		buttonType = {
+			name = "ita_influence_menu_open"
+			spriteType = "GFX_ITA_In_the_PNF"
+			position = { x = 238 y = 41 }
+			pdx_tooltip = "scripted_gui_open_tt_ita_fas"
+			scale = 0.65
+		}
+		
+		iconType = {
+			name = "gui_alert"
+			spriteType = "GFX_gui_alert"
+			position = { x=189 y=-16 }
+		}
+	}
+
+	containerWindowType = {
+		name = "TNO_ita_influence_window_democratic_open"
+		size = { width = 220 height = 128 }
+		position = { x = 0 y = 289 }
+		buttonType = {
+			name = "ita_influence_menu_open"
+			spriteType = "GFX_ITA_I_Love_Umberto_And_Democracy"
+			position = { x = 238 y = 41 }
+			pdx_tooltip = "scripted_gui_open_tt_ita_dem"
+			scale = 0.65
+		}
+		
+		iconType = {
+			name = "gui_alert"
+			spriteType = "GFX_gui_alert"
+			position = { x=189 y=-16 }
+		}
+	}
+
+	containerWindowType = {
+		name = "TNO_ita_influence_window_main"
+		size = { width = 772 height = 735 }
+		position = { x = 550 y = 3 }
+		moveable = yes
+		
+		background = {
+			name = "Background"
+			quadTextureSprite ="GFX_tiled_window_thin_border2"
+		}
+
+		iconType = {
+			name = "Background_Asset"
+			spriteType = "GFX_Italy_Diplo_GUI_bg"
+			position = { x = 11 y = 10 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "Italy_Diplo_GUI_Title_Empire"
+			spriteType = "GFX_Italy_Diplo_GUI_Title_Empire"
+			position = { x = 52  y = 28 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "Italy_Diplo_GUI_Title_Republic"
+			spriteType = "GFX_Italy_Diplo_GUI_Title_Republic"
+			position = { x = 30 y = 28 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "Italy_Diplo_GUI_Title_Kingdom"
+			spriteType = "GFX_Italy_Diplo_GUI_Title_Kingdom"
+			position = { x = 29 y = 28 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "Italy_Diplo_GUI_State_Italy"
+			spriteType = "GFX_Italy_Diplo_GUI_State_Italy"
+			position = { x = 222 y = 162 }
+		}
+		iconType = {
+			name = "Italy_Diplo_GUI_State_France_1"
+			spriteType = "GFX_Italy_Diplo_GUI_State_France_1"
+			position = { x = 90 y = 105 }
+		}
+		iconType = {
+			name = "Italy_Diplo_GUI_State_France_2"
+			spriteType = "GFX_Italy_Diplo_GUI_State_France_2"
+			position = { x = 96 y = 153 }
+		}
+		iconType = {
+			name = "Italy_Diplo_GUI_State_Balerics"
+			spriteType = "GFX_Italy_Diplo_GUI_State_Balerics"
+			position = { x = 147 y = 316 }
+		}
+		iconType = {
+			name = "Italy_Diplo_GUI_State_Greece"
+			spriteType = "GFX_Italy_Diplo_GUI_State_Greece"
+			position = { x = 442 y = 293 }
+		}
+		iconType = {
+			name = "Italy_Diplo_GUI_State_Cyprus"
+			spriteType = "GFX_Italy_Diplo_GUI_State_Cyprus"
+			position = { x = 627 y = 407 }
+		}
+		iconType = {
+			name = "Italy_Diplo_GUI_State_Bulgaria"
+			spriteType = "GFX_Italy_Diplo_GUI_State_Bulgaria"
+			position = { x = 450 y = 233 }
+		}
+		iconType = {
+			name = "Italy_Diplo_GUI_State_Serbia"
+			spriteType = "GFX_Italy_Diplo_GUI_State_Serbia"
+			position = { x = 428 y = 215 }
+		}
+		iconType = {
+			name = "Italy_Diplo_GUI_State_Hungary_1"
+			spriteType = "GFX_Italy_Diplo_GUI_State_Hungary_1"
+			position = { x = 382 y = 123 }
+		}
+		iconType = {
+			name = "Italy_Diplo_GUI_State_Hungary_2"
+			spriteType = "GFX_Italy_Diplo_GUI_State_Hungary_2"
+			position = { x = 380 y = 156 }
+		}
+		iconType = {
+			name = "Italy_Diplo_GUI_State_Hungary_3"
+			spriteType = "GFX_Italy_Diplo_GUI_State_Hungary_3"
+			position = { x = 380 y = 156 }
+		}
+		iconType = {
+			name = "Italy_Diplo_GUI_State_Hungary_4"
+			spriteType = "GFX_Italy_Diplo_GUI_State_Hungary_4"
+			position = { x = 386 y = 123 }
+		}
+		iconType = {
+			name = "Italy_Diplo_GUI_State_Romania_1"
+			spriteType = "GFX_Italy_Diplo_GUI_State_Romania_1"
+			position = { x = 437 y = 116 }
+		}
+		iconType = {
+			name = "Italy_Diplo_GUI_State_Romania_2"
+			spriteType = "GFX_Italy_Diplo_GUI_State_Romania_2"
+			position = { x = 446 y = 116 }
+		}
+		iconType = {
+			name = "Italy_Diplo_GUI_State_Romania_3"
+			spriteType = "GFX_Italy_Diplo_GUI_State_Romania_3"
+			position = { x = 437 y = 137 }
+		}
+		iconType = {
+			name = "Italy_Diplo_GUI_State_Romania_4"
+			spriteType = "GFX_Italy_Diplo_GUI_State_Romania_4"
+			position = { x = 446 y = 137 }
+		}
+		iconType = {
+			name = "Italy_Diplo_GUI_State_Croatia_1"
+			spriteType = "GFX_Italy_Diplo_GUI_State_Croatia_1"
+			position = { x = 352 y = 181 }
+		}
+		iconType = {
+			name = "Italy_Diplo_GUI_State_Croatia_2"
+			spriteType = "GFX_Italy_Diplo_GUI_State_Croatia_2"
+			position = { x = 359 y = 200 }
+		}
+		iconType = {
+			name = "Italy_Diplo_GUI_State_Croatia_3"
+			spriteType = "GFX_Italy_Diplo_GUI_State_Croatia_3"
+			position = { x = 359 y = 200 }
+		}
+		iconType = {
+			name = "Italy_Diplo_GUI_State_Croatia_4"
+			spriteType = "GFX_Italy_Diplo_GUI_State_Croatia_4"
+			position = { x = 359 y = 200 }
+		}
+		iconType = {
+			name = "Italy_Diplo_GUI_State_Croatia_5"
+			spriteType = "GFX_Italy_Diplo_GUI_State_Croatia_5"
+			position = { x = 359 y = 200 }
+		}
+		iconType = {
+			name = "Italy_Diplo_GUI_State_Bosnia"
+			spriteType = "GFX_Italy_Diplo_GUI_State_Bosnia"
+			position = { x = 375 y = 211 }
+		}
+		iconType = {
+			name = "Italy_Diplo_GUI_State_Albania"
+			spriteType = "GFX_Italy_Diplo_GUI_State_Albania"
+			position = { x = 424 y = 254 }
+		}
+		iconType = {
+			name = "Italy_Diplo_GUI_State_Montenegro"
+			spriteType = "GFX_Italy_Diplo_GUI_State_Montenegro"
+			position = { x = 415 y = 234 }
+		}
+
+		iconType = {
+			name = "CRO_LVL1"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_1"
+			position = { x = 588  y = 536 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "CRO_LVL2"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_2"
+			position = { x = 588  y = 536 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "CRO_LVL3"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_3"
+			position = { x = 588  y = 536 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "CRO_LVL4"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_4"
+			position = { x = 588  y = 536 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "CRO_LVL5"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_5"
+			position = { x = 588  y = 536 }
+			pdx_tooltip = ""
+		}
+		
+		iconType = {
+			name = "MNT_LVL1"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_1"
+			position = { x = 588  y = 557 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "MNT_LVL2"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_2"
+			position = { x = 588  y = 557 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "MNT_LVL3"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_3"
+			position = { x = 588  y = 557 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "MNT_LVL4"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_4"
+			position = { x = 588  y = 557 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "MNT_LVL5"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_5"
+			position = { x = 588  y = 557 }
+			pdx_tooltip = ""
+		}
+		
+		iconType = {
+			name = "GRE_LVL1"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_1"
+			position = { x = 588  y = 578 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "GRE_LVL2"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_2"
+			position = { x = 588  y = 578 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "GRE_LVL3"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_3"
+			position = { x = 588  y = 578 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "GRE_LVL4"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_4"
+			position = { x = 588  y = 578 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "GRE_LVL5"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_5"
+			position = { x = 588  y = 578 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "BUL_LVL1"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_1"
+			position = { x = 588  y = 599 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "BUL_LVL2"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_2"
+			position = { x = 588  y = 599 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "BUL_LVL3"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_3"
+			position = { x = 588  y = 599 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "BUL_LVL4"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_4"
+			position = { x = 588  y = 599 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "BUL_LVL5"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_5"
+			position = { x = 588  y = 599 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "ROM_LVL1"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_1"
+			position = { x = 588  y = 620 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "ROM_LVL2"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_2"
+			position = { x = 588  y = 620 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "ROM_LVL3"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_3"
+			position = { x = 588  y = 620 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "ROM_LVL4"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_4"
+			position = { x = 588  y = 620 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "ROM_LVL5"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_5"
+			position = { x = 588  y = 620 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "SER_LVL1"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_1"
+			position = { x = 588  y = 641 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "SER_LVL2"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_2"
+			position = { x = 588  y = 641 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "SER_LVL3"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_3"
+			position = { x = 588  y = 641 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "SER_LVL4"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_4"
+			position = { x = 588  y = 641 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "SER_LVL5"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_5"
+			position = { x = 588  y = 641 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "HUN_LVL1"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_1"
+			position = { x = 588  y = 662 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "HUN_LVL2"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_2"
+			position = { x = 588  y = 662 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "HUN_LVL3"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_3"
+			position = { x = 588  y = 662 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "HUN_LVL4"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_4"
+			position = { x = 588  y = 662 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "HUN_LVL5"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_5"
+			position = { x = 588  y = 662 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "FRA_LVL1"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_1"
+			position = { x = 588  y = 683 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "FRA_LVL2"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_2"
+			position = { x = 588  y = 683 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "FRA_LVL3"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_3"
+			position = { x = 588  y = 683 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "FRA_LVL4"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_4"
+			position = { x = 588  y = 683 }
+			pdx_tooltip = ""
+		}
+
+		iconType = {
+			name = "FRA_LVL5"
+			spriteType = "GFX_Italy_Diplo_GUI_Level_5"
+			position = { x = 588  y = 683 }
+			pdx_tooltip = ""
+		}
+
+		instantTextboxType = {
+			name = "CRO_influence_text"
+			position = { x = 46 y = 536 }
+			font = "aldrich_16_outline"
+			text = "[ROOT.ITAINF_CROATIA]"
+			maxWidth = 999
+			maxHeight = 999
+			fixedsize = no
+		}
+		
+		instantTextboxType = {
+			name = "MNT_influence_text"
+			position = { x = 46 y = 557 }
+			font = "aldrich_16_outline"
+			text = "[ROOT.ITAINF_MONTENEGRO]"
+			maxWidth = 999
+			maxHeight = 999
+			fixedsize = no
+		}
+
+		instantTextboxType = {
+			name = "GRE_influence_text"
+			position = { x = 46 y = 578 }
+			font = "aldrich_16_outline"
+			text = "[ROOT.ITAINF_GREECE]"
+			maxWidth = 999
+			maxHeight = 999
+			fixedsize = no
+		}
+
+		instantTextboxType = {
+			name = "BUL_influence_text"
+			position = { x = 46 y = 599 }
+			font = "aldrich_16_outline"
+			text = "[ROOT.ITAINF_BULGARIA]"
+			maxWidth = 999
+			maxHeight = 999
+			fixedsize = no
+		}
+
+		instantTextboxType = {
+			name = "ROM_influence_text"
+			position = { x = 46 y = 620 }
+			font = "aldrich_16_outline"
+			text = "[ROOT.ITAINF_ROMANIA]"
+			maxWidth = 999
+			maxHeight = 999
+			fixedsize = no
+		}
+
+		instantTextboxType = {
+			name = "SER_influence_text"
+			position = { x = 46 y = 641 }
+			font = "aldrich_16_outline"
+			text = "[ROOT.ITAINF_SERBIA]"
+			maxWidth = 999
+			maxHeight = 999
+			fixedsize = no
+		}
+
+		instantTextboxType = {
+			name = "HUN_influence_text"
+			position = { x = 46 y = 662 }
+			font = "aldrich_16_outline"
+			text = "[ROOT.ITAINF_HUNGARY]"
+			maxWidth = 999
+			maxHeight = 999
+			fixedsize = no
+		}
+
+		instantTextboxType = {
+			name = "FRA_influence_text"
+			position = { x = 46 y = 683 }
+			font = "aldrich_16_outline"
+			text = "[ROOT.ITAINF_FRANCE]"
+			maxWidth = 999
+			maxHeight = 999
+			fixedsize = no
+		}
+
+		iconType = {
+			name = "CRO_SphereButtonCheck"
+			spriteType = "GFX_Italy_Diplo_GUI_Check"
+			position = { x = 556  y = 533 }
+			pdx_tooltip = "ITAInfluence.Complete"
+		}
+		
+		iconType = {
+			name = "MNT_SphereButtonCheck"
+			spriteType = "GFX_Italy_Diplo_GUI_Check"
+			position = { x = 556  y = 554 }
+			pdx_tooltip = "ITAInfluence.Complete"
+		}
+		
+		iconType = {
+			name = "GRE_SphereButtonCheck"
+			spriteType = "GFX_Italy_Diplo_GUI_Check"
+			position = { x = 556  y = 575 }
+			pdx_tooltip = "ITAInfluence.Complete"
+		}
+
+		iconType = {
+			name = "BUL_SphereButtonCheck"
+			spriteType = "GFX_Italy_Diplo_GUI_Check"
+			position = { x = 556  y = 596 }
+			pdx_tooltip = "ITAInfluence.Complete"
+		}
+
+		iconType = {
+			name = "ROM_SphereButtonCheck"
+			spriteType = "GFX_Italy_Diplo_GUI_Check"
+			position = { x = 556  y = 617 }
+			pdx_tooltip = "ITAInfluence.Complete"
+		}
+
+		iconType = {
+			name = "SER_SphereButtonCheck"
+			spriteType = "GFX_Italy_Diplo_GUI_Check"
+			position = { x = 556  y = 638 }
+			pdx_tooltip = "ITAInfluence.Complete"
+		}
+
+		iconType = {
+			name = "HUN_SphereButtonCheck"
+			spriteType = "GFX_Italy_Diplo_GUI_Check"
+			position = { x = 556  y = 659 }
+			pdx_tooltip = "ITAInfluence.Complete"
+		}
+
+		iconType = {
+			name = "FRA_SphereButtonCheck"
+			spriteType = "GFX_Italy_Diplo_GUI_Check"
+			position = { x = 556  y = 680 }
+			pdx_tooltip = "ITAInfluence.Complete"
+		}
+
+		buttonType = {
+			name = "ITA_Diplo_GUI_Close_Button"
+			position = { x = -36 y = 15 }
+			quadTextureSprite ="GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = "UPPER_RIGHT"
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+	}
+
+	containerWindowType = {
+		name = "TNO_ita_influence_windowbuttons_open"
+		size = { width = 717 height = 880 }
+		position = { x = 550 y = 3 }
+
+		buttonType = {
+			name = "CRO_blank_sphere_button"
+			spriteType = "GFX_Italy_Diplo_GUI_Button_Empty"
+			position = { x = 556  y = 533 }
+			pdx_tooltip = "ITAInfluence.Rules"
+		}
+		buttonType = {
+			name = "CRO_full_sphere_button"
+			spriteType = "GFX_Italy_Diplo_GUI_Button_Full"
+			position = { x = 556  y = 533 }
+			pdx_tooltip = "ITAInfluence.Rules"
+		}
+		
+		buttonType = {
+			name = "MNT_blank_sphere_button"
+			spriteType = "GFX_Italy_Diplo_GUI_Button_Empty"
+			position = { x = 556  y = 533 }
+			pdx_tooltip = "ITAInfluence.Rules"
+		}
+		buttonType = {
+			name = "MNT_full_sphere_button"
+			spriteType = "GFX_Italy_Diplo_GUI_Button_Full"
+			position = { x = 556  y = 533 }
+			pdx_tooltip = "ITAInfluence.Rules"
+		}
+
+		buttonType = {
+			name = "GRE_blank_sphere_button"
+			spriteType = "GFX_Italy_Diplo_GUI_Button_Empty"
+			position = { x = 556  y = 575 }
+			pdx_tooltip = "ITAInfluence.Rules"
+		}
+		buttonType = {
+			name = "GRE_full_sphere_button"
+			spriteType = "GFX_Italy_Diplo_GUI_Button_Full"
+			position = { x = 556  y = 575 }
+			pdx_tooltip = "ITAInfluence.Rules"
+		}
+
+		buttonType = {
+			name = "BUL_blank_sphere_button"
+			spriteType = "GFX_Italy_Diplo_GUI_Button_Empty"
+			position = { x = 556  y = 596 }
+			pdx_tooltip = "ITAInfluence.Rules"
+		}
+		buttonType = {
+			name = "BUL_full_sphere_button"
+			spriteType = "GFX_Italy_Diplo_GUI_Button_Full"
+			position = { x = 556  y = 596 }
+			pdx_tooltip = "ITAInfluence.Rules"
+		}
+
+		buttonType = {
+			name = "ROM_blank_sphere_button"
+			spriteType = "GFX_Italy_Diplo_GUI_Button_Empty"
+			position = { x = 556  y = 617 }
+			pdx_tooltip = "ITAInfluence.Rules"
+		}
+		buttonType = {
+			name = "ROM_full_sphere_button"
+			spriteType = "GFX_Italy_Diplo_GUI_Button_Full"
+			position = { x = 556  y = 617 }
+			pdx_tooltip = "ITAInfluence.Rules"
+		}
+
+		buttonType = {
+			name = "SER_blank_sphere_button"
+			spriteType = "GFX_Italy_Diplo_GUI_Button_Empty"
+			position = { x = 556  y = 638 }
+			pdx_tooltip = "ITAInfluence.Rules"
+		}
+		buttonType = {
+			name = "SER_full_sphere_button"
+			spriteType = "GFX_Italy_Diplo_GUI_Button_Full"
+			position = { x = 556  y = 638 }
+			pdx_tooltip = "ITAInfluence.Rules"
+		}
+
+		buttonType = {
+			name = "HUN_blank_sphere_button"
+			spriteType = "GFX_Italy_Diplo_GUI_Button_Empty"
+			position = { x = 556  y = 659 }
+			pdx_tooltip = "ITAInfluence.Rules"
+		}
+		buttonType = {
+			name = "HUN_full_sphere_button"
+			spriteType = "GFX_Italy_Diplo_GUI_Button_Full"
+			position = { x = 556  y = 659 }
+			pdx_tooltip = "ITAInfluence.Rules"
+		}
+
+		buttonType = {
+			name = "FRA_blank_sphere_button"
+			spriteType = "GFX_Italy_Diplo_GUI_Button_Empty"
+			position = { x = 556  y = 680 }
+			pdx_tooltip = "ITAInfluence.Rules"
+		}
+		buttonType = {
+			name = "FRA_full_sphere_button"
+			spriteType = "GFX_Italy_Diplo_GUI_Button_Full"
+			position = { x = 556  y = 680 }
+			pdx_tooltip = "ITAInfluence.Rules"
+		}
+	}
+}

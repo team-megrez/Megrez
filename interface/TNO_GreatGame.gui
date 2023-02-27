@@ -1,0 +1,114 @@
+guiTypes = {
+	containerWindowType = {
+		name = "TNO_GG_Decisions_GUI"
+		size = { width = 538 height = 450 }
+		position = { x = 0 y = 0 }
+
+		iconType = {
+			name = "GG_Background"
+			spriteType = "GFX_GG_bg_no_cards"
+			position = { x = -2 y = 11 } #Bottom of picture is y = 3
+			alwaystransparent = yes
+		}
+		
+		iconType = {
+			name = "GG_card_GER"
+			spriteType = "GFX_GG_card_GER"
+			position = { x = -2 y = 112 }
+			alwaystransparent = yes
+		}
+		
+		iconType = {
+			name = "GG_card_ITA"
+			spriteType = "GFX_GG_card_ITA"
+			position = { x = 256 y = 112 }
+			alwaystransparent = yes
+		}
+		
+		instantTextboxType = {
+			name = "Turn_Text"
+			position = { x = -5 y = 34 }
+			font = "vt323_72_WT_outline"
+			text = GreatGame_turn_tt
+			maxWidth = 525
+			format = center
+			alwaystransparent = yes
+		}
+		
+		iconType = {
+			name = "GG_Box_Divider_1"
+			spriteType = "GFX_GG_divided_1"
+			position = { x = 126 y = 12 } 
+		}
+		iconType = {
+			name = "GG_Box_Divider_2"
+			spriteType = "GFX_GG_divided_2"
+			position = { x = 178 y = 12 } 
+		}
+		iconType = {
+			name = "GG_Box_Divider_3"
+			spriteType = "GFX_GG_divided_3"
+			position = { x = 230 y = 12 } 
+		}
+		iconType = {
+			name = "GG_Box_Divider_4"
+			spriteType = "GFX_GG_divided_4"
+			position = { x = 282 y = 12 } 
+		}
+		iconType = {
+			name = "GG_Box_Divider_5"
+			spriteType = "GFX_GG_divided_5"
+			position = { x = 334 y = 12 } 
+		}
+		
+		iconType = {
+			name = "GG_card_left"
+			spriteType = "GFX_GG_card"
+			position = { x = -2 y = 112 }
+		}
+		instantTextboxType = {
+			name = "GG_card_left_number"
+			position = { x = -2 y = 224 }
+			font = "vt323_72_WT_outline"
+			text = GreatGame_GER_no_tt
+			maxWidth = 239
+			format = center
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "GG_card_left_upper_right_suit"
+			spriteType = "GFX_GG_German_Suit_1"
+			position = { x = 183 y = 112 }
+		}
+		iconType = {
+			name = "GG_card_left_lower_left_suit"
+			spriteType = "GFX_GG_German_Suit_1_flipped"
+			position = { x = -2 y = 391 }
+		}
+		
+		iconType = {
+			name = "GG_card_right"
+			spriteType = "GFX_GG_card"
+			position = { x = 256 y = 112 }
+		}
+		instantTextboxType = {
+			name = "GG_card_right_number"
+			position = { x = 256 y = 224 }
+			font = "vt323_72_WT_outline"
+			text = GreatGame_ITA_no_tt
+			maxWidth = 239
+			format = center
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "GG_card_right_upper_right_suit"
+			spriteType = "GFX_GG_Italian_Suit_1"
+			position = { x = 441 y = 112 }
+		}
+		iconType = {
+			name = "GG_card_right_lower_left_suit"
+			spriteType = "GFX_GG_Italian_Suit_1_flipped"
+			position = { x = 256 y = 391 }
+		}
+	}
+}

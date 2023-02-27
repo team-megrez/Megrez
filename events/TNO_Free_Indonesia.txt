@@ -1,0 +1,806 @@
+﻿#######################
+#Free Indonesia Events#
+#######################
+add_namespace = fri
+
+#reload fri faction unity branch
+country_event = {
+	id = fri.100
+	title = fri.100.t
+	desc = fri.100.desc
+	picture = GFX_report_event_iberia_meeting_small
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event fri.100"
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fri.100.a
+		set_country_flag = FRI_war_unity_failed
+		hidden_effect = {
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+}
+
+#Contacting islamist and communist leaders
+country_event = {
+	id = fri.101
+	title = fri.101.t
+	desc = fri.101.desc
+	picture = GFX_report_event_russian_letter
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event fri.101"
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fri.101.a
+		add_political_power = 10
+		hidden_effect = {country_event = {id = fri.102 days = 30}}
+		set_country_flag = FRI_contacted_other_groups
+		custom_effect_tooltip = fri.101.a.tt
+	}
+}
+
+#You fucked up
+country_event = {
+	id = fri.102
+	title = fri.102.t
+	desc = fri.102.desc
+	picture = GFX_report_event_generic_office
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event fri.102"
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		NOT = {
+			has_completed_focus = FRI_emphasize_anti_sukarno_unity
+			has_completed_focus = FRI_put_our_differences_aside
+		}
+	}
+
+	option = {
+		name = fri.102.a
+		set_country_flag = FRI_contacted_other_groups_failed
+	}
+}
+
+country_event = { #Speech calling for unity against Sukarno
+	id = fri.103
+	title = fri.103.t
+	desc = fri.103.desc
+	picture = GFX_report_event_microphone
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event fri.103"
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fri.103.a
+		add_political_power = 15
+		hidden_effect = {
+			random_list = {
+				70 = {
+					modifier = {
+						factor = 0
+						has_completed_focus = FRI_put_our_differences_aside
+					}
+					country_event = {id = fri.104 hours = 18}
+				}
+				30 = {
+					country_event = {id = fri.105 hours = 18}
+				}
+			}
+		}
+	}
+}
+
+country_event = {#The groups respond to the speech positively
+	id = fri.104
+	title = fri.104.t
+	desc = fri.104.desc
+	picture = GFX_report_event_iberia_barcelona_people
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event fri.104"
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fri.104.a
+		add_war_support = 0.05
+	}
+}
+
+country_event = {#The groups respond to the speech negatively
+	id = fri.105
+	title = fri.105.t
+	desc = fri.105.desc
+	picture = GFX_report_event_protest
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event fri.105"
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fri.105.a
+		add_political_power = -50
+		set_country_flag = FRI_contacted_other_groups_failed
+		hidden_effect = {
+			country_event = {id = fri.100}
+		}
+	}
+}
+
+country_event = {#Entering negotiations for the alliance
+	id = fri.106
+	title = fri.106.t
+	desc = fri.106.desc
+	picture = GFX_report_event_iberia_big_meeting
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event fri.106"
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fri.106.a
+		hidden_effect = {
+			random_list = {
+				80 = {
+					country_event = {id = fri.108 hours = 18}
+				}
+				20 = {
+					modifier = {
+						factor = 0
+						has_completed_focus = FRI_emphasize_anti_sukarno_unity
+					}
+					country_event = {id = fri.107 hours = 18}
+				}
+			}
+		}
+	}
+}
+
+country_event = {#Negotiations succeed
+	id = fri.107
+	title = fri.107.t
+	desc = fri.107.desc
+	picture = GFX_report_event_china_vietnam
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event fri.107"
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fri.107.a
+		add_political_power = 50
+	}
+}
+
+country_event = {#Negotiations fail
+	id = fri.108
+	title = fri.108.t
+	desc = fri.108.desc
+	picture = GFX_report_event_french_vietnam
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event fri.108"
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fri.108.a
+		add_political_power = -50
+		set_country_flag = FRI_contacted_other_groups_failed
+		hidden_effect = {
+			country_event = {id = fri.100}
+		}
+	}
+}
+
+country_event = {#We need to focus on swaying one ally
+	id = fri.109
+	title = fri.109.t
+	desc = fri.109.desc
+	picture = GFX_report_event_iberia_algeria_protest
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event fri.109"
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fri.109.a
+		set_country_flag = FRI_islamists_chosen
+		complete_national_focus = FRI_the_white
+	}
+
+	option = {
+		name = fri.109.b
+		set_country_flag = FRI_communists_chosen
+		complete_national_focus = FRI_the_red
+	}
+}
+
+country_event = {#Cells busted!
+	id = fri.1000
+	title = {
+		text = fri.1000.t.a
+		trigger = {
+			INS = {check_variable = {INS_busted_north_sumatra_cell = 2}}
+		}
+	}
+	title = {
+		text = fri.1000.t.b
+		trigger = {
+			INS = {check_variable = {INS_busted_south_sumatra_cell = 2}}
+		}
+	}
+	title = {
+		text = fri.1000.t.c
+		trigger = {
+			INS = {check_variable = {INS_busted_western_java_cell = 2}}
+		}
+	}
+	title = {
+		text = fri.1000.t.d
+		trigger = {
+			INS = {check_variable = {INS_busted_eastern_java_cell = 2}}
+		}
+	}
+	title = {
+		text = fri.1000.t.e
+		trigger = {
+			INS = {check_variable = {INS_busted_kalimantan_cell = 2}}
+		}
+	}
+	title = {
+		text = fri.1000.t.f
+		trigger = {
+			INS = {check_variable = {INS_busted_sulawesi_cell = 2}}
+		}
+	}
+	title = {
+		text = fri.1000.t.g
+		trigger = {
+			INS = {check_variable = {INS_busted_papua_cell = 2}}
+		}
+	}
+	title = {
+		text = fri.1000.t.h
+		trigger = {
+			INS = {check_variable = {INS_busted_moluccas_cell = 2}}
+		}
+	}
+
+	desc = {
+		text = fri.1000.desc.a
+		trigger = {
+			INS = {check_variable = {INS_busted_north_sumatra_cell = 2}}
+		}
+	}
+	desc = {
+		text = fri.1000.desc.b
+		trigger = {
+			INS = {check_variable = {INS_busted_south_sumatra_cell = 2}}
+		}
+	}
+	desc = {
+		text = fri.1000.desc.c
+		trigger = {
+			INS = {check_variable = {INS_busted_western_java_cell = 2}}
+		}
+	}
+	desc = {
+		text = fri.1000.desc.d
+		trigger = {
+			INS = {check_variable = {INS_busted_eastern_java_cell = 2}}
+		}
+	}
+	desc = {
+		text = fri.1000.desc.e
+		trigger = {
+			INS = {check_variable = {INS_busted_kalimantan_cell = 2}}
+		}
+	}
+	desc = {
+		text = fri.1000.desc.f
+		trigger = {
+			INS = {check_variable = {INS_busted_sulawesi_cell = 2}}
+		}
+	}
+	desc = {
+		text = fri.1000.desc.g
+		trigger = {
+			INS = {check_variable = {INS_busted_papua_cell = 2}}
+		}
+	}
+	desc = {
+		text = fri.1000.desc.h
+		trigger = {
+			INS = {check_variable = {INS_busted_moluccas_cell = 2}}
+		}
+	}
+
+	picture = GFX_report_event_french_vietnam
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event fri.1000"
+		if = {
+			limit = {
+				INS = {check_variable = {INS_busted_north_sumatra_cell = 2}}
+			}
+			if = {
+				limit = {check_variable = {var = FRI.FRI_cs_north_sumatra value = 6 compare = less_than_or_equals}}
+				add_to_variable = {FRI.FRI_cs_north_sumatra = -3}
+				clamp_variable = {var = FRI.FRI_cs_north_sumatra min = 0 max = 10}
+			}
+			else = {
+				multiply_variable = {FRI.FRI_cs_north_sumatra = 0.5}
+				round_variable = FRI.FRI_cs_north_sumatra
+				clamp_variable = {var = FRI.FRI_cs_north_sumatra min = 0 max = 10}
+			}
+			clr_country_flag = FRI_North_Sumatra_invested_funds
+			clr_country_flag = FRI_North_Sumatra_smuggled_guns
+		}
+		if = {
+			limit = {
+				INS = {check_variable = {INS_busted_south_sumatra_cell = 2}}
+			}
+			if = {
+				limit = {check_variable = {var = FRI.FRI_cs_south_sumatra value = 6 compare = less_than_or_equals}}
+				add_to_variable = {FRI.FRI_cs_south_sumatra = -3}
+				clamp_variable = {var = FRI.FRI_cs_south_sumatra min = 0 max = 10}
+			}
+			else = {
+				multiply_variable = {FRI.FRI_cs_south_sumatra = 0.5}
+				round_variable = FRI.FRI_cs_south_sumatra
+				clamp_variable = {var = FRI.FRI_cs_south_sumatra min = 0 max = 10}
+			}
+			clr_country_flag = FRI_South_Sumatra_invested_funds
+			clr_country_flag = FRI_South_Sumatra_smuggled_guns
+		}
+		if = {
+			limit = {
+				INS = {check_variable = {INS_busted_western_java_cell = 2}}
+			}
+			if = {
+				limit = {check_variable = {var = FRI.FRI_cs_western_java value = 6 compare = less_than_or_equals}}
+				add_to_variable = {FRI.FRI_cs_western_java = -3}
+				clamp_variable = {var = FRI.FRI_cs_western_java min = 0 max = 10}
+			}
+			else = {
+				multiply_variable = {FRI.FRI_cs_western_java = 0.5}
+				round_variable = FRI.FRI_cs_western_java
+				clamp_variable = {var = FRI.FRI_cs_western_java min = 0 max = 10}
+			}
+			clr_country_flag = FRI_West_Java_invested_funds
+			clr_country_flag = FRI_West_Java_smuggled_guns
+		}
+		if = {
+			limit = {
+				INS = {check_variable = {INS_busted_eastern_java_cell = 2}}
+			}
+			if = {
+				limit = {check_variable = {var = FRI.FRI_cs_eastern_java value = 6 compare = less_than_or_equals}}
+				add_to_variable = {FRI.FRI_cs_eastern_java = -3}
+				clamp_variable = {var = FRI.FRI_cs_eastern_java min = 0 max = 10}
+			}
+			else = {
+				multiply_variable = {FRI.FRI_cs_eastern_java = 0.5}
+				round_variable = FRI.FRI_cs_eastern_java
+				clamp_variable = {var = FRI.FRI_cs_eastern_java min = 0 max = 10}
+			}
+			clr_country_flag = FRI_East_Java_invested_funds
+			clr_country_flag = FRI_East_Java_smuggled_guns
+		}
+		if = {
+			limit = {
+				INS = {check_variable = {INS_busted_kalimantan_cell = 2}}
+			}
+			if = {
+				limit = {check_variable = {var = FRI.FRI_cs_kalimantan value = 6 compare = less_than_or_equals}}
+				add_to_variable = {FRI.FRI_cs_kalimantan = -3}
+				clamp_variable = {var = FRI.FRI_cs_kalimantan min = 0 max = 10}
+			}
+			else = {
+				multiply_variable = {FRI.FRI_cs_kalimantan = 0.5}
+				round_variable = FRI.FRI_cs_kalimantan
+				clamp_variable = {var = FRI.FRI_cs_kalimantan min = 0 max = 10}
+			}
+			clr_country_flag = FRI_Kalimantan_invested_funds
+			clr_country_flag = FRI_Kalimantan_smuggled_guns
+		}
+		if = {
+			limit = {
+				INS = {check_variable = {INS_busted_sulawesi_cell = 2}}
+			}
+			if = {
+				limit = {check_variable = {var = FRI.FRI_cs_sulawesi value = 6 compare = less_than_or_equals}}
+				add_to_variable = {FRI.FRI_cs_sulawesi = -3}
+				clamp_variable = {var = FRI.FRI_cs_sulawesi min = 0 max = 10}
+			}
+			else = {
+				multiply_variable = {FRI.FRI_cs_sulawesi = 0.5}
+				round_variable = FRI.FRI_cs_sulawesi
+				clamp_variable = {var = FRI.FRI_cs_sulawesi min = 0 max = 10}
+			}
+			clr_country_flag = FRI_Sulawesi_invested_funds
+			clr_country_flag = FRI_Sulawesi_smuggled_guns
+		}
+		if = {
+			limit = {
+				INS = {check_variable = {INS_busted_papua_cell = 2}}
+			}
+			if = {
+				limit = {check_variable = {var = FRI.FRI_cs_papua value = 6 compare = less_than_or_equals}}
+				add_to_variable = {FRI.FRI_cs_papua = -3}
+				clamp_variable = {var = FRI.FRI_cs_papua min = 0 max = 10}
+			}
+			else = {
+				multiply_variable = {FRI.FRI_cs_papua = 0.5}
+				round_variable = FRI.FRI_cs_papua
+				clamp_variable = {var = FRI.FRI_cs_papua min = 0 max = 10}
+			}
+			clr_country_flag = FRI_North_Papua_invested_funds
+			clr_country_flag = FRI_North_Papua_smuggled_guns
+		}
+		if = {
+			limit = {
+				INS = {check_variable = {INS_busted_moluccas_cell = 2}}
+			}
+			if = {
+				limit = {check_variable = {var = FRI.FRI_cs_moluccas value = 6 compare = less_than_or_equals}}
+				add_to_variable = {FRI.FRI_cs_moluccas = -3}
+				clamp_variable = {var = FRI.FRI_cs_moluccas min = 0 max = 10}
+			}
+			else = {
+				multiply_variable = {FRI.FRI_cs_moluccas = 0.5}
+				round_variable = FRI.FRI_cs_moluccas
+				clamp_variable = {var = FRI.FRI_cs_moluccas min = 0 max = 10}
+			}
+			clr_country_flag = FRI_Moluccas_invested_funds
+			clr_country_flag = FRI_Moluccas_smuggled_guns
+		}
+	}
+
+	fire_only_once = no
+	is_triggered_only = yes
+
+	option = {
+		name = fri.1000.a
+		trigger = {
+			INS = {check_variable = {INS_busted_north_sumatra_cell = 2}}
+		}
+		if = {
+			limit = {check_variable = {var = FRI.FRI_cs_north_sumatra value = 6 compare = less_than_or_equals}}
+			custom_effect_tooltip = fri.1000.a.tt.1
+		}
+		else = {
+			custom_effect_tooltip = fri.1000.a.tt.2
+		}
+	}
+	option = {
+		name = fri.1000.b
+		trigger = {
+			INS = {check_variable = {INS_busted_south_sumatra_cell = 2}}
+		}
+		if = {
+			limit = {check_variable = {var = FRI.FRI_cs_south_sumatra value = 6 compare = less_than_or_equals}}
+			custom_effect_tooltip = fri.1000.b.tt.1
+		}
+		else = {
+			custom_effect_tooltip = fri.1000.b.tt.2
+		}
+	}
+	option = {
+		name = fri.1000.c
+		trigger = {
+			INS = {check_variable = {INS_busted_western_java_cell = 2}}
+		}
+		if = {
+			limit = {check_variable = {var = FRI.FRI_cs_western_java value = 6 compare = less_than_or_equals}}
+			custom_effect_tooltip = fri.1000.c.tt.1
+		}
+		else = {
+			custom_effect_tooltip = fri.1000.c.tt.2
+		}
+	}
+	option = {
+		name = fri.1000.d
+		trigger = {
+			INS = {check_variable = {INS_busted_eastern_java_cell = 2}}
+		}
+		if = {
+			limit = {check_variable = {var = FRI.FRI_cs_eastern_java value = 6 compare = less_than_or_equals}}
+			custom_effect_tooltip = fri.1000.d.tt.1
+		}
+		else = {
+			custom_effect_tooltip = fri.1000.d.tt.2
+		}
+	}
+	option = {
+		name = fri.1000.e
+		trigger = {
+			INS = {check_variable = {INS_busted_kalimantan_cell = 2}}
+		}
+		if = {
+			limit = {check_variable = {var = FRI.FRI_cs_kalimantan value = 6 compare = less_than_or_equals}}
+			custom_effect_tooltip = fri.1000.e.tt.1
+		}
+		else = {
+			custom_effect_tooltip = fri.1000.e.tt.2
+		}
+	}
+	option = {
+		name = fri.1000.f
+		trigger = {
+			INS = {check_variable = {INS_busted_sulawesi_cell = 2}}
+		}
+		if = {
+			limit = {check_variable = {var = FRI.FRI_cs_sulawesi value = 6 compare = less_than_or_equals}}
+			custom_effect_tooltip = fri.1000.f.tt.1
+		}
+		else = {
+			custom_effect_tooltip = fri.1000.f.tt.2
+		}
+	}
+	option = {
+		name = fri.1000.g
+		trigger = {
+			INS = {check_variable = {INS_busted_papua_cell = 2}}
+		}
+		if = {
+			limit = {check_variable = {var = FRI.FRI_cs_papua value = 6 compare = less_than_or_equals}}
+			custom_effect_tooltip = fri.1000.g.tt.1
+		}
+		else = {
+			custom_effect_tooltip = fri.1000.g.tt.2
+		}
+	}
+	option = {
+		name = fri.1000.h
+		trigger = {
+			INS = {check_variable = {INS_busted_moluccas_cell = 2}}
+		}
+		if = {
+			limit = {check_variable = {var = FRI.FRI_cs_moluccas value = 6 compare = less_than_or_equals}}
+			custom_effect_tooltip = fri.1000.h.tt.1
+		}
+		else = {
+			custom_effect_tooltip = fri.1000.h.tt.2
+		}
+	}
+}
+
+## tree related
+
+country_event = { # Call to the White House, ask President for more direct aid
+	id = fri.200
+	title = fri.200.t
+	desc = fri.200.desc
+	picture = GFX_report_event_MAD_phone_call
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event fri.200"
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # yes
+		name = fri.200.a
+		FRI = {
+			country_event = {
+				id = fri.201
+				hours = 1
+			}
+		}
+	}
+	option = { # no
+		name = fri.200.b
+		FRI = {
+			country_event = {
+				id = fri.202
+				hours = 1
+			}
+		}
+	}
+}
+
+country_event = { # Yes !
+	id = fri.201
+	title = fri.201.t
+	desc = fri.201.desc
+	picture = GFX_report_event_south_african_war_us_soldier9
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event fri.201"
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #
+		name = fri.201.a
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 1000
+			producer = USA
+		}
+	}
+}
+
+country_event = { # They said no wtf
+	id = fri.202
+	title = fri.202.t
+	desc = fri.202.desc
+	picture = GFX_report_event_south_african_war_us_soldier
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event fri.202"
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #
+		name = fri.202.a
+
+	}
+}
+
+country_event = { # Suharto's grip
+	id = fri.203
+	title = fri.203.t
+	desc = fri.203.desc
+	picture = GFX_report_event_iberia_military_parade_big
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event fri.203"
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #
+		name = fri.203.a
+
+	}
+}
+
+country_event = { # Nasution's guidence
+	id = fri.204
+	title = fri.204.t
+	desc = fri.204.desc
+	picture = GFX_report_event_wales_army
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event fri.204"
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #
+		name = fri.204.a
+
+	}
+}
+
+country_event = { # Romusha Question
+	id = fri.205
+	title = fri.205.t
+	desc = fri.205.desc
+	picture = GFX_report_event_germany_slavery
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event fri.205"
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #slavery gang gang
+		name = fri.205.a
+		set_country_flag = FRI_romusha_continued
+	}
+	option = { #hot take: slavery bad
+		name = fri.205.b
+		set_country_flag = FRI_romusha_ended
+	}
+}
+
+country_event = { # sukarnos armies get fucked by FRI
+	id = fri.206
+	title = fri.206.t
+	desc = fri.206.desc
+	picture = GFX_report_event_iberian_wars_6
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event fri.206"
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #
+		name = fri.206.a
+		add_ideas = FRI_disruption
+	}
+}
+
+country_event = { # sukarnos armies get fucked by FRI 2: Electric Boogaloo
+	id = fri.207
+	title = fri.207.t
+	desc = fri.207.desc
+	picture = GFX_report_event_african_rebels2
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event fri.207"
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #
+		name = fri.207.a
+		swap_ideas = {
+			remove_idea = FRI_disruption
+			add_idea = FRI_disruption1
+		}
+	}
+}
+
+country_event = {
+	id = fri.208
+	title = fri.208.t
+	desc = fri.208.desc
+	picture = GFX_report_event_Paper_Bundle
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event fri.208"
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #
+		name = fri.208.a
+		USA = {
+			country_event = {
+				id = fri.200
+				hours = 1
+			}
+		}
+	}
+}

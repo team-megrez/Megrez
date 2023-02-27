@@ -1,0 +1,40 @@
+﻿add_namespace = SUR
+
+country_event = {#Death of Queen Wilhelmina
+	id = SUR.1
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SUR.1"}
+	is_triggered_only = yes
+	hidden = yes
+
+ 	immediate = {
+ 		#kill_country_leader = yes
+		#create_country_leader = {
+		#	name = "Juliana of the Netherlands"
+		#	expire = "1965.1.1"
+		#	ideology = liberalism_subtype
+		#	traits = {
+		#	}
+		#}
+		every_country = {
+			limit = { is_ai = no }
+			news_event = {
+				id = SUR.2
+			}
+		}
+		remove_ideas = SUR_queen_wilhelmina
+		add_ideas = SUR_queen_juliana
+ 	}
+}
+
+news_event = { # Death of Queen Wilhelmina News
+	id = SUR.2
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SUR.2"}
+	title = SUR.2.t
+	desc = SUR.2.desc
+	is_triggered_only = yes
+	picture = GFX_news_event_SUR_wilhelmina_dead
+
+	option = {
+		name = SUR.2.a
+	}
+}

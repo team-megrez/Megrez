@@ -1,0 +1,48 @@
+#############
+## Iceland ##
+#############
+
+add_namespace = ICE
+
+##Intro Event - Please give me one or Carvor will yell again and throw things oh god I think he heard me run oh god please have mercy I-
+country_event = {
+	id = ICE.1
+	immediate = {log = "[GetDateText]: [Root.GetName]: event ICE.1"}
+	title = ICE.1.t
+	desc = ICE.1.d
+	picture = GFX_report_event_german_speech
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = ICE.1.a
+	}
+}
+
+##Meloy Dies
+country_event = {
+	id = ICE.2
+	immediate = {log = "[GetDateText]: [Root.GetName]: event ICE.2"}
+	title = ICE.2.t
+	desc = ICE.2.d
+	picture = GFX_report_event_german_speech
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = ICE.2.a
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Hamilton H. Howze"
+			#desc = "POLITICS_TSAR_VLADIMIR_DESC"
+			picture = "Portrait_ICE_Hamilton_H_Howze.dds"
+			expire = "1999.1.1"
+			ideology = paternalism_military_mandate_subtype
+			traits = {
+
+			}
+		}
+	}
+}

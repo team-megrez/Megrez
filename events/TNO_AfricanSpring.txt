@@ -1,0 +1,602 @@
+add_namespace = A_SPRING
+
+########################################################################
+
+##### #   # ####  ##### ####  ##### #   # ####   ###  #   #  #### #####
+  #   ##  # #   # #     #   # #     ##  # #   # #   # ##  # #     #
+  #   # # # #   # ###   ####  ###   # # # #   # ##### # # # #     ###
+  #   #  ## #   # #     #     #     #  ## #   # #   # #  ## #     #
+##### #   # ####  ##### #     ##### #   # ####  #   # #   #  #### #####
+
+########################################################################
+
+country_event = { # The Independence of Orungu
+	id = A_SPRING.1
+	immediate = {log = "[GetDateText]: [Root.GetName]: event A_SPRING.1"}
+	title = A_SPRING.1.t
+	desc = A_SPRING.1.d
+	picture = GFX_report_event_iberia_guinea_soldiers_plane_wreckage
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = A_SPRING.1.a
+		if = {
+			limit = {
+				country_exists = GAB
+			}
+			GAB = {
+				add_state_core = 1548
+				add_state_core = 1549
+				transfer_state = 1548
+				transfer_state = 1549
+			}
+		}
+		else = {
+			EQG = {
+				add_state_core = 1548
+				add_state_core = 1549
+				transfer_state = 1548
+				transfer_state = 1549
+			}
+		}
+		1548 = { set_demilitarized_zone = no }
+	}
+}
+
+country_event = { # The Independence of Sao Tomé
+	id = A_SPRING.2
+	immediate = {log = "[GetDateText]: [Root.GetName]: event A_SPRING.2"}
+	title = A_SPRING.2.t
+	desc = A_SPRING.2.d
+	picture = GFX_report_event_african_rebels2
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = A_SPRING.2.a
+		SAO = {
+			add_state_core = 705
+			transfer_state = 705
+		}
+	}
+}
+
+########################################################################
+
+####  #   # #   # #   # #   #
+#   # #   # ## ## ## ##  # #
+#   # #   # # # # # # #   #
+#   # #   # #   # #   #   #
+####   ###  #   # #   #   #
+
+########################################################################
+
+country_event = { # Zanzibar Revolution
+	id = A_SPRING.3
+	immediate = {log = "[GetDateText]: [Root.GetName]: event A_SPRING.3"}
+	title = A_SPRING.3.t
+	desc = A_SPRING.3.desc
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = A_SPRING.3.a
+		ZZB = {
+			set_politics = {
+				ruling_party = ultranationalism
+				elections_allowed = no
+			}
+			set_popularities = {
+				communist = 10
+				ultranationalism = 15
+				socialist = 10
+				progressivism = 0
+				liberalism = 0
+				conservatism = 20
+				paternalism = 40
+				despotism = 5
+				fascism = 0
+				national_socialism = 0
+				
+			}
+		}
+	}
+}
+
+country_event = { # Congolese Civil War (Reichsstaat)
+	id = A_SPRING.4
+	immediate = {log = "[GetDateText]: [Root.GetName]: event A_SPRING.4"}
+	title = A_SPRING.4.t
+	desc = A_SPRING.4.desc
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = A_SPRING.4.a
+		set_global_flag = congo_crisis_reichsstaat
+		CFS = {
+			set_capital = { state = 1168 }
+			load_oob = Congo_Mandate_Collapse_CFS
+		}
+		GRO = {
+			transfer_state = 1167
+			transfer_state = 1165
+			transfer_state = 1166
+			every_owned_state = {
+				add_core_of = PREV
+			}
+		}
+		CPR = {
+			transfer_state = 718
+
+			transfer_state = 1170
+
+			transfer_state = 1175
+
+			transfer_state = 1176
+
+			transfer_state = 1177
+
+			transfer_state = 1178
+
+			transfer_state = 1180
+
+			every_owned_state = {
+				add_core_of = PREV
+			}
+			load_oob = Congo_Mandate_Collapse_CPR
+		}
+		KTG = {
+			transfer_state = 1056
+
+			transfer_state = 1057
+
+			every_owned_state = {
+				add_core_of = PREV
+			}
+			load_oob = Congo_Mandate_Collapse_KAT
+		}
+		KSI = {
+			transfer_state = 1055
+
+			transfer_state = 1169
+
+			every_owned_state = {
+				add_core_of = PREV
+			}
+			
+			load_oob = Congo_Mandate_Collapse_KSI
+		}
+		AZD = {
+			transfer_state = 1182
+			transfer_state = 1183
+			transfer_state = 1185
+			every_owned_state = {
+				add_core_of = PREV
+			}
+			
+			load_oob = Congo_Mandate_Collapse_AZD
+		}
+		CAF = {
+			load_oob = Congo_Mandate_Collapse_CAF
+		}
+		ZZZ = {
+			country_event = {
+				id = COG_PW.1
+				days = 7
+			}
+		}
+	}
+}
+
+country_event = { # Angolan Civil War
+	id = A_SPRING.5
+	immediate = {log = "[GetDateText]: [Root.GetName]: event A_SPRING.5"}
+	title = A_SPRING.5.t
+	desc = A_SPRING.5.desc
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+
+	option = {
+		name = A_SPRING.5.a
+		ANG_free_angola = yes
+		news_event = { id = WORLD.18201 }
+		USA = {
+			country_event = { id = ANG_PW.10 days = 45 }
+			country_event = { id = ANG_PW.12 days = 35}
+		}
+		JAP = {
+			country_event = { id = ANG_PW.20 days = 25 }
+			country_event = { id = ANG_PW.21 days = 45 }
+		}
+	}
+}
+
+country_event = { # Botswana-Zimbabwe War - Good potential for minors to ITA-IBE PW. Wink Wink. Nudge Nudge.
+	id = A_SPRING.6
+	immediate = {log = "[GetDateText]: [Root.GetName]: event A_SPRING.6"}
+	title = A_SPRING.6.t
+	desc = A_SPRING.6.desc
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = A_SPRING.6.a
+		ZIM = {
+			declare_war_on = {
+				target = BTS
+				type = annex_everything
+			}
+		}
+	}
+}
+
+country_event = { # Ovamboland War of Independence
+	id = A_SPRING.7
+	immediate = {log = "[GetDateText]: [Root.GetName]: event A_SPRING.7"}
+	title = A_SPRING.7.t
+	desc = A_SPRING.7.desc
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		NOT = {
+			1032 = {
+				is_owned_by = SAF
+			}
+		}
+	}
+
+	option = {
+		name = A_SPRING.7.a
+
+		OVB = {
+			add_state_core = 1032
+			transfer_state = 1032
+			load_oob = "OVB_1962"
+			declare_war_on = {
+				target = NAM
+				type = annex_everything
+			}
+			
+		}
+		NAM = {
+			load_oob = "NAM_1962"
+		}
+	}
+}
+
+country_event = { # Rombesian Conflicts
+	id = A_SPRING.8
+	immediate = {log = "[GetDateText]: [Root.GetName]: event A_SPRING.8"}
+	title = A_SPRING.8.t
+	desc = A_SPRING.8.desc
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = A_SPRING.8.a
+
+		RMB = {
+			add_state_core = 544
+			transfer_state = 544
+
+			add_state_core = 879
+			transfer_state = 879
+
+			add_state_core = 1071
+			transfer_state = 1071
+
+			add_state_core = 1072
+			transfer_state = 1072
+
+			add_state_core = 1073
+			transfer_state = 1073
+
+			add_state_core = 1074
+			transfer_state = 1074
+
+			add_state_core = 1075
+			transfer_state = 1075
+
+			add_state_core = 1076
+			transfer_state = 1076
+
+			add_state_core = 1083
+			transfer_state = 1083
+
+			add_state_core = 1752
+			transfer_state = 1752
+			
+		}
+	}
+}
+
+country_event = { # Brazavillian Revolution
+	id = A_SPRING.9
+	immediate = {log = "[GetDateText]: [Root.GetName]: event A_SPRING.9"}
+	title = A_SPRING.9.t
+	desc = A_SPRING.9.desc
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = A_SPRING.9.a
+
+		BZZ = {
+			add_state_core = 1163
+			add_state_core = 1164
+			add_state_core = 1165
+			transfer_state = 1163
+			transfer_state = 1164
+			transfer_state = 1165
+			
+		}
+		hidden_effect = {
+			country_event = {
+				id = A_SPRING.17
+				days = 200
+			}
+		}
+	}
+}
+
+country_event = { # Saraland Counter-Revolution
+	id = A_SPRING.10
+	immediate = {log = "[GetDateText]: [Root.GetName]: event A_SPRING.10"}
+	title = A_SPRING.10.t
+	desc = A_SPRING.10.desc
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = A_SPRING.10.a
+
+		CHD = {
+			add_state_core = 660
+			transfer_state = 660
+
+			add_state_core = 1202
+			add_state_core = 1203
+			add_state_core = 1204
+			add_state_core = 1205
+			add_state_core = 1206
+			add_state_core = 1207
+			transfer_state = 1202
+			transfer_state = 1203
+			transfer_state = 1204
+			transfer_state = 1205
+			transfer_state = 1206
+			transfer_state = 1207
+
+		}
+	}
+}
+
+country_event = { # Saraland Civil War
+	id = A_SPRING.11
+	immediate = {log = "[GetDateText]: [Root.GetName]: event A_SPRING.11"}
+	title = A_SPRING.11.t
+	desc = A_SPRING.11.desc
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = A_SPRING.11.a
+
+		CHF = {
+			add_state_core = 660
+			add_state_core = 1205
+			transfer_state = 660
+			transfer_state = 1205
+			load_oob = CHF_collapse
+
+			declare_war_on = {
+				target = CHD
+				type = annex_everything
+			}
+
+		}
+		KNM = {
+			declare_war_on = {
+				target = CHF
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = CHD
+				type = annex_everything
+			}
+		}
+		CAO = {
+			declare_war_on = { target = KNM type = annex_everything }
+			declare_war_on = { target = CHF type = annex_everything }
+		}
+	}
+}
+
+country_event = { # Katanga Wars
+	id = A_SPRING.12
+	immediate = {log = "[GetDateText]: [Root.GetName]: event A_SPRING.12"}
+	title = A_SPRING.12.t
+	desc = A_SPRING.12.desc
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = A_SPRING.12.a
+
+		KSI = {
+			declare_war_on = {
+				target = KTG
+				type = annex_everything
+			}
+		}
+	}
+}
+
+country_event = { # Azandeland Proclamation
+	id = A_SPRING.13
+	immediate = {log = "[GetDateText]: [Root.GetName]: event A_SPRING.13"}
+	title = A_SPRING.13.t
+	desc = A_SPRING.13.desc
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = A_SPRING.13.a
+
+		AZD = {
+			add_state_core = 1182
+			transfer_state = 1182
+
+			add_state_core = 1183
+			transfer_state = 1183
+
+			add_state_core = 1185
+			transfer_state = 1185
+			
+		}
+
+		hidden_effect = {
+			country_event = {
+				id = A_SPRING.14
+				days = 120
+			}
+		}
+	}
+}
+
+country_event = { # Assassination of Patrice Lumumba
+	id = A_SPRING.14
+	immediate = {log = "[GetDateText]: [Root.GetName]: event A_SPRING.14"}
+	title = A_SPRING.14.t
+	desc = A_SPRING.14.desc
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = A_SPRING.14.a
+		CFS = {
+			kill_country_leader = yes
+
+			CFS_Joseph_Kasa_Vubu = {
+				add_country_leader_role = {
+					country_leader = {
+						ideology = liberalism_subtype
+						expire = "1999.1.23.1"
+						id = -1
+					}
+				}
+			}
+		}
+
+		hidden_effect = {
+			if = { #Congo crisis only fires if stage 3 devestation hasn't hit (Congo too fucked to have a civil war if it has)
+				limit = { NOT = { GRO_has_stage_3_devastation = yes } }
+				country_event = { # Congo Crisis
+					id = A_SPRING.4
+					days = 90
+				}
+			}
+		}
+	}
+}
+
+country_event = { # Bemba Secession
+	id = A_SPRING.15
+	immediate = {log = "[GetDateText]: [Root.GetName]: event A_SPRING.15"}
+	title = A_SPRING.15.t
+	desc = A_SPRING.15.desc
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = A_SPRING.15.a
+
+		BMB = {
+			add_state_core = 748
+			transfer_state = 748
+
+			add_state_core = 1070
+			transfer_state = 1070
+
+		}
+	}
+}
+
+country_event = { # Barotseland Accords
+	id = A_SPRING.16
+	immediate = {log = "[GetDateText]: [Root.GetName]: event A_SPRING.16"}
+	title = A_SPRING.16.t
+	desc = A_SPRING.16.desc
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = A_SPRING.16.a
+
+		BRS = {
+			add_state_core = 884
+			transfer_state = 884
+
+			add_state_core = 1052
+			transfer_state = 1052
+
+			add_state_core = 1053
+			transfer_state = 1053
+
+			add_state_core = 1054
+			transfer_state = 1054
+
+		}
+	}
+}
+
+country_event = { #People's Republic of Brazzaville joins the PALF checl
+	id = A_SPRING.17
+	immediate = {log = "[GetDateText]: [Root.GetName]: event A_SPRING.17"}
+	title = A_SPRING.17.t
+	desc = A_SPRING.17.desc
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = A_SPRING.17.a
+		if = {
+			limit = {
+				CAO = { # PACMEA has formed
+					has_country_flag = HAS_ECON_SPHERE
+				}
+			}
+			CAO = {
+				add_to_faction = BZZ
+			}
+			BZZ = {
+				set_country_flag = PALF_MEMBER
+				econ_leave_sphere = yes
+				econ_join_sphere_CAO = yes
+				hidden_effect = {
+					remove_faction_status = yes
+					add_ideas = PALF_Faction_peace
+				}
+				add_ideas = WEST_AFRICA_idea_economic_reconstruction
+			}
+		}
+	}
+}
