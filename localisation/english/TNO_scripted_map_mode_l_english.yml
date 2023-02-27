@@ -1,70 +1,50 @@
 ﻿l_english:
- # Econ Sphere map mode
- MAPMODE_TNO_ECON_SPHERE_MAP_MODE:0 "§YEconomic Sphere§!"
- MAPMODE_TNO_ECON_SPHERE_MAP_MODE_NAME:0 "Econ. Sphere"
- MAPMODE_TNO_ECON_SPHERE_MAP_MODE_DESCRIPTION:0 "Shows the economic spheres that the countries on the map belong to."
- 
+ MAPMODE_TNO_ECON_SPHERE_MAP_MODE:0 "§Y경제권§!"
+ MAPMODE_TNO_ECON_SPHERE_MAP_MODE_NAME:0 "경제권"
+ MAPMODE_TNO_ECON_SPHERE_MAP_MODE_DESCRIPTION:0 "지도상 국가가 속한 경제권역을 볼 수 있습니다."
  tno_econ_sphere_map_mode_tooltip:0 "§Y[FROM.Controller.GetSphereNameLong]§!"
- tno_econ_sphere_map_mode_tooltip_delayed:0 "§F§Y[FROM.Controller.GetNameWithFlag]§! is part of §Y[FROM.Controller.GetSphereNameLong]§!."
- 
+ tno_econ_sphere_map_mode_tooltip_delayed:0 "§F§Y[FROM.Controller.GetNameWithFlag]§!는 §Y[FROM.Controller.GetSphereNameLong]§!의 일부입니다.§!"
  econ_sphere_map_mode_mapicon_tooltip: "§F[!econ_sphere_leader_icon_click]§!"
- econ_sphere_map_mode_mapicon_tooltip_filled: "§Y[FROM.GetNameWithFlag]§! is the leader of the §Y[FROM.GetSphereNameLong]§! which consists of:§!"
- econ_sphere_map_mode_mapicon_tooltip_alone: "§Y[FROM.GetNameWithFlag]§! is the leader of the §Y[FROM.GetSphereNameLong]§! which currently only consists of itself.§!"
-
+ econ_sphere_map_mode_mapicon_tooltip_filled: "§Y[FROM.GetNameWithFlag]§!은 §Y[FROM.GetSphereNameLong]§! 권역의 지도국이며, 그 구성국은 다음과 같습니다:§!"
+ econ_sphere_map_mode_mapicon_tooltip_alone: "§Y[FROM.GetNameWithFlag]§!은 §Y[FROM.GetSphereNameLong]§! 권역의 지도국이며 소속국은 혼자입니다.§!"
  econ_sphere_map_mode_mapicon_tooltip_entry: "  - §Y[?FROM.econ_sphere_members^temp_sphere_idx.GetNameWithFlag]§!"
- 
- # Culture map mode
- MAPMODE_TNO_CULTURE_MAP_MODE:0 "§YCulture§!"
- MAPMODE_TNO_CULTURE_MAP_MODE_NAME:0 "Culture"
- MAPMODE_TNO_CULTURE_MAP_MODE_DESCRIPTION:0 "Shows the majority cultures in the world map."
- 
+ MAPMODE_TNO_CULTURE_MAP_MODE:0 "§Y문화§!"
+ MAPMODE_TNO_CULTURE_MAP_MODE_NAME:0 "문화"
+ MAPMODE_TNO_CULTURE_MAP_MODE_DESCRIPTION:0 "세계 지도에 주요 문화를 보여줍니다."
  tno_culture_map_mode_tooltip:0 "§Y[FROM.GetNationality]§!"
  tno_culture_map_mode_tooltip_delayed:0 "§F(§Y[FROM.Controller.GetNameWithFlag]§!): [FROM.GetName] has a majority culture of §Y[FROM.GetNationality]§!.§!"
- 
- tno_culture_map_mode_debug: "§TDEBUG: Go to a state without a culture§!"
- 
- # GDP Map mode
- MAPMODE_GDP_MAP_MODE: "§YGDP per Capita§!"
- MAPMODE_GDP_MAP_MODE_NAME: "GDP per Capita"
- MAPMODE_GDP_MAP_MODE_DESCRIPTION: "Displays the GDP per capita of a state or a country."
-
+ tno_culture_map_mode_debug: "§T디버그: 문화 없이 주 보기§!"
+ MAPMODE_GDP_MAP_MODE: "§Y1인당 GDP§!"
+ MAPMODE_GDP_MAP_MODE_NAME: "1인당 GDP"
+ MAPMODE_GDP_MAP_MODE_DESCRIPTION: "국가 혹은 주별 1인당 GDP를 보여줍니다."
  gdp_map_mode_tooltip: "§F[Get_GDPMapMode_tooltip]§!"
  gdp_map_mode_tooltip_delayed: "§F[Get_GDPMapMode_tooltip_delayed]§!"
- 
  gdp_STATE_map_mode_tooltip: "[FROM.GetName]: §Y$[?FROM.state_GDPPC]§!"
  gdp_STATE_map_mode_tooltip_delayed: "§Y[FROM.GetName]§! has a GDP per capita of §Y$[?FROM.state_GDPPC]§!, [FROM.Get_GDPMapMode_STATE_average]"
  gdp_COUNTRY_map_mode_tooltip: "(§Y[FROM.controller.GetNameWithFlag]§!): §Y$[?FROM.controller:gdpc_display]§!§!"
  gdp_COUNTRY_map_mode_tooltip_delayed: "§Y[FROM.controller.GetName]§! has a national GDP per capita of §Y$[?FROM.controller:gdpc_display]§!."
-
  GDPpC_STATE_negative_average: "which is [?gdpcc_state_average_n|2%R] less than the [FROM.controller.getflag] §Ynational average§! of §Y$[?FROM.controller:gdpc_display]§!."
  GDPpC_STATE_positive_average: "which is [?gdpcc_state_average|2%G] more than the [FROM.controller.getflag] §Ynational average§! of §Y$[?FROM.controller:gdpc_display]§!."
- 
- GDPpC_country_level_button_tt: "Click to view §YNational GDP per Capita§!"
- GDPpC_state_level_button_tt: "Click to view §YLocal GDP per Capita§!"
- GDpC_empty_tt: "§RAlready viewing this mode§!"
-
- # Building Map Mode
- MAPMODE_TNO_ECON_BUILDING_MAP_MODE: "§YBuildings§!"
- MAPMODE_TNO_ECON_BUILDING_MAP_MODE_NAME: "Buildings"
+ GDPpC_country_level_button_tt: "클릭하여 §Y1인당 국가 GDP§! 보기"
+ GDPpC_state_level_button_tt: "클릭하여 §Y1인당 지역 GDP§! 보기"
+ GDpC_empty_tt: "§R이미 선택한 모드로 보고 있습니다§!"
+ MAPMODE_TNO_ECON_BUILDING_MAP_MODE: "§Y건물§!"
+ MAPMODE_TNO_ECON_BUILDING_MAP_MODE_NAME: "건물"
  MAPMODE_TNO_ECON_BUILDING_MAP_MODE_DESCRIPTION: "Displays where we would benefit the most of new buildings in our states."
-
  tno_econ_building_map_mode_tooltip: "[Get_Building_Map_Mode_tooltip]"
  tno_econ_building_map_mode_tooltip_delayed: "[Get_Building_Map_Mode_tooltip_delayed]"
-
  tno_econ_building_map_mode_schools_tooltip: "§FWe gain [?FROM.theoric_school|%Y] coverage from building a §WSchool§! in [From.GetName].§!"
  tno_econ_building_map_mode_offices_tooltip: "§FWe gain [?FROM.theoric_office|%Y] coverage from building an §WAdministrative Office§! in [From.GetName].§!"
  tno_econ_building_map_mode_hospitals_tooltip: "§FWe gain [?FROM.theoric_hospital|%Y] coverage from building a §WHospital§! in [From.GetName].§!"
  tno_econ_building_map_mode_barracks_tooltip: "§FWe gain [?FROM.theoric_barrack|%Y] coverage from building a §WMilitary Base§! in [From.GetName].§!"
  tno_econ_building_map_mode_prisons_tooltip: "§FWe gain [?FROM.theoric_prison|%Y] coverage from building a §WPrison§! in [From.GetName].§!"
-
  tno_econ_building_map_mode_schools_tooltip_delayed: "§F§WSchools§! are more effective in places based on §Wpopulation§! and somewhat on §WGDP§!. Multiple buildings in the same state give §Sdiminishing returns.§!\n§!"
  tno_econ_building_map_mode_offices_tooltip_delayed: "§F§WAdministrative Offices§! are more effective in places based on §WGDP§! and somewhat on §Wpopulation§!. Multiple buildings in the same state give §Sdiminishing returns.§!\n§!"
  tno_econ_building_map_mode_hospitals_tooltip_delayed: "§F§WHospitals! are more effective in places based on §Wpopulation§! and §WGDP§!. Multiple buildings in the same state give §Sdiminishing returns.§!\n§!"
  tno_econ_building_map_mode_barracks_tooltip_delayed: "§F§WMilitary Bases§! are more effective in places based on §Wpopulation§!. Multiple buildings in the same state give §Sdiminishing returns.§!\n§!"
  tno_econ_building_map_mode_prisons_tooltip_delayed: "§F§WPrisons§! are more effective in places based on §Wpopulation§!. Multiple buildings in the same state give §Sdiminishing returns.§!\n§!"
-
- map_schools_button_tt: "§FClick to view where we §Rneed§! more §YSchools.§!§!"
- map_offices_button_tt: "§FClick to view where we §Rneed§! more §YOffices.§!§!"
- map_hospitals_button_tt: "§FClick to view where we §Rneed§! more §YHospitals.§!§!"
- map_prisons_button_tt: "§FClick to view where we §Rneed§! more §YPrisons.§!§!"
- map_barracks_button_tt: "§FClick to view where we §Rneed§! more §YBarracks.§!§!"
+ map_schools_button_tt: "§F클릭하여 더 많은 §Y학교§!가 §R필요§!한 곳 보기§!"
+ map_offices_button_tt: "§F클릭하여 더 많은 §Y사무소§!가 §R필요§!한 곳 보기§!"
+ map_hospitals_button_tt: "§F클릭하여 더 많은 §Y병원§!이 §R필요§!한 곳 보기§!"
+ map_prisons_button_tt: "§F클릭하여 더 많은 §Y감옥§!이 §R필요§!한 곳 보기§!"
+ map_barracks_button_tt: "§F클릭하여 더 많은 §Y병영§!이 §R필요§!한 곳 보기§!"
