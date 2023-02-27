@@ -1,0 +1,203 @@
+ARG_Christmas_War_strat_prep = {
+	allowed = {
+		tag = ARG
+	}
+	enable = {
+		ARG = { has_country_flag = christmas_war_preparation }
+		NOT = { has_global_flag = christmas_war_ocurred }
+	}
+
+	abort = {
+		NOT = { ARG = { has_country_flag = christmas_war_preparation } }
+		has_global_flag = christmas_war_ocurred
+	}
+
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 1
+		states = {
+			1585 1594 512 1605 1606 1509 1607 1508 1608 1584 1507 1583 1579 1586 1589
+		}
+		subtract_invasions_from_need = no
+	}
+}
+
+CHL_Christmas_War_strat_prep = {
+	allowed = {
+		tag = CHL
+	}
+	enable = {
+		CHL = { has_country_flag = christmas_war_preparation }
+		NOT = { has_global_flag = christmas_war_ocurred }
+	}
+
+	abort = {
+		NOT = { CHL = { has_country_flag = christmas_war_preparation } }
+		has_global_flag = christmas_war_ocurred
+	}
+
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 1
+		states = {
+			1593 1527 1526 1525 1524 1522 1519
+		}
+		subtract_invasions_from_need = no
+	}
+}
+
+HIS_DR_garrison = {
+	allowed = { tag = DOM }
+	enable = {
+		tag = DOM
+		NOT = {
+			has_global_flag = PPI_landing_ongoing
+		}
+	}
+
+	abort = {
+		OR = {
+			has_global_flag = PPI_landing_ongoing
+		}
+	}
+
+	ai_strategy = {
+		type = garrison
+		value = 1000
+	}
+	ai_strategy = {
+		type = front_unit_request
+		area = south_america
+		value = -1000
+	}
+}
+
+HIS_Puerto_Plata_Front = {
+	allowed = {
+		OR = {
+			tag = DOM
+			tag = CAL
+		}
+	}
+	enable = {
+		OR = {
+			has_war_with = DOM
+			has_war_with = CAL
+		}
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		area = south_america
+		value = 900
+	}
+}
+
+HIS_Puerto_Plata_Rush = {
+	allowed = {
+		OR = {
+			tag = DOM
+			tag = CAL
+		}
+	}
+	enable = {
+		OR = {
+			AND = {
+				tag = DOM
+				NOT = {
+					has_idea = DOM_Significant_Revolts
+					has_dynamic_modifier = { modifier = DOM_Widespread_Revolts }
+				}
+			}
+			AND = {
+				tag = CAL
+				has_idea = HIS_well_supplied_army
+			}
+		}
+		has_global_flag = PPI_landing_ongoing
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		tag = DOM
+		tag = CAL
+		execution_type = rush
+		execute_order = yes
+		manual_attack = no
+	}
+
+	ai_strategy = {
+		type = consider_weak
+		id = DOM
+		value = 1000
+	}
+
+	ai_strategy = {
+		type = consider_weak
+		id = CAL
+		value = 1000
+	}
+
+	ai_strategy = {
+		type = conquer
+		id = DOM
+		value = 1000
+	}
+
+	ai_strategy = {
+		type = conquer
+		id = CAL
+		value = 1000
+	}
+}
+
+PAR_Twelve_Day_War_strat = {
+	allowed = {
+		OR = {
+			tag = PAR
+			tag = STC
+		}
+	}
+	enable = {
+		OR = {
+			has_global_flag = PAR_twelve_day_war_preparation
+			has_global_flag = PAR_twelve_day_war_ongoing
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = prepare_for_war
+		id = BOL
+		value = 1000
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		tag = BOL
+		value = 1000
+	}
+
+	ai_strategy = {
+		type = front_control
+		tag = BOL
+		execution_type = rush
+		execute_order = yes
+		manual_attack = no
+	}
+
+	ai_strategy = {
+		type = consider_weak
+		id = BOL
+		value = 1000
+	}
+
+	ai_strategy = {
+		type = conquer
+		id = BOL
+		value = 1000
+	}
+}

@@ -1,0 +1,95 @@
+ideas = {
+
+	country = {
+		ROM_reign_of_the_steel_crown = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea ROM_reign_of_the_steel_crown" }
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+
+			picture = ROM_Reign_of_the_Steel_Crown
+			removal_cost = -1
+
+			modifier = {
+				political_power_factor = 0.10
+			}
+		}
+		ROM_legacy_of_the_kings_coup = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea ROM_legacy_of_the_kings_coup" }
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+
+			picture = ROM_Legacy_of_the_Kings_Coup
+			removal_cost = -1
+
+			modifier = {
+				conscription_factor = -0.20
+				stability_factor = -0.10
+			}
+		}
+		ROM_ethnic_upheaval = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea ROM_ethnic_upheaval" }
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+
+			picture = ROM_Ethnic_Upheaval
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = -0.15
+			}
+		}
+		ROM_Streched_to_the_Limit = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea ROM_Streched_to_the_Limit"}
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = RUS_terror_bombing
+			modifier = {
+				production_speed_buildings_factor = -0.30
+				production_factory_max_efficiency_factor = -0.20
+				production_factory_efficiency_gain_factor = -0.25
+				industry_free_repair_factor = -0.2
+			}
+		}
+
+		ROM_Michael_the_Brave = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea ROM_Michael_the_Brave"}
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = RUS_terror_bombing
+			modifier = {
+
+				army_morale_factor = 0.2
+				stability_factor = 0.15
+			}
+		}
+
+		ROM_Legacy_of_the_Guard = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea ROM_Michael_the_Brave"}
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = RUS_terror_bombing
+			modifier = {
+
+				war_support_factor = 0.2
+				stability_factor = -0.1
+			}
+		}
+	}
+}
+
+

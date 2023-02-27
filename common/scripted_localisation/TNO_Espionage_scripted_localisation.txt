@@ -1,0 +1,138 @@
+defined_text = {
+	name = getGermanIntelAgency
+	text = {
+		trigger = {
+			NOT = {
+				has_global_flag = german_civil_war_speervic
+				has_global_flag = german_civil_war_bormannvic
+			}
+		}
+		localization_key = ESPIONAGE_Abwehr_name
+	}
+	text = {
+		trigger = {
+			has_global_flag = german_civil_war_speervic
+		}
+		localization_key = ESPIONAGE_RND_name
+	}
+	text = {
+		trigger = {
+			has_global_flag = german_civil_war_bormannvic
+		}
+		localization_key = ESPIONAGE_HVA_name
+	}
+}
+
+defined_text = {
+	name = getGermanIntelAgencyShort
+	text = {
+		trigger = {
+			NOT = {
+				has_global_flag = german_civil_war_speervic
+				has_global_flag = german_civil_war_bormannvic
+			}
+		}
+		localization_key = ESPIONAGE_Abwehr_name
+	}
+	text = {
+		trigger = {
+			has_global_flag = german_civil_war_speervic
+		}
+		localization_key = ESPIONAGE_RND_name_short
+	}
+	text = {
+		trigger = {
+			has_global_flag = german_civil_war_bormannvic
+		}
+		localization_key = ESPIONAGE_HVA_name_short
+	}
+}
+
+defined_text = {
+	name = getGermanIntelAgencyCaps
+	text = {
+		trigger = {
+			NOT = {
+				has_global_flag = german_civil_war_speervic
+				has_global_flag = german_civil_war_bormannvic
+			}
+		}
+		localization_key = ESPIONAGE_Abwehr_name_caps
+	}
+	text = {
+		trigger = {
+			has_global_flag = german_civil_war_speervic
+		}
+		localization_key = ESPIONAGE_RND_name_caps
+	}
+	text = {
+		trigger = {
+			has_global_flag = german_civil_war_bormannvic
+		}
+		localization_key = ESPIONAGE_HVA_name_caps
+	}
+}
+
+defined_text = {
+	name = getEncryptionRegion
+	text = {
+		trigger = {
+			check_variable = { i_SPY_loc = 0 }
+		}
+		localization_key = ESPIONAGE_Africa_name
+	}
+	text = {
+		trigger = {
+			check_variable = { i_SPY_loc = 1 }
+		}
+		localization_key = ESPIONAGE_Europe_name
+	}
+	text = {
+		trigger = {
+			check_variable = { i_SPY_loc = 2 }
+		}
+		localization_key = ESPIONAGE_Oceania_name
+	}
+	text = {
+		trigger = {
+			check_variable = { i_SPY_loc = 3 }
+		}
+		localization_key = ESPIONAGE_EastAsia_name
+	}
+	text = {
+		trigger = {
+			check_variable = { i_SPY_loc = 4 }
+		}
+		localization_key = ESPIONAGE_MiddleEast_name
+	}
+	text = {
+		trigger = {
+			check_variable = { i_SPY_loc = 5 }
+		}
+		localization_key = ESPIONAGE_CentralAmerica_name
+	}
+	text = {
+		trigger = {
+			check_variable = { i_SPY_loc = 6 }
+		}
+		localization_key = ESPIONAGE_SouthAmerica_name
+	}
+	text = {
+		trigger = {
+			check_variable = { i_SPY_loc = 7 }
+		}
+		localization_key = ESPIONAGE_NorthAmerica_name
+	}
+	text = {
+		trigger = {
+			check_variable = { i_SPY_loc = 8 }
+		}
+		localization_key = ESPIONAGE_SouthEastAsia_name
+	}
+	text = {
+		trigger = {
+			check_variable = { i_SPY_loc = 9 }
+		}
+		localization_key = ESPIONAGE_Russia_name
+	}
+}

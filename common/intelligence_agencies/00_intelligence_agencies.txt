@@ -1,0 +1,240 @@
+# List of names and logos for intelligence agencies
+# available trigger will determine if the logo is in the list of available logos or not
+# names is a list of names. Can be a localization entry, or the name directly. A random name will be picked from them.
+
+intelligence_agency = {
+
+	picture = GFX_intelligence_agency_logo_brt
+	names = { "Marc'had Enklask Rann" }
+
+	default = { original_tag = BRT }
+	available = { original_tag = BRT }
+}
+
+intelligence_agency = {
+
+	picture = GFX_intelligence_agency_logo_usa
+	names = { "Central Intelligence Agency" }
+
+	default = { original_tag = USA }
+	available = { original_tag = USA }
+}
+
+intelligence_agency = {
+
+	picture = GFX_intelligence_agency_logo_ger
+	names = { "Abwehr" }
+
+	default = { original_tag = GER }
+	available = { original_tag = GER }
+}
+
+intelligence_agency = {
+
+	picture = GFX_intelligence_agency_logo_rnd
+	names = { "Reichsnachrichtendienst" }
+
+	default = {
+		AND = {
+			original_tag = GER
+			has_country_leader = { character = GER_albert_speer ruling_only = yes }
+		}
+	}
+	available = {
+		AND = {
+			original_tag = GER
+			has_country_leader = { character = GER_albert_speer ruling_only = yes }
+		}
+	}
+}
+
+intelligence_agency = {
+
+	picture = GFX_intelligence_agency_logo_jap
+	names = { "Daihonei Tokumu Soukanbu" }
+
+	default = { tag = JAP }
+	available = { original_tag = JAP }
+}
+
+intelligence_agency = {
+
+	picture = GFX_intelligence_agency_logo_ita
+	names = { "Servizio Informazioni Militare" }
+
+	default = { tag = ITA }
+	available = { original_tag = ITA }
+}
+
+intelligence_agency = {
+
+	picture = GFX_intelligence_agency_logo_uk
+	names = { "Secret Intelligence Service" }
+
+	default = { tag = ENG }
+	available = { original_tag = ENG }
+}
+
+intelligence_agency = {
+
+	picture = GFX_intelligence_agency_logo_saf
+	names = { "Bureau of State Security" }
+
+	default = { tag = SAF }
+	available = { original_tag = SAF }
+}
+
+intelligence_agency = {
+
+	picture = GFX_intelligence_agency_logo_brg
+	names = { "Schutzstaffel" }
+
+	default = { tag = BRG }
+	available = { original_tag = BRG }
+}
+
+intelligence_agency = {
+
+	picture = GFX_intelligence_agency_logo_ger
+	names = { "Abwehr Kolonialbüro" }
+
+	default = {
+		OR = {
+			original_tag = GRO
+			original_tag = COG
+			original_tag = ANG
+		}
+	}
+	available = {
+		OR = {
+			original_tag = GRO
+			original_tag = COG
+			original_tag = ANG
+		}
+	}
+}
+
+intelligence_agency = {
+
+	picture = GFX_intelligence_agency_logo_sov
+	names = { "Narodnyiy Komissariat Vnutrennikh Del" }
+
+	available = {
+		OR = {
+			has_government = socialist
+			has_government = communist
+		}
+	}
+	default = {
+		OR = {
+			has_government = socialist
+			has_government = communist
+		}
+	}
+}
+
+intelligence_agency = {
+
+	picture = GFX_intelligence_agency_logo_vyt
+	names = { "Okhrana" }
+
+	available = {
+		OR = {
+			original_tag = VYT
+			original_tag = KEM
+			original_tag = CHT
+		}
+	}
+	default = {
+		OR = {
+			original_tag = VYT
+			original_tag = KEM
+			original_tag = CHT
+		}
+	}
+}
+
+intelligence_agency = {
+
+	picture = GFX_intelligence_agency_logo_oms
+	names = { "Upravleniye Vnutrenney Bezopasnosti" }
+
+	available = {
+		original_tag = OMS
+	}
+	default = {
+		original_tag = OMS
+	}
+}
+
+intelligence_agency = {
+
+	picture = GFX_intelligence_agency_logo_sba
+	names = { "Agentstvo Taratuty" }
+
+	available = {
+		original_tag = SBA
+	}
+	default = {
+		original_tag = SBA
+	}
+}
+
+intelligence_agency = {
+
+	picture = GFX_intelligence_agency_logo_rus
+	names = { "Sluzhba Bezopasnosti" }
+
+	available = {
+		is_russian_nation = yes
+		NOT = {
+			original_tag = VYT
+			original_tag = KEM
+			original_tag = CHT
+			original_tag = SBA
+			has_government = socialist
+			has_government = communist
+		}
+	}
+	default = {
+		is_russian_nation = yes
+		NOT = {
+			original_tag = VYT
+			original_tag = KEM
+			original_tag = CHT
+			original_tag = SBA
+			has_government = socialist
+			has_government = communist
+		}
+	}
+}
+
+intelligence_agency = {
+
+	picture = GFX_intelligence_agency_logo_generic_2
+	names = { "Rooke" }
+
+	available = {
+		NOT = {
+			original_tag = USA
+			original_tag = GER
+			original_tag = JAP
+			original_tag = ENG
+			original_tag = ITA
+			original_tag = ENG
+			original_tag = SAF
+			original_tag = MZB
+			original_tag = COG
+			original_tag = ANG
+			original_tag = BRT
+			original_tag = VYT
+			original_tag = KEM
+			original_tag = CHT
+			original_tag = BRG
+			original_tag = SBA
+			has_government = socialist
+			has_government = communist
+		}
+	}
+	default = { always = yes }
+}

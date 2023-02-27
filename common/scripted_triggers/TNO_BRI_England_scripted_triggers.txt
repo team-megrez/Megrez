@@ -1,0 +1,70 @@
+
+is_FEN_unit_leader = {
+	OR = {
+		has_id = 619 #With ENG at game start, moves after ECW fires
+		has_id = 624
+		has_id = 622
+		has_id = 623
+		has_id = 621
+		has_id = 625
+		has_id = 627
+		has_id = 626
+		has_id = 1628
+		has_id = 1629
+		has_id = 1634
+		has_id = 1630
+		has_id = 1631
+		has_id = 1632
+		has_id = 1633
+	}
+}
+
+is_ENG_unit_leader = {
+	OR = {
+		has_id = 611
+		has_id = 612
+		has_id = 613
+		has_id = 614
+		has_id = 615
+		has_id = 616
+		has_id = 617
+		has_id = 618
+		has_id = 620
+		has_id = 801
+		has_id = 802
+		has_id = 803
+		has_id = 804
+		has_id = 805
+		has_id = 806
+	}
+}
+
+ENG_Can_Pass_Act = {
+	OR = {
+		check_variable = { MPs_Support > half_totalseats }
+		check_variable = { MPs_Support = half_totalseats }
+	}
+}
+
+ENG_no_bills_in_parliament = {
+	custom_trigger_tooltip = {
+		tooltip = ENG_act_not_in_progress.tt
+		NOT = { has_country_flag = act_progress }
+	}
+}
+
+ENG_faction_mech_no_other_decisions = {
+	custom_trigger_tooltip = {
+		tooltip = ENG_faction_mech_no_other_decisions
+		NOT = { has_country_flag = ENG_international_mech_decision }
+	}
+}
+
+ENG_is_urban_state = {
+	OR = {
+		state = 1300
+		state = 130
+		state = 128
+		state = 132
+	}
+}

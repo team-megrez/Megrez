@@ -1,0 +1,247 @@
+characters = {
+	SUS_ahmed_sekou_toure = {
+		name = SUS_ahmed_sekou_toure
+		portraits = {
+			civilian = { large = "gfx/leaders/SUS/Portrait_Susu_Ahmed_Sekou_Toure.dds" }
+		}
+		country_leader = {
+			desc = "POLITICS_AHMED_SEKOU_TOURE_DESC"
+			expire = "1965.1.1"
+			ideology = socialist_african_socialism_subtype
+			traits = { }
+			id = -1
+		}
+	}
+	SUS_ismael_toure = {
+		name = SUS_ismael_toure
+		portraits = {
+			civilian = { small = "GFX_idea_SUS_Ismael_Toure" }
+		}
+		advisor = {
+			slot = foreign_minister
+			idea_token = SUS_Ismael_Toure_for
+			allowed = { original_tag = SUS }
+			traits = {
+				foreign_minister
+				for_biased_intellectual
+			}
+			ledger = civilian
+			cost = -1
+			can_be_fired = no
+			ai_will_do = { factor = 0 }
+		}
+	}
+	SUS_nfamara_keita = {
+		name = SUS_nfamara_keita
+		portraits = {
+			civilian = { small = "GFX_idea_SUS_NFamara_Keita" }
+		}
+		advisor = {
+			slot = economy_minister
+			idea_token = SUS_NFamara_Keita_eco
+			allowed = { original_tag = SUS }
+			traits = {
+				economy_minister
+				eco_mixed_economy
+			}
+			ledger = civilian
+			cost = -1
+			can_be_fired = no
+			ai_will_do = { factor = 0 }
+		}
+	}
+	SUS_noumandian_keita = {
+		name = SUS_noumandian_keita
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SUS/Portrait_Susu_Noumandian_Keita.dds"
+				small = "GFX_idea_SUS_Noumandian_Keita"
+			}
+			army = {
+				large = "gfx/leaders/SUS/Portrait_Susu_Noumandian_Keita.dds"
+				small = "GFX_idea_SUS_Noumandian_Keita"
+			}
+		}
+		field_marshal = {
+			traits = { thorough_planner inspirational_leader }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+		country_leader = {
+			#desc = "POLITICS_NOUMANDIAN_KEITA_DESC"
+			expire = "1965.1.1"
+			ideology = paternalism_stratocracy_subtype
+			traits = { }
+			id = -1
+		}
+		advisor = {
+			slot = security_minister
+			idea_token = SUS_Noumandian_Keita_sec
+			allowed = { original_tag = SUS }
+			traits = {
+				security_minister
+				sec_silent_lawyer
+			}
+			ledger = civilian
+			cost = -1
+			can_be_fired = no
+			ai_will_do = { factor = 0 }
+		}
+	}
+	SUS_louis_lansana_beavogui = {
+		name = SUS_louis_lansana_beavogui
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SUS/Portrait_Susu_Louis_Lansana_Beavogui.dds"
+				small = "GFX_idea_SUS_Louis_Lansana_Beavogui"
+			}
+		}
+		country_leader = {
+			#desc = "POLITICS_LOUIS_LANSANA_BEAVOGUI_DESC"
+			expire = "1965.1.1"
+			ideology = conservatism_subtype
+			traits = { }
+			id = -1
+		}
+		country_leader = {
+			#desc = "POLITICS_LOUIS_LANSANA_BEAVOGUI_DESC"
+			expire = "1965.1.1"
+			ideology = paternalism_controlled_democracy_subtype
+			traits = { }
+			id = -1
+		}
+		advisor = {
+			slot = head_of_government
+			idea_token = SUS_Louis_Lansana_Beavogui_hog
+			allowed = { original_tag = SUS }
+			traits = {
+				head_of_government
+				hog_silent_workhorse
+			}
+			ledger = civilian
+			cost = -1
+			can_be_fired = no
+			ai_will_do = { factor = 0 }
+		}
+	}
+	SUS_amilcar_cabral = {
+		name = SUS_amilcar_cabral
+		portraits = {
+			civilian = { large = "gfx/leaders/SUS/Portrait_Susu_Amilcar_Cabral.dds" }
+			army = { large = "gfx/leaders/SUS/Portrait_Susu_Amilcar_Cabral.dds" }
+		}
+		corps_commander = {
+			traits = { trickster }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+		country_leader = {
+			#desc = "POLITICS_AMILCAR_CABRAL_DESC"
+			expire = "1965.1.1"
+			ideology = communist_subtype
+			traits = { }
+			id = -1
+		}
+	}
+	SUS_koumandian_keita = {
+		name = SUS_koumandian_keita
+		portraits = {
+			civilian = { large = "gfx/leaders/SUS/Portrait_Guinea_Koumandian_Keita.dds" }
+		}
+		country_leader = {
+			#desc = "POLITICS_KOUMANDIAN_KEITA_DESC"
+			expire = "1999.1.1"
+			ideology = socialist_panafricanism_subtype
+			traits = { }
+			id = -1
+		}
+	}
+	SUS_saifoulaye_diallo = {
+		name = SUS_saifoulaye_diallo
+		portraits = {
+			civilian = { large = "gfx/leaders/SUS/Portrait_Susu_Saifoulaye_Diallo.dds" }
+		}
+		country_leader = {
+			#desc = "POLITICS_SAIFOULAYE_DIALLO_DESC"
+			expire = "1965.1.1"
+			ideology = liberalism_subtype
+			traits = { }
+			id = -1
+		}
+	}
+	SUS_diarra_traore = {
+		name = SUS_diarra_traore
+		portraits = {
+			civilian = { large = "gfx/leaders/SUS/Portrait_Susu_Diarra_Traore.dds" }
+		}
+		country_leader = {
+			#desc = "POLITICS_DIARRA_TRAORE_DESC"
+			expire = "1965.1.1"
+			ideology = despotism_subtype
+			traits = { }
+			id = -1
+		}
+	}
+	SUS_sidy_mahmoud_keita = {
+		name = SUS_sidy_mahmoud_keita
+		portraits = {
+			army = { large = "gfx/leaders/SUS/Portrait_Susu_Sidy_Mahmoud_Keita.dds" }
+		}
+		field_marshal = {
+			traits = { }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	SUS_lansana_diane = {
+		name = SUS_lansana_diane
+		portraits = {
+			army = { large = "gfx/leaders/SUS/Portrait_Susu_Lansana_Diane.dds" }
+		}
+		corps_commander = {
+			traits = { }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	SUS_siaka_toure = {
+		name = SUS_siaka_toure
+		portraits = {
+			army = { large = "gfx/leaders/SUS/Portrait_Susu_Siaka_Toure.dds" }
+		}
+		corps_commander = {
+			traits = { }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	SUS_thierno_ibrahima_diallo = {
+		name = SUS_thierno_ibrahima_diallo
+		portraits = {
+			army = { large = "gfx/leaders/SUS/Portrait_Susu_Thierno_Ibrahima_Diallo.dds" }
+		}
+		corps_commander = {
+			traits = { }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+}

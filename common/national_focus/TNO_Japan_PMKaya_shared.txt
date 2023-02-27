@@ -1,0 +1,3967 @@
+# Kaya first two year tree
+shared_focus = {
+	id = JAP_prime_minister_kaya
+	icon = GFX_JAP_PM_Kaya
+	allow_branch = {
+		has_country_flag = JAP_Kaya_Prime_Minister
+		NOT = {
+			has_country_flag = japan_kaya_tree_one_complete
+			has_country_flag = JAP_WW3_tree
+		}
+	}
+	x = 6
+	y = 0
+	cost = 5
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_prime_minister_kaya"
+		set_country_flag = kaya_in_power
+		set_variable = {JAP_Peers_support = 0.6}
+		add_political_power = 100
+	}
+}
+
+shared_focus = {
+	id = JAP_the_new_cabinet
+	icon = GFX_JAP_national_diet
+	prerequisite = {
+		focus = JAP_prime_minister_kaya
+	}
+	relative_position_id = JAP_prime_minister_kaya
+	x = 0
+	y = 1
+	cost = 4
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_the_new_cabinet"
+		add_stability = 0.1
+	}
+}
+
+shared_focus = {
+	id = JAP_appeal_to_the_hardliners
+	icon = GFX_JAP_Shiina_Secures_Support
+	prerequisite = {
+		focus = JAP_the_new_cabinet
+	}
+	mutually_exclusive = {
+		focus = JAP_on_our_own
+		focus = JAP_realpolitik
+	}
+	relative_position_id = JAP_the_new_cabinet
+	x = -3
+	y = 1
+	cost = 1
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_appeal_to_the_hardliners"
+		add_political_power = 30
+		JAP_PA_support_decrease_small = yes
+		set_temp_variable = { temp_hl_inf_change = 0.1 }
+		JAP_change_hardliner_influence = yes
+		set_temp_variable = { temp_hl_approval_change = 0.1 }
+		JAP_change_hardliner_approval = yes
+		hidden_effect = {
+			remove_ideas = JAP_Aoki_Kazuo_hog
+			add_ideas = JAP_Shiina_Etsusaburo_hog
+			remove_ideas = JAP_Generic_Vacant_sec
+			add_ideas = JAP_Tadanori_Nagayama_sec
+		}
+		custom_effect_tooltip = JAP_add_shiina_etsusaburo_tt
+		custom_effect_tooltip = JAP_add_tadanori_nagayama_tt
+		set_country_flag = JAP_hardliner_choice
+		country_event = { id = japkaya_tree_one.1 }
+	}
+}
+
+shared_focus = {
+	id = JAP_rub_our_back
+	icon = GFX_JAP_rub_our_backa
+	prerequisite = {
+		focus = JAP_appeal_to_the_hardliners
+	}
+	relative_position_id = JAP_appeal_to_the_hardliners
+	x = -1
+	y = 1
+	cost = 1
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_rub_our_back"
+		JAP_HoP_support_increase_med = yes
+		country_event = { id = japkaya_tree_one.3 }
+	}
+}
+
+shared_focus = { #political drawbacks in setting up Suzuki to get a diet seat
+	id = JAP_and_we_will_rub_yours
+	icon = GFX_JAP_well_rub_yours2
+	prerequisite = {
+		focus = JAP_appeal_to_the_hardliners
+	}
+	relative_position_id = JAP_appeal_to_the_hardliners
+	x = 1
+	y = 1
+	cost = 1
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_and_we_will_rub_yours"
+		JAP_PA_support_decrease_small = yes
+		country_event = { id = japkaya_tree_one.4 }
+	}
+}
+
+shared_focus = { #Kishi #Suzuki joins the cabinent as economy minster, give a slight feeling of unease over what you've done, request GFX icon for Suzuki's face
+	id = JAP_a_new_face
+	icon = GFX_JAP_A_New_Face
+	prerequisite = {
+		focus = JAP_rub_our_back
+	}
+	prerequisite = {
+		focus = JAP_and_we_will_rub_yours
+	}
+	relative_position_id = JAP_rub_our_back
+	x = 1
+	y = 1
+	cost = 1
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_a_new_face"
+		hidden_effect = {
+			remove_ideas = JAP_Generic_Vacant_for
+			add_ideas = JAP_Suzuki_Teiichi_for
+		}
+		set_temp_variable = { temp_hl_approval_change = 0.05 }
+		JAP_change_hardliner_approval = yes
+		custom_effect_tooltip = JAP_add_suzuki_teiichi_tt
+		country_event = { id = japkaya_tree_one.5 }
+	}
+}
+
+shared_focus = {#Kishi #unlock decision tree for Kishi demands with one or two already there, making you worry for further extreme demands
+	id = JAP_deal_with_the_devil
+	icon = GFX_JAP_Nihon_No_Yokai
+	prerequisite = {
+		focus = JAP_a_new_face
+	}
+	relative_position_id = JAP_a_new_face
+	x = 0
+	y = 1
+	cost = 1
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_deal_with_the_devil"
+		JAP_Kaya_increase_power_subst = yes
+		set_temp_variable = { temp_hl_inf_change = 0.1 }
+		JAP_change_hardliner_influence = yes
+		hidden_effect = {
+			remove_ideas = JAP_Generic_Vacant_eco
+			add_ideas = JAP_Kishi_Nobusuke_eco
+		}
+		custom_effect_tooltip = JAP_add_kishi_nobusuke_tt
+		country_event = { id = japkaya_tree_one.6 }
+	}
+}
+
+shared_focus = {
+	# high party unity due to being uncomprimising, but leads to issues in house of peers which lead to demise? Also decent public approval?
+	id = JAP_on_our_own
+	icon = GFX_JAP_Preserve_the_Yokusankai
+	prerequisite = {
+		focus = JAP_the_new_cabinet
+	}
+	mutually_exclusive = {
+		focus = JAP_appeal_to_the_hardliners
+		focus = JAP_realpolitik
+	}
+	relative_position_id = JAP_the_new_cabinet
+	x = 0
+	y = 1
+	cost = 1
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_on_our_own"
+		add_political_power = 55
+		set_temp_variable = { temp_selected_faction = 5 }
+		set_temp_variable = { temp_support_change = 0.075 }
+		JAP_change_faction_support = yes
+		custom_effect_tooltip = JAP_fill_cabinet_tt
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = JAP_GOVERNMENT_STABILITY
+					option = JAP_GOVERNMENT_STABILITY_COLLAPSE
+				}
+				NOT = { has_country_flag = JAP_resignation_has_happened }
+			}
+			set_country_flag = JAP_own_choice
+		}
+		hidden_effect = {
+			remove_ideas = JAP_Generic_Vacant_eco
+			remove_ideas = JAP_Generic_Vacant_for
+			remove_ideas = JAP_Generic_Vacant_sec
+			add_ideas = JAP_Fukuda_Takeo_eco
+			add_ideas = JAP_Ushiba_Nobuhiko_for
+			add_ideas = JAP_Funada_Naka_sec
+		}
+		country_event = { id = japkaya_tree_one.7 }
+	}
+}
+
+shared_focus = {
+	id = JAP_forge_our_own_path
+	icon = GFX_TNO_generic_japan
+	prerequisite = {
+		focus = JAP_on_our_own
+	}
+	relative_position_id = JAP_on_our_own
+	x = 0
+	y = 1
+	cost = 1
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_forge_our_own_path"
+		set_temp_variable = { temp_hl_approval_change = -0.025 }
+		JAP_change_hardliner_approval = yes
+		set_temp_variable = { temp_hl_inf_change = -0.05 }
+		JAP_change_hardliner_influence = yes
+		add_political_power = 50
+		country_event = { id = japkaya_tree_one.8 }
+	}
+}
+
+shared_focus = {
+	id = JAP_standing_tall
+	icon = GFX_JAP_Independents_kept_in_their_place
+	prerequisite = {
+		focus = JAP_forge_our_own_path
+	}
+	relative_position_id = JAP_forge_our_own_path
+	x = -1
+	y = 1
+	cost = 1
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_standing_tall"
+		set_temp_variable = { temp_selected_faction = 1 }
+		set_temp_variable = { temp_support_change = 0.075 }
+		JAP_change_faction_support = yes
+		country_event = { id = japkaya_tree_one.9 }
+	}
+}
+
+shared_focus = {
+	id = JAP_leading_by_example
+	icon = GFX_JAP_get_their_blessing
+	prerequisite = {
+		focus = JAP_forge_our_own_path
+	}
+	relative_position_id = JAP_forge_our_own_path
+	x = 1
+	y = 1
+	cost = 1
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_leading_by_example"
+		set_temp_variable = { temp_hl_inf_change = -0.05 }
+		JAP_change_hardliner_influence = yes
+		TNO_improve_income_taxation_policy_effectiveness_med = yes
+		TNO_improve_admin_efficiency_really_low = yes
+		country_event = { id = japkaya_tree_one.10 }
+	}
+}
+
+shared_focus = {
+	id = JAP_rule_by_our_view_or_none
+	icon = GFX_CAU_purge_the_bureaucrats
+	prerequisite = {
+		focus = JAP_standing_tall
+	}
+	prerequisite = {
+		focus = JAP_leading_by_example
+	}
+	relative_position_id = JAP_standing_tall
+	x = 1
+	y = 1
+	cost = 1
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_rule_by_our_view_or_none"
+		set_temp_variable = { temp_selected_faction = 2 }
+		set_temp_variable = { temp_support_change = 0.05 }
+		JAP_change_faction_support = yes
+		JAP_HoP_support_increase_med = yes
+		country_event = { id = japkaya_tree_one.12 }
+	}
+}
+
+# With realpolitik path, thinking of keeping track of the various compromises you make in it, so different compromises give different events chains later on and affect how you'd play? idk might be a little complicated
+shared_focus = {
+	# low party unity due to compromise, but good house of peers and possibly public approval, allowing you to push ahead?
+	id = JAP_realpolitik
+	icon = GFX_JAP_cooler_heads
+	prerequisite = {
+		focus = JAP_the_new_cabinet
+	}
+	mutually_exclusive = {
+		focus = JAP_appeal_to_the_hardliners
+		focus = JAP_on_our_own
+	}
+	relative_position_id = JAP_the_new_cabinet
+	x = 3
+	y = 1
+	cost = 1
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_realpolitik"
+		add_political_power = 80
+		JAP_HoP_support_increase_small = yes
+		custom_effect_tooltip = JAP_fill_cabinet_tt
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = JAP_GOVERNMENT_STABILITY
+					option = JAP_GOVERNMENT_STABILITY_COLLAPSE
+				}
+				NOT = { has_country_flag = JAP_resignation_has_happened }
+			}
+			set_country_flag = JAP_real_choice
+		}
+		hidden_effect = {
+			remove_ideas = JAP_Generic_Vacant_eco
+			remove_ideas = JAP_Generic_Vacant_for
+			remove_ideas = JAP_Generic_Vacant_sec
+			add_ideas = JAP_Fukuda_Takeo_eco
+			add_ideas = JAP_Ushiba_Nobuhiko_for
+			add_ideas = JAP_Kawashima_Shojiro_sec
+		}
+		country_event = { id = japkaya_tree_one.13 }
+	}
+}
+
+shared_focus = {
+	# see event code for commented ideas for this focus
+	id = JAP_talk_with_ikeda
+	icon = GFX_JAP_PM_Ikeda
+	prerequisite = {
+		focus = JAP_realpolitik
+	}
+	relative_position_id = JAP_realpolitik
+	x = -1
+	y = 1
+	cost = 1
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_talk_with_ikeda"
+		JAP_Ino_increase_power_small = yes
+		set_temp_variable = { temp_selected_faction = 4 }
+		set_temp_variable = { temp_support_change = 0.1 }
+		JAP_change_faction_support = yes
+
+		set_temp_variable = { temp_hl_approval_change = -0.01 }
+		JAP_change_hardliner_approval = yes
+		country_event = { id = japkaya_tree_one.14 }
+	}
+}
+
+shared_focus = {
+	# see event code for commented ideas for this focus
+	id = JAP_listen_with_kido
+	icon = GFX_JAP_PM_Kido
+	prerequisite = {
+		focus = JAP_realpolitik
+	}
+	relative_position_id = JAP_realpolitik
+	x = 1
+	y = 1
+	cost = 1
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_listen_with_kido"
+		set_temp_variable = { temp_selected_faction = 4 }
+		set_temp_variable = { temp_support_change = 0.1 }
+		JAP_change_faction_support = yes
+		JAP_Kido_increase_power_small = yes
+
+		set_temp_variable = { temp_hl_approval_change = -0.01 }
+		JAP_change_hardliner_approval = yes
+		country_event = { id = japkaya_tree_one.15 }
+	}
+}
+
+shared_focus = {
+	# further compromise with other politicians
+	id = JAP_bend_to_pressure
+	icon = GFX_JAP_Treaty_Generic
+	prerequisite = {
+		focus = JAP_talk_with_ikeda
+	}
+	prerequisite = {
+		focus = JAP_listen_with_kido
+	}
+	relative_position_id = JAP_talk_with_ikeda
+	x = 1
+	y = 1
+	cost = 1
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_bend_to_pressure"
+		set_temp_variable = { temp_selected_faction = 2 }
+		set_temp_variable = { temp_support_change = 0.05 }
+		JAP_change_faction_support = yes
+		set_temp_variable = { temp_hl_approval_change = -0.05 }
+		JAP_change_hardliner_approval = yes
+		country_event = { id = japkaya_tree_one.16 }
+	}
+}
+
+shared_focus = {
+	# have your hammered out deal from all invovled
+	id = JAP_pragmatism_reigns_supreme
+	icon = GFX_JAP_Make_New_Friends
+	prerequisite = {
+		focus = JAP_bend_to_pressure
+	}
+	relative_position_id = JAP_bend_to_pressure
+	x = 0
+	y = 1
+	cost = 1
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_pragmatism_reigns_supreme"
+		TNO_improve_political_parties_policy_effectiveness_high = yes
+		add_political_power = 75
+		country_event = { id = japkaya_tree_one.17 }
+	}
+}
+
+shared_focus = { #flavour event about what reforms are planned and why, bit of some political bonus
+	#get custom GFX, important focus, need to think to make sure it's not too simmilar to other stuff
+	id = JAP_begin_the_reforms
+	icon = GFX_JAP_begin_the_reforms
+	prerequisite = {
+		focus = JAP_deal_with_the_devil
+		focus = JAP_rule_by_our_view_or_none
+		focus = JAP_pragmatism_reigns_supreme
+	}
+	relative_position_id = JAP_rule_by_our_view_or_none
+	x = 0
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_begin_the_reforms"
+		JAP_Kaya_increase_power_small = yes
+		activate_mission = JAP_kaya_hardliners_demand_JAP_begin_the_reforms
+		if = {
+			limit = { has_completed_focus = JAP_appeal_to_the_hardliners }
+			country_event = { id = japkaya_tree_one.18 }
+		}
+		else_if = {
+			limit = { has_completed_focus = JAP_forge_our_own_path }
+			country_event = { id = japkaya_tree_one.19 }
+		}
+		else_if = {
+			limit = { has_completed_focus = JAP_realpolitik }
+			country_event = { id = japkaya_tree_one.20 }
+		}
+	}
+}
+
+shared_focus = { #kishi demands further expansion of war infrastructure, spending money for an industrial complex
+	# start intergrating the military, beginging with war infrastructure
+	id = JAP_intergrate_the_military
+	icon = GFX_JAP_The_Militaries_Friendly_Rivalry
+	prerequisite = {
+		focus = JAP_begin_the_reforms
+	}
+	relative_position_id = JAP_begin_the_reforms
+	x = -2
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_intergrate_the_military"
+		army_funding_minimal_increase_med = yes
+		TNO_improve_conscription_policy_effectiveness_med = yes
+		TNO_improve_training_policy_effectiveness_med = yes
+		activate_mission = JAP_kaya_hardliners_demand_JAP_intergrate_the_military
+		country_event = { id = japkaya_tree_one.21 }
+	}
+}
+
+shared_focus = {
+	# meeting with generals, can spend bit of pp and misc_costs for ija boost, kishi demands you to sideline a paticular group of the army hurting your opinion with them
+	id = JAP_court_the_generals
+	icon = GFX_Generic_Army_Officers
+	prerequisite = {
+		focus = JAP_intergrate_the_military
+	}
+	relative_position_id = JAP_intergrate_the_military
+	x = -1
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_court_the_generals"
+		JAP_IJA_increase_med = yes
+		army_funding_maximal_increase_med = yes
+		MAN = {
+			TNO_improve_max_workhours_policy_effectiveness_med = yes
+		}
+		MAN = {
+			add_resource = {
+				type = steel
+				amount = 14
+				state = 716
+			}
+			add_resource = {
+				type = chromium
+				amount = 10
+				state = 408
+			}
+			add_resource = {
+				type = tungsten
+				amount = 12
+				state = 408
+			}
+		}
+		country_event = { id = japkaya_tree_one.22 }
+	}
+}
+
+shared_focus = {
+	# meeting with admirals, can spend bit of pp and misc_costs for ijn boost
+	id = JAP_dine_with_admirals
+	icon = GFX_JAP_Dine_with_Admirals
+	prerequisite = {
+		focus = JAP_court_the_generals
+	}
+	relative_position_id = JAP_court_the_generals
+	x = 0
+	y = 2
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_dine_with_admirals"
+		JAP_IJN_increase_med = yes
+		naval_funding_maximal_increase_med = yes
+		INS = {
+			if = {
+				limit = {
+					is_in_faction_with = JAP
+					exists = yes
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = PREV
+						naval_base > 1
+						naval_base < 8
+					}
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_naval_base = yes
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = PREV
+						naval_base > 1
+						naval_base < 8
+					}
+					add_building_construction = {
+						type = naval_base
+						level = 1
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_naval_base = yes
+						}
+					}
+				}
+			}
+		}
+		PHI = {
+			if = {
+				limit = {
+					is_in_faction_with = JAP
+					exists = yes
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = PREV
+						naval_base > 1
+						naval_base < 8
+					}
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_naval_base = yes
+						}
+					}
+				}
+			}
+		}
+		country_event = { id = japkaya_tree_one.23 }
+	}
+}
+
+shared_focus = {
+	#getting more of the population into the army
+	id = JAP_the_civilians_will_learn
+	icon = GFX_TNO_Forced_Conscription
+	prerequisite = {
+		focus = JAP_dine_with_admirals
+	}
+	relative_position_id = JAP_dine_with_admirals
+	x = 1
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_the_civilians_will_learn"
+		TNO_improve_max_workhours_policy_effectiveness_med = yes
+		TNO_improve_conscription_policy_effectiveness_med = yes
+		JAP_PA_support_decrease_med = yes
+		set_temp_variable = { temp_econ_spending_amount = 0.75 }
+		econ_spend_money_once_effect_raw_money = yes
+		set_temp_variable = { gdp_growth_temp = 0.75 }
+		econ_gdp_growth_change = yes
+		set_temp_variable = { inflation_temp = 0.15 }
+		econ_inflation_change = yes
+		MAN = {
+			set_temp_variable = { gdp_growth_temp = 0.1 }
+			econ_gdp_growth_change = yes
+		}
+		GNG = {
+			set_temp_variable = { gdp_growth_temp = 0.1 }
+			econ_gdp_growth_change = yes
+		}
+		activate_mission = JAP_kaya_hardliners_demand_JAP_the_civilians_will_learn
+		country_event = { id = japkaya_tree_one.24 days = 14 }
+	}
+}
+
+shared_focus = {
+	id = JAP_the_might_of_our_military
+	icon = GFX_JAP_New_Showa_Warfare_2
+	available = {
+		NOT = { has_active_mission = JAP_bill_voting_mission }
+	}
+	prerequisite = {
+		focus = JAP_the_civilians_will_learn
+	}
+	relative_position_id = JAP_the_civilians_will_learn
+	x = 0
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_the_might_of_our_military"
+		admin_funding_maximal_increase_high = yes
+		TNO_improve_admin_efficiency_med = yes
+		set_temp_variable = { temp_bill_id = 518 }
+		set_temp_variable = { temp_bill_proposing_faction = 5 }
+		JAP_initiate_bill = yes
+		country_event = { id = japkaya_tree_one.25 days = 35 }
+	}
+}
+
+shared_focus = {
+	# purging the loudest and generaly disliked dissenters, talks about plans to go further
+	id = JAP_political_cleansing
+	icon = GFX_JAP_Bureaucracy_And_Corruption
+	available = {
+		NOT = { has_active_mission = JAP_bill_voting_mission }
+	}
+	prerequisite = {
+		focus = JAP_begin_the_reforms
+	}
+	relative_position_id = JAP_begin_the_reforms
+	x = 0
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_political_cleansing"
+		activate_mission = JAP_kaya_hardliners_demand_JAP_political_cleansing
+		set_temp_variable = { temp_bill_id = 514 }
+		set_temp_variable = { temp_bill_proposing_faction = 5 }
+		JAP_initiate_bill = yes
+		country_event = { id = japkaya_tree_one.26 }
+	}
+}
+
+shared_focus = { #some stuff about getting contentment from the house of peers and other parties once gui varaibles are in, kishi demand of targeting specific member, hurts you
+	id = JAP_preserve_the_kotukai
+	icon = GFX_INS_mission_to_tokyo
+	available = {
+		NOT = { has_active_mission = JAP_bill_voting_mission }
+	}
+	prerequisite = {
+		focus = JAP_political_cleansing
+	}
+	relative_position_id = JAP_political_cleansing
+	x = 0
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_preserve_the_kotukai"
+		JAP_Kaya_increase_power_small = yes
+		TNO_improve_press_rights_policy_effectiveness_med = yes
+		set_temp_variable = { temp_bill_id = 515 }
+		set_temp_variable = { temp_bill_proposing_faction = 5 }
+		JAP_initiate_bill = yes
+		country_event = { id = japkaya_tree_one.29 }
+	}
+}
+
+shared_focus = { #improving security to monitor people
+	id = JAP_take_names
+	icon = GFX_INS_kenpeitai
+	prerequisite = {
+		focus = JAP_preserve_the_kotukai
+	}
+	relative_position_id = JAP_preserve_the_kotukai
+	x = -1
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_take_names"
+		TNO_improve_security_policy_effectiveness_med = yes
+		JAP_Ino_decrease_power_small = yes
+		set_temp_variable = { temp_support_change = -0.075 }
+		set_temp_variable = { temp_selected_faction = 4 }
+		JAP_change_faction_support = yes
+		country_event = { id = japkaya_tree_one.30 days = 14 }
+	}
+}
+
+shared_focus = { #hurt intellecutals and so research base due to hunting down any opposition, kishi demand for targeting specific intellectual group costing stability
+	id = JAP_make_lists
+	icon = GFX_SLO_The_Writers_Union
+	prerequisite = {
+		focus = JAP_preserve_the_kotukai
+	}
+	relative_position_id = JAP_preserve_the_kotukai
+	x = 1
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_make_lists"
+		add_ideas = JAP_crackdown_on_anti_government_elements
+		tno_security_improve = yes
+		TNO_worsen_research_facilities_low = yes
+		JAP_PA_support_decrease_med = yes
+		TNO_worsen_education_policy_effectiveness_med = yes
+		country_event = { id = japkaya_tree_one.31 days = 14 }
+	}
+}
+
+shared_focus = {
+	# event about the purge
+	id = JAP_move_quick
+	icon = GFX_JAP_Expand_the_Imperial_Guard
+	prerequisite = {
+		focus = JAP_take_names
+	}
+	prerequisite = {
+		focus = JAP_make_lists
+	}
+	relative_position_id = JAP_take_names
+	x = 1
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_move_quick"
+		JAP_Ino_decrease_power_small = yes
+		set_temp_variable = { temp_support_change = -0.075 }
+		set_temp_variable = { temp_selected_faction = 4 }
+		JAP_change_faction_support = yes
+		swap_ideas = {
+			remove_idea = JAP_crackdown_on_anti_government_elements
+			add_idea = JAP_crackdown_on_anti_government_elements_2
+		}
+		JAP_PA_support_decrease_small = yes
+		country_event = { id = japkaya_tree_one.32 days = 7 }
+	}
+}
+
+shared_focus = {
+	# crushing those that oppose the start of the purge. Add varaible for negative public approval due to mass silencing? kishi demand for specific group to crush
+	id = JAP_crush_dissenters
+	icon = GFX_CAU_The_Government_Purge
+	prerequisite = {
+		focus = JAP_move_quick
+	}
+	relative_position_id = JAP_move_quick
+	x = 0
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_crush_dissenters"
+		JAP_HoP_support_decrease_med = yes
+		JAP_Takagi_decrease_power_small = yes
+		set_temp_variable = { temp_support_change = -0.075 }
+		set_temp_variable = { temp_selected_faction = 2 }
+		JAP_change_faction_support = yes
+		TNO_improve_security_policy_effectiveness_med = yes
+		#TNO_improve_minorities_policy_effectiveness_high = yes
+		activate_mission = JAP_kaya_hardliners_demand_JAP_crush_dissenters
+		country_event = { id = japkaya_tree_one.34 }
+	}
+}
+
+shared_focus = {
+	# effects of the purge via national spirit
+	#get custom gfx, country of Japan upper centre, flames along the bottom and rays like sunshine emmiting from the top
+	id = JAP_baptism_by_fire
+	icon = GFX_JAP_Baptism_by_Fire
+	available = {
+		NOT = { has_active_mission = JAP_bill_voting_mission }
+	}
+	prerequisite = {
+		focus = JAP_crush_dissenters
+	}
+	relative_position_id = JAP_crush_dissenters
+	x = 0
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_baptism_by_fire"
+		remove_ideas = JAP_crackdown_on_anti_government_elements_2
+		set_temp_variable = { temp_bill_id = 519 }
+		set_temp_variable = { temp_bill_proposing_faction = 6 }
+		JAP_initiate_bill = yes
+		if = {
+			limit = { has_completed_focus = JAP_appeal_to_the_hardliners }
+			country_event = { id = japkaya_tree_one.35 }
+		}
+		else = {
+			country_event = { id = japkaya_tree_one.36 }
+		}
+	}
+}
+
+#note, with this small economy branch, look into adjusting zaibatsu variables once the gui is coded with its variables
+#also, going hard against zaibatsus in this path causes turbulence, and if they survive then informs futher economic choice to continue hard pushback against them in nazbol stuff, or compromise and accept some
+shared_focus = { #starting to put tax pressure on the rich capitalists which are viewed as corrupt, kishi demand to tax one area harder
+	id = JAP_untangle_the_economy
+	icon = GFX_JAP_imperial_rule_free_from_corruption
+	available = {
+		NOT = { has_active_mission = JAP_bill_voting_mission }
+	}
+	prerequisite = {
+		focus = JAP_begin_the_reforms
+	}
+	relative_position_id = JAP_begin_the_reforms
+	x = 2
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_untangle_the_economy"
+		add_ideas = JAP_administrative_reform_0
+		TNO_worsen_admin_efficiency_med = yes
+		activate_mission = JAP_kaya_hardliners_demand_JAP_untangle_the_economy
+		set_temp_variable = { temp_bill_id = 516 }
+		set_temp_variable = { temp_bill_proposing_faction = 5 }
+		JAP_initiate_bill = yes
+	}
+}
+
+shared_focus = { #gdp decrease and stab hit from purging the corrupt economic sectors
+	id = JAP_cleanse_the_corruption
+	icon = GFX_JAP_Condemn_Corruption
+	prerequisite = {
+		focus = JAP_untangle_the_economy
+	}
+	relative_position_id = JAP_untangle_the_economy
+	x = 1
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_cleanse_the_corruption"
+		TNO_improve_penal_system_policy_effectiveness_low = yes
+		JAP_HoP_support_decrease_med = yes
+	}
+}
+
+shared_focus = { # gather police, troops and industrial programme to begin a massive resource extraction operation in the colonies
+	id = JAP_prepare_our_tools
+	icon = GFX_CHI_Modern_Construction_Equipment_New
+	prerequisite = {
+		focus = JAP_cleanse_the_corruption
+	}
+	relative_position_id = JAP_cleanse_the_corruption
+	x = 0
+	y = 2
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_prepare_our_tools"
+		set_temp_variable = { temp_econ_spending_amount = 0.35 }
+		econ_spend_money_once_effect_raw_money = yes
+		set_temp_variable = { gdp_growth_temp = 0.75 }
+		econ_gdp_growth_change = yes
+		set_temp_variable = { inflation_temp = 0.15 }
+		econ_inflation_change = yes
+		swap_ideas = {
+			remove_idea = JAP_administrative_reform_0
+			add_idea = JAP_administrative_reform_1
+		}
+		TNO_improve_industrial_equipment_low = yes
+		activate_mission = JAP_kaya_hardliners_demand_JAP_prepare_our_tools
+	}
+}
+
+shared_focus = { # start of big resource extraction project, get resources from various colonies, flavour event for everyone involved about how good it is
+	id = JAP_start_digging
+	icon = GFX_CHI_Digging_deep
+	prerequisite = {
+		focus = JAP_prepare_our_tools
+	}
+	relative_position_id = JAP_prepare_our_tools
+	x = -1
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_start_digging"
+		set_temp_variable = { temp_econ_spending_amount = 0.55 }
+		econ_spend_money_once_effect_raw_money = yes
+		set_temp_variable = { gdp_growth_temp = 0.75 }
+		econ_gdp_growth_change = yes
+		set_temp_variable = { inflation_temp = 0.15 }
+		econ_inflation_change = yes
+		JAP_IJA_increase_med = yes
+		add_resource = {
+			type = steel
+			amount = 22
+			state = 655
+		}
+		add_resource = {
+			type = steel
+			amount = 27
+			state = 560
+		}
+		add_resource = {
+			type = tungsten
+			amount = 21
+			state = 527
+		}
+		country_event = { id = japkaya_tree_one.41 days = 14 }
+	}
+}
+
+shared_focus = { #negative effects of the resource extraction hit colonies, but japan gets bit more resources and econ benifits
+	id = JAP_by_any_means
+	icon = GFX_JAP_Make_Them_Bend
+	available = {
+		NOT = { has_active_mission = JAP_bill_voting_mission }
+	}
+	prerequisite = {
+		focus = JAP_start_digging
+	}
+	relative_position_id = JAP_start_digging
+	x = 0
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_by_any_means"
+		activate_mission = JAP_kaya_hardliners_demand_JAP_by_any_means
+		set_temp_variable = { temp_bill_id = 517 }
+		set_temp_variable = { temp_bill_proposing_faction = 5 }
+		JAP_initiate_bill = yes
+		country_event = { id = japkaya_tree_one.42 }
+	}
+}
+
+shared_focus = { #negative effects of the resource extraction hit colonies, but japan gets bit more resources and econ benifits
+	id = JAP_the_premiership_secured
+	icon = GFX_JAP_kaya_stable_governance
+	prerequisite = {
+		focus = JAP_the_might_of_our_military
+	}
+	prerequisite = {
+		focus = JAP_baptism_by_fire
+	}
+	prerequisite = {
+		focus = JAP_by_any_means
+	}
+	relative_position_id = JAP_baptism_by_fire
+	x = 0
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_by_any_means"
+		JAP_Kaya_increase_power_avg = yes
+		TNO_improve_political_parties_policy_effectiveness_high = yes
+		add_political_power = 75
+		hidden_effect = {
+			set_country_flag = japan_kaya_tree_one_complete
+			JAP_tree_swap = yes
+			set_country_flag = JAP_reforms_next_stage
+		}
+		if = {
+			limit = { has_completed_focus = JAP_appeal_to_the_hardliners }
+			country_event = { id = japkaya_tree_one.46 }
+		}
+		else = {
+			country_event = { id = japkaya_tree_one.45 }
+		}
+	}
+}
+
+# shared_focus = { #focus on military side, so more arm/naval factories with some exerperiance and command power?
+# 	id = JAP_the_state_for_the_military
+# 	icon = GFX_JAP_Yokusankai_Military_Wing
+# 	prerequisite = {
+# 		focus = JAP_the_might_of_our_military
+# 	}
+# 	prerequisite = {
+# 		focus = JAP_baptism_by_fire
+# 	}
+# 	mutually_exclusive = {
+# 		focus = JAP_the_economy_for_the_state
+# 	}
+
+# 	relative_position_id = JAP_baptism_by_fire
+# 	x = -1
+# 	y = 1
+# 	cost = 5
+# 	completion_reward = {
+# 		log = "[GetDateText]: [Root.GetName]: Decision JAP_the_state_for_the_military"
+# 		country_event = japkaya.35
+# 		JAP_IJA_increase_med = yes
+# 		JAP_PA_support_decrease_med = yes
+# 		JAP_kaya_increase_kishi_influence_medium = yes
+# 		TNO_improve_training_policy_effectiveness_monthly_high = yes
+# 		random_owned_controlled_state = {
+# 			limit = {
+# 				is_coastal = yes
+# 				dockyard > 1
+# 				is_core_of = JAP
+# 			}
+# 			add_building_construction = {
+# 				type = dockyard
+# 				level = 1
+# 				instant_build = yes
+# 			}
+# 			add_extra_state_shared_building_slots = 1
+# 		}
+# 		hidden_effect = {
+# 			set_country_flag = japan_kaya_tree_one_complete
+# 			JAP_tree_swap = yes
+# 		}
+# 	}
+# }
+
+# shared_focus = {#improve economic law so move to militrization of the economy, kishi prefers this, has demand to seize even more control for stability loss
+# 	id = JAP_the_economy_for_the_state
+# 	icon = GFX_JAP_The_Matsuoka_Plan
+# 	prerequisite = {
+# 		focus = JAP_baptism_by_fire
+# 	}
+# 	prerequisite = {
+# 		focus = JAP_by_any_means
+# 	}
+# 	mutually_exclusive = {
+# 		focus = JAP_the_state_for_the_military
+# 	}
+# 	relative_position_id = JAP_baptism_by_fire
+# 	x = 1
+# 	y = 1
+# 	cost = 5
+# 	completion_reward = {
+# 		log = "[GetDateText]: [Root.GetName]: Decision JAP_the_economy_for_the_state"
+# 		JAP_PA_support_decrease_small = yes
+# 		country_event = japkaya.35
+# 		JAP_kaya_decrease_kishi_influence_low = yes
+# 		TNO_improve_max_workhours_policy_effectiveness_high = yes
+# 		hidden_effect = {
+# 			set_country_flag = japan_kaya_tree_one_complete
+# 			JAP_tree_swap = yes
+# 		}
+# 	}
+# }
+
+# next three years of the above kaya tree, if they survive that tree
+shared_focus = { # survived and so consolidate strength and popularity
+	id = JAP_kaya_we_survived
+	icon = GFX_JAP_Weathered_the_Storm
+	x = 10
+	y = 0
+	cost = 5
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 1
+	}
+	allow_branch = {
+		has_country_flag = japan_kaya_tree_one_complete
+		NOT = {
+			has_country_flag = japan_kaya_tree_two_complete
+			has_country_flag = JAP_WW3_tree
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_kaya_we_survived"
+		set_country_flag = JAP_reforms_next_stage
+		add_political_power = 100
+		JAP_Kaya_increase_power_avg = yes
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_destroy_them_and_start_anew
+	icon = GFX_JAP_PM_Kishi
+	allow_branch = {
+		has_country_flag = japan_kaya_tree_one_complete
+		NOT = {
+			has_country_flag = japan_kaya_tree_two_complete
+		}
+	}
+	prerequisite = {
+		focus = JAP_kaya_we_survived
+	}
+	available = {
+		has_country_flag = JAP_hardliner_choice
+	}
+	mutually_exclusive = {
+		focus = JAP_kaya_restructure_the_system
+	}
+	relative_position_id = JAP_kaya_we_survived
+	x = -10
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_kaya_destroy_them_and_start_anew"
+		set_temp_variable = { temp_hl_inf_change = 0.1 }
+		JAP_change_hardliner_influence = yes
+		set_temp_variable = { temp_hl_approval_change = 0.025 }
+		JAP_change_hardliner_approval = yes
+		add_stability = -0.1
+		country_event = { id = japkaya_tree_two.78 }
+	}
+}
+
+shared_focus = { #modifier which gives nice buffs to represent your increased hold over the economy
+	id = JAP_a_new_economy
+	icon = GFX_JAP_develop_home_islands
+	prerequisite = {
+		focus = JAP_kaya_destroy_them_and_start_anew
+	}
+	relative_position_id = JAP_kaya_destroy_them_and_start_anew
+	x = -2
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_a_new_economy"
+		add_ideas = JAP_kaya_a_new_economy_idea
+		set_temp_variable = { gdp_growth_temp = 0.1 }
+		econ_gdp_growth_change = yes
+		country_event = { id = japkaya_tree_two.122 }
+	}
+}
+
+shared_focus = { #rename to oil sufficiency, focus on synthetic oil production, kishi demand about using his contacts to give oil in manchuko
+	id = JAP_oil_sufficiency
+	icon = GFX_CHI_Oil_For_The_Companies
+	available = {
+		NOT = { has_active_mission = JAP_bill_voting_mission }
+	}
+	prerequisite = {
+		focus = JAP_a_new_economy
+	}
+	relative_position_id = JAP_a_new_economy
+	x = 0
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_oil_sufficiency"
+		set_temp_variable = { temp_econ_spending_amount = 0.35 }
+		econ_spend_money_once_effect_raw_money = yes
+		334 = {
+			add_resource = {
+				type = oil
+				amount = 15
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = JAP
+			}
+			add_building_construction = {
+				type = synthetic_refinery
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		activate_mission = JAP_kaya_hardliners_demand_JAP_oil_sufficiency
+		set_temp_variable = { temp_bill_id = 510 }
+		set_temp_variable = { temp_bill_proposing_faction = 6 }
+		JAP_initiate_bill = yes
+		country_event = { id = japkaya_tree_two.123 }
+	}
+}
+
+shared_focus = { #kishi demand to expand definition of reformists for more purging
+	id = JAP_outweave_the_reformists
+	icon = GFX_JAP_next_step
+	prerequisite = {
+		focus = JAP_oil_sufficiency
+	}
+	relative_position_id = JAP_oil_sufficiency
+	x = 0
+	y = 2
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_outweave_the_reformists"
+		set_temp_variable = { temp_hl_inf_change = 0.025 }
+		JAP_change_hardliner_influence = yes
+		JAP_Takagi_decrease_power_small = yes
+
+		set_temp_variable = { temp_selected_faction = 2 }
+		set_temp_variable = { temp_support_change = -0.1 }
+		JAP_change_faction_support = yes
+
+		activate_mission = JAP_kaya_hardliners_demand_JAP_outweave_the_reformists
+		country_event = { id = japkaya_tree_two.128 }
+	}
+}
+
+shared_focus = { # add negeative effect to keriestu later with future variable systems, siezing key assets here, supported due to not many liking them
+	id = JAP_the_reformists_base_withered
+	icon = GFX_JAP_Stop_The_Reformers
+	prerequisite = {
+		focus = JAP_outweave_the_reformists
+	}
+	relative_position_id = JAP_outweave_the_reformists
+	x = 1
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_the_reformists_base_withered"
+		JAP_Takagi_decrease_power_subst = yes
+	}
+}
+
+shared_focus = { #use indirect methods to hurt the zaibatsus due to direct not working as well last time, kishi demand to focus on a paticular zaibatsu
+	id = JAP_trick_the_zaibatsu
+	icon = GFX_JAP_imperial_rule_free_from_corruption
+	prerequisite = {
+		focus = JAP_kaya_destroy_them_and_start_anew
+	}
+	relative_position_id = JAP_kaya_destroy_them_and_start_anew
+	x = 0
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_trick_the_zaibatsu"
+		set_temp_variable = { temp_econ_spending_amount = 0.5 }
+		econ_spend_money_once_effect_raw_money = yes
+		TNO_improve_max_workhours_policy_effectiveness_med = yes
+		TNO_worsen_income_taxation_policy_effectiveness_med = yes
+		country_event = { id = japkaya_tree_two.80 }
+	}
+}
+
+shared_focus = { #starting to see the beginings of the plans you have set in motion, kishi demand to go faster hurting your econ a bit
+	id = JAP_patience_is_a_virtue
+	icon = GFX_JAP_Promises_to_the_Cliques
+	prerequisite = {
+		focus = JAP_trick_the_zaibatsu
+	}
+	relative_position_id = JAP_trick_the_zaibatsu
+	x = 0
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_patience_is_a_virtue"
+		JAP_Takagi_increase_power_small = yes
+		JAP_IJN_increase_small = yes
+		country_event = { id = japkaya_tree_two.81 }
+	}
+}
+
+shared_focus = { #tax the economy even more to weaken the companies
+	id = JAP_break_their_backs
+	icon = GFX_JAP_hurt_the_zaibatsus
+	prerequisite = {
+		focus = JAP_patience_is_a_virtue
+	}
+	relative_position_id = JAP_patience_is_a_virtue
+	x = -1
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_break_their_backs"
+		swap_ideas = {
+			remove_idea = JAP_zaibatsu_question
+			add_idea = JAP_zaibatsu_question_2
+		}
+		set_temp_variable = { temp_hl_inf_change = 0.01 }
+		JAP_change_hardliner_influence = yes
+		activate_mission = JAP_kaya_hardliners_demand_JAP_break_their_backs
+		country_event = { id = japkaya_tree_two.82 }
+	}
+}
+
+shared_focus = { #cause issues to flare up between the zaibatsus, give flavour event and cause economic growth decrease due to the friction, kishi demand to help spread it abroad with his manchuria contacts giving you off-map factory
+	id = JAP_reignite_the_rivalries
+	icon = GFX_JAP_Friends_In_The_Kayo_Club
+	prerequisite = {
+		focus = JAP_patience_is_a_virtue
+	}
+	relative_position_id = JAP_patience_is_a_virtue
+	x = 1
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_reignite_the_rivalries"
+		TNO_improve_security_policy_effectiveness_med = yes
+		add_stability = -0.05
+		country_event = { id = japkaya_tree_two.86 }
+	}
+}
+
+shared_focus = { #event about a risky gambit to break the zaibatsus and keirestus once and for all. Get a bad national spirt to reperesent the damage
+	id = JAP_the_gambit
+	icon = GFX_JAP_national_diet
+	available = {
+		NOT = { has_active_mission = JAP_bill_voting_mission }
+	}
+	prerequisite = {
+		focus = JAP_break_their_backs
+	}
+	prerequisite = {
+		focus = JAP_reignite_the_rivalries
+	}
+	relative_position_id = JAP_break_their_backs
+	x = 1
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_the_gambit"
+		#add_ideas = JAP_kaya_the_gambit_idea
+		swap_ideas = {
+			remove_idea = JAP_zaibatsu_question_2
+			add_idea = JAP_zaibatsu_question_3
+		}
+		set_temp_variable = { temp_bill_id = 511 }
+		set_temp_variable = { temp_bill_proposing_faction = 6 }
+		JAP_initiate_bill = yes
+		if = {
+			limit = { has_country_flag = JAP_kaya_playing_hardball }
+			country_event = { id = japkaya_tree_two.95 }
+		}
+		else = {
+			country_event = { id = japkaya_tree_two.99 }
+		}
+	}
+}
+
+shared_focus = { #take holdings from zaibatsu in colsolidating them for yourself, debt interest increase due to economic uncertianty
+	id = JAP_economic_consolidation
+	icon = GFX_JAP_an_integrated_economy
+	available = {
+		NOT = { has_active_mission = JAP_bill_voting_mission }
+	}
+	prerequisite = {
+		focus = JAP_kaya_destroy_them_and_start_anew
+	}
+	relative_position_id = JAP_kaya_destroy_them_and_start_anew
+	x = 2
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_economic_consolidation"
+		random_owned_controlled_state = {
+			limit = {
+				has_resources_amount = {
+					resource = oil
+					amount > 0
+				}
+			}
+			add_resource = {
+				type = oil
+				amount = 15
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				has_resources_amount = {
+					resource = steel
+					amount > 0
+				}
+			}
+			add_resource = {
+				type = steel
+				amount = 22
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				has_resources_amount = {
+					resource = chromium
+					amount > 0
+				}
+			}
+			add_resource = {
+				type = chromium
+				amount = 16
+			}
+		}
+		activate_mission = JAP_kaya_hardliners_demand_JAP_economic_consolidation
+		set_temp_variable = { temp_bill_id = 509 }
+		set_temp_variable = { temp_bill_proposing_faction = 6 }
+		JAP_initiate_bill = yes
+	}
+}
+
+shared_focus = {#a new order for the workers, make them work harder and longer, kishi demand to cult of the emperor to manifest in the workers as well as the military
+	id = JAP_a_new_order
+	icon = GFX_JAP_Ministry_of_Pan_Asian_Recovery
+	prerequisite = {
+		focus = JAP_economic_consolidation
+	}
+	relative_position_id = JAP_economic_consolidation
+	x = 0
+	y = 3
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_a_new_order"
+		set_temp_variable = { inflation_temp = -0.1 }
+		econ_inflation_change = yes
+		TNO_improve_admin_efficiency_med = yes
+	}
+}
+
+shared_focus = { #improve the bad modifier from the risky gambit focus to be equally good and bad, kishi demand to put certian people in charge of certian economic areas in mass nationalisation
+	id = JAP_economy_for_the_state
+	icon = GFX_JAP_Reverse_the_Nationalization
+	available = {
+		NOT = { has_active_mission = JAP_bill_voting_mission }
+	}
+	prerequisite = {
+		focus = JAP_the_gambit
+	}
+	prerequisite = {
+		focus = JAP_a_new_order
+	}
+	relative_position_id = JAP_the_gambit
+	x = 1
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_economy_for_the_state"
+		set_temp_variable = { temp_bill_id = 512 }
+		set_temp_variable = { temp_bill_proposing_faction = 6 }
+		JAP_initiate_bill = yes
+		country_event = { id = japkaya_tree_two.130 }
+	}
+}
+
+shared_focus = { #improve the modifier so it's positive
+	id = JAP_state_for_the_economy
+	icon = GFX_JAP_Total_Control
+	available = {
+		NOT = { has_active_mission = JAP_bill_voting_mission }
+	}
+	prerequisite = {
+		focus = JAP_the_reformists_base_withered
+	}
+	prerequisite = {
+		focus = JAP_economy_for_the_state
+	}
+	relative_position_id = JAP_the_reformists_base_withered
+	x = 1
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_state_for_the_economy"
+		set_temp_variable = { temp_econ_GDP_boost_percentage = 0.025 }
+		econ_GDP_boost_once_percentage = yes
+		tno_max_workhours_worsen = yes
+		TNO_improve_trade_laws_policy_effectiveness_high = yes
+		set_temp_variable = { temp_bill_id = 513 }
+		set_temp_variable = { temp_bill_proposing_faction = 6 }
+		JAP_initiate_bill = yes
+		country_event = { id = japkaya_tree_two.134 }
+	}
+}
+
+#have oil from working with zaibatsus and their knowledge to exploit forgien oil fields better
+#can go down this path with kishi support, but he yeets you at the end of your term and comes to power for being too moderate
+#kishi demands here to insuniate him in your government more so he gets rid of you at the end of this
+shared_focus = { #calm down reforms a bit, becoming more economically stable, kishi demand here, displeased with option so you have to offer him more political support
+	id = JAP_kaya_restructure_the_system
+	icon = GFX_JAP_PM_Kaya
+	prerequisite = {
+		focus = JAP_kaya_we_survived
+	}
+	mutually_exclusive = {
+		focus = JAP_kaya_destroy_them_and_start_anew
+	}
+	available = {
+		NOT = { has_country_flag = JAP_hardliner_choice }
+	}
+	relative_position_id = JAP_kaya_we_survived
+	x = 0
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_kaya_restructure_the_system"
+		JAP_Kaya_increase_power_small = yes
+		JAP_Ino_increase_power_small = yes
+		set_temp_variable = { temp_hl_inf_change = -0.025 }
+		JAP_change_hardliner_influence = yes
+		country_event = { id = japkaya_tree_two.1 }
+	}
+}
+
+shared_focus = {
+	id = JAP_our_trusted_stronghold
+	icon = GFX_JAP_Vertical_Architectural_Planning
+	prerequisite = {
+		focus = JAP_kaya_restructure_the_system
+	}
+	relative_position_id = JAP_kaya_restructure_the_system
+	x = -3
+	y = 1
+	cost = 5
+	completion_reward = {
+		TNO_improve_income_taxation_policy_effectiveness_med = yes
+		add_stability = 0.05
+		country_event = { id = japkaya_tree_two.2 }
+	}
+}
+
+shared_focus = {
+	id = JAP_the_ways_of_the_bokuminkan
+	icon = GFX_JAP_Secure_The_Right
+	prerequisite = {
+		focus = JAP_our_trusted_stronghold
+	}
+	mutually_exclusive = {
+		focus = JAP_takahashis_proteges
+	}
+	relative_position_id = JAP_our_trusted_stronghold
+	x = -1
+	y = 1
+	cost = 5
+	completion_reward = {
+		JAP_Ino_increase_power_small = yes
+		set_temp_variable = { temp_support_change = 0.05 }
+		set_temp_variable = { temp_selected_faction = 4 }
+		JAP_change_faction_support = yes
+		activate_mission = JAP_kaya_hardliners_demand_JAP_the_ways_of_the_bokuminkan
+		country_event = { id = japkaya_tree_two.3 }
+	}
+}
+
+shared_focus = {
+	id = JAP_takahashis_proteges
+	icon = GFX_JAP_DaiNihonSeijikai_red_white_gold
+	prerequisite = {
+		focus = JAP_our_trusted_stronghold
+	}
+	mutually_exclusive = {
+		focus = JAP_the_ways_of_the_bokuminkan
+	}
+	relative_position_id = JAP_our_trusted_stronghold
+	x = 1
+	y = 1
+	cost = 5
+	completion_reward = {
+		set_temp_variable = { temp_selected_faction = 5 }
+		set_temp_variable = { temp_support_change = 0.025 }
+		JAP_change_faction_support = yes
+		country_event = { id = japkaya_tree_two.4 }
+	}
+}
+
+shared_focus = {
+	id = JAP_an_offer_of_stability
+	icon = GFX_generic_welfare_general
+	prerequisite = {
+		focus = JAP_the_ways_of_the_bokuminkan
+	}
+	relative_position_id = JAP_the_ways_of_the_bokuminkan
+	x = -1
+	y = 1
+	cost = 5
+	completion_reward = {
+		TNO_improve_poverty_med = yes
+		TNO_improve_unemployment_policy_effectiveness_med = yes
+		TNO_improve_pensions_policy_effectiveness_med = yes
+		country_event = { id = japkaya_tree_two.5 }
+	}
+}
+
+shared_focus = {
+	id = JAP_going_into_the_red
+	icon = GFX_ITA_Spend_in_Deficit
+	available = {
+		NOT = { has_active_mission = JAP_bill_voting_mission }
+	}
+	prerequisite = {
+		focus = JAP_the_ways_of_the_bokuminkan
+		focus = JAP_takahashis_proteges
+	}
+	relative_position_id = JAP_the_ways_of_the_bokuminkan
+	x = 1
+	y = 1
+	cost = 5
+	completion_reward = {
+		set_temp_variable = { temp_econ_spending_amount = 2.5 }
+		econ_spend_money_once_effect_raw_money = yes
+		set_temp_variable = { gdp_growth_temp = 0.25 }
+		econ_gdp_growth_change = yes
+		TNO_improve_poverty_med = yes
+		social_funding_minimal_increase_high = yes
+		set_temp_variable = { temp_bill_id = 501 }
+		set_temp_variable = { temp_bill_proposing_faction = 5 }
+		JAP_initiate_bill = yes
+		country_event = { id = japkaya_tree_two.6 }
+	}
+}
+
+shared_focus = {
+	id = JAP_reach_out_to_farmers
+	icon = GFX_CHI_New_Agricultural_Equipment
+	available = {
+		NOT = { has_active_mission = JAP_bill_voting_mission }
+	}
+	prerequisite = {
+		focus = JAP_takahashis_proteges
+	}
+	relative_position_id = JAP_takahashis_proteges
+	x = 1
+	y = 1
+	cost = 5
+	completion_reward = {
+		set_temp_variable = { inflation_temp = -0.1 }
+		econ_inflation_change = yes
+		TNO_worsen_income_taxation_policy_effectiveness_med = yes
+		TNO_improve_agriculture_med = yes
+		set_temp_variable = { temp_bill_id = 502 }
+		set_temp_variable = { temp_bill_proposing_faction = 5 }
+		JAP_initiate_bill = yes
+		country_event = { id = japkaya_tree_two.9 }
+	}
+}
+
+shared_focus = {
+	id = JAP_aokis_bureaucratic_revival
+	icon = GFX_JAP_Aokis_Bureucratic_Revival
+	prerequisite = {
+		focus = JAP_an_offer_of_stability
+	}
+	prerequisite = {
+		focus = JAP_going_into_the_red
+	}
+	mutually_exclusive = {
+		focus = JAP_fukudas_careful_approach
+	}
+	relative_position_id = JAP_an_offer_of_stability
+	x = 1
+	y = 1
+	cost = 5
+	completion_reward = {
+		add_ideas = JAP_bureaucratic_planning
+		activate_mission = JAP_kaya_hardliners_demand_JAP_aokis_bureaucratic_revival
+		country_event = { id = japkaya_tree_two.12 }
+	}
+}
+
+shared_focus = {
+	id = JAP_a_stable_welfare_net
+	icon = GFX_generic_change_law_welfare
+	available = {
+		NOT = { has_active_mission = JAP_bill_voting_mission }
+	}
+	prerequisite = {
+		focus = JAP_aokis_bureaucratic_revival
+	}
+	relative_position_id = JAP_aokis_bureaucratic_revival
+	x = 0
+	y = 1
+	cost = 5
+	completion_reward = {
+		set_temp_variable = { temp_econ_spending_amount = 3.5 }
+		econ_spend_money_once_effect_raw_money = yes
+		TNO_improve_poverty_high = yes
+		set_temp_variable = { temp_bill_id = 503 }
+		set_temp_variable = { temp_bill_proposing_faction = 5 }
+		JAP_initiate_bill = yes
+		country_event = { id = japkaya_tree_two.13 }
+	}
+}
+
+shared_focus = {
+	id = JAP_fukudas_careful_approach
+	icon = GFX_JAP_fukudas_careful_approach
+	prerequisite = {
+		focus = JAP_reach_out_to_farmers
+	}
+	prerequisite = {
+		focus = JAP_going_into_the_red
+	}
+	mutually_exclusive = {
+		focus = JAP_aokis_bureaucratic_revival
+	}
+	relative_position_id = JAP_reach_out_to_farmers
+	x = -1
+	y = 1
+	cost = 5
+	completion_reward = {
+		add_ideas = JAP_careful_approach
+		JAP_IJA_decrease_med = yes
+		army_funding_maximal_decrease_low = yes
+		naval_funding_maximal_decrease_low = yes
+		country_event = { id = japkaya_tree_two.16 }
+	}
+}
+
+shared_focus = {
+	id = JAP_our_economic_pillars_stabilised
+	icon = GFX_USA_The_Economic_Opportunity_Act
+	available = {
+		NOT = { has_active_mission = JAP_bill_voting_mission }
+	}
+	prerequisite = {
+		focus = JAP_fukudas_careful_approach
+	}
+	relative_position_id = JAP_fukudas_careful_approach
+	x = 0
+	y = 1
+	cost = 5
+	completion_reward = {
+		set_temp_variable = { temp_bill_id = 504 }
+		set_temp_variable = { temp_bill_proposing_faction = 5 }
+		JAP_initiate_bill = yes
+		country_event = { id = japkaya_tree_two.17 }
+	}
+}
+
+
+shared_focus = {
+	id = JAP_the_greatest_victims
+	icon = GFX_JAP_old_zaibatsus
+	prerequisite = {
+		focus = JAP_kaya_restructure_the_system
+	}
+	relative_position_id = JAP_kaya_restructure_the_system
+	x = 3
+	y = 1
+	cost = 5
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = JAP_zaibatsu_question
+			add_idea = JAP_zaibatsu_question_alt_2
+		}
+		country_event = { id = japkaya_tree_two.21 }
+	}
+}
+
+shared_focus = {
+	id = JAP_are_also_the_most_responsible
+	icon = GFX_JAP_Expand_Lobbying
+	prerequisite = {
+		focus = JAP_the_greatest_victims
+	}
+	relative_position_id = JAP_the_greatest_victims
+	x = 0
+	y = 1
+	cost = 5
+	completion_reward = {
+		add_stability = -0.05
+		TNO_worsen_income_taxation_policy_effectiveness_med = yes
+		add_political_power = -50
+		activate_mission = JAP_kaya_hardliners_demand_JAP_are_also_the_most_responsible
+		country_event = { id = japkaya_tree_two.22 }
+	}
+}
+
+shared_focus = {
+	id = JAP_squeeze_them_dry
+	icon = GFX_JAP_Total_Asset_Freeze
+	prerequisite = {
+		focus = JAP_are_also_the_most_responsible
+	}
+	mutually_exclusive = {
+		focus = JAP_politically_convenient_pardons
+	}
+	relative_position_id = JAP_are_also_the_most_responsible
+	x = -1
+	y = 1
+	cost = 5
+	completion_reward = {
+		add_stability = -0.05
+		set_temp_variable = { temp_hl_inf_change = 0.05 }
+		JAP_change_hardliner_influence = yes
+		JAP_IJA_increase_med = yes
+		set_temp_variable = { temp_support_change = 0.05 }
+		set_temp_variable = { temp_selected_faction = 2 }
+		JAP_change_faction_support = yes
+		set_temp_variable = { money_reserves_temp = 0.5 }
+		econ_money_reserves_change_raw_money = yes
+		country_event = { id = japkaya_tree_two.23 }
+	}
+}
+
+shared_focus = {
+	id = JAP_enact_creeping_acquisitions
+	icon = GFX_generic_money_handout
+	available = {
+		NOT = { has_active_mission = JAP_bill_voting_mission }
+	}
+	prerequisite = {
+		focus = JAP_squeeze_them_dry
+	}
+	relative_position_id = JAP_squeeze_them_dry
+	x = 0
+	y = 1
+	cost = 5
+	completion_reward = {
+		set_temp_variable = { temp_bill_id = 505 }
+		set_temp_variable = { temp_bill_proposing_faction = 5 }
+		JAP_initiate_bill = yes
+		country_event = { id = japkaya_tree_two.24 }
+	}
+}
+
+shared_focus = {
+	id = JAP_politically_convenient_pardons
+	icon = GFX_JAP_begin_the_reforms
+	prerequisite = {
+		focus = JAP_are_also_the_most_responsible
+	}
+	mutually_exclusive = {
+		focus = JAP_squeeze_them_dry
+	}
+	relative_position_id = JAP_are_also_the_most_responsible
+	x = 1
+	y = 1
+	cost = 5
+	completion_reward = {
+		set_temp_variable = { temp_hl_inf_change = -0.05 }
+		JAP_change_hardliner_influence = yes
+		add_political_power = -25
+		set_temp_variable = { temp_selected_faction = 2 }
+		set_temp_variable = { temp_support_change = 0.05 }
+		JAP_change_faction_support = yes
+		JAP_Kaya_increase_power_small = yes
+		country_event = { id = japkaya_tree_two.27 }
+	}
+}
+
+shared_focus = {
+	id = JAP_the_hand_that_feeds
+	icon = GFX_JAP_No_More_15_year_plans
+	available = {
+		NOT = { has_active_mission = JAP_bill_voting_mission }
+	}
+	prerequisite = {
+		focus = JAP_politically_convenient_pardons
+	}
+	relative_position_id = JAP_politically_convenient_pardons
+	x = 0
+	y = 1
+	cost = 5
+	completion_reward = {
+		set_temp_variable = { temp_bill_id = 506 }
+		set_temp_variable = { temp_bill_proposing_faction = 5 }
+		JAP_initiate_bill = yes
+		country_event = { id = japkaya_tree_two.28 }
+	}
+}
+
+shared_focus = {
+	id = JAP_corporatism_modernised
+	icon = GFX_JAP_useful_zaibatsus
+	prerequisite = {
+		focus = JAP_enact_creeping_acquisitions
+		focus = JAP_the_hand_that_feeds
+	}
+	relative_position_id = JAP_the_hand_that_feeds
+	x = -1
+	y = 1
+	cost = 5
+	completion_reward = {
+		add_stability = 0.05
+		set_temp_variable = { gdp_growth_temp = 0.4 }
+		econ_gdp_growth_change = yes
+		set_temp_variable = { inflation_temp = -0.2 }
+		econ_inflation_change = yes
+		country_event = { id = japkaya_tree_two.31 }
+	}
+}
+
+shared_focus = {
+	id = JAP_the_new_old_bureaucrats
+	icon = GFX_JAP_The_Matsuoka_Plan
+	available = {
+		has_completed_focus = JAP_aokis_bureaucratic_revival
+	}
+	prerequisite = {
+		focus = JAP_a_stable_welfare_net
+		focus = JAP_our_economic_pillars_stabilised
+	}
+	prerequisite = {
+		focus = JAP_corporatism_modernised
+	}
+	relative_position_id = JAP_our_economic_pillars_stabilised
+	x = 0
+	y = 1
+	cost = 5
+	completion_reward = {
+		activate_mission = JAP_kaya_hardliners_demand_JAP_the_new_old_bureaucrats
+		set_temp_variable = { temp_selected_faction = 2 }
+		set_temp_variable = { temp_support_change = -0.05 }
+		JAP_change_faction_support = yes
+		set_temp_variable = { gdp_growth_temp = 0.35 }
+		econ_gdp_growth_change = yes
+		country_event = { id = japkaya_tree_two.20 }
+	}
+}
+
+shared_focus = {
+	id = JAP_a_cautious_path_for_the_future
+	icon = GFX_JAP_Kokka_Kyocho_Ho
+	available = {
+		has_completed_focus = JAP_fukudas_careful_approach
+	}
+	prerequisite = {
+		focus = JAP_a_stable_welfare_net
+		focus = JAP_our_economic_pillars_stabilised
+	}
+	prerequisite = {
+		focus = JAP_corporatism_modernised
+	}
+	relative_position_id = JAP_corporatism_modernised
+	x = -1
+	y = 1
+	cost = 5
+	completion_reward = {
+		set_temp_variable = { inflation_temp = -0.35 }
+		econ_inflation_change = yes
+		set_temp_variable = { temp_hl_approval_change = -0.05 }
+		JAP_change_hardliner_approval = yes
+		country_event = { id = japkaya_tree_two.32 }
+	}
+}
+
+
+shared_focus = {
+	id = JAP_set_right_what_went_wrong
+	icon = GFX_generic_change_law_speech
+	prerequisite = {
+		focus = JAP_state_for_the_economy
+	}
+	prerequisite = {
+		focus = JAP_in_the_emperors_name
+	}
+	relative_position_id = JAP_the_new_old_bureaucrats
+	x = -3
+	y = 1
+	cost = 5
+	completion_reward = {
+		set_temp_variable = { temp_hl_inf_change = 0.025 }
+		JAP_change_hardliner_influence = yes
+		set_temp_variable = { temp_hl_approval_change = 0.025 }
+		JAP_change_hardliner_approval = yes
+		add_political_power = 75
+	}
+}
+
+shared_focus = {
+	id = JAP_the_shepherds_of_society
+	icon = GFX_JAP_Promising_Civilian_Rule
+	prerequisite = {
+		focus = JAP_set_right_what_went_wrong
+	}
+	relative_position_id = JAP_set_right_what_went_wrong
+	x = 0
+	y = 1
+	cost = 5
+	completion_reward = {
+		if = {
+			limit = { has_idea = JAP_bureaucratic_planning }
+			swap_ideas = {
+				remove_idea = JAP_bureaucratic_planning
+				add_idea = JAP_bureaucratic_planning_2
+			}
+		}
+		set_temp_variable = { econ_centralization_temp = 5 }
+		econ_centralization_change = yes
+		set_temp_variable = { temp_hl_inf_change = 0.025 }
+		JAP_change_hardliner_influence = yes
+		country_event = { id = japkaya_tree_two.103 }
+	}
+}
+
+shared_focus = {
+	id = JAP_the_fading_bokuminkan
+	icon = GFX_JAP_get_their_blessing
+	prerequisite = {
+		focus = JAP_a_cautious_path_for_the_future
+		focus = JAP_the_new_old_bureaucrats
+	}
+	prerequisite = {
+		focus = JAP_in_the_emperors_name
+	}
+	relative_position_id = JAP_a_cautious_path_for_the_future
+	x = 3
+	y = 1
+	cost = 5
+	completion_reward = {
+		set_temp_variable = { temp_hl_inf_change = -0.025 }
+		JAP_change_hardliner_influence = yes
+		set_temp_variable = { temp_selected_faction = 3 }
+		set_temp_variable = { temp_support_change = 0.03 }
+		JAP_change_faction_support = yes
+		set_temp_variable = { temp_selected_faction = 2 }
+		set_temp_variable = { temp_support_change = 0.01 }
+		JAP_change_faction_support = yes
+		add_political_power = 75
+	}
+}
+
+shared_focus = {
+	id = JAP_cast_aside_the_corporatists
+	icon = GFX_JAP_reform_the_party
+	prerequisite = {
+		focus = JAP_the_fading_bokuminkan
+	}
+	relative_position_id = JAP_the_fading_bokuminkan
+	x = 0
+	y = 1
+	cost = 5
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = JAP_careful_approach
+			add_idea = JAP_careful_approach_2
+		}
+		set_temp_variable = { econ_centralization_temp = -2.5 }
+		econ_centralization_change = yes
+		set_temp_variable = { temp_selected_faction = 2 }
+		set_temp_variable = { temp_support_change = 0.03 }
+		JAP_change_faction_support = yes
+		set_temp_variable = { temp_hl_inf_change = -0.025 }
+		JAP_change_hardliner_influence = yes
+		country_event = { id = japkaya_tree_two.50 }
+	}
+}
+
+shared_focus = {
+	id = JAP_settle_our_differences
+	icon = GFX_JAP_Secure_The_Right
+	prerequisite = {
+		focus = JAP_set_right_what_went_wrong
+		focus = JAP_the_fading_bokuminkan
+	}
+	relative_position_id = JAP_the_fading_bokuminkan
+	x = -5
+	y = 1
+	cost = 5
+	completion_reward = {
+		set_temp_variable = { temp_selected_faction = 4 }
+		set_temp_variable = { temp_support_change = 0.05 }
+		JAP_change_faction_support = yes
+		JAP_HoP_support_increase_small = yes
+		country_event = { id = japkaya_tree_two.67 }
+	}
+}
+
+shared_focus = {
+	id = JAP_shiina_secures_support
+	icon = GFX_JAP_Shiina_Secures_Support
+	prerequisite = {
+		focus = JAP_the_shepherds_of_society
+	}
+	prerequisite = {
+		focus = JAP_settle_our_differences
+	}
+	mutually_exclusive = {
+		focus = JAP_fukudas_ascent
+	}
+	available = { has_country_flag = JAP_shiinas_ascent_secured }
+	relative_position_id = JAP_settle_our_differences
+	x = -2
+	y = 1
+	cost = 5
+	completion_reward = {
+		set_temp_variable = { temp_hl_inf_change = 0.035 }
+		JAP_change_hardliner_influence = yes
+		JAP_Kaya_increase_power_avg = yes
+		country_event = { id = japkaya_tree_two.68 }
+	}
+}
+
+shared_focus = {
+	id = JAP_sway_the_establishment
+	icon = GFX_JAP_solidify_the_peers
+	prerequisite = {
+		focus = JAP_shiina_secures_support
+	}
+	relative_position_id = JAP_shiina_secures_support
+	x = 0
+	y = 1
+	cost = 5
+	completion_reward = {
+		JAP_IJA_increase_med = yes
+		set_temp_variable = { temp_econ_GDP_boost_percentage = 0.005 }
+		econ_GDP_boost_once_percentage = yes
+		set_temp_variable = { temp_econ_spending_amount = 2 }
+		econ_spend_money_once_effect_raw_money = yes
+		country_event = { id = japkaya_tree_two.70 }
+	}
+}
+
+shared_focus = {
+	id = JAP_a_new_five_year_plan
+	icon = GFX_JAP_The_Two_Year_Plan
+	available = {
+		NOT = { has_active_mission = JAP_bill_voting_mission }
+	}
+	prerequisite = {
+		focus = JAP_sway_the_establishment
+	}
+	relative_position_id = JAP_sway_the_establishment
+	x = 1
+	y = 1
+	cost = 5
+	completion_reward = {
+		set_temp_variable = { econ_centralization_temp = 1 }
+		econ_centralization_change = yes
+		set_temp_variable = { gdp_growth_temp = 1.5 }
+		econ_gdp_growth_change = yes
+		TNO_improve_industrial_equipment_med = yes
+		JAP_Kaya_increase_power_small = yes
+		set_temp_variable = { temp_bill_id = 507 }
+		set_temp_variable = { temp_bill_proposing_faction = 6 }
+		JAP_initiate_bill = yes
+		country_event = { id = japkaya_tree_two.71 }
+	}
+}
+
+shared_focus = {
+	id = JAP_fukudas_ascent
+	icon = GFX_JAP_Fukudas_Ascent
+	prerequisite = {
+		focus = JAP_cast_aside_the_corporatists
+	}
+	prerequisite = {
+		focus = JAP_settle_our_differences
+	}
+	mutually_exclusive = {
+		focus = JAP_shiina_secures_support
+	}
+	available = { has_country_flag = JAP_fukudas_ascent_secured }
+	relative_position_id = JAP_settle_our_differences
+	x = 2
+	y = 1
+	cost = 5
+	completion_reward = {
+		set_temp_variable = { temp_hl_inf_change = -0.035 }
+		JAP_change_hardliner_influence = yes
+		JAP_Kaya_increase_power_avg = yes
+		country_event = { id = japkaya_tree_two.69 }
+	}
+}
+
+shared_focus = {
+	id = JAP_a_convenient_alliance
+	icon = GFX_JAP_The_Empire_is_Safe
+	prerequisite = {
+		focus = JAP_fukudas_ascent
+	}
+	relative_position_id = JAP_fukudas_ascent
+	x = 0
+	y = 1
+	cost = 5
+	completion_reward = {
+		JAP_HoP_support_increase_med = yes
+		set_temp_variable = { temp_econ_GDP_boost_percentage = 0.015 }
+		econ_GDP_boost_once_percentage = yes
+		country_event = { id = japkaya_tree_two.72 }
+	}
+}
+
+shared_focus = {
+	id = JAP_stability_above_all
+	icon = GFX_JAP_Imperial_Rule
+	available = {
+		NOT = { has_active_mission = JAP_bill_voting_mission }
+	}
+	prerequisite = {
+		focus = JAP_a_convenient_alliance
+	}
+	relative_position_id = JAP_a_convenient_alliance
+	x = -1
+	y = 1
+	cost = 5
+	completion_reward = {
+		set_temp_variable = { gdp_growth_temp = 1.55 }
+		econ_gdp_growth_change = yes
+		set_temp_variable = { inflation_temp = -0.45 }
+		econ_inflation_change = yes
+		TNO_improve_agriculture_med = yes
+		set_temp_variable = { temp_bill_id = 508 }
+		set_temp_variable = { temp_bill_proposing_faction = 5 }
+		JAP_initiate_bill = yes
+		country_event = { id = japkaya_tree_two.73 }
+	}
+}
+
+shared_focus = {
+	id = JAP_retirement_of_the_grand_old_man
+	icon = GFX_JAP_kaya_the_only_true_reformer
+	prerequisite = {
+		focus = JAP_stability_above_all
+		focus = JAP_a_new_five_year_plan
+	}
+	relative_position_id = JAP_stability_above_all
+	x = -1
+	y = 1
+	cost = 5
+	completion_reward = {
+		custom_effect_tooltip = JAP_retirement_of_the_grand_old_man_tt
+		country_event = { id = japkaya_tree_two.74 }
+	}
+}
+
+
+
+
+
+shared_focus = {
+	id = JAP_the_militaries_friendly_rivalry
+	icon = GFX_JAP_The_Militaries_Friendly_Rivalry
+	prerequisite = {
+		focus = JAP_kaya_we_survived
+	}
+	relative_position_id = JAP_kaya_we_survived
+	x = 10
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_the_militaries_friendly_rivalry"
+		TNO_worsen_military_supervision_policy_effectiveness_med = yes
+		JAP_IJA_decrease_med = yes
+		JAP_IJN_decrease_med = yes
+		country_event = { id = japkaya_tree_two.33 }
+	}
+}
+
+shared_focus = {
+	# add army influence, represents them starting to control goverment
+	id = JAP_kaya_imperial_army
+	icon = GFX_VIN_Japanese_Army
+	prerequisite = {
+		focus = JAP_the_militaries_friendly_rivalry
+	}
+	relative_position_id = JAP_the_militaries_friendly_rivalry
+	x = -1
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_kaya_imperial_army"
+		army_experience = 20
+		TNO_improve_training_policy_effectiveness_med = yes
+		add_doctrine_cost_reduction = {
+			name = land_doc_bonus
+			cost_reduction = 0.75
+			uses = 2
+			category = land_doctrine
+		}
+		country_event = { id = japkaya_tree_two.34 }
+	}
+}
+
+shared_focus = { #kishi demand for an extra dockyard in a random state
+	# add navy influence, represents them starting to control goverment
+	id = JAP_kaya_imperial_navy
+	icon = GFX_SAF_air_and_naval_support
+	prerequisite = {
+		focus = JAP_the_militaries_friendly_rivalry
+	}
+	relative_position_id = JAP_the_militaries_friendly_rivalry
+	x = 1
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_kaya_imperial_navy"
+		navy_experience = 20
+		add_doctrine_cost_reduction = {
+			name = naval_doc_bonus
+			cost_reduction = 0.75
+			uses = 2
+			category = naval_doctrine
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = ROOT
+				naval_base > 1
+				naval_base < 8
+			}
+			add_building_construction = {
+				type = naval_base
+				level = 2
+				instant_build = yes
+				province = {
+					all_provinces = yes
+					limit_to_naval_base = yes
+				}
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = ROOT
+				naval_base > 1
+				naval_base < 8
+			}
+			add_building_construction = {
+				type = naval_base
+				level = 2
+				instant_build = yes
+				province = {
+					all_provinces = yes
+					limit_to_naval_base = yes
+				}
+			}
+		}
+		country_event = { id = japkaya_tree_two.43 }
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_ensure_political_loyalty
+	icon = GFX_CHI_Bring_Japanese_Officers_Into_The_Council
+	available = {
+		NOT = { has_active_mission = JAP_bill_voting_mission }
+	}
+	prerequisite = {
+		focus = JAP_kaya_imperial_army
+	}
+	prerequisite = {
+		focus = JAP_kaya_imperial_navy
+	}
+	relative_position_id = JAP_kaya_imperial_army
+	x = -1
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_kaya_ensure_political_loyalty"
+		add_ideas = JAP_kaya_military_buff_idea
+		TNO_improve_military_supervision_policy_effectiveness_med = yes
+		set_temp_variable = { temp_bill_id = 520 }
+		set_temp_variable = { temp_bill_proposing_faction = 5 }
+		JAP_initiate_bill = yes
+		country_event = { id = japkaya_tree_two.36 }
+	}
+}
+
+shared_focus = { #kishi demand to focus on industry as opposed to pure military funding
+	id = JAP_a_sufficient_injection
+	icon = GFX_GER_Let_The_Money_Flow
+	prerequisite = {
+		focus = JAP_kaya_imperial_army
+	}
+	prerequisite = {
+		focus = JAP_kaya_imperial_navy
+	}
+	relative_position_id = JAP_kaya_imperial_army
+	x = 1
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_a_sufficient_injection"
+		army_funding_maximal_increase_high = yes
+		army_funding_minimal_increase_high = yes
+		naval_funding_maximal_increase_high = yes
+		naval_funding_minimal_increase_high = yes
+		JAP_IJA_increase_med = yes
+		JAP_IJN_increase_med = yes
+		activate_mission = JAP_kaya_hardliners_demand_JAP_a_sufficient_injection
+		country_event = { id = japkaya_tree_two.41 }
+	}
+}
+
+shared_focus = {
+	id = JAP_floating_airbases
+	icon = GFX_TNO_generic_carrier
+	prerequisite = {
+		focus = JAP_kaya_imperial_army
+	}
+	prerequisite = {
+		focus = JAP_kaya_imperial_navy
+	}
+	relative_position_id = JAP_kaya_imperial_navy
+	x = 1
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_floating_airbases"
+		add_tech_bonus = {
+			name = cv_tech
+			bonus = 0.75
+			uses = 2
+			category = cv_tech
+		}
+	}
+}
+
+shared_focus = { #Kishi demand, spend additonal money into armoured vehicle research
+	# armour stuff, likely vehicles research buffs
+	id = JAP_review_our_armour
+	icon = GFX_CHI_arsenal_of_the_sphere
+	prerequisite = {
+		focus = JAP_kaya_ensure_political_loyalty
+	}
+	prerequisite = {
+		focus = JAP_floating_airbases
+	}
+	prerequisite = {
+		focus = JAP_a_sufficient_injection
+	}
+	relative_position_id = JAP_kaya_ensure_political_loyalty
+	x = 0
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_review_our_armour"
+		add_tech_bonus = {
+			name = armor
+			bonus = 0.4
+			uses = 3
+			category = armor
+		}
+		country_event = { id = japkaya_tree_two.39 }
+	}
+}
+
+shared_focus = { #kishi demand for manchuria to help you with this, get off site factory for pp cost
+	# add decisions which build factories or docks for pp, in more remote areas to show working the slaves?
+	id = JAP_sweat_into_munitions
+	icon = GFX_Generic_Industry_Tanks
+	prerequisite = {
+		focus = JAP_kaya_ensure_political_loyalty
+	}
+	prerequisite = {
+		focus = JAP_floating_airbases
+	}
+	prerequisite = {
+		focus = JAP_a_sufficient_injection
+	}
+	relative_position_id = JAP_a_sufficient_injection
+	x = 0
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_sweat_into_munitions"
+		add_ideas = JAP_kaya_military_industrial_complex_idea
+		country_event = { id = japkaya_tree_two.37 }
+	}
+}
+
+shared_focus = {
+	# carrier stuff, plus naval aircraft
+	id = JAP_a_ready_navy
+	icon = GFX_JAP_carrier_samurai
+	available = {
+		NOT = { has_active_mission = JAP_bill_voting_mission }
+	}
+	prerequisite = {
+		focus = JAP_kaya_ensure_political_loyalty
+	}
+	prerequisite = {
+		focus = JAP_floating_airbases
+	}
+	prerequisite = {
+		focus = JAP_a_sufficient_injection
+	}
+	relative_position_id = JAP_floating_airbases
+	x = 0
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_a_ready_navy"
+		add_tech_bonus = {
+			name = dd_tech
+			bonus = 0.4
+			uses = 2
+			category = dd_tech
+		}
+		add_tech_bonus = {
+			name = cl_tech
+			bonus = 0.4
+			uses = 1
+			category = cl_tech
+		}
+		set_temp_variable = { temp_bill_id = 522 }
+		set_temp_variable = { temp_bill_proposing_faction = 5 }
+		JAP_initiate_bill = yes
+		country_event = { id = japkaya_tree_two.45 }
+	}
+}
+
+shared_focus = { #kishi demannd, funding for research into CAS aircraft
+	# focus on strike aircraft, doctrine presumably to focus on army support as its their airforce
+	id = JAP_strike_anywhere
+	icon = GFX_JAP_Better_Airfield_Integration
+	prerequisite = {
+		focus = JAP_review_our_armour
+	}
+	prerequisite = {
+		focus = JAP_a_ready_navy
+	}
+	prerequisite = {
+		focus = JAP_sweat_into_munitions
+	}
+	relative_position_id = JAP_review_our_armour
+	x = 0
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_strike_anywhere"
+		add_tech_bonus = {
+			name = tactical_bomber
+			bonus = 0.4
+			uses = 1
+			category = tactical_bomber
+		}
+		add_tech_bonus = {
+			name = strategic_bomber
+			bonus = 0.4
+			uses = 1
+			category = strategic_bomber
+		}
+	}
+}
+
+shared_focus = {
+	# add idea as military industrial complex, gives buff to military production and stuff at cost of civilian economy
+	id = JAP_military_industrial_complex
+	icon = GFX_focus_generic_tank_production
+	available = {
+		NOT = { has_active_mission = JAP_bill_voting_mission }
+	}
+	prerequisite = {
+		focus = JAP_review_our_armour
+	}
+	prerequisite = {
+		focus = JAP_a_ready_navy
+	}
+	prerequisite = {
+		focus = JAP_sweat_into_munitions
+	}
+	relative_position_id = JAP_sweat_into_munitions
+	x = 0
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_military_industrial_complex"
+		swap_ideas = {
+			remove_idea = JAP_kaya_military_industrial_complex_idea
+			add_idea = JAP_kaya_military_industrial_complex_2_idea
+		}
+		activate_mission = JAP_kaya_hardliners_demand_JAP_military_industrial_complex
+		set_temp_variable = { temp_bill_id = 521 }
+		set_temp_variable = { temp_bill_proposing_faction = 5 }
+		JAP_initiate_bill = yes
+		country_event = { id = japkaya_tree_two.42 }
+	}
+}
+
+shared_focus = { #kishi demand here, developing measures to deal with and dectect small subs, include tech bonuses here once tech rework comes
+	# write loc about developing nuclear subs for second strike capacity for the navy, since doesn't have nuclear sub tech at game start, reference the I-400 series as a predecessor to ballistic missle subs
+	id = JAP_the_hidden_menace
+	icon = GFX_JAP_The_Hidden_Menace_submarine
+	prerequisite = {
+		focus = JAP_review_our_armour
+	}
+	prerequisite = {
+		focus = JAP_a_ready_navy
+	}
+	prerequisite = {
+		focus = JAP_sweat_into_munitions
+	}
+	relative_position_id = JAP_a_ready_navy
+	x = 0
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_the_hidden_menace"
+		add_tech_bonus = {
+			name = ss_tech
+			bonus = 0.6
+			uses = 2
+			category = ss_tech
+		}
+	}
+}
+
+shared_focus = {
+	# add army opinion and infulence to show solidified hold over goverment, and extra army buff
+	id = JAP_our_soldiers_control_the_ground
+	icon = GFX_JAP_Our_Soldiers_Control_The_Ground
+	prerequisite = {
+		focus = JAP_strike_anywhere
+	}
+	prerequisite = {
+		focus = JAP_military_industrial_complex
+	}
+	prerequisite = {
+		focus = JAP_the_hidden_menace
+	}
+	relative_position_id = JAP_strike_anywhere
+	x = 1
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_our_soldiers_control_the_ground"
+		TNO_improve_army_professionalism_med = yes
+		tno_training_improve = yes
+		JAP_IJA_increase_med = yes
+		country_event = { id = japkaya_tree_two.40 }
+	}
+}
+
+shared_focus = {
+	# add navy opinion and infulence to show solidified hold over goverment, and extra navy buff
+	id = JAP_our_ships_rule_the_waves
+	icon = GFX_JAP_Our_Ships_Rule_The_Waves
+	prerequisite = {
+		focus = JAP_strike_anywhere
+	}
+	prerequisite = {
+		focus = JAP_military_industrial_complex
+	}
+	prerequisite = {
+		focus = JAP_the_hidden_menace
+	}
+	relative_position_id = JAP_military_industrial_complex
+	x = 1
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_our_ships_rule_the_waves"
+		swap_ideas = {
+			remove_idea = JAP_kaya_military_industrial_complex_2_idea
+			add_idea = JAP_kaya_military_industrial_complex_3_idea
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = ROOT
+				naval_base > 1
+				naval_base < 8
+			}
+			add_building_construction = {
+				type = naval_base
+				level = 2
+				instant_build = yes
+				province = {
+					all_provinces = yes
+					limit_to_naval_base = yes
+				}
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = ROOT
+				naval_base > 1
+				naval_base < 8
+			}
+			add_building_construction = {
+				type = naval_base
+				level = 2
+				instant_build = yes
+				province = {
+					all_provinces = yes
+					limit_to_naval_base = yes
+				}
+			}
+		}
+		JAP_IJN_increase_med = yes
+		country_event = { id = japkaya_tree_two.46 }
+	}
+}
+
+shared_focus = { #kishi demand here, trying to put the civilian government more in control over the emperor cult for his plans to control the military better
+	id = JAP_in_the_emperors_name
+	icon = GFX_JAP_the_new_imperial_mandate
+	prerequisite = {
+		focus = JAP_our_soldiers_control_the_ground
+	}
+	prerequisite = {
+		focus = JAP_our_ships_rule_the_waves
+	}
+	relative_position_id = JAP_our_soldiers_control_the_ground
+	x = 1
+	y = 1
+	cost = 5
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Decision JAP_in_the_emperors_name"
+		swap_ideas = {
+			remove_idea = JAP_kaya_military_buff_idea
+			add_idea = JAP_kaya_military_buff_idea_1
+		}
+		country_event = { id = japkaya_tree_two.47 }
+	}
+}
+
+###The Kaya Reconstruction Tree###
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_the_true_kokutai
+	icon = GFX_JAP_the_new_imperial_mandate
+	allow_branch = {
+		has_country_flag = japan_kaya_tree_two_complete
+		NOT = {
+			has_country_flag = JAP_WW3_tree
+		}
+	}
+	x = 14
+	y = 0
+	cost = 5
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_the_true_kokutai"
+		add_political_power = 150
+	}
+}
+
+##The Kayan Economics##
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_a_streamlined_economy
+	icon = GFX_JAP_a_streamlined_economy
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = -10
+	y = 1
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_the_true_kokutai }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_a_streamlined_economy"
+		add_ideas = JAP_kaya_streamlined_economy
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_centralized_development_of_the_state
+	icon = GFX_JAP_Total_Control
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = -10
+	y = 2
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_a_streamlined_economy }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_centralized_development_of_the_state"
+		tno_security_improve = yes
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_control_over_the_financial_instruments
+	icon = GFX_JAP_A_Merciful_Finance_Ministry
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = -12
+	y = 3
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_a_streamlined_economy }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_control_over_the_financial_instruments"
+		tno_income_taxation_worsen = yes
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_for_the_needs_of_the_defense
+	icon = GFX_JAP_New_Showa_Warfare_2
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = -8
+	y = 3
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_a_streamlined_economy }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_for_the_needs_of_the_defense"
+		tno_training_improve = yes
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_an_effective_infrastructure
+	icon = GFX_TNO_generic_railway_work
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = -10
+	y = 4
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_centralized_development_of_the_state }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_an_effective_infrastructure"
+
+		every_owned_state = {
+			limit = {
+				OR = {
+					check_variable = { nationality = 62 } #japanese
+					check_variable = { nationality = 66 } #ainu
+				}
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		JAP_PA_support_increase_small = yes
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_arranging_the_priorities
+	icon = GFX_JAP_arranging_the_priorities
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = -10
+	y = 5
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_an_effective_infrastructure }
+	prerequisite = { focus = JAP_kaya_reconstruction_control_over_the_financial_instruments }
+	prerequisite = { focus = JAP_kaya_reconstruction_for_the_needs_of_the_defense }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_arranging_the_priorities"
+		swap_ideas = {
+			remove_idea = JAP_kaya_streamlined_economy
+			add_idea = JAP_kaya_industrial_priority_examinations
+		}
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_some_industries_need_steel
+	icon = GFX_JAP_some_industries_need_steel
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = -14
+	y = 6
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_arranging_the_priorities }
+	mutually_exclusive = { focus = JAP_kaya_reconstruction_some_need_aluminium }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_some_industries_need_steel"
+		random_owned_controlled_state ={
+			limit = {
+				is_core_of = JAP
+			}
+			add_resource = {
+				type = steel
+				amount = 8
+
+			}
+		}
+		random_owned_controlled_state ={
+			limit = {
+				is_core_of = JAP
+			}
+			add_resource = {
+				type = steel
+				amount = 8
+
+			}
+		}
+		random_owned_controlled_state ={
+			limit = {
+				is_core_of = JAP
+			}
+			add_resource = {
+				type = steel
+				amount = 8
+
+			}
+		}
+		set_temp_variable = { debt_temp = 2.5 }
+		econ_national_debt_change = yes
+	}
+}
+
+#Japan Iron and Steel Federation
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_create_jisf
+	icon = GFX_JAP_create_JISF
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = -14
+	y = 7
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_some_industries_need_steel }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_create_jisf"
+		add_ideas = JAP_kaya_jisf_idea
+		custom_effect_tooltip = econ_jap_kaya_corpo_payment
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_some_need_aluminium
+	icon = GFX_JAP_some_need_aluminium
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = -12
+	y = 6
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_arranging_the_priorities }
+	mutually_exclusive = { focus = JAP_kaya_reconstruction_some_industries_need_steel }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_some_need_aluminium"
+		random_owned_controlled_state ={
+			limit = {
+				is_core_of = JAP
+			}
+			add_resource = {
+				type = aluminium
+				amount = 8
+
+			}
+		}
+		random_owned_controlled_state ={
+			limit = {
+				is_core_of = JAP
+			}
+			add_resource = {
+				type = aluminium
+				amount = 8
+
+			}
+		}
+		random_owned_controlled_state ={
+			limit = {
+				is_core_of = JAP
+			}
+			add_resource = {
+				type = aluminium
+				amount = 8
+
+			}
+		}
+		set_temp_variable = { debt_temp = 2.5 }
+		econ_national_debt_change = yes
+	}
+}
+
+#Japan-India Bauxite Exploration
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_create_jibe
+	icon = GFX_JAP_create_JIBE
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = -12
+	y = 7
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_some_need_aluminium }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_create_jibe"
+		add_ideas = JAP_kaya_jibe_idea
+		custom_effect_tooltip = econ_jap_kaya_corpo_payment
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_and_everyone_needs_oil
+	icon = GFX_JAP_and_everyone_needs_oil
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = -10
+	y = 6
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_arranging_the_priorities }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_and_everyone_needs_oil"
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = JAP
+			}
+			add_building_construction = {
+				type = synthetic_refinery
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = JAP
+			}
+			add_building_construction = {
+				type = synthetic_refinery
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = JAP
+			}
+			add_building_construction = {
+				type = synthetic_refinery
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		set_temp_variable = { debt_temp = 0.040 }
+		econ_national_debt_change = yes
+	}
+}
+
+#Japan Petroleum Exploration
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_create_japex
+	icon = GFX_JAP_JAPEX
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = -10
+	y = 7
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_and_everyone_needs_oil }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_create_japex"
+		add_ideas = JAP_kaya_japex_idea
+		custom_effect_tooltip = econ_jap_kaya_corpo_payment
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_chromium_for_our_ships
+	icon = GFX_JAP_chromium_for_our_ships
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = -8
+	y = 6
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_arranging_the_priorities }
+	mutually_exclusive = { focus = JAP_kaya_reconstruction_tungsten_for_our_missiles }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_chromium_for_our_ships"
+		random_owned_controlled_state ={
+			limit = {
+				is_core_of = JAP
+			}
+			add_resource = {
+				type = chromium
+				amount = 8
+
+			}
+		}
+		random_owned_controlled_state ={
+			limit = {
+				is_core_of = JAP
+			}
+			add_resource = {
+				type = chromium
+				amount = 8
+
+			}
+		}
+		random_owned_controlled_state ={
+			limit = {
+				is_core_of = JAP
+			}
+			add_resource = {
+				type = chromium
+				amount = 8
+
+			}
+		}
+		set_temp_variable = { debt_temp = 2.5 }
+		econ_national_debt_change = yes
+	}
+}
+
+#Japan Metals and Chemicals Company
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_expand_jmcc
+	icon = GFX_JAP_expand_JMCC
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = -8
+	y = 7
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_chromium_for_our_ships }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_expand_jmcc"
+		add_ideas = JAP_kaya_jmcc_idea
+		custom_effect_tooltip = econ_jap_kaya_corpo_payment
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_tungsten_for_our_missiles
+	icon = GFX_JAP_tungsten_for_our_missiles
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = -6
+	y = 6
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_arranging_the_priorities }
+	mutually_exclusive = { focus = JAP_kaya_reconstruction_chromium_for_our_ships }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_tungsten_for_our_missiles"
+		random_owned_controlled_state ={
+			limit = {
+				is_core_of = JAP
+			}
+			add_resource = {
+				type = tungsten
+				amount = 8
+
+			}
+		}
+		random_owned_controlled_state ={
+			limit = {
+				is_core_of = JAP
+			}
+			add_resource = {
+				type = tungsten
+				amount = 8
+
+			}
+		}
+		random_owned_controlled_state ={
+			limit = {
+				is_core_of = JAP
+			}
+			add_resource = {
+				type = tungsten
+				amount = 8
+
+			}
+		}
+		set_temp_variable = { debt_temp = 2.5 }
+		econ_national_debt_change = yes
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_expand_mitsubishi_materials_corp
+	icon = GFX_JAP_expand_MMC
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = -6
+	y = 7
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_tungsten_for_our_missiles }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_expand_mitsubishi_materials_corp"
+		add_ideas = JAP_kaya_mmc_idea
+		custom_effect_tooltip = econ_jap_kaya_corpo_payment
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_well_fed_industry
+	icon = GFX_JAP_well_fed_industry
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = -10
+	y = 8
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_create_jisf focus = JAP_kaya_reconstruction_create_jibe }
+	prerequisite = { focus = JAP_kaya_reconstruction_expand_jmcc focus = JAP_kaya_reconstruction_expand_mitsubishi_materials_corp }
+	prerequisite = { focus = JAP_kaya_reconstruction_create_japex }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_well_fed_industry"
+		swap_ideas = {
+			remove_idea = JAP_kaya_industrial_priority_examinations
+			add_idea = JAP_kaya_fed_up_industry
+		}
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_development_of_chosen
+	icon = GFX_JAP_develop_korea
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = -12
+	y = 9
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_well_fed_industry }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_development_of_chosen"
+
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					check_variable = { nationality = 65 } #korean
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		JAP_PA_support_increase_small = yes
+		set_temp_variable = { debt_temp = 0.010 }
+		econ_national_debt_change = yes
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_develop_the_home_islands
+	icon = GFX_JAP_develop_home_islands
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = -10
+	y = 9
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_well_fed_industry }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_develop_the_home_islands"
+		random_owned_controlled_state = {
+			limit = {
+				dockyard > 1
+				check_variable = { nationality = 62 } #japanese
+			}
+			add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		JAP_PA_support_increase_small = yes
+		set_temp_variable = { debt_temp = 0.030 }
+		econ_national_debt_change = yes
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_development_of_taiwan
+	icon = GFX_JAP_develop_taiwan
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = -8
+	y = 9
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_well_fed_industry }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_development_of_taiwan"
+		hidden_effect = {
+			524 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 12068
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 1
+					instant_build = yes
+					province = 12068
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					instant_build = yes
+					province = 12068
+				}
+
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 11959
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 1
+					instant_build = yes
+					province = 11959
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					instant_build = yes
+					province = 11959
+				}
+
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 7186
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 1
+					instant_build = yes
+					province = 7186
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					instant_build = yes
+					province = 7186
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = air_base
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		JAP_PA_support_increase_small = yes
+		set_temp_variable = { debt_temp = 0.020 }
+		econ_national_debt_change = yes
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_an_integrated_economy
+	icon = GFX_JAP_an_integrated_economy
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = -10
+	y = 10
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_development_of_chosen }
+	prerequisite = { focus = JAP_kaya_reconstruction_develop_the_home_islands }
+	prerequisite = { focus = JAP_kaya_reconstruction_development_of_taiwan }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_an_integrated_economy"
+		swap_ideas = {
+			remove_idea = JAP_kaya_fed_up_industry
+			add_idea = JAP_kaya_integrated_economy
+		}
+	}
+}
+
+##Politics##
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_stable_governance
+	icon = GFX_JAP_kaya_stable_governance
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = 0
+	y = 1
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_the_true_kokutai }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_stable_governance"
+		add_stability = 0.05
+	}
+}
+
+#Kaya feels secure enough to rule just with the help of the military#
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_the_military_is_enough
+	icon = GFX_JAP_the_military_is_enough
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = -2
+	y = 2
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_stable_governance }
+	mutually_exclusive = { focus = JAP_kaya_reconstruction_continue_toying_with_the_technocrats }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_the_military_is_enough"
+		JAP_IJA_increase_big = yes
+		JAP_IJN_increase_big = yes
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_enforcing_our_policies
+	icon = GFX_TNO_generic_prison_camp
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = -4
+	y = 3
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_the_military_is_enough }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_enforcing_our_policies"
+		tno_security_improve = yes
+		tno_penal_system_worsen = yes
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_infallible
+	icon = GFX_JAP_kaya_infallible
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = -4
+	y = 4
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_enforcing_our_policies }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_infallible"
+		add_ideas = JAP_kaya_wise_kaya
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_keep_an_eye_on_the_opposition
+	icon = GFX_TNO_generic_spying_target
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = -2
+	y = 3
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_the_military_is_enough }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_keep_an_eye_on_the_opposition"
+		add_political_power = -100
+		add_stability = 0.05
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_use_kishis_support
+	icon = GFX_JAP_kaya_use_kishis_support
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = -2
+	y = 4
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_keep_an_eye_on_the_opposition }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_use_kishis_support"
+		add_war_support = 0.1
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_the_police_state
+	icon = GFX_JAP_the_police_state
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = -3
+	y = 5
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_infallible }
+	prerequisite = { focus = JAP_kaya_reconstruction_use_kishis_support }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_the_police_state"
+		add_stability = 0.05
+		tno_security_improve = yes
+	}
+}
+
+#Kaya decides to completely subvert the technocrat faction#
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_continue_toying_with_the_technocrats
+	icon = GFX_JAP_continue_toying_with_the_reformists
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = 2
+	y = 2
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_stable_governance }
+	mutually_exclusive = { focus = JAP_kaya_reconstruction_the_military_is_enough }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_continue_toying_with_the_technocrats"
+		add_to_variable = {
+			PEERS_OPINION = 10
+		}
+		custom_effect_tooltip = JAP_PEERS_OPINION_RAISED_LOW_tt
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_spying_on_takagi
+	icon = GFX_JAP_spying_on_takagi
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = 2
+	y = 3
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_continue_toying_with_the_technocrats }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_spying_on_takagi"
+		add_stability = 0.05
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_lower_his_standing
+	icon = GFX_JAP_lower_his_standing
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = 2
+	y = 4
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_spying_on_takagi }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_lower_his_standing"
+		add_political_power = -75
+		JAP_PA_support_increase_small = yes
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_reform_with_no_radicalization
+	icon = GFX_JAP_Integrate_reformists
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = 4
+	y = 3
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_continue_toying_with_the_technocrats }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_reform_with_no_radicalization"
+		tno_income_taxation_improve = yes
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_interests_of_the_people_and_of_the_state
+	icon = GFX_JAP_Make_New_Friends
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = 4
+	y = 4
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_reform_with_no_radicalization }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_interests_of_the_state_and_the_people"
+		tno_minimum_wage_improve = yes
+		tno_conscription_worsen = yes
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_the_only_true_reformer
+	icon = GFX_JAP_kaya_the_only_true_reformer
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = 3
+	y = 5
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_lower_his_standing }
+	prerequisite = { focus = JAP_kaya_reconstruction_interests_of_the_people_and_of_the_state }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_the_only_true_reformer"
+		add_political_power = 150
+	}
+}
+
+##The Treaty Ports Crisis##
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_treaty_ports_negotiations
+	icon = GFX_IND_india_diplomatic_usa
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = 10
+	y = 1
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_the_true_kokutai }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_treaty_ports_negotiations"
+		country_event = {
+			id = japkayareconstruction.1
+		}
+		hidden_effect = {
+			USA = {
+				country_event = {
+					id = japkayareconstruction.2
+					days = 3
+				}
+			}
+		}
+	}
+}
+
+#Uga-buga dumb nazbol way, provoking the US#
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_not_a_step_back
+	icon = GFX_JAP_PM_Kaya
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = 8
+	y = 2
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_treaty_ports_negotiations }
+	mutually_exclusive = { focus = JAP_kaya_reconstruction_diffuse_the_situation }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_not_a_step_back"
+		768 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		769 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_increase_the_garrisons
+	icon = GFX_JAP_PM_Kaya
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = 6
+	y = 3
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_not_a_step_back }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_increase_the_garrisons"
+		add_manpower = 2000
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_fortify_our_positions
+	icon = GFX_JAP_PM_Kaya
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = 6
+	y = 4
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_increase_the_garrisons }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_fortify_our_positions"
+		768 = {
+			add_building_construction = {
+				type = bunker
+				level = 2
+				instant_build = yes
+				province = 13285
+			}
+		}
+		769 = {
+			add_building_construction = {
+				type = bunker
+				level = 2
+				instant_build = yes
+				province = 13280
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_draw_the_navy_closer
+	icon = GFX_JAP_PM_Kaya
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = 8
+	y = 3
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_not_a_step_back }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_draw_the_navy_closer"
+		768 = {
+			add_building_construction = {
+				type = naval_base
+				level = 2
+				instant_build = yes
+				province = 13285
+			}
+		}
+		769 = {
+			add_building_construction = {
+				type = naval_base
+				level = 2
+				instant_build = yes
+				province = 13280
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_provide_fire_support
+	icon = GFX_JAP_PM_Kaya
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = 8
+	y = 4
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_draw_the_navy_closer }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_provide_fire_support"
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 500
+			producer = JAP
+		}
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_brace_for_the_impact
+	icon = GFX_JAP_PM_Kaya
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = 7
+	y = 5
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_fortify_our_positions }
+	prerequisite = { focus = JAP_kaya_reconstruction_provide_fire_support }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_brace_for_the_impact"
+		add_war_support = 0.1
+		add_political_power = 35
+	}
+}
+
+#Trying to put down the dissent in the ports#
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_diffuse_the_situation
+	icon = GFX_JAP_PM_Kaya
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = 12
+	y = 2
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_treaty_ports_negotiations }
+	mutually_exclusive = { focus = JAP_kaya_reconstruction_not_a_step_back }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_diffuse_the_situation"
+		add_stability = 0.05
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_crack_down_on_dissenters
+	icon = GFX_JAP_PM_Kaya
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = 12
+	y = 3
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_diffuse_the_situation }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_crack_down_on_dissenters"
+		add_political_power = 75
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.03
+		}
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_block_the_support_from_the_us
+	icon = GFX_JAP_PM_Kaya
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = 12
+	y = 4
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_crack_down_on_dissenters }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_block_the_support_from_the_us"
+		add_stability = 0.05
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_economic_measures
+	icon = GFX_JAP_PM_Kaya
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = 14
+	y = 3
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_diffuse_the_situation }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_economic_measures"
+
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_harsher_customs_control
+	icon = GFX_JAP_PM_Kaya
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = 14
+	y = 4
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_economic_measures }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_harsher_customs_control"
+		tno_security_worsen = yes
+	}
+}
+
+shared_focus = {
+	id = JAP_kaya_reconstruction_what_to_do_next
+	icon = GFX_JAP_PM_Kaya
+	relative_position_id = JAP_kaya_reconstruction_the_true_kokutai
+	x = 13
+	y = 5
+	cost = 5
+	prerequisite = { focus = JAP_kaya_reconstruction_block_the_support_from_the_us }
+	prerequisite = { focus = JAP_kaya_reconstruction_harsher_customs_control }
+	available_if_capitulated = no
+	ai_will_do = {
+		factor = 80
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_kaya_reconstruction_what_to_do_next"
+		add_political_power = 35
+	}
+}

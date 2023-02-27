@@ -1,0 +1,78 @@
+######################
+####   INDONESIA   ###
+######################
+#INDONESIA CIVIL WAR
+INS_Stalemate_Category = {
+	INS_Stalemate_Timer_Mission = {
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			hidden_trigger = {INS = { NOT = {has_country_flag = INS_Civil_War}}}
+		}
+
+		activation = {
+			always = no
+		}
+
+		is_good = no
+
+		days_mission_timeout = 1095
+		days_remove = 10
+		fixed_random_seed = no
+		selectable_mission = no
+
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: INS_Stalemate_Timer_Mission mission timer elapsed"
+			custom_effect_tooltip = INS_Stalemate_Timer_Mission_timeout_tt
+			hidden_effect = {
+				country_event = {
+					id = indonesiapeace.1
+				}
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: mission INS_Stalemate_Timer_Mission completed"
+			custom_effect_tooltip = INS_Stalemate_Timer_Mission_completion_tt
+		}
+	}
+}
+
+FRI_Stalemate_Category = {
+	FRI_Stalemate_Timer_Mission = {
+		allowed = {
+			original_tag = FRI
+		}
+
+		available = {
+			hidden_trigger = {FRI = { NOT = {has_country_flag = FRI_Civil_War}}}
+		}
+
+		activation = {
+			always = no
+		}
+
+		is_good = no
+
+		days_mission_timeout = 1094
+		days_remove = 10
+		fixed_random_seed = no
+		selectable_mission = no
+
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: INS_Stalemate_Timer_Mission mission timer elapsed"
+			country_event = {
+				id = indonesiapeace.4
+			}
+			custom_effect_tooltip = FRI_Stalemate_Timer_Mission_timeout_tt
+			INS = { change_tag_from = ROOT }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: mission INS_Stalemate_Timer_Mission completed"
+			custom_effect_tooltip = FRI_Stalemate_Timer_Mission_completion_tt
+		}
+	}
+}

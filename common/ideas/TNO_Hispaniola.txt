@@ -1,0 +1,550 @@
+ideas = {
+	country = {
+		# Hispaniola
+		HIS_Hispaniola_War = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.05
+			}
+		}
+
+		# Caribbean Legion #
+		HIS_well_supplied_army = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea HIS_well_supplied_army" }
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_well_supplied_army
+			modifier = {
+				army_org_factor = 0.25
+				army_attack_factor = 0.25
+				army_defence_factor = 0.3
+				army_speed_factor = 0.33
+				supply_consumption_factor = -0.15
+				equipment_capture_factor = 0.5
+			}
+		}
+		HIS_not_supplied_army = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea HIS_not_supplied_army" }
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_undersupplied_army
+			modifier = {
+				supply_consumption_factor = 0.8
+				army_org_factor = -0.5
+				army_speed_factor = -0.5
+			}
+		}
+
+		PPI_USAF_bombing = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea PPI_USAF_bombing" }
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = {
+				hidden_trigger = {
+					NOT = {
+						country_exists = CAL
+					}
+				}
+			}
+			removal_cost = -1
+			picture = WEST_AFRICA_terror_bombing
+			targeted_modifier = {
+				tag = CAL
+				defense_bonus_against = -0.05
+			}
+			modifier = {
+				cas_damage_reduction = -0.05
+				supply_consumption_factor = 0.05
+			}
+		}
+
+		PPI_USAF_bombing_2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea PPI_USAF_bombing_2" }
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = {
+				hidden_trigger = {
+					NOT = {
+						country_exists = CAL
+					}
+				}
+			}
+			removal_cost = -1
+			picture = WEST_AFRICA_terror_bombing
+			targeted_modifier = {
+				tag = CAL
+				defense_bonus_against = -0.15
+				attack_bonus_against = -0.05
+			}
+			modifier = {
+				cas_damage_reduction = -0.1
+				supply_consumption_factor = 0.1
+			}
+		}
+
+		PPI_USAF_bombing_3 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea PPI_USAF_bombing_3" }
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = {
+				hidden_trigger = {
+					NOT = {
+						country_exists = CAL
+					}
+				}
+			}
+			removal_cost = -1
+			picture = WEST_AFRICA_terror_bombing
+			targeted_modifier = {
+				tag = CAL
+				defense_bonus_against = -0.20
+				attack_bonus_against = -0.10
+			}
+			modifier = {
+				cas_damage_reduction = -0.15
+				supply_consumption_factor = 0.15
+			}
+		}
+
+		PPI_USN_support = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea PPI_USN_support" }
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_solid_navy_naval_force
+			modifier = {
+				breakthrough_factor = 0.075
+			}
+		}
+
+		CAL_PPI_cosmopolitan_brotherhood = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea CAL_PPI_cosmopolitan_brotherhood" }
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			modifier = {
+				army_morale_factor = 0.15
+				breakthrough_factor = 0.075
+				stability_factor = -0.3
+				army_org_factor = -0.05
+			}
+		}
+		CAL_PPI_rebels_of_fortune = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea CAL_PPI_rebels_of_fortune" }
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			modifier = {
+				surrender_limit = 1.0
+				conscription_factor = 0.5
+				pocket_penalty = -0.25
+			}
+		}
+		CAL_PPI_Internal_Sectarianism = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea CAL_PPI_Internal_Sectarianism" }
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			modifier = {
+				war_support_factor = -0.1
+			}
+		}
+
+		# Haiti
+		HAI_Mulatocratie = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.25
+				political_power_gain = 0.1
+			}
+		}
+		HAI_Occupation = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				war_support_factor = -0.1
+				political_power_factor = -0.25
+			}
+			targeted_modifier = {
+				tag = USA
+				extra_trade_to_target_factor = 0.5
+			}
+		}
+		HAI_Noirisme_Socialism = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				socialist_drift = 0.01
+				stability_weekly = -0.002
+				taxable_population_modifier = -0.15
+			}
+		}
+
+		# Dominican Republic
+		DOM_Dios_Trujillo = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.1
+				war_support_factor = 0.1
+			}
+		}
+		DOM_Blanqueamiento = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				monthly_population = 0.03
+				gdp_growth_modifier = 0.5
+				stability_factor = -0.07
+			}
+		}
+		DOM_Rising_Resistance = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.1
+				liberalism_drift = 0.01
+				paternalism_drift = 0.01
+			}
+		}
+		DOM_Modernizing_Military = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = MGN_army_good
+			modifier = {
+				army_professionalism_monthly_rate = 0.1
+				army_cost_modifier = -0.4
+				land_doctrine_cost_factor = -0.2
+				air_doctrine_cost_factor = -0.2
+				free_production_units_modifier = 2
+			}
+		}
+		DOM_Significant_Revolts = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			picture = SRT_Partisan_Alliance
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.075
+				stability_weekly = -0.005
+				war_support_weekly = -0.005
+				army_org_factor = -0.1
+				army_defence_factor = -0.05
+				max_command_power_mult = -0.2
+			}
+		}
+		DOM_Small_Insurgency = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.05
+				army_org_factor = -0.05
+				max_command_power_mult = -0.1
+			}
+		}
+		DOM_Nationwide_Crackdown = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.025
+				army_org_factor = 0.05
+				army_defence_factor = 0.05
+				max_command_power_mult = 0.15
+			}
+			targeted_modifier = {
+				tag = CAL
+				attack_bonus_against = 0.075
+			}
+		}
+		DOM_BSI_detachment = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_spy
+			modifier = {
+				stability_factor = 0.01
+			}
+			targeted_modifier = {
+				tag = CAL
+				defense_bonus_against = 0.075
+			}
+		}
+		HAI_socialism_vs_noirism = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_spy
+			modifier = {
+				political_power_factor = -0.15
+				stability_factor = -0.1
+			}
+		}
+		HAI_dreams_of_equality_and_democracy = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_spy
+			modifier = {
+				political_power_factor = -0.25
+				stability_factor = 0.1
+			}
+		}
+		HAI_the_red_scare = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_spy
+			modifier = {
+				socialist_drift = -0.05
+				communist_drift = -0.05
+			}
+		}
+		HAI_enemies_on_all_sides = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_spy
+			modifier = {
+				stability_factor = 0.15
+				min_export = -0.5
+			}
+		}
+		HAI_hispaniola_war_torn_socialist = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_spy
+			modifier = {
+			}
+		}
+		HAI_hispaniola_war_torn_democracy = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_spy
+			modifier = {
+			}
+		}
+		HAI_something_familiar_yet_different = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_spy
+			modifier = {
+			}
+		}
+		HAI_the_death_of_hope = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_spy
+			modifier = {
+			}
+		}
+		HAI_a_flimsy_alliance = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_spy
+			modifier = {
+			}
+		}
+		HAI_on_the_hells_of_giants = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_spy
+			modifier = {
+			}
+		}
+		HAI_a_brighter_tomorrow = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_spy
+			modifier = {
+			}
+		}
+	}
+
+	hidden_ideas = {
+		HIS_legion_buff = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea HIS_legion_buff"}
+
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				breakthrough_factor = 0.1
+				army_attack_factor = 0.15
+			}
+		}
+
+		HIS_trujillo_debuff = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea HIS_trujillo_debuff"}
+
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				army_org_factor = -0.15
+				army_defence_factor = -0.1
+			}
+		}
+	}
+}

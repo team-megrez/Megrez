@@ -1,0 +1,48 @@
+ideas = {
+	country = {
+		NZL_Relative_Isolation = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea NZL_Relative_Isolation"}
+			picture = generic_volunteer_expedition_bonus
+
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = 0.20
+			}
+		}
+		NZL_American_Dominated_Trade = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea NZL_American_Dominated_Trade"}
+			picture = GFX_NZL_American_Dominated_Trade
+
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				war_support_factor = -0.10
+				political_power_factor = -0.25
+			}
+		}
+		NZL_Urbanization_Crisis = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea NZL_Urbanization_Crisis"}
+			picture = generic_volunteer_expedition_bonus
+
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				production_factory_max_efficiency_factor = 0.10
+				line_change_production_efficiency_factor = 0.10
+				industrial_capacity_factory = 0.05
+				industrial_capacity_dockyard = 0.05
+				production_speed_buildings_factor = -0.20
+			}
+		}
+	}
+}

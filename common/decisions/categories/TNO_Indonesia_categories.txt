@@ -1,0 +1,37 @@
+
+#STALEMATE PEACE
+INS_Stalemate_Category = {
+	icon = GFX_decision_category_generic_political_actions
+
+	allowed = {
+		original_tag = INS
+	}
+
+	visible = {
+		INS = {
+			has_country_flag = INS_Civil_War
+		}
+	}
+
+	visible_when_empty = yes
+
+	priority = {base=0}
+}
+
+FRI_Stalemate_Category = {
+	icon = GFX_decision_category_generic_political_actions
+
+	allowed = {
+		original_tag = FRI
+	}
+
+	visible = {
+		FRI = {
+			has_country_flag = INS_Civil_War
+		}
+	}
+
+	visible_when_empty = yes
+
+	priority = {base=0}
+}

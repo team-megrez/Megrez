@@ -1,0 +1,224 @@
+ideas = {
+	country = {
+		## Starting natspirits
+		# Self-explanatory, the breadbasket of Reich and Europe itself, it provides Germany with a mass surplus of food yearly and has kept it fed, it is vital to the German administration in keeping it, as without this income, it might likely :oof: itself
+		UKR_breadbasket_of_the_reich = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_breadbasket_of_the_reich" }
+			picture = UKR_breadbasket_of_the_reich
+
+			allowed = { always = no }
+			removal_cost = -1
+
+			modifier = {
+				civilian_expenditures_factor = -0.15
+				local_resources_factor = 0.15
+				trade_opinion_factor = 0.5
+			}
+			targeted_modifier = {
+				tag = GER
+				extra_trade_to_target_factor = 0.1
+			}
+		}
+
+		# Ever since the end of the war, Ukraine has been dominated by several figures inside of the colony. The divided German established, the Collaborators, Army (i.e Division Galizien), and the Industrialists. The ever changing world that the Reich is in, may lead these factions to pin themselves up against the government which Koch leads.
+		UKR_land_of_contrasts = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_land_of_contrasts" }
+			picture = UKR_land_of_contrasts
+
+			allowed = { always = no }
+			removal_cost = -1
+
+			modifier = {
+				production_factory_max_efficiency_factor = -0.1
+				compliance_gain = -0.05
+				resistance_target = 0.05
+				conscription_factor = -0.1
+			}
+		}
+
+		# Ukraine was promised to be a paradise for the Aryan people. A lush land where one would not need lift a finger to reap the wealth, and where the future of Germany could be built in the sun by her sons. Of course, this was before a not insignificant percentage of the population were starved to death under German rule, the corporations took over most of the industrial sector, and the Reichskommissariat began to wither on the vine a lot more literally than anybody would be comfortable with. Ukraine is a hollow and bleeding shell, just waiting to be put out of its misery.
+		UKR_paradise_undone = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_paradise_undone" }
+			picture = UKR_paradise_undone
+
+			allowed = { always = no }
+			removal_cost = -1
+
+			modifier = {
+				war_support_factor = -0.2
+				stability_factor = -0.1
+				monthly_population = -0.1
+				taxable_population_factor = -0.25
+				annual_gdp_growth_factor = -0.5
+				poverty_monthly_rate = -0.04
+			}
+		}
+
+		UKR_galicia_buffs = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_galicia_buffs" }
+			picture = generic_soldiers_marching
+
+			allowed = { always = no }
+			removal_cost = -1
+
+			modifier = {
+				army_attack_factor = 0.1
+				army_defence_factor = 0.1
+				army_org_factor = 0.15
+				surrender_limit = 0.2
+				weekly_manpower = 250
+			}
+		}
+
+		UKR_galicia_buffs_racist = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_galicia_buffs_racist" }
+			picture = generic_soldiers_marching
+
+			allowed = { always = no }
+			removal_cost = -1
+
+			modifier = {
+				army_attack_factor = 0.05
+				army_defence_factor = 0.025
+				army_org_factor = 0.1
+				surrender_limit = 0.1
+				weekly_manpower = 150
+			}
+		}
+
+		UKR_not_their_war = { #
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_not_their_war" }
+			picture = GER_oversized_wehrmacht
+
+			allowed = { always = no }
+			removal_cost = -1
+
+			modifier = {
+				compliance_gain = -0.1
+				resistance_target = 0.1
+				army_org_factor = -0.05
+				army_speed_factor = -0.1
+				army_attack_factor = -0.05
+				army_morale_factor = -0.1
+				attrition = 0.1
+				conscription_factor = -0.25
+			}
+		}
+
+		## Göring war stuff
+		UKR_goerings_interference = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_goerings_interference"}
+			picture = MGN_army_bad
+
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				army_speed_factor = -0.15
+				cavalry_attack_factor = -0.3
+				cavalry_defence_factor = -0.3
+			}
+		}
+
+		UKR_goerings_interference2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_goerings_interference2"}
+			picture = MGN_army_bad
+
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				cavalry_attack_factor = -0.3
+				cavalry_defence_factor = -0.3
+			}
+		}
+
+		UKR_goerings_interference3 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_goerings_interference3"}
+			picture = MGN_army_bad
+
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				army_speed_factor = -0.15
+			}
+		}
+
+		UKR_breadbasket_of_the_reich_raga = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_breadbasket_of_the_reich" }
+			picture = UKR_breadbasket_of_the_reich
+
+			allowed = { always = no }
+			removal_cost = -1
+
+			modifier = {
+				civilian_expenditures_factor = -0.07
+				local_resources_factor = 0.10
+				trade_opinion_factor = 0.5
+				consumer_goods_use_modifier = 0.3
+				paternalism_drift = 0.01
+				GDP_to_sphere_leader_modifier = 0.03
+			}
+			targeted_modifier = {
+				tag = GER
+				extra_trade_to_target_factor = 0.07
+			}
+		}
+
+		UKR_breadbasket_of_the_reich_volodymyr = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_breadbasket_of_the_reich" }
+			picture = UKR_breadbasket_of_the_reich
+
+			allowed = { always = no }
+			removal_cost = -1
+
+			modifier = {
+				civilian_expenditures_factor = -0.20
+				local_resources_factor = 0.15
+				trade_opinion_factor = 0.7
+				consumer_goods_use_modifier = -0.3
+				fascism_drift = 0.01
+				GDP_to_sphere_leader_modifier = 0.05
+			}
+			targeted_modifier = {
+				tag = GER
+				extra_trade_to_target_factor = 0.15
+			}
+		}
+	}
+	hidden_ideas = {
+		UKR_UCW_fight_eachother = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UKR_UCW_kill" }
+
+			allowed = { always = no }
+
+			modifier = {
+				ai_focus_aggressive_factor = 0.5
+				army_morale_factor = 0.5
+				attrition = -0.5
+				supply_consumption_factor = -0.75
+				conscription = 0.025
+				conscription_factor = 0.1
+				weekly_manpower = 500
+			}
+		}
+	}
+}
+
+

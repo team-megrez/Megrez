@@ -1,0 +1,324 @@
+defined_text = {
+	name = USA_CIA_Change_Budget_sl
+	text = {
+		trigger = {
+			set_temp_variable = { USA_CIA_Budget_display = USA_CIA_Budget }
+			multiply_temp_variable = { USA_CIA_Budget_display = 1000 }
+			set_temp_variable = { USA_CIA_annual_budget_display = USA_CIA_annual_budget }
+			multiply_temp_variable = { USA_CIA_annual_budget_display = 1000 }
+		}
+		localization_key = USA_CIA_Change_Budget_Tooltip
+	}
+}
+
+defined_text = {
+	name = USA_CIA_Change_Budget_Change_sl
+	text = {
+		trigger = {
+			set_temp_variable = { USA_CIA_Budget_Change_Variable_display = USA_CIA_Budget_Change_Variable }
+			multiply_temp_variable = { USA_CIA_Budget_Change_Variable_display = 1000 }
+		}
+		localization_key = USA_CIA_Change_Budget_Change_Tooltip
+	}
+}
+
+defined_text = {
+	name = USA_CIA_Invested_Budget_sl
+	text = {
+		trigger = {
+			set_temp_variable = { USA_CIA_Invested_Budget_display = USA_CIA_Invested_Budget }
+			multiply_temp_variable = { USA_CIA_Invested_Budget_display = 1000 }
+		}
+		localization_key = USA_CIA_Invested_Budget_Tooltip
+	}
+}
+
+defined_text = {
+	name = GetUSACIAUnlockBudgetTooltip
+	text = {
+		trigger = {
+			check_variable = { USA_CIA_Budget < 0.030 }
+		}
+		localization_key = USA_CIA_Not_Enough_Budget
+	}
+}
+
+
+
+defined_text = {
+	name = GetUSACIARegionScriptedLoc
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_Viewing_Africa
+		}
+		localization_key = USA_CIA_Region_Loc_Africa
+	}
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_Viewing_Europe
+		}
+		localization_key = USA_CIA_Region_Loc_Europe
+	}
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_Viewing_Russia
+		}
+		localization_key = USA_CIA_Region_Loc_Russia
+	}
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_Viewing_Australia
+		}
+		localization_key = USA_CIA_Region_Loc_Australia
+	}
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_Viewing_East_Asia
+		}
+		localization_key = USA_CIA_Region_Loc_East_Asia
+	}
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_Viewing_Middle_East
+		}
+		localization_key = USA_CIA_Region_Loc_Middle_East
+	}
+
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_Viewing_North_America
+		}
+		localization_key = USA_CIA_Region_Loc_North_America
+	}
+
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_Viewing_South_America
+		}
+		localization_key = USA_CIA_Region_Loc_South_America
+	}
+
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_Viewing_Central_America
+		}
+		localization_key = USA_CIA_Region_Loc_Central_America
+	}
+
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_Viewing_South_East_Asia
+		}
+		localization_key = USA_CIA_Region_Loc_South_East_Asia
+	}
+
+	text = {
+		trigger = {
+			NOT = {
+				has_country_flag = USA_CIA_Viewing_East_Asia
+				has_country_flag = USA_CIA_Viewing_Africa
+				has_country_flag = USA_CIA_Viewing_Central_America
+				has_country_flag = USA_CIA_Viewing_Europe
+				has_country_flag = USA_CIA_Viewing_Middle_East
+				has_country_flag = USA_CIA_Viewing_North_America
+				has_country_flag = USA_CIA_Viewing_Russia
+				has_country_flag = USA_CIA_Viewing_South_America
+				has_country_flag = USA_CIA_Viewing_South_East_Asia
+				has_country_flag = USA_CIA_Viewing_Australia
+			}
+		}
+		localization_key = USA_CIA_Region_Loc_No_Region
+	}
+}
+
+defined_text = {
+	name = GetResearchName
+	text = {
+		trigger = {
+			NOT = {
+				has_country_flag = USA_CIA_tech_1_research
+				has_country_flag = USA_CIA_tech_2_research
+				has_country_flag = USA_CIA_tech_3_research
+				has_country_flag = USA_CIA_tech_4_research
+				has_country_flag = USA_CIA_tech_5_research
+				has_country_flag = USA_CIA_tech_6_research
+				has_country_flag = USA_CIA_tech_7_research
+				has_country_flag = USA_CIA_tech_8_research
+				has_country_flag = USA_CIA_tech_9_research
+				has_country_flag = USA_CIA_tech_10_research
+			}
+		}
+		localization_key = USA_CIA_No_Research
+	}
+
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_tech_1_research
+		}
+		localization_key = CIA_tech_1
+	}
+
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_tech_2_research
+		}
+		localization_key = CIA_tech_2
+	}
+
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_tech_3_research
+		}
+		localization_key = CIA_tech_3
+	}
+
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_tech_4_research
+		}
+		localization_key = CIA_tech_4
+	}
+
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_tech_5_research
+		}
+		localization_key = CIA_tech_5
+	}
+
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_tech_6_research
+		}
+		localization_key = CIA_tech_6
+	}
+
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_tech_7_research
+		}
+		localization_key = CIA_tech_7
+	}
+
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_tech_8_research
+		}
+		localization_key = CIA_tech_8
+	}
+
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_tech_9_research
+		}
+		localization_key = CIA_tech_9
+	}
+
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_tech_10_research
+		}
+		localization_key = CIA_tech_10
+	}
+}
+
+defined_text = {
+	name = GetResearchIcon
+	text = {
+		trigger = {
+			NOT = {
+				has_country_flag = USA_CIA_tech_1_research
+				has_country_flag = USA_CIA_tech_2_research
+				has_country_flag = USA_CIA_tech_3_research
+				has_country_flag = USA_CIA_tech_4_research
+				has_country_flag = USA_CIA_tech_5_research
+				has_country_flag = USA_CIA_tech_6_research
+				has_country_flag = USA_CIA_tech_7_research
+				has_country_flag = USA_CIA_tech_8_research
+				has_country_flag = USA_CIA_tech_9_research
+				has_country_flag = USA_CIA_tech_10_research
+			}
+		}
+		localization_key = GFX_SGR_RND_GUI_RandD_button
+	}
+
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_tech_1_research
+		}
+		localization_key = GFX_RND_tech_Modernized_FmEloAufkl
+	}
+
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_tech_2_research
+		}
+		localization_key = GFX_RND_tech_Sonderblindfunkdienst
+	}
+
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_tech_3_research
+		}
+		localization_key = GFX_RND_tech_ENTDECKER
+	}
+
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_tech_4_research
+		}
+		localization_key = GFX_RND_tech_31211-5_Bugs
+	}
+
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_tech_5_research
+		}
+		localization_key = GFX_RND_tech_M-190_Cipher_Machine
+	}
+
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_tech_6_research
+		}
+		localization_key = GFX_RND_tech_Nahkampf_Training
+	}
+
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_tech_7_research
+		}
+		localization_key = GFX_RND_tech_UFT-421_Radio
+	}
+
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_tech_8_research
+		}
+		localization_key = GFX_RND_tech_RS50_Camera
+	}
+
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_tech_9_research
+		}
+		localization_key = GFX_RND_tech_Flecktarn_B
+	}
+
+	text = {
+		trigger = {
+			has_country_flag = USA_CIA_tech_10_research
+		}
+		localization_key = GFX_RND_tech_Truth_Serum
+	}
+}
+
+defined_text = {
+	name = USA_CIA_lazy_key
+	text = {
+		trigger = { #Im lazy okay
+			always = yes
+		}
+		localization_key = USA_CIA_fuck_with_ger
+	}
+}

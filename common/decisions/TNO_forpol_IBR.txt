@@ -1,0 +1,2144 @@
+#######################################
+## 		 Puerto Plata Invasion       ##
+#######################################
+IBR_foreign_policy_category = {
+	## Invasion Preparation ##
+	IBR_PPI_Arms_Shipments = {
+		#ai_will_do = { base = 100 }
+		icon = GFX_decision_generic_supply
+		visible = {
+			TNO_fopo_puerto_plata_selected = yes
+			has_global_flag = PPI_proxy_war_preparation
+		}
+		custom_cost_trigger = {
+			command_power > 9.99
+		}
+		custom_cost_text = decision_cost_10_cp_30_pp
+		days_remove = 10
+
+		fire_only_once = yes
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_Arms_Shipments"
+			hidden_effect = { add_command_power = -10 add_political_power = -30 }
+			send_equipment = {
+				target = DOM
+				type = infantry_equipment
+				amount = 1000
+			}
+			send_equipment = {
+				target = DOM
+				type = support_equipment
+				amount = 50
+			}
+			send_equipment = {
+				target = DOM
+				type = anti_tank_equipment
+				amount = 500
+			}
+			send_equipment = {
+				target = DOM
+				type = motorized_equipment
+				amount = 200
+			}
+		}
+	}
+
+	IBR_PPI_Infiltrate_Guerillas = {
+		icon = GFX_decision_generic_investigate
+		visible = {
+			TNO_fopo_puerto_plata_selected = yes
+			has_global_flag = PPI_proxy_war_preparation
+		}
+		custom_cost_trigger = {
+			command_power > 9.99
+			has_equipment = { infantry_equipment > 749 }
+		}
+		custom_cost_text = decision_cost_10_cp_750_inf
+		days_remove = 14
+		fire_only_once = yes
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_PPI_Infiltrate_Guerillas"
+			hidden_effect = {
+				add_command_power = -10
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = -750
+				}
+			}
+			set_temp_variable = { spy_strength_temp = 10 }
+
+			custom_effect_tooltip = IBR_PPI_Infiltrate_Guerillas_tt
+			custom_effect_tooltip = TNO_PP_spy_strength_increase_DOM_IBR_tt
+
+			set_temp_variable = { spy_strength_temp = 10 }
+			TNO_PP_spy_strength_decrease_USA = yes
+		}
+		remove_effect = {
+			set_country_flag = IBR_Infiltrate_Guerillas
+			set_country_flag = IBR_Counter_Intel_Visible
+		}
+	}
+	IBR_PPI_special_telegram_embassy = {
+		icon = GFX_decision_generic_political_action
+		visible = {
+			TNO_fopo_puerto_plata_selected = yes
+			has_global_flag = PPI_proxy_war_preparation
+		}
+		cost = 35
+		days_remove = 7
+		fire_only_once = yes
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_PPI_special_telegram_embassy"
+			custom_effect_tooltip = IBR_PPI_special_telegram_embassy_tt
+
+		}
+		remove_effect = {
+			set_country_flag = IBR_gather_OFN_intel
+			set_country_flag = IBR_Gather_Intel_Visible
+		}
+	}
+	IBR_PPI_Send_Engineers = {
+		#ai_will_do = { base = 100 }
+		icon = GFX_decision_generic_construction
+		visible = {
+			TNO_fopo_puerto_plata_selected = yes
+			has_global_flag = PPI_proxy_war_preparation
+		}
+		custom_cost_trigger = {
+			command_power > 24.99
+		}
+		custom_cost_text = decision_cost_25_cp
+		days_remove = 10
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_PPI_Send_Engineers"
+			hidden_effect = { add_command_power = -25 }
+			DOM = {
+				add_timed_idea = {
+					idea = IBR_Army_Engineers
+					days = 60
+				}
+			}
+		}
+	}
+	IBR_PPI_Send_Fighter_Planes = {
+		#ai_will_do = { base = 100 }
+		icon = GFX_decision_generic_fighter_plane
+		visible = {
+			TNO_fopo_puerto_plata_selected = yes
+			has_global_flag = PPI_proxy_war_preparation
+		}
+		custom_cost_trigger = {
+			command_power > 19.99
+		}
+		custom_cost_text = decision_cost_20_cp
+
+		fire_only_once = yes
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_PPI_Send_Fighter_Planes"
+			hidden_effect = { add_command_power = -20 }
+			send_equipment = {
+				target = DOM
+				type = fighter_equipment
+				amount = 100
+			}
+		}
+	}
+	IBR_PPI_Reinforce_Embassy_Guards = {
+		#ai_will_do = { base = 100 }
+		icon = GFX_decision_generic_building_army_base
+		visible = {
+			TNO_fopo_puerto_plata_selected = yes
+			has_global_flag = PPI_proxy_war_preparation
+		}
+		custom_cost_trigger = {
+			command_power > 24.99
+		}
+		custom_cost_text = decision_cost_25_cp
+
+		fire_only_once = yes
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_Reinforce_Embassy_Guards"
+			hidden_effect = { add_command_power = -10 }
+			custom_effect_tooltip = IBR_PPI_Reinforce_Embassy_Guards_tt
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -700
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = -30
+			}
+			add_manpower = -1000
+		}
+	}
+
+	IBR_PPI_Show_Counter_Intel_Operations = {
+		icon = GFX_decision_generic_decision
+		visible = {
+			TNO_fopo_puerto_plata_selected = yes
+			NOT = {
+				has_country_flag = IBR_Counter_Intel_Visible
+			}
+			has_global_flag = PPI_proxy_war_preparation
+			has_country_flag = IBR_Infiltrate_Guerillas
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_PPI_Show_Counter_Intel_Operations"
+			set_country_flag = IBR_Counter_Intel_Visible
+		}
+	}
+
+	IBR_PPI_Hide_Counter_Intel_Operations = {
+		icon = GFX_decision_generic_decision
+		visible = {
+			TNO_fopo_puerto_plata_selected = yes
+			has_global_flag = PPI_proxy_war_preparation
+			has_country_flag = IBR_Counter_Intel_Visible
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_PPI_Hide_Counter_Intel_Operations"
+			clr_country_flag = IBR_Counter_Intel_Visible
+		}
+	}
+
+	IBR_PPI_Show_Gather_Intel_Operations = {
+		icon = GFX_decision_generic_decision
+		visible = {
+			TNO_fopo_puerto_plata_selected = yes
+			NOT = {
+				has_country_flag = IBR_Gather_Intel_Visible
+			}
+			has_global_flag = PPI_proxy_war_preparation
+			has_country_flag = IBR_gather_OFN_intel
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_PPI_Show_Gather_Intel_Operations"
+			set_country_flag = IBR_Gather_Intel_Visible
+		}
+	}
+
+	IBR_PPI_Hide_Gather_Intel_Operations = {
+		icon = GFX_decision_generic_decision
+		visible = {
+			TNO_fopo_puerto_plata_selected = yes
+			has_global_flag = PPI_proxy_war_preparation
+			has_country_flag = IBR_Gather_Intel_Visible
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_PPI_Hide_Gather_Intel_Operations"
+			clr_country_flag = IBR_Gather_Intel_Visible
+		}
+	}
+
+	#Counter-Intel
+	IBR_PPI_Bribe_Mercs = {
+		icon = GFX_decision_generic_phone_call_indent
+		visible = {
+			TNO_fopo_puerto_plata_selected = yes
+			has_global_flag = PPI_proxy_war_preparation
+			has_country_flag = IBR_Infiltrate_Guerillas
+			has_country_flag = IBR_Counter_Intel_Visible
+		}
+		custom_cost_trigger = {
+			check_variable = { GDP > 0 }
+		}
+		custom_cost_text = decision_cost_50_million
+		days_remove = 14
+		days_re_enable = 7
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_PPI_Bribe_Mercs"
+			hidden_effect = {
+				set_temp_variable = { invasion_supply_temp = 5 }
+				TNO_USA_PP_invasion_supply_decrease = yes
+			}
+			set_temp_variable = { temp_econ_spending_amount = 0.05 }
+			econ_spend_money_once_effect_raw_money = yes
+			custom_effect_tooltip = IBR_PPI_Bribe_Mercs_tt
+		}
+	}
+	IBR_PPI_Insert_Moles = {
+		icon = GFX_decision_generic_military_parade_indent
+		visible = {
+			TNO_fopo_puerto_plata_selected = yes
+			has_global_flag = PPI_proxy_war_preparation
+			has_country_flag = IBR_Infiltrate_Guerillas
+			has_country_flag = IBR_Counter_Intel_Visible
+		}
+		custom_cost_trigger = {
+			set_temp_variable = { t_os_check = 5 }
+			set_temp_variable = { t_os_check_extra = t_cp_check }
+			subtract_from_temp_variable = { t_os_check_extra = 0.01 }
+
+			check_variable = {global.PP_spy_strength_DOM > t_os_check_extra}
+
+		}
+		custom_cost_text = decision_cost_operational_strength_dynamic
+		days_remove = 15
+		days_re_enable = 15
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_PPI_Insert_Moles"
+			set_temp_variable = { spy_strength_temp = 5 }
+			TNO_PP_spy_strength_decrease_DOM = yes
+			set_variable = {global.PP_spy_strength_DOM_multiplier = 2}
+			custom_effect_tooltip = IBR_PPI_Insert_Moles_tt
+		}
+		remove_effect = {
+			set_variable = {global.PP_spy_strength_DOM_multiplier = 1}
+		}
+	}
+	IBR_PPI_Root_Out_Spies = {
+		icon = GFX_decision_generic_visibility_indent
+		visible = {
+			TNO_fopo_puerto_plata_selected = yes
+			has_global_flag = PPI_proxy_war_preparation
+			has_country_flag = IBR_Infiltrate_Guerillas
+			has_country_flag = IBR_Counter_Intel_Visible
+		}
+		custom_cost_trigger = {
+			set_temp_variable = { t_os_check = 5 }
+			set_temp_variable = { t_os_check_extra = t_cp_check }
+			subtract_from_temp_variable = { t_os_check_extra = 0.01 }
+
+			check_variable = {global.PP_spy_strength_DOM > t_os_check_extra}
+
+		}
+		custom_cost_text = decision_cost_operational_strength_dynamic
+		days_remove = 15
+		days_re_enable = 15
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_PPI_Root_Out_Spies"
+			set_temp_variable = { spy_strength_temp = 5 }
+			TNO_PP_spy_strength_decrease_DOM = yes
+			set_variable = {global.PP_spy_strength_CAL_multiplier = 0.5}
+			custom_effect_tooltip = IBR_PPI_Root_Out_Spies_tt
+		}
+
+		remove_effect = {
+			set_variable = {global.PP_spy_strength_CAL_multiplier = 1}
+		}
+	}
+	IBR_PPI_Sabotage_Supply_Depots = {
+		icon = GFX_decision_generic_prepare_civil_war_indent
+		visible = {
+			TNO_fopo_puerto_plata_selected = yes
+			has_global_flag = PPI_proxy_war_preparation
+			has_country_flag = IBR_Infiltrate_Guerillas
+			has_country_flag = IBR_Counter_Intel_Visible
+		}
+		custom_cost_trigger = {
+			set_temp_variable = { t_os_check = 15 }
+			set_temp_variable = { t_os_check_extra = t_cp_check }
+			subtract_from_temp_variable = { t_os_check_extra = 0.01 }
+
+			check_variable = {global.PP_spy_strength_DOM > t_os_check_extra}
+
+		}
+		custom_cost_text = decision_cost_operational_strength_dynamic
+		days_remove = 20
+		days_re_enable = 14
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_PPI_Sabotage_Supply_Depots"
+			set_temp_variable = { spy_strength_temp = 15 }
+			TNO_PP_spy_strength_decrease_DOM = yes
+			hidden_effect = {
+				set_temp_variable = { invasion_supply_temp = 15 }
+				TNO_USA_PP_invasion_supply_decrease = yes
+			}
+			custom_effect_tooltip = IBR_PPI_Bribe_Mercs_tt
+		}
+	}
+	IBR_PPI_Send_BSI_detachment = {
+		icon = GFX_decision_generic_military_parade
+		visible = {
+			TNO_fopo_puerto_plata_selected = yes
+			has_global_flag = PPI_proxy_war_preparation
+			has_country_flag = IBR_Infiltrate_Guerillas
+			has_country_flag = IBR_Counter_Intel_Visible
+		}
+		custom_cost_trigger = {
+			set_temp_variable = { t_cp_check = 10 }
+			set_temp_variable = { t_cp_check_extra = t_cp_check }
+			subtract_from_temp_variable = { t_cp_check_extra = 0.01 }
+
+			set_temp_variable = { t_pp_check = 30 }
+			set_temp_variable = { t_pp_check_extra = t_cp_check }
+			subtract_from_temp_variable = { t_pp_check_extra = 0.01 }
+
+			command_power > t_cp_check_extra
+			has_political_power > t_pp_check_extra
+		}
+		custom_cost_text = decision_cost_cp_pp_dynamic
+		days_remove = 20
+		days_re_enable = 14
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_PPI_Send_BSI_detachment"
+			add_manpower = -250
+			add_political_power = -30
+			add_command_power = -10
+			DOM = {
+				add_ideas = DOM_BSI_detachment
+			}
+		}
+	}
+	#Intel Gathering
+	IBR_PPI_embassy_party = {
+		icon = GFX_decision_black_market_luxury_trade_increase
+		visible = {
+			TNO_fopo_puerto_plata_selected = yes
+			has_global_flag = PPI_proxy_war_preparation
+			has_country_flag = IBR_gather_OFN_intel
+			has_country_flag = IBR_Gather_Intel_Visible
+		}
+		custom_cost_trigger = {
+			check_variable = { GDP > 0 }
+		}
+		custom_cost_text = decision_cost_5_million
+
+		days_remove = 3
+		days_re_enable = 15
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_PPI_embassy_party"
+			set_temp_variable = { temp_econ_spending_amount = 0.005 }
+			econ_spend_money_once_effect_raw_money = yes
+			random_list = {
+				50 = {
+					hidden_effect = {
+						set_temp_variable = { spy_strength_temp = 2 }
+						TNO_PP_spy_strength_decrease_USA = yes
+					}
+					custom_effect_tooltip = IBR_PPI_embassy_party_tt
+				}
+				50 = {
+
+				}
+			}
+		}
+	}
+
+	IBR_PPI_follow_opposition_trail = {
+		icon = GFX_decision_document_socialism
+		visible = {
+			TNO_fopo_puerto_plata_selected = yes
+			has_global_flag = PPI_proxy_war_preparation
+			has_country_flag = IBR_gather_OFN_intel
+			has_country_flag = IBR_Gather_Intel_Visible
+		}
+
+		cost = 25
+		days_remove = 7
+		days_re_enable = 20
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_PPI_follow_opposition_trail"
+			set_temp_variable = { spy_strength_temp = 4 }
+			TNO_PP_spy_strength_increase_DOM = yes
+			random_list = {
+				50 = {
+					CAL = {
+						add_manpower = -500
+					}
+				}
+				50 = {
+
+				}
+			}
+		}
+	}
+
+	IBR_PPI_use_high_society_friends = {
+		icon = GFX_decision_generic_shake_hands
+		visible = {
+			TNO_fopo_puerto_plata_selected = yes
+			has_global_flag = PPI_proxy_war_preparation
+			has_country_flag = IBR_gather_OFN_intel
+			has_country_flag = IBR_Gather_Intel_Visible
+		}
+
+		cost = 10
+		days_remove = 5
+		days_re_enable = 15
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_PPI_follow_opposition_trail"
+			set_temp_variable = { spy_strength_temp = 1 }
+			TNO_PP_spy_strength_increase_DOM = yes
+		}
+	}
+
+	IBR_PPI_patrol_the_coasts = {
+		icon = GFX_decision_generic_military_parade
+		visible = {
+			TNO_fopo_puerto_plata_selected = yes
+			has_global_flag = PPI_proxy_war_preparation
+			has_country_flag = IBR_gather_OFN_intel
+			has_country_flag = IBR_Gather_Intel_Visible
+		}
+
+		custom_cost_trigger = {
+			set_temp_variable = { t_cp_check = 25 }
+			set_temp_variable = { t_cp_check_extra = t_cp_check }
+			subtract_from_temp_variable = { t_cp_check_extra = 0.01 }
+
+			command_power > t_cp_check_extra
+		}
+		custom_cost_text = decision_cost_cp_dynamic
+		days_remove = 15
+		days_re_enable = 30
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_PPI_patrol_the_coasts"
+			random_list = {
+				50 = {
+					set_temp_variable = { spy_strength_temp = 2 }
+					TNO_PP_spy_strength_increase_DOM = yes
+				}
+				50 = {
+					hidden_effect = {
+						set_temp_variable = { spy_strength_temp = 4 }
+						TNO_PP_spy_strength_decrease_USA = yes
+						set_temp_variable = { invasion_supply_temp = 5 }
+						TNO_USA_PP_invasion_supply_decrease = yes
+					}
+					custom_effect_tooltip = IBR_PPI_patrol_the_coasts_tt
+				}
+			}
+		}
+	}
+
+	IBR_PPI_spy_OFN_embassies = {
+		icon = GFX_decision_generic_investigate
+		visible = {
+			TNO_fopo_puerto_plata_selected = yes
+			has_global_flag = PPI_proxy_war_preparation
+			has_country_flag = IBR_gather_OFN_intel
+			has_country_flag = IBR_Gather_Intel_Visible
+		}
+
+		cost = 50
+		custom_cost_text = decision_cost_cp_dynamic
+		days_remove = 20
+		days_re_enable = 40
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_PPI_spy_OFN_embassies"
+			random_list = {
+				30 = {
+					set_temp_variable = { spy_strength_temp = 10 }
+					TNO_PP_spy_strength_increase_DOM = yes
+				}
+				70 = {
+					set_temp_variable = { spy_strength_temp = 5 }
+					TNO_PP_spy_strength_increase_USA = yes
+				}
+			}
+		}
+	}
+	#Landing Decisions
+	IBR_PPI_Emergency_Supply_Drops = {
+		#ai_will_do = { base = 100 }
+		icon = GFX_decision_generic_supply
+		visible = {
+			TNO_fopo_puerto_plata_selected = yes
+			has_global_flag = PPI_landing_ongoing
+		}
+		custom_cost_trigger = {
+			command_power > 9.99
+		}
+		custom_cost_text = decision_cost_10_cp
+
+		fire_only_once = yes
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_PPI_Emergency_Supply_Drops"
+			hidden_effect = { add_command_power = -10 }
+			send_equipment = {
+				target = DOM
+				type = infantry_equipment
+				amount = 1000
+			}
+			send_equipment = {
+				target = DOM
+				type = support_equipment
+				amount = 100
+			}
+			send_equipment = {
+				target = DOM
+				type = motorized_equipment
+				amount = 50
+			}
+		}
+	}
+
+	IBR_PPI_Wartime_PsyOp_Campaigns = {
+		#ai_will_do = { base = 100 }
+		icon = GFX_decision_generic_propaganda
+		visible = {
+			TNO_fopo_puerto_plata_selected = yes
+			has_global_flag = PPI_landing_ongoing
+		}
+		cost = 50
+
+		fire_only_once = yes
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_PPI_Wartime_PsyOp_Campaigns"
+
+			every_country = {
+				limit = { has_war_with = DOM }
+				add_manpower = -10000
+			}
+			set_temp_variable = { insurgency_strength_temp = 7.5 }
+			TNO_PP_insurgency_strength_decrease = yes
+		}
+	}
+
+	IBR_PPI_Air_Sorties = {
+		#ai_will_do = { base = 100 }
+		icon = GFX_decision_generic_fighter_plane
+		visible = {
+			TNO_fopo_puerto_plata_selected = yes
+			has_global_flag = PPI_landing_ongoing
+		}
+
+		custom_cost_trigger = {
+			command_power > 24.99
+		}
+
+		custom_cost_text = decision_cost_25_cp
+		fire_only_once = yes
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_PPI_Air_Sorties"
+			hidden_effect = { add_command_power = -25 }
+			every_country = {
+				limit = { has_war_with = DOM }
+				add_timed_idea = {
+				idea = IBR_Air_Sorties
+				 days = 30
+				}
+			}
+			set_temp_variable = { invasion_supply_temp = -5 }
+		}
+	}
+
+	IBR_PPI_Dispatch_Embassy_Guards = {
+		#ai_will_do = { base = 100 }
+		icon = GFX_decision_generic_assault
+		visible = {
+			TNO_fopo_puerto_plata_selected = yes
+			has_country_flag = IBR_PPI_Embassy_Reinforced
+			has_global_flag = PPI_landing_ongoing
+		}
+		custom_cost_trigger = {
+			command_power > 24.99
+		}
+		custom_cost_text = decision_cost_25_cp_25_pp
+
+		fire_only_once = yes
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_PPI_Dispatch_Embassy_Guards"
+			hidden_effect = {
+				add_command_power = -25
+				add_political_power = -25
+				every_country = {
+					limit = { has_war_with = CAL }
+					load_oob = "DOM_IBR_Reinforcements"
+				}
+			}
+		}
+	}
+
+	IBR_PPI_devote_intelligence_to_counterinsurgency = {
+		icon = GFX_decision_generic_investigate
+		visible = {
+			TNO_fopo_puerto_plata_selected = yes
+			has_global_flag = PPI_landing_ongoing
+		}
+		custom_cost_trigger = { command_power > 9.99 }
+		custom_cost_text = decision_cost_10_cp
+		days_re_enable = 5
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_PPI_devote_intelligence_to_counterinsurgency"
+			hidden_effect = { add_command_power = -10 }
+			set_temp_variable = { spy_strength_temp = 10 }
+			TNO_PP_spy_strength_decrease_DOM = yes
+			set_temp_variable = { insurgency_strength_temp = 10 }
+			TNO_PP_insurgency_strength_decrease = yes
+		}
+	}
+
+	IBR_PPI_train_dominican_troops_in_counterinsurgency = {
+		icon = GFX_decision_generic_investigate
+		visible = {
+			TNO_fopo_puerto_plata_selected = yes
+			has_global_flag = PPI_landing_ongoing
+		}
+		custom_cost_trigger = { command_power > 9.99 }
+		custom_cost_text = decision_cost_10_cp
+		days_re_enable = 5
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_PPI_train_dominican_troops_in_counterinsurgency"
+			hidden_effect = { add_command_power = -10 }
+			DOM = {
+				TNO_improve_training_policy_effectiveness_low = yes
+			}
+			set_temp_variable = { insurgency_strength_temp = 10 }
+			TNO_PP_insurgency_strength_decrease = yes
+		}
+	}
+}
+#################################################
+## 		Colombian Civil War (COL,CLC,CLL)      ##
+#################################################
+IBR_foreign_policy_category = {
+	### Border War Stage ###
+	IBR_COL_propaganda_campaign = {
+		icon = GFX_decision_generic_propaganda
+		visible = {
+			TNO_fopo_colombian_civil_war_selected = yes
+			has_global_flag = COL_border_clashes_happening
+		}
+		available = {
+			var:IBR.COL_faction_support = {
+				NOT = {
+					has_country_flag = CLL_block_foreign_support
+				}
+			}
+		}
+
+		cost = 30
+		days_remove = 30
+		days_re_enable = 60
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_COL_propaganda_campaign"
+
+		}
+		remove_effect = {
+			var:global.IBR_COL_faction_support = {
+				add_war_support = 0.05
+				add_stability = 0.05
+			}
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+
+	IBR_COL_send_officer_to_academy = {
+		icon = GFX_decision_generic_military_parade
+		visible = {
+			TNO_fopo_colombian_civil_war_selected = yes
+			has_global_flag = COL_border_clashes_happening
+		}
+		available = {
+			var:IBR.COL_faction_support = {
+				NOT = {
+					has_country_flag = CLL_block_foreign_support
+				}
+			}
+		}
+
+		days_remove = 30
+		custom_cost_trigger = {
+			set_temp_variable = { t_cp_check = 50 }
+			set_temp_variable = { t_cp_check_extra = t_cp_check }
+			subtract_from_temp_variable = { t_cp_check_extra = 0.01 }
+
+			command_power > t_cp_check_extra
+		}
+		custom_cost_text = decision_cost_cp_dynamic
+		days_re_enable = 60
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_COL_send_officer_to_academy"
+			custom_effect_tooltip = IBR_COL_send_officer_to_academy_tt_1
+			add_command_power = -50
+			hidden_effect = {
+				var:global.IBR_COL_faction_support = {
+					country_event = {
+						id = IBR_COL.1
+						days = 30
+					}
+					random_unit_leader = {
+						limit = {
+							is_army_leader = yes
+						}
+						set_character_flag = IBR_COL_officer_in_academy_flag
+						set_nationality = ZZZ
+					}
+				}
+			}
+		}
+		remove_effect = {
+			custom_effect_tooltip = IBR_COL_send_officer_to_academy_tt_2
+			hidden_effect = {
+				ZZZ = {
+				every_character = {
+					limit = { has_character_flag = IBR_COL_officer_in_academy_flag }
+						clr_character_flag = IBR_COL_officer_in_academy_flag
+						add_skill_level = 1
+						set_nationality = var:global.IBR_COL_faction_support
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			base = 30
+		}
+	}
+
+	IBR_COL_trap_roads = {
+		icon = GFX_decision_death_road
+		visible = {
+			TNO_fopo_colombian_civil_war_selected = yes
+			has_global_flag = COL_border_clashes_happening
+		}
+		available = {
+			var:IBR.COL_faction_support = {
+				NOT = {
+					has_country_flag = CLL_block_foreign_support
+				}
+			}
+		}
+
+		cost = 70
+		fire_only_once = yes
+		days_remove = 45
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_COL_trap_roads"
+
+		}
+		remove_effect = {
+			var:global.IBR_COL_faction_support = {
+				add_ideas = COL_Roads_with_Traps
+			}
+		}
+		ai_will_do = {
+			base = 50
+		}
+	}
+
+	IBR_COL_test_war_tactics = {
+		icon = GFX_decision_generic_assault
+		visible = {
+			TNO_fopo_colombian_civil_war_selected = yes
+			has_global_flag = COL_border_clashes_happening
+		}
+		available = {
+			var:IBR.COL_faction_support = {
+				NOT = {
+					has_country_flag = CLL_block_foreign_support
+				}
+			}
+		}
+
+		days_remove = 10
+		custom_cost_trigger = {
+			set_temp_variable = { t_cp_check = 10 }
+			set_temp_variable = { t_cp_check_extra = t_cp_check }
+			subtract_from_temp_variable = { t_cp_check_extra = 0.01 }
+
+			command_power > t_cp_check_extra
+		}
+		custom_cost_text = decision_cost_cp_dynamic
+		days_re_enable = 90
+
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_COL_test_war_tactics"
+			add_command_power = -10
+
+		}
+		remove_effect = {
+			var:global.IBR_COL_faction_support = {
+				army_experience = 30
+			}
+			army_experience = 30
+		}
+		ai_will_do = {
+			base = 30
+		}
+	}
+
+	IBR_COL_bribe_COL_officials = {
+		icon = GFX_decision_generic_money
+		visible = {
+			TNO_fopo_colombian_civil_war_selected = yes
+			has_global_flag = COL_border_clashes_happening
+			check_variable = {
+				global.IBR_COL_faction_support = CLC
+			}
+		}
+		available = {
+			var:IBR.COL_faction_support = {
+				NOT = {
+					has_country_flag = CLL_block_foreign_support
+				}
+			}
+		}
+		days_remove = 60
+		cost = 70
+		days_re_enable = 120
+
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_COL_bribe_COL_officials"
+			COL = {
+				set_country_flag = IBR_COL_bribing_officials
+			}
+			custom_effect_tooltip = IBR_COL_bribe_COL_officials_tt
+		}
+
+		remove_effect = {
+			COL = {
+				clr_country_flag = IBR_COL_bribing_officials
+			}
+		}
+		ai_will_do = {
+			base = 30
+		}
+	}
+
+	IBR_COL_bribe_CLC_officials = {
+		icon = GFX_decision_generic_money
+		visible = {
+			TNO_fopo_colombian_civil_war_selected = yes
+			has_global_flag = COL_border_clashes_happening
+			check_variable = {
+				global.IBR_COL_faction_support = COL
+			}
+		}
+		available = {
+			var:IBR.COL_faction_support = {
+				NOT = {
+					has_country_flag = CLL_block_foreign_support
+				}
+			}
+		}
+		days_remove = 60
+		cost = 70
+		days_re_enable = 120
+
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_COL_bribe_CLC_officials"
+			CLC = {
+				set_country_flag = IBR_COL_bribing_officials
+			}
+			custom_effect_tooltip = IBR_COL_bribe_CLC_officials_tt
+		}
+
+		remove_effect = {
+			CLC = {
+				clr_country_flag = IBR_COL_bribing_officials
+			}
+		}
+		ai_will_do = {
+			base = 30
+		}
+	}
+	IBR_COL_bribe_CLL_officials = {
+		icon = GFX_decision_generic_money
+		visible = {
+			TNO_fopo_colombian_civil_war_selected = yes
+			has_global_flag = COL_border_clashes_happening
+		}
+		available = {
+			var:IBR.COL_faction_support = {
+				NOT = {
+					has_country_flag = CLL_block_foreign_support
+				}
+			}
+		}
+		days_remove = 60
+		cost = 70
+		days_re_enable = 120
+
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_COL_bribe_CLL_officials"
+			CLL = {
+				set_country_flag = IBR_COL_bribing_officials
+			}
+			custom_effect_tooltip = IBR_COL_bribe_CLL_officials_tt
+		}
+
+		remove_effect = {
+			CLL = {
+				clr_country_flag = IBR_COL_bribing_officials
+			}
+		}
+		ai_will_do = {
+			base = 30
+		}
+	}
+	### Civil War Preparations ###
+	IBR_COL_civil_war_countdown = {
+		icon = GFX_decision_clock
+		visible = {
+			TNO_fopo_colombian_civil_war_selected = yes
+		}
+		activation = {
+			always = no
+		}
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		days_mission_timeout = var:COL.COL_civil_war_countdown
+		selectable_mission = no
+
+		timeout_effect = {
+			custom_effect_tooltip = COL_civil_war_countdown_tt
+		}
+	}
+
+	IBR_COL_grant_a_loan = {
+		icon = GFX_decision_generic_money
+		visible = {
+			TNO_fopo_colombian_civil_war_selected = yes
+			has_global_flag = COL_civil_war_preperations
+		}
+
+		cost = 50
+		days_re_enable = 60
+		days_remove = 5
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_COL_grant_a_loan"
+
+		}
+		remove_effect = {
+			var:global.IBR_COL_faction_support = {
+				set_temp_variable = { money_reserves_temp = 0.03 }
+				econ_money_reserves_change_raw_money = yes
+			}
+			set_temp_variable = { temp_econ_spending_amount = 0.03 }
+			econ_spend_money_once_effect_raw_money = yes
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+
+	IBR_COL_export_industrial_equipment = {
+		icon = GFX_decision_factory_generic_blue
+		visible = {
+			TNO_fopo_colombian_civil_war_selected = yes
+			has_global_flag = COL_civil_war_preperations
+		}
+
+		cost = 50
+		fire_only_once = yes
+		days_remove = 5
+
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_COL_export_industrial_equipment"
+		}
+		remove_effect = {
+			var:global.IBR_COL_faction_support = {
+				add_ideas = COL_Iberian_Industrial_Equipment
+			}
+		}
+		ai_will_do = {
+			base = 30
+		}
+	}
+
+	IBR_COL_meet_with_forces = {
+		icon = GFX_decision_handshake
+		visible = {
+			TNO_fopo_colombian_civil_war_selected = yes
+			has_global_flag = COL_civil_war_preperations
+		}
+
+		cost = 25
+		days_re_enable = 30
+		days_remove = 5
+
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_COL_meet_with_forces"
+		}
+
+		remove_effect = {
+			add_command_power = 50
+		}
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 5
+				command_power < 20
+			}
+		}
+	}
+
+	IBR_COL_send_volunteer_doctors = {
+		icon = GFX_decision_humanitarian_aid_increase
+		visible = {
+			TNO_fopo_colombian_civil_war_selected = yes
+			has_global_flag = COL_civil_war_preperations
+		}
+
+		cost = 50
+		days_re_enable = 60
+		days_remove = 10
+
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_COL_send_volunteer_doctors"
+
+		}
+		remove_effect = {
+			var:global.IBR_COL_faction_support = {
+				add_manpower = 50
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = 700
+					producer = IBR
+				}
+			}
+		}
+		ai_will_do = {
+			base = 30
+		}
+	}
+
+	IBR_COL_increase_anti_air_capabilities = {
+		icon = GFX_decision_towed_artillery
+		visible = {
+			TNO_fopo_colombian_civil_war_selected = yes
+			has_global_flag = COL_civil_war_preperations
+		}
+
+		cost = 50
+		days_re_enable = 30
+		days_remove = 15
+
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_COL_increase_anti_air_capabilities"
+		}
+		remove_effect = {
+			var:global.IBR_COL_faction_support = {
+				random_controlled_state = {
+					limit = {
+						anti_air_building < 2
+					}
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			base = 30
+		}
+	}
+
+	IBR_COL_barranquilla_concession = {
+		icon = GFX_decision_generic_supply
+		visible = {
+			TNO_fopo_colombian_civil_war_selected = yes
+			has_global_flag = COL_civil_war_preperations
+			check_variable = {
+				global.IBR_COL_faction_support = COL
+			}
+		}
+
+		cost = 30
+		fire_only_once = yes
+		days_remove = 10
+
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_COL_barranquilla_concession"
+		}
+		remove_effect = {
+			var:global.IBR_COL_faction_support = {
+				add_ideas = COL_Barranquilla_Concession
+			}
+			hidden_effect = {
+				IBR = {
+					country_event = {
+						id = IBR_COL.1
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			base = 50
+		}
+	}
+
+	IBR_COL_fortify_capital = {
+		icon = GFX_decision_generic_destroy_fort
+		visible = {
+			TNO_fopo_colombian_civil_war_selected = yes
+			has_global_flag = COL_civil_war_preperations
+			check_variable = {
+				global.IBR_COL_faction_support = COL
+			}
+		}
+
+		cost = 50
+		days_re_enable = 30
+		days_remove = 20
+
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_COL_fortify_capital"
+			var:global.IBR_COL_faction_support = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 15316
+				}
+			}
+		}
+		ai_will_do = {
+			base = 50
+		}
+	}
+	### Civil War ! ! ###
+	IBR_COL_send_iberian_volunteers = {
+		icon = GFX_decision_generic_military_hat
+		visible = {
+			TNO_fopo_colombian_civil_war_selected = yes
+			has_global_flag = COL_civil_war_ongoing
+			check_variable = {
+				IBR_COL_volunteer_variable < 3
+			}
+		}
+
+		cost = 75
+		days_re_enable = 90
+		days_remove = 15
+
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_COL_send_iberian_volunteers"
+		}
+		remove_effect = {
+			hidden_effect = {
+				add_to_variable = {IBR_COL_volunteer_variable = 1}
+				set_temp_variable = { target = var:global.IBR_COL_faction_support }
+				TNO_increase_volunteer_cap_1 = yes
+			}
+			custom_effect_tooltip = IBR_COL_send_iberian_volunteers_tt
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+
+	IBR_COL_send_military_advisors = {
+		icon = GFX_decision_generic_military_parade
+		visible = {
+			TNO_fopo_colombian_civil_war_selected = yes
+			has_global_flag = COL_civil_war_ongoing
+		}
+
+		cost = 50
+		fire_only_once = yes
+		days_remove = 30
+
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_COL_send_military_advisors"
+		}
+		remove_effect = {
+			var:global.IBR_COL_faction_support = {
+				add_ideas = COL_Iberian_Military_Advisors
+			}
+		}
+		ai_will_do = {
+			base = 50
+		}
+	}
+
+	IBR_COL_authorize_bombing_sorties = {
+		icon = GFX_decision_generic_bombing
+		visible = {
+			TNO_fopo_colombian_civil_war_selected = yes
+			has_global_flag = COL_civil_war_ongoing
+			has_country_flag = IBR_dominican_air_brigade_flag
+		}
+
+		custom_cost_trigger = {
+			set_temp_variable = { t_cp_check = 25 }
+			set_temp_variable = { t_cp_check_extra = t_cp_check }
+			subtract_from_temp_variable = { t_cp_check_extra = 0.01 }
+
+			command_power > t_cp_check_extra
+		}
+		custom_cost_text = decision_cost_cp_dynamic
+		days_remove = 5
+		days_re_enable = 120
+
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_COL_authorize_bombing_sorties"
+		}
+		remove_effect = {
+			CLL = {
+				add_timed_idea = {
+					idea = COL_Iberian_Bombing_Campaign
+					days = 30
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						global.IBR_COL_faction_support = COL
+					}
+				}
+				CLC = {
+					add_timed_idea = {
+					idea = COL_Iberian_Bombing_Campaign
+					days = 30
+					}
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						global.IBR_COL_faction_support = CLC
+					}
+				}
+				COL = {
+					add_timed_idea = {
+					idea = COL_Iberian_Bombing_Campaign
+					days = 30
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			base = 50
+		}
+	}
+
+	IBR_COL_send_tercio_extranjeros = {
+		icon = GFX_decision_generic_military_hat
+		visible = {
+			TNO_fopo_colombian_civil_war_selected = yes
+			has_global_flag = COL_civil_war_ongoing
+		}
+
+		custom_cost_trigger = {
+			set_temp_variable = { t_cp_check = 30 }
+			set_temp_variable = { t_cp_check_extra = t_cp_check }
+			subtract_from_temp_variable = { t_cp_check_extra = 0.01 }
+
+			command_power > t_cp_check_extra
+		}
+		custom_cost_text = decision_cost_cp_dynamic
+		fire_only_once = yes
+		days_remove = 20
+
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_COL_send_tercio_extranjeros"
+
+		}
+		remove_effect = {
+			custom_effect_tooltip = IBR_COL_send_tercio_extranjeros_tt
+			hidden_effect = {
+				var:global.IBR_COL_faction_support = {
+					division_template = {
+						name = "Tercio de Extranjeros"
+						is_locked = yes
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 1 y = 0 }
+							infantry = { x = 1 y = 1 }
+						}
+					}
+					capital_scope = {
+						create_unit = {
+							division = "name = \"Tercio de Extranjeros\" division_template = \"Tercio de Extranjeros\" start_experience_factor = 2"
+							owner = PREV
+						}
+						create_unit = {
+							division = "name = \"Tercio de Extranjeros\" division_template = \"Tercio de Extranjeros\" start_experience_factor = 2"
+							owner = PREV
+						}
+					}
+				}
+				IBR = {
+					country_event = {
+						id = IBR_COL.2
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			base = 50
+		}
+	}
+
+	IBR_COL_ship_weapons = {
+		icon = GFX_decision_generic_supply
+		visible = {
+			TNO_fopo_colombian_civil_war_selected = yes
+			has_global_flag = COL_civil_war_ongoing
+		}
+
+		cost = 50
+		days_remove = 30
+		days_re_enable = var:IBR_days_ship_colombia
+
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_COL_ship_weapons"
+		}
+		remove_effect = {
+			var:global.IBR_COL_faction_support = {
+				add_manpower = 1000
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = 250
+					producer = IBR
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 500
+					producer = IBR
+				}
+			}
+		}
+		ai_will_do = {
+			base = 30
+		}
+	}
+
+	IBR_COL_set_up_dominican_air_brigade = {
+		icon = GFX_decision_generic_fighter_plane
+		visible = {
+			TNO_fopo_colombian_civil_war_selected = yes
+			has_global_flag = COL_civil_war_ongoing
+			DOM = {
+				has_country_leader = {
+					character = DOM_Rafael_Trujillo
+					ruling_only = yes
+				}
+			}
+		}
+
+		cost = 50
+		fire_only_once = yes
+		days_remove = 45
+
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_COL_set_up_dominican_air_brigade"
+		}
+		remove_effect = {
+			set_country_flag = IBR_dominican_air_brigade_flag
+			custom_effect_tooltip = IBR_COL_set_up_dominican_air_brigade_tt
+			hidden_effect = {
+				IBR = {
+					country_event = {
+						id = IBR_COL.3
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			base = 50
+		}
+	}
+
+	IBR_COL_send_legion_dominicana = {
+		icon = GFX_decision_generic_military_hat
+		visible = {
+			TNO_fopo_colombian_civil_war_selected = yes
+			has_global_flag = COL_civil_war_ongoing
+			DOM = {
+				has_country_leader = {
+					character = DOM_Rafael_Trujillo
+					ruling_only = yes
+				}
+			}
+		}
+
+		custom_cost_trigger = {
+			set_temp_variable = { t_cp_check = 15 }
+			set_temp_variable = { t_cp_check_extra = t_cp_check }
+			subtract_from_temp_variable = { t_cp_check_extra = 0.01 }
+
+			command_power > t_cp_check_extra
+		}
+		custom_cost_text = decision_cost_cp_dynamic
+		fire_only_once = yes
+		days_remove = 10
+
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_COL_send_legion_dominicana"
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				var:global.IBR_COL_faction_support = {
+					division_template = {
+						name = "Legión Dominicana"
+						is_locked = yes
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 1 y = 0 }
+							infantry = { x = 1 y = 1 }
+							infantry = { x = 2 y = 0 }
+							infantry = { x = 2 y = 1 }
+						}
+					}
+					capital_scope = {
+						create_unit = {
+							division = "name = \"Legión Dominicana\" division_template = \"Legión Dominicana\" start_experience_factor = 3"
+							owner = PREV
+						}
+					}
+				}
+				IBR = {
+					country_event = {
+						id = IBR_COL.4
+					}
+				}
+			}
+			custom_effect_tooltip = IBR_COL_send_legion_dominicana_tt
+		}
+		ai_will_do = {
+			base = 50
+		}
+	}
+
+	IBR_COL_organise_refugees = {
+		icon = GFX_decision_generic_military_hat
+		visible = {
+			TNO_fopo_colombian_civil_war_selected = yes
+			has_global_flag = COL_civil_war_ongoing
+			ECU = {
+				has_country_leader = {
+					character = ECU_Jose_Maria_Velasco_Ibarra
+					ruling_only = yes
+				}
+			}
+		}
+
+		custom_cost_trigger = {
+			set_temp_variable = { t_cp_check = 5 }
+			set_temp_variable = { t_cp_check_extra = t_cp_check }
+			subtract_from_temp_variable = { t_cp_check_extra = 0.01 }
+
+			command_power > t_cp_check_extra
+		}
+		custom_cost_text = decision_cost_cp_dynamic
+		fire_only_once = yes
+		days_remove = 5
+
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_COL_organise_refugees"
+		}
+		remove_effect = {
+			hidden_effect = {
+				var:global.IBR_COL_faction_support = {
+					division_template = {
+						name = "Brigada Ecuatorial"
+						is_locked = yes
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 0 y = 2 }
+							infantry = { x = 0 y = 3 }
+						}
+					}
+					capital_scope = {
+						create_unit = {
+							division = "name = \"Brigada Ecuatorial\" division_template = \"Brigada Ecuatorial\" start_experience_factor = 0.5"
+							owner = PREV
+						}
+						create_unit = {
+							division = "name = \"Brigada Ecuatorial\" division_template = \"Brigada Ecuatorial\" start_experience_factor = 0.5"
+							owner = PREV
+						}
+						create_unit = {
+							division = "name = \"Brigada Ecuatorial\" division_template = \"Brigada Ecuatorial\" start_experience_factor = 0.5"
+							owner = PREV
+						}
+						create_unit = {
+							division = "name = \"Brigada Ecuatorial\" division_template = \"Brigada Ecuatorial\" start_experience_factor = 0.5"
+							owner = PREV
+						}
+					}
+				}
+			}
+			custom_effect_tooltip = IBR_COL_organise_refugees_tt
+		}
+		ai_will_do = {
+			base = 50
+		}
+	}
+
+	IBR_COL_use_guayaquil_port = {
+		icon = GFX_decision_generic_supply
+		visible = {
+			TNO_fopo_colombian_civil_war_selected = yes
+			has_global_flag = COL_civil_war_ongoing
+			ECU = {
+				has_country_leader = {
+					character = ECU_Jose_Maria_Velasco_Ibarra
+					ruling_only = yes
+				}
+			}
+		}
+
+		cost = 50
+		days_remove = 20
+		fire_only_once = yes
+
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_COL_use_guayaquil_port"
+		}
+		remove_effect = {
+			divide_variable = {
+				IBR_days_ship_colombia = 2
+			}
+			custom_effect_tooltip = IBR_COL_use_guayaquil_port_tt
+		}
+		ai_will_do = {
+			base = 50
+		}
+	}
+
+	IBR_COL_supply_the_faithful = {
+		icon = GFX_decision_generic_military_hat
+		visible = {
+			TNO_fopo_colombian_civil_war_selected = yes
+			has_global_flag = COL_civil_war_ongoing
+			check_variable = {
+				global.IBR_COL_faction_support = CLC
+			}
+		}
+
+		custom_cost_trigger = {
+			set_temp_variable = { t_cp_check = 30 }
+			set_temp_variable = { t_cp_check_extra = t_cp_check }
+			subtract_from_temp_variable = { t_cp_check_extra = 0.01 }
+
+			command_power > t_cp_check_extra
+		}
+		custom_cost_text = decision_cost_cp_dynamic
+		fire_only_once = yes
+		days_remove = 15
+
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision IBR_COL_supply_the_faithful"
+
+		}
+		remove_effect = {
+			hidden_effect = {
+				CLC = {
+					division_template = {
+						name = "División Voluntaria"
+						is_locked = yes
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 0 y = 2 }
+							infantry = { x = 1 y = 0 }
+							infantry = { x = 1 y = 1 }
+							infantry = { x = 1 y = 2 }
+							infantry = { x = 2 y = 0 }
+							infantry = { x = 2 y = 1 }
+							infantry = { x = 2 y = 2 }
+						}
+					}
+					capital_scope = {
+						create_unit = {
+							division = "name = \"División Voluntaria\" division_template = \"División Voluntaria\" start_experience_factor = 2"
+							owner = PREV
+						}
+					}
+				}
+			}
+			custom_effect_tooltip = IBR_COL_supply_the_faithful_tt
+		}
+		ai_will_do = {
+			base = 50
+		}
+	}
+}
+
+##################################
+## 		French Reclamation      ##
+##################################
+IBR_foreign_policy_category = {
+	# / Generic Decisions
+	IBR_FrenchReclamation_Decision_GenericDecisionsShow = {
+		icon = GFX_decision_generic_visibility
+		visible = {
+			TNO_fopo_french_civil_war_selected = yes
+			NOT = { has_country_flag = FrenchReclamation_GenericDecisions_Visible }
+		}
+		complete_effect = {
+			set_country_flag = FrenchReclamation_GenericDecisions_Visible
+		}
+		ai_will_do = {
+			base = 1000
+		}
+	}
+	IBR_FrenchReclamation_Decision_GenericDecisionsHide = {
+		icon = GFX_decision_generic_visibility_closed
+		visible = {
+			TNO_fopo_french_civil_war_selected = yes
+			has_country_flag = FrenchReclamation_GenericDecisions_Visible
+		}
+		complete_effect = {
+			clr_country_flag = FrenchReclamation_GenericDecisions_Visible
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	IBR_FrenchReclamation_Decision_SupportCrossChannelSupplyLines = {
+		icon = GFX_decision_generic_supply
+		visible = {
+			TNO_fopo_french_civil_war_selected = yes
+			has_country_flag = FrenchReclamation_GenericDecisions_Visible
+			ENG = { is_in_faction_with = USA }
+		}
+		custom_cost_trigger = { command_power > 9.99 }
+		custom_cost_text = decision_cost_10_cp
+		available = {
+			set_temp_variable = { X = 0 }
+			set_temp_variable = { Y = 1 }
+			TNO_FrenchReclamation_ScriptedTrigger_Focus_X_MoreThanOrEquals_Y = yes
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision Complete IBR_FrenchReclamation_Decision_SupportCrossChannelSupplyLines"
+			set_temp_variable = { X = 0 }
+			set_temp_variable = { Y = -1 }
+			FFR_reclamation_aspect_X_add_focus_Y = yes
+			hidden_effect = {
+				add_command_power = -10
+			}
+		}
+		days_remove = 20
+		targeted_modifier = {
+			tag = FRD
+			army_org_regain = 0.05
+		}
+		targeted_modifier = {
+			tag = FFR
+			army_org_regain = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	IBR_FrenchReclamation_Decision_SupportTransAlpineSupplyLines = {
+		icon = GFX_decision_generic_supply
+		visible = {
+			TNO_fopo_french_civil_war_selected = yes
+			has_country_flag = FrenchReclamation_GenericDecisions_Visible
+			ITA = { is_in_faction_with = USA }
+		}
+		custom_cost_trigger = { command_power > 9.99 }
+		custom_cost_text = decision_cost_10_cp
+		available = {
+			set_temp_variable = { X = 0 }
+			set_temp_variable = { Y = 1 }
+			TNO_FrenchReclamation_ScriptedTrigger_Focus_X_MoreThanOrEquals_Y = yes
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision Complete IBR_FrenchReclamation_Decision_SupportTransAlpineSupplyLines"
+			set_temp_variable = { X = 0 }
+			set_temp_variable = { Y = -1 }
+			FFR_reclamation_aspect_X_add_focus_Y = yes
+			hidden_effect = {
+				add_command_power = -10
+			}
+		}
+		days_remove = 20
+		targeted_modifier = {
+			tag = FRD
+			army_org_regain = 0.05
+		}
+		targeted_modifier = {
+			tag = FFR
+			army_org_regain = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	IBR_FrenchReclamation_Decision_SupportTransPyreneesSupplyLines = {
+		icon = GFX_decision_generic_supply
+		visible = {
+			TNO_fopo_french_civil_war_selected = yes
+			has_country_flag = FrenchReclamation_GenericDecisions_Visible
+		}
+		custom_cost_trigger = { command_power > 9.99 }
+		custom_cost_text = decision_cost_10_cp
+		available = {
+			set_temp_variable = { X = 0 }
+			set_temp_variable = { Y = 1 }
+			TNO_FrenchReclamation_ScriptedTrigger_Focus_X_MoreThanOrEquals_Y = yes
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision Complete IBR_FrenchReclamation_Decision_SupportTransPyreneesSupplyLines"
+			set_temp_variable = { X = 0 }
+			set_temp_variable = { Y = -1 }
+			FFR_reclamation_aspect_X_add_focus_Y = yes
+			hidden_effect = {
+				add_command_power = -10
+			}
+		}
+		days_remove = 20
+		targeted_modifier = {
+			tag = FRD
+			army_org_regain = 0.05
+		}
+		targeted_modifier = {
+			tag = FFR
+			army_org_regain = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	IBR_FrenchReclamation_Decision_SendInfantryEquipmentShipments = {
+		icon = GFX_decision_generic_arms_crate
+		visible = {
+			TNO_fopo_french_civil_war_selected = yes
+			has_country_flag = FrenchReclamation_GenericDecisions_Visible
+		}
+		custom_cost_trigger = { command_power > 4.99 }
+		custom_cost_text = decision_cost_5_cp
+		available = {
+			set_temp_variable = { X = 0 }
+			set_temp_variable = { Y = 1 }
+			TNO_FrenchReclamation_ScriptedTrigger_Focus_X_MoreThanOrEquals_Y = yes
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision Complete IBR_FrenchReclamation_Decision_SendInfantryEquipmentShipments"
+			set_temp_variable = { X = 0 }
+			set_temp_variable = { Y = -1 }
+			FFR_reclamation_aspect_X_add_focus_Y = yes
+			hidden_effect = {
+				add_command_power = -5
+			}
+		}
+		days_remove = 10
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision Remove IBR_FrenchReclamation_Decision_SendInfantryEquipmentShipments"
+			send_equipment = {
+				equipment = infantry_equipment
+				amount = 400
+				target = FRD
+			}
+			send_equipment = {
+				equipment = infantry_equipment
+				amount = 400
+				target = FFR
+			}
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	IBR_FrenchReclamation_Decision_SendMotorizedEquipmentShipments = {
+		icon = GFX_decision_generic_arms_crate
+		visible = {
+			TNO_fopo_french_civil_war_selected = yes
+			has_country_flag = FrenchReclamation_GenericDecisions_Visible
+		}
+		custom_cost_trigger = { command_power > 4.99 }
+		custom_cost_text = decision_cost_5_cp
+		available = {
+			set_temp_variable = { X = 0 }
+			set_temp_variable = { Y = 1 }
+			TNO_FrenchReclamation_ScriptedTrigger_Focus_X_MoreThanOrEquals_Y = yes
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision Complete IBR_FrenchReclamation_Decision_SendMotorizedEquipmentShipments"
+			set_temp_variable = { X = 0 }
+			set_temp_variable = { Y = -1 }
+			FFR_reclamation_aspect_X_add_focus_Y = yes
+			hidden_effect = {
+				add_command_power = -5
+			}
+		}
+		days_remove = 10
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision Remove IBR_FrenchReclamation_Decision_SendMotorizedEquipmentShipments"
+			send_equipment = {
+				equipment = motorized_equipment
+				amount = 200
+				target = FRD
+			}
+			send_equipment = {
+				equipment = motorized_equipment
+				amount = 200
+				target = FFR
+			}
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	# / Unique Decisions - IBR
+	IBR_FrenchReclamation_Decision_IBR_Show = {
+		icon = GFX_decision_generic_visibility
+		visible = {
+			TNO_fopo_french_civil_war_selected = yes
+			NOT = { has_country_flag = FrenchReclamation_IBRDecisions_Visible }
+		}
+		complete_effect = {
+			set_country_flag = FrenchReclamation_IBRDecisions_Visible
+		}
+		ai_will_do = {
+			base = 1000
+		}
+	}
+	IBR_FrenchReclamation_Decision_IBR_Hide = {
+		icon = GFX_decision_generic_visibility
+		visible = {
+			TNO_fopo_french_civil_war_selected = yes
+			has_country_flag = FrenchReclamation_IBRDecisions_Visible
+		}
+		complete_effect = {
+			clr_country_flag = FrenchReclamation_IBRDecisions_Visible
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	IBR_FrenchReclamation_Decision_IBR_PlanOffensives = {
+		icon = GFX_decision_generic_military_parade
+		visible = {
+			TNO_fopo_french_civil_war_selected = yes
+			has_country_flag = FrenchReclamation_IBRDecisions_Visible
+		}
+		custom_cost_trigger = { command_power > 9.99 }
+		custom_cost_text = decision_cost_10_cp
+		available = {
+			set_temp_variable = { X = 1 }
+			set_temp_variable = { Y = 2 }
+			TNO_FrenchReclamation_ScriptedTrigger_Focus_X_MoreThanOrEquals_Y = yes
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision Complete IBR_FrenchReclamation_Decision_IBR_PlanOffensives"
+			set_temp_variable = { X = 1 }
+			set_temp_variable = { Y = -2 }
+			FFR_reclamation_aspect_X_add_focus_Y = yes
+			hidden_effect = {
+				add_command_power = -10
+			}
+		}
+		days_remove = 15
+		modifier = {
+			army_attack_factor = 0.10
+			army_defence_factor = 0.10
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	IBR_FrenchReclamation_Decision_IBR_SupportFrenchForces = {
+		icon = GFX_decision_generic_military_parade
+		visible = {
+			TNO_fopo_french_civil_war_selected = yes
+			NOT = { has_global_flag = FRA_civil_war_ongoing }
+			has_country_flag = FrenchReclamation_IBRDecisions_Visible
+		}
+		custom_cost_trigger = { command_power > 9.99 }
+		custom_cost_text = decision_cost_10_cp
+		available = {
+			set_temp_variable = { X = 1 }
+			set_temp_variable = { Y = 3 }
+			TNO_FrenchReclamation_ScriptedTrigger_Focus_X_MoreThanOrEquals_Y = yes
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision Complete IBR_FrenchReclamation_Decision_IBR_SupportFrenchForces"
+			set_temp_variable = { X = 1 }
+			set_temp_variable = { Y = -3 }
+			FFR_reclamation_aspect_X_add_focus_Y = yes
+			hidden_effect = {
+				add_command_power = -10
+			}
+		}
+		days_remove = 15
+		targeted_modifier = {
+			tag = FRD
+			army_attack_factor = 0.15
+			army_defence_factor = 0.15
+		}
+		targeted_modifier = {
+			tag = FFR
+			army_attack_factor = 0.15
+			army_defence_factor = 0.15
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	IBR_FrenchReclamation_Decision_IBR_MeetWithGenerals = {
+		icon = GFX_decision_handshake
+		visible = {
+			TNO_fopo_french_civil_war_selected = yes
+			has_country_flag = FrenchReclamation_IBRDecisions_Visible
+		}
+		cost = 10
+		days_re_enable = 30
+		available = {
+			set_temp_variable = { X = 2 }
+			set_temp_variable = { Y = 1 }
+			TNO_FrenchReclamation_ScriptedTrigger_Focus_X_MoreThanOrEquals_Y = yes
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision Complete IBR_FrenchReclamation_Decision_IBR_MeetWithGenerals"
+			set_temp_variable = { X = 2 }
+			set_temp_variable = { Y = -1 }
+			FFR_reclamation_aspect_X_add_focus_Y = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision Remove IBR_FrenchReclamation_Decision_IBR_MeetWithGenerals"
+			add_command_power = 50
+		}
+		days_remove = 5
+		ai_will_do = {
+			base = 10
+		}
+	}
+	IBR_FrenchReclamation_Decision_IBR_FormVolunteerForce = {
+		icon = GFX_decision_generic_assault
+		visible = {
+			TNO_fopo_french_civil_war_selected = yes
+			has_country_flag = FrenchReclamation_IBRDecisions_Visible
+			check_variable = { IBR.FFR_negotiations_5 = 1 } # promised ground support
+		}
+		cost = 25
+		fire_only_once = yes
+		available = {
+			set_temp_variable = { X = 2 }
+			set_temp_variable = { Y = 2 }
+			TNO_FrenchReclamation_ScriptedTrigger_Focus_X_MoreThanOrEquals_Y = yes
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision Complete IBR_FrenchReclamation_Decision_IBR_FormVolunteerForce"
+			set_temp_variable = { X = 2 }
+			set_temp_variable = { Y = -2 }
+			FFR_reclamation_aspect_X_add_focus_Y = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision Remove IBR_FrenchReclamation_Decision_IBR_FormVolunteerForce"
+			set_temp_variable = { target = FRD }
+			set_temp_variable = { number = 2 }
+			TNO_set_num_volunteers = yes
+			set_temp_variable = { target = FFR }
+			set_temp_variable = { number = 2 }
+			TNO_set_num_volunteers = yes
+			effect_tooltip = {
+				set_temp_variable = { target = FRD }
+				TNO_increase_volunteer_cap_2 = yes
+				set_temp_variable = { target = FFR }
+				TNO_increase_volunteer_cap_2 = yes
+			}
+		}
+		days_remove = 5
+		ai_will_do = {
+			base = 50
+		}
+	}
+	IBR_FrenchReclamation_Decision_AIFocusRefill = {
+		visible = {
+			TNO_fopo_french_civil_war_selected = yes
+			is_ai = yes
+			check_variable = { FFR.FrenchReclamation_Focus_Stored < 5 }
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision Complete USA_FrenchReclamation_Decision_AIFocusRefill"
+			add_to_variable = { FFR.FrenchReclamation_Focus_Stored = 1 }
+			add_political_power = -30
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 0
+				has_political_power < 50
+			}
+		}
+	}
+	IBR_FrenchReclamation_Decision_AIAspectRefill1 = {
+		visible = {
+			TNO_fopo_french_civil_war_selected = yes
+			is_ai = yes
+			check_variable = { FFR.FrenchReclamation_Focus_Stored > 0 }
+			check_variable = { FFR.FrenchReclamation_Focus^0 < 5 }
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision Complete USA_FrenchReclamation_Decision_AIAspectRefill1"
+			add_to_variable = { FFR.FrenchReclamation_Focus_Stored = -1 }
+			add_to_variable = { FFR.FrenchReclamation_Focus^0 = 1 }
+			FFR_reclamation_dynamic_modifier_calculate = yes
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	IBR_FrenchReclamation_Decision_AIAspectRefill2 = {
+		visible = {
+			TNO_fopo_french_civil_war_selected = yes
+			is_ai = yes
+			check_variable = { FFR.FrenchReclamation_Focus_Stored > 0 }
+			check_variable = { FFR.FrenchReclamation_Focus^1 < 5 }
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision Complete USA_FrenchReclamation_Decision_AIAspectRefill2"
+			add_to_variable = { FFR.FrenchReclamation_Focus_Stored = -1 }
+			add_to_variable = { FFR.FrenchReclamation_Focus^1 = 1 }
+			FFR_reclamation_dynamic_modifier_calculate = yes
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	IBR_FrenchReclamation_Decision_AIAspectRefill3 = {
+		visible = {
+			TNO_fopo_french_civil_war_selected = yes
+			is_ai = yes
+			check_variable = { FFR.FrenchReclamation_Focus_Stored > 0 }
+			check_variable = { FFR.FrenchReclamation_Focus^2 < 5 }
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision Complete USA_FrenchReclamation_Decision_AIAspectRefill3"
+			add_to_variable = { FFR.FrenchReclamation_Focus_Stored = -1 }
+			add_to_variable = { FFR.FrenchReclamation_Focus^2 = 1 }
+			FFR_reclamation_dynamic_modifier_calculate = yes
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+}
