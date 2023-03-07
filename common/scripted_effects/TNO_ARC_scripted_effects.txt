@@ -1,0 +1,61 @@
+ARC_congress_disolve = {
+	event_target:ARC_leader = {
+		dismantle_faction = yes
+		every_country = {
+			limit = { has_country_flag = joined_ARC }
+			country_event = { id = ARC.36 days = 1 }
+		}
+		every_country = {
+			news_event = { id = WORLD.570 days = 4 }
+		}
+		clear_variable = global.ARC_warlords_left
+		clear_variable = global.ARC_unity
+		clr_global_flag = ARC_spoils_issue_done
+		clr_global_flag = ARC_generals_issue_done
+		clr_global_flag = ARC_spoils_issue_done
+		clr_global_flag = ARC_unification_issue_done
+		clr_global_flag = RUS_all_russian_congress
+		clr_global_flag = ARC_post_war_conference
+		clear_global_event_target = ARC_leader
+	}
+}
+
+ARC_warlord_leaves_effects = {
+	leave_faction = yes
+	add_to_variable = { global.ARC_warlords_left = 1 }
+	clr_country_flag = joined_ARC
+	if = {
+		limit = { check_variable = { global.ARC_warlords_left > 1 } }
+		ARC_congress_disolve = yes
+	}
+}
+
+ARC_succes_post_vote_effects = {
+	subtract_from_variable = { global.ARC_yes_votes = global.ARC_no_votes }
+	if = {
+		limit = { check_variable = { global.ARC_yes_votes > 1 } }
+		custom_effect_tooltip = ARC_unity_increase
+		add_to_variable = { global.ARC_unity = 1 }
+	}
+	else = {
+		custom_effect_tooltip = ARC_unity_decrease
+		subtract_from_variable = { global.ARC_unity = 1 }
+	}
+	set_variable = { global.ARC_yes_votes = 0 }
+	set_variable = { global.ARC_no_votes = 0 }
+}
+
+ARC_failure_post_vote_effects = {
+	subtract_from_variable = { global.ARC_no_votes = global.ARC_yes_votes }
+	if = {
+		limit = { check_variable = { global.ARC_no_votes > 1 } }
+		custom_effect_tooltip = ARC_unity_increase
+		add_to_variable = { global.ARC_unity = 1 }
+	}
+	else = {
+		custom_effect_tooltip = ARC_unity_decrease
+		subtract_from_variable = { global.ARC_unity = 1 }
+	}
+	set_variable = { global.ARC_yes_votes = 0 }
+	set_variable = { global.ARC_no_votes = 0 }
+}
