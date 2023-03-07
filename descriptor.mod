@@ -6,6 +6,13 @@ tags={
 	"Alternative History"
 }
 picture="thumbnail.png"
+replace_path="common/countries"
+replace_path="common/country_tags"
+replace_path="common/units/names"
+replace_path="common/units/names_divisions"
+replace_path="common/units/equipment"
+replace_path="common/units/names_ships"
+replace_path="common/units/names_railway_guns"
 replace_path="history/states"
 replace_path="history/units"
 replace_path="history/countries"
