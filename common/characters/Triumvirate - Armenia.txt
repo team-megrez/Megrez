@@ -1,0 +1,97 @@
+characters = {
+	# Country leaders #
+	ARM_Karen_Demirchyan = {
+		name = ARM_Karen_Demirchyan
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ARM/Portrait_Armenia_Karen_Demirchyan.dds"
+			}
+		}
+		country_leader = {
+			#desc = "POLITICS_SAUD_DESC"
+			expire = "1999.1.1"
+			ideology = socialist_subtype
+			traits = { }
+			id = -1
+		}
+	}
+
+	ARM_Marius_Yuzbashyan = {
+		name = ARM_Marius_Yuzbashyan
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ARM/Portrait_ARM_Marius_Aramovich.dds"
+			}
+			army = {
+				large = "gfx/leaders/ARM/Portrait_ARM_Marius_Aramovich.dds"
+			}
+		}
+		country_leader = {
+			desc = "POLITICS_MARIUS_YUZBASHYAN_DESC"
+			expire = "1999.1.1"
+			ideology = communist_stratocratic_communism_subtype
+			traits = { }
+			id = -1
+		}
+		corps_commander = {
+			traits = { guerilla_fighter }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+
+	ARM_Petros_Poghosyan = {
+		name = ARM_Petros_Poghosyan
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ARM/Portrait_ARM_Petros_Poghosyan.dds"
+			}
+			army = {
+				large = "gfx/leaders/ARM/Portrait_ARM_Petros_Poghosyan.dds"
+			}
+		}
+		country_leader = {
+			desc = "POLITICS_PETROS_POGHOSYAN_DESC"
+			expire = "1999.1.1"
+			ideology = despotism_military_junta_subtype
+			traits = { }
+			id = -1
+		}
+		country_leader = {
+			desc = "POLITICS_PETROS_POGHOSYAN_DESC"
+			expire = "1999.1.1"
+			ideology = ultranationalism_subtype
+			traits = { }
+			id = -1
+		}
+		corps_commander = {
+			traits = { guerilla_fighter }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+	}
+
+	# Generals #
+	ARM_Arshavir_Shirakian = {
+		name = ARM_Arshavir_Shirakian
+		portraits = {
+			army = {
+				large = "gfx/leaders/ARM/Portrait_ARM_Arshavir_Shirakian.dds"
+			}
+		}
+		field_marshal = {
+			traits = { career_officer logistics_wizard thorough_planner }
+			skill = 3
+			attack_skill = 1
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 4
+		}
+	}
+}
