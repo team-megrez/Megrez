@@ -1,15 +1,12 @@
 
 state={
-	id=614
-	name="STATE_614"
-	resources = {
-		steel = 20
-	}
+	id=1967
+	
+	name="STATE_1967"
 
 	history={
-		owner = NCC
+		owner = LEC
 		# add_core_of = CHI
-
 		buildings = {
 			schools = 1
 			offices = 2
@@ -17,15 +14,18 @@ state={
 			thermoelectric_plant = 2
 			infrastructure = 3
 			radar_station = 1
+			10068 = { naval_base = 4 }
+
 		}
-		victory_points = { 1134 10 }
-		victory_points = { 11944 10 }
+		victory_points = { 10068 20 }
+
 	}
 
 	provinces={
-		1134 4137 4140 9969 10022 10119 11761 11944 11980 11996
+		10068 
 	}
-	manpower=11534254
+	manpower=1192714
 	buildings_max_level_factor=1.000
-	state_category=city
+	state_category=town
+	local_supplies=0.000
 }
