@@ -1,83 +1,72 @@
 ﻿capital = 316
+oob = "COS"
+set_research_slots = 2
+set_war_support = 0
+set_convoys = 10
 
-# Vacant
-recruit_character = COS_Generic_Vacant
-fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
+set_technology = {
+	### Infantry ###
+	infantry_weapons = 1
 
-
-
-oob = "COS_1962"
-
-add_ideas = {
-### POLITICAL LAWS ###
-	tno_political_parties_one_party_state
-	tno_religious_rights_state_religion
-	tno_trade_unions_illegal
-	tno_immigration_open_immigration
-	tno_slavery_penal_labor
-	tno_public_meetings_regulated
-	tno_press_rights_censored_press
-	tno_vote_franchise_no_voting
-
-	### MILITARY LAWS ###
-	tno_conscription_broadened_conscription
-	tno_military_supervision_no_supervision
-	tno_training_basic_training
-	tno_draft_exemptions_none
-
-	### SOCIAL LAWS ###
-	tno_health_care_support_for_emergencies
-	tno_education_stratified_education
-	tno_penal_system_harsh_penal_code
-	tno_gender_rights_traditional_roles
-	tno_security_regulated_police
-	tno_regulations_token_regulations
-
-	### ECONOMIC LAWS ###
-	tno_trade_laws_limited_exports
-	tno_income_taxation_tax_havens
-	tno_minimum_wage_trinket_minimum_wage
-	tno_max_workhours_12_hour_work_day
-	tno_pensions_trinket_pensions
-	tno_unemployment_trinket_subsidies
-
-	### MISC LAWS ###
-	tno_pollution_few_regulations
-	tno_safety_minimal_regulations
-	tno_child_labor_illegal
-	tno_refugees_vetted_entry
-	tno_racial_integration_segregated_regiments
-	tno_women_banned
-	tno_minorities_segregation
-	tno_lgbt_rights_lgbt_outlawed
-
-	### SOCIETAL DEVELOPMENT ###
-	
-	tno_army_professionalism_disgruntled_veterans
-	tno_industrial_expertise_nascent
-	tno_industrial_equipment_power_tools
-	tno_agriculture_basic_mechanized
-	tno_healthcare_nascent
-	tno_research_facilities_outdated
-	tno_academic_base_basic_literacy
-	tno_admin_efficiency_deficient_administrative_systems
+	### Artillery ###
+	gw_artillery = 1
 }
 
-set_research_slots = 3
-
-
 set_politics = {
-	ruling_party = progressivism
-	last_election = "1958.2.2"
+	ruling_party = social_conservative
+	last_election = "1932.02.02"
 	election_frequency = 48
 	elections_allowed = yes
-
 }
 
 set_popularities = {
-	progressivism = 50
-	liberalism = 24
-	conservatism = 26
+	totalist = 0
+	syndicalist = 5
+	radical_socialist = 0
+	social_democrat = 4
+	social_liberal = 21
+	market_liberal = 12
+	social_conservative = 53
+	authoritarian_democrat = 5
+	paternal_autocrat = 0
+	national_populist = 0
 }
 
-recruit_character = COS_Jose_Figueres_Ferrer
+country_event = { id = cos.1 hours = 2 } #Intro to CS
+country_event = { id = cos.2 days = 17 } #Nomination of the Republican Candidate
+country_event = { id = cos.5 days = 52 } #Black Monday hits the ZKG
+country_event = { id = cos.16 days = 283 } #German Cruiser Schleswig docks in Costa Rica
+country_event = { id = cos.123 days = 1159 } #"Mamita Yunai"
+country_event = { id = cafla.18 days = 258 }
+
+add_ideas = {
+	disarmed_nation
+	free_trade
+	CEN_monroe_doctrine
+	COS_beacon_democracy
+	COS_labour_conflicts
+}
+
+activate_targeted_decision = { decision = CEN_unite_central_america target = THIS }
+
+### Country Leaders ###
+recruit_character = COS_manuel_mora_valverde
+recruit_character = COS_rafael_angel_calderon_guardia
+recruit_character = COS_teodoro_picado_michalski
+recruit_character = COS_ricardo_jimenez_oreamuno
+recruit_character = COS_leon_cortes_castro
+recruit_character = COS_consejo_de_seguridad_nacional
+
+### Generals ###
+recruit_character = COS_jose_figueres_ferrer
+recruit_character = COS_fernando_figuls_quiros
+
+recruit_character = COS_julio_acosta_garcia
+recruit_character = COS_ricardo_castro_beeche
+recruit_character = COS_rafael_calderon_mumoz
+recruit_character = COS_jose_albertazzi_avendano
+recruit_character = COS_juan_rafael_arias_bonilla
+recruit_character = COS_cleto_gonzalez_viquez
+recruit_character = COS_santos_leon_herrera
+recruit_character = COS_jorge_volio_jimenez
+recruit_character = COS_manuel_zuniga_jiron

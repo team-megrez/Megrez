@@ -1,0 +1,20 @@
+﻿###############
+### WARNING ###
+###############
+# This tag exists to fulfil various niche coding purposes (such as storing generals for other tags), and as a debug tag
+# It doesn't play normally at all, for example it doesn't get annexation events
+###############
+
+capital = 1
+
+### Government Flag Setup - needs to be here to avoid ideas being removed in the gap between the game starting and on_startup
+every_possible_country = {
+	limit = {
+		OR = {
+			is_dynamic_country = no
+			has_country_flag = reserved_dynamic_tag
+		}
+	}
+	set_temp_variable = { new_government = current_party_ideology_group }
+	set_government_flags = yes
+}

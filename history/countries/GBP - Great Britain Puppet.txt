@@ -1,0 +1,55 @@
+﻿capital = 126
+set_research_slots = 3
+set_stability = 0.5
+set_war_support = 0.2
+set_convoys = 100
+
+set_politics = {
+	ruling_party = social_liberal
+	last_election = "1935.11.14"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+set_popularities = {
+	totalist = 0
+	radical_socialist = 0
+	syndicalist = 0
+	social_democrat = 15
+	social_liberal = 43
+	market_liberal = 27
+	social_conservative = 15
+	authoritarian_democrat = 0
+	paternal_autocrat = 0
+	national_populist = 0
+}
+
+recruit_character = GBP_hugh_gaitskell
+recruit_character = GBP_herbert_samuel
+recruit_character = GBP_abraham_england
+recruit_character = GBP_harold_macmillan
+recruit_character = GBP_anti_partisan_league_leader
+recruit_character = GBP_anthony_ludovici
+recruit_character = GBP_charles_iii
+recruit_character = GBP_arnold_leese
+
+### Dummy Leaders
+
+create_country_leader = {
+	name = "Neil Francis Hawkins"
+	picture = "gfx/leaders/Generic/Portrait_Europe_Generic_new_6.png"
+	ideology = totalist_subtype
+}
+create_country_leader = {
+	name = "Ebeneezer Edwards"
+	picture = "gfx/leaders/ENG/Portrait_England_Ebeneezer_Edwards.png"
+	ideology = syndicalist_subtype
+}
+create_country_leader = {
+	name = "Niclas y Glais"
+	picture = "gfx/leaders/ENG/Portrait_England_Niclas_y_Glais.png"
+	ideology = radical_socialist_subtype
+}
+
+### Commanders ###
+#Handled via event target

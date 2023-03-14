@@ -1,250 +1,110 @@
-capital = 327
+﻿capital = 327
+oob = "PHI"
+set_naval_oob = "PHI_naval"
+set_convoys = 20
+set_research_slots = 2
 
-# Vacant
-recruit_character = PHI_Generic_Vacant
-fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
+set_stability = 0.50
+set_war_support = 0.15
 
+set_technology = {
+	### Infantry ###
+	infantry_weapons = 1
+	tech_support = 1
+	tech_mountaineers = 1
 
+	tech_engineers = 1
+	gw_artillery = 1
 
-oob = "PHI_1962"
+	### Trains ###
+	basic_train = 1
+}
+
+### Navy - MtG ###
+
+if = {
+	limit = { has_dlc_mtg = yes }
+	set_technology = {
+		early_ship_hull_light = 1
+		basic_naval_mines = 1
+		early_ship_hull_cruiser = 1
+
+		## Modules##
+		basic_depth_charges = 1
+		basic_torpedo = 1
+		basic_battery = 1
+	}
+}
+
+### Navy - Non MtG ###
+
+if = {
+	limit = { has_dlc_mtg = no }
+	set_technology = {
+		early_destroyer = 1
+		early_light_cruiser = 1
+	}
+}
+
+USA = {
+	set_autonomy = {
+		target = PHI
+		autonomy_state = kr_default_puppet
+	}
+}
 
 set_politics = {
-	ruling_party = paternalism
-	last_election = "1935.9.15"
-	election_frequency = 72
+	ruling_party = social_liberal
+	last_election = "1888.6.15"
+	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	communist = 0
-	ultranationalism = 5
-	socialist = 0
-	progressivism = 0
-	liberalism = 0
-	conservatism = 0
-	paternalism = 40
-	despotism = 55
-	fascism = 0
-	national_socialism = 0
-	
+	totalist = 2
+	radical_socialist = 3
+	syndicalist = 5
+	social_democrat = 13
+	social_liberal = 41
+	market_liberal = 21
+	social_conservative = 10
+	authoritarian_democrat = 3
+	paternal_autocrat = 2
+	national_populist = 0
 }
 
-recruit_character = PHI_Jose_Yulo
-recruit_character = PHI_National_Assembly
-recruit_character = PHI_Quentin_Paredes
-recruit_character = PHI_Claro_Recto
-recruit_character = PHI_Sergio_Osmena_Jr
-recruit_character = PHI_Masazumi_Inada
+country_event = { id = phil.0 days = 1 } #Intro
 
+# Country Leaders #
+recruit_character = PHI_manuel_luis_quezon
+recruit_character = PHI_manuel_roxas
+recruit_character = PHI_elpidio_quirino
+recruit_character = PHI_emilio_aguinaldo
+recruit_character = PHI_juan_antonio_araneta
+recruit_character = PHI_lope_kanseco_santos
+recruit_character = PHI_crisanto_evangelista
 
-add_ideas = {
+### Field Marshals ###
+recruit_character = PHI_basilio_jose_valdes
 
-		#Faction Status#
-	Sphere_Economic_Dependent
-	
-		#Country#
-	PHI_fraudulent_sovereignty
-	PHI_paradoxical_government
-	PHI_listless_spirit
-	
-		#POLITICAL#
-	tno_political_parties_one_party_state
-	tno_religious_rights_secularism
-	tno_trade_unions_state_controlled
-	tno_immigration_quota_immigration
-	tno_slavery_penal_labor
-	tno_public_meetings_regulated
-	tno_press_rights_censored_press
-	tno_vote_franchise_universal
-	
-		#MILITARY#
-	tno_conscription_limited_conscription
-	tno_military_supervision_rules_of_engagement
-	tno_training_combat_schooling
-	tno_draft_exemptions_none
-	
-		#SOCIAL#
-	tno_health_care_low_income_protections
-	tno_education_public_education
-	tno_penal_system_politicized_penal_system
-	tno_gender_rights_women_in_the_workplace
-	tno_security_oppressive_police
-	tno_regulations_moderate_regulations
-	
-		#ECONOMIC#
-	tno_trade_laws_limited_exports
-	tno_income_taxation_low_income_weighted
-	tno_minimum_wage_trinket_minimum_wage
-	tno_max_workhours_10_hour_work_day
-	tno_pensions_trinket_pensions
-	tno_unemployment_trinket_subsidies
+### Corps Commanders ###
+recruit_character = PHI_vicente_lim
+recruit_character = PHI_paulino_santos
+recruit_character = PHI_carlos_pena_romulo
+recruit_character = PHI_ruperto_kangleon
 
-		#MISC#
-	tno_refugees_skilled
-	tno_women_noncombat_only
-	tno_racial_integration_integrated_military
-	tno_safety_limited_regulations
-	tno_pollution_few_regulations
-	tno_lgbt_rights_lgbt_allowed
-	tno_minorities_equal_rights
-	tno_child_labor_illegal
-	
-		#SOCIETAL DEVELOPMENT
-	tno_academic_base_basic_literacy
-	tno_research_facilities_basic
-	tno_agriculture_basic_mechanized
-	tno_healthcare_rudimentary
-	tno_industrial_equipment_power_tools
-	tno_industrial_expertise_nascent
-	tno_army_professionalism_reluctant_conscripts
-	tno_admin_efficiency_deficient_administrative_systems
-	
-}
-
-set_research_slots = 2
-
-	# Policy effectivness
-
-set_country_flag = tno_defined_startup_effectiveness
-
-set_variable = { tno_political_parties_effectiveness = 90 }
-set_variable = { tno_religious_rights_effectiveness = 45 }
-set_variable = { tno_trade_unions_effectiveness = 65 }
-set_variable = { tno_immigration_effectiveness = 60 }
-set_variable = { tno_slavery_effectiveness = 25 }
-set_variable = { tno_public_meetings_effectiveness = 65 }
-set_variable = { tno_press_rights_effectiveness = 50 }
-set_variable = { tno_vote_franchise_effectiveness = 15 }
-
-set_variable = { tno_conscription_effectiveness = 15 }
-set_variable = { tno_military_supervision_effectiveness = 10 }
-set_variable = { tno_training_effectiveness = 20 }
-set_variable = { tno_draft_exemptions_effectiveness = 0 }
-
-set_variable = { tno_health_care_effectiveness = 35 }
-set_variable = { tno_education_effectiveness = 60 }
-set_variable = { tno_penal_system_effectiveness = 65 }
-set_variable = { tno_gender_rights_effectiveness = 70 }
-set_variable = { tno_security_effectiveness = 70 }
-
-set_variable = { tno_trade_laws_effectiveness = 20 }
-set_variable = { tno_income_taxation_effectiveness = 50 }
-set_variable = { tno_minimum_wage_effectiveness = 80 }
-set_variable = { tno_max_workhours_effectiveness = 40 }
-set_variable = { tno_pensions_effectiveness = 70 }
-set_variable = { tno_unemployment_effectiveness = 75 }
-set_variable = { tno_regulations_effectiveness = 40 }
-
-set_technology = {
-	basic_train = 1
-
-
-	##INFANTRY##
-	# infantry_equipment_0 = 1
-	infantry_weapons_1 = 1
-	night_vision_1 = 1
-	
-	infantry_kit_1 = 1
-	infantry_weapons_2 = 1
-	night_vision_2 = 1
-	infantry_kit_2 = 1
-	infantry_weapons_improvements_mine_1 = 1
-	infantry_kit_3 = 1
-	infantry_weapons_improvements_ammo_1 = 1
-	basic_infantry_equipment = 1
-	support_weapons = 1
-	infantry_at = 1
-	motorized_infantry = 1
-	motorized_rocket_unit = 1
-	motorized_infantry_1 = 1
-	marines = 1
-	#
-	tech_special_forces = 1
-	artillery4 = 1
-	artillery_1950 = 1
-	artillery_1950_soft_attack = 1
-
-	##SUPPORT##
-	tech_support = 1
-	tech_engineers = 1
-	assault_weapons_1 = 1
-	tech_engineers2 = 1
-	assault_weapons_2 = 1
-	tech_recon = 1
-	tech_recon2 = 1
-	tech_military_police = 1
-	tech_military_police2 = 1
-	tech_military_police3 = 1
-	tech_maintenance_company = 1
-	tech_maintenance_company2 = 1
-	tech_field_hospital = 1
-	tech_field_hospital2 = 1
-	tech_logistics_company = 1
-	tech_signal_company = 1
-	tech_signal_company2 = 1
-
-	##ARMOR##
-	mechanised_infantry3 = 1
-	advanced_light_tank = 1
-	advanced_medium_tank = 1
-
-	##LIGHT AIR##
-	early_fighter = 1
-	interceptor_1945 = 1
-	fighter_1945 = 1
-	CAS_1945 = 1
-	
-##HEAVY AIR##
-	tac_bomber1 = 1
-	tac_air_1945 = 1
-	strategic_bomber1 = 1
-	heavy_air_1945 = 1
-	transport_air1 = 1
-	transport_air_1945 = 1
-##ENGINEERING##
-
-	electronic_mechanical_engineering = 1
-	radio = 1
-	radio_detection = 1
-	decimetric_radar = 1
-	centimetric_radar = 1
-	mechanical_computing = 1
-	computing_machine = 1
-	basic_encryption = 1
-	basic_decryption = 1
-	improved_computing_machine = 1
-	improved_encryption = 1
-	improved_decryption = 1
-	advanced_computing_machine = 1
-	advanced_encryption = 1
-
-	##INDUSTRY##
-	ww2_line_production = 1
-	mass_production_1 = 1
-	building_construction_1 = 1
-	consumer_goods_reduction_1 = 1
-	
-	energy_technology_1 = 1
-	social_construction_1 = 1
-	resource_extraction_methods = 1
-	excavation0 = 1
-	military_construction_1 = 1
-}
-
-add_equipment_to_stockpile = {
-	type = infantry_equipment_2
-	amount = 1300
-	producer = PHI
-}
-
-add_equipment_to_stockpile = {
-	type = anti_tank_equipment_1
-	amount = 400
-	producer = PHI
-}
-
-add_equipment_to_stockpile = {
-	type = artillery_equipment_4
-	amount = 500
-	producer = PHI
-}
+recruit_character = PHI_rafael_liwanag
+recruit_character = PHI_alberto_ramos
+recruit_character = PHI_antonio_de_las_alas
+recruit_character = PHI_sergio_osmena
+recruit_character = PHI_carlos_p_garcia
+recruit_character = PHI_gregario_licaros
+recruit_character = PHI_jesus_vargas
+recruit_character = PHI_mateo_capinpin
+recruit_character = PHI_ramon_magsaysay
+recruit_character = PHI_basilio_fernando
+recruit_character = PHI_pelagio_cruz
+recruit_character = PHI_felix_pestana
+recruit_character = PHI_enrique_jurado
+recruit_character = PHI_jose_v_andrada
+recruit_character = PHI_jose_v_francisco

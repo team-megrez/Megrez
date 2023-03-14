@@ -1,90 +1,75 @@
-capital = 1295
-
-# Vacant
-recruit_character = ALB_Generic_Vacant
-fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
-
-
-
-add_ideas = {
-	### Political Laws ###
-	tno_political_parties_controlled_opposition
-	tno_religious_rights_pluralism
-	tno_trade_unions_state_controlled
-	tno_immigration_quota_immigration
-	tno_slavery_outlawed
-	tno_public_meetings_regulated
-	tno_press_rights_state_press_only
-	tno_vote_franchise_elite_voting
-
-	### Military Laws ###
-	tno_conscription_broadened_conscription
-	tno_military_supervision_no_supervision
-	tno_training_basic_training
-	tno_draft_exemptions_civil_service_deferment
-
-	### Economy Laws ###
-	tno_trade_laws_export_focus
-	tno_income_taxation_low_income_weighted
-	tno_minimum_wage_trinket_minimum_wage
-	tno_max_workhours_12_hour_work_day
-	tno_pensions_low_pensions
-	tno_unemployment_no_subsidies
-
-	### Social Laws ###
-	tno_health_care_low_income_protections
-	tno_education_public_education
-	tno_penal_system_harsh_penal_code
-	tno_gender_rights_women_in_the_workplace
-	tno_security_oppressive_police
-	tno_regulations_moderate_regulations
-
-	### Misc Laws ###
-	tno_refugees_skilled
-	tno_women_banned
-	tno_racial_integration_segregated_regiments
-	tno_child_labor_illegal
-	tno_safety_limited_regulations
-	tno_pollution_no_controls
-	tno_lgbt_rights_lgbt_outlawed
-	tno_minorities_segregation
-
-	### Societal Development ###
-	tno_academic_base_primary_schooling
-	tno_research_facilities_modern
-	tno_agriculture_modern
-	tno_healthcare_nascent
-	tno_admin_efficiency_deficient_administrative_systems
-	tno_industrial_equipment_modern
-	tno_industrial_expertise_experienced
-	tno_army_professionalism_cronyism
-
-	##MINISTERS##
-	
-}
-
+﻿capital = 44
+oob = "ALB"
+set_convoys = 5
 set_research_slots = 3
 
+set_technology = {
+	### Infantry ###
+	infantry_weapons = 1
+
+	### Support ###
+	tech_support = 1
+	tech_recon = 1
+}
+
+add_ideas = {
+	ALB_polarised_nation_idea
+	ALB_illiteracy
+}
+
+country_event = { id = albania.1 days = 1 } #Intro event
+
 set_politics = {
-	ruling_party = communist
-	last_election = "1962.1.1"
+	ruling_party = social_conservative
+	last_election = "1932.6.12"
 	election_frequency = 48
-	elections_allowed = no
+	elections_allowed = yes
 }
 
 set_popularities = {
-	communist = 35
-	ultranationalism = 0
-	socialist = 15
-	progressivism = 0
-	liberalism = 0
-
-	conservatism = 20
-	paternalism = 30
-	despotism = 0
-	fascism = 0
-	
+	totalist = 0
+	radical_socialist = 0
+	syndicalist = 4
+	social_democrat = 38
+	social_liberal = 7
+	market_liberal = 4
+	social_conservative = 42
+	authoritarian_democrat = 0
+	paternal_autocrat = 2
+	national_populist = 3
 }
 
-recruit_character = ALB_Enver_Hoxha
-recruit_character = ALB_Koci_Xoxe
+### Country Leaders ###
+recruit_character = ALB_enver_hoxha
+recruit_character = ALB_ali_kelmendi
+recruit_character = ALB_avni_rustemi
+recruit_character = ALB_fan_noli
+recruit_character = ALB_xhafer_ypi
+recruit_character = ALB_shefqet_verlaci
+recruit_character = ALB_ahmet_zogu
+recruit_character = ALB_luigj_bumci
+recruit_character = ALB_eshref_frasheri
+recruit_character = ALB_midhat_frasheri
+
+recruit_character = ALB_wilhelm_zu_wied
+
+### Advisors ###
+recruit_character = ALB_luigj_gurakuqi
+recruit_character = ALB_ibrahim_karbunara
+recruit_character = ALB_mehdi_frasheri
+recruit_character = ALB_hasan_prishtina
+recruit_character = ALB_fejzi_alizoti
+
+### Generals ###
+recruit_character = ALB_prenk_pervizi
+recruit_character = ALB_muharrem_bajraktari
+recruit_character = ALB_elez_isufi
+recruit_character = ALB_azem_galica
+
+### Military Staff ###
+recruit_character = ALB_ali_shefqet_shkupi
+recruit_character = ALB_gustaf_von_myrdacz
+recruit_character = ALB_kadri_rustem_bardulla
+recruit_character = ALB_spiro_moisiu
+recruit_character = ALB_bajram_fevziu
+recruit_character = ALB_mujo_ulqinaku

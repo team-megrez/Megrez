@@ -1,90 +1,58 @@
-capital = 1078
+﻿capital = 905
+set_research_slots = 2
 
-recruit_character = ZZB_Jamshid_bin_Abdullah
-recruit_character = ZZB_John_Okello
+set_technology = {
+	### Infantry ###
+	infantry_weapons = 1
+	tech_irregulars = 1
+}
 
-recruit_character = ZZB_Muhammad_Shamte_Hamadi
-recruit_character = ZZB_Ali_Muhsin_Al_Barwani
-recruit_character = ZZB_Kighoma_Malima
-recruit_character = ZZB_Kanali_Ali_Mahfoudh
+### Navy - MtG ###
 
-recruit_character = ZZB_Generic_Vacant
+if = {
+	limit = { has_dlc_mtg = yes }
+	set_technology = {
+		early_ship_hull_light = 1
 
-oob = "BFR_1962"
+		## Modules##
+		basic_torpedo = 1
+		basic_battery = 1
 
-add_ideas = {
-### POLITICAL LAWS ###
-	tno_political_parties_one_party_state
-	tno_religious_rights_state_religion
-	tno_trade_unions_illegal
-	tno_immigration_open_immigration
-	tno_slavery_penal_labor
-	tno_public_meetings_regulated
-	tno_press_rights_censored_press
-	tno_vote_franchise_no_voting
+		### Transport ###
+		mtg_transport = 1
+	}
+}
 
-	### MILITARY LAWS ###
-	tno_conscription_broadened_conscription
-	tno_military_supervision_no_supervision
-	tno_training_basic_training
-	tno_draft_exemptions_none
+### Navy - Non MtG ###
 
-	### SOCIAL LAWS ###
-	tno_health_care_support_for_emergencies
-	tno_education_stratified_education
-	tno_penal_system_harsh_penal_code
-	tno_gender_rights_traditional_roles
-	tno_security_regulated_police
-	tno_regulations_token_regulations
+if = {
+	limit = { has_dlc_mtg = no }
+	set_technology = {
+		early_destroyer = 1
 
-	### ECONOMIC LAWS ###
-	tno_trade_laws_limited_exports
-	tno_income_taxation_tax_havens
-	tno_minimum_wage_trinket_minimum_wage
-	tno_max_workhours_12_hour_work_day
-	tno_pensions_trinket_pensions
-	tno_unemployment_trinket_subsidies
-
-	### MISC LAWS ###
-	tno_pollution_few_regulations
-	tno_safety_minimal_regulations
-	tno_child_labor_illegal
-	tno_refugees_vetted_entry
-	tno_racial_integration_segregated_regiments
-	tno_women_banned
-	tno_minorities_segregation
-	tno_lgbt_rights_lgbt_outlawed
-
-	### SOCIETAL DEVELOPMENT ###
-	tno_army_professionalism_disgruntled_veterans
-	tno_industrial_expertise_nascent
-	tno_industrial_equipment_power_tools
-	tno_healthcare_rudimentary
-	tno_agriculture_basic_mechanized
-	tno_research_facilities_outdated
-	tno_academic_base_basic_literacy
-	tno_admin_efficiency_deficient_administrative_systems
+		### Transport ###
+		transport = 1
+	}
 }
 
 set_politics = {
-	ruling_party = despotism
-	last_election = "1933.3.5"
+	ruling_party = paternal_autocrat
+	last_election = "1888.6.15"
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	communist = 0
-	ultranationalism = 0
-	socialist = 0
-	progressivism = 0
-	liberalism = 0
-
-	conservatism = 0
-	paternalism = 20
-	despotism = 60
-	fascism = 20
-	
+	totalist = 0
+	radical_socialist = 0
+	syndicalist = 0
+	social_democrat = 2
+	social_liberal = 6
+	market_liberal = 6
+	social_conservative = 12
+	authoritarian_democrat = 15
+	paternal_autocrat = 53
+	national_populist = 6
 }
 
-TNO_startup_nation = yes
+recruit_character = ZZB_Khalifa_II_bin_Harub_Al_Said

@@ -1,304 +1,335 @@
-capital = 10
+﻿capital = 10
+oob = "POL"
+set_research_slots = 3
+set_stability = 0.65
+set_war_support = 0.16
+starting_train_buffer = 1
 
-recruit_character = POL_Emil_Fieldorf
+set_technology = {
+	### Infantry ###
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_mountaineers = 1
+	motorised_infantry = 1
 
-recruit_character = POL_Werner_Schrader
-recruit_character = POL_Stanislaw_Wachowiak
-recruit_character = POL_Adam_Baworowski
+	### Support ###
+	tech_support = 1
+	tech_recon = 1
+	tech_engineers = 1
 
-recruit_character = POL_Wladyslaw_Gomulka
-recruit_character = POL_Antoni_Pajak
-recruit_character = POL_Stanislaw_Banczyk
-recruit_character = POL_Zygmunt_Muchniewski
-recruit_character = POL_Tadeusz_Bielecki
-recruit_character = POL_Stanislaw_Kasznica
-recruit_character = POL_Jan_Wyglenda
+	### Artillery ###
+	gw_artillery = 1
+	interwar_antiair = 1
 
-recruit_character = POL_Kazimierz_Sosnkowski
-recruit_character = POL_Mieczyslaw_Boruta_Spiechowicz
-recruit_character = POL_Witold_Pilecki
-recruit_character = POL_Kazimierz_Iranek_Osmecki
-recruit_character = POL_Stanislaw_Jankowski
+	### Industry ###
+	fuel_silos = 1
 
-recruit_character = POL_Generic_Vacant
-fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
-
-oob = "POL_1962"
-
-add_ideas = {
-	POL_home_Defense
-	#political
-	tno_political_parties_one_party_state
-	tno_religious_rights_secularism
-	tno_trade_unions_illegal
-	tno_immigration_closed_borders
-	tno_slavery_outlawed
-	tno_public_meetings_outlawed
-	tno_press_rights_state_press_only
-	tno_vote_franchise_no_voting
-	#MILITARY
-	tno_conscription_all_adults_serve
-	tno_military_supervision_rules_of_engagement
-	tno_training_basic_training
-	tno_draft_exemptions_none
-	#SOCIAL
-	tno_health_care_low_income_protections
-	tno_education_public_education
-	tno_penal_system_harsh_penal_code
-	tno_gender_rights_women_in_the_workplace
-	tno_security_regulated_police
-	tno_regulations_token_regulations
-	#ECONOMIC
-	tno_trade_laws_export_focus
-	tno_income_taxation_flat_taxes
-	tno_minimum_wage_low_minimum_wage
-	tno_max_workhours_12_hour_work_day
-	tno_pensions_acceptable_pensions
-	tno_unemployment_trinket_subsidies
-	#MISC
-	tno_refugees_banned
-	tno_women_banned
-	tno_racial_integration_enforced_integration
-	tno_safety_acceptable_regulations
-	tno_pollution_some_regulations
-	tno_lgbt_rights_lgbt_outlawed
-	tno_minorities_segregation
-	tno_child_labor_illegal
-	#SOCDEV
-	tno_army_professionalism_political_interference
-	tno_industrial_expertise_experienced
-	tno_industrial_equipment_modern
-	tno_agriculture_mass_mechanized
-	tno_healthcare_nascent
-	tno_research_facilities_outdated
-	tno_academic_base_primary_schooling
-	tno_admin_efficiency_deficient_administrative_systems
+	### Trains ###
+	basic_train = 1
 }
 
-set_stability = 0.62
+### Tanks - NSB ###
+if = {
+	limit = { has_dlc_nsb = yes }
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+	}
+}
+
+### Tanks - non NSB ###
+if = {
+	limit = { has_dlc_nsb = no }
+	set_technology = {
+		gwtank = 1
+		basic_light_tank = 1
+	}
+}
+
+### Planes - BBA ###
+if = {
+	limit = { has_dlc_bba = yes }
+	set_air_oob = "POL_air_bba"
+	set_technology = {
+		aa_lmg = 1
+		aa_cannon_1 = 1
+		engines_1 = 1
+		engines_2 = 1
+		early_bombs = 1
+		aircraft_construction = 1
+		iw_small_airframe = 1
+		basic_small_airframe = 1
+		iw_medium_airframe = 1
+		basic_medium_airframe = 1
+	}
+}
+
+### Planes - non BBA ###
+if = {
+	limit = { has_dlc_bba = no }
+	set_air_oob = "POL_air_legacy"
+	set_technology = {
+		early_fighter = 1
+		fighter1 = 1
+		CAS1 = 1
+		early_bomber = 1
+		tactical_bomber1 = 1
+	}
+}
+
+### Government ###
+GER = {
+	set_autonomy = {
+		target = POL
+		autonomy_state = kr_oststaat
+	}
+}
 
 set_politics = {
-	ruling_party = paternalism
-	last_election = "1939.9.12"
+	ruling_party = market_liberal
+	last_election = "1934.5.18"
 	election_frequency = 48
-	elections_allowed = no
-
+	elections_allowed = yes
 }
 
 set_popularities = {
-	communist = 3
-	ultranationalism = 5
-	socialist = 22
-	progressivism = 25
-	liberalism = 15
-
-	conservatism = 17
-	paternalism = 1
-	despotism = 12
-	fascism = 0
-	
+	totalist = 0
+	syndicalist = 8
+	radical_socialist = 6
+	social_democrat = 18
+	social_liberal = 17
+	market_liberal = 24
+	social_conservative = 14
+	authoritarian_democrat = 6
+	paternal_autocrat = 0
+	national_populist = 7
 }
 
- set_technology = {
-	basic_train = 1
+### Ideas ###
+add_ideas = {
+	#Laws
+	volunteer_only
 
-	##INFANTRY##
-	# infantry_equipment_0 = 1
-	infantry_weapons_1 = 1
-	night_vision_1 = 1
-	
-	infantry_kit_1 = 1
-	infantry_weapons_2 = 1
-	night_vision_2 = 1
-	infantry_kit_2 = 1
-	infantry_weapons_improvements_mine_1 = 1
-	infantry_kit_3 = 1
-	infantry_weapons_improvements_ammo_1 = 1
-	infantry_weapons_improvements_grenade_1 = 1
-	#
-	infantry_weapons_3 = 1
-	night_vision_3 = 1
-	infantry_kit_4 = 1
-	infantry_weapons_improvements_mine_2 = 1
-	basic_infantry_equipment = 1
-	support_weapons = 1
-	support_weapons_hmg_1 = 1
-	combat_support_equipment_1 = 1
-	
-	support_weapons_arty_1 = 1
-	support_weapons_hmg_2 = 1
-	combat_support_equipment_2 = 1
-	infantry_at = 1
-	infantry_at_upgrade_1 = 1
-	#
-	
-	motorized_infantry = 1
-	motorized_rocket_unit = 1
-	motorized_infantry_1 = 1
-	marines = 1
-	#
-	tech_special_forces = 1
-	tech_mountaineers = 1
-	#
-	tech_mountaineers2 = 1
-	tech_mountaineers3 = 1
-	paratroopers = 1
-	paratroopers2 = 1
-	paratroopers3 = 1
+	#Ideas
+	POL_german_control2
+	POL_austrian_assets2
+	POL_issues_at_hand
+	POL_polarised_society_1
+	POL_professional_army_1
 
-	##SUPPORT##
-	tech_support = 1
-	tech_engineers = 1
-	assault_weapons_1 = 1
-	tech_engineers2 = 1
-	assault_weapons_2 = 1
-	tech_engineers3 = 1
-	assault_weapons_3 = 1
-	tech_recon = 1
-	tech_recon2 = 1
-	tech_military_police = 1
-	tech_military_police2 = 1
-	tech_military_police3 = 1
-	tech_maintenance_company = 1
-	tech_maintenance_company2 = 1
-	tech_field_hospital = 1
-	tech_field_hospital2 = 1
-	tech_logistics_company = 1
-	tech_signal_company = 1
-	tech_signal_company2 = 1
+}
+set_cosmetic_tag = POL_kingdom
+set_variable = { POL_GER_influence = 45 }
+set_variable = { POL_AUS_influence = 35 }
+set_variable = { POL_influence = 20 }
+set_variable = { POL_decrease_time = 60 }
+GER = { set_variable = { POL_decrease_time = 60 } }
+AUS = { set_variable = { POL_decrease_time = 60 } }
+set_variable = { POL_buy_from_GER = 40 }
+set_variable = { POL_buy_from_AUS = 45 }
+set_variable = { POL_BM_cost = 35 }
+set_variable = { POL_CIP_cost = 60 }
+set_variable = { POL_CIP_cost_cheap = 30 }
+set_variable = { POL_loan = 80 }
+set_variable = { POL_coring_cost = 50 }
+set_variable = { POL_coring_cost_small = 30 }
+set_variable = { POL_claim_cost = 10 }
+set_variable = { POL_land_reform_cost = 30 }
+set_variable = { POL_investigation_cost = 40 }
+set_variable = { POL_stall_cost = 50 }
+set_variable = { POL_revolution_timer = 70 }
+set_variable = { POL_coup_timer = 60 }
+set_variable = { POL_railway_cost = 20 }
+set_variable = { POL_GER_loan = 0 }
+set_variable = { POL_AUS_loan = 0 }
+set_variable = { POL_military_takeover_time = 150 }
+set_variable = { POL_sejm_revolt_time = 200 }
 
-	##ARMOR##
-	advanced_light_tank = 1
-	advanced_medium_tank = 1
-	mechanised_infantry3 = 1
+set_variable = { POL_royal_influence = 45 }
+set_variable = { POL_soc_influence = 10 }
+set_variable = { POL_rep_influence = 30 }
+set_variable = { POL_nat_influence = 15 }
+POL_predict_election = yes
 
-	APC_1950 = 1
-	APC_1950_basic_turret = 1
-	#APC_1950_basic_engine = 1
-	APC_1950_basic_armor = 1
-	APC_1960 = 1
+add_dynamic_modifier = { modifier = POL_issues_at_hand_modifier }
 
-	IFV_1950 = 1
-	IFV_1950_basic_turret = 1
-	IFV_1950_basic_armor = 1
-	#IFV_1950_basic_engine = 1
-	IFV_1960 = 1
-	
-	MBT_1950 = 1
-	MBT_1950_basic_turret = 1
-	#MBT_1950_basic_engine = 1
-	MBT_1950_basic_armor = 1
-	MBT_1960 = 1
+set_variable = { POL_issues_at_hand_monthly_population = -0.25 }
+set_variable = { POL_issues_at_hand_consumer_goods = 0.05 }
+set_variable = { POL_issues_at_hand_max_efficiency = -0.1 }
+set_variable = { POL_issues_at_hand_research_speed = -0.1 }
 
-	AC_1945 = 1
-	AC_1950 = 1
-	AC_1960 = 1
+set_country_flag = POL_PPS_Barlicki
+set_variable = { POL_FRA_weapons = 0 }
 
-	##ARTY##
-	antiair5 = 1
-	antiair_1950 = 1
-	SPAA_1950 = 1
-	artillery4 = 1
-	artillery_1950 = 1
-	artillery_1950_soft_attack = 1
-	SPART_1950 = 1
-	SPART_1950_soft_attack = 1
-	#SPART_1950_speed = 1
+### Events ###
 
-	##LAND DOCTRINE##
-	strategic_theorem = 1
+country_event = { id = poland.0 hours = 2 } #Intro
+country_event = { id = poland.42 days = 110 } #The Przytyk Pogrom
+country_event = { id = poland.8 days = 133 } #Remembering Pilsudski
+country_event = { id = polandflavor.10 days = 145 } #ZLP leadership
+country_event = { id = polandflavor.11 days = 172 } #Myślenice
+country_event = { id = poland.46 days = 184 } #The Krakow Conspiracy
+country_event = { id = polandflavor.23 days = 250 } #Drugs caught
+country_event = { id = polandflavor.36 days = 310 } #National Day
+country_event = { id = polandflavor.39 days = 350 } #Zadruga
+country_event = { id = poland.7 days = 397 } #PPS conference
+country_event = { id = polandflavor.1 days = 400 } #King's paintings
+country_event = { id = polandflavor.13 days = 411 } #OZN Founded
+country_event = { id = poland.9 days = 443 } #Peasant strikes
+country_event = { id = polandflavor.14 days = 490 } #Zaleski's propaganda
+country_event = { id = polandflavor.37 days = 514 } #People's Day
+country_event = { id = polandflavor.17 days = 543 } #Achtung Panzer
+country_event = { id = polandflavor.27 days = 580 } #The pretender
+country_event = { id = polandflavor.22 days = 633 } #Polish Swords
+country_event = { id = polandflavor.26 days = 665 } #Death of Dowbor-Musnicki
+country_event = { id = polandflavor.2 days = 765 } #Prince's marriage
+country_event = { id = polandflavor.16 days = 809 } #Saint Declared
+country_event = { id = polandflavor.35 days = 900 } #German Labour Party
+country_event = { id = polandflavor.18 days = 943 } #In view of the coming World War II
+country_event = { id = polandflavor.38 days = 990 } #NatSoc party
+country_event = { id = polandflavor.19 days = 1010 } #Polish Art
+country_event = { id = polandflavor.33 days = 1110 } #Modlin Fortress
+country_event = { id = poland.552 days = 1098 } #Dmowski's death
+country_event = { id = polandflavor.24 days = 1201 } #The code of honour
+country_event = { id = polandflavor.34 days = 1300 } #The Jagiellon Concept
+country_event = { id = poland.93 days = 600 random_days = 600 } #Zamoyski
+country_event = { id = poland.380 days = 1400 } #Corruption
+country_event = { id = polandflavor.9 days = 1560 } #Pilot Pilsudska
+country_event = { id = polandflavor.42 days = 1660 } #King of the Roma
 
-	##NAVAL##
-	ww2_destroyer = 1
-	ww2_cruiser = 1
-	ww2_battleship = 1
-	ww2_submarine = 1
-	basic_submarine = 1
-	improved_submarine = 1
-	transport = 1
+# DEBUG AUTOTEST EVENT
+country_event = { id = poland.999 days = 1095 } #Check on 1.1.1939 for current ruling party
 
-	##NAVAL DOCTRINE##
-
-	##HELICOPTERS##
-	very_early_helicopter = 1
-	early_helicopter = 1
-	transport_helicopter_1960 = 1
-	attack_helicopter_1960 = 1
-
-	##LIGHT AIR##
-	early_fighter = 1
-	interceptor_1945 = 1
-	interceptor_1950 = 1
-	fighter_1945 = 1
-	fighter_1950 = 1
-	CAS_1945 = 1
-	CAS_1950 = 1
-
-	##HEAVY AIR##
-	tac_bomber1 = 1
-	tac_air_1945 = 1
-	tac_air_1950 = 1
-	tac_air_1960 = 1
-	strategic_bomber1 = 1
-	heavy_air_1945 = 1
-	heavy_air_1950 = 1
-	heavy_air_1960 = 1
-	transport_air1 = 1
-	transport_air_1945 = 1
-	transport_air_1950 = 1
-	transport_air_1960 = 1
-
-	##ENGINEERING##
-	electronic_mechanical_engineering = 1
-	radio = 1
-	radio_detection = 1
-	decimetric_radar = 1
-	centimetric_radar = 1
-	mechanical_computing = 1
-	computing_machine = 1
-	basic_encryption = 1
-	basic_decryption = 1
-	improved_computing_machine = 1
-	improved_encryption = 1
-	improved_decryption = 1
-	advanced_computing_machine = 1
-	advanced_encryption = 1
-	computing_machine_1950 = 1
-	computing_machine_1960 = 1
-	
-	
-	
-	helicopter_engines = 1
-	jet_engines = 1
-	jet_engines_bombers = 1
-	improved_jet_engines_bombers_1 = 1
-	
-	
-	
-	
-
-	##INDUSTRY##
-	ww2_line_production = 1
-	mass_production_1 = 1
-	mass_production_2 = 1
-	building_construction_1 = 1
-	production_unit_gain_1 = 1
-	production_unit_gain_2 = 1
-	
-	oil_processing = 1
-	rubber_processing = 1
-	energy_technology_1 = 1
-	social_construction_1 = 1
-	resource_extraction_methods = 1
-	excavation0 = 1
-	administration_construction_1 = 1
-	excavation1 = 1
-	education_construction_1 = 1
-	excavation2 = 1
-	military_construction_1 = 1
-	prison_construction_1 = 1
-	army_base_construction_1 = 1
-	##INDUSTRY TECHS ARE WIP##
+FRA = {
+	country_event = { id = poland.110 days = 200 random_days = 30 } #support event
+	country_event = { id = poland.111 days = 387 } #PPS conference
+	country_event = { id = poland.117 days = 830 } #Meddle with elections?
+}
+AUS = {
+	country_event = { id = poland.115 days = 160 random_days = 30 } #support event
+	country_event = { id = poland.113 days = 387 } #PPS conference
+	country_event = { id = poland.117 days = 833 } #Meddle with elections?
+}
+RUS = {
+	country_event = { id = poland.116 days = 240 random_days = 30 } #support event
+	country_event = { id = poland.117 days = 836 } #Meddle with elections?
+}
+GER = {
+	country_event = { id = poland.117 days = 839 } #Meddle with elections?
 }
 
-TNO_startup_nation = yes
+### Country Leaders ###
+recruit_character = POL_august_iv
+recruit_character = POL_feliks_kon
+recruit_character = POL_kazimierz_zakrzewski
+recruit_character = POL_zygmunt_zaremba
+recruit_character = POL_leah_feldman
+recruit_character = POL_jerzy_cseszejko_sochacki
+recruit_character = POL_norbert_barlicki
+recruit_character = POL_stanislaw_wojciechowski
+recruit_character = POL_jan_woznicki
+recruit_character = POL_stanislaw_mikolajczyk
+recruit_character = POL_gabriel_narutowicz
+recruit_character = POL_mieczyslaw_michalowicz
+recruit_character = POL_jozef_chacinski
+recruit_character = POL_adam_chadzynski
+recruit_character = POL_eustachy_sapieha
+recruit_character = POL_wladyslaw_grabski
+recruit_character = POL_wojciech_korfanty
+recruit_character = POL_roman_dmowski
+recruit_character = POL_adam_doboszynski
+
+### Advisors ###
+recruit_character = POL_antoni_ponikowski
+activate_advisor = POL_antoni_ponikowski_sic
+recruit_character = POL_wladyslaw_studnicki
+recruit_character = POL_maksymilian_malinowski
+recruit_character = POL_stanislaw_dubois
+recruit_character = POL_tadeusz_bielecki
+recruit_character = POL_pawel_lew_marek
+recruit_character = POL_stanislaw_bukowiecki
+recruit_character = POL_boguslaw_miedzinski
+recruit_character = POL_the_sejm_sic
+recruit_character = POL_maurucy_zamoyski
+recruit_character = POL_janusz_radziwill
+recruit_character = POL_stanislaw_downarowicz
+recruit_character = POL_wolfgang_von_kries
+recruit_character = POL_alexander_von_hohenzollern
+recruit_character = POL_august_hlond
+recruit_character = POL_wieslaw_gerlicz
+recruit_character = POL_andrzej_wierbicki
+recruit_character = POL_marian_dabrowski
+recruit_character = POL_michal_kalecki
+recruit_character = POL_cezaria_jedrzejewiczowa
+recruit_character = POL_wanda_wasilewska
+recruit_character = POL_stanislawa_paleolog
+recruit_character = POL_henryk_ehrlich
+recruit_character = POL_tadeusz_schaetzel
+recruit_character = POL_jozef_zajac
+recruit_character = POL_ludomil_rayski
+recruit_character = POL_edmund_knoll_kownacki
+recruit_character = POL_stefan_rowecki
+recruit_character = POL_ludwik_skrzynski
+recruit_character = pol_mieczyslaw_smorawinski
+recruit_character = POL_tadeusz_kossakowski
+recruit_character = POL_stefan_adolf_mossor
+recruit_character = POL_mieczyslaw_rawicz_myslowski
+recruit_character = POL_wiktor_thommee
+recruit_character = POL_mieczyslaw_dabkowski
+recruit_character = POL_edward_szystowski
+recruit_character = POL_witold_urbanowicz
+recruit_character = POL_janusz_de_beaurain
+recruit_character = POL_xawery_czernicki
+recruit_character = POL_janusz_groszkowski
+recruit_character = POL_ludwik_hirszfeld
+recruit_character = POL_zygmunt_pulawski
+recruit_character = POL_stanislaw_karlowski
+recruit_character = POL_aleksy_cwiakowski
+
+#Field Marshals
+recruit_character = POL_jozef_dowbor_musnicki
+
+#Generals
+recruit_character = POL_jozef_haller_von_hallenburg
+recruit_character = POL_edward_rydz_smigly
+recruit_character = POL_adam_koc
+recruit_character = POL_konstanty_rokossowski
+recruit_character = POL_leon_berbecki
+recruit_character = POL_kazimierz_sosnkowski
+recruit_character = POL_zbigniew_antonowicz
+recruit_character = POL_stanislaw_sosabowski
+recruit_character = POL_mikolaj_boltuc
+recruit_character = POL_wladyslaw_anders
+recruit_character = POL_henryk_dobrzanski
+recruit_character = POL_juliusz_rommel
+recruit_character = POL_waclaw_stachiewicz
+recruit_character = POL_stanislaw_magnuszewski
+recruit_character = POL_antoni_szylling
+recruit_character = POL_boleslaw_wieniawa_dlugoszowski
+
+#Admirals
+recruit_character = POL_jozef_unrug
+recruit_character = POL_jerzy_swirski
+
+### Character Setup ###
+POL_edward_rydz_smigly = { retire = yes } #Not in the army initially
+POL_konstanty_rokossowski = { set_nationality = FRA }
+POL_jozef_unrug = { retire = yes }
+POL_jerzy_swirski = { set_nationality = UKR }
+
+### Operatives ###
+if = {
+	limit = { has_dlc = "La Resistance" }
+	create_operative_leader = {
+		name = "Krystyna Skarbek"
+		GFX = GFX_portrait_kr_krystyna_skarbek
+		traits = {
+			operative_escape_artist
+			operative_infiltrator
+		}
+		bypass_recruitment = no
+		available_to_spy_master = yes
+		female = yes
+		nationalities = { POL }
+	}
+}

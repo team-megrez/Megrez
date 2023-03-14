@@ -1,163 +1,232 @@
-capital = 109
-
-# Vacant
-recruit_character = CRO_Generic_Vacant
-fill_empty_minister_nochecks = yes
-
-recruit_character = CRO_Tomislav_II
-recruit_character = CRO_Jure_Francetic
-recruit_character = CRO_Josip_Broz_Tito
-recruit_character = CRO_Zvonimir_II
-
-oob = "CRO_1962"
-
-country_event = { id = cro.1 days = 134 }
-add_manpower = 60000
-set_variable = {
-	var = CRO_italian_influence
-	value = 0.5
-}
-
-add_ideas = {
-	TRI_Member_Client
-	CRO_the_partisan_problem
-	CRO_bosnian_autonomy
-	CRO_the_sham_kingdom
-	CRO_legacy_of_the_ustase
-
-	#political#
-	tno_political_parties_controlled_opposition
-	tno_religious_rights_pluralism
-	tno_trade_unions_state_controlled
-	tno_immigration_quota_immigration
-	tno_slavery_penal_labor
-	tno_public_meetings_regulated
-	tno_press_rights_state_press_only
-	tno_vote_franchise_elite_voting
-
-	#military#
-	tno_conscription_broadened_conscription
-	tno_military_supervision_rules_of_engagement
-	tno_training_basic_training
-	tno_draft_exemptions_educational_deferment
-
-	#economic#
-	tno_trade_laws_export_focus
-	tno_income_taxation_low_income_weighted
-	tno_minimum_wage_trinket_minimum_wage
-	tno_max_workhours_12_hour_work_day
-	tno_pensions_low_pensions
-	tno_unemployment_no_subsidies
-
-	#social#
-	tno_health_care_low_income_protections
-	tno_education_public_education
-	tno_penal_system_harsh_penal_code
-	tno_gender_rights_women_in_the_workplace
-	tno_security_oppressive_police
-	tno_regulations_token_regulations
-
-	#misc#
-	tno_refugees_skilled
-	tno_women_banned
-	tno_racial_integration_segregated_regiments
-	tno_child_labor_illegal
-	tno_safety_limited_regulations
-	tno_pollution_no_controls
-	tno_lgbt_rights_lgbt_outlawed
-	tno_minorities_segregation
-
-	#societal development#
-	tno_academic_base_tertiary_schooling
-	tno_research_facilities_modern
-	tno_agriculture_modern
-	tno_healthcare_nascent
-	tno_industrial_equipment_modern
-	tno_industrial_expertise_experienced
-	tno_army_professionalism_political_interference
-	tno_admin_efficiency_deficient_administrative_systems
-}
-
+﻿capital = 109
+oob = "CRO"
+set_naval_oob = "CRO_naval"
 set_research_slots = 3
+set_war_support = 0.1
+set_convoys = 30
+set_cosmetic_tag = CRO_illyria_habsburg
 
 set_technology = {
-	basic_train = 1
+	### Infantry ###
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_mountaineers = 1
+	motorised_infantry = 1
 
-	electronic_mechanical_engineering = 1
-
-	transport = 1
-	infantry_weapons_1 = 1
-	night_vision_1 = 1
-	
-	infantry_kit_1 = 1
-	motorized_infantry = 1
-	support_weapons = 1
+	### Support ###
 	tech_support = 1
-	tech_engineers = 1
 	tech_recon = 1
-	early_fighter = 1
-	advanced_light_tank = 1
-	advanced_medium_tank = 1
-	artillery4 = 1
-	electronic_mechanical_engineering = 1
-	radio = 1
-	building_construction_1 = 1
-	administration_construction_1 = 1
-	ww2_destroyer = 1
-	ww2_cruiser = 1
-	ww2_battleship = 1
-	ww2_submarine = 1
-	ww2_carrier = 1
+
+	### Artillery ###
+	gw_artillery = 1
+
+	### Trains ###
+	basic_train = 1
 }
 
+### Planes - BBA ###
+if = {
+	limit = { has_dlc_bba = yes }
+	set_air_oob = "CRO_air_bba"
+	set_technology = {
+		aa_lmg = 1
+		engines_1 = 1
+		engines_2 = 1
+		iw_small_airframe = 1
+		iw_medium_airframe = 1
+		early_bombs = 1
+	}
+}
+
+### Planes - non BBA ###
+if = {
+	limit = { has_dlc_bba = no }
+	set_air_oob = "CRO_air_legacy"
+	set_technology = {
+		early_fighter = 1
+		early_bomber = 1
+		CAS1 = 1
+	}
+}
+
+### Tanks - NSB ###
+if = {
+	limit = { has_dlc_nsb = yes }
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+	}
+}
+
+### Tanks - non NSB ###
+if = {
+	limit = { has_dlc_nsb = no }
+	set_technology = {
+		gwtank = 1
+		basic_light_tank = 1
+	}
+}
+
+### Navy - MtG ###
+if = {
+	limit = { has_dlc_mtg = yes }
+	set_technology = {
+		### Hulls ###
+		early_ship_hull_submarine = 1
+		basic_ship_hull_submarine = 1
+		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
+		early_ship_hull_cruiser = 1
+		basic_ship_hull_cruiser = 1
+		early_ship_hull_heavy = 1
+		basic_ship_hull_heavy = 1
+
+		### Modules ###
+		basic_naval_mines = 1
+		submarine_mine_laying = 1
+		basic_depth_charges = 1
+		basic_torpedo = 1
+		basic_battery = 1
+		basic_cruiser_armor_scheme = 1
+		basic_heavy_battery = 1
+		basic_medium_battery = 1
+		basic_light_battery = 1
+		basic_heavy_armor_scheme = 1
+		improved_airplane_launcher = 1
+
+		### Transport ###
+		mtg_transport = 1
+	}
+}
+
+### Navy - Non MtG ###
+if = {
+	limit = { has_dlc_mtg = no }
+	set_technology = {
+		### Hulls ###
+		early_submarine = 1
+		basic_submarine = 1
+		early_destroyer = 1
+		basic_destroyer = 1
+		early_light_cruiser = 1
+		basic_light_cruiser = 1
+		early_heavy_cruiser = 1
+		early_battleship = 1
+		basic_battleship = 1
+
+		### Transport ###
+		transport = 1
+	}
+}
+
+add_ideas = CRO_croatian_command
+
+country_event = { id = illyria.1 days = 1 }
+country_event = { id = illyria.3 days = 135 }
+country_event = { id = illyria.4 days = 220 }
+country_event = { id = illyria.5 days = 330 }
+
 set_politics = {
-	ruling_party = fascism
-	last_election = "1936.1.1"
+	ruling_party = social_liberal
+	last_election = "1930.11.9"
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	communist = 0
-	ultranationalism = 0
-	socialist = 0
-	progressivism = 0
-	liberalism = 0
-
-	conservatism = 0
-	paternalism = 5
-	despotism = 20
-	fascism = 55
-	national_socialism = 20
-	
+	totalist = 1
+	radical_socialist = 4
+	syndicalist = 2
+	social_democrat = 8
+	social_liberal = 34
+	market_liberal = 23
+	social_conservative = 2
+	authoritarian_democrat = 7
+	paternal_autocrat = 16
+	national_populist = 3
 }
 
-set_variable = { trade_opinion_embargo@GER = 1 }
-set_variable = { trade_opinion_embargo@GGR = 1 }
-set_variable = { trade_opinion_embargo@BGR = 1 }
-set_variable = { trade_opinion_embargo@HGR = 1 }
-set_variable = { trade_opinion_embargo@SGR = 1 }
-set_variable = { trade_opinion_embargo@CZE = 1 }
-set_variable = { trade_opinion_embargo@GGN = 1 }
-set_variable = { trade_opinion_embargo@SLO = 1 }
-set_variable = { trade_opinion_embargo@UKR = 1 }
-set_variable = { trade_opinion_embargo@MCW = 1 }
-set_variable = { trade_opinion_embargo@OST = 1 }
-set_variable = { trade_opinion_embargo@COG = 1 }
-set_variable = { trade_opinion_embargo@CAU = 1 }
-set_variable = { trade_opinion_embargo@SER = 1 }
-set_variable = { trade_opinion_embargo@DEN = 1 }
-set_variable = { trade_opinion_embargo@HOL = 1 }
-set_variable = { trade_opinion_embargo@NOR = 1 }
-set_variable = { trade_opinion_embargo@CRN = 1 }
-set_variable = { trade_opinion_embargo@MAD = 1 }
-set_variable = { trade_opinion_embargo@GRO = 1 }
-set_variable = { trade_opinion_embargo@ANG = 1 }
-set_variable = { trade_opinion_embargo@HOL = 1 }
-set_variable = { trade_opinion_embargo@BRG = 1 }
-set_variable = { trade_opinion_embargo@BUL = 1 }
-set_variable = { trade_opinion_embargo@ENG = 1 }
-set_variable = { trade_opinion_embargo@FRA = 1 }
-set_variable = { trade_opinion_embargo@BRT = 1 }
-set_variable = { trade_opinion_embargo@IRE = 1 }
+recruit_character = CRO_stjepan_radic
+recruit_character = CRO_ivo_pillar
+recruit_character = CRO_vitomir_korac
+recruit_character = CRO_vladimir_copic
 
+### Field Marshals ###
+recruit_character = CRO_slavko_kvaternik
+
+### Corps Commanders ###
+recruit_character = CRO_mihajlo_lukic
+recruit_character = CRO_fedor_dragojlov
+recruit_character = CRO_eduard_bunic_de_bona
+recruit_character = CRO_matija_canic
+recruit_character = CRO_vladimir_laxa
+
+### Admirals ###
+recruit_character = CRO_duro_jakcin
+recruit_character = CRO_edgar_angeli
+recruit_character = CRO_nikola_steinfel
+
+### Advisors ###
+recruit_character = CRO_aleksandar_ehrmann
+recruit_character = CRO_oton_vinski
+recruit_character = CRO_ivan_rikard_ivanovic
+recruit_character = CRO_aloysius_stepinac
+recruit_character = CRO_andrija_artukovic
+recruit_character = CRO_vladimir_kosak
+recruit_character = CRO_ivan_subasic
+recruit_character = CRO_stjepan_ivsic
+recruit_character = CRO_duro_basaricek
+recruit_character = CRO_miroslav_navratil
+recruit_character = CRO_vilko_begic
+recruit_character = CRO_slavko_stancer
+recruit_character = CRO_vladimir_kren
+recruit_character = CRO_ivan_prpic
+recruit_character = CRO_duro_dragicevic
+recruit_character = CRO_milan_miesler
+recruit_character = CRO_domobranske_akademija
+recruit_character = CRO_mornaricka_akademija
+
+################
+### Variants ###
+################
+
+danubia_create_plane_variants = yes
+
+if = {
+	limit = { has_dlc_nsb = yes }
+	create_equipment_variant = {
+		name = "Burstyn MtG"
+		type = light_tank_chassis_0
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_small_cannon
+			turret_type_slot = tank_light_two_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = additional_machine_guns
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 0
+			tank_nsb_armor_upgrade = 0
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "KpZ M.35"
+		type = light_tank_chassis_1
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_small_cannon
+			turret_type_slot = tank_light_two_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 2
+			tank_nsb_armor_upgrade = 2
+		}
+	}
+}
