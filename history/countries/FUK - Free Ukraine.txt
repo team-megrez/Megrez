@@ -1,0 +1,118 @@
+capital = 1428 #Kiev
+
+# Vacant
+recruit_character = FUK_Generic_Vacant
+recruit_character = FUK_yuriy_horlis
+fill_empty_minister_nochecks = yes
+
+### Not anymore :troll: ###
+
+##POLITICAL LAWS##
+
+add_ideas = {
+
+	###POLITICAL LAWS###
+	tno_political_parties_multiparty_system
+	tno_religious_rights_secularism
+	tno_trade_unions_nonsocialist_allowed
+	tno_immigration_quota_immigration
+	tno_slavery_penal_labor
+	tno_public_meetings_allowed
+	tno_press_rights_free_press
+	tno_vote_franchise_registered_voting
+	##MILITARY LAWS###
+	tno_conscription_broadened_conscription
+	tno_military_supervision_rules_of_engagement
+	tno_training_minimal_training
+	tno_draft_exemptions_none
+	##SOCIAL LAWS##
+	tno_health_care_support_for_emergencies
+	tno_education_public_education
+	tno_penal_system_harsh_penal_code
+	tno_gender_rights_women_in_the_workplace
+	tno_security_regulated_police
+	tno_regulations_token_regulations
+	##ECONOMIC LAWS##
+	tno_trade_laws_export_focus
+	tno_income_taxation_flat_taxes
+	tno_minimum_wage_trinket_minimum_wage
+	tno_max_workhours_12_hour_work_day
+	tno_pensions_trinket_pensions
+	tno_unemployment_no_subsidies
+	##MISC LAWS##
+	tno_refugees_open
+	tno_women_combat_roles
+	tno_racial_integration_integrated_military
+	tno_safety_minimal_regulations
+	tno_pollution_no_controls
+	tno_lgbt_rights_lgbt_outlawed
+	tno_minorities_equal_rights
+	tno_child_labor_illegal
+	##SOCIETAL DEVELOPMENT##
+	tno_army_professionalism_professional
+	tno_industrial_expertise_experienced
+	tno_industrial_equipment_modern
+	tno_healthcare_nascent
+	tno_agriculture_mass_mechanized
+	tno_research_facilities_outdated
+	tno_academic_base_basic_literacy
+	tno_admin_efficiency_deficient_administrative_systems
+}
+
+set_country_flag = tno_defined_startup_effectiveness
+
+# ECONOMIC LAWS
+set_variable = { tno_trade_laws_effectiveness = 73 }
+set_variable = { tno_income_taxation_effectiveness = 78 }
+set_variable = { tno_minimum_wage_effectiveness = 45 }
+set_variable = { tno_max_workhours_effectiveness = 63 }
+set_variable = { tno_pensions_effectiveness = 39 }
+set_variable = { tno_unemployment_effectiveness = 69 }
+
+# SOCIAL LAWS
+set_variable = { tno_health_care_effectiveness = 56 }
+set_variable = { tno_education_effectiveness = 31 }
+set_variable = { tno_penal_system_effectiveness = 45 }
+set_variable = { tno_gender_rights_effectiveness = 75 }
+set_variable = { tno_security_effectiveness = 56 }
+set_variable = { tno_regulations_effectiveness = 67 }
+
+# POLITICAL LAWS
+set_variable = { tno_political_parties_effectiveness = 54 }
+set_variable = { tno_religious_rights_effectiveness = 87 }
+set_variable = { tno_trade_unions_effectiveness = 47 }
+set_variable = { tno_immigration_effectiveness = 32 }
+set_variable = { tno_slavery_effectiveness = 55 }
+set_variable = { tno_public_meetings_effectiveness = 43 }
+set_variable = { tno_press_rights_effectiveness = 81 }
+set_variable = { tno_vote_franchise_effectiveness = 48 }
+
+# MILITARY LAWS
+set_variable = { tno_conscription_effectiveness = 68 }
+set_variable = { tno_military_supervision_effectiveness = 31 }
+set_variable = { tno_training_effectiveness = 48 }
+set_variable = { tno_draft_exemptions_effectiveness = 66 }
+
+set_research_slots = 3
+
+set_politics = {
+	ruling_party = paternalism
+	elections_allowed = no
+}
+
+set_popularities = {
+	communist = 0
+	socialist = 0
+	progressivism = 1
+	liberalism = 12
+
+	conservatism = 21
+	paternalism = 63
+	despotism = 3
+	fascism = 0
+	national_socialism = 0
+	ultranationalism = 0
+	
+}
+
+TNO_startup_nation = yes

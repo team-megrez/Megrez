@@ -1,0 +1,157 @@
+load_focus_tree = ZZZ_national_focus #If you touch this the bookmark gets fucked
+capital = 1262
+
+# Vacant
+recruit_character = GRE_Generic_Vacant
+
+
+
+
+oob = "GRE_1962"
+
+set_country_flag = GRE_ITA
+
+set_stability = 0.5
+set_war_support = 0.0
+
+country_event = { id = gre.1 days = 730 }
+
+set_variable = {
+	var = GRE_ITA_Influence
+	value = 4
+}
+
+### Characters
+recruit_character = GRE_Georgios_Themelis
+recruit_character = GRE_Antonio_Gandin
+recruit_character = GRE_Antonis_Livieratos
+recruit_character = GRE_Ioannis_Voulpiotis
+recruit_character = GRE_Phaedon_Gizikis
+recruit_character = GRE_Dimitrios_Psarros
+recruit_character = GRE_Komninos_Pyromaglou
+recruit_character = GRE_Panagiotis_Kanellopoulos
+recruit_character = GRE_Georgios_Papadopoulos
+recruit_character = GRE_Aris_Velouchiotis
+recruit_character = GRE_Ioannis_Ladas
+recruit_character = GRE_Konstantinos_Karamanlis
+recruit_character = GRE_Andreas_Papandreou
+recruit_character = GRE_Charilaos_Florakis
+
+set_technology = {
+	basic_train = 1
+
+	electronic_mechanical_engineering = 1
+
+	transport = 1
+	infantry_weapons_1 = 1
+	night_vision_1 = 1
+	
+	infantry_kit_1 = 1
+	motorized_infantry = 1
+	support_weapons = 1
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	early_fighter = 1
+	advanced_light_tank = 1
+	advanced_medium_tank = 1
+	artillery4 = 1
+	electronic_mechanical_engineering = 1
+	radio = 1
+	building_construction_1 = 1
+	administration_construction_1 = 1
+	ww2_destroyer = 1
+	ww2_cruiser = 1
+	ww2_battleship = 1
+	ww2_submarine = 1
+	ww2_carrier = 1
+}
+
+set_politics = {
+	ruling_party = fascism
+	last_election = "1934.3.26"
+	election_frequency = 60
+	elections_allowed = no
+}
+
+set_popularities = {
+	communist = 8
+	despotism = 20
+	socialist = 7
+	progressivism = 6
+	liberalism = 7
+	conservatism = 9
+	paternalism = 8
+	fascism = 26
+	national_socialism = 9
+	ultranationalism = 0
+	
+}
+
+add_ideas = {
+	TRI_Member_Client
+	GRE_katochiko_kratos
+	GRE_scars_of_the_great_famine
+	GRE_elusive_opposition
+
+	#ministers#
+	GRE_Antonio_Gandin_hog
+	GRE_Ioannis_Voulpiotis_eco
+	GRE_Phaedon_Gizikis_sec
+	GRE_Antonis_Livieratos_for
+	
+	### Economic Laws ###
+	tno_trade_laws_limited_exports
+	tno_income_taxation_elite_tax_exemptions
+	tno_minimum_wage_no_minimum_wage
+	tno_max_workhours_unlimited_work_day
+	tno_pensions_no_pensions
+	tno_unemployment_no_subsidies
+	
+	### Social Laws ###
+	tno_health_care_service_for_care
+	tno_education_public_education
+	tno_penal_system_politicized_penal_system
+	tno_gender_rights_traditional_roles
+	tno_security_oppressive_police
+	tno_regulations_token_regulations
+	
+	### Political Laws ###
+	tno_political_parties_one_party_state
+	tno_religious_rights_state_religion
+	tno_trade_unions_illegal
+	tno_immigration_skilled_labor_only
+	tno_slavery_penal_labor
+	tno_public_meetings_outlawed
+	tno_press_rights_state_press_only
+	tno_vote_franchise_no_voting
+	
+	### Military Laws ###
+	tno_conscription_extensive_conscription
+	tno_military_supervision_no_supervision
+	tno_training_minimal_training
+	tno_draft_exemptions_none
+
+	### Misc Laws ###
+	tno_child_labor_illegal
+	tno_safety_minimal_regulations
+	tno_pollution_no_controls
+	tno_lgbt_rights_lgbt_outlawed
+	tno_minorities_institutional_discrimination
+	tno_refugees_banned
+	tno_women_banned
+	tno_racial_integration_none
+
+	### Societal Development###
+	tno_academic_base_primary_schooling
+	tno_research_facilities_outdated
+	tno_agriculture_basic_mechanized
+	tno_healthcare_nascent
+	tno_industrial_equipment_factory_complexes
+	tno_industrial_expertise_nascent
+	tno_army_professionalism_cronyism
+	tno_admin_efficiency_illegitimate_administration
+}
+
+set_research_slots = 3
+
