@@ -1,30 +1,66 @@
-﻿capital = 1083
+﻿capital = 957
 oob = "KUM"
 set_research_slots = 2
-complete_national_focus = KUM_nasir_reign
 
-set_variable = { var = KUM_turkic_influence value = 50 }
-set_variable = { var = KUM_chinese_influence value = 30 }
-set_variable = { var = KUM_military_influence value = 30 }
-
-country_event = { id = kumul.0 days = 1 }
+recruit_character = KIV_Generic_Vacant
+fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
 
 set_technology = {
-	### Infantry ###
-	infantry_weapons = 1
-	tech_irregulars = 1
-	tech_mountaineers = 1
 }
 
-QIE = {
-	set_autonomy = {
-		target = ROOT
-		autonomy_state = kr_autonomous_governorate
-	}
+TNO_startup_nation = yes
+
+add_ideas = {
+	#political#
+	tno_political_parties_multiparty_system
+	tno_religious_rights_pluralism
+	tno_trade_unions_all_allowed
+	tno_immigration_quota_immigration
+	tno_slavery_outlawed
+	tno_public_meetings_allowed
+	tno_press_rights_free_press
+	tno_vote_franchise_universal
+	#military#
+	tno_conscription_service_by_requirement
+	tno_military_supervision_rules_of_engagement
+	tno_training_basic_training
+	tno_draft_exemptions_none
+	#economic#
+	tno_trade_laws_export_focus
+	tno_income_taxation_high_income_weighted
+	tno_minimum_wage_acceptable_minimum
+	tno_max_workhours_10_hour_work_day
+	tno_pensions_acceptable_pensions
+	tno_unemployment_moderate_subsidies
+	#social#
+	tno_health_care_low_income_protections
+	tno_education_public_education
+	tno_penal_system_incarceration
+	tno_gender_rights_women_in_the_workplace
+	tno_security_regulated_police
+	tno_regulations_moderate_regulations
+	#misc
+	tno_refugees_skilled
+	tno_women_military_assistance
+	tno_racial_integration_integrated_military
+	tno_child_labor_illegal
+	tno_safety_acceptable_regulations
+	tno_pollution_some_regulations
+	tno_lgbt_rights_lgbt_allowed
+	tno_minorities_equal_rights
+	#social development
+	tno_army_professionalism_political_interference
+	tno_industrial_expertise_nascent
+	tno_industrial_equipment_power_tools
+	tno_admin_efficiency_functional_administrative_systems
+	tno_healthcare_nascent
+	tno_agriculture_basic_mechanized
+	tno_research_facilities_outdated
+	tno_academic_base_basic_literacy
 }
 
 set_politics = {
-	ruling_party = paternalist
+	ruling_party = authoritarian_democrat
 	last_election = "1888.6.15"
 	election_frequency = 48
 	elections_allowed = no
@@ -32,51 +68,13 @@ set_politics = {
 
 set_popularities = {
 	vanguardist = 0
-	socialist = 0
 	syndicalist = 0
-	progressive = 0
+	socialist = 0
+	progressive = 2
 	liberal = 6
-	conservative = 0
-	ecologist = 17
-	authoritarian_democrat = 20
-	paternalist = 57
-	national_populist = 0
+	conservative = 6
+	ecologist = 12
+	authoritarian_democrat = 47
+	paternalist = 15
+	national_populist = 12
 }
-
-add_ideas = {
-	limited_conscription
-	KUM_legacy_masqud
-	KUM_keeping_peace
-}
-china_add_poor_army = yes
-
-### Country Leaders ###
-recruit_character = KUM_nasir_shah
-recruit_character = KUM_bashir_shah
-
-### Corps Commanders ###
-recruit_character = KUM_yulbars_khan
-recruit_character = KUM_khoja_niyaz_haji
-recruit_character = KUM_mahmut_muhiti
-
-recruit_character = KUM_khans_court
-recruit_character = KUM_liu_xizeng
-recruit_character = KUM_li_qian
-recruit_character = KUM_sengchen_thubbstan_tshering
-recruit_character = KUM_tahir_beg
-recruit_character = KUM_ma_fuyuan
-recruit_character = KUM_ma_zhancang
-recruit_character = KUM_dalelkhan_sugirbayev
-recruit_character = KUM_luo_wengan
-recruit_character = KUM_ospan_batyr
-recruit_character = KUM_pau_tisan
-recruit_character = KUM_kemal_kaya_efendi
-recruit_character = KUM_ma_zhongjie
-recruit_character = KUM_kalibek_rakhimbekovich
-recruit_character = KUM_zhang_chunxi
-
-activate_advisor = KUM_khans_court_sic
-
-### Character Setup ###
-KUM_nasir_shah = { set_variable = { china_alignment = token:manchu_qing } }
-KUM_bashir_shah = { set_variable = { china_alignment = token:manchu_qing } }
