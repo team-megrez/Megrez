@@ -5,48 +5,65 @@ set_stability = 0.2
 set_war_support = 0.3
 set_convoys = 10
 
+recruit_character = LEP_Generic_Vacant
+fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
+
 set_technology = {
-	### Infantry ###
-	infantry_weapons = 1
-	tech_irregulars = 1
-	tech_mountaineers = 1
-
-	### Support ###
-	tech_support = 1
-	tech_engineers = 1
-	tech_recon = 1
-
-	### Artillery ###
-	gw_artillery = 1
-	interwar_antiair = 1
-
-	### Trains ###
-	basic_train = 1
 }
 
-### Planes - non BBA ###
-if = {
-	limit = { has_dlc_bba = no }
-	set_technology = {
-		early_fighter = 1
-		early_bomber = 1
-	}
+TNO_startup_nation = yes
+
+add_ideas = {
+	#political#
+	tno_political_parties_multiparty_system
+	tno_religious_rights_pluralism
+	tno_trade_unions_all_allowed
+	tno_immigration_quota_immigration
+	tno_slavery_outlawed
+	tno_public_meetings_allowed
+	tno_press_rights_free_press
+	tno_vote_franchise_universal
+	#military#
+	tno_conscription_service_by_requirement
+	tno_military_supervision_rules_of_engagement
+	tno_training_basic_training
+	tno_draft_exemptions_none
+	#economic#
+	tno_trade_laws_export_focus
+	tno_income_taxation_high_income_weighted
+	tno_minimum_wage_acceptable_minimum
+	tno_max_workhours_10_hour_work_day
+	tno_pensions_acceptable_pensions
+	tno_unemployment_moderate_subsidies
+	#social#
+	tno_health_care_low_income_protections
+	tno_education_public_education
+	tno_penal_system_incarceration
+	tno_gender_rights_women_in_the_workplace
+	tno_security_regulated_police
+	tno_regulations_moderate_regulations
+	#misc
+	tno_refugees_skilled
+	tno_women_military_assistance
+	tno_racial_integration_integrated_military
+	tno_child_labor_illegal
+	tno_safety_acceptable_regulations
+	tno_pollution_some_regulations
+	tno_lgbt_rights_lgbt_allowed
+	tno_minorities_equal_rights
+	#social development
+	tno_army_professionalism_political_interference
+	tno_industrial_expertise_nascent
+	tno_industrial_equipment_power_tools
+	tno_admin_efficiency_functional_administrative_systems
+	tno_healthcare_nascent
+	tno_agriculture_basic_mechanized
+	tno_research_facilities_outdated
+	tno_academic_base_basic_literacy
 }
-
-set_cosmetic_tag = LEP_LEP
-country_lock_all_division_template = yes
-
-QIE = {
-	set_autonomy = {
-		target = ROOT
-		autonomy_state = kr_associated_governorate
-	}
-}
-
-diplomatic_relation = { country = GEA relation = non_aggression_pact }
 
 set_politics = {
-	ruling_party = paternalist
+	ruling_party = authoritarian_democrat
 	last_election = "1888.6.15"
 	election_frequency = 48
 	elections_allowed = no
@@ -54,86 +71,13 @@ set_politics = {
 
 set_popularities = {
 	vanguardist = 0
-	socialist = 0
 	syndicalist = 0
-	progressive = 0
-	liberal = 5
-	conservative = 19
-	ecologist = 7
-	authoritarian_democrat = 15
-	paternalist = 54
-	national_populist = 0
+	socialist = 0
+	progressive = 2
+	liberal = 6
+	conservative = 6
+	ecologist = 12
+	authoritarian_democrat = 47
+	paternalist = 15
+	national_populist = 12
 }
-
-add_ideas = {
-	LEP_Conspicuous_Kleptocracy
-	LEP_Nanking_Kommission
-	LEP_Tsingtau_Collaboration2
-
-	LEP_units_bonus
-}
-china_add_poor_army = yes
-
-#tsingtau collab level
-set_variable = {
-	var = LEP_tsingtau_level
-	value = 2
-}
-
-country_event = { id = lepcollapse.1 days = 3 } # Sun Chuanfang meets with the governors
-country_event = { id = lep.1 days = 1 }
-
-### Country Leaders ###
-recruit_character = LEP_board_of_directors
-recruit_character = LEP_sun_chuanfang
-recruit_character = LEP_qi_xieyuan
-
-activate_advisor = LEP_qi_xieyuan_sic
-
-### Advisors ###
-recruit_character = LEP_wang_kemin
-
-recruit_character = LEP_ma_yuren
-recruit_character = LEP_zhang_xinyi
-recruit_character = LEP_zhang_taiyan
-recruit_character = LEP_chen_taoyi
-recruit_character = LEP_ding_wenjiang
-recruit_character = LEP_wei_daofeng
-recruit_character = LEP_pan_guogang
-recruit_character = LEP_tang_erhe
-
-recruit_character = LEP_hermann_kriebel
-recruit_character = LEP_chen_ta_ching
-recruit_character = LEP_chen_cheng
-recruit_character = LEP_huang_wei
-recruit_character = LEP_zhang_dingfan
-recruit_character = LEP_qiu_qingquan
-recruit_character = LEP_qian_zongze
-recruit_character = LEP_chen_jia_shang
-recruit_character = LEP_liu_cuigang
-recruit_character = LEP_chen_zhaoqiang
-recruit_character = LEP_cheng_tienfong
-
-### Generals ###
-recruit_character = LEP_chen_yi
-recruit_character = LEP_zheng_junyan
-recruit_character = LEP_deng_ruzhou
-recruit_character = LEP_zhou_yinren
-recruit_character = LEP_shangguan_yunxiang
-recruit_character = LEP_zhou_fengqi
-recruit_character = LEP_tang_enbo
-recruit_character = LEP_shi_yousan
-recruit_character = LEP_yang_shuzhuang
-recruit_character = ANQ_shen_jingchen
-recruit_character = ANQ_sa_benxin
-
-### Character Setup ###
-LEP_sun_chuanfang = { set_variable = { china_alignment = token:zhili } }
-LEP_qi_xieyuan = { set_variable = { china_alignment = token:zhili } }
-
-# FLAVOR LEP
-country_event = { id = lep.206 days = 1521 } #Chen Xuezhao
-country_event = { id = lep.207 days = 762 } #Ju Peon event
-country_event = { id = lep.208 days = 81 } #Tsen's Theorem
-country_event = { id = lep.209 days = 285 } #Zhou Xuan
-country_event = { id = lep.210 days = 285 } #Dummy Zhou Xuan event

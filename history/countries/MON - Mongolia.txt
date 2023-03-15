@@ -2,29 +2,65 @@
 oob = "MON"
 set_research_slots = 2
 
+recruit_character = MON_Generic_Vacant
+fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
+
 set_technology = {
-	### Infantry ###
-	infantry_weapons = 1
-	tech_mountaineers = 1
-
-	### Support ###
-	tech_support = 1
-	tech_engineers = 1
-
-	### Artillery ###
-	gw_artillery = 1
 }
 
-set_stability = 0.35
-set_war_support = 0.40
+TNO_startup_nation = yes
 
-diplomatic_relation = { country = RUS relation = non_aggression_pact }
-give_military_access = RUS
-RUS = { give_guarantee = MON }
-add_to_array = { guarantor_array = RUS }
+add_ideas = {
+	#political#
+	tno_political_parties_multiparty_system
+	tno_religious_rights_pluralism
+	tno_trade_unions_all_allowed
+	tno_immigration_quota_immigration
+	tno_slavery_outlawed
+	tno_public_meetings_allowed
+	tno_press_rights_free_press
+	tno_vote_franchise_universal
+	#military#
+	tno_conscription_service_by_requirement
+	tno_military_supervision_rules_of_engagement
+	tno_training_basic_training
+	tno_draft_exemptions_none
+	#economic#
+	tno_trade_laws_export_focus
+	tno_income_taxation_high_income_weighted
+	tno_minimum_wage_acceptable_minimum
+	tno_max_workhours_10_hour_work_day
+	tno_pensions_acceptable_pensions
+	tno_unemployment_moderate_subsidies
+	#social#
+	tno_health_care_low_income_protections
+	tno_education_public_education
+	tno_penal_system_incarceration
+	tno_gender_rights_women_in_the_workplace
+	tno_security_regulated_police
+	tno_regulations_moderate_regulations
+	#misc
+	tno_refugees_skilled
+	tno_women_military_assistance
+	tno_racial_integration_integrated_military
+	tno_child_labor_illegal
+	tno_safety_acceptable_regulations
+	tno_pollution_some_regulations
+	tno_lgbt_rights_lgbt_allowed
+	tno_minorities_equal_rights
+	#social development
+	tno_army_professionalism_political_interference
+	tno_industrial_expertise_nascent
+	tno_industrial_equipment_power_tools
+	tno_admin_efficiency_functional_administrative_systems
+	tno_healthcare_nascent
+	tno_agriculture_basic_mechanized
+	tno_research_facilities_outdated
+	tno_academic_base_basic_literacy
+}
 
 set_politics = {
-	ruling_party = paternalist
+	ruling_party = authoritarian_democrat
 	last_election = "1888.6.15"
 	election_frequency = 48
 	elections_allowed = no
@@ -32,83 +68,13 @@ set_politics = {
 
 set_popularities = {
 	vanguardist = 0
-	socialist = 0
 	syndicalist = 0
-	progressive = 17
-	liberal = 0
-	conservative = 0
-	ecologist = 0
-	authoritarian_democrat = 23
-	paternalist = 48
+	socialist = 0
+	progressive = 2
+	liberal = 6
+	conservative = 6
+	ecologist = 12
+	authoritarian_democrat = 47
+	paternalist = 15
 	national_populist = 12
 }
-
-country_event = { id = mon.1 days = 2 }
-country_event = { id = mon.103 days = 10 }
-
-add_ideas = {
-	limited_conscription
-
-	MON_nomadic_society
-	MON_scourge_of_the_steppes_idea
-	MON_russian_eco_aid
-	MON_jebtsundamba_khutuktu_idea
-}
-
-recruit_character = MON_khorloogiin_choibalsan
-recruit_character = MON_peljidiin_genden
-recruit_character = MON_olziin_badrakh
-recruit_character = MON_davizavyn_losol
-recruit_character = MON_anandyn_amar
-recruit_character = MON_dansranbilegiin_dogsom
-recruit_character = MON_jamsrangiin_tseveen
-recruit_character = MON_dambyn_chagdarjav
-recruit_character = MON_unenbayan
-recruit_character = MON_demchugdongrub
-recruit_character = MON_roman_von_ungernsternberg
-recruit_character = MON_7th_changkya_khutukhtu
-recruit_character = MON_jodbajab
-recruit_character = MON_baiyunti
-
-### Field Marshals ###
-recruit_character = MON_manlaibaatar_damdinsuren
-
-### Corps Commanders ###
-recruit_character = MON_altanochir
-recruit_character = MON_khatanbaatar_magsarjav
-recruit_character = MON_mikhail_tornovsky
-recruit_character = MON_nikolay_kazagrandi
-recruit_character = MON_zhamyangiyn_lhagvasuren
-recruit_character = MON_boris_rezukhin
-recruit_character = MON_urzhin_garmaev
-
-### SiCS ###
-recruit_character = MON_buddhist_council
-recruit_character = MON_yondonwangchug
-recruit_character = MON_touvdentserenchimid
-recruit_character = MON_serengdongrub
-
-activate_advisor = MON_boris_rezukhin_sic
-
-### Advisors ###
-recruit_character = MON_gelegdorjiyn_demid
-recruit_character = MON_ganzhuurzhav
-recruit_character = MON_darijaya
-recruit_character = MON_babadorj
-recruit_character = MON_damdin_sukhbaatar
-recruit_character = MON_gonchigiyn_bumtsend
-recruit_character = MON_balingiyn_tserendorj
-recruit_character = MON_zhamsranzhavyn_galsandash
-recruit_character = MON_sambadondogiyn_tseredorj
-recruit_character = MON_xia_gong
-recruit_character = MON_kamil_gizycki
-recruit_character = MON_ferdynand_ossendowski
-recruit_character = MON_yu_pinqing
-recruit_character = MON_amurlingkui
-recruit_character = MON_ajvaagiyn_danzan
-recruit_character = MON_tseren_ochiryn_dambadorj
-recruit_character = MON_shirnengiyn_ayuush
-recruit_character = MON_dorjjavyn_luvsansharav
-recruit_character = MON_sonombalzhiryn_buyannemeh
-recruit_character = MON_dogsomyn_bodoo
-recruit_character = MON_mongolian_army_council

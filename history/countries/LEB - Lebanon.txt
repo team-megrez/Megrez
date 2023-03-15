@@ -1,39 +1,62 @@
 ﻿capital = 553
 
+recruit_character = LEB_Generic_Vacant
+fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
+
 set_technology = {
-	### Infantry ###
-	infantry_weapons = 1
-}
-### Navy - MtG ###
-
-if = {
-	limit = { has_dlc_mtg = yes }
-	set_technology = {
-		early_ship_hull_light = 1
-		basic_naval_mines = 1
-		basic_ship_hull_light = 1
-		early_ship_hull_cruiser = 1
-		basic_ship_hull_cruiser = 1
-
-		## Modules##
-		basic_battery = 1
-		basic_light_battery = 1
-	}
 }
 
-### Navy - Non MtG ###
+TNO_startup_nation = yes
 
-if = {
-	limit = { has_dlc_mtg = no }
-	set_technology = {
-		early_destroyer = 1
-		basic_destroyer = 1
-		early_light_cruiser = 1
-		basic_light_cruiser = 1
-	}
+add_ideas = {
+	#political#
+	tno_political_parties_multiparty_system
+	tno_religious_rights_pluralism
+	tno_trade_unions_all_allowed
+	tno_immigration_quota_immigration
+	tno_slavery_outlawed
+	tno_public_meetings_allowed
+	tno_press_rights_free_press
+	tno_vote_franchise_universal
+	#military#
+	tno_conscription_service_by_requirement
+	tno_military_supervision_rules_of_engagement
+	tno_training_basic_training
+	tno_draft_exemptions_none
+	#economic#
+	tno_trade_laws_export_focus
+	tno_income_taxation_high_income_weighted
+	tno_minimum_wage_acceptable_minimum
+	tno_max_workhours_10_hour_work_day
+	tno_pensions_acceptable_pensions
+	tno_unemployment_moderate_subsidies
+	#social#
+	tno_health_care_low_income_protections
+	tno_education_public_education
+	tno_penal_system_incarceration
+	tno_gender_rights_women_in_the_workplace
+	tno_security_regulated_police
+	tno_regulations_moderate_regulations
+	#misc
+	tno_refugees_skilled
+	tno_women_military_assistance
+	tno_racial_integration_integrated_military
+	tno_child_labor_illegal
+	tno_safety_acceptable_regulations
+	tno_pollution_some_regulations
+	tno_lgbt_rights_lgbt_allowed
+	tno_minorities_equal_rights
+	#social development
+	tno_army_professionalism_political_interference
+	tno_industrial_expertise_nascent
+	tno_industrial_equipment_power_tools
+	tno_admin_efficiency_functional_administrative_systems
+	tno_healthcare_nascent
+	tno_agriculture_basic_mechanized
+	tno_research_facilities_outdated
+	tno_academic_base_basic_literacy
 }
 
-set_research_slots = 2
 set_politics = {
 	ruling_party = authoritarian_democrat
 	last_election = "1888.6.15"
@@ -42,69 +65,14 @@ set_politics = {
 }
 
 set_popularities = {
-	vanguardist = 3
-	socialist = 5
-	syndicalist = 3
-	progressive = 8
-	liberal = 13
-	conservative = 12
-	ecologist = 15
-	authoritarian_democrat = 34
-	paternalist = 1
-	national_populist = 6
+	vanguardist = 0
+	syndicalist = 0
+	socialist = 0
+	progressive = 2
+	liberal = 6
+	conservative = 6
+	ecologist = 12
+	authoritarian_democrat = 47
+	paternalist = 15
+	national_populist = 12
 }
-add_ideas = {
-	LEB_economic_upheaval
-	LEB_legacy_of_the_mutasarrifate
-	LEB_ethnic_and_sectarian_divides
-}
-
-### Party Leaders
-recruit_character = LEB_farajallah_el_helou
-recruit_character = LEB_kamal_jumblatt
-recruit_character = LEB_saeb_salam
-recruit_character = LEB_emile_edde
-recruit_character = LEB_bechara_el_khoury
-recruit_character = LEB_fuad_chehab
-recruit_character = LEB_charles_helou
-recruit_character = LEB_provisional_parliament_of_lebanon
-recruit_character = LEB_patriarch_antoine_peter_arida
-recruit_character = LEB_pierre_gemayel
-
-### Corps Commanders ###
-recruit_character = LEB_emile_boustany
-
-### Admirals ###
-recruit_character = LEB_youssef_chmeit
-
-### Advisors ###
-recruit_character = LEB_farid_jubran
-recruit_character = LEB_abdallah_yafi
-recruit_character = LEB_aref_abu_chakra
-recruit_character = LEB_petro_trad
-recruit_character = LEB_raymond_edde
-recruit_character = LEB_boutros_el_khoury
-recruit_character = LEB_khaled_chehab
-recruit_character = LEB_william_hawi
-
-activate_advisor = LEB_khaled_chehab_sic
-
-recruit_character = LEB_youssef_ibrahim_yazbek
-recruit_character = LEB_aref_abdul_qadir_al_nomani
-recruit_character = LEB_ayoub_tabet
-recruit_character = LEB_khalil_mahmoud_taqi_al_din
-recruit_character = LEB_abdul_hamid_karami
-recruit_character = LEB_youssef_el_sawda
-recruit_character = LEB_alfred_naqqache
-recruit_character = LEB_artin_madoyan
-recruit_character = LEB_shawkat_shukayr
-recruit_character = LEB_mohiuddin_zakaria_nasouli
-recruit_character = LEB_abdallah_beyum
-recruit_character = LEB_camille_chamoun
-recruit_character = LEB_hamid_beik_frangieh
-recruit_character = LEB_suleiman_frangieh
-recruit_character = LEB_muhammad_jamil_beyhum
-recruit_character = LEB_selim_takla
-recruit_character = LEB_majid_arslan
-recruit_character = LEB_charles_corm
-recruit_character = LEB_farid_shehab

@@ -1,72 +1,81 @@
-﻿capital = 320
+﻿capital = 893
 oob = "MDR"
 set_research_slots = 3
 set_convoys = 40
 
+recruit_character = MDR_Generic_Vacant
+fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
+
 set_technology = {
-	### Infantry ###
-	infantry_weapons = 1
-	tech_support = 1
-	tech_mountaineers = 1
-	tech_engineers = 1
-	gw_artillery = 1
 }
 
-### Planes - BBA ###
-if = {
-	limit = { has_dlc_bba = yes }
-	set_technology = {
-		aa_lmg = 1
-		engines_1 = 1
-		iw_small_airframe = 1
-	}
-}
+TNO_startup_nation = yes
 
-### Planes - non BBA ###
-if = {
-	limit = { has_dlc_bba = no }
-	set_technology = { early_fighter = 1 }
+add_ideas = {
+	#political#
+	tno_political_parties_multiparty_system
+	tno_religious_rights_pluralism
+	tno_trade_unions_all_allowed
+	tno_immigration_quota_immigration
+	tno_slavery_outlawed
+	tno_public_meetings_allowed
+	tno_press_rights_free_press
+	tno_vote_franchise_universal
+	#military#
+	tno_conscription_service_by_requirement
+	tno_military_supervision_rules_of_engagement
+	tno_training_basic_training
+	tno_draft_exemptions_none
+	#economic#
+	tno_trade_laws_export_focus
+	tno_income_taxation_high_income_weighted
+	tno_minimum_wage_acceptable_minimum
+	tno_max_workhours_10_hour_work_day
+	tno_pensions_acceptable_pensions
+	tno_unemployment_moderate_subsidies
+	#social#
+	tno_health_care_low_income_protections
+	tno_education_public_education
+	tno_penal_system_incarceration
+	tno_gender_rights_women_in_the_workplace
+	tno_security_regulated_police
+	tno_regulations_moderate_regulations
+	#misc
+	tno_refugees_skilled
+	tno_women_military_assistance
+	tno_racial_integration_integrated_military
+	tno_child_labor_illegal
+	tno_safety_acceptable_regulations
+	tno_pollution_some_regulations
+	tno_lgbt_rights_lgbt_allowed
+	tno_minorities_equal_rights
+	#social development
+	tno_army_professionalism_political_interference
+	tno_industrial_expertise_nascent
+	tno_industrial_equipment_power_tools
+	tno_admin_efficiency_functional_administrative_systems
+	tno_healthcare_nascent
+	tno_agriculture_basic_mechanized
+	tno_research_facilities_outdated
+	tno_academic_base_basic_literacy
 }
-
-### Tanks - NSB ###
-if = {
-	limit = { has_dlc_nsb = yes }
-	set_technology = { gwtank_chassis = 1 }
-}
-
-### Tanks - non NSB ###
-if = {
-	limit = { has_dlc_nsb = no }
-	set_technology = { gwtank = 1 }
-}
-
-set_war_support = 0.2
 
 set_politics = {
-	ruling_party = liberal
-	last_election = "1930.11.9"
+	ruling_party = authoritarian_democrat
+	last_election = "1888.6.15"
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	vanguardist = 2
-	socialist = 3
-	syndicalist = 5
-	progressive = 13
-	liberal = 41
-	conservative = 21
-	ecologist = 10
-	authoritarian_democrat = 3
-	paternalist = 2
-	national_populist = 0
+	vanguardist = 0
+	syndicalist = 0
+	socialist = 0
+	progressive = 2
+	liberal = 6
+	conservative = 6
+	ecologist = 12
+	authoritarian_democrat = 47
+	paternalist = 15
+	national_populist = 12
 }
-
-# Country Leader #
-recruit_character = MDR_periyar_ramasamy
-recruit_character = MDR_paramasiva_subbarayan
-recruit_character = MDR_chakravarti_rajagopalachari
-
-# Army #
-recruit_character = MDR_ramakrishna_ranga_rao
-recruit_character = MDR_satyawant_mallanna_shrinagesh
