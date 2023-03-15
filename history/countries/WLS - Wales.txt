@@ -1,63 +1,79 @@
 ﻿capital = 122
 set_research_slots = 2
 
+
+fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
+
+set_technology = {
+}
+
+TNO_startup_nation = yes
+
 add_ideas = {
-	WLS_fledgling_army
-	volunteer_only
-	export_focus
+    #political#
+    tno_political_parties_multiparty_system
+    tno_religious_rights_pluralism
+    tno_trade_unions_all_allowed
+    tno_immigration_quota_immigration
+    tno_slavery_outlawed
+    tno_public_meetings_allowed
+    tno_press_rights_free_press
+    tno_vote_franchise_universal
+    #military#
+    tno_conscription_service_by_requirement
+    tno_military_supervision_rules_of_engagement
+    tno_training_basic_training
+    tno_draft_exemptions_none
+    #economic#
+    tno_trade_laws_export_focus
+    tno_income_taxation_high_income_weighted
+    tno_minimum_wage_acceptable_minimum
+    tno_max_workhours_10_hour_work_day
+    tno_pensions_acceptable_pensions
+    tno_unemployment_moderate_subsidies
+    #social#
+    tno_health_care_low_income_protections
+    tno_education_public_education
+    tno_penal_system_incarceration
+    tno_gender_rights_women_in_the_workplace
+    tno_security_regulated_police
+    tno_regulations_moderate_regulations
+    #misc
+    tno_refugees_skilled
+    tno_women_military_assistance
+    tno_racial_integration_integrated_military
+    tno_child_labor_illegal
+    tno_safety_acceptable_regulations
+    tno_pollution_some_regulations
+    tno_lgbt_rights_lgbt_allowed
+    tno_minorities_equal_rights
+    #social development
+    tno_army_professionalism_political_interference
+    tno_industrial_expertise_nascent
+    tno_industrial_equipment_power_tools
+    tno_admin_efficiency_functional_administrative_systems
+    tno_healthcare_nascent
+    tno_agriculture_basic_mechanized
+    tno_research_facilities_outdated
+    tno_academic_base_basic_literacy
 }
 
 set_politics = {
-	ruling_party = ecologist
-	last_election = "1936.6.22"
-	election_frequency = 60
-	elections_allowed = yes
+    ruling_party = authoritarian_democrat
+    last_election = "1888.6.15"
+    election_frequency = 48
+    elections_allowed = no
 }
 
 set_popularities = {
-	vanguardist = 2
-	socialist = 3
-	syndicalist = 5
-	progressive = 13
-	liberal = 10
-	conservative = 21
-	ecologist = 41
-	authoritarian_democrat = 3
-	paternalist = 2
-	national_populist = 0
+    vanguardist = 0
+    syndicalist = 0
+    socialist = 0
+    progressive = 2
+    liberal = 6
+    conservative = 6
+    ecologist = 12
+    authoritarian_democrat = 47
+    paternalist = 15
+    national_populist = 12
 }
-
-recruit_character = WLS_stephen_owen_davies
-recruit_character = WLS_lewis_jones
-recruit_character = WLS_cliff_prothero
-recruit_character = WLS_clement_davies
-recruit_character = WLS_rhys_morris
-recruit_character = WLS_lewis_valentine
-recruit_character = WLS_saunders_lewis
-recruit_character = WLS_ambrose_bebb
-recruit_character = WLS_huw_robert_jones
-recruit_character = WLS_unknown
-
-### Advisors ###
-
-recruit_character = WLS_huw_t_edwards
-recruit_character = WLS_megan_lloyd_george
-recruit_character = WLS_elizabeth_andrews
-recruit_character = WLS_alf_davies
-recruit_character = WLS_albert_clifford_williams
-recruit_character = WLS_goronwy_owen
-recruit_character = WLS_bertrand_russell
-recruit_character = WLS_david_john_williams
-recruit_character = WLS_kate_roberts
-recruit_character = WLS_arthur_owens
-
-### Commanders / Mil Advisors ###
-
-recruit_character = WLS_hubert_william_lewis
-recruit_character = WLS_tasker_watkins
-recruit_character = WLS_lewis_wolton
-recruit_character = WLS_arthur_dixon
-recruit_character = WLS_henry_weale
-recruit_character = WLS_frederick_w_higginson
-recruit_character = WLS_john_wallace_linton
-recruit_character = WLS_wra_army_council

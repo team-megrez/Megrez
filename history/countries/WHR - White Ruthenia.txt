@@ -1,141 +1,83 @@
-﻿capital = 206
+﻿capital = 1404
 oob = "WHR"
 set_research_slots = 3
 set_convoys = 50
 set_war_support = 0.10
 set_cosmetic_tag = WHR_GER
 
+
+fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
+
 set_technology = {
-	### Infantry ###
-	infantry_weapons = 1
-	infantry_weapons1 = 1
-
-	### Support ###
-	tech_support = 1
-	tech_engineers = 1
-	tech_recon = 1
-
-	### Artillery ###
-	gw_artillery = 1
 }
 
-### Tanks - NSB ###
-if = {
-	limit = { has_dlc_nsb = yes }
-	set_technology = { gwtank_chassis = 1 }
-}
+TNO_startup_nation = yes
 
-### Tanks - non NSB ###
-if = {
-	limit = { has_dlc_nsb = no }
-	set_technology = { gwtank = 1 }
-}
-
-### Planes - BBA ###
-if = {
-	limit = { has_dlc_bba = yes }
-	set_technology = {
-		aa_lmg = 1
-		engines_1 = 1
-		aircraft_construction = 1
-		iw_small_airframe = 1
-	}
-}
-
-### Planes - non BBA ###
-if = {
-	limit = { has_dlc_bba = no }
-	set_technology = { early_fighter = 1 }
-}
-
-country_event = { id = whrpol.1 days = 1 } #Intro
-country_event = { id = whrpol.2 days = 14 } #Necessity of Reform
-country_event = { id = whrmisc.11 days = 257 } #Central House of Officers
-country_event = { id = whrmisc.12 days = 452 } #Bielarusi ardenanosnaj
-country_event = { id = whrmisc.13 days = 1100 } #Main building of the National Academy of Sciences
-country_event = { id = whrmisc.14 days = 1225 } #Belarusian State Opera
-country_event = { id = whrmisc.15 days = 2281 } #Bielaruskim partyzanam
-country_event = { id = whrmisc.16 days = 480 } #State Philharmonic
-country_event = { id = whrmisc.17 days = 1771 } #Death of Liavon Dubiejkauski
-country_event = { id = whrmisc.18 days = 2629 } #Death of Vasil Zacharka
-RUS = { country_event = { id = whrmisc.23 days = 1492 } } #Accident Above Svecha, will fire in early 1940
-
-set_variable = { WHR_Land_Reform_Success = 40 }
-set_variable = { WHR_Land_Reform_Popularity = 50 }
-
-GER = {
-	set_autonomy = {
-		target = WHR
-		autonomy_state = kr_oststaat
-	}
+add_ideas = {
+    #political#
+    tno_political_parties_multiparty_system
+    tno_religious_rights_pluralism
+    tno_trade_unions_all_allowed
+    tno_immigration_quota_immigration
+    tno_slavery_outlawed
+    tno_public_meetings_allowed
+    tno_press_rights_free_press
+    tno_vote_franchise_universal
+    #military#
+    tno_conscription_service_by_requirement
+    tno_military_supervision_rules_of_engagement
+    tno_training_basic_training
+    tno_draft_exemptions_none
+    #economic#
+    tno_trade_laws_export_focus
+    tno_income_taxation_high_income_weighted
+    tno_minimum_wage_acceptable_minimum
+    tno_max_workhours_10_hour_work_day
+    tno_pensions_acceptable_pensions
+    tno_unemployment_moderate_subsidies
+    #social#
+    tno_health_care_low_income_protections
+    tno_education_public_education
+    tno_penal_system_incarceration
+    tno_gender_rights_women_in_the_workplace
+    tno_security_regulated_police
+    tno_regulations_moderate_regulations
+    #misc
+    tno_refugees_skilled
+    tno_women_military_assistance
+    tno_racial_integration_integrated_military
+    tno_child_labor_illegal
+    tno_safety_acceptable_regulations
+    tno_pollution_some_regulations
+    tno_lgbt_rights_lgbt_allowed
+    tno_minorities_equal_rights
+    #social development
+    tno_army_professionalism_political_interference
+    tno_industrial_expertise_nascent
+    tno_industrial_equipment_power_tools
+    tno_admin_efficiency_functional_administrative_systems
+    tno_healthcare_nascent
+    tno_agriculture_basic_mechanized
+    tno_research_facilities_outdated
+    tno_academic_base_basic_literacy
 }
 
 set_politics = {
-	ruling_party = progressive
-	last_election = "1935.12.10"
-	election_frequency = 48
-	elections_allowed = yes
+    ruling_party = authoritarian_democrat
+    last_election = "1888.6.15"
+    election_frequency = 48
+    elections_allowed = no
 }
 
 set_popularities = {
-	vanguardist = 3
-	socialist = 12
-	syndicalist = 4
-	progressive = 38
-	liberal = 3
-	conservative = 12
-	ecologist = 7
-	authoritarian_democrat = 7
-	paternalist = 4
-	national_populist = 10
+    vanguardist = 0
+    syndicalist = 0
+    socialist = 0
+    progressive = 2
+    liberal = 6
+    conservative = 6
+    ecologist = 12
+    authoritarian_democrat = 47
+    paternalist = 15
+    national_populist = 12
 }
-
-add_ideas = {
-	#Ideas
-	WHR_mass_illiteracy
-	WHR_agrarian_society
-	WHR_weak_national_identity
-	WHR_Jewish_Bund_idea
-
-	#Laws
-	limited_conscription
-}
-
-### Country Leaders ###
-recruit_character = WHR_usievalad_ihnatouski
-recruit_character = WHR_tamas_hryb
-recruit_character = WHR_branislau_taraskievic
-recruit_character = WHR_mikola_abramcyk
-recruit_character = WHR_adam_stankievic
-recruit_character = WHR_radaslau_astrouski
-recruit_character = WHR_vaclau_lastouski
-
-recruit_character = WHR_werner_kempf
-
-### Field Marshals ###
-recruit_character = WHR_kanstancin_jezavitau
-
-### Generals ###
-recruit_character = WHR_timokh_khvedashchenya
-recruit_character = WHR_vital_kazlou
-recruit_character = WHR_mikalaj_janicki
-recruit_character = WHR_paval_vent
-recruit_character = WHR_francisak_kusal
-recruit_character = WHR_hasan_kanapatski
-
-### Advisors ###
-recruit_character = WHR_jan_sierada
-recruit_character = WHR_anton_lutskievic
-recruit_character = WHR_dmitry_pryshchepau
-recruit_character = WHR_symon_kandybovic
-recruit_character = WHR_paluta_badunova
-recruit_character = WHR_jazep_lesik
-recruit_character = WHR_jan_stankievic
-recruit_character = WHR_vaclau_ivanouski
-recruit_character = WHR_raman_skirmunt
-recruit_character = WHR_jewish_bund
-recruit_character = WHR_vasily_korzh
-recruit_character = WHR_anton_ausianik
-recruit_character = WHR_hieorhij_khalasciakou
-recruit_character = WHR_michal_vituska
-recruit_character = WHR_belvaiskrada

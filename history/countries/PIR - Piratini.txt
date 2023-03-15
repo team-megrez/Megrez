@@ -3,128 +3,79 @@ set_research_slots = 3
 set_stability = 0.4
 set_war_support = 0.4
 
+
+fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
+
+set_technology = {
+}
+
+TNO_startup_nation = yes
+
+add_ideas = {
+    #political#
+    tno_political_parties_multiparty_system
+    tno_religious_rights_pluralism
+    tno_trade_unions_all_allowed
+    tno_immigration_quota_immigration
+    tno_slavery_outlawed
+    tno_public_meetings_allowed
+    tno_press_rights_free_press
+    tno_vote_franchise_universal
+    #military#
+    tno_conscription_service_by_requirement
+    tno_military_supervision_rules_of_engagement
+    tno_training_basic_training
+    tno_draft_exemptions_none
+    #economic#
+    tno_trade_laws_export_focus
+    tno_income_taxation_high_income_weighted
+    tno_minimum_wage_acceptable_minimum
+    tno_max_workhours_10_hour_work_day
+    tno_pensions_acceptable_pensions
+    tno_unemployment_moderate_subsidies
+    #social#
+    tno_health_care_low_income_protections
+    tno_education_public_education
+    tno_penal_system_incarceration
+    tno_gender_rights_women_in_the_workplace
+    tno_security_regulated_police
+    tno_regulations_moderate_regulations
+    #misc
+    tno_refugees_skilled
+    tno_women_military_assistance
+    tno_racial_integration_integrated_military
+    tno_child_labor_illegal
+    tno_safety_acceptable_regulations
+    tno_pollution_some_regulations
+    tno_lgbt_rights_lgbt_allowed
+    tno_minorities_equal_rights
+    #social development
+    tno_army_professionalism_political_interference
+    tno_industrial_expertise_nascent
+    tno_industrial_equipment_power_tools
+    tno_admin_efficiency_functional_administrative_systems
+    tno_healthcare_nascent
+    tno_agriculture_basic_mechanized
+    tno_research_facilities_outdated
+    tno_academic_base_basic_literacy
+}
+
 set_politics = {
-	ruling_party = paternalist
-	last_election = "1936.08.01"
-	election_frequency = 100
-	elections_allowed = yes
+    ruling_party = authoritarian_democrat
+    last_election = "1888.6.15"
+    election_frequency = 48
+    elections_allowed = no
 }
 
 set_popularities = {
-	vanguardist = 0
-	socialist = 12
-	syndicalist = 5
-	progressive = 17
-	liberal = 10
-	conservative = 2
-	ecologist = 5
-	authoritarian_democrat = 8
-	paternalist = 29
-	national_populist = 12
-}
-
-recruit_character = PIR_jose_antonio_matos_netto
-recruit_character = PIR_jose_antonio_flores_da_cunha
-
-recruit_character = BRA_abilio_de_nequete
-recruit_character = BRA_luis_carlos_prestes
-recruit_character = BRA_lila_ripoll
-recruit_character = BRA_nereu_de_oliveira_ramos
-recruit_character = BRA_joaquim_francisco_de_assis_brasil
-recruit_character = BRA_raul_pilla
-recruit_character = BRA_antonio_augusto_borges_de_medeiros
-recruit_character = BRA_getulio_dornelles_vargas
-recruit_character = BRA_fernando_setembrino_de_carvalho
-recruit_character = BRA_joao_batista_mascarenhas_de_morais
-recruit_character = BRA_nestor_sezefredo_dos_passos
-recruit_character = BRA_jose_fernandes_leite_de_castro
-recruit_character = BRA_nelson_de_melo
-recruit_character = BRA_protogenes_pereira_guimaraes
-
-BRA_abilio_de_nequete = { set_nationality = BRA }
-BRA_luis_carlos_prestes = { set_nationality = BRA }
-BRA_lila_ripoll = { set_nationality = BRA }
-BRA_nereu_de_oliveira_ramos = { set_nationality = BRA }
-BRA_joaquim_francisco_de_assis_brasil = { set_nationality = BRA }
-BRA_raul_pilla = { set_nationality = BRA }
-BRA_antonio_augusto_borges_de_medeiros = { set_nationality = BRA }
-BRA_getulio_dornelles_vargas = { set_nationality = BRA }
-
-BRA = {
-	BRA_abilio_de_nequete = { promote_character = vanguardist_subtype }
-	BRA_getulio_dornelles_vargas = { promote_character = paternalist_subtype }
-}
-
-BRA_fernando_setembrino_de_carvalho = {
-	set_character_flag = PIR_leader
-	set_nationality = BRA
-}
-BRA_joao_batista_mascarenhas_de_morais = {
-	set_character_flag = PIR_leader
-	set_nationality = BRA
-}
-BRA_nestor_sezefredo_dos_passos = {
-	set_character_flag = PIR_leader
-	set_nationality = BRA
-}
-BRA_jose_fernandes_leite_de_castro = {
-	set_character_flag = PIR_leader
-	set_nationality = BRA
-}
-BRA_nelson_de_melo = {
-	set_character_flag = PIR_leader
-	set_nationality = BRA
-}
-BRA_protogenes_pereira_guimaraes = { set_nationality = BRA }
-
-division_template = {
-	name = "Divisão de Infantaria"
-	division_names_group = PIR_INF_01
-	regiments = {
-		infantry = { x = 0 y = 0 }
-		infantry = { x = 0 y = 1 }
-		infantry = { x = 0 y = 2 }
-		infantry = { x = 1 y = 0 }
-		infantry = { x = 1 y = 1 }
-		infantry = { x = 1 y = 2 }
-		infantry = { x = 2 y = 0 }
-		infantry = { x = 2 y = 1 }
-		infantry = { x = 2 y = 2 }
-	}
-}
-division_template = {
-	name = "Divisão de Cavalaria"
-	division_names_group = PIR_CAV_01
-	regiments = {
-		cavalry = { x = 0 y = 0 }
-		cavalry = { x = 0 y = 1 }
-		cavalry = { x = 0 y = 2 }
-		cavalry = { x = 1 y = 0 }
-		cavalry = { x = 1 y = 1 }
-		cavalry = { x = 1 y = 2 }
-	}
-}
-division_template = {
-	name = "Divisão de Guarda"
-	division_names_group = PIR_GAR_01
-	regiments = {
-		infantry = { x = 0 y = 0 }
-		infantry = { x = 0 y = 1 }
-		infantry = { x = 0 y = 2 }
-		infantry = { x = 0 y = 3 }
-		infantry = { x = 0 y = 4 }
-	}
-	priority = 0
-}
-division_template = {
-	name = "Divisão Blindada"
-	division_names_group = PIR_ARM_01
-	regiments = {
-		light_armor = { x = 0 y = 0 }
-		light_armor = { x = 0 y = 1 }
-		light_armor = { x = 0 y = 2 }
-		infantry = { x = 1 y = 0 }
-		infantry = { x = 1 y = 1 }
-		infantry = { x = 1 y = 2 }
-	}
+    vanguardist = 0
+    syndicalist = 0
+    socialist = 0
+    progressive = 2
+    liberal = 6
+    conservative = 6
+    ecologist = 12
+    authoritarian_democrat = 47
+    paternalist = 15
+    national_populist = 12
 }

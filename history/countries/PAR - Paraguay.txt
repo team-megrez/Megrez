@@ -1,125 +1,81 @@
-﻿capital = 301
+﻿capital = 1616
 oob = "PAR"
 set_research_slots = 2
 set_stability = 0.6
 set_war_support = 0.5
+
+fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
+
 set_technology = {
-	### Infantry ###
-	infantry_weapons = 1
-	tech_support = 1
-	tech_engineers = 1
-	tech_mountaineers = 1
-	gw_artillery = 1
 }
 
-### Planes - BBA ###
-if = {
-	limit = { has_dlc_bba = yes }
-	set_air_oob = "PAR_air_bba"
-	set_technology = {
-		iw_small_airframe = 1
-		aa_lmg = 1
-		engines_1 = 1
-	}
-}
-
-### Planes - non BBA ###
-if = {
-	limit = { has_dlc_bba = no }
-	set_air_oob = "PAR_air_legacy"
-	set_technology = { early_fighter = 1 }
-}
-
-### Tanks - NSB ###
-if = {
-	limit = { has_dlc_nsb = yes }
-	set_technology = { gwtank_chassis = 1 }
-}
-
-### Tanks - non NSB ###
-if = {
-	limit = { has_dlc_nsb = no }
-	set_technology = { gwtank = 1 }
-}
+TNO_startup_nation = yes
 
 add_ideas = {
-	limited_conscription
-	PAR_military_pensions_idea
-	PAR_military_influence_idea
+    #political#
+    tno_political_parties_multiparty_system
+    tno_religious_rights_pluralism
+    tno_trade_unions_all_allowed
+    tno_immigration_quota_immigration
+    tno_slavery_outlawed
+    tno_public_meetings_allowed
+    tno_press_rights_free_press
+    tno_vote_franchise_universal
+    #military#
+    tno_conscription_service_by_requirement
+    tno_military_supervision_rules_of_engagement
+    tno_training_basic_training
+    tno_draft_exemptions_none
+    #economic#
+    tno_trade_laws_export_focus
+    tno_income_taxation_high_income_weighted
+    tno_minimum_wage_acceptable_minimum
+    tno_max_workhours_10_hour_work_day
+    tno_pensions_acceptable_pensions
+    tno_unemployment_moderate_subsidies
+    #social#
+    tno_health_care_low_income_protections
+    tno_education_public_education
+    tno_penal_system_incarceration
+    tno_gender_rights_women_in_the_workplace
+    tno_security_regulated_police
+    tno_regulations_moderate_regulations
+    #misc
+    tno_refugees_skilled
+    tno_women_military_assistance
+    tno_racial_integration_integrated_military
+    tno_child_labor_illegal
+    tno_safety_acceptable_regulations
+    tno_pollution_some_regulations
+    tno_lgbt_rights_lgbt_allowed
+    tno_minorities_equal_rights
+    #social development
+    tno_army_professionalism_political_interference
+    tno_industrial_expertise_nascent
+    tno_industrial_equipment_power_tools
+    tno_admin_efficiency_functional_administrative_systems
+    tno_healthcare_nascent
+    tno_agriculture_basic_mechanized
+    tno_research_facilities_outdated
+    tno_academic_base_basic_literacy
 }
 
 set_politics = {
-	ruling_party = authoritarian_democrat
-	last_election = "1935.10.1"
-	election_frequency = 73
-	elections_allowed = yes
+    ruling_party = authoritarian_democrat
+    last_election = "1888.6.15"
+    election_frequency = 48
+    elections_allowed = no
 }
 
 set_popularities = {
-	vanguardist = 1
-	socialist = 8
-	syndicalist = 6
-	progressive = 2
-	liberal = 10
-	conservative = 6
-	ecologist = 5
-	authoritarian_democrat = 56
-	paternalist = 2
-	national_populist = 4
+    vanguardist = 0
+    syndicalist = 0
+    socialist = 0
+    progressive = 2
+    liberal = 6
+    conservative = 6
+    ecologist = 12
+    authoritarian_democrat = 47
+    paternalist = 15
+    national_populist = 12
 }
-
-country_event = { id = par.1 days = 2 }
-country_event = { id = par.29 days = 950 }		# In the Hell of the Chaco movie
-
-301 = {				# Workaround to not increase state category for PAR
-	add_extra_state_shared_building_slots = 1
-	add_building_construction = {
-		type = arms_factory
-		level = 1
-	}
-}
-
-### HoS ###
-recruit_character = PAR_higinio_morinigo_martinez
-recruit_character = PAR_jose_felix_estigarribia
-recruit_character = PAR_juan_manuel_frutos
-recruit_character = PAR_eduardo_schaerer
-recruit_character = PAR_eligio_ayala
-recruit_character = PAR_jose_patricio_guggiari
-recruit_character = PAR_odulio_barthe
-recruit_character = PAR_rafael_franco
-
-### Corps Commanders ###
-recruit_character = PAR_raimundo_rolon
-recruit_character = PAR_eugenio_garay
-recruit_character = PAR_federico_smith
-recruit_character = PAR_luis_irrazabal
-recruit_character = PAR_vicente_machuca
-
-### Those three become generals only for the vanguardist route
-recruit_character = PAR_carlos_pastore
-recruit_character = PAR_aristides_ortellado
-recruit_character = PAR_camilo_recalde
-
-### Only from the elections
-recruit_character = PAR_eusebio_ayala
-recruit_character = PAR_luis_alberto_riart
-
-### Advisors only
-recruit_character = PAR_horacio_chiriani
-recruit_character = PAR_anselmo_jover
-recruit_character = PAR_nicolas_delgado
-recruit_character = PAR_leandro_aponte
-recruit_character = PAR_romildo_etcheverry
-recruit_character = PAR_paraguayan_high_command
-recruit_character = PAR_felix_pavia
-recruit_character = PAR_tomas_salomoni
-recruit_character = PAR_federico_chaves
-recruit_character = PAR_ricardo_odriosola
-recruit_character = PAR_justo_pastor
-recruit_character = PAR_arnaldo_valdovinos
-recruit_character = PAR_efraim_cardozo
-recruit_character = PAR_victoriano_benitez
-recruit_character = PAR_juan_stefanich
-
-activate_advisor = PAR_luis_alberto_riart_sic

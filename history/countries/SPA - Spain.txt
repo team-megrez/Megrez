@@ -1,4 +1,4 @@
-﻿capital = 41
+﻿capital = 1013
 oob = "SPA"
 set_naval_oob = "SPA_naval"
 set_research_slots = 3
@@ -7,400 +7,79 @@ add_war_support = 0.5
 set_convoys = 150
 set_cosmetic_tag = SPA_kingdom
 
-save_global_event_target_as = original_spain
+
+fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
 
 set_technology = {
-	### Infantry ###
-	infantry_weapons = 1
-	infantry_weapons1 = 1
-	tech_mountaineers = 1
-
-	### Support ###
-	tech_support = 1
-	tech_engineers = 1
-	tech_recon = 1
-
-	### Artillery ###
-	gw_artillery = 1
-	interwar_antiair = 1
-
-	### Trains ###
-	basic_train = 1
 }
 
-### Planes - BBA ###
-if = {
-	limit = { has_dlc_bba = yes }
-	set_air_oob = "SPA_air_bba"
-	set_technology = {
-		aa_lmg = 1
-		aa_cannon_1 = 1
-		engines_1 = 1
-		early_bombs = 1
-		aircraft_construction = 1
-		iw_small_airframe = 1
-		iw_medium_airframe = 1
-		iw_large_airframe = 1
-	}
+TNO_startup_nation = yes
+
+add_ideas = {
+    #political#
+    tno_political_parties_multiparty_system
+    tno_religious_rights_pluralism
+    tno_trade_unions_all_allowed
+    tno_immigration_quota_immigration
+    tno_slavery_outlawed
+    tno_public_meetings_allowed
+    tno_press_rights_free_press
+    tno_vote_franchise_universal
+    #military#
+    tno_conscription_service_by_requirement
+    tno_military_supervision_rules_of_engagement
+    tno_training_basic_training
+    tno_draft_exemptions_none
+    #economic#
+    tno_trade_laws_export_focus
+    tno_income_taxation_high_income_weighted
+    tno_minimum_wage_acceptable_minimum
+    tno_max_workhours_10_hour_work_day
+    tno_pensions_acceptable_pensions
+    tno_unemployment_moderate_subsidies
+    #social#
+    tno_health_care_low_income_protections
+    tno_education_public_education
+    tno_penal_system_incarceration
+    tno_gender_rights_women_in_the_workplace
+    tno_security_regulated_police
+    tno_regulations_moderate_regulations
+    #misc
+    tno_refugees_skilled
+    tno_women_military_assistance
+    tno_racial_integration_integrated_military
+    tno_child_labor_illegal
+    tno_safety_acceptable_regulations
+    tno_pollution_some_regulations
+    tno_lgbt_rights_lgbt_allowed
+    tno_minorities_equal_rights
+    #social development
+    tno_army_professionalism_political_interference
+    tno_industrial_expertise_nascent
+    tno_industrial_equipment_power_tools
+    tno_admin_efficiency_functional_administrative_systems
+    tno_healthcare_nascent
+    tno_agriculture_basic_mechanized
+    tno_research_facilities_outdated
+    tno_academic_base_basic_literacy
 }
-
-### Planes - non BBA ###
-if = {
-	limit = { has_dlc_bba = no }
-	set_air_oob = "SPA_air_legacy"
-	set_technology = {
-		early_fighter = 1
-		early_bomber = 1
-		naval_bomber1 = 1
-	}
-}
-
-### Navy - MtG ###
-if = {
-	limit = { has_dlc_mtg = yes }
-	set_technology = {
-		### Hulls ###
-		early_ship_hull_submarine = 1
-		basic_ship_hull_submarine = 1
-		early_ship_hull_light = 1
-		basic_ship_hull_light = 1
-		early_ship_hull_cruiser = 1
-		basic_ship_hull_cruiser = 1
-		early_ship_hull_heavy = 1
-
-		### Modules ###
-		basic_naval_mines = 1
-		submarine_mine_laying = 1
-		basic_battery = 1
-		basic_medium_battery = 1
-		basic_torpedo = 1
-		basic_depth_charges = 1
-
-		### Transports ###
-		mtg_transport = 1
-	}
-}
-
-### Navy - Non MtG ###
-if = {
-	limit = { has_dlc_mtg = no }
-	set_technology = {
-		### Hulls ###
-		early_submarine = 1
-		early_destroyer = 1
-		basic_destroyer = 1
-		early_light_cruiser = 1
-		early_heavy_cruiser = 1
-		basic_heavy_cruiser = 1
-		early_battleship = 1
-
-		### Transports ###
-		transport = 1
-	}
-}
-
-create_dynamic_country = {
-	original_tag = SPA
-	set_country_flag = SPA_is_socialist_spain
-	set_cosmetic_tag = SPA_socialist
-	load_focus_tree = SWF_focus
-
-	set_stability = 0.6
-	add_war_support = 0.5
-	set_politics = { ruling_party = syndicalist }
-	set_popularities = {
-		vanguardist = 8
-		socialist = 12
-		syndicalist = 55
-		progressive = 3
-		liberal = 3
-		conservative = 7
-		ecologist = 0
-		authoritarian_democrat = 10
-		paternalist = 0
-		national_populist = 2
-	}
-
-	add_ideas = SPA_social_breakdown
-
-	### Dummy Leaders ###
-	create_country_leader = {
-		name = SPA_augusto_barcia_trelles
-		picture = "gfx/leaders/SPA/Portrait_SPA_Augusto_Barcia_Trelles.png"
-		ideology = progressive_subtype
-	}
-	create_country_leader = {
-		name = SPA_manuel_azana_diaz
-		picture = "gfx/leaders/SPA/Portrait_SPA_Manuel_Azana_Diaz.png"
-		ideology = liberal_subtype
-	}
-	create_country_leader = {
-		name = SPA_niceto_alcala_zamora
-		picture = "gfx/leaders/SPA/Portrait_SPA_Niceto_Alcala_Zamora.png"
-		ideology = conservative_subtype
-	}
-	create_country_leader = {
-		name = SPA_jose_calvo_sotelo
-		picture = "gfx/leaders/SPA/Portrait_SPA_Jose_Calvo_Sotelo.png"
-		ideology = ecologist_subtype
-	}
-	create_country_leader = {
-		name = SPA_gil_robles
-		picture = "gfx/leaders/SPA/Portrait_SPA_J_M_Gil_Robles_Quinones.png"
-		ideology = authoritarian_democrat_subtype
-	}
-	create_country_leader = {
-		name = SPA_emilio_mola_vidal
-		picture = "gfx/leaders/SPA/Portrait_SPA_Mola_Vidal.png"
-		ideology = paternalist_subtype
-	}
-	create_country_leader = {
-		name = SPA_camilo_alonso_vega
-		picture = "gfx/leaders/SPA/Portrait_SPA_Alonso_Vega.png"
-		ideology = national_populist_subtype
-	}
-
-	### Country Leaders ###
-	recruit_character = SWF_dolores_ibarruri_gomez
-	recruit_character = SWF_angel_pestana_nunez
-	recruit_character = SWF_buenaventura_durruti
-
-	promote_character = SWF_dolores_ibarruri_gomez
-	promote_character = SWF_angel_pestana_nunez
-	promote_character = SWF_buenaventura_durruti
-
-	### Second in Command ###
-	recruit_character = SWF_comite_central_de_la_cnt_fai
-	activate_advisor = SWF_comite_central_de_la_cnt_fai_sic
-
-	### Generals ###
-	recruit_character = SWF_fernandez_osorio_y_tafall
-	recruit_character = SWF_domenec_batet
-	recruit_character = SWF_jose_riquelme_y_lopez_bago
-	recruit_character = SWF_emilio_herrera_linares
-	recruit_character = SWF_vicente_rojo_lluch
-
-	### Advisors ###
-	recruit_character = SWF_francisco_largo_caballero
-	recruit_character = SWF_juan_garcia_oliver
-	recruit_character = SWF_horacio_martinez_prieto
-	recruit_character = SWF_joan_peiro
-	recruit_character = SWF_andreu_nin_perez
-	recruit_character = SWF_ramon_rufat
-
-	### Military Staff ###
-	recruit_character = SWF_enrique_lister_forjan
-	recruit_character = SWF_cipriano_mera
-	recruit_character = SWF_julio_mangada
-	recruit_character = SWF_ignacio_hidalgo
-	recruit_character = SWF_felipe_diaz_sandino
-	recruit_character = SWF_pedro_padro_mendizabal
-	recruit_character = SWF_luis_gonzales_de_ubieta
-	recruit_character = SWF_juan_modesto
-	recruit_character = SWF_jose_pellicer_gandia
-	recruit_character = SWF_virgilio_leret_luiz
-	recruit_character = SWF_luis_casado_escudero
-	recruit_character = SWF_eleuterio_diaz_tendero_merchan
-	recruit_character = SWF_manuel_taguena
-	recruit_character = SWF_pavel_batov
-	recruit_character = SWF_joaquin_ascaso_budria
-
-	### Variants ###
-	SPA_naval_variants = yes
-
-	### Templates ###
-	SPA_create_templates = yes
-
-	reserve_dynamic_country = yes
-	set_country_flag = reserved_dynamic_tag
-}
-
-create_dynamic_country = {
-	original_tag = SPA
-	set_country_flag = SPA_is_carlist_spain
-	set_cosmetic_tag = SPA_carlists
-	load_focus_tree = SPR_focus
-
-	set_stability = 0.6
-	add_war_support = 0.5
-	set_politics = { ruling_party = paternalist }
-	set_popularities = {
-		vanguardist = 0
-		socialist = 0
-		syndicalist = 0
-		progressive = 3
-		liberal = 3
-		conservative = 7
-		ecologist = 0
-		authoritarian_democrat = 10
-		paternalist = 75
-		national_populist = 2
-	}
-
-	add_ideas = SPA_social_breakdown
-
-	### Dummy Leaders ###
-	create_country_leader = {
-		name = SWF_dolores_ibarruri_gomez
-		picture = "gfx/leaders/SWF/Portrait_SWF_Dolores_Ibarruri_Gomez.png"
-		ideology = vanguardist_subtype
-	}
-	create_country_leader = {
-		name = SWF_angel_pestana_nunez
-		picture = "gfx/leaders/SWF/Portrait_SWF_Angel_Pestana.png"
-		ideology = socialist_subtype
-	}
-	create_country_leader = {
-		name = SWF_buenaventura_durruti
-		picture = "gfx/leaders/SWF/Portrait_SWF_Durruti_Dumange.png"
-		ideology = syndicalist_subtype
-	}
-
-	### Country Leaders ###
-	recruit_character = SPR_javier_de_borbon_parma
-	SPR_javier_de_borbon_parma = {
-		promote_character = progressive_subtype
-		promote_character = liberal_subtype
-		promote_character = conservative_subtype
-		promote_character = ecologist_subtype
-		promote_character = authoritarian_democrat_subtype
-		promote_character = paternalist_subtype
-		promote_character = national_populist_subtype
-	}
-
-	### Second in Command ###
-	recruit_character = SPR_manuel_fal_conde
-	activate_advisor = SPR_manuel_fal_conde_sic
-
-	### Advisors ###
-	recruit_character = SPR_jose_maria_valiente
-	recruit_character = SPR_alejandro_goicoechea_omar
-	recruit_character = SPR_tomas_dominguez_arevalo
-	recruit_character = SPR_dolores_de_gortazar
-	recruit_character = SPR_pedro_segura
-	recruit_character = SPR_jaime_del_burgo_torres
-	recruit_character = SPR_antonio_de_lizarza
-
-	### Generals ###
-	recruit_character = SPR_miguel_cabanellas_ferrer
-	recruit_character = SPR_gonzalo_queipo_de_llano
-	recruit_character = SPR_mariano_gamir_ulibarri
-	recruit_character = SPR_jose_moscardo_ituarte
-	recruit_character = SPR_ricardo_de_rada_y_peral
-
-	### Admirals ###
-	recruit_character = SPA_salvador_moreno_hernandez
-
-	### Military Staff ###
-	recruit_character = SPR_rafael_garcia_valino
-	recruit_character = SPR_heliodoro_rolando_de_tella_cantos
-	recruit_character = SPR_juan_vigon_suero_diaz
-	recruit_character = SPR_jose_enrique_varela
-
-	### Variants ###
-	SPA_naval_variants = yes
-
-	### Templates ###
-	SPA_create_templates = yes
-
-	reserve_dynamic_country = yes
-	set_country_flag = reserved_dynamic_tag
-}
-
-set_country_flag = SPA_is_alfonsist_spain
 
 set_politics = {
-	ruling_party = authoritarian_democrat
-	last_election = "1888.6.15"
-	election_frequency = 48
-	elections_allowed = no
+    ruling_party = authoritarian_democrat
+    last_election = "1888.6.15"
+    election_frequency = 48
+    elections_allowed = no
 }
 
 set_popularities = {
-	vanguardist = 0
-	socialist = 2
-	syndicalist = 5
-	progressive = 9
-	liberal = 10
-	conservative = 12
-	ecologist = 8
-	authoritarian_democrat = 47
-	paternalist = 5
-	national_populist = 2
+    vanguardist = 0
+    syndicalist = 0
+    socialist = 0
+    progressive = 2
+    liberal = 6
+    conservative = 6
+    ecologist = 12
+    authoritarian_democrat = 47
+    paternalist = 15
+    national_populist = 12
 }
-
-country_event = { id = sprd.1 hours = 2 }
-country_event = { id = sprd.4 days = 13 }
-country_event = { id = sprd.8 days = 32 }
-country_event = { id = sprd.13 days = 57 }
-country_event = { id = sprd.21 days = 300 }
-
-add_ideas = {
-	limited_conscription
-	SPA_social_breakdown
-	SPA_memories_of_the_republic
-}
-
-### Dummy Leaders ###
-create_country_leader = {
-	name = SWF_dolores_ibarruri_gomez
-	picture = "gfx/leaders/SWF/Portrait_SWF_Dolores_Ibarruri_Gomez.png"
-	ideology = vanguardist_subtype
-}
-create_country_leader = {
-	name = SWF_angel_pestana_nunez
-	picture = "gfx/leaders/SWF/Portrait_SWF_Angel_Pestana.png"
-	ideology = socialist_subtype
-}
-create_country_leader = {
-	name = SWF_buenaventura_durruti
-	picture = "gfx/leaders/SWF/Portrait_SWF_Durruti_Dumange.png"
-	ideology = syndicalist_subtype
-}
-
-### Monarchs ###
-recruit_character = SPA_alfonso_de_borbon
-recruit_character = SPA_jaime_de_borbon
-recruit_character = SPA_juan_de_borbon
-
-### Country Leaders ###
-recruit_character = SPA_augusto_barcia_trelles
-recruit_character = SPA_manuel_azana_diaz
-recruit_character = SPA_niceto_alcala_zamora
-recruit_character = SPA_jose_calvo_sotelo
-recruit_character = SPA_gil_robles
-recruit_character = SPA_emilio_mola_vidal
-recruit_character = SPA_camilo_alonso_vega
-
-### Second in Command ###
-recruit_character = SPA_miguel_primo_de_rivera
-activate_advisor = SPA_miguel_primo_de_rivera_sic
-
-### Advisors ###
-recruit_character = SPA_francisco_de_borbon_de_la_torre
-recruit_character = SPA_francisco_serrat_y_bonastre
-recruit_character = SPA_miguel_maura_gamazo
-recruit_character = SPA_fidel_davila_arrondo
-recruit_character = SPA_german_gil_y_yuste
-recruit_character = SPA_juan_march_ordinas
-recruit_character = SPA_pilar_millan_astray
-
-### Generals ###
-recruit_character = SPA_jose_sanjurjo_sacanell
-recruit_character = SPA_francisco_franco_bahamonde
-recruit_character = SPA_leopoldo_saro_marin
-recruit_character = SPA_emilio_barrera_luyando
-recruit_character = SPA_manuel_goded_llopis
-recruit_character = SPA_damaso_berenguer_fuste
-
-### Admirals ###
-recruit_character = SPA_manuel_vierna_belando
-
-### Military Staff ###
-recruit_character = SPA_juan_yague_blanco
-recruit_character = SPA_luis_carrero_blanco
-recruit_character = SPA_francisco_moreno_fernandez
-recruit_character = SPA_joaquin_garcia_morato
-recruit_character = SPA_miguel_ponte_manso_de_zuniga
-recruit_character = SPA_enrique_canovas_lacruz
-recruit_character = SPA_angel_salas_larrazabal

@@ -3,113 +3,79 @@ set_research_slots = 2
 set_naval_oob = "PUE_naval"
 set_convoys = 5
 
+
+fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
+
 set_technology = {
-	### Tanks ###
-	### Infantry ###
-	infantry_weapons = 1
-	gw_artillery = 1
-	marines = 1
 }
 
-### Planes - BBA ###
-if = {
-	limit = { has_dlc_bba = yes }
-	set_technology = {
-		aa_lmg = 1
-		engines_1 = 1
-		iw_small_airframe = 1
-	}
+TNO_startup_nation = yes
+
+add_ideas = {
+    #political#
+    tno_political_parties_multiparty_system
+    tno_religious_rights_pluralism
+    tno_trade_unions_all_allowed
+    tno_immigration_quota_immigration
+    tno_slavery_outlawed
+    tno_public_meetings_allowed
+    tno_press_rights_free_press
+    tno_vote_franchise_universal
+    #military#
+    tno_conscription_service_by_requirement
+    tno_military_supervision_rules_of_engagement
+    tno_training_basic_training
+    tno_draft_exemptions_none
+    #economic#
+    tno_trade_laws_export_focus
+    tno_income_taxation_high_income_weighted
+    tno_minimum_wage_acceptable_minimum
+    tno_max_workhours_10_hour_work_day
+    tno_pensions_acceptable_pensions
+    tno_unemployment_moderate_subsidies
+    #social#
+    tno_health_care_low_income_protections
+    tno_education_public_education
+    tno_penal_system_incarceration
+    tno_gender_rights_women_in_the_workplace
+    tno_security_regulated_police
+    tno_regulations_moderate_regulations
+    #misc
+    tno_refugees_skilled
+    tno_women_military_assistance
+    tno_racial_integration_integrated_military
+    tno_child_labor_illegal
+    tno_safety_acceptable_regulations
+    tno_pollution_some_regulations
+    tno_lgbt_rights_lgbt_allowed
+    tno_minorities_equal_rights
+    #social development
+    tno_army_professionalism_political_interference
+    tno_industrial_expertise_nascent
+    tno_industrial_equipment_power_tools
+    tno_admin_efficiency_functional_administrative_systems
+    tno_healthcare_nascent
+    tno_agriculture_basic_mechanized
+    tno_research_facilities_outdated
+    tno_academic_base_basic_literacy
 }
-
-### Planes - non BBA ###
-if = {
-	limit = { has_dlc_bba = no }
-	set_technology = { early_fighter = 1 }
-}
-
-### Navy - MtG ###
-
-if = {
-	limit = { has_dlc_mtg = yes }
-	set_technology = {
-		early_ship_hull_light = 1
-		basic_naval_mines = 1
-		early_ship_hull_cruiser = 1
-
-		## Modules##
-		basic_depth_charges = 1
-		basic_torpedo = 1
-		basic_battery = 1
-	}
-}
-
-### Navy - Non MtG ###
-
-if = {
-	limit = { has_dlc_mtg = no }
-	set_technology = {
-		early_destroyer = 1
-		early_light_cruiser = 1
-	}
-}
-
-add_ideas = PUE_economic_disaster
 
 set_politics = {
-	ruling_party = liberal
-	last_election = "1888.6.15"
-	election_frequency = 48
-	elections_allowed = no
+    ruling_party = authoritarian_democrat
+    last_election = "1888.6.15"
+    election_frequency = 48
+    elections_allowed = no
 }
 
 set_popularities = {
-	vanguardist = 2
-	socialist = 3
-	syndicalist = 5
-	progressive = 13
-	liberal = 41
-	conservative = 21
-	ecologist = 10
-	authoritarian_democrat = 3
-	paternalist = 2
-	national_populist = 0
+    vanguardist = 0
+    syndicalist = 0
+    socialist = 0
+    progressive = 2
+    liberal = 6
+    conservative = 6
+    ecologist = 12
+    authoritarian_democrat = 47
+    paternalist = 15
+    national_populist = 12
 }
-
-### Country Leaders ###
-recruit_character = PUE_santiago_iglesias_pantin
-recruit_character = PUE_cesar_andreu_iglesias
-recruit_character = PUE_bolivar_pagan_lucca
-recruit_character = PUE_antonio_rafael_barcelo
-recruit_character = PUE_ernesto_ramos_antonini
-recruit_character = PUE_luis_munoz_marin
-recruit_character = PUE_gobierno_de_la_fortaleza
-recruit_character = PUE_jose_coll_y_cuchi
-recruit_character = PUE_blanton_winship
-recruit_character = PUE_pedro_albizu_campos
-
-### Field Marshals ###
-recruit_character = PUE_luis_raul_esteves
-
-### Corps Commanders ###
-recruit_character = PUE_salvador_teodoro_roig_marietti
-recruit_character = PUE_carlos_betances_ramirez
-
-### Advisors ###
-recruit_character = PUE_juan_antonio_corretjer
-recruit_character = PUE_clemente_soto_velez
-recruit_character = PUE_jesus_t_pinero
-recruit_character = PUE_leopoldo_figueroa
-recruit_character = PUE_rafael_carrion_sr
-recruit_character = PUE_ramiro_l_colon
-recruit_character = PUE_juanita_garcia_peraza
-recruit_character = PUE_jaime_benitez_rexach
-recruit_character = PUE_santos_p_amadeo
-recruit_character = PUE_joseph_b_aviles_sr
-recruit_character = PUE_edmund_ernest_garcia
-recruit_character = PUE_rafael_celestino_benitez
-recruit_character = PUE_virgil_r_miller
-recruit_character = PUE_juan_cesar_cordero_davila
-recruit_character = PUE_carlos_fernando_chardon
-
-### Character Flags ###
-every_unit_leader = { set_character_flag = PUE_leader }

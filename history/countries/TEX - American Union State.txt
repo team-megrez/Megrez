@@ -4,240 +4,78 @@ set_convoys = 80
 set_stability = 0.5
 set_war_support = 0.4
 
-country_event = { id = unionstate.21 days = 5419 random_days = 180 } #Death of the King
-country_event = { id = unionstate.65 days = 5419 random_days = 600 } #Pelley's Death
-country_event = { id = unionstate.42 days = 5419 random_days = 720 } #Moseley's Death
+fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
 
-USA_starting_techs = yes
-USA_starting_tank_variants = yes
-USA_starting_naval_variants = yes
-USA_starting_plane_variants = yes
+set_technology = {
+}
+
+TNO_startup_nation = yes
+
+add_ideas = {
+    #political#
+    tno_political_parties_multiparty_system
+    tno_religious_rights_pluralism
+    tno_trade_unions_all_allowed
+    tno_immigration_quota_immigration
+    tno_slavery_outlawed
+    tno_public_meetings_allowed
+    tno_press_rights_free_press
+    tno_vote_franchise_universal
+    #military#
+    tno_conscription_service_by_requirement
+    tno_military_supervision_rules_of_engagement
+    tno_training_basic_training
+    tno_draft_exemptions_none
+    #economic#
+    tno_trade_laws_export_focus
+    tno_income_taxation_high_income_weighted
+    tno_minimum_wage_acceptable_minimum
+    tno_max_workhours_10_hour_work_day
+    tno_pensions_acceptable_pensions
+    tno_unemployment_moderate_subsidies
+    #social#
+    tno_health_care_low_income_protections
+    tno_education_public_education
+    tno_penal_system_incarceration
+    tno_gender_rights_women_in_the_workplace
+    tno_security_regulated_police
+    tno_regulations_moderate_regulations
+    #misc
+    tno_refugees_skilled
+    tno_women_military_assistance
+    tno_racial_integration_integrated_military
+    tno_child_labor_illegal
+    tno_safety_acceptable_regulations
+    tno_pollution_some_regulations
+    tno_lgbt_rights_lgbt_allowed
+    tno_minorities_equal_rights
+    #social development
+    tno_army_professionalism_political_interference
+    tno_industrial_expertise_nascent
+    tno_industrial_equipment_power_tools
+    tno_admin_efficiency_functional_administrative_systems
+    tno_healthcare_nascent
+    tno_agriculture_basic_mechanized
+    tno_research_facilities_outdated
+    tno_academic_base_basic_literacy
+}
 
 set_politics = {
-	ruling_party = authoritarian_democrat
-	last_election = "1936.11.08"
-	election_frequency = 48
-	elections_allowed = yes
+    ruling_party = authoritarian_democrat
+    last_election = "1888.6.15"
+    election_frequency = 48
+    elections_allowed = no
 }
 
 set_popularities = {
-	vanguardist = 0
-	socialist = 0
-	syndicalist = 0
-	progressive = 0
-	liberal = 0
-	conservative = 0
-	ecologist = 5
-	authoritarian_democrat = 60
-	paternalist = 15
-	national_populist = 20
-}
-
-add_ai_strategy = {
-	type = ignore_claim
-	id = "CSA"
-	value = 1
-}
-add_ai_strategy = {
-	type = ignore_claim
-	id = "USA"
-	value = 1
-}
-add_ai_strategy = {
-	type = ignore_claim
-	id = "PSA"
-	value = 1
-}
-add_ai_strategy = {
-	type = ignore_claim
-	id = "NEE"
-	value = 1
-}
-
-### Dummy Leaders ###
-create_country_leader = {
-	name = CSA_earl_browder
-	picture = "gfx/leaders/CSA/Portrait_CSA_Earl_Bowder.png"
-	ideology = vanguardist_subtype
-}
-create_country_leader = {
-	name = CSA_jack_reed
-	picture = "gfx/leaders/CSA/Portrait_CSA_Jack_Reed.png"
-	ideology = syndicalist_subtype
-}
-create_country_leader = {
-	name = NEE_arnold_petersen
-	picture = "gfx/leaders/Generic/Portrait_Europe_Generic_new_12.png"
-	ideology = socialist_subtype
-}
-create_country_leader = {
-	name = USA_floyd_olson
-	picture = "gfx/leaders/USA/Portrait_USA_Floyd_Olson.png"
-	ideology = progressive_subtype
-}
-create_country_leader = {
-	name = USA_al_smith
-	picture = "gfx/leaders/USA/Portrait_USA_Al_Smith.png"
-	ideology = liberal_subtype
-}
-create_country_leader = {
-	name = USA_alf_landon
-	picture = "gfx/leaders/USA/Portrait_USA_Alf_Landon_KR.png"
-	ideology = conservative_subtype
-}
-create_country_leader = {
-	name = USA_john_nance_garner
-	picture = "gfx/leaders/USA/Portrait_USA_John_Nance_Garner.png"
-	ideology = ecologist_subtype
-}
-
-### Country Leaders ###
-recruit_character = TEX_huey_long
-recruit_character = TEX_earl_kemp_long
-recruit_character = TEX_charles_lindbergh
-recruit_character = TEX_william_dudley_pelley
-recruit_character = TEX_gerald_lyman_kenneth_smith
-
-### Second in Command ###
-recruit_character = TEX_united_states_congress
-activate_advisor = TEX_united_states_congress_sic
-
-### Advisors ###
-recruit_character = TEX_charles_edward_coughlin
-recruit_character = TEX_herbert_walter_armstrong
-recruit_character = TEX_henry_ford
-recruit_character = TEX_archibald_bulloch_roosevelt
-recruit_character = TEX_fred_chase_koch
-recruit_character = TEX_hugo_lafayette_black
-recruit_character = TEX_francis_everett_townsend
-recruit_character = TEX_george_sylvester_viereck
-recruit_character = TEX_elizabeth_eloise_kirkpatrick_dilling
-recruit_character = TEX_george_samuel_schuyler
-recruit_character = TEX_george_william_christians
-recruit_character = TEX_guy_warren_ballard
-recruit_character = TEX_wilbur_glenn_voliva
-
-### Generals ###
-recruit_character = TEX_fox_conner
-recruit_character = TEX_george_van_horn_moseley
-recruit_character = TEX_george_smith_patton
-recruit_character = TEX_jacob_loucks_devers
-recruit_character = TEX_joseph_lawton_collins
-recruit_character = TEX_courtney_hicks_hodges
-recruit_character = TEX_william_hood_simpson
-recruit_character = TEX_claire_lee_chennault
-recruit_character = TEX_walton_harris_walker
-recruit_character = TEX_matthew_bunker_ridgway
-recruit_character = TEX_bruce_cooper_clarke
-recruit_character = TEX_henry_irving_hodes
-recruit_character = TEX_clifton_bledsoe_cates
-recruit_character = TEX_lewis_burwell_puller
-recruit_character = TEX_pedro_del_valle
-
-### Admirals ###
-recruit_character = TEX_samuel_murray_robinson
-recruit_character = TEX_david_worth_bagley
-recruit_character = TEX_john_sidney_mccain_sr
-recruit_character = TEX_willis_augustus_lee_jr
-recruit_character = TEX_jerauld_wright
-recruit_character = TEX_arthur_leroy_bristol_jr
-
-### Military Staff ###
-recruit_character = TEX_robert_elkington_wood
-recruit_character = TEX_james_guthrie_harbord
-recruit_character = TEX_frank_maxwell_andrews
-recruit_character = TEX_curtis_emerson_lemay
-recruit_character = TEX_otto_paul_weyland
-recruit_character = TEX_dewitt_clinton_ramsey
-
-### Character Setup ###
-TEX_huey_long = { set_nationality = USA }
-TEX_william_dudley_pelley = { set_nationality = USA }
-TEX_fox_conner = { set_nationality = USA }
-TEX_george_van_horn_moseley = { set_nationality = USA }
-TEX_george_smith_patton = { set_nationality = USA }
-TEX_samuel_murray_robinson = { set_nationality = USA }
-TEX_david_worth_bagley = { set_nationality = USA }
-TEX_john_sidney_mccain_sr = { set_nationality = USA }
-
-TEX_willis_augustus_lee_jr = { retire = yes }
-TEX_jerauld_wright = { retire = yes }
-TEX_arthur_leroy_bristol_jr = { retire = yes }
-
-### Templates ###
-division_template = {
-	name = "National Infantry"
-	division_names_group = TEX_INF_01
-	regiments = {
-		infantry = { x = 0 y = 0 }
-		infantry = { x = 0 y = 1 }
-		infantry = { x = 0 y = 2 }
-		infantry = { x = 1 y = 0 }
-		infantry = { x = 1 y = 1 }
-		infantry = { x = 1 y = 2 }
-		infantry = { x = 2 y = 0 }
-		infantry = { x = 2 y = 1 }
-		infantry = { x = 2 y = 2 }
-	}
-	support = {
-		artillery = { x = 0 y = 0 }
-		engineer = { x = 0 y = 1 }
-	}
-	template_counter = 72
-}
-division_template = {# Motorized
-	name = "Motorized Cavalry"
-	division_names_group = TEX_CAV_01
-	regiments = {
-		motorized = { x = 0 y = 0 }
-		motorized = { x = 0 y = 1 }
-		motorized = { x = 0 y = 2 }
-		motorized = { x = 1 y = 0 }
-		motorized = { x = 1 y = 1 }
-		motorized = { x = 1 y = 2 }
-	}
-	priority = 2
-}
-division_template = {
-	name = "Armored Division"
-	division_names_group = TEX_ARM_01
-
-	regiments = {
-		light_armor = { x = 0 y = 0 }
-		light_armor = { x = 0 y = 1 }
-		light_armor = { x = 0 y = 2 }
-		motorized = { x = 1 y = 0 }
-		motorized = { x = 1 y = 1 }
-		motorized = { x = 1 y = 2 }
-	}
-	priority = 2
-}
-division_template = {
-	name = "Ranger Division"
-	division_names_group = TEX_INF_01
-	regiments = {
-		mountaineers = { x = 0 y = 0 }
-		mountaineers = { x = 0 y = 1 }
-		mountaineers = { x = 0 y = 2 }
-		mountaineers = { x = 1 y = 0 }
-		mountaineers = { x = 1 y = 1 }
-		mountaineers = { x = 1 y = 2 }
-	}
-	support = {
-		recon = { x = 0 y = 0 }
-	}
-}
-division_template = {
-	name = "Marine Division"
-	division_names_group = TEX_MAR_01
-	regiments = {
-		marine = { x = 0 y = 0 }
-		marine = { x = 0 y = 1 }
-		marine = { x = 0 y = 2 }
-		marine = { x = 1 y = 0 }
-	}
-	support = {
-		engineer = { x = 0 y = 0 }
-	}
-	priority = 2
+    vanguardist = 0
+    syndicalist = 0
+    socialist = 0
+    progressive = 2
+    liberal = 6
+    conservative = 6
+    ecologist = 12
+    authoritarian_democrat = 47
+    paternalist = 15
+    national_populist = 12
 }
