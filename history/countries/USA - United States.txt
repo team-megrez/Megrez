@@ -105,22 +105,22 @@ set_variable = { SPA_strength = 0 }
 
 ### Politics
 set_politics = {
-	ruling_party = market_liberal
+	ruling_party = conservative
 	last_election = "1932.11.08"
 	election_frequency = 48
 	elections_allowed = yes
 }
 
 set_popularities = {
-	totalist = 2
+	vanguardist = 2
 	syndicalist = 18
-	radical_socialist = 5
-	social_democrat = 8
-	social_liberal = 11
-	market_liberal = 18
-	social_conservative = 13
+	socialist = 5
+	progressive = 8
+	liberal = 11
+	conservative = 18
+	ecologist = 13
 	authoritarian_democrat = 20
-	paternal_autocrat = 2
+	paternalist = 2
 	national_populist = 3
 }
 
@@ -161,18 +161,18 @@ add_ai_strategy = {
 create_country_leader = {
 	name = CSA_earl_browder
 	picture = "gfx/leaders/CSA/Portrait_CSA_Earl_Bowder.png"
-	ideology = totalist_subtype
+	ideology = vanguardist_subtype
 }
 create_country_leader = {
 	name = NEE_arnold_petersen
 	picture = "gfx/leaders/Generic/Portrait_Europe_Generic_new_12.png"
-	ideology = radical_socialist_subtype
+	ideology = socialist_subtype
 }
 create_country_leader = {
 	name = PSA_henry_wallace
 	desc = PSA_henry_wallace_leader_desc
 	picture = "gfx/leaders/PSA/Portrait_PSA_Henry_Wallace.png"
-	ideology = social_democrat_subtype
+	ideology = progressive_subtype
 	traits = { PSA_world_planner }
 }
 create_country_leader = {

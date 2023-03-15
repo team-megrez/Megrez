@@ -1,73 +1,79 @@
-﻿capital = 810
+﻿capital = 1805
 set_stability = 0.3
 set_war_support = 0.15
 set_research_slots = 2
-oob = "ALO"
-
+recruit_character = ALO_Generic_Vacant
+fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
 set_technology = {
-	### Infantry ###
-	infantry_weapons = 1
-	tech_support = 1
-	gw_artillery = 1
 }
 
-### Planes - non BBA ###
-if = {
-	limit = { has_dlc_bba = no }
-	set_technology = { early_fighter = 1 }
-}
+TNO_startup_nation = yes
 
-### Tanks - NSB ###
-if = {
-	limit = { has_dlc_nsb = yes }
-	set_technology = { gwtank_chassis = 1 }
-}
-
-### Tanks - non NSB ###
-if = {
-	limit = { has_dlc_nsb = no }
-	set_technology = { gwtank = 1 }
-}
-
-RUS = {
-	set_autonomy = {
-		target = ALO
-		autonomy_state = kr_autonomous_puppet
-		freedom_level = 0.75
-	}
+add_ideas = {
+	#political#
+	tno_political_parties_multiparty_system
+	tno_religious_rights_pluralism
+	tno_trade_unions_all_allowed
+	tno_immigration_quota_immigration
+	tno_slavery_outlawed
+	tno_public_meetings_allowed
+	tno_press_rights_free_press
+	tno_vote_franchise_universal
+	#military#
+	tno_conscription_service_by_requirement
+	tno_military_supervision_rules_of_engagement
+	tno_training_basic_training
+	tno_draft_exemptions_none
+	#economic#
+	tno_trade_laws_export_focus
+	tno_income_taxation_high_income_weighted
+	tno_minimum_wage_acceptable_minimum
+	tno_max_workhours_10_hour_work_day
+	tno_pensions_acceptable_pensions
+	tno_unemployment_moderate_subsidies
+	#social#
+	tno_health_care_low_income_protections
+	tno_education_public_education
+	tno_penal_system_incarceration
+	tno_gender_rights_women_in_the_workplace
+	tno_security_regulated_police
+	tno_regulations_moderate_regulations
+	#misc
+	tno_refugees_skilled
+	tno_women_military_assistance
+	tno_racial_integration_integrated_military
+	tno_child_labor_illegal
+	tno_safety_acceptable_regulations
+	tno_pollution_some_regulations
+	tno_lgbt_rights_lgbt_allowed
+	tno_minorities_equal_rights
+	#social development
+	tno_army_professionalism_political_interference
+	tno_industrial_expertise_nascent
+	tno_industrial_equipment_power_tools
+	tno_admin_efficiency_functional_administrative_systems
+	tno_healthcare_nascent
+	tno_agriculture_basic_mechanized
+	tno_research_facilities_outdated
+	tno_academic_base_basic_literacy
 }
 
 set_politics = {
-	ruling_party = social_conservative
-	last_election = "1930.11.9"
+	ruling_party = authoritarian_democrat
+	last_election = "1888.6.15"
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	totalist = 0
-	radical_socialist = 5
-	syndicalist = 1
-	social_democrat = 9
-	social_liberal = 17
-	market_liberal = 7
-	social_conservative = 18
-	authoritarian_democrat = 27
-	paternal_autocrat = 9
-	national_populist = 7
+	vanguardist = 0
+	syndicalist = 0
+	socialist = 0
+	progressive = 2
+	liberal = 6
+	conservative = 6
+	ecologist = 12
+	authoritarian_democrat = 47
+	paternalist = 15
+	national_populist = 12
 }
-
-recruit_character = ALO_alikhan_bukeikhanov
-recruit_character = ALO_zhumabay_shayakhmetov
-recruit_character = ALO_saken_seifullin
-recruit_character = ALO_mirjaqip_dulatuli
-recruit_character = ALO_alimkhan_yermekov
-recruit_character = ALO_amanzholov_sadyk_ayukevich
-
-### Corps Commanders ###
-recruit_character = ALO_bauyrzhan_momyshuly
-recruit_character = ALO_bazarbay_mamentov
-recruit_character = ALO_mukhamedzhan_tynyshpaev
-recruit_character = ALO_smagul_sadwakasov
-recruit_character = ALO_sultanbek_khojanov
-recruit_character = ALO_zhumabay_shayakhmetuly

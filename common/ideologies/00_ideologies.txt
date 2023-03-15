@@ -1,7 +1,7 @@
 ideologies = {
-	totalist = {
+	vanguardist = {
 		types = {
-			totalist_subtype = {} #generic
+			vanguardist_subtype = {} #generic
 		}
 		dynamic_faction_names = {
 			"FACTION_NAME_TOTALIST_1"
@@ -65,9 +65,9 @@ ideologies = {
 		ai_ideology_wanted_units_factor = 1.5
 	}
 
-	radical_socialist = {
+	socialist = {
 		types = {
-			radical_socialist_subtype = {} #generic
+			socialist_subtype = {} #generic
 		}
 		dynamic_faction_names = {
 			"FACTION_NAME_RADICAL_SOCIALIST_1"
@@ -98,9 +98,9 @@ ideologies = {
 		ai_ideology_wanted_units_factor = 1.5
 	}
 
-	social_democrat = {
+	sonspiracist = {
 		types = {
-			social_democrat_subtype = {}
+			progressive_subtype = {}
 		}
 		dynamic_faction_names = {
 			"FACTION_NAME_SOCIAL_DEMOCRAT_1"
@@ -131,9 +131,42 @@ ideologies = {
 		ai_ideology_wanted_units_factor = 1.5
 	}
 
-	social_liberal = {
+	progressive = {
 		types = {
-			social_liberal_subtype = {}
+			progressive_subtype = {}
+		}
+		dynamic_faction_names = {
+			"FACTION_NAME_SOCIAL_DEMOCRAT_1"
+			"FACTION_NAME_SOCIAL_DEMOCRAT_2"
+			"FACTION_NAME_SOCIAL_DEMOCRAT_3"
+			"FACTION_NAME_SOCIAL_DEMOCRAT_4"
+			"FACTION_NAME_SOCIAL_DEMOCRAT_5"
+			"FACTION_NAME_SOCIAL_DEMOCRAT_6"
+		}
+		color = { 194 30 86 }
+		rules = {
+			can_force_government = yes
+			can_puppet = no
+			can_join_factions = no
+			can_create_factions = no
+			can_send_volunteers = yes
+		}
+		can_host_government_in_exile = no
+		can_collaborate = yes
+		modifiers = {
+			civilian_intel_to_others = 20.0
+			army_intel_to_others = 5.0
+			navy_intel_to_others = 20.0
+			airforce_intel_to_others = 5
+		}
+		ai_fascist = yes
+		war_impact_on_world_tension = 1
+		ai_ideology_wanted_units_factor = 1.5
+	}
+
+	liberal = {
+		types = {
+			liberal_subtype = {}
 		}
 		dynamic_faction_names = {
 			"FACTION_NAME_SOCIAL_LIBERAL_1"
@@ -164,9 +197,9 @@ ideologies = {
 		ai_ideology_wanted_units_factor = 1.5
 	}
 
-	market_liberal = {
+	conservative = {
 		types = {
-			market_liberal_subtype = {}
+			conservative_subtype = {}
 		}
 		dynamic_faction_names = {
 			"FACTION_NAME_MARKET_LIBERAL_1"
@@ -197,9 +230,9 @@ ideologies = {
 		ai_ideology_wanted_units_factor = 1.5
 	}
 
-	social_conservative = {
+	ecologist = {
 		types = {
-			social_conservative_subtype = {}
+			ecologist_subtype = {}
 		}
 		dynamic_faction_names = {
 			"FACTION_NAME_SOCIAL_CONSERVATIVE_1"
@@ -263,9 +296,9 @@ ideologies = {
 		ai_ideology_wanted_units_factor = 1.5
 	}
 
-	paternal_autocrat = {
+	paternalist = {
 		types = {
-			paternal_autocrat_subtype = {}
+			paternalist_subtype = {}
 		}
 		dynamic_faction_names = {
 			"FACTION_NAME_PATERNAL_AUTOCRAT_1"
@@ -328,4 +361,38 @@ ideologies = {
 		war_impact_on_world_tension = 1
 		ai_ideology_wanted_units_factor = 1.5
 	}
+
+	technocracy_elitist = {
+		types = {
+			technocracy_elitist_subtype = {}
+		}
+		dynamic_faction_names = {
+			"FACTION_NAME_NATIONAL_POPULIST_1"
+			"FACTION_NAME_NATIONAL_POPULIST_2"
+			"FACTION_NAME_NATIONAL_POPULIST_3"
+			"FACTION_NAME_NATIONAL_POPULIST_4"
+			"FACTION_NAME_NATIONAL_POPULIST_5"
+			"FACTION_NAME_NATIONAL_POPULIST_6"
+		}
+		color = { 142 57 0 }
+		rules = {
+			can_force_government = yes
+			can_puppet = no
+			can_join_factions = no
+			can_create_factions = no
+			can_send_volunteers = yes
+		}
+		can_host_government_in_exile = no
+		can_collaborate = yes
+		modifiers = {
+			civilian_intel_to_others = 10.0
+			army_intel_to_others = 7.5
+			navy_intel_to_others = 12.5
+			airforce_intel_to_others = 7.5
+		}
+		ai_fascist = yes
+		war_impact_on_world_tension = 1
+		ai_ideology_wanted_units_factor = 1.5
+	}
+
 }

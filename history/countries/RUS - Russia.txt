@@ -157,22 +157,22 @@ country_event = { id = rusd.148 days = 470 }    # Ustryalov event
 country_event = { id = rusd.147 days = 290 }    # NRPR bankruptcy
 
 set_politics = {
-	ruling_party = social_liberal
+	ruling_party = liberal
 	last_election = "1932.6.9"
 	election_frequency = 60
 	elections_allowed = yes
 }
 
 set_popularities = {
-	totalist = 1
-	radical_socialist = 2
+	vanguardist = 1
+	socialist = 2
 	syndicalist = 3
-	social_democrat = 5
-	social_liberal = 20
-	market_liberal = 6
-	social_conservative = 8
+	progressive = 5
+	liberal = 20
+	conservative = 6
+	ecologist = 8
 	authoritarian_democrat = 10
-	paternal_autocrat = 13
+	paternalist = 13
 	national_populist = 32
 }
 
@@ -248,7 +248,7 @@ add_ai_strategy = {
 create_country_leader = {
 	name = RUS_karl_radek
 	picture = "gfx/leaders/RUS/Portrait_RUS_Karl_Radek.png"
-	ideology = totalist_subtype
+	ideology = vanguardist_subtype
 }
 create_country_leader = {
 	name = RUS_aleksandra_kollontai
@@ -259,7 +259,7 @@ create_country_leader = {
 create_country_leader = {
 	name = RUS_aleksey_rykov
 	picture = "gfx/leaders/RUS/Portrait_RUS_Aleksey_Rykov.png"
-	ideology = radical_socialist_subtype
+	ideology = socialist_subtype
 }
 
 ### Country Leaders ###

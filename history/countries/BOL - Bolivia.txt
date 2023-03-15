@@ -4,104 +4,78 @@ set_research_slots = 2
 set_stability = 0.4
 set_war_support = 0.3
 
-add_ideas = {
-	#starting modifiers
-	BOL_Trash_Army
-	BOL_Struggling_Economy
-}
-
-country_event = { id = bol.1 days = 1 }
-country_event = { id = bol.6 days = 30 }
-country_event = { id = bol.7 days = 200 random_hours = 1000 }
-
+recruit_character = BOL_Generic_Vacant
+fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
 set_technology = {
-	### Infantry ###
-	infantry_weapons = 1
-
-	### Support ###
-	tech_support = 1
-	tech_engineers = 1
-
-	### Artillery ###
-	gw_artillery = 1
-
-	### Industry ###
-	fuel_silos = 1
 }
 
-### Planes - BBA ###
-if = {
-	limit = { has_dlc_bba = yes }
-	set_air_oob = "BOL_air_bba"
-	set_technology = {
-		iw_small_airframe = 1
-		aa_lmg = 1
-		engines_1 = 1
-	}
-}
+TNO_startup_nation = yes
 
-### Planes - non BBA ###
-if = {
-	limit = { has_dlc_bba = no }
-	set_air_oob = "BOL_air_legacy"
-	set_technology = { early_fighter = 1 }
+add_ideas = {
+	#political#
+	tno_political_parties_multiparty_system
+	tno_religious_rights_pluralism
+	tno_trade_unions_all_allowed
+	tno_immigration_quota_immigration
+	tno_slavery_outlawed
+	tno_public_meetings_allowed
+	tno_press_rights_free_press
+	tno_vote_franchise_universal
+	#military#
+	tno_conscription_service_by_requirement
+	tno_military_supervision_rules_of_engagement
+	tno_training_basic_training
+	tno_draft_exemptions_none
+	#economic#
+	tno_trade_laws_export_focus
+	tno_income_taxation_high_income_weighted
+	tno_minimum_wage_acceptable_minimum
+	tno_max_workhours_10_hour_work_day
+	tno_pensions_acceptable_pensions
+	tno_unemployment_moderate_subsidies
+	#social#
+	tno_health_care_low_income_protections
+	tno_education_public_education
+	tno_penal_system_incarceration
+	tno_gender_rights_women_in_the_workplace
+	tno_security_regulated_police
+	tno_regulations_moderate_regulations
+	#misc
+	tno_refugees_skilled
+	tno_women_military_assistance
+	tno_racial_integration_integrated_military
+	tno_child_labor_illegal
+	tno_safety_acceptable_regulations
+	tno_pollution_some_regulations
+	tno_lgbt_rights_lgbt_allowed
+	tno_minorities_equal_rights
+	#social development
+	tno_army_professionalism_political_interference
+	tno_industrial_expertise_nascent
+	tno_industrial_equipment_power_tools
+	tno_admin_efficiency_functional_administrative_systems
+	tno_healthcare_nascent
+	tno_agriculture_basic_mechanized
+	tno_research_facilities_outdated
+	tno_academic_base_basic_literacy
 }
-
-PAR = { embargo_ROOT = yes }
 
 set_politics = {
-	ruling_party = paternal_autocrat
+	ruling_party = authoritarian_democrat
 	last_election = "1888.6.15"
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	totalist = 2
-	radical_socialist = 0
-	syndicalist = 8
-	social_democrat = 7
-	social_liberal = 3
-	market_liberal = 19
-	social_conservative = 15
-	authoritarian_democrat = 0
-	paternal_autocrat = 42
-	national_populist = 4
+	vanguardist = 0
+	syndicalist = 0
+	socialist = 0
+	progressive = 2
+	liberal = 6
+	conservative = 6
+	ecologist = 12
+	authoritarian_democrat = 47
+	paternalist = 15
+	national_populist = 12
 }
-
-activate_targeted_decision = { target = PAR decision = BOL_kill_PAR }
-activate_targeted_decision = { target = CHL decision = BOL_kill_CHL }
-
-### Country Leaders ###
-recruit_character = BOL_bernardino_bilbao_rioja
-recruit_character = BOL_german_busch_becerra
-recruit_character = BOL_carlos_quintanilla_quiroga
-recruit_character = BOL_mamerto_urriolagoitia_harriague
-recruit_character = BOL_enrique_hertzog
-recruit_character = BOL_simon_iturri_patino
-recruit_character = BOL_alcides_arguedas
-recruit_character = BOL_enrique_penaranda_castillo
-recruit_character = BOL_victor_paz_estenssoro
-recruit_character = BOL_francisco_javier_del_granado_y_granado
-recruit_character = BOL_hernan_siles_zuazo
-recruit_character = BOL_franz_tamayo_solares
-recruit_character = BOL_jose_antonio_arze_y_arze
-recruit_character = BOL_daniel_sanchez_bustamante
-recruit_character = BOL_carlos_salazar_mostajo
-
-### Corps Commanders ###
-recruit_character = BOL_angel_ayora
-recruit_character = BOL_gualberto_villarroel_lopez
-recruit_character = BOL_manuel_marzana
-
-### Advisors ###
-recruit_character = BOL_walter_guevara
-recruit_character = BOL_carlos_montenegro
-recruit_character = BOL_moritz_hochschild
-recruit_character = BOL_hugo_ballivian
-recruit_character = BOL_amalia_villa_de_la_tapia
-recruit_character = BOL_ronan_monje_roca
-
-recruit_character = BOL_palacio_quemado
-
-activate_advisor = BOL_palacio_quemado_sic
