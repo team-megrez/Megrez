@@ -6,6 +6,48 @@ set_stability = 0.8
 set_war_support = 0.3
 set_convoys = 100
 
+## 경제 상황 
+set_variable = { GDP = 251.453 } # 10억 단위, 총 GDP
+set_variable = { GDP_growth = 4.1 } # 퍼센트, GDP 상승률
+set_variable = { income_tax_rate = 0.15 } # 근로세율
+set_variable = { business_tax_rate = 0.25 } # 사업세율
+set_variable = { poverty_rate = 29.2 } # 빈곤률
+set_variable = { poverty_monthly_change = 0.04 } # 빈곤율 변화량
+set_variable = { money_reserves = 0.0 } #10억 단위 유동자산금
+set_variable = { national_debt = 260.517 } #10억 단위 국가 부채
+set_variable = { misc_income = 0.0 } # 기타 세율
+set_variable = { misc_costs = 0.0 } # 기타 지출
+set_variable = { base_inflation_rate = 2.5 } # 기본 인플레이션
+
+set_temp_variable = { temp_credit_rating = 8 } # 현재 신용등급
+set_temp_variable = { temp_credit_rating_min = 8 } # 최소 신용등급
+set_temp_variable = { temp_credit_rating_max = 10 } # 최대 신용등급
+econ_initialize_credit_rating_system = yes
+
+set_variable = { economic_centralization = 60 } # 경제 중앙화 지수
+
+set_variable = { other_taxes = 0 } # 10억 단위, 기타 수입
+set_variable = { rubberband_inflation_rate = 0 } # ???
+set_variable = { sales_tax_rate = 0.025 } # 판매세율
+set_variable = { consumer_goods_use_modifier = 1 } # 소비재
+set_variable = { civilian_costs_variable = 0 } # 10억 단위, 민간 지출
+
+initiate_display_vars = yes
+				
+# States
+# 634 = { set_variable = { defined_state_value = 10 } } # 특정 주에 대한 GDP
+
+set_variable = {TNO_economy_type = 2} 
+# 경제 타입  : 1, 자본주의 2, 조합주의, 3, 계획경제
+set_variable = {TNO_economy_subtype = 3} 
+# 경제 서브 타입 :
+# 0. 기본값 (경제타입), 1. 미국 자본주의, 2. 노동자 주도, 3. 왕관 협동조합주의, 4. 무정부 상태, 5. 국가사회주의 협동조합주의,
+# 6. 군사 주도, 7. 부르군트 체제, 8. 도적질, 9. 기업 독과점, 10. 지도주의, 11. 아나키스트 공산주의, 12. 도길 경제 (러시아판 나치 경제),
+# 13. 전시 공산주의, 14. 라지 허가제, 15. 사회 시장, 16. 기독교 아나키즘, 17. 농본 스파르타주의, 18. 사회화 경제, 19. 호즈라스초트 체제
+# 20. 식민지 경제 (Autonomous, Corporativist, Centralized)
+
+
+
 set_cosmetic_tag = AST_australasia_entente
 set_country_flag = has_symbolic_figurehead
 set_country_flag = ENG_KING_EDWARD_VIII
