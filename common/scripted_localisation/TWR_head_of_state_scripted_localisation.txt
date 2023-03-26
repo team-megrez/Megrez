@@ -8,6 +8,14 @@ defined_text = {
 		}
 		localization_key = "King"
 	}
+	text = {
+		trigger = {
+			OR = {
+				has_country_flag = JAP_emperor_akihito
+			}
+		}
+		localization_key = "Emperor"
+	}
 }
 defined_text = {
 	name = get_hos_name
@@ -15,12 +23,20 @@ defined_text = {
 		trigger = { has_country_flag = ENG_KING_EDWARD_VIII }
 		localization_key = "Edward VIII"
 	}
+	text = {
+		trigger = { has_country_flag = JAP_emperor_akihito }
+		localization_key = "Akihito"
+	}
 }
 defined_text = {
 	name = get_hos_desc
 	text = {
 		trigger = { has_country_flag = ENG_KING_EDWARD_VIII }
 		localization_key = ENG_KING_EDWARD_VIII_desc
+	}
+	text = {
+		trigger = { has_country_flag = JAP_emperor_akihito }
+		localization_key = JAP_emperor_akihito_desc
 	}
 }
 defined_text = {
@@ -33,6 +49,14 @@ defined_text = {
 		}
 		localization_key = popular_modifier
 	}
+	text = {
+		trigger = {
+			OR = {
+				has_country_flag = JAP_emperor_akihito
+			}
+		}
+		localization_key = JAP_emperor
+	}
 }
 defined_text = {
 	name = get_hos_desc_2
@@ -42,11 +66,21 @@ defined_text = {
 		}
 		localization_key = ENG_KING_EDWARD_VIII_HOS_DESC
 	}
+	text = {
+		trigger = {
+			has_country_flag = JAP_emperor_akihito
+		}
+		localization_key = JAP_emperor_akihito_HOS_DESC
+	}
 }
 defined_text = {
 	name = get_hos_pic
 	text = {
 		trigger = { has_country_flag = ENG_KING_EDWARD_VIII }
 		localization_key = "GFX_Portrait_edward_viii"
+	}
+	text = {
+		trigger = { has_country_flag = JAP_emperor_akihito }
+		localization_key = "GFX_Portrait_akihito"
 	}
 }
