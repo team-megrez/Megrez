@@ -6,6 +6,7 @@ tags={
 	"Alternative History"
 }
 picture="thumbnail.png"
+replace_path="common/bookmarks"
 replace_path="common/characters"
 replace_path="common/countries"
 replace_path="common/country_tags"
@@ -23,4 +24,4 @@ replace_path="history/general"
 replace_path="map/strategicregions"
 replace_path="gfx/flags"
 supported_version="1.12.*"
-path="D:/Documents/Paradox Interactive/Hearts of Iron IV/mod/Megrez"
+path="D:/Documents/Paradox Interactive/Hearts of Iron IV/mod/megrez"
