@@ -25,21 +25,6 @@ scripted_gui = {
 			}
 		}
 	}
-	
-	TNO_SG_cold_war_arrows = {
-		context_type = selected_country_context
-		parent_window_token = selected_country_view
-		window_name = "TNO_SG_cold_war_arrows"
-		
-		visible = { NOT = { ROOT = { has_country_flag = TNO_cold_war_arrows_dismissed } } }
-		effects = {
-			transparent_block_click = {
-				ROOT = {
-					set_country_flag = TNO_cold_war_arrows_dismissed
-				}
-			}
-		}
-	}
 
 	TNO_No_LaR_Flag_Frame_Diplomacy = {
 		context_type = selected_country_context

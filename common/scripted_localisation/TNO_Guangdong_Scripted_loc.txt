@@ -178,6 +178,63 @@ defined_text = {
 }
 
 defined_text = {
+	name = GetGNGStatusMiscSocialCostsColor
+	text = {
+		trigger = {
+			check_variable = {GNG_status_social_costs_modifier < 0}
+		}
+		localization_key = GNG_temp_votes_green
+	}
+	text = {
+		trigger = {
+			check_variable = {GNG_status_social_costs_modifier > 0}
+		}
+		localization_key = GNG_temp_votes_red
+	}
+	text = {
+		localization_key = GNG_temp_votes_yellow
+	}
+}
+
+defined_text = {
+	name = GetGNGStatusMiscMilitaryCostsColor
+	text = {
+		trigger = {
+			check_variable = {GNG_status_military_costs_modifier < 0}
+		}
+		localization_key = GNG_temp_votes_green
+	}
+	text = {
+		trigger = {
+			check_variable = {GNG_status_military_costs_modifier > 0}
+		}
+		localization_key = GNG_temp_votes_red
+	}
+	text = {
+		localization_key = GNG_temp_votes_yellow
+	}
+}
+
+defined_text = {
+	name = GetGNGStatusMiscAdminCostsColor
+	text = {
+		trigger = {
+			check_variable = {GNG_status_admin_costs_modifier < 0}
+		}
+		localization_key = GNG_temp_votes_green
+	}
+	text = {
+		trigger = {
+			check_variable = {GNG_status_admin_costs_modifier > 0}
+		}
+		localization_key = GNG_temp_votes_red
+	}
+	text = {
+		localization_key = GNG_temp_votes_yellow
+	}
+}
+
+defined_text = {
 	name = GetGNGGeneralStatusScriptloc
 	text = {
 		trigger = {
@@ -2001,43 +2058,43 @@ defined_text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 2 }
 		}
-		localization_key = "Matsuzawa Takuji"
+		localization_key = GNG_matsuzawa_takuji
 	}
 	text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 1 }
 		}
-		localization_key = "Matsushita Masaharu"
+		localization_key = GNG_matsushita_masaharu
 	}
 	text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 3 }
 		}
-		localization_key = "Li Ka-shing"
+		localization_key = GNG_li_kashing
 	}
 	text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 4 }
 		}
-		localization_key = "Ibuka Masaru"
+		localization_key = GNG_ibuka_masaru
 	}
 	text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 5 }
 		}
-		localization_key = "Matsushita Masaharu"
+		localization_key = GNG_matsushita_masaharu
 	}
 	text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 7 }
 		}
-		localization_key = "Miyazaki Kiyotaka"
+		localization_key = GNG_miyazaki_kiyotaka
 	}
 	text = {
 		trigger = {
 			has_country_flag = GNG_IJA_failstate_active
 		}
-		localization_key = "Takeda Goro"
+		localization_key = GNG_takeda_goro
 	}
 }
 
@@ -2047,43 +2104,43 @@ defined_text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 2 }
 		}
-		localization_key = "Ibuka Masaru"
+		localization_key = GNG_ibuka_masaru
 	}
 	text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 1 }
 		}
-		localization_key = "Morita Akio"
+		localization_key = GNG_morita_akio
 	}
 	text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 3 }
 		}
-		localization_key = "Matsushita Masaharu"
+		localization_key = GNG_matsushita_masaharu
 	}
 	text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 4 }
 		}
-		localization_key = "Morita Akio"
+		localization_key = GNG_morita_akio
 	}
 	text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 5 }
 		}
-		localization_key = "Komai Kenichiro"
+		localization_key = GNG_komai_kenichiro
 	}
 	text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 7 }
 		}
-		localization_key = "Matsushita Masaharu"
+		localization_key = GNG_matsushita_masaharu
 	}
 	text = {
 		trigger = {
 			has_country_flag = GNG_IJA_failstate_active
 		}
-		localization_key = "Takashima Masuo"
+		localization_key = GNG_takashima_masuo
 	}
 }
 
@@ -2093,43 +2150,43 @@ defined_text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 2 }
 		}
-		localization_key = "Matsushita Masaharu"
+		localization_key = GNG_matsushita_masaharu
 	}
 	text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 1 }
 		}
-		localization_key = "Ibuka Masaru"
+		localization_key = GNG_ibuka_masaru
 	}
 	text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 3 }
 		}
-		localization_key = "Stanley Ho"
+		localization_key = GNG_stanley_ho
 	}
 	text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 4 }
 		}
-		localization_key = "Yokoi Hideki"
+		localization_key = GNG_yokoi_hideki
 	}
 	text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 5 }
 		}
-		localization_key = "Yokoi Hideki"
+		localization_key = GNG_yokoi_hideki
 	}
 	text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 7 }
 		}
-		localization_key = "Yokoi Hideki"
+		localization_key = GNG_yokoi_hideki
 	}
 	text = {
 		trigger = {
 			has_country_flag = GNG_IJA_failstate_active
 		}
-		localization_key = "Murai Sumio"
+		localization_key = GNG_murai_sumio
 	}
 }
 
@@ -2139,43 +2196,43 @@ defined_text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 2 }
 		}
-		localization_key = "Miyazaki Kiyotaka"
+		localization_key = GNG_miyazaki_kiyotaka
 	}
 	text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 1 }
 		}
-		localization_key = "Miyazaki Kiyotaka"
+		localization_key = GNG_miyazaki_kiyotaka
 	}
 	text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 3 }
 		}
-		localization_key = "Ōmori Kan"
+		localization_key = GNG_omori_kan
 	}
 	text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 4 }
 		}
-		localization_key = "Tsuchida Kuniyasu"
+		localization_key = GNG_tsuchida_kuniyasu
 	}
 	text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 5 }
 		}
-		localization_key = "Tsuchida Kuniyasu"
+		localization_key = GNG_tsuchida_kuniyasu
 	}
 	text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 7 }
 		}
-		localization_key = "Tsuchida Kuniyasu"
+		localization_key = GNG_tsuchida_kuniyasu
 	}
 	text = {
 		trigger = {
 			has_country_flag = GNG_IJA_failstate_active
 		}
-		localization_key = "Watanabe Keitaro"
+		localization_key = GNG_watanabe_keitaro
 	}
 }
 
@@ -2185,43 +2242,43 @@ defined_text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 2 }
 		}
-		localization_key = "Kiyotaka"
+		localization_key = GNG_miyazaki_kiyotaka_surname
 	}
 	text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 1 }
 		}
-		localization_key = "Kiyotaka"
+		localization_key = GNG_miyazaki_kiyotaka_surname
 	}
 	text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 3 }
 		}
-		localization_key = "Ōmori"
+		localization_key = GNG_omori_kan_surname
 	}
 	text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 4 }
 		}
-		localization_key = "Kuniyasu"
+		localization_key = GNG_tsuchida_kuniyasu_surname
 	}
 	text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 5 }
 		}
-		localization_key = "Kuniyasu"
+		localization_key = GNG_tsuchida_kuniyasu_surname
 	}
 	text = {
 		trigger = {
 			check_variable = { GNG_legco_faction_in_power = 7 }
 		}
-		localization_key = "Kuniyasu"
+		localization_key = GNG_tsuchida_kuniyasu_surname
 	}
 	text = {
 		trigger = {
 			has_country_flag = GNG_IJA_failstate_active
 		}
-		localization_key = "Keitaro"
+		localization_key = GNG_watanabe_keitaro_surname
 	}
 }
 
@@ -9060,10 +9117,10 @@ defined_text = {
 				GNG_legco_faction_in_power = 3 #Sony
 			}
 		}
-		localization_key = "Wei"
+		localization_key = guangdong_RiotsCCLdismantlement.62.character.wei
 	}
 	text = {
-		localization_key = "Chun"
+		localization_key = guangdong_RiotsCCLdismantlement.62.character.chun
 	}
 }
 
@@ -11110,7 +11167,7 @@ defined_text = {
 	name = Get_Utopian_Parody_trigger
 	text = {
 		trigger = {
-			has_country_flag = GNG_ibuka_persistence_achievement
+			GNG = { has_country_flag = GNG_ibuka_persistence_achievement }
 		}
 		localization_key = GNG_Utopian_Parody_tooltip_1
 	}
@@ -11123,7 +11180,7 @@ defined_text = {
 	name = Get_Happy_Worlds_End_trigger
 	text = {
 		trigger = {
-			has_country_flag = GNG_ibuka_reconciliation_achievement
+			GNG = { has_country_flag = GNG_ibuka_reconciliation_achievement }
 		}
 		localization_key = GNG_Happy_Worlds_End_tooltip_1
 	}
@@ -11136,7 +11193,7 @@ defined_text = {
 	name = Get_the_curtain_falls_trigger
 	text = {
 		trigger = {
-			has_country_flag = GNG_ija_failstate_achievement
+			GNG = { has_country_flag = GNG_ija_failstate_achievement }
 		}
 		localization_key = GNG_the_curtain_falls_tooltip_1
 	}

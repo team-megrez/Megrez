@@ -103,19 +103,15 @@ scripted_gui = {
 
 		effects = {
 			power_bg_click = {
-				if = {
-					limit = {
-						is_ai = no
+				effect_tooltip = {
+					if = {
+						limit = {
+							is_ai = no
+						}
+						set_temp_variable = { current_state = 0 }
+						grid_power_production_tt_effect = yes
 					}
-					set_temp_variable = { current_state = 0 }
-					grid_power_production_tt_effect = yes
 				}
-			}
-		}
-
-		triggers = {
-			power_bg_click_enabled = {
-				always = no
 			}
 		}
 	}
@@ -249,6 +245,7 @@ scripted_gui = {
 					set_country_flag = TNO_economy_help_open
 					TNO_redraw_tutorial = yes
 				}
+				set_country_flag = TNO_econ_help_arrows_dismissed
 				add_to_variable = { TNO_economy_GUI_dirty = 1 }
 			}
 
@@ -330,10 +327,16 @@ scripted_gui = {
 	}
 
 	# # Production Units Submenu
+	TNO_production_units_info_tab_2_parent = {
+		window_name = "production_units_info_tab_2_parent"
+		context_type = player_context
+		parent_window_token = trade_tab
+	}
+	
 	TNO_production_units_info_tab_2 = {
 		window_name = "production_units_info_tab_2"
 		context_type = player_context
-		parent_window_token = trade_tab
+		parent_window_name = production_units_info_tab_2_parent_instance
 		dirty = TNO_production_gui_dirty
 
 		visible = {
@@ -655,6 +658,12 @@ scripted_gui = {
 		window_name = "credit_ladder_tab"
 		parent_window_token = trade_tab
 		context_type = player_context
+	}
+
+	TNO_credit_ladder_tab_inner = {
+		window_name = "credit_ladder_tab_inner"
+		parent_window_name = "credit_ladder_tab_instance"
+		context_type = player_context
 		dirty = TNO_economy_GUI_dirty
 
 		# ! TODO - Rough job, may need optimization
@@ -699,7 +708,13 @@ scripted_gui = {
 	# # Econ Sphere Submenu
 	TNO_economic_sphere_info_tab = {
 		window_name = "economic_sphere_info_tab"
-		#parent_window_token = trade_tab #this absolutely fucks it up
+		parent_window_token = trade_tab #this absolutely fucks it up
+		context_type = player_context
+	}
+
+	TNO_economic_sphere_info_tab_inner = {
+		window_name = "economic_sphere_info_tab_inner"
+		parent_window_name = "economic_sphere_info_tab_instance"
 		context_type = player_context
 		dirty = TNO_economy_GUI_dirty
 
@@ -1009,19 +1024,249 @@ scripted_gui = {
 				add_to_variable = { TNO_economy_GUI_dirty = 1 }
 			}
 		}
-
+		
+		effects = {
+			econ_pie_num_exp_toggle_click = {
+				if = {
+					limit = {
+						check_variable = { exp_show_pct = 2 }
+					}
+					set_variable = { exp_show_pct = 1 }
+				}
+				else = {
+					set_variable = { exp_show_pct = 2 }
+				}
+				add_to_variable = { TNO_economy_GUI_dirty = 1 }
+			}
+			econ_pie_num_rev_toggle_click = {
+				if = {
+					limit = {
+						check_variable = { rev_show_pct = 2 }
+					}
+					set_variable = { rev_show_pct = 1 }
+				}
+				else = {
+					set_variable = { rev_show_pct = 2 }
+				}
+				add_to_variable = { TNO_economy_GUI_dirty = 1 }
+			}
+		}
+		
+		triggers = {
+			@x_amplitude = 25
+			@y_amplitude = -25
+		
+			economic_military_expenditures_txt_visible = {
+				set_temp_variable = { angle = expenditures_mil_pie }
+				divide_temp_variable = { angle = 2 }
+				multiply_temp_variable = { angle = 3.6 }
+				
+				TNO_trig_run_sin = yes
+				set_temp_variable = { expenditures_mil_pie_x = result_s }
+				multiply_temp_variable = { expenditures_mil_pie_x = @x_amplitude }
+				add_to_temp_variable = { expenditures_mil_pie_x = 32 }
+				
+				TNO_trig_run_cos = yes
+				set_temp_variable = { expenditures_mil_pie_y = result_c }
+				multiply_temp_variable = { expenditures_mil_pie_y = @y_amplitude }
+				add_to_temp_variable = { expenditures_mil_pie_y = 32 }
+				
+				check_variable = { var = military_expenditures_percent value = 5 compare = greater_than_or_equals }
+				check_variable = { exp_show_pct = 2 }
+			}
+			economic_civilian_expenditures_txt_visible = {
+				set_temp_variable = { angle = expenditures_civ_pie }
+				subtract_from_temp_variable = { angle = expenditures_mil_pie }
+				divide_temp_variable = { angle = 2 }
+				add_to_temp_variable = { angle = expenditures_mil_pie }
+				multiply_temp_variable = { angle = 3.6 }
+				
+				TNO_trig_run_sin = yes
+				set_temp_variable = { expenditures_civ_pie_x = result_s }
+				multiply_temp_variable = { expenditures_civ_pie_x = @x_amplitude }
+				add_to_temp_variable = { expenditures_civ_pie_x = 32 }
+				
+				TNO_trig_run_cos = yes
+				set_temp_variable = { expenditures_civ_pie_y = result_c }
+				multiply_temp_variable = { expenditures_civ_pie_y = @y_amplitude }
+				add_to_temp_variable = { expenditures_civ_pie_y = 32 }
+				
+				check_variable = { var = civilian_expenditures_percent value = 5 compare = greater_than_or_equals }
+				check_variable = { exp_show_pct = 2 }
+			}
+			economic_debt_expenditures_txt_visible = {
+				set_temp_variable = { angle = expenditures_debt_pie }
+				subtract_from_temp_variable = { angle = expenditures_civ_pie }
+				divide_temp_variable = { angle = 2 }
+				add_to_temp_variable = { angle = expenditures_civ_pie }
+				multiply_temp_variable = { angle = 3.6 }
+				
+				TNO_trig_run_sin = yes
+				set_temp_variable = { expenditures_debt_pie_x = result_s }
+				multiply_temp_variable = { expenditures_debt_pie_x = @x_amplitude }
+				add_to_temp_variable = { expenditures_debt_pie_x = 32 }
+				
+				TNO_trig_run_cos = yes
+				set_temp_variable = { expenditures_debt_pie_y = result_c }
+				multiply_temp_variable = { expenditures_debt_pie_y = @y_amplitude }
+				add_to_temp_variable = { expenditures_debt_pie_y = 32 }
+				
+				check_variable = { var = debt_servicing_expenditures_percent value = 5 compare = greater_than_or_equals }
+				check_variable = { exp_show_pct = 2 }
+			}
+			economic_misc_expenditures_txt_visible = {
+				set_temp_variable = { angle = expenditures_mis_pie }
+				subtract_from_temp_variable = { angle = expenditures_debt_pie }
+				divide_temp_variable = { angle = 2 }
+				add_to_temp_variable = { angle = expenditures_debt_pie }
+				multiply_temp_variable = { angle = 3.6 }
+				
+				TNO_trig_run_sin = yes
+				set_temp_variable = { expenditures_mis_pie_x = result_s }
+				multiply_temp_variable = { expenditures_mis_pie_x = @x_amplitude }
+				add_to_temp_variable = { expenditures_mis_pie_x = 32 }
+				
+				TNO_trig_run_cos = yes
+				set_temp_variable = { expenditures_mis_pie_y = result_c }
+				multiply_temp_variable = { expenditures_mis_pie_y = @y_amplitude }
+				add_to_temp_variable = { expenditures_mis_pie_y = 32 }
+				
+				check_variable = { var = misc_expenditures_percent value = 5 compare = greater_than_or_equals }
+				check_variable = { exp_show_pct = 2 }
+			}
+		
+			economic_income_revenue_txt_visible = {
+				set_temp_variable = { angle = revenue_income_pie }
+				divide_temp_variable = { angle = 2 }
+				multiply_temp_variable = { angle = 3.6 }
+				
+				TNO_trig_run_sin = yes
+				set_temp_variable = { revenue_income_pie_x = result_s }
+				multiply_temp_variable = { revenue_income_pie_x = @x_amplitude }
+				add_to_temp_variable = { revenue_income_pie_x = 32 }
+				
+				TNO_trig_run_cos = yes
+				set_temp_variable = { revenue_income_pie_y = result_c }
+				multiply_temp_variable = { revenue_income_pie_y = @y_amplitude }
+				add_to_temp_variable = { revenue_income_pie_y = 32 }
+				
+				check_variable = { var = income_revenue_percent value = 5 compare = greater_than_or_equals }
+				check_variable = { rev_show_pct = 2 }
+			}
+			economic_business_revenue_txt_visible = {
+				set_temp_variable = { angle = revenue_business_pie }
+				subtract_from_temp_variable = { angle = revenue_income_pie }
+				divide_temp_variable = { angle = 2 }
+				add_to_temp_variable = { angle = revenue_income_pie }
+				multiply_temp_variable = { angle = 3.6 }
+				
+				TNO_trig_run_sin = yes
+				set_temp_variable = { revenue_business_pie_x = result_s }
+				multiply_temp_variable = { revenue_business_pie_x = @x_amplitude }
+				add_to_temp_variable = { revenue_business_pie_x = 32 }
+				
+				TNO_trig_run_cos = yes
+				set_temp_variable = { revenue_business_pie_y = result_c }
+				multiply_temp_variable = { revenue_business_pie_y = @y_amplitude }
+				add_to_temp_variable = { revenue_business_pie_y = 32 }
+				
+				check_variable = { var = business_revenue_percent value = 5 compare = greater_than_or_equals }
+				check_variable = { rev_show_pct = 2 }
+			}
+			economic_excise_revenue_txt_visible = {
+				set_temp_variable = { angle = revenue_excise_pie }
+				subtract_from_temp_variable = { angle = revenue_business_pie }
+				divide_temp_variable = { angle = 2 }
+				add_to_temp_variable = { angle = revenue_business_pie }
+				multiply_temp_variable = { angle = 3.6 }
+				
+				TNO_trig_run_sin = yes
+				set_temp_variable = { revenue_excise_pie_x = result_s }
+				multiply_temp_variable = { revenue_excise_pie_x = @x_amplitude }
+				add_to_temp_variable = { revenue_excise_pie_x = 32 }
+				
+				TNO_trig_run_cos = yes
+				set_temp_variable = { revenue_excise_pie_y = result_c }
+				multiply_temp_variable = { revenue_excise_pie_y = @y_amplitude }
+				add_to_temp_variable = { revenue_excise_pie_y = 32 }
+				
+				check_variable = { var = excise_revenue_percent value = 5 compare = greater_than_or_equals }
+				check_variable = { rev_show_pct = 2 }
+			}
+			economic_other_revenue_percent_txt_visible = {
+				set_temp_variable = { angle = revenue_other_pie }
+				subtract_from_temp_variable = { angle = revenue_excise_pie }
+				divide_temp_variable = { angle = 2 }
+				add_to_temp_variable = { angle = revenue_excise_pie }
+				multiply_temp_variable = { angle = 3.6 }
+				
+				TNO_trig_run_sin = yes
+				set_temp_variable = { revenue_other_pie_x = result_s }
+				multiply_temp_variable = { revenue_other_pie_x = @x_amplitude }
+				add_to_temp_variable = { revenue_other_pie_x = 32 }
+				
+				TNO_trig_run_cos = yes
+				set_temp_variable = { revenue_other_pie_y = result_c }
+				multiply_temp_variable = { revenue_other_pie_y = @y_amplitude }
+				add_to_temp_variable = { revenue_other_pie_y = 32 }
+				
+				check_variable = { var = other_revenue_percent value = 5 compare = greater_than_or_equals }
+				check_variable = { rev_show_pct = 2 }
+			}
+		}
 
 		### Deficit/Surplus
 		properties = {
-			economic_income_revenue_pie = { frame = revenue_income_pie }
-			economic_business_revenue_pie = { frame = revenue_business_pie }
-			economic_excise_revenue_pie = { frame = revenue_excise_pie }
-			economic_other_revenue_pie = { frame = revenue_other_pie }
-
 			economic_military_expenditures_pie = { frame = expenditures_mil_pie }
 			economic_civilian_expenditures_pie = { frame = expenditures_civ_pie }
 			economic_debt_expenditures_pie = { frame = expenditures_debt_pie }
 			economic_misc_expenditures_pie = { frame = expenditures_mis_pie }
+			
+			economic_military_expenditures_txt = {
+				x = expenditures_mil_pie_x
+				y = expenditures_mil_pie_y
+			}
+			economic_civilian_expenditures_txt = {
+				x = expenditures_civ_pie_x
+				y = expenditures_civ_pie_y
+			}
+			economic_debt_expenditures_txt = {
+				x = expenditures_debt_pie_x
+				y = expenditures_debt_pie_y
+			}
+			economic_misc_expenditures_txt = {
+				x = expenditures_mis_pie_x
+				y = expenditures_mis_pie_y
+			}
+
+			economic_income_revenue_pie = { frame = revenue_income_pie }
+			economic_business_revenue_pie = { frame = revenue_business_pie }
+			economic_excise_revenue_pie = { frame = revenue_excise_pie }
+			economic_other_revenue_pie = { frame = revenue_other_pie }
+			
+			economic_income_revenue_txt = {
+				x = revenue_income_pie_x
+				y = revenue_income_pie_y
+			}
+			economic_business_revenue_txt = {
+				x = revenue_business_pie_x
+				y = revenue_business_pie_y
+			}
+			economic_excise_revenue_txt = {
+				x = revenue_excise_pie_x
+				y = revenue_excise_pie_y
+			}
+			economic_other_revenue_percent_txt = {
+				x = revenue_other_pie_x
+				y = revenue_other_pie_y
+			}
+			
+			econ_pie_num_exp_toggle = {
+				frame = exp_show_pct
+			}
+			econ_pie_num_rev_toggle = {
+				frame = rev_show_pct
+			}
 		}
 
 		triggers = {
@@ -1480,16 +1725,10 @@ scripted_gui = {
 				entry_container = admin_security_set_button
 				value = button_idx
 			}
-			Econ_admin_safety_set_buttons = {
+			Econ_admin_regulations_set_buttons = {
 				array = expenditures_set_buttons
 				change_scope = no
-				entry_container = admin_safety_set_button
-				value = button_idx
-			}
-			Econ_admin_pollution_set_buttons = {
-				array = expenditures_set_buttons
-				change_scope = no
-				entry_container = admin_pollution_set_button
+				entry_container = admin_regulations_set_button
 				value = button_idx
 			}
 			Econ_admin_bureaucracy_set_buttons = {
@@ -2205,101 +2444,56 @@ scripted_gui = {
 				custom_effect_tooltip = econ_admin_security_slider_button_left_tt
 			}
 
-			Econ_admin_safety_slider_left_click = {
-				subtract_from_variable = { econ_admin_safety_slider_pct = 1 }
+			Econ_admin_regulations_slider_left_click = {
+				subtract_from_variable = { econ_admin_regulations_slider_pct = 1 }
 				update_admin_mainslider = yes
 				update_economy_tab = yes
-				#TNO_calculate_actual_safety_policy_effectiveness = yes
-				custom_effect_tooltip = econ_admin_safety_slider_button_left_tt
+				TNO_calculate_actual_regulations_policy_effectiveness = yes
+				custom_effect_tooltip = econ_admin_regulations_slider_button_left_tt
 			}
-			Econ_admin_safety_slider_left_shift_click = {
-				subtract_from_variable = { econ_admin_safety_slider_pct = 10 }
+			Econ_admin_regulations_slider_left_shift_click = {
+				subtract_from_variable = { econ_admin_regulations_slider_pct = 10 }
 				update_admin_mainslider = yes
 				update_economy_tab = yes
-				#TNO_calculate_actual_safety_policy_effectiveness = yes
-				custom_effect_tooltip = econ_admin_safety_slider_button_left_tt
+				TNO_calculate_actual_regulations_policy_effectiveness = yes
+				custom_effect_tooltip = econ_admin_regulations_slider_button_left_tt
 			}
-			Econ_admin_safety_slider_left_control_click = {
-				set_variable = { econ_admin_safety_slider_pct = econ_admin_safety_minimal_pct }
+			Econ_admin_regulations_slider_left_control_click = {
+				set_variable = { econ_admin_regulations_slider_pct = econ_admin_regulations_minimal_pct }
 				update_admin_mainslider = yes
 				update_economy_tab = yes
-				#TNO_calculate_actual_safety_policy_effectiveness = yes
-				custom_effect_tooltip = econ_admin_safety_slider_button_left_tt
+				TNO_calculate_actual_regulations_policy_effectiveness = yes
+				custom_effect_tooltip = econ_admin_regulations_slider_button_left_tt
 			}
-			Econ_admin_safety_slider_right_click = {
-				add_to_variable = { econ_admin_safety_slider_pct = 1 }
+			Econ_admin_regulations_slider_right_click = {
+				add_to_variable = { econ_admin_regulations_slider_pct = 1 }
 				update_admin_mainslider = yes
 				update_economy_tab = yes
-				#TNO_calculate_actual_safety_policy_effectiveness = yes
+				TNO_calculate_actual_regulations_policy_effectiveness = yes
 				add_to_variable = { TNO_economy_GUI_dirty = 1 }
 			}
-			Econ_admin_safety_slider_right_shift_click = {
-				add_to_variable = { econ_admin_safety_slider_pct = 10 }
+			Econ_admin_regulations_slider_right_shift_click = {
+				add_to_variable = { econ_admin_regulations_slider_pct = 10 }
 				update_admin_mainslider = yes
 				update_economy_tab = yes
-				#TNO_calculate_actual_safety_policy_effectiveness = yes
+				TNO_calculate_actual_regulations_policy_effectiveness = yes
 				add_to_variable = { TNO_economy_GUI_dirty = 1 }
 			}
-			Econ_admin_safety_slider_right_control_click = {
-				set_variable = { econ_admin_safety_slider_pct = econ_admin_safety_maximal_pct }
+			Econ_admin_regulations_slider_right_control_click = {
+				set_variable = { econ_admin_regulations_slider_pct = econ_admin_regulations_maximal_pct }
 				update_admin_mainslider = yes
 				update_economy_tab = yes
-				#TNO_calculate_actual_safety_policy_effectiveness = yes
-				custom_effect_tooltip = econ_admin_safety_slider_button_left_tt
+				TNO_calculate_actual_regulations_policy_effectiveness = yes
+				custom_effect_tooltip = econ_admin_regulations_slider_button_left_tt
 			}
-			Econ_admin_safety_set_button_real_click = {
-				set_variable = { econ_admin_safety_slider_pct = button_idx }
-				multiply_variable = { econ_admin_safety_slider_pct = 5 }
-				divide_variable = { econ_admin_safety_slider_pct = 3 }
+			Econ_admin_regulations_set_button_real_click = {
+				set_variable = { econ_admin_regulations_slider_pct = button_idx }
+				multiply_variable = { econ_admin_regulations_slider_pct = 5 }
+				divide_variable = { econ_admin_regulations_slider_pct = 3 }
 				update_admin_mainslider = yes
 				update_economy_tab = yes
-				#TNO_calculate_actual_safety_policy_effectiveness = yes
-				custom_effect_tooltip = econ_admin_safety_slider_button_left_tt
-			}
-
-			Econ_admin_pollution_slider_left_click = {
-				subtract_from_variable = { econ_admin_pollution_slider_pct = 1 }
-				update_admin_mainslider = yes
-				update_economy_tab = yes
-				custom_effect_tooltip = econ_admin_pollution_slider_button_left_tt
-			}
-			Econ_admin_pollution_slider_left_shift_click = {
-				subtract_from_variable = { econ_admin_pollution_slider_pct = 10 }
-				update_admin_mainslider = yes
-				update_economy_tab = yes
-				custom_effect_tooltip = econ_admin_pollution_slider_button_left_tt
-			}
-			Econ_admin_pollution_slider_left_control_click = {
-				set_variable = { econ_admin_pollution_slider_pct = econ_admin_pollution_minimal_pct }
-				update_admin_mainslider = yes
-				update_economy_tab = yes
-				custom_effect_tooltip = econ_admin_pollution_slider_button_left_tt
-			}
-			Econ_admin_pollution_slider_right_click = {
-				add_to_variable = { econ_admin_pollution_slider_pct = 1 }
-				update_admin_mainslider = yes
-				update_economy_tab = yes
-				add_to_variable = { TNO_economy_GUI_dirty = 1 }
-			}
-			Econ_admin_pollution_slider_right_shift_click = {
-				add_to_variable = { econ_admin_pollution_slider_pct = 10 }
-				update_admin_mainslider = yes
-				update_economy_tab = yes
-				add_to_variable = { TNO_economy_GUI_dirty = 1 }
-			}
-			Econ_admin_pollution_slider_right_control_click = {
-				set_variable = { econ_admin_pollution_slider_pct = econ_admin_pollution_maximal_pct }
-				update_admin_mainslider = yes
-				update_economy_tab = yes
-				custom_effect_tooltip = econ_admin_pollution_slider_button_left_tt
-			}
-			Econ_admin_pollution_set_button_real_click = {
-				set_variable = { econ_admin_pollution_slider_pct = button_idx }
-				multiply_variable = { econ_admin_pollution_slider_pct = 5 }
-				divide_variable = { econ_admin_pollution_slider_pct = 3 }
-				update_admin_mainslider = yes
-				update_economy_tab = yes
-				custom_effect_tooltip = econ_admin_pollution_slider_button_left_tt
+				TNO_calculate_actual_regulations_policy_effectiveness = yes
+				custom_effect_tooltip = econ_admin_regulations_slider_button_left_tt
 			}
 
 			Econ_admin_bureaucracy_slider_left_click = {
@@ -2522,19 +2716,11 @@ scripted_gui = {
 
 			#SAFETY
 
-			Econ_admin_safety_slider_left_click = {
-				subtract_from_variable = { econ_admin_safety_slider_pct = 1 }
+			Econ_admin_regulations_slider_left_click = {
+				subtract_from_variable = { econ_admin_regulations_slider_pct = 1 }
 				update_admin_mainslider = yes
 				update_economy_tab = yes
-				custom_effect_tooltip = econ_admin_safety_slider_button_left_tt
-			}
-			#POLLUTION
-
-			Econ_admin_pollution_slider_left_click = {
-				subtract_from_variable = { econ_admin_pollution_slider_pct = 1 }
-				update_admin_mainslider = yes
-				update_economy_tab = yes
-				custom_effect_tooltip = econ_admin_pollution_slider_button_left_tt
+				custom_effect_tooltip = econ_admin_regulations_slider_button_left_tt
 			}
 
 
@@ -2602,8 +2788,7 @@ scripted_gui = {
 
 			Econ_admin_expenditures_slider_dot = { x = econ_admin_expenditures_slider_dot_x }
 			Econ_admin_security_slider_dot = { x = econ_admin_security_slider_dot_x }
-			Econ_admin_safety_slider_dot = { x = econ_admin_safety_slider_dot_x }
-			Econ_admin_pollution_slider_dot = { x = econ_admin_pollution_slider_dot_x }
+			Econ_admin_regulations_slider_dot = { x = econ_admin_regulations_slider_dot_x }
 			Econ_admin_bureaucracy_slider_dot = { x = econ_admin_bureaucracy_slider_dot_x }
 
 			Econ_research_expenditures_slider_dot = { x = econ_research_expenditures_slider_dot_x }
@@ -2627,8 +2812,7 @@ scripted_gui = {
 
 			Econ_admin_expenditures_slider_limit_left = { x = econ_admin_expenditures_maximal_x }
 			Econ_admin_security_slider_limit_left = { x = econ_admin_security_maximal_x }
-			Econ_admin_safety_slider_limit_left = { x = econ_admin_safety_maximal_x }
-			Econ_admin_pollution_slider_limit_left = { x = econ_admin_pollution_maximal_x }
+			Econ_admin_regulations_slider_limit_left = { x = econ_admin_regulations_maximal_x }
 			Econ_admin_bureaucracy_slider_limit_left = { x = econ_admin_bureaucracy_maximal_x }
 
 			Econ_research_expenditures_slider_limit_left = { x = econ_research_expenditures_maximal_x }
@@ -2652,8 +2836,7 @@ scripted_gui = {
 
 			Econ_admin_expenditures_slider_limit_right = { x = econ_admin_expenditures_minimal_x }
 			Econ_admin_security_slider_limit_right = { x = econ_admin_security_minimal_x }
-			Econ_admin_safety_slider_limit_right = { x = econ_admin_safety_minimal_x }
-			Econ_admin_pollution_slider_limit_right = { x = econ_admin_pollution_minimal_x }
+			Econ_admin_regulations_slider_limit_right = { x = econ_admin_regulations_minimal_x }
 			Econ_admin_bureaucracy_slider_limit_right = { x = econ_admin_bureaucracy_minimal_x }
 
 			Econ_research_expenditures_slider_limit_right = { x = econ_research_expenditures_minimal_x }
@@ -3305,10 +3488,16 @@ scripted_gui = {
 	}
 
 	# # Production Units Submenu
+	TNO_production_units_info_tab_parent = {
+		window_name = "production_units_info_tab_parent"
+		context_type = player_context
+		parent_window_token = construction_tab
+	}
+
 	TNO_production_units_info_tab = {
 		window_name = "production_units_info_tab"
 		context_type = player_context
-		parent_window_token = construction_tab
+		parent_window_name = production_units_info_tab_parent_instance
 		dirty = TNO_production_gui_dirty
 
 		visible = {
@@ -3591,10 +3780,16 @@ scripted_gui = {
 	}
 
 	# # Production Units Submenu
+	TNO_production_units_info_tab_3_parent = {
+		window_name = "production_units_info_tab_3_parent"
+		context_type = player_context
+		parent_window_token = production_tab
+	}
+
 	TNO_production_units_info_tab_3 = {
 		window_name = "production_units_info_tab_3"
 		context_type = player_context
-		parent_window_token = production_tab
+		parent_window_name = production_units_info_tab_3_parent_instance
 		dirty = TNO_production_gui_dirty
 
 		visible = {
@@ -3877,12 +4072,5 @@ scripted_gui = {
 		window_name = "TNO_SG_econ_help_arrows"
 
 		visible = { NOT = { ROOT = { has_country_flag = TNO_econ_help_arrows_dismissed } } }
-		effects = {
-			transparent_block_click = {
-				ROOT = {
-					set_country_flag = TNO_econ_help_arrows_dismissed
-				}
-			}
-		}
 	}
 }

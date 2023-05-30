@@ -1,5 +1,10 @@
 lysenko_army_readiness_check = {
-	lysenko_influence_assign = yes
+	if = {
+		limit = {
+			has_country_leader = { character = MGN_Trofim_Lysenko ruling_only = yes }
+		}
+		lysenko_influence_assign = yes
+	}
 
 	clamp_variable = {
 		var = army_preperation
@@ -22,129 +27,77 @@ lysenko_army_readiness_check = {
 		min = 0
 	}
 }
+
 lysenko_influence_assign = {
-	if = {
-		limit = {
-			has_idea = MGN_Lysenko_Influence_Very_Low
+	hidden_effect = {
+		remove_ideas = {
+			MGN_Lysenko_Influence_Very_Low
+			MGN_Lysenko_Influence_Low
+			MGN_Lysenko_Influence_Medium
+			MGN_Lysenko_Influence_High
+			MGN_Lysenko_Influence_Very_High
 		}
-		remove_ideas = MGN_Lysenko_Influence_Very_Low
-	}
-	else_if = {
-		limit = {
-			has_idea = MGN_Lysenko_Influence_Low
-		}
-		remove_ideas = MGN_Lysenko_Influence_Low
-	}
-	else_if = {
-		limit = {
-			has_idea = MGN_Lysenko_Influence_Medium
-		}
-		remove_ideas = MGN_Lysenko_Influence_Medium
-	}
-	else_if = {
-		limit = {
-			has_idea = MGN_Lysenko_Influence_High
-		}
-		remove_ideas = MGN_Lysenko_Influence_High
-	}
-	else_if = {
-		limit = {
-			has_idea = MGN_Lysenko_Influence_Very_High
-		}
-		remove_ideas = MGN_Lysenko_Influence_Very_High
-	}
-	if = {
-		limit = {
-			check_variable = {
-				lysenko_nkvd_influence < 20
+		if = {
+			limit = {
+				check_variable = { lysenko_nkvd_influence < 20 }
 			}
+			add_ideas = MGN_Lysenko_Influence_Very_Low
 		}
-		add_ideas = MGN_Lysenko_Influence_Very_Low
-	}
-	else_if = {
-		limit = {
-			check_variable = {
-				lysenko_nkvd_influence < 40
+		else_if = {
+			limit = {
+				check_variable = { lysenko_nkvd_influence < 40 }
 			}
+			add_ideas = MGN_Lysenko_Influence_Low
 		}
-		add_ideas = MGN_Lysenko_Influence_Low
-	}
-	else_if = {
-		limit = {
-			check_variable = {
-				lysenko_nkvd_influence < 60
+		else_if = {
+			limit = {
+				check_variable = { lysenko_nkvd_influence < 60 }
 			}
+			add_ideas = MGN_Lysenko_Influence_Medium
 		}
-		add_ideas = MGN_Lysenko_Influence_Medium
-	}
-	else_if = {
-		limit = {
-			check_variable = {
-				lysenko_nkvd_influence < 80
+		else_if = {
+			limit = {
+				check_variable = { lysenko_nkvd_influence < 80 }
 			}
+			add_ideas = MGN_Lysenko_Influence_High
 		}
-		add_ideas = MGN_Lysenko_Influence_High
-	}
-	else = {
-		add_ideas = MGN_Lysenko_Influence_Very_High
+		else = {
+			add_ideas = MGN_Lysenko_Influence_Very_High
+		}
 	}
 }
+
 lysenko_army_preperation_idea_assignment = {
 	if = {
 		limit = {
-			check_variable = {
-				var = army_preperation
-				value = 50
-				compare = greater_than_or_equals
-			}
+			check_variable = { army_preperation > 49 }
 		}
 		add_timed_idea = {
 			idea = MGN_well_prepared_army
 			days = 45
 		}
 	}
-
 	else_if = {
 		limit = {
-			check_variable = {
-				var = army_preperation
-				value = 50
-				compare = less_than
-			}
-			check_variable = {
-				var = army_preperation
-				value = 25
-				compare = greater_than
-			}
+			check_variable = { army_preperation > 24 }
 		}
 		add_timed_idea = {
 			idea = MGN_average_prepared_army
 			days = 45
 		}
 	}
-
-	else_if = {
-		limit = {
-			check_variable = {
-				var = army_preperation
-				value = 25
-				compare = less_than_or_equals
-			}
-		}
+	else = {
 		add_timed_idea = {
 			idea = MGN_bad_prepared_army
 			days = 45
 		}
 	}
 }
+
 lysenko_army_drill_idea_assignment = {
 	if = {
 		limit = {
-			check_variable = {
-				var = army_drill
-				value = 50
-				compare = greater_than_or_equals
-			}
+			check_variable = { army_drill > 49 }
 		}
 		add_timed_idea = {
 			idea = MGN_well_trained_army
@@ -153,45 +106,60 @@ lysenko_army_drill_idea_assignment = {
 	}
 	else_if = {
 		limit = {
-			check_variable = {
-				var = army_drill
-				value = 50
-				compare = less_than
-			}
-			check_variable = {
-				var = army_drill
-				value = 25
-				compare = greater_than
-			}
+			check_variable = { army_drill > 24 }
 		}
 		add_timed_idea = {
 			idea = MGN_average_trained_army
 			days = 45
 		}
 	}
-	else_if = {
-		limit = {
-			check_variable = {
-				var = army_drill
-				value = 25
-				compare = less_than_or_equals
-			}
-		}
+	else = {
 		add_timed_idea = {
 			idea = MGN_bad_trained_army
 			days = 45
 		}
 	}
 }
+
 lysenko_update_sanity = {
-	clamp_variable = {
-		var = lysenko_sanity
-		max = 100
-		min = 0
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = MGN_leader_route
+				option = MGN_LEADER_ROUTE_LYSENKO
+			}
+		}
+		clamp_variable = {
+			var = lysenko_sanity
+			max = 100
+			min = 1
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_game_rule = {
+					rule = MGN_leader_route
+					option = MGN_LEADER_ROUTE_GOOD_NKVD
+				}
+				has_game_rule = {
+					rule = MGN_leader_route
+					option = MGN_LEADER_ROUTE_BAD_NKVD
+				}
+			}
+		}
+		set_variable = { lysenko_sanity = 0 }
+	}
+	else = {
+		clamp_variable = {
+			var = lysenko_sanity
+			max = 100
+			min = 0
+		}
 	}
 	if = {
 		limit = {
-			has_country_leader = { character = MGN_Trofim_Lysenko }
+			has_country_leader = { character = MGN_Trofim_Lysenko ruling_only = yes }
 			check_variable = { lysenko_sanity = 0 }
 		}
 		country_event = { id = MGN.258	days = 1 }
@@ -214,17 +182,16 @@ lysenko_update_sanity = {
 	else_if = {
 		limit = {
 			has_country_leader = { character = MGN_Trofim_Lysenko ruling_only = yes }
-			check_variable = { lysenko_sanity > 24 }
 			check_variable = { lysenko_sanity < 75 }
 			NOT = {
 				has_idea = MGN_SANITY_NEUTRAL
 			}
 		}
-		country_event = { id = MGN.256	days = 1 }
 		remove_ideas = {
 			MGN_SANITY_LOW
 			MGN_SANITY_HIGH
 		}
+		country_event = { id = MGN.256	days = 1 }
 		add_ideas = MGN_SANITY_NEUTRAL
 	}
 	else_if = {

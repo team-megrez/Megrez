@@ -478,10 +478,10 @@ OIL_check_remove_forpol_tab = { #Ends the Oil Crisis in the ME if all civil wars
 					GER_Bormann_OC_heat_of_the_desert
 					GER_Bormann_OC_intervention
 				}
-				remove_dynamic_modifier = { modifier = GER_BOR_OC_intervention_dynamic_modifier }
 				clear_variable = BOR_OC_send_volunteer_size
 				if = { # Giving the bonuses for supporting the Ba'aths
 					limit = { has_global_flag = german_civil_war_bormannvic }
+					remove_dynamic_modifier = { modifier = GER_BOR_OC_intervention_dynamic_modifier }
 					country_event = { id = bormann.1213 days = 4 }
 				}
 			}
@@ -490,7 +490,7 @@ OIL_check_remove_forpol_tab = { #Ends the Oil Crisis in the ME if all civil wars
 				remove_ideas = GER_Bormann_OC_bombing_runs
 			}
 			# every_country = { # Hidden event to clear the Oil Cisis modifier for nations that don't have specific content to remove it yet
-			# 	limit = { has_idea = TNO_Oil_Crisis }
+			# 	limit = { has_dynamic_modifier = { modifier = TNO_Oil_Crisis_dynamic_modifier } }
 			# 	country_event = { id = OIL.601 days = 120 }
 			# }
 			# Clearing German AI volunteers

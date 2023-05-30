@@ -289,7 +289,10 @@ CCW_Partisans = {
 				option = SECOND_COLOMBIA_CIVIL_WAR_OUTCOME_CLC
 			}
 		}
-		CLC = { apply_war_buff_with_10_divisions = yes }
+		CLC = {
+			set_country_flag = request_strong_CCP_buff
+			apply_war_buff_with_20_divisions = yes
+		}
 	}
 	else_if = {
 		limit = {

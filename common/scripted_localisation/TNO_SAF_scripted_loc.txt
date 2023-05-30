@@ -515,6 +515,11 @@ defined_text = {
 	text = {
 		trigger = {
 			has_country_flag = SAF_ended_pakt_trade
+			OR = {
+				has_war_with = ANG 
+				has_war_with = GRO
+				has_war_with = COG
+			}
 		}
 		localization_key = SAF_fuck_da_pakt
 	}

@@ -219,17 +219,17 @@ defined_text = { # GetMajorIndependenceMovement
 	name = GetMajorIndependenceMovement
 	text = {
 		trigger = {
-			check_variable = { OFN_MANDATE_ANG_UNITA_power_level > OFN_MANDATE_ANG_MPLA_power_level }
+			check_variable = { OFN_MANDATE_ANG_UNITA_power_level > OFN_MANDATE_ANG_PLUAA_power_level }
 			check_variable = { OFN_MANDATE_ANG_gov_strength > 0.25 }
 		}
 		localization_key = OFN_MANDATE_ANG_UNITA_is_bigger_loc
 	}
 	text = {
 		trigger = {
-			check_variable = { OFN_MANDATE_ANG_UNITA_power_level < OFN_MANDATE_ANG_MPLA_power_level }
+			check_variable = { OFN_MANDATE_ANG_UNITA_power_level < OFN_MANDATE_ANG_PLUAA_power_level }
 			check_variable = { OFN_MANDATE_ANG_gov_strength > 0.25 }
 		}
-		localization_key = OFN_MANDATE_ANG_MPLA_is_bigger_loc
+		localization_key = OFN_MANDATE_ANG_PLUAA_is_bigger_loc
 	}
 	text = {
 		trigger = {
@@ -242,8 +242,8 @@ defined_text = { # GetMajorIndependenceMovement
 	}
 }
 
-defined_text = { # GetCARLogsitics
-	name = GetCARLogsitics
+defined_text = { # GetCARLogistics
+	name = GetCARLogistics
 	text = {
 		trigger = {
 			check_variable = { OFN_CAR_WAR_logistics < 0.3 }

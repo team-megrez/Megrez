@@ -165,16 +165,14 @@ first_every_month_script = {
 
 			if = {
 				limit = {
-					AND = {
-						check_variable = {
-							IRA_Power > 89
-						}
-						check_variable = {
-							IRA_Anger = 3
-						}
-						NOT = {
-							has_country_flag = SE_troubles
-						}
+					check_variable = {
+						IRA_Power > 89
+					}
+					check_variable = {
+						IRA_Anger = 3
+					}
+					NOT = {
+						has_country_flag = SE_troubles
 					}
 				}
 				country_event = IRE_crisis.51
@@ -385,10 +383,8 @@ first_every_month_script = {
 		limit = {
 			KOM = {
 				exists = yes
-				AND = {
-					check_variable = { KOM_leader_status^5 = 1 }
-					check_variable = { KOM_leader_status^2 = 1 }
-				}
+				check_variable = { KOM_leader_status^5 = 1 }
+				check_variable = { KOM_leader_status^2 = 1 }
 				NOT = {
 					has_country_flag = KOM_prison_chain_started
 				}
@@ -412,11 +408,9 @@ first_every_month_script = {
 			add_to_variable = { KOM_tabby_time_accumulated = KOM_tabby_time_progress }
 			if = {
 				limit = {
-					AND = {
-						check_variable = { KOM_tabby_time_accumulated > 99 }
-						NOT = {
-							check_variable = { KOM_tabby_time_hours > 23 }
-						}
+					check_variable = { KOM_tabby_time_accumulated > 99 }
+					NOT = {
+						check_variable = { KOM_tabby_time_hours > 23 }
 					}
 				}
 				set_variable = { KOM_tabby_time_accumulated = 0 }
@@ -425,11 +419,9 @@ first_every_month_script = {
 			}
 			if = {
 				limit = {
-					AND = {
-						check_variable = { KOM_tabby_time_accumulated < -99 }
-						NOT = {
-							check_variable = { KOM_tabby_time_hours < 2 }
-						}
+					check_variable = { KOM_tabby_time_accumulated < -99 }
+					NOT = {
+						check_variable = { KOM_tabby_time_hours < 2 }
 					}
 				}
 				set_variable = { KOM_tabby_time_accumulated = 0 }
@@ -629,19 +621,17 @@ first_every_month_script = {
 
 	if = {
 		limit = {
-			AND = {
-				JAP = {
-					is_ai = yes
-				}
-				GER = {
-					is_ai = yes
-				}
-				USA = {
-					is_ai = yes
-				}
-				BRG = {
-					is_ai = yes
-				}
+			JAP = {
+				is_ai = yes
+			}
+			GER = {
+				is_ai = yes
+			}
+			USA = {
+				is_ai = yes
+			}
+			BRG = {
+				is_ai = yes
 			}
 		}
 		set_global_flag = DISABLE_AI_CRISES
@@ -649,23 +639,21 @@ first_every_month_script = {
 
 	if = {
 		limit = {
-			AND = {
-				OR = {
-					JAP = {
-						is_ai = no
-					}
-					GER = {
-						is_ai = no
-					}
-					USA = {
-						is_ai = no
-					}
-					BRG = {
-						is_ai = no
-					}
+			OR = {
+				JAP = {
+					is_ai = no
 				}
-				has_global_flag = DISABLE_AI_CRISES
+				GER = {
+					is_ai = no
+				}
+				USA = {
+					is_ai = no
+				}
+				BRG = {
+					is_ai = no
+				}
 			}
+			has_global_flag = DISABLE_AI_CRISES
 		}
 		clr_global_flag = DISABLE_AI_CRISES
 	}
@@ -703,14 +691,12 @@ first_every_month_script = {
 	}
 	if = {
 		limit = {
-			AND = {
-				NOT = {
-					country_exists = KZK
-					country_exists = NPL
-				}
-				NOT = {
-					has_global_flag = RUS_KAZAKH_CRISIS_OVER
-				}
+			NOT = {
+				country_exists = KZK
+				country_exists = NPL
+			}
+			NOT = {
+				has_global_flag = RUS_KAZAKH_CRISIS_OVER
 			}
 		}
 		set_global_flag = RUS_KAZAKH_CRISIS_OVER
@@ -938,10 +924,8 @@ first_every_month_script = {
 	every_country = {
 		if = {
 			limit = {
-				AND = {
-					has_country_flag = SOCINTERN_LEADER
-					exists = no
-				}
+				has_country_flag = SOCINTERN_LEADER
+				exists = no
 			}
 			set_global_flag = RESET_COMINTERN_LEADER
 		}
@@ -1615,7 +1599,6 @@ first_every_month_script = {
 			Speerconomics_monthly_pulse = yes
 			run_monthly_StateReich_pulse = yes
 			reset_StateReich_buttons = yes
-			RND_run_pulse = yes
 			set_country_flag = SGR_speergraph_button_visible
 			set_country_flag = SGR_RND_GUI_budget_button_enabled
 			set_country_flag = SGR_RND_GUI_equipment_button_enabled
@@ -1850,6 +1833,7 @@ first_every_month_script = {
 				check_variable = { PRM_months_since_sacrifice < 8}
 				NOT = {
 					has_idea = RUS_terror_bombing
+					has_country_flag = RUS_superregional_stage
 				}
 			}
 			add_to_variable = { PRM_months_since_sacrifice = 1 }
@@ -1868,14 +1852,14 @@ first_every_month_script = {
 				country_event = {
 					id = PRM.1312
 					days = 2
-					random = 200
+					random_hours = 200
 				}
 			}
 			else = {
 				country_event = {
 					id = PRM.8
 					days = 2
-					random = 200
+					random_hours = 200
 				}
 			}
 		}
@@ -1920,20 +1904,18 @@ first_every_month_script = {
 		#MONTY COUP
 		if = {
 			limit = {
-				AND = {
-					is_ai = no
-					OR = {
-						has_country_leader = {
-							character = ENG_Margaret_Thatcher
-							ruling_only = yes
-						}
-						has_country_leader = {
-							character = ENG_Harold_MacMillan
-							ruling_only = yes
-						}
+				is_ai = no
+				OR = {
+					has_country_leader = {
+						character = ENG_Margaret_Thatcher
+						ruling_only = yes
 					}
-					check_variable = { ParliamentMechanic_GovStab < 0.1 }
+					has_country_leader = {
+						character = ENG_Harold_MacMillan
+						ruling_only = yes
+					}
 				}
+				check_variable = { ParliamentMechanic_GovStab < 0.1 }
 			}
 			country_event = {
 				id = ENG_Corn_crisis.21
@@ -1944,14 +1926,12 @@ first_every_month_script = {
 		#BUTLER COUP
 		if = {
 			limit = {
-				AND = {
-					is_ai = no
-					has_country_leader = {
-						character = ENG_Margaret_Thatcher
-						ruling_only = yes
-					}
-					check_variable = { ENG_OG_Party_Lead > 0.9 }
+				is_ai = no
+				has_country_leader = {
+					character = ENG_Margaret_Thatcher
+					ruling_only = yes
 				}
+				check_variable = { ENG_OG_Party_Lead > 0.9 }
 			}
 			country_event = {
 				id = ENG_Government_Changes.14
@@ -1962,14 +1942,12 @@ first_every_month_script = {
 		#YDL COUP
 		if = {
 			limit = {
-				AND = {
-					is_ai = no
-					OR = {
-						has_country_flag = NDL_victorious
-						has_country_flag = SLP_victorious
-					}
-					check_variable = { ParliamentMechanic_GovStab < 0.1 }
+				is_ai = no
+				OR = {
+					has_country_flag = NDL_victorious
+					has_country_flag = SLP_victorious
 				}
+				check_variable = { ParliamentMechanic_GovStab < 0.1 }
 			}
 			country_event = {
 				id = ENG_Government_Changes.9

@@ -155,11 +155,11 @@ ARG_load_peron = {
 	hidden_effect = {
 		remove_ideas = {
 			#OFN_Candidate_Member
-	        TRI_Observer
-	        #Spirits
-	        ARG_structural_unhingement
-	        ARG_greekback_lira_blues
-	        ARG_juan_domingo_el_ausente
+			TRI_Observer
+			#Spirits
+			ARG_structural_unhingement
+			ARG_greekback_lira_blues
+			ARG_juan_domingo_el_ausente
 			ARG_anarchy_in_the_army
 			ARG_the_death_of_discipline
 			ARG_navy_controlled_army
@@ -169,6 +169,7 @@ ARG_load_peron = {
 			tno_political_parties_controlled_opposition
 		}
 		every_country = {
+			limit = { is_ai = no }
 			news_event = { hours = 1 id = LATAM_news.82 }
 		}
 	}
@@ -327,7 +328,7 @@ ARG_load_aramburu = {
 	}
 	hidden_effect = {
 		remove_ideas = {
-	        TRI_Observer
+			TRI_Observer
 			ARG_anarchy_in_the_army
 			ARG_the_death_of_discipline
 			ARG_reign_of_the_cavalry
@@ -338,6 +339,7 @@ ARG_load_aramburu = {
 		}
 		hidden_effect = {
 			every_country = {
+				limit = { is_ai = no }
 				news_event = { hours = 1 id = LATAM_news.104 }
 			}
 		}

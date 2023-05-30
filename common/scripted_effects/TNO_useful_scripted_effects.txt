@@ -999,10 +999,6 @@ TNO_Alt_Oil_Crisis_remove_modifier = {
 # Oil Crisis modifier stuff
 TNO_Oil_Crisis_apply_modifier = {
 	log = "[GetDateText]: [Root.GetName]: add dynamic modifier TNO_Oil_Crisis"
-	hidden_effect = {
-		add_ideas = TNO_Oil_Crisis # Cmon PDX, is it that hard to let people put in descriptions on dynamic modifiers?
-		add_dynamic_modifier = { modifier = TNO_Oil_Crisis_dynamic_modifier }
-	}
 	set_variable = { OC_fuel_gain_factor = -0.4 }
 	set_variable = { OC_production_oil_factor = -0.5 }
 	set_variable = { OC_political_power_factor = -0.25 }
@@ -1013,8 +1009,8 @@ TNO_Oil_Crisis_apply_modifier = {
 	set_variable = { OC_industrial_capacity_dockyard = -0.1 }
 	set_variable = { OC_trade_opinion_factor = -0.5 }
 	set_variable = { OC_annual_gdp_growth_factor = -0.25 }
-	set_variable = { OC_proportional_pop_cost = 0.08 }
 	set_variable = { OC_personnel_cost_modifier = 0.25 }
+	hidden_effect = { add_dynamic_modifier = { modifier = TNO_Oil_Crisis_dynamic_modifier } }
 }
 
 TNO_Oil_Crisis_reduce_effects = { # Can be fired up to 5 times until the OC modifier is removed
@@ -1057,7 +1053,6 @@ TNO_Oil_Crisis_remove_modifier = {
 	log = "[GetDateText]: [Root.GetName]: remove dynamic modifier TNO_Oil_Crisis"
 	custom_effect_tooltip = TNO_Oil_Crisis_remove_modifier_tooltip
 	hidden_effect = {
-		remove_ideas = TNO_Oil_Crisis
 		remove_dynamic_modifier = { modifier = TNO_Oil_Crisis_dynamic_modifier }
 	}
 	clear_variable = OC_fuel_gain_factor
@@ -1161,6 +1156,7 @@ remove_faction_status = {
 			Anti_Heydrich_Pact
 			Sphere_Leader
 			Sphere_Core_Member
+			Sphere_Chinese_Warlord
 			Sphere_Corporate_Dependency
 			Sphere_Imp_Protectorate
 			Sphere_Fully_Dependent

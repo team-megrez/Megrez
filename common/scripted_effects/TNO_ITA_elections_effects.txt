@@ -189,317 +189,6 @@ ITA_restart_antifascist_resistance = { # scorza use
 	}
 }
 
-ITA_bulgaria_inf = { #
-	hidden_effect = {
-		if = {
-			limit = {
-				has_country_flag = ITA_influencing_bulgaria
-			}
-			add_to_variable = {
-				var = BUL_ITA_Influence
-				value = 1
-			}
-			ITA_influence_autonomy_update_BUL = yes
-			if = {
-				limit = {
-					check_variable = {
-						var = BUL_ITA_Influence
-						value = 4
-						compare = greater_than_or_equals
-					}
-				}
-				clr_country_flag = ITA_influencing_bulgaria
-			}
-			if = {
-				limit = {
-					NOT = {
-						has_idea = ITA_influencing_a_nation
-					}
-				}
-				add_ideas = ITA_influencing_a_nation
-			}
-			country_event = { id = ita.1000 days = 7 }
-		}
-	}
-}
-
-ITA_romania_inf = { #
-	hidden_effect = {
-		if = {
-			limit = {
-				has_country_flag = ITA_influencing_romania
-			}
-			add_to_variable = {
-				var = ROM_ITA_Influence
-				value = 1
-			}
-			ITA_influence_autonomy_update_ROM = yes
-			if = {
-				limit = {
-					check_variable = {
-						var = ROM_ITA_Influence
-						value = 4
-						compare = greater_than_or_equals
-					}
-				}
-				clr_country_flag = ITA_influencing_romania
-			}
-			if = {
-				limit = {
-					NOT = {
-						has_idea = ITA_influencing_a_nation
-					}
-				}
-				add_ideas = ITA_influencing_a_nation
-			}
-			country_event = { id = ita.1000 days = 7 }
-		}
-	}
-}
-
-ITA_hungary_inf = { #
-	hidden_effect = {
-		if = {
-			limit = {
-				has_country_flag = ITA_influencing_hungary
-			}
-			add_to_variable = {
-				var = HUN_ITA_Influence
-				value = 1
-			}
-			ITA_influence_autonomy_update_HUN = yes
-			if = {
-				limit = {
-					check_variable = {
-						var = HUN_ITA_Influence
-						value = 4
-						compare = greater_than_or_equals
-					}
-				}
-				clr_country_flag = ITA_influencing_hungary
-			}
-			if = {
-				limit = {
-					NOT = {
-						has_idea = ITA_influencing_a_nation
-					}
-				}
-				add_ideas = ITA_influencing_a_nation
-			}
-			country_event = { id = ita.1000 days = 7 }
-		}
-	}
-}
-
-ITA_serbia_inf = { #
-	hidden_effect = {
-		if = {
-			limit = {
-				has_country_flag = ITA_influencing_serbia
-			}
-			add_to_variable = {
-				var = SER_ITA_Influence
-				value = 1
-			}
-			ITA_influence_autonomy_update_SER = yes
-			if = {
-				limit = {
-					check_variable = {
-						var = SER_ITA_Influence
-						value = 4
-						compare = greater_than_or_equals
-					}
-				}
-				clr_country_flag = ITA_influencing_serbia
-			}
-			if = {
-				limit = {
-					NOT = {
-						has_idea = ITA_influencing_a_nation
-					}
-				}
-				add_ideas = ITA_influencing_a_nation
-			}
-			country_event = { id = ita.1000 days = 7 }
-		}
-	}
-}
-
-ITA_france_inf = { #
-	hidden_effect = {
-		if = {
-			limit = {
-				has_country_flag = ITA_influencing_france
-			}
-			add_to_variable = {
-				var = FRA_ITA_Influence
-				value = 1
-			}
-			ITA_influence_autonomy_update_FRA = yes
-			if = {
-				limit = {
-					check_variable = {
-						var = FRA_ITA_Influence
-						value = 4
-						compare = greater_than_or_equals
-					}
-				}
-				clr_country_flag = ITA_influencing_france
-			}
-			if = {
-				limit = {
-					NOT = {
-						has_idea = ITA_influencing_a_nation
-					}
-				}
-				add_ideas = ITA_influencing_a_nation
-			}
-			country_event = { id = ita.1000 days = 7 }
-		}
-	}
-}
-
-ITA_algeria_inf = { #
-	hidden_effect = {
-		if = {
-			limit = {
-				has_country_flag = ITA_influencing_itaalgeria
-			}
-			add_to_variable = {
-				var = ILG_ITA_Influence
-				value = 1
-			}
-			ITA_influence_autonomy_update_ILG = yes
-			if = {
-				limit = {
-					check_variable = {
-						var = ILG_ITA_Influence
-						value = 5
-						compare = greater_than_or_equals
-					}
-				}
-				clr_country_flag = ITA_influencing_itaalgeria
-			}
-			if = {
-				limit = {
-					NOT = {
-						has_idea = ITA_influencing_a_nation
-					}
-				}
-				add_ideas = ITA_influencing_a_nation
-			}
-			country_event = { id = ita.1000 days = 7 }
-		}
-	}
-}
-
-ITA_greece_inf = { #
-	hidden_effect = {
-		if = {
-			limit = {
-				has_country_flag = ITA_influencing_greece
-			}
-			add_to_variable = {
-				var = GRE_ITA_Influence
-				value = 1
-			}
-			ITA_influence_autonomy_update_GRE = yes
-			if = {
-				limit = {
-					check_variable = {
-						var = GRE_ITA_Influence
-						value = 4
-						compare = greater_than_or_equals
-					}
-				}
-				clr_country_flag = ITA_influencing_greece
-			}
-			if = {
-				limit = {
-					NOT = {
-						has_idea = ITA_influencing_a_nation
-					}
-				}
-				add_ideas = ITA_influencing_a_nation
-			}
-			country_event = { id = ita.1000 days = 7 }
-		}
-	}
-}
-ITA_croat_inf = { #
-	hidden_effect = {
-		if = {
-			limit = {
-				has_country_flag = ITA_influencing_croatia
-				NOT = {
-					check_variable = {
-						var = CRO_ITA_Influence
-						value = 400
-						compare = greater_than_or_equals
-					}
-				}
-			}
-			add_to_variable = {
-				var = CRO_ITA_Influence
-				value = 1
-			}
-			ITA_influence_autonomy_update_CRO = yes
-			if = {
-				limit = {
-					check_variable = {
-						var = CRO_ITA_Influence
-						value = 400
-						compare = greater_than_or_equals
-					}
-				}
-				clr_country_flag = ITA_influencing_croatia
-			}
-			if = {
-				limit = {
-					NOT = {
-						has_idea = ITA_influencing_a_nation
-					}
-				}
-				add_ideas = ITA_influencing_a_nation
-			}
-			country_event = { id = ita.1000 days = 7 }
-		}
-	}
-}
-ITA_montenegro_inf = { #
-	hidden_effect = {
-		if = {
-			limit = {
-				has_country_flag = ITA_influencing_montenegro
-			}
-			add_to_variable = {
-				var = MNT_ITA_Influence
-				value = 1
-			}
-			ITA_influence_autonomy_update_MNT = yes
-			if = {
-				limit = {
-					check_variable = {
-						var = MNT_ITA_Influence
-						value = 4
-						compare = greater_than_or_equals
-					}
-				}
-				clr_country_flag = ITA_influencing_montenegro
-			}
-			if = {
-				limit = {
-					NOT = {
-						has_idea = ITA_influencing_a_nation
-					}
-				}
-				add_ideas = ITA_influencing_a_nation
-			}
-			country_event = { id = ita.1000 days = 7 }
-		}
-	}
-}
-
 ITA_reset_election_pop = { #APPLICABLE FOR 1966 and 1970
 	hidden_effect = {
 		set_variable = { ITA_FD_popularity = 0 }
@@ -1497,7 +1186,73 @@ ITA_influence_autonomy_update_BUL = {
 		}
 	}
 }
-
+ITA_influence_autonomy_update_BOS = {
+	hidden_effect = {
+		if = {
+			limit = {
+				ITA = {
+					check_variable = {
+						var = BOS_ITA_Influence
+						value = 200
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = BOS_ITA_Influence
+						value = 300
+						compare = less_than
+					}
+				}
+			}
+			BOS = {
+				country_event = {
+					id = ita.1001
+				}
+			}
+		}
+		if = {
+			limit = {
+				ITA = {
+					check_variable = {
+						var = BOS_ITA_Influence
+						value = 300
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = BOS_ITA_Influence
+						value = 400
+						compare = less_than
+					}
+				}
+			}
+			BOS = {
+				country_event = {
+					id = ita.1002
+				}
+			}
+		}
+		if = {
+			limit = {
+				ITA = {
+					check_variable = {
+						var = BOS_ITA_Influence
+						value = 400
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = BOS_ITA_Influence
+						value = 500
+						compare = less_than
+					}
+				}
+			}
+			BOS = {
+				country_event = {
+					id = ita.1003
+				}
+			}
+		}
+	}
+}
 ITA_influence_autonomy_update_MNT = {
 	hidden_effect = {
 		if = {

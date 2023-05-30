@@ -73,6 +73,80 @@ defined_text = {
 }
 
 defined_text = {
+	name = get_world_tension_topbar_defcon_tt
+	text = {
+		trigger = {
+			check_variable = { global.TNO_World_Tension > 80 }
+		}
+		localization_key = DEFCON_1
+	}
+	text = {
+		trigger = {
+			check_variable = { global.TNO_World_Tension > 60 }
+		}
+		localization_key = DEFCON_2
+	}
+	text = {
+		trigger = {
+			check_variable = { global.TNO_World_Tension > 40 }
+		}
+		localization_key = DEFCON_3
+	}
+	text = {
+		trigger = {
+			check_variable = { global.TNO_World_Tension > 20 }
+		}
+		localization_key = DEFCON_4
+	}
+	text = {
+		trigger = {
+			OR = {
+				check_variable = { global.TNO_World_Tension > 0 }
+				check_variable = { global.TNO_World_Tension = 0 }
+			}
+		}
+		localization_key = DEFCON_5
+	}
+}
+
+defined_text = {
+	name = get_world_tension_topbar_defcon_tt_delayed
+	text = {
+		trigger = {
+			check_variable = { global.TNO_World_Tension > 80 }
+		}
+		localization_key = DEFCON_1_delayed
+	}
+	text = {
+		trigger = {
+			check_variable = { global.TNO_World_Tension > 60 }
+		}
+		localization_key = DEFCON_2_delayed
+	}
+	text = {
+		trigger = {
+			check_variable = { global.TNO_World_Tension > 40 }
+		}
+		localization_key = DEFCON_3_delayed
+	}
+	text = {
+		trigger = {
+			check_variable = { global.TNO_World_Tension > 20 }
+		}
+		localization_key = DEFCON_4_delayed
+	}
+	text = {
+		trigger = {
+			OR = {
+				check_variable = { global.TNO_World_Tension > 0 }
+				check_variable = { global.TNO_World_Tension = 0 }
+			}
+		}
+		localization_key = DEFCON_5_delayed
+	}
+}
+
+defined_text = {
 	name = get_cw_gui_defcon_progbar
 	text = {
 		trigger = {
@@ -234,6 +308,26 @@ defined_text = {
 	text = {
 		trigger = { check_variable = { Cold_War_GUI_Selected_Superpower.TNO_Cold_War_GUI_Victory_Entry_Display^TNO_Cold_War_GUI_Victories_i = 30 } }
 		localization_key = "TNO_Cold_War_Victory_ID_30"
+	}
+	text = {
+		trigger = { check_variable = { Cold_War_GUI_Selected_Superpower.TNO_Cold_War_GUI_Victory_Entry_Display^TNO_Cold_War_GUI_Victories_i = 31 } }
+		localization_key = "TNO_Cold_War_Victory_ID_31"
+	}
+	text = {
+		trigger = { check_variable = { Cold_War_GUI_Selected_Superpower.TNO_Cold_War_GUI_Victory_Entry_Display^TNO_Cold_War_GUI_Victories_i = 32 } }
+		localization_key = "TNO_Cold_War_Victory_ID_32"
+	}
+	text = {
+		trigger = { check_variable = { Cold_War_GUI_Selected_Superpower.TNO_Cold_War_GUI_Victory_Entry_Display^TNO_Cold_War_GUI_Victories_i = 33 } }
+		localization_key = "TNO_Cold_War_Victory_ID_33"
+	}
+	text = {
+		trigger = { check_variable = { Cold_War_GUI_Selected_Superpower.TNO_Cold_War_GUI_Victory_Entry_Display^TNO_Cold_War_GUI_Victories_i = 34 } }
+		localization_key = "TNO_Cold_War_Victory_ID_34"
+	}
+	text = {
+		trigger = { check_variable = { Cold_War_GUI_Selected_Superpower.TNO_Cold_War_GUI_Victory_Entry_Display^TNO_Cold_War_GUI_Victories_i = 35 } }
+		localization_key = "TNO_Cold_War_Victory_ID_35"
 	}
 	text = {
 		localization_key = "ERROR - IND. NAME"
@@ -537,6 +631,14 @@ defined_text = { #Add more Diplo Incidents Here
 		localization_key = "TNO_Cold_War_GUI_Tension_ID_Kissinger_proxy_conflicts_clause"
 	}
 	text = {
+		trigger = { check_variable = { global.TNO_Cold_War_GUI_Tension_Tab_Incidents_List^TNO_Cold_War_GUI_Tension_Incidents_i = 56 } }
+		localization_key = "TNO_Cold_War_GUI_Tension_ID_American_Embargo_Lifted"
+	}
+	text = {
+		trigger = { check_variable = { global.TNO_Cold_War_GUI_Tension_Tab_Incidents_List^TNO_Cold_War_GUI_Tension_Incidents_i = 57 } }
+		localization_key = "TNO_Cold_War_GUI_Tension_ID_SAW_Escalation"
+	}
+	text = {
 		trigger = { check_variable = { global.TNO_Cold_War_GUI_Tension_Tab_Incidents_List^TNO_Cold_War_GUI_Tension_Incidents_i = 55 } }
 		localization_key = "TNO_Cold_War_GUI_Tension_ID_WW3"
 	}
@@ -809,31 +911,31 @@ defined_text = {
 	name = Cold_War_GUI_GetSeaZone_Name
 	text = {
 		trigger = { check_variable = { SeaZone_ID = 0 } }
-		localization_key = "East Pacific"
+		localization_key = Cold_War_GUI_GetSeaZone_Name_EastPacific
 	}
 	text = {
 		trigger = { check_variable = { SeaZone_ID = 1 } }
-		localization_key = "West Pacific"
+		localization_key = Cold_War_GUI_GetSeaZone_Name_WestPacific
 	}
 	text = {
 		trigger = { check_variable = { SeaZone_ID = 2 } }
-		localization_key = "South Atlantic"
+		localization_key = Cold_War_GUI_GetSeaZone_Name_SouthAtlantic
 	}
 	text = {
 		trigger = { check_variable = { SeaZone_ID = 3 } }
-		localization_key = "North Atlantic"
+		localization_key = Cold_War_GUI_GetSeaZone_Name_NorthAtlantic
 	}
 	text = {
 		trigger = { check_variable = { SeaZone_ID = 4 } }
-		localization_key = "North Sea"
+		localization_key = Cold_War_GUI_GetSeaZone_Name_NorthSea
 	}
 	text = {
 		trigger = { check_variable = { SeaZone_ID = 5 } }
-		localization_key = "Mediterranean"
+		localization_key = Cold_War_GUI_GetSeaZone_Name_Mediterranean
 	}
 	text = {
 		trigger = { check_variable = { SeaZone_ID = 6 } }
-		localization_key = "Indian Ocean"
+		localization_key = Cold_War_GUI_GetSeaZone_Name_IndianOcean
 	}
 }
 

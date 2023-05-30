@@ -1547,7 +1547,6 @@ ENG_HMMLR_ECW_VictoryPreAnnex = {
 		BRG = { ENG = { set_embargo_PREV = yes } }
 		BUL = { ENG = { set_embargo_PREV = yes } }
 		FRA = { ENG = { set_embargo_PREV = yes } }
-		#BRT = { ENG = { set_embargo_PREV = yes } }
 		IRE = { ENG = { set_embargo_PREV = yes } }
 	}
 	log = "[GetDateText]: [Root.GetName]: ENG_HMMLR_ECW_VictoryPreAnnex; Completed execution"
@@ -1575,25 +1574,10 @@ ENG_Thatcher_Add_Maggie_Party_Support_1 = {
 		var = ENG_OG_Party_Lead
 		value = -0.01
 	}
-	if = {
-		limit = {
-			has_game_rule = {
-				rule = COLLAB_COUP
-				option = COLLAB_COUP_BUTLER
-			}
-		}
-		clamp_variable = {
-			var = ENG_OG_Party_Lead
-			min = 0.91
-			max = 1
-		}
-	}
-	else = {
-		clamp_variable = {
-			var = ENG_OG_Party_Lead
-			min = 0
-			max = 1
-		}
+	clamp_variable = {
+		var = ENG_OG_Party_Lead
+		min = 0
+		max = 1
 	}
 	ENG_something_bad_maggie = yes
 	custom_effect_tooltip = ENG_DEC_Maggie_Party_Gain_1_tt
@@ -1613,25 +1597,10 @@ ENG_Thatcher_Add_Maggie_Party_Support_3 = {
 		var = ENG_OG_Party_Lead
 		value = -0.03
 	}
-	if = {
-		limit = {
-			has_game_rule = {
-				rule = COLLAB_COUP
-				option = COLLAB_COUP_BUTLER
-			}
-		}
-		clamp_variable = {
-			var = ENG_OG_Party_Lead
-			min = 0.91
-			max = 1
-		}
-	}
-	else = {
-		clamp_variable = {
-			var = ENG_OG_Party_Lead
-			min = 0
-			max = 1
-		}
+	clamp_variable = {
+		var = ENG_OG_Party_Lead
+		min = 0
+		max = 1
 	}
 	ENG_something_bad_maggie = yes
 	custom_effect_tooltip = ENG_DEC_Maggie_Party_Gain_3_tt
@@ -1651,25 +1620,10 @@ ENG_Thatcher_Add_Maggie_Party_Support_5 = {
 		var = ENG_OG_Party_Lead
 		value = -0.05
 	}
-	if = {
-		limit = {
-			has_game_rule = {
-				rule = COLLAB_COUP
-				option = COLLAB_COUP_BUTLER
-			}
-		}
-		clamp_variable = {
-			var = ENG_OG_Party_Lead
-			min = 0.91
-			max = 1
-		}
-	}
-	else = {
-		clamp_variable = {
-			var = ENG_OG_Party_Lead
-			min = 0
-			max = 1
-		}
+	clamp_variable = {
+		var = ENG_OG_Party_Lead
+		min = 0
+		max = 1
 	}
 	ENG_something_bad_maggie = yes
 	custom_effect_tooltip = ENG_DEC_Maggie_Party_Gain_5_tt
@@ -1689,25 +1643,10 @@ ENG_Thatcher_Add_Maggie_Party_Support_10 = {
 		var = ENG_OG_Party_Lead
 		value = -0.10
 	}
-	if = {
-		limit = {
-			has_game_rule = {
-				rule = COLLAB_COUP
-				option = COLLAB_COUP_BUTLER
-			}
-		}
-		clamp_variable = {
-			var = ENG_OG_Party_Lead
-			min = 0.91
-			max = 1
-		}
-	}
-	else = {
-		clamp_variable = {
-			var = ENG_OG_Party_Lead
-			min = 0
-			max = 1
-		}
+	clamp_variable = {
+		var = ENG_OG_Party_Lead
+		min = 0
+		max = 1
 	}
 	ENG_something_bad_maggie = yes
 	custom_effect_tooltip = ENG_DEC_Maggie_Party_Gain_10_tt
@@ -1718,31 +1657,10 @@ ENG_Thatcher_Add_OG_Party_Support_1 = {
 		var = ENG_OG_Party_Lead
 		value = 0.01
 	}
-	if = {
-		limit = {
-			OR = {
-				has_game_rule = {
-					rule = COLLAB_COUP
-					option = COLLAB_COUP_NO
-				}
-				has_game_rule = {
-					rule = COLLAB_COUP
-					option = COLLAB_COUP_MONTY
-				}
-			}
-		}
-		clamp_variable = {
-			var = ENG_OG_Party_Lead
-			min = 0
-			max = 0.89
-		}
-	}
-	else = {
-		clamp_variable = {
-			var = ENG_OG_Party_Lead
-			min = 0
-			max = 1
-		}
+	clamp_variable = {
+		var = ENG_OG_Party_Lead
+		min = 0
+		max = 1
 	}
 	add_to_variable = {
 		var = ENG_Maggie_Party_Lead
@@ -1762,31 +1680,10 @@ ENG_Thatcher_Add_OG_Party_Support_3 = {
 		var = ENG_OG_Party_Lead
 		value = 0.03
 	}
-	if = {
-		limit = {
-			OR = {
-				has_game_rule = {
-					rule = COLLAB_COUP
-					option = COLLAB_COUP_NO
-				}
-				has_game_rule = {
-					rule = COLLAB_COUP
-					option = COLLAB_COUP_MONTY
-				}
-			}
-		}
-		clamp_variable = {
-			var = ENG_OG_Party_Lead
-			min = 0
-			max = 0.89
-		}
-	}
-	else = {
-		clamp_variable = {
-			var = ENG_OG_Party_Lead
-			min = 0
-			max = 1
-		}
+	clamp_variable = {
+		var = ENG_OG_Party_Lead
+		min = 0
+		max = 1
 	}
 	add_to_variable = {
 		var = ENG_Maggie_Party_Lead
@@ -1806,31 +1703,10 @@ ENG_Thatcher_Add_OG_Party_Support_5 = {
 		var = ENG_OG_Party_Lead
 		value = 0.05
 	}
-	if = {
-		limit = {
-			OR = {
-				has_game_rule = {
-					rule = COLLAB_COUP
-					option = COLLAB_COUP_NO
-				}
-				has_game_rule = {
-					rule = COLLAB_COUP
-					option = COLLAB_COUP_MONTY
-				}
-			}
-		}
-		clamp_variable = {
-			var = ENG_OG_Party_Lead
-			min = 0
-			max = 0.89
-		}
-	}
-	else = {
-		clamp_variable = {
-			var = ENG_OG_Party_Lead
-			min = 0
-			max = 1
-		}
+	clamp_variable = {
+		var = ENG_OG_Party_Lead
+		min = 0
+		max = 1
 	}
 	add_to_variable = {
 		var = ENG_Maggie_Party_Lead
@@ -1850,31 +1726,10 @@ ENG_Thatcher_Add_OG_Party_Support_10 = {
 		var = ENG_OG_Party_Lead
 		value = 0.10
 	}
-	if = {
-		limit = {
-			OR = {
-				has_game_rule = {
-					rule = COLLAB_COUP
-					option = COLLAB_COUP_NO
-				}
-				has_game_rule = {
-					rule = COLLAB_COUP
-					option = COLLAB_COUP_MONTY
-				}
-			}
-		}
-		clamp_variable = {
-			var = ENG_OG_Party_Lead
-			min = 0
-			max = 0.89
-		}
-	}
-	else = {
-		clamp_variable = {
-			var = ENG_OG_Party_Lead
-			min = 0
-			max = 1
-		}
+	clamp_variable = {
+		var = ENG_OG_Party_Lead
+		min = 0
+		max = 1
 	}
 	add_to_variable = {
 		var = ENG_Maggie_Party_Lead
@@ -2554,34 +2409,6 @@ ENG_Thatcher_Tick = {
 			}
 			add_to_variable = { ENG_Maggie_Party_Lead = Thatcher_Influence_Monthly }
 			subtract_from_variable = { ENG_OG_Party_Lead = Thatcher_Influence_Monthly }
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = COLLAB_COUP
-						option = COLLAB_COUP_BUTLER
-					}
-					NOT = {
-						check_variable = { ENG_OG_Party_Lead > 0.9 }
-					}
-				}
-				set_variable = { ENG_OG_Party_Lead = 0.91 }
-			}
-			else_if = {
-				limit = {
-					OR = {
-						has_game_rule = {
-							rule = COLLAB_COUP
-							option = COLLAB_COUP_NO
-						}
-						has_game_rule = {
-							rule = COLLAB_COUP
-							option = COLLAB_COUP_MONTY
-						}
-					}
-					check_variable = { ENG_OG_Party_Lead > 0.9 }
-				}
-				set_variable = { ENG_OG_Party_Lead = 0.9 }
-			}
 
 			set_temp_variable = { TEMP_MAGGIE_FOR_GUI = ENG_Maggie_Party_Lead }
 			multiply_temp_variable = { TEMP_MAGGIE_FOR_GUI = 100 }
@@ -3667,15 +3494,9 @@ ENG_SLP_Add_Hardliner_Love_1 = {
 	}
 	if = {
 		limit = {
-			OR = {
-				has_game_rule = {
-					rule = HMMLR_COUP
-					option = HMMLR_COUP_NO
-				}
-				has_game_rule = {
-					rule = HMMLR_COUP
-					option = HMMLR_COUP_YDL
-				}
+			has_game_rule = {
+				rule = HMMLR_COUP
+				option = HMMLR_COUP_NO
 			}
 		}
 		clamp_variable = {
@@ -3697,15 +3518,9 @@ ENG_SLP_Add_Hardliner_Love_1 = {
 	}
 	if = {
 		limit = {
-			OR = {
-				has_game_rule = {
-					rule = HMMLR_COUP
-					option = HMMLR_COUP_NO
-				}
-				has_game_rule = {
-					rule = HMMLR_COUP
-					option = HMMLR_COUP_YDL
-				}
+			has_game_rule = {
+				rule = HMMLR_COUP
+				option = HMMLR_COUP_NO
 			}
 		}
 		clamp_variable = {
@@ -3723,15 +3538,9 @@ ENG_SLP_Add_Hardliner_Love_1 = {
 	}
 	if = {
 		limit = {
-			OR = {
-				has_game_rule = {
-					rule = HMMLR_COUP
-					option = HMMLR_COUP_NO
-				}
-				has_game_rule = {
-					rule = HMMLR_COUP
-					option = HMMLR_COUP_YDL
-				}
+			has_game_rule = {
+				rule = HMMLR_COUP
+				option = HMMLR_COUP_NO
 			}
 			NOT = {
 				check_variable = { ENG_Reformers_SLP_Lovers > ENG_Hardliner_SLP_Lovers }
@@ -3756,15 +3565,9 @@ ENG_SLP_Add_Hardliner_Love_3 = {
 	}
 	if = {
 		limit = {
-			OR = {
-				has_game_rule = {
-					rule = HMMLR_COUP
-					option = HMMLR_COUP_NO
-				}
-				has_game_rule = {
-					rule = HMMLR_COUP
-					option = HMMLR_COUP_YDL
-				}
+			has_game_rule = {
+				rule = HMMLR_COUP
+				option = HMMLR_COUP_NO
 			}
 		}
 		clamp_variable = {
@@ -3786,15 +3589,9 @@ ENG_SLP_Add_Hardliner_Love_3 = {
 	}
 	if = {
 		limit = {
-			OR = {
-				has_game_rule = {
-					rule = HMMLR_COUP
-					option = HMMLR_COUP_NO
-				}
-				has_game_rule = {
-					rule = HMMLR_COUP
-					option = HMMLR_COUP_YDL
-				}
+			has_game_rule = {
+				rule = HMMLR_COUP
+				option = HMMLR_COUP_NO
 			}
 		}
 		clamp_variable = {
@@ -3812,15 +3609,9 @@ ENG_SLP_Add_Hardliner_Love_3 = {
 	}
 	if = {
 		limit = {
-			OR = {
-				has_game_rule = {
-					rule = HMMLR_COUP
-					option = HMMLR_COUP_NO
-				}
-				has_game_rule = {
-					rule = HMMLR_COUP
-					option = HMMLR_COUP_YDL
-				}
+			has_game_rule = {
+				rule = HMMLR_COUP
+				option = HMMLR_COUP_NO
 			}
 			NOT = {
 				check_variable = { ENG_Reformers_SLP_Lovers > ENG_Hardliner_SLP_Lovers }
@@ -3845,15 +3636,9 @@ ENG_SLP_Add_Hardliner_Love_5 = {
 	}
 	if = {
 		limit = {
-			OR = {
-				has_game_rule = {
-					rule = HMMLR_COUP
-					option = HMMLR_COUP_NO
-				}
-				has_game_rule = {
-					rule = HMMLR_COUP
-					option = HMMLR_COUP_YDL
-				}
+			has_game_rule = {
+				rule = HMMLR_COUP
+				option = HMMLR_COUP_NO
 			}
 		}
 		clamp_variable = {
@@ -3875,15 +3660,9 @@ ENG_SLP_Add_Hardliner_Love_5 = {
 	}
 	if = {
 		limit = {
-			OR = {
-				has_game_rule = {
-					rule = HMMLR_COUP
-					option = HMMLR_COUP_NO
-				}
-				has_game_rule = {
-					rule = HMMLR_COUP
-					option = HMMLR_COUP_YDL
-				}
+			has_game_rule = {
+				rule = HMMLR_COUP
+				option = HMMLR_COUP_NO
 			}
 		}
 		clamp_variable = {
@@ -3901,15 +3680,9 @@ ENG_SLP_Add_Hardliner_Love_5 = {
 	}
 	if = {
 		limit = {
-			OR = {
-				has_game_rule = {
-					rule = HMMLR_COUP
-					option = HMMLR_COUP_NO
-				}
-				has_game_rule = {
-					rule = HMMLR_COUP
-					option = HMMLR_COUP_YDL
-				}
+			has_game_rule = {
+				rule = HMMLR_COUP
+				option = HMMLR_COUP_NO
 			}
 			NOT = {
 				check_variable = { ENG_Reformers_SLP_Lovers > ENG_Hardliner_SLP_Lovers }
@@ -3934,15 +3707,9 @@ ENG_SLP_Add_Hardliner_Love_10 = {
 	}
 	if = {
 		limit = {
-			OR = {
-				has_game_rule = {
-					rule = HMMLR_COUP
-					option = HMMLR_COUP_NO
-				}
-				has_game_rule = {
-					rule = HMMLR_COUP
-					option = HMMLR_COUP_YDL
-				}
+			has_game_rule = {
+				rule = HMMLR_COUP
+				option = HMMLR_COUP_NO
 			}
 		}
 		clamp_variable = {
@@ -3964,15 +3731,9 @@ ENG_SLP_Add_Hardliner_Love_10 = {
 	}
 	if = {
 		limit = {
-			OR = {
-				has_game_rule = {
-					rule = HMMLR_COUP
-					option = HMMLR_COUP_NO
-				}
-				has_game_rule = {
-					rule = HMMLR_COUP
-					option = HMMLR_COUP_YDL
-				}
+			has_game_rule = {
+				rule = HMMLR_COUP
+				option = HMMLR_COUP_NO
 			}
 		}
 		clamp_variable = {
@@ -3990,15 +3751,9 @@ ENG_SLP_Add_Hardliner_Love_10 = {
 	}
 	if = {
 		limit = {
-			OR = {
-				has_game_rule = {
-					rule = HMMLR_COUP
-					option = HMMLR_COUP_NO
-				}
-				has_game_rule = {
-					rule = HMMLR_COUP
-					option = HMMLR_COUP_YDL
-				}
+			has_game_rule = {
+				rule = HMMLR_COUP
+				option = HMMLR_COUP_NO
 			}
 			NOT = {
 				check_variable = { ENG_Reformers_SLP_Lovers > ENG_Hardliner_SLP_Lovers }
@@ -5503,6 +5258,8 @@ ENG_RECONSTRUCTION_initialize = {
 		set_variable = { parl_seats = state_population_k }
 		divide_variable = { parl_seats = 150 }
 		round_variable = parl_seats
+		set_variable = { reconstruction_liberal_drift = 0 }
+		set_variable = { reconstruction_conservative_drift = 0 }
 	}
 	hidden_effect = {
 		country_event = {
@@ -5709,7 +5466,7 @@ ENG_reconstruction_election = {
 	every_owned_state = {
 		set_temp_variable = { slp_support = reconstruction_SLP_support }
 		divide_temp_variable = { slp_support = 100 }
-		set_temp_variable = { ndl_support = reconstruction_SLP_support }
+		set_temp_variable = { ndl_support = reconstruction_NDL_support }
 		divide_temp_variable = { ndl_support = 100 }
 		set_temp_variable = { slp_seats_local = parl_seats }
 		multiply_temp_variable = { slp_seats_local = slp_support }
@@ -5978,6 +5735,12 @@ ENG_initialize_Faction_Mechanic = {
 					hours = 6
 				}
 			}
+			else = {
+				country_event = {
+					id = ENG_International_Mechanic.2
+					hours = 6
+				}
+			}
 		}
 		else = {
 			country_event = {
@@ -6211,6 +5974,7 @@ ENG_end_faction_mechanic = {
 		GER = {
 			remove_mission = GER_Faction_Close_Faction_Mechanic_Mission
 			hidden_effect = {
+				TNO_fopo_remove_england_influence_battle_tab = yes
 				country_event = {
 					id = ENG_International_Mechanic.16
 					hours = 3
@@ -6220,6 +5984,7 @@ ENG_end_faction_mechanic = {
 		USA = {
 			remove_mission = USA_Faction_Close_Faction_Mechanic_Mission
 			hidden_effect = {
+				TNO_fopo_remove_england_influence_battle_tab = yes
 				country_event = {
 					id = ENG_International_Mechanic.17
 					hours = 3
@@ -7612,6 +7377,7 @@ ENG_wales_setup = { #Everything that needs to be done after taking Wales
 		}
 		ENG_Decrease_Welsh_Terrorism = yes
 		every_country = {
+			limit = { is_ai = no }
 			news_event = {
 				id = WORLD.50006
 				days = 1
@@ -7628,6 +7394,7 @@ ENG_wales_setup = { #Everything that needs to be done after taking Wales
 				days = 360
 			}
 			every_country = {
+				limit = { is_ai = no }
 				news_event = {
 					id = WORLD.50005
 					days = 1
@@ -7687,6 +7454,7 @@ ENG_scotland_setup = { #Everything that needs to be done after taking Scotland
 			days = 1
 		}
 		every_country = {
+			limit = { is_ai = no }
 			news_event = {
 				id = WORLD.50009
 				days = 1
@@ -7726,6 +7494,7 @@ ENG_scotland_setup = { #Everything that needs to be done after taking Scotland
 		}
 		hidden_effect = {
 			every_country = {
+				limit = { is_ai = no }
 				news_event = {
 					id = WORLD.50010
 					days = 1

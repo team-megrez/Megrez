@@ -123,24 +123,6 @@ getEconAlertText_crisis = {
 	}
 }
 
-defined_text = {
-	name = GetMajorAddendum
-	text = {
-		trigger = {
-			OR = {
-				tag = USA
-				tag = GER
-				tag = JAP
-			}
-		}
-		localization_key = " Since we are a major power, our credit rating cannot fall."
-	}
-
-	text = {
-		localization_key = ""
-	}
-}
-
 
 defined_text = {
 	name = Get_deficit_ratio
@@ -725,19 +707,19 @@ defined_text = {
 	name = GetCentralizationLevelBenefits
 	text = {
 		trigger = {
-			check_variable = { TNO_economy_type = 1 }
+			check_variable = { TNO_economy_type = token:Econ_Type_Capitalism }
 		}
 		localization_key = CapitalismBenefits
 	}
 	text = {
 		trigger = {
-			check_variable = { TNO_economy_type = 2 }
+			check_variable = { TNO_economy_type = token:Econ_Type_Corporatism }
 		}
 		localization_key = CorporatismBenefits
 	}
 	text = {
 		trigger = {
-			check_variable = { TNO_economy_type = 3 }
+			check_variable = { TNO_economy_type = token:Econ_Type_Planned }
 		}
 		localization_key = PlannedBenefits
 	}
@@ -747,19 +729,19 @@ defined_text = {
 	name = GetFullDecentralization
 	text = {
 		trigger = {
-			check_variable = { TNO_economy_type = 1 }
+			check_variable = { TNO_economy_type = token:Econ_Type_Capitalism }
 		}
 		localization_key = CapitalismFullDecentralization
 	}
 	text = {
 		trigger = {
-			check_variable = { TNO_economy_type = 2 }
+			check_variable = { TNO_economy_type = token:Econ_Type_Corporatism }
 		}
 		localization_key = CorporatismFullDecentralization
 	}
 	text = {
 		trigger = {
-			check_variable = { TNO_economy_type = 3 }
+			check_variable = { TNO_economy_type = token:Econ_Type_Planned }
 		}
 		localization_key = PlannedFullDecentralization
 	}
@@ -769,19 +751,19 @@ defined_text = {
 	name = GetFullCentralization
 	text = {
 		trigger = {
-			check_variable = { TNO_economy_type = 1 }
+			check_variable = { TNO_economy_type = token:Econ_Type_Capitalism }
 		}
 		localization_key = CapitalismFullCentralization
 	}
 	text = {
 		trigger = {
-			check_variable = { TNO_economy_type = 2 }
+			check_variable = { TNO_economy_type = token:Econ_Type_Corporatism }
 		}
 		localization_key = CorporatismFullCentralization
 	}
 	text = {
 		trigger = {
-			check_variable = { TNO_economy_type = 3 }
+			check_variable = { TNO_economy_type = token:Econ_Type_Planned }
 		}
 		localization_key = PlannedFullCentralization
 	}
@@ -791,19 +773,19 @@ defined_text = {
 	name = GetBaseBonusCentralization
 	text = {
 		trigger = {
-			check_variable = { TNO_economy_type = 1 }
+			check_variable = { TNO_economy_type = token:Econ_Type_Capitalism }
 		}
 		localization_key = CapitalismBase
 	}
 	text = {
 		trigger = {
-			check_variable = { TNO_economy_type = 2 }
+			check_variable = { TNO_economy_type = token:Econ_Type_Corporatism }
 		}
 		localization_key = CorporatismBase
 	}
 	text = {
 		trigger = {
-			check_variable = { TNO_economy_type = 3 }
+			check_variable = { TNO_economy_type = token:Econ_Type_Planned }
 		}
 		localization_key = PlannedBase
 	}
@@ -2237,7 +2219,7 @@ defined_text = {
 			check_variable = { good_type = 0 }
 			check_variable = { PU_civilian_factories_desired > PU_civilian_factories }
 		}
-		localization_key = "production_unit_civs_display_wanted"
+		localization_key = production_unit_civs_display_wanted
 	}
 	text = {
 		trigger = {
@@ -2250,7 +2232,7 @@ defined_text = {
 			check_variable = { good_type = 1 }
 			check_variable = { PU_military_factories_desired > PU_military_factories }
 		}
-		localization_key = "production_unit_mils_display_wanted"
+		localization_key = production_unit_mils_display_wanted
 	}
 	text = {
 		trigger = {
@@ -2263,7 +2245,7 @@ defined_text = {
 			check_variable = { good_type = 2 }
 			check_variable = { PU_consumer_goods_desired > PU_consumer_goods }
 		}
-		localization_key = "production_unit_cgs_display_wanted"
+		localization_key = production_unit_cgs_display_wanted
 	}
 	text = {
 		trigger = {
@@ -2272,7 +2254,7 @@ defined_text = {
 		localization_key = production_unit_cgs_display
 	}
 	text = {
-		localization_key = "None"
+		localization_key = production_unit_none
 	}
 }
 
@@ -2329,10 +2311,10 @@ defined_text = {
 		trigger = {
 			check_variable = { TNO_recurring_trade_pus^TNO_market_selected_resource > 0 }
 		}
-		localization_key = "trade_monthly_decrease_sell_tooltip"
+		localization_key = trade_monthly_decrease_sell_tooltip
 	}
 	text = {
-		localization_key = "trade_monthly_increase_buy_tooltip"
+		localization_key = trade_monthly_increase_buy_tooltip
 	}
 }
 defined_text = {
@@ -2341,10 +2323,10 @@ defined_text = {
 		trigger = {
 			check_variable = { TNO_recurring_trade_pus^TNO_market_selected_resource < 0 }
 		}
-		localization_key = "trade_monthly_decrease_buy_tooltip"
+		localization_key = trade_monthly_decrease_buy_tooltip
 	}
 	text = {
-		localization_key = "trade_monthly_increase_sell_tooltip"
+		localization_key = trade_monthly_increase_sell_tooltip
 	}
 }
 
@@ -2354,10 +2336,10 @@ defined_text = {
 		trigger = {
 			check_variable = { TNO_recurring_trade_pus^TNO_market_selected_resource > 0 }
 		}
-		localization_key = "sell"
+		localization_key = trade_monthly_sell
 	}
 	text = {
-		localization_key = "buy"
+		localization_key = trade_monthly_buy
 	}
 }
 
@@ -2367,10 +2349,10 @@ defined_text = {
 		trigger = {
 			check_variable = { TNO_recurring_trade_pus^TNO_market_selected_resource > 0 }
 		}
-		localization_key = "benefit"
+		localization_key = trade_monthly_benefit
 	}
 	text = {
-		localization_key = "cost"
+		localization_key = trade_monthly_cost
 	}
 }
 
@@ -2498,10 +2480,10 @@ defined_text = {
 	name = Get_selected_resource_import_export
 	text = {
 		trigger = { check_variable = { TNO_fulfilled_imports^TNO_market_selected_resource > 0 } }
-		localization_key = "Imports"
+		localization_key = trade_partners_imports
 	}
 	text = {
-		localization_key = "Exports"
+		localization_key = trade_partners_exports
 	}
 }
 
@@ -3929,10 +3911,10 @@ defined_text = {
 		trigger = {
 			NOT = { has_country_flag = war_taxes_enabled }
 		}
-		localization_key = "ENACT"
+		localization_key = "TNO_Econ_GetWarTaxesStatusTextENACT"
 	}
 	text = {
-		localization_key = "REPEAL"
+		localization_key = "TNO_Econ_GetWarTaxesStatusTextREPEAL"
 	}
 }
 
@@ -4405,7 +4387,7 @@ defined_text = {
 		}
 		localization_key = econ_sphere_name_CME
 	}
-	text = { localization_key = "No Sphere" }
+	text = { localization_key = econ_sphere_name_none }
 }
 
 defined_text = {
@@ -4497,7 +4479,7 @@ defined_text = {
 		}
 		localization_key = econ_sphere_name_long_CME
 	}
-	text = { localization_key = "No Sphere" }
+	text = { localization_key = econ_sphere_name_none }
 }
 
 defined_text = {
@@ -4589,7 +4571,7 @@ defined_text = {
 		}
 		localization_key = econ_sphere_name_tab_CME
 	}
-	text = { localization_key = "No Sphere" }
+	text = { localization_key = econ_sphere_name_none }
 }
 
 defined_text = {
@@ -5177,11 +5159,11 @@ defined_text = {
 	name = GetWarTaxesChange
 	text = {
 		trigger = { has_country_flag = war_taxes_enabled }
-		localization_key = "ACTIVE"
+		localization_key = TNO_Econ_GetWarTaxesStatusTextActive
 	}
 	text = {
 		trigger = { NOT = { has_country_flag = war_taxes_enabled } }
-		localization_key = "INACTIVE"
+		localization_key = TNO_Econ_GetWarTaxesStatusTextInactive
 	}
 }
 
@@ -5305,27 +5287,27 @@ defined_text = {
 		trigger = {
 			check_variable = { selected_central_bank_id = 1 }
 		}
-		localization_key = "Count Our Pennies"
+		localization_key = Central_Bank_Policy_1
 	}
 
 	text = {
 		trigger = {
 			check_variable = { selected_central_bank_id = 2 }
 		}
-		localization_key = "Fight Poverty"
+		localization_key = Central_Bank_Policy_2
 	}
 
 	text = {
 		trigger = {
 			check_variable = { selected_central_bank_id = 3 }
 		}
-		localization_key = "Power Things Up"
+		localization_key = Central_Bank_Policy_3
 	}
 
 	# Default - 0
 	text = {
 		trigger = { check_variable = { selected_central_bank_id = 0 } }
-		localization_key = "Fresh Off the Presses"
+		localization_key = Central_Bank_Policy_0
 	}
 }
 
@@ -5395,122 +5377,113 @@ defined_text = {
 defined_text = {
 	name = GetEconomyTypeText
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 1 } }
-		localization_key = econ_subtype_american_capitalism_title
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_American_Capitalism } }
+		localization_key = Econ_Subtype_American_Capitalism
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 2 } }
-		localization_key = econ_subtype_workerdirected_title
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Worker_Directed } }
+		localization_key = Econ_Subtype_Worker_Directed
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 3 } }
-		localization_key = econ_subtype_crown_corporatism_title
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Crown_Corporatism } }
+		localization_key = Econ_Subtype_Crown_Corporatism
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 4 } }
-		localization_key = econ_type_anarchism_title
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Anarchic } }
+		localization_key = Econ_Subtype_Anarchic
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 5 } }
-		localization_key = econ_subtype_nazicorporatocracy_title
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Nazi_Corporatocracy } }
+		localization_key = Econ_Subtype_Nazi_Corporatocracy
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 6 } }
-		localization_key = econ_subtype_militarydirected_title
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Military_Directed } }
+		localization_key = Econ_Subtype_Military_Directed
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 7 } }
-		localization_key = econ_subtype_burgsys_title
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Burgsys } }
+		localization_key = Econ_Subtype_Burgsys
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 8 } }
-		localization_key = econ_subtype_banditry_title
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Banditry } }
+		localization_key = Econ_Subtype_Banditry
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 9 } }
-		localization_key = econ_subtype_corporate_oligopoly_title
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Corporate_Oligopoly } }
+		localization_key = Econ_Subtype_Corporate_Oligopoly
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 10 } }
-		localization_key = econ_subtype_dirigisme_title
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Dirigisme } }
+		localization_key = Econ_Subtype_Dirigisme
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 11 } }
-		localization_key = econ_subtype_anarcho_communism_title
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Anarcho_Communism } }
+		localization_key = Econ_Subtype_Anarcho_Communism
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 12 } }
-		localization_key = econ_subtype_deytsch_economics_title
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Deytsch_Economics } }
+		localization_key = Econ_Subtype_Deytsch_Economics
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 13 } }
-		localization_key = econ_subtype_warcom_title
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_War_Communism } }
+		localization_key = Econ_Subtype_War_Communism
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 14 } }
-		localization_key = econ_subtype_permit_raj_title
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Permit_Raj } }
+		localization_key = Econ_Subtype_Permit_Raj
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 15 } }
-		localization_key = econ_subtype_christian_anarchism_title
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Christian_Anarchism } }
+		localization_key = Econ_Subtype_Christian_Anarchism
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 16 } }
-		localization_key = econ_subtype_social_market_title
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Social_Market } }
+		localization_key = Econ_Subtype_Social_Market
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 17 } }
-		localization_key = econ_subtype_agrarian_spartanism_title
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Agrarian_Spartanism } }
+		localization_key = Econ_Subtype_Agrarian_Spartanism
 	}
 		text = {
-		trigger = { check_variable = { TNO_economy_subtype = 18 } }
-		localization_key = econ_subtype_futurist_corporatism_title
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Socialized_Economy } }
+		localization_key = Econ_Subtype_Socialized_Economy
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 19 } }
-		localization_key = econ_subtype_yagoda_title
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Yagoda } }
+		localization_key = Econ_Subtype_Yagoda
 	}
 	text = {
-		trigger = {
-			check_variable = { TNO_economy_subtype = 20 }
-			check_variable = { TNO_economy_type = 1 }
-		}
-		localization_key = econ_subtype_colonial_economy_free_market_title
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Colonial_Economy_Free_Market } }
+		localization_key = Econ_Subtype_Colonial_Economy_Free_Market
 	}
 	text = {
-		trigger = {
-			check_variable = { TNO_economy_subtype = 20 }
-			check_variable = { TNO_economy_type = 3 }
-		}
-		localization_key = econ_subtype_colonial_economy_planned_economy_title
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Colonial_Economy_Corporatism } }
+		localization_key = Econ_Subtype_Colonial_Economy_Corporatism
 	}
 	text = {
-		trigger = {
-			check_variable = { TNO_economy_subtype = 20 }
-			check_variable = { TNO_economy_type = 2 }
-		}
-		localization_key = econ_subtype_colonial_economy_corporatism_title
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Colonial_Economy_Planned } }
+		localization_key = Econ_Subtype_Colonial_Economy_Planned
 	}
 	text = {
 		trigger = {
-			check_variable = { TNO_economy_type = 1 }
+			check_variable = { TNO_economy_type = token:Econ_Type_Capitalism }
 			check_variable = { TNO_economy_subtype = 0 }
 		}
-		localization_key = econ_type_capitalism_title
+		localization_key = Econ_Type_Capitalism
 	}
 	text = {
 		trigger = {
-			check_variable = { TNO_economy_type = 2 }
+			check_variable = { TNO_economy_type = token:Econ_Type_Corporatism }
 			check_variable = { TNO_economy_subtype = 0 }
 		}
-		localization_key = econ_type_corporatism_title
+		localization_key = Econ_Type_Corporatism
 	}
 	text = {
 		trigger = {
-			check_variable = { TNO_economy_type = 3 }
+			check_variable = { TNO_economy_type = token:Econ_Type_Planned }
 			check_variable = { TNO_economy_subtype = 0 }
 		}
-		localization_key = econ_type_planned_title
+		localization_key = Econ_Type_Planned
 	}
 
 }
@@ -5518,119 +5491,110 @@ defined_text = {
 defined_text = {
 	name = GetEconomyTypeGFX
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 1 } }
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_American_Capitalism } }
 		localization_key = "GFX_econ_type_american_capitalism"
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 2 } }
-		localization_key = "GFX_econ_type_workerdirected"
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Worker_Directed } }
+		localization_key = "GFX_econ_type_worker_directed"
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 3 } }
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Crown_Corporatism } }
 		localization_key = "GFX_econ_type_crown_corporatism"
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 4 } }
-		localization_key = "GFX_econ_type_anarchism"
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Anarchic } }
+		localization_key = "GFX_econ_type_anarchic"
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 5 } }
-		localization_key = "GFX_econ_type_nazicorporatocracy"
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Nazi_Corporatocracy } }
+		localization_key = "GFX_econ_type_nazi_corporatocracy"
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 6 } }
-		localization_key = "GFX_econ_type_militarydirected"
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Military_Directed } }
+		localization_key = "GFX_econ_type_military_directed"
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 7 } }
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Burgsys } }
 		localization_key = "GFX_econ_type_burgsys"
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 8 } }
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Banditry } }
 		localization_key = "GFX_econ_type_banditry"
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 9 } }
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Corporate_Oligopoly } }
 		localization_key = "GFX_econ_type_corporate_oligopoly"
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 10} }
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Dirigisme } }
 		localization_key = "GFX_econ_type_dirigisme"
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 11} }
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Anarcho_Communism } }
 		localization_key = "GFX_econ_type_anarcho_communism"
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 12} }
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Deytsch_Economics } }
 		localization_key = "GFX_econ_type_deystch_economics"
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 13} }
-		localization_key = "GFX_econ_type_warcom"
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_War_Communism } }
+		localization_key = "GFX_econ_type_war_communism"
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 14} }
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Permit_Raj } }
 		localization_key = "GFX_econ_type_permit_raj"
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 15} }
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Christian_Anarchism } }
 		localization_key = "GFX_econ_type_christian_anarchism"
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 16} }
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Social_Market } }
 		localization_key = "GFX_econ_type_social_market"
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 17} }
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Agrarian_Spartanism } }
 		localization_key = "GFX_econ_type_agrarian_spartanism"
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 18} }
-		localization_key = "GFX_econ_type_futurist_corporatism"
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Socialized_Economy } }
+		localization_key = "GFX_econ_type_socialized_economy"
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 19} }
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Yagoda } }
 		localization_key = "GFX_econ_type_yagoda"
 	}
 	text = {
-		trigger = {
-			check_variable = { TNO_economy_subtype = 20 }
-			check_variable = { TNO_economy_type = 1 }
-		}
-		localization_key = "GFX_econ_type_free_market_colonial_economy"
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Colonial_Economy_Free_Market } }
+		localization_key = "GFX_econ_type_colonial_economy_free_market"
+	}
+	text = {
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Colonial_Economy_Corporatism } }
+		localization_key = "GFX_econ_type_colonial_economy_corporatism"
+	}
+	text = {
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Colonial_Economy_Planned } }
+		localization_key = "GFX_econ_type_colonial_economy_planned"
 	}
 	text = {
 		trigger = {
-			check_variable = { TNO_economy_subtype = 20 }
-			check_variable = { TNO_economy_type = 3 }
-		}
-		localization_key = "GFX_econ_type_state_planned_colonial_economy"
-	}
-	text = {
-		trigger = {
-			check_variable = { TNO_economy_subtype = 20 }
-			check_variable = { TNO_economy_type = 2 }
-		}
-		localization_key = "GFX_econ_type_corporatism_colonial_economy"
-	}
-	text = {
-		trigger = {
-			check_variable = { TNO_economy_type = 1 }
+			check_variable = { TNO_economy_type = token:Econ_Type_Capitalism }
 			check_variable = { TNO_economy_subtype = 0 }
 		}
 		localization_key = "GFX_econ_type_capitalism"
 	}
 	text = {
 		trigger = {
-			check_variable = { TNO_economy_type = 2 }
+			check_variable = { TNO_economy_type = token:Econ_Type_Corporatism }
 			check_variable = { TNO_economy_subtype = 0 }
 		}
 		localization_key = "GFX_econ_type_corporatism"
 	}
 	text = {
 		trigger = {
-			check_variable = { TNO_economy_type = 3 }
+			check_variable = { TNO_economy_type = token:Econ_Type_Planned }
 			check_variable = { TNO_economy_subtype = 0 }
 		}
 		localization_key = "GFX_econ_type_planned"
@@ -5639,125 +5603,115 @@ defined_text = {
 
 defined_text = {
 	name = GetEconomyTypeTooltip
-
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 1 } }
-		localization_key = econ_subtype_american_capitalism_tt
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_American_Capitalism } }
+		localization_key = Econ_Subtype_American_Capitalism_desc
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 2 } }
-		localization_key = econ_subtype_workerdirected_tt
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Worker_Directed } }
+		localization_key = Econ_Subtype_Worker_Directed_desc
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 3 } }
-		localization_key = econ_subtype_crown_corporatism_tt
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Crown_Corporatism } }
+		localization_key = Econ_Subtype_Crown_Corporatism_desc
 	}
 	text = {
-		trigger = {check_variable = { TNO_economy_subtype = 4 }}
-		localization_key = econ_type_anarchism_tt
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Anarchic } }
+		localization_key = Econ_Subtype_Anarchic_desc
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 5 } }
-		localization_key = econ_subtype_nazicorporatocracy_tt
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Nazi_Corporatocracy } }
+		localization_key = Econ_Subtype_Nazi_Corporatocracy_desc
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 6 } }
-		localization_key = econ_subtype_militarydirected_tt
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Military_Directed } }
+		localization_key = Econ_Subtype_Military_Directed_desc
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 7 } }
-		localization_key = econ_subtype_burgsys_tt
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Burgsys } }
+		localization_key = Econ_Subtype_Burgsys_desc
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 8 } }
-		localization_key = econ_subtype_banditry_tt
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Banditry } }
+		localization_key = Econ_Subtype_Banditry_desc
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 9 } }
-		localization_key = econ_subtype_corporate_oligopoly_tt
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Corporate_Oligopoly } }
+		localization_key = Econ_Subtype_Corporate_Oligopoly_desc
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 10 } }
-		localization_key = econ_subtype_dirigisme_tt
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Dirigisme } }
+		localization_key = Econ_Subtype_Dirigisme_desc
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 11 } }
-		localization_key = econ_subtype_anarcho_communism_tt
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Anarcho_Communism } }
+		localization_key = Econ_Subtype_Anarcho_Communism_desc
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 12 } }
-		localization_key = econ_subtype_deytsch_economics_tt
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Deytsch_Economics } }
+		localization_key = Econ_Subtype_Deytsch_Economics_desc
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 13 } }
-		localization_key = econ_subtype_warcom_tt
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_War_Communism } }
+		localization_key = Econ_Subtype_War_Communism_desc
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 14 } }
-		localization_key = econ_subtype_permit_raj_tt
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Permit_Raj } }
+		localization_key = Econ_Subtype_Permit_Raj_desc
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 15 } }
-		localization_key = econ_subtype_christian_anarchism_tt
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Christian_Anarchism } }
+		localization_key = Econ_Subtype_Christian_Anarchism_desc
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 16 } }
-		localization_key = econ_subtype_social_market_tt
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Social_Market } }
+		localization_key = Econ_Subtype_Social_Market_desc
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 17 } }
-		localization_key = econ_subtype_agrarian_spartanism_tt
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Agrarian_Spartanism } }
+		localization_key = Econ_Subtype_Agrarian_Spartanism_desc
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 18 } }
-		localization_key = econ_subtype_futurist_corporatism_tt
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Socialized_Economy } }
+		localization_key = Econ_Subtype_Socialized_Economy_desc
 	}
 	text = {
-		trigger = { check_variable = { TNO_economy_subtype = 19 } }
-		localization_key = econ_subtype_yagoda_tt
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Yagoda } }
+		localization_key = Econ_Subtype_Yagoda_desc
 	}
 	text = {
-		trigger = {
-			check_variable = { TNO_economy_subtype = 20 }
-			check_variable = { TNO_economy_type = 1 }
-		}
-		localization_key = econ_subtype_colonial_economy_free_market_tt
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Colonial_Economy_Free_Market } }
+		localization_key = Econ_Subtype_Colonial_Economy_Free_Market_desc
 	}
 	text = {
-		trigger = {
-			check_variable = { TNO_economy_subtype = 20 }
-			check_variable = { TNO_economy_type = 3 }
-		}
-		localization_key = econ_subtype_colonial_economy_planned_economy_tt
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Colonial_Economy_Corporatism } }
+		localization_key = Econ_Subtype_Colonial_Economy_Corporatism_desc
 	}
 	text = {
-		trigger = {
-			check_variable = { TNO_economy_subtype = 20 }
-			check_variable = { TNO_economy_type = 2 }
-		}
-		localization_key = econ_subtype_colonial_economy_corporatism_tt
+		trigger = { check_variable = { TNO_economy_subtype = token:Econ_Subtype_Colonial_Economy_Planned } }
+		localization_key = Econ_Subtype_Colonial_Economy_Planned_desc
 	}
 
 	text = {
 		trigger = {
-			check_variable = { TNO_economy_type = 1 }
+			check_variable = { TNO_economy_type = token:Econ_Type_Capitalism }
 			check_variable = { TNO_economy_subtype = 0 }
 		}
-		localization_key = econ_type_capitalism_tt
+		localization_key = Econ_Type_Capitalism_desc
 	}
 	text = {
 		trigger = {
-			check_variable = { TNO_economy_type = 2 }
+			check_variable = { TNO_economy_type = token:Econ_Type_Corporatism }
 			check_variable = { TNO_economy_subtype = 0 }
 		}
-		localization_key = econ_type_corporatism_tt
+		localization_key = Econ_Type_Corporatism_desc
 	}
 	text = {
 		trigger = {
-			check_variable = { TNO_economy_type = 3 }
+			check_variable = { TNO_economy_type = token:Econ_Type_Planned }
 			check_variable = { TNO_economy_subtype = 0 }
 		}
-		localization_key = econ_type_planned_tt
+		localization_key = Econ_Type_Planned_desc
 	}
 }
 

@@ -6,6 +6,13 @@ TNO_update_policy_effectiveness = {
 	TNO_update_political_policy_effectiveness = yes
 	TNO_update_military_policy_effectiveness = yes
 	force_update_dynamic_modifier = yes
+	
+	if = {
+		limit = {
+			is_ai = no
+		}
+		add_to_variable = { TNO_laws_dirty = 1 }
+	}
 }
 
 
@@ -74,6 +81,7 @@ TNO_array_pol_setup = {
 		add_to_array = { TNO_Politics_Law_display = v }
 	}
 	add_to_array = { econ_sliders_grid_array = 0 }
+	add_to_variable = { TNO_laws_dirty = 1 }
 }
 
 TNO_policy_effectiveness_starting_single_country = {
@@ -1867,10 +1875,10 @@ TNO_calculate_actual_health_care_policy_effectiveness = {
 
 TNO_calculate_actual_regulations_policy_effectiveness = {
 	set_variable = { tno_regulations_effectiveness_actual = tno_regulations_effectiveness }
-	set_temp_variable = { TNO_admin_funding_safety_effect_actual = TNO_admin_funding_safety_effect }
-	divide_temp_variable = { TNO_admin_funding_safety_effect_actual = 5 }
-	add_to_temp_variable = { TNO_admin_funding_safety_effect_actual = 0.8 }
-	multiply_variable = { tno_regulations_effectiveness_actual = TNO_admin_funding_safety_effect_actual }
+	set_temp_variable = { TNO_admin_funding_regulations_effect_actual = TNO_admin_funding_regulations_effect }
+	divide_temp_variable = { TNO_admin_funding_regulations_effect_actual = 5 }
+	add_to_temp_variable = { TNO_admin_funding_regulations_effect_actual = 0.8 }
+	multiply_variable = { tno_regulations_effectiveness_actual = TNO_admin_funding_regulations_effect_actual }
 	set_temp_variable = { TNO_offices_pe_calculation = TNO_office_coverage }
 	multiply_variable = { tno_regulations_effectiveness_actual = TNO_offices_pe_calculation }
 }

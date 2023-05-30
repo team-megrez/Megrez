@@ -9,185 +9,202 @@
 # that'll be used if trigger passes
 
 defined_text = {
-	name = MADGetPlagueSituation
+	name = MADFopo_Increase_Decrease_Investment
+	text = {
+		trigger = {
+			OR = {
+				tag = USA
+				tag = JAP
+			}
+		}
+		localization_key = MADCW_modifier_knowledge
+	}
+	text = {
+		trigger = {
+			OR = {
+				tag = GER
+			}
+		}
+		localization_key = MADCW_modifier_knowledge_no
+	}
+}
+defined_text = {
+	name = MADFopo_Increase_Decrease_Investment
 	text = {
 		trigger = {
 			check_variable = {
-				var = MAD_plague_percent_population
-				value = 0.8
+				var = TEMP_MADCW_Investment
+				value = 0
 				compare = greater_than
 			}
 		}
-		localization_key = MAD_contamination_level_6
+		localization_key = MADCW_increase
 	}
 	text = {
 		trigger = {
 			check_variable = {
-				var = MAD_plague_percent_population
-				value = 0.6
-				compare = greater_than
-			}
-			check_variable = {
-				var = MAD_plague_percent_population
-				value = 0.8
-				compare = less_than_or_equals
+				var = TEMP_MADCW_Investment
+				value = 0
+				compare = less_than
 			}
 		}
-		localization_key = MAD_contamination_level_5
+		localization_key = MADCW_decrease
+	}
+}
+defined_text = {
+	name = MADFopo_Increase_Decrease_Contribution
+	text = {
+		trigger = {
+			check_variable = {
+				var = TEMP_MADCW_Contribution
+				value = 0
+				compare = greater_than
+			}
+		}
+		localization_key = MADCW_increase
 	}
 	text = {
 		trigger = {
 			check_variable = {
-				var = MAD_plague_percent_population
-				value = 0.4
-				compare = greater_than
-			}
-			check_variable = {
-				var = MAD_plague_percent_population
-				value = 0.6
-				compare = less_than_or_equals
+				var = TEMP_MADCW_Contribution
+				value = 0
+				compare = less_than
 			}
 		}
-		localization_key = MAD_contamination_level_4
-	}
-	text = {
-		trigger = {
-			check_variable = {
-				var = MAD_plague_percent_population
-				value = 0.3
-				compare = greater_than
-			}
-			check_variable = {
-				var = MAD_plague_percent_population
-				value = 0.4
-				compare = less_than_or_equals
-			}
-		}
-		localization_key = MAD_contamination_level_3
-	}
-	text = {
-		trigger = {
-			check_variable = {
-				var = MAD_plague_percent_population
-				value = 0.2
-				compare = greater_than
-			}
-			check_variable = {
-				var = MAD_plague_percent_population
-				value = 0.3
-				compare = less_than_or_equals
-			}
-		}
-		localization_key = MAD_contamination_level_2
-	}
-	text = {
-		trigger = {
-			check_variable = {
-				var = MAD_plague_percent_population
-				value = 0.05
-				compare = greater_than
-			}
-			check_variable = {
-				var = MAD_plague_percent_population
-				value = 0.2
-				compare = less_than_or_equals
-			}
-		}
-		localization_key = MAD_contamination_level_1
-	}
-	text = {
-		trigger = {
-			check_variable = {
-				var = MAD_plague_percent_population
-				value = 0.05
-				compare = less_than_or_equals
-			}
-		}
-		localization_key = MAD_contamination_level_0
+		localization_key = MADCW_decrease
 	}
 }
 
 defined_text = {
-	name = MADGetIslandPlagueSituation
+	name = MADFopo_Increase_Decrease_Factionalism
 	text = {
 		trigger = {
 			check_variable = {
-				var = MAD_plague_percent_global
-				value = 0.6
+				var = TEMP_MADCW_Factionalism
+				value = 0
 				compare = greater_than
 			}
 		}
-		localization_key = MAD_contamination_level_4
+		localization_key = MADCW_increase
 	}
 	text = {
 		trigger = {
 			check_variable = {
-				var = MAD_plague_percent_global
-				value = 0.4
-				compare = greater_than
-			}
-			check_variable = {
-				var = MAD_plague_percent_global
-				value = 0.6
-				compare = less_than_or_equals
+				var = TEMP_MADCW_Factionalism
+				value = 0
+				compare = less_than
 			}
 		}
-		localization_key = MAD_contamination_level_3
-	}
-	text = {
-		trigger = {
-			check_variable = {
-				var = MAD_plague_percent_global
-				value = 0.2
-				compare = greater_than
-			}
-			check_variable = {
-				var = MAD_plague_percent_global
-				value = 0.4
-				compare = less_than_or_equals
-			}
-		}
-		localization_key = MAD_contamination_level_2
-	}
-	text = {
-		trigger = {
-			check_variable = {
-				var = MAD_plague_percent_global
-				value = 0.05
-				compare = greater_than
-			}
-			check_variable = {
-				var = MAD_plague_percent_global
-				value = 0.2
-				compare = less_than_or_equals
-			}
-		}
-		localization_key = MAD_contamination_level_1
-	}
-	text = {
-		trigger = {
-			check_variable = {
-				var = MAD_plague_percent_global
-				value = 0.05
-				compare = less_than_or_equals
-			}
-		}
-		localization_key = MAD_contamination_level_0
+		localization_key = MADCW_decrease
 	}
 }
 
 defined_text = {
-	name = MADGetQuarantined
+	name = action_listing_MAD
 	text = {
 		trigger = {
-			NOT = { has_state_flag = MAD_state_quarantined }
+			check_variable = { MAD.MADCW_war_stage > 0 }
 		}
-		localization_key = MAD_state_not_quarantined_loc
+		localization_key = MAD_USA_ACTION_ABOVE_0
 	}
 	text = {
 		trigger = {
-			has_state_flag = MAD_state_quarantined
+			check_variable = { MAD.MADCW_war_stage = 0 }
 		}
-		localization_key = MAD_state_quarantined_loc
+		localization_key = MAD_USA_ACTION_EQ_0
+	}
+	text = {
+		trigger = {
+			check_variable = { MAD.MADCW_war_stage = -1 }
+		}
+		localization_key = MAD_USA_ACTION_SUB_0
+	}
+}
+
+defined_text = {
+	name = MADWARLEVEL
+	text = {
+		trigger = {
+			check_variable = { MAD.MADCW_war_stage = 1 }
+		}
+		localization_key = MAD_WAR_LVL1
+	}
+	text = {
+		trigger = {
+			check_variable = { MAD.MADCW_war_stage = 2 }
+		}
+		localization_key = MAD_WAR_LVL2
+	}
+	text = {
+		trigger = {
+			check_variable = { MAD.MADCW_war_stage = 3 }
+		}
+		localization_key = MAD_WAR_LVL3
+	}
+}
+
+defined_text = {
+	name = MADWARLEVEL_desc
+	text = {
+		trigger = {
+			check_variable = { MAD.MADCW_war_stage = 1 }
+		}
+		localization_key = MAD_WAR_LVL1_desc
+	}
+	text = {
+		trigger = {
+			check_variable = { MAD.MADCW_war_stage = 2 }
+		}
+		localization_key = MAD_WAR_LVL2_desc
+	}
+	text = {
+		trigger = {
+			check_variable = { MAD.MADCW_war_stage = 3 }
+		}
+		localization_key = MAD_WAR_LVL3_desc
+	}
+}
+
+defined_text = {
+	name = MADWARLEVEL_advance
+	text = {
+		trigger = {
+			check_variable = { MAD.MADCW_war_stage = 1 }
+		}
+		localization_key = MAD_WAR_LVL1_advance
+	}
+	text = {
+		trigger = {
+			check_variable = { MAD.MADCW_war_stage = 2 }
+		}
+		localization_key = MAD_WAR_LVL2_advance
+	}
+	text = {
+		trigger = {
+			check_variable = { MAD.MADCW_war_stage = 3 }
+		}
+		localization_key = MAD_WAR_LVL3_advance
+	}
+}
+
+defined_text = {
+	name = GetMadCWSuperpowerColor
+	text = {
+		trigger = {
+			tag = GER
+		}
+		localization_key = MADCW_GER_color
+	}
+	text = {
+		trigger = {
+			tag = USA
+		}
+		localization_key = MADCW_USA_color
+	}
+	text = {
+		trigger = {
+			tag = JAP
+		}
+		localization_key = MADCW_JAP_color
 	}
 }

@@ -2335,6 +2335,12 @@ divide_ostland = {
 		set_variable = { national_debt = 0 }
 		join_zollverein = yes
 		remove_ideas = {
+			OST_model_colony
+			OST_unusual_quiet
+			OST_United_for_Ostland
+			OST_Defend_Riga_idea
+			OST_Haste_Makes_Waste
+			OST_Prussian_Values
 			Pakt_Integrated_Reichskommissariat
 			BOR_out_of_time
 		}
@@ -2434,7 +2440,7 @@ collab_regime_in_poland = {
 			}
 			set_province_name = {
 				id = 3586
-				name = VICTORY_POINTS_3586_pol
+				name = VICTORY_POINTS_3586
 			} 	
 			92 = {
 				set_state_name = STATE_92_pol
@@ -2452,7 +2458,7 @@ collab_regime_in_poland = {
 			}
 			set_province_name = {
 				id = 442
-				name = VICTORY_POINTS_442_pol
+				name = VICTORY_POINTS_442
 			}
 			set_province_name = {
 				id = 6522
@@ -2583,63 +2589,6 @@ collab_regime_in_kaukasien = {
 		fill_empty_minister = yes
 		join_zollverein = yes
 	}
-}
-
-partition_kaukasien = {
-	CAU = {
-		set_cosmetic_tag = CAU_SGR
-		#retire_country_leader = yes
-		GER = { puppet = CAU }
-		create_country_leader = {
-			name = "kaukasien man :)"
-			picture = ""
-			expire = "1999.3.4"
-			ideology = paternalism_national_conservatism_subtype
-		}
-		add_popularity = {
-			ideology = paternalism
-			popularity = 0.2
-		}
-		set_politics = {
-			ruling_party = paternalism
-		}
-	}
-	AZR = {
-		transfer_state = 229
-		#retire_country_leader = yes
-		GER = { puppet = AZR }
-		create_country_leader = {
-			name = ""
-			picture = ""
-			expire = "1999.3.4"
-			ideology = paternalism_national_conservatism_subtype
-		}
-		add_popularity = {
-			ideology = paternalism
-			popularity = 0.2
-		}
-		set_politics = {
-			ruling_party = paternalism
-		}
-	}
-	GEO = {
-		transfer_state = 231
-		#retire_country_leader = yes
-		GER = { puppet = GEO }
-		create_country_leader = {
-			name = ""
-			picture = ""
-			expire = "1999.3.4"
-			ideology = paternalism_national_conservatism_subtype
-		}
-		add_popularity = {
-			ideology = paternalism
-			popularity = 0.2
-		}
-		set_politics = {
-			ruling_party = paternalism
-		}
-	}	
 }
 
 ##REICHSLANDER

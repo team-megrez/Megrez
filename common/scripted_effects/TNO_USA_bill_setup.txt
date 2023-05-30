@@ -2772,6 +2772,26 @@ strom_response_cra = {
 	USA_clamp_flip_cost = yes
 }
 
+# Nixon Impeach
+
+nixon_impeachment = {
+	set_variable = { bill_id = 1964 }
+	log = "[GetDateText]: [Root.GetName]: bill setup active"
+	
+	set_variable = { USA_RD_R_bill_support = 0.05 } #
+	set_variable = { USA_RD_D_bill_support = 0.2 } #
+	set_variable = { USA_C_NPP_bill_support = 0.3 } #
+	set_variable = { USA_FR_NPP_bill_support = 0.1 } #
+	set_variable = { USA_L_NPP_bill_support = 1 } # No.
+	set_variable = { USA_Y_NPP_bill_support = 1 } # No.
+
+	USA_bill_setup = yes
+	USA_setup_bill_support_clamper = yes
+	USA_clamp_flip_cost = yes
+	#
+}
+
+
 #Neo Kirk
 kirk_cia_act_bill_init = {
 	set_variable = { bill_id = 1776 }
@@ -4102,7 +4122,7 @@ USA_CHEP_BILLS_SUPPORT = {
 			OR = {
 				has_country_flag = USA_land_reform_act
 				has_country_flag = USA_americas_choice_act
-				has_country_flag = USA_responsibility_in_governmnet_act
+				has_country_flag = USA_responsibility_in_government_act
 				has_country_flag = USA_workers_wekfare_act
 				has_country_flag = USA_transport_ass_act
 				has_country_flag = USA_federal_finance_act

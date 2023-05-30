@@ -1968,105 +1968,105 @@ US_hold_presidential_election = {
 	add_to_variable = { npp_votes = rdc_to_npp }
 
 	# policy voter comb
-	add_to_temp_variable = { rdc_policy_allignment = USA.RDC_civil_rights_policy }
-	add_to_temp_variable = { rdc_policy_allignment = USA.RDC_economic_policy }
-	add_to_temp_variable = { rdc_policy_allignment = USA.RDC_domestic_policy }
-	add_to_temp_variable = { rdc_policy_allignment = USA.RDC_foreign_policy }
-	divide_temp_variable = { rdc_policy_allignment = 4 }
-	add_to_temp_variable = { npp_policy_allignment = USA.NPP_civil_rights_policy }
-	add_to_temp_variable = { npp_policy_allignment = USA.NPP_economic_policy }
-	add_to_temp_variable = { npp_policy_allignment = USA.NPP_domestic_policy }
-	add_to_temp_variable = { npp_policy_allignment = USA.NPP_foreign_policy }
-	divide_temp_variable = { npp_policy_allignment = 4 }
-	add_to_temp_variable = { nat_policy_allignment = USA.national_civil_rights_policy }
-	add_to_temp_variable = { nat_policy_allignment = USA.national_economic_policy }
-	add_to_temp_variable = { nat_policy_allignment = USA.national_domestic_policy }
-	add_to_temp_variable = { nat_policy_allignment = USA.national_foreign_policy }
-	divide_temp_variable = { nat_policy_allignment = 4 }
+	add_to_temp_variable = { rdc_policy_alignment = USA.RDC_civil_rights_policy }
+	add_to_temp_variable = { rdc_policy_alignment = USA.RDC_economic_policy }
+	add_to_temp_variable = { rdc_policy_alignment = USA.RDC_domestic_policy }
+	add_to_temp_variable = { rdc_policy_alignment = USA.RDC_foreign_policy }
+	divide_temp_variable = { rdc_policy_alignment = 4 }
+	add_to_temp_variable = { npp_policy_alignment = USA.NPP_civil_rights_policy }
+	add_to_temp_variable = { npp_policy_alignment = USA.NPP_economic_policy }
+	add_to_temp_variable = { npp_policy_alignment = USA.NPP_domestic_policy }
+	add_to_temp_variable = { npp_policy_alignment = USA.NPP_foreign_policy }
+	divide_temp_variable = { npp_policy_alignment = 4 }
+	add_to_temp_variable = { nat_policy_alignment = USA.national_civil_rights_policy }
+	add_to_temp_variable = { nat_policy_alignment = USA.national_economic_policy }
+	add_to_temp_variable = { nat_policy_alignment = USA.national_domestic_policy }
+	add_to_temp_variable = { nat_policy_alignment = USA.national_foreign_policy }
+	divide_temp_variable = { nat_policy_alignment = 4 }
 
-	subtract_from_temp_variable = { rdc_policy_allignment = nat_policy_allignment }
-	subtract_from_temp_variable = { npp_policy_allignment = nat_policy_allignment }
+	subtract_from_temp_variable = { rdc_policy_alignment = nat_policy_alignment }
+	subtract_from_temp_variable = { npp_policy_alignment = nat_policy_alignment }
 	if = {
 		limit = {
 			check_variable = {
-				var = rdc_policy_allignment
+				var = rdc_policy_alignment
 				value = 0
 				compare = less_than
 			}
 		}
-		multiply_temp_variable = { rdc_policy_allignment = -1 }
+		multiply_temp_variable = { rdc_policy_alignment = -1 }
 	}
 	if = {
 		limit = {
 			check_variable = {
-				var = npp_policy_allignment
+				var = npp_policy_alignment
 				value = 0
 				compare = less_than
 			}
 		}
-		multiply_temp_variable = { npp_policy_allignment = -1 }
+		multiply_temp_variable = { npp_policy_alignment = -1 }
 	}
-	subtract_from_temp_variable = { rdc_policy_allignment = 1 }
-	subtract_from_temp_variable = { npp_policy_allignment = 1 }
+	subtract_from_temp_variable = { rdc_policy_alignment = 1 }
+	subtract_from_temp_variable = { npp_policy_alignment = 1 }
 	if = {
 		limit = {
 			check_variable = {
-				var = rdc_policy_allignment
+				var = rdc_policy_alignment
 				value = 0
 				compare = less_than
 			}
 		}
-		multiply_temp_variable = { rdc_policy_allignment = -1 }
+		multiply_temp_variable = { rdc_policy_alignment = -1 }
 	}
 	if = {
 		limit = {
 			check_variable = {
-				var = npp_policy_allignment
+				var = npp_policy_alignment
 				value = 0
 				compare = less_than
 			}
 		}
-		multiply_temp_variable = { npp_policy_allignment = -1 }
+		multiply_temp_variable = { npp_policy_alignment = -1 }
 	}
 
-	divide_temp_variable = { rdc_policy_allignment = 20 }
-	divide_temp_variable = { npp_policy_allignment = 20 }
-	set_temp_variable = { part_a = rdc_policy_allignment }
-	add_to_temp_variable = { part_a = npp_policy_allignment }
+	divide_temp_variable = { rdc_policy_alignment = 20 }
+	divide_temp_variable = { npp_policy_alignment = 20 }
+	set_temp_variable = { part_a = rdc_policy_alignment }
+	add_to_temp_variable = { part_a = npp_policy_alignment }
 	set_temp_variable = { part_b = 1 }
 	subtract_from_temp_variable = { part_b = part_a }
 
 	if = {
 		limit = {
 			check_variable = {
-				var = rdc_policy_allignment
-				value = npp_policy_allignment
+				var = rdc_policy_alignment
+				value = npp_policy_alignment
 				compare = greater_than_or_equals
 			}
 		}
-		add_to_temp_variable = { rdc_policy_allignment = part_b }
+		add_to_temp_variable = { rdc_policy_alignment = part_b }
 	}
 	else_if = {
 		limit = {
 			check_variable = {
-				var = npp_policy_allignment
-				value = rdc_policy_allignment
+				var = npp_policy_alignment
+				value = rdc_policy_alignment
 				compare = greater_than
 			}
 		}
-		add_to_temp_variable = { npp_policy_allignment = part_b }
+		add_to_temp_variable = { npp_policy_alignment = part_b }
 	}
 
-	set_variable = { checkthis1 = rdc_policy_allignment }
-	set_variable = { checkthis2 = npp_policy_allignment }
+	set_variable = { checkthis1 = rdc_policy_alignment }
+	set_variable = { checkthis2 = npp_policy_alignment }
 	set_variable = { checkthis3 = policy_voters }
 
 	multiply_temp_variable = { policy_voters = 0.96 }
-	multiply_temp_variable = { rdc_policy_allignment = policy_voters }
-	multiply_temp_variable = { npp_policy_allignment = policy_voters }
-	set_variable = { checkthis = rdc_policy_allignment }
-	add_to_variable = { rdc_votes = rdc_policy_allignment }
-	add_to_variable = { npp_votes = npp_policy_allignment }
+	multiply_temp_variable = { rdc_policy_alignment = policy_voters }
+	multiply_temp_variable = { npp_policy_alignment = policy_voters }
+	set_variable = { checkthis = rdc_policy_alignment }
+	add_to_variable = { rdc_votes = rdc_policy_alignment }
+	add_to_variable = { npp_votes = npp_policy_alignment }
 
 	add_to_variable = { rdc_votes = npp_to_rdc }
 	add_to_variable = { npp_votes = rdc_to_npp }
@@ -2133,7 +2133,7 @@ USA_determine_policy_voter_afilliation_NEW = {
 
 	divide_temp_variable = { RDC_policy_score = 10 }
 	divide_temp_variable = { NPP_policy_score = 10 }
-	set_variable = { checkallignment = NPP_policy_score }
+	set_variable = { checkalignment = NPP_policy_score }
 	multiply_temp_variable = { RDC_policy_score = part_a  }
 	multiply_temp_variable = { NPP_policy_score = part_b }
 
@@ -2187,7 +2187,7 @@ USA_determine_policy_voter_afilliation_NEW = {
 
 	divide_temp_variable = { RDC_policy_score = 10 }
 	divide_temp_variable = { NPP_policy_score = 10 }
-	set_variable = { checkallignment = NPP_policy_score2 }
+	set_variable = { checkalignment = NPP_policy_score2 }
 	multiply_temp_variable = { RDC_policy_score = part_a  }
 	multiply_temp_variable = { NPP_policy_score = part_b }
 	subtract_from_temp_variable = { policy_voters = RDC_policy_score }
@@ -4359,7 +4359,6 @@ USA_get_dem_RDC_sup = {
 	
 	set_variable = { USA_dixiecrat_pct = USA_DC_Senate_Seats }
 	divide_variable = { USA_dixiecrat_pct = USA_Democrat_Seats }
-	
 	
 	add_to_variable = { Democrat_RDC_support = USA_dem_temp_var_1 }
 	add_to_variable = { Democrat_RDC_support = USA_dem_temp_var_2 }
@@ -9183,6 +9182,16 @@ USA_ELECTION_CODE_state_party_pref_balance = {
 			}
 			multiply_temp_variable = { pro_raw_votes = 1.2 }
 		}
+		if = {
+			limit = {
+				USA = { 
+					has_country_flag = USA_johnson_nominated 
+					has_country_flag = USA_kennedy_nominated 
+				}
+			}
+			multiply_temp_variable = { dem_raw_votes = 1.2 }
+			multiply_temp_variable = { pro_raw_votes = 0.9 }
+		}
 		set_temp_variable = { NPP_campaign_bonus = npp_campaign_infrastructure }
 		set_temp_variable = { RDC_campaign_bonus = rdc_campaign_infrastructure }
 		divide_temp_variable = { NPP_campaign_bonus = 2 }
@@ -9207,6 +9216,16 @@ USA_ELECTION_CODE_state_party_pref_balance = {
 		set_temp_variable = { RDC_campaign_bonus = rdc_campaign_infrastructure }
 		divide_temp_variable = { NPP_campaign_bonus = 2 }
 		divide_temp_variable = { RDC_campaign_bonus = 2 }
+		if = {
+			limit = {
+				USA = { 
+					has_country_flag = USA_johnson_nominated 
+					has_country_flag = USA_kennedy_nominated 
+				}
+			}
+			multiply_temp_variable = { dem_raw_votes = 1.3 }
+			multiply_temp_variable = { pro_raw_votes = 0.8 }
+		}
 
 		multiply_temp_variable = { pro_raw_votes = NPP_campaign_bonus }
 		multiply_temp_variable = { nat_raw_votes = NPP_campaign_bonus }
@@ -9228,6 +9247,15 @@ USA_ELECTION_CODE_state_party_pref_balance = {
 		divide_temp_variable = { NPP_campaign_bonus = 2 }
 		divide_temp_variable = { RDC_campaign_bonus = 2 }
 
+		if = {
+			limit = {
+				USA = { 
+					has_country_flag = USA_johnson_nominated 
+					has_country_flag = USA_kennedy_nominated 
+				}
+			}
+			multiply_temp_variable = { dem_raw_votes = 1.1 }
+		}
 		multiply_temp_variable = { pro_raw_votes = NPP_campaign_bonus }
 		multiply_temp_variable = { nat_raw_votes = NPP_campaign_bonus }
 		multiply_temp_variable = { dem_raw_votes = RDC_campaign_bonus }
@@ -9258,6 +9286,16 @@ USA_ELECTION_CODE_state_party_pref_balance = {
 			multiply_temp_variable = { nat_raw_votes = 0.7 }
 			multiply_temp_variable = { pro_raw_votes = 0.7 }
 		}
+		if = {
+			limit = {
+				USA = { 
+					has_country_flag = USA_johnson_nominated 
+					has_country_flag = USA_kennedy_nominated 
+				}
+			}
+			multiply_temp_variable = { dem_raw_votes = 1.3 }
+			multiply_temp_variable = { pro_raw_votes = 0.8 }
+		}
 
 		set_temp_variable = { NPP_campaign_bonus = npp_campaign_infrastructure }
 		set_temp_variable = { RDC_campaign_bonus = rdc_campaign_infrastructure }
@@ -9283,6 +9321,16 @@ USA_ELECTION_CODE_state_party_pref_balance = {
 				USA = { has_country_flag = USA_goldwater_nominated }
 			}
 			multiply_temp_variable = { rep_raw_votes = 1.3 }
+		}
+		if = {
+			limit = {
+				USA = { 
+					has_country_flag = USA_johnson_nominated 
+					has_country_flag = USA_kennedy_nominated 
+				}
+			}
+			multiply_temp_variable = { dem_raw_votes = 1.2 }
+			multiply_temp_variable = { pro_raw_votes = 0.8 }
 		}
 
 		set_temp_variable = { NPP_campaign_bonus = npp_campaign_infrastructure }
@@ -9331,6 +9379,16 @@ USA_ELECTION_CODE_state_party_pref_balance = {
 		multiply_temp_variable = { nat_raw_votes = 1.1 }
 		multiply_temp_variable = { pro_raw_votes = 0.9 }
 
+		if = {
+			limit = {
+				USA = { 
+					has_country_flag = USA_johnson_nominated 
+					has_country_flag = USA_kennedy_nominated 
+				}
+			}
+			multiply_temp_variable = { dem_raw_votes = 1.3 }
+			multiply_temp_variable = { pro_raw_votes = 0.7 }
+		}
 		set_temp_variable = { NPP_campaign_bonus = npp_campaign_infrastructure }
 		set_temp_variable = { RDC_campaign_bonus = rdc_campaign_infrastructure }
 		divide_temp_variable = { NPP_campaign_bonus = 2 }
@@ -9437,6 +9495,13 @@ USA_ELECTION_CODE_state_party_pref_balance = {
 			multiply_temp_variable = { dem_raw_votes = 0.8 }
 			multiply_temp_variable = { nat_raw_votes = 1.2 }
 		}
+		if = {
+			limit = {
+				USA = { has_country_flag = USA_johnson_nominated }
+			}
+			multiply_temp_variable = { dem_raw_votes = 1.3 }
+			multiply_temp_variable = { pro_raw_votes = 0.7 }
+		}
 
 		set_temp_variable = { NPP_campaign_bonus = npp_campaign_infrastructure }
 		set_temp_variable = { RDC_campaign_bonus = rdc_campaign_infrastructure }
@@ -9462,7 +9527,14 @@ USA_ELECTION_CODE_state_party_pref_balance = {
 				USA = { has_country_flag = USA_hart_nominated }
 			}
 			multiply_temp_variable = { dem_raw_votes = 1.1 } # big name chep
-			multiply_temp_variable = { nat_raw_votes = 0.6 } #fuck da longs
+			multiply_temp_variable = { nat_raw_votes = 0.8 } #fuck da longs
+		}
+		if = {
+			limit = {
+				USA = { has_country_flag = USA_johnson_nominated }
+			}
+			multiply_temp_variable = { dem_raw_votes = 1.3 }
+			multiply_temp_variable = { pro_raw_votes = 0.7 }
 		}
 
 		set_temp_variable = { NPP_campaign_bonus = npp_campaign_infrastructure }
@@ -9495,6 +9567,15 @@ USA_ELECTION_CODE_state_party_pref_balance = {
 				USA = { has_country_flag = USA_johnson_nominated }
 			}
 			multiply_temp_variable = { dem_raw_votes = 1.1 }
+		}
+		if = {
+			limit = {
+				USA = { 
+					has_country_flag = USA_johnson_nominated 
+					has_country_flag = USA_kennedy_nominated 
+				}
+			}
+			multiply_temp_variable = { pro_raw_votes = 1.2 }
 		}
 		if = {
 			limit = {
@@ -9567,6 +9648,13 @@ USA_ELECTION_CODE_state_party_pref_balance = {
 		multiply_temp_variable = { pro_raw_votes = 0.6 }
 		multiply_temp_variable = { com_raw_votes = 0.2 }
 
+		if = {
+			limit = {
+				USA = { has_country_flag = USA_johnson_nominated }
+			}
+			multiply_temp_variable = { dem_raw_votes = 1.3 }
+			multiply_temp_variable = { pro_raw_votes = 0.7 }
+		}
 		set_temp_variable = { NPP_campaign_bonus = npp_campaign_infrastructure }
 		set_temp_variable = { RDC_campaign_bonus = rdc_campaign_infrastructure }
 		divide_temp_variable = { NPP_campaign_bonus = 2 }
@@ -9588,6 +9676,13 @@ USA_ELECTION_CODE_state_party_pref_balance = {
 		multiply_temp_variable = { pro_raw_votes = 0.8 }
 		multiply_temp_variable = { com_raw_votes = 0.2 }
 
+		if = {
+			limit = {
+				USA = { has_country_flag = USA_johnson_nominated }
+			}
+			multiply_temp_variable = { dem_raw_votes = 1.1 }
+			multiply_temp_variable = { pro_raw_votes = 0.9 }
+		}
 		set_temp_variable = { NPP_campaign_bonus = npp_campaign_infrastructure }
 		set_temp_variable = { RDC_campaign_bonus = rdc_campaign_infrastructure }
 		divide_temp_variable = { NPP_campaign_bonus = 2 }
@@ -9609,6 +9704,13 @@ USA_ELECTION_CODE_state_party_pref_balance = {
 		multiply_temp_variable = { pro_raw_votes = 0.6 }
 		multiply_temp_variable = { com_raw_votes = 0.2 }
 
+		if = {
+			limit = {
+				USA = { has_country_flag = USA_johnson_nominated }
+			}
+			multiply_temp_variable = { dem_raw_votes = 1.3 }
+			multiply_temp_variable = { pro_raw_votes = 0.7 }
+		}
 		set_temp_variable = { NPP_campaign_bonus = npp_campaign_infrastructure }
 		set_temp_variable = { RDC_campaign_bonus = rdc_campaign_infrastructure }
 		divide_temp_variable = { NPP_campaign_bonus = 2 }
@@ -9623,12 +9725,19 @@ USA_ELECTION_CODE_state_party_pref_balance = {
 		limit = {
 			has_state_flag = state_group_r
 		}
-		multiply_temp_variable = { dem_raw_votes = 0.8 }
+		multiply_temp_variable = { dem_raw_votes = 0.9 }
 
 		multiply_temp_variable = { nat_raw_votes = 1.2 }
-		multiply_temp_variable = { pro_raw_votes = 0.6 }
+		multiply_temp_variable = { pro_raw_votes = 0.8 }
 		multiply_temp_variable = { com_raw_votes = 0.2 }
 
+		if = {
+			limit = {
+				USA = { has_country_flag = USA_johnson_nominated }
+			}
+			multiply_temp_variable = { dem_raw_votes = 1.1 }
+			multiply_temp_variable = { pro_raw_votes = 0.9 }
+		}
 		set_temp_variable = { NPP_campaign_bonus = npp_campaign_infrastructure }
 		set_temp_variable = { RDC_campaign_bonus = rdc_campaign_infrastructure }
 		divide_temp_variable = { NPP_campaign_bonus = 2 }
@@ -9653,6 +9762,13 @@ USA_ELECTION_CODE_state_party_pref_balance = {
 				USA = { has_country_flag = USA_kirkpatrick_nominated }
 			}
 			multiply_temp_variable = { dem_raw_votes = 1.4 }
+		}
+		if = {
+			limit = {
+				USA = { has_country_flag = USA_johnson_nominated }
+			}
+			multiply_temp_variable = { dem_raw_votes = 1.1 }
+			multiply_temp_variable = { pro_raw_votes = 0.9 }
 		}
 
 		set_temp_variable = { NPP_campaign_bonus = npp_campaign_infrastructure }
@@ -10693,6 +10809,16 @@ USA_ELECTION_CODE_state_party_pref_balance_senate = {
 		multiply_temp_variable = { nat_raw_votes_sen = 0.9 }
 		multiply_temp_variable = { pro_raw_votes_sen = 1.0 }
 
+		if = {
+			limit = {
+				USA = { 
+					has_country_flag = USA_johnson_nominated 
+					has_country_flag = USA_kennedy_nominated 
+				}
+			}
+			multiply_temp_variable = { dem_raw_votes = 1.1 }
+			multiply_temp_variable = { pro_raw_votes = 0.9 }
+		}
 		set_temp_variable = { NPP_campaign_bonus = npp_campaign_infrastructure }
 		set_temp_variable = { RDC_campaign_bonus = rdc_campaign_infrastructure }
 		divide_temp_variable = { NPP_campaign_bonus = 2 }
@@ -10955,6 +11081,16 @@ USA_ELECTION_CODE_state_party_pref_balance_senate = {
 		multiply_temp_variable = { nat_raw_votes_sen = 1.1 }
 		multiply_temp_variable = { pro_raw_votes_sen = 0.9 }
 
+		if = {
+			limit = {
+				USA = { 
+					has_country_flag = USA_johnson_nominated 
+					has_country_flag = USA_kennedy_nominated 
+				}
+			}
+			multiply_temp_variable = { pro_raw_votes = 1.1 }
+		}
+		
 		set_temp_variable = { NPP_campaign_bonus = npp_campaign_infrastructure }
 		set_temp_variable = { RDC_campaign_bonus = rdc_campaign_infrastructure }
 		divide_temp_variable = { NPP_campaign_bonus = 2 }
@@ -12458,105 +12594,105 @@ US_hold_senate_election = {
 	add_to_variable = { npp_votes_sen = rdc_to_npp }
 
 	# policy voter comb
-	add_to_temp_variable = { rdc_policy_allignment = USA.RDC_civil_rights_policy }
-	add_to_temp_variable = { rdc_policy_allignment = USA.RDC_economic_policy }
-	add_to_temp_variable = { rdc_policy_allignment = USA.RDC_domestic_policy }
-	add_to_temp_variable = { rdc_policy_allignment = USA.RDC_foreign_policy }
-	divide_temp_variable = { rdc_policy_allignment = 4 }
-	add_to_temp_variable = { npp_policy_allignment = USA.NPP_civil_rights_policy }
-	add_to_temp_variable = { npp_policy_allignment = USA.NPP_economic_policy }
-	add_to_temp_variable = { npp_policy_allignment = USA.NPP_domestic_policy }
-	add_to_temp_variable = { npp_policy_allignment = USA.NPP_foreign_policy }
-	divide_temp_variable = { npp_policy_allignment = 4 }
-	add_to_temp_variable = { nat_policy_allignment = USA.national_civil_rights_policy }
-	add_to_temp_variable = { nat_policy_allignment = USA.national_economic_policy }
-	add_to_temp_variable = { nat_policy_allignment = USA.national_domestic_policy }
-	add_to_temp_variable = { nat_policy_allignment = USA.national_foreign_policy }
-	divide_temp_variable = { nat_policy_allignment = 4 }
+	add_to_temp_variable = { rdc_policy_alignment = USA.RDC_civil_rights_policy }
+	add_to_temp_variable = { rdc_policy_alignment = USA.RDC_economic_policy }
+	add_to_temp_variable = { rdc_policy_alignment = USA.RDC_domestic_policy }
+	add_to_temp_variable = { rdc_policy_alignment = USA.RDC_foreign_policy }
+	divide_temp_variable = { rdc_policy_alignment = 4 }
+	add_to_temp_variable = { npp_policy_alignment = USA.NPP_civil_rights_policy }
+	add_to_temp_variable = { npp_policy_alignment = USA.NPP_economic_policy }
+	add_to_temp_variable = { npp_policy_alignment = USA.NPP_domestic_policy }
+	add_to_temp_variable = { npp_policy_alignment = USA.NPP_foreign_policy }
+	divide_temp_variable = { npp_policy_alignment = 4 }
+	add_to_temp_variable = { nat_policy_alignment = USA.national_civil_rights_policy }
+	add_to_temp_variable = { nat_policy_alignment = USA.national_economic_policy }
+	add_to_temp_variable = { nat_policy_alignment = USA.national_domestic_policy }
+	add_to_temp_variable = { nat_policy_alignment = USA.national_foreign_policy }
+	divide_temp_variable = { nat_policy_alignment = 4 }
 
-	subtract_from_temp_variable = { rdc_policy_allignment = nat_policy_allignment }
-	subtract_from_temp_variable = { npp_policy_allignment = nat_policy_allignment }
+	subtract_from_temp_variable = { rdc_policy_alignment = nat_policy_alignment }
+	subtract_from_temp_variable = { npp_policy_alignment = nat_policy_alignment }
 	if = {
 		limit = {
 			check_variable = {
-				var = rdc_policy_allignment
+				var = rdc_policy_alignment
 				value = 0
 				compare = less_than
 			}
 		}
-		multiply_temp_variable = { rdc_policy_allignment = -1 }
+		multiply_temp_variable = { rdc_policy_alignment = -1 }
 	}
 	if = {
 		limit = {
 			check_variable = {
-				var = npp_policy_allignment
+				var = npp_policy_alignment
 				value = 0
 				compare = less_than
 			}
 		}
-		multiply_temp_variable = { npp_policy_allignment = -1 }
+		multiply_temp_variable = { npp_policy_alignment = -1 }
 	}
-	subtract_from_temp_variable = { rdc_policy_allignment = 1 }
-	subtract_from_temp_variable = { npp_policy_allignment = 1 }
+	subtract_from_temp_variable = { rdc_policy_alignment = 1 }
+	subtract_from_temp_variable = { npp_policy_alignment = 1 }
 	if = {
 		limit = {
 			check_variable = {
-				var = rdc_policy_allignment
+				var = rdc_policy_alignment
 				value = 0
 				compare = less_than
 			}
 		}
-		multiply_temp_variable = { rdc_policy_allignment = -1 }
+		multiply_temp_variable = { rdc_policy_alignment = -1 }
 	}
 	if = {
 		limit = {
 			check_variable = {
-				var = npp_policy_allignment
+				var = npp_policy_alignment
 				value = 0
 				compare = less_than
 			}
 		}
-		multiply_temp_variable = { npp_policy_allignment = -1 }
+		multiply_temp_variable = { npp_policy_alignment = -1 }
 	}
 
-	divide_temp_variable = { rdc_policy_allignment = 20 }
-	divide_temp_variable = { npp_policy_allignment = 20 }
-	set_temp_variable = { part_a = rdc_policy_allignment }
-	add_to_temp_variable = { part_a = npp_policy_allignment }
+	divide_temp_variable = { rdc_policy_alignment = 20 }
+	divide_temp_variable = { npp_policy_alignment = 20 }
+	set_temp_variable = { part_a = rdc_policy_alignment }
+	add_to_temp_variable = { part_a = npp_policy_alignment }
 	set_temp_variable = { part_b = 1 }
 	subtract_from_temp_variable = { part_b = part_a }
 
 	if = {
 		limit = {
 			check_variable = {
-				var = rdc_policy_allignment
-				value = npp_policy_allignment
+				var = rdc_policy_alignment
+				value = npp_policy_alignment
 				compare = greater_than_or_equals
 			}
 		}
-		add_to_temp_variable = { rdc_policy_allignment = part_b }
+		add_to_temp_variable = { rdc_policy_alignment = part_b }
 	}
 	else_if = {
 		limit = {
 			check_variable = {
-				var = npp_policy_allignment
-				value = rdc_policy_allignment
+				var = npp_policy_alignment
+				value = rdc_policy_alignment
 				compare = greater_than
 			}
 		}
-		add_to_temp_variable = { npp_policy_allignment = part_b }
+		add_to_temp_variable = { npp_policy_alignment = part_b }
 	}
 
-	set_variable = { checkthis1 = rdc_policy_allignment }
-	set_variable = { checkthis2 = npp_policy_allignment }
+	set_variable = { checkthis1 = rdc_policy_alignment }
+	set_variable = { checkthis2 = npp_policy_alignment }
 	set_variable = { checkthis3 = policy_voters }
 
 	multiply_temp_variable = { policy_voters = 0.96 }
-	multiply_temp_variable = { rdc_policy_allignment = policy_voters }
-	multiply_temp_variable = { npp_policy_allignment = policy_voters }
-	set_variable = { checkthis = rdc_policy_allignment }
-	add_to_variable = { rdc_votes_sen = rdc_policy_allignment }
-	add_to_variable = { npp_votes_sen = npp_policy_allignment }
+	multiply_temp_variable = { rdc_policy_alignment = policy_voters }
+	multiply_temp_variable = { npp_policy_alignment = policy_voters }
+	set_variable = { checkthis = rdc_policy_alignment }
+	add_to_variable = { rdc_votes_sen = rdc_policy_alignment }
+	add_to_variable = { npp_votes_sen = npp_policy_alignment }
 
 	add_to_variable = { rdc_votes_sen = npp_to_rdc }
 	add_to_variable = { npp_votes_sen = rdc_to_npp }
@@ -12750,7 +12886,7 @@ USA_determine_policy_voter_afilliation_NEW_SENATE = {
 
 	divide_temp_variable = { RDC_policy_score = 10 }
 	divide_temp_variable = { NPP_policy_score = 10 }
-	set_variable = { checkallignment = NPP_policy_score }
+	set_variable = { checkalignment = NPP_policy_score }
 	multiply_temp_variable = { RDC_policy_score = part_a  }
 	multiply_temp_variable = { NPP_policy_score = part_b }
 
@@ -12804,7 +12940,7 @@ USA_determine_policy_voter_afilliation_NEW_SENATE = {
 
 	divide_temp_variable = { RDC_policy_score = 10 }
 	divide_temp_variable = { NPP_policy_score = 10 }
-	set_variable = { checkallignment = NPP_policy_score2 }
+	set_variable = { checkalignment = NPP_policy_score2 }
 	multiply_temp_variable = { RDC_policy_score = part_a  }
 	multiply_temp_variable = { NPP_policy_score = part_b }
 	subtract_from_temp_variable = { policy_voters = RDC_policy_score }
@@ -14189,105 +14325,105 @@ US_hold_MOCK_senate_election_nomination = { # for nominations
 	add_to_variable = { npp_votes_sen = rdc_to_npp }
 
 	# policy voter comb
-	add_to_temp_variable = { rdc_policy_allignment = USA.RDC_civil_rights_policy }
-	add_to_temp_variable = { rdc_policy_allignment = USA.RDC_economic_policy }
-	add_to_temp_variable = { rdc_policy_allignment = USA.RDC_domestic_policy }
-	add_to_temp_variable = { rdc_policy_allignment = USA.RDC_foreign_policy }
-	divide_temp_variable = { rdc_policy_allignment = 4 }
-	add_to_temp_variable = { npp_policy_allignment = USA.NPP_civil_rights_policy }
-	add_to_temp_variable = { npp_policy_allignment = USA.NPP_economic_policy }
-	add_to_temp_variable = { npp_policy_allignment = USA.NPP_domestic_policy }
-	add_to_temp_variable = { npp_policy_allignment = USA.NPP_foreign_policy }
-	divide_temp_variable = { npp_policy_allignment = 4 }
-	add_to_temp_variable = { nat_policy_allignment = USA.national_civil_rights_policy }
-	add_to_temp_variable = { nat_policy_allignment = USA.national_economic_policy }
-	add_to_temp_variable = { nat_policy_allignment = USA.national_domestic_policy }
-	add_to_temp_variable = { nat_policy_allignment = USA.national_foreign_policy }
-	divide_temp_variable = { nat_policy_allignment = 4 }
+	add_to_temp_variable = { rdc_policy_alignment = USA.RDC_civil_rights_policy }
+	add_to_temp_variable = { rdc_policy_alignment = USA.RDC_economic_policy }
+	add_to_temp_variable = { rdc_policy_alignment = USA.RDC_domestic_policy }
+	add_to_temp_variable = { rdc_policy_alignment = USA.RDC_foreign_policy }
+	divide_temp_variable = { rdc_policy_alignment = 4 }
+	add_to_temp_variable = { npp_policy_alignment = USA.NPP_civil_rights_policy }
+	add_to_temp_variable = { npp_policy_alignment = USA.NPP_economic_policy }
+	add_to_temp_variable = { npp_policy_alignment = USA.NPP_domestic_policy }
+	add_to_temp_variable = { npp_policy_alignment = USA.NPP_foreign_policy }
+	divide_temp_variable = { npp_policy_alignment = 4 }
+	add_to_temp_variable = { nat_policy_alignment = USA.national_civil_rights_policy }
+	add_to_temp_variable = { nat_policy_alignment = USA.national_economic_policy }
+	add_to_temp_variable = { nat_policy_alignment = USA.national_domestic_policy }
+	add_to_temp_variable = { nat_policy_alignment = USA.national_foreign_policy }
+	divide_temp_variable = { nat_policy_alignment = 4 }
 
-	subtract_from_temp_variable = { rdc_policy_allignment = nat_policy_allignment }
-	subtract_from_temp_variable = { npp_policy_allignment = nat_policy_allignment }
+	subtract_from_temp_variable = { rdc_policy_alignment = nat_policy_alignment }
+	subtract_from_temp_variable = { npp_policy_alignment = nat_policy_alignment }
 	if = {
 		limit = {
 			check_variable = {
-				var = rdc_policy_allignment
+				var = rdc_policy_alignment
 				value = 0
 				compare = less_than
 			}
 		}
-		multiply_temp_variable = { rdc_policy_allignment = -1 }
+		multiply_temp_variable = { rdc_policy_alignment = -1 }
 	}
 	if = {
 		limit = {
 			check_variable = {
-				var = npp_policy_allignment
+				var = npp_policy_alignment
 				value = 0
 				compare = less_than
 			}
 		}
-		multiply_temp_variable = { npp_policy_allignment = -1 }
+		multiply_temp_variable = { npp_policy_alignment = -1 }
 	}
-	subtract_from_temp_variable = { rdc_policy_allignment = 1 }
-	subtract_from_temp_variable = { npp_policy_allignment = 1 }
+	subtract_from_temp_variable = { rdc_policy_alignment = 1 }
+	subtract_from_temp_variable = { npp_policy_alignment = 1 }
 	if = {
 		limit = {
 			check_variable = {
-				var = rdc_policy_allignment
+				var = rdc_policy_alignment
 				value = 0
 				compare = less_than
 			}
 		}
-		multiply_temp_variable = { rdc_policy_allignment = -1 }
+		multiply_temp_variable = { rdc_policy_alignment = -1 }
 	}
 	if = {
 		limit = {
 			check_variable = {
-				var = npp_policy_allignment
+				var = npp_policy_alignment
 				value = 0
 				compare = less_than
 			}
 		}
-		multiply_temp_variable = { npp_policy_allignment = -1 }
+		multiply_temp_variable = { npp_policy_alignment = -1 }
 	}
 
-	divide_temp_variable = { rdc_policy_allignment = 20 }
-	divide_temp_variable = { npp_policy_allignment = 20 }
-	set_temp_variable = { part_a = rdc_policy_allignment }
-	add_to_temp_variable = { part_a = npp_policy_allignment }
+	divide_temp_variable = { rdc_policy_alignment = 20 }
+	divide_temp_variable = { npp_policy_alignment = 20 }
+	set_temp_variable = { part_a = rdc_policy_alignment }
+	add_to_temp_variable = { part_a = npp_policy_alignment }
 	set_temp_variable = { part_b = 1 }
 	subtract_from_temp_variable = { part_b = part_a }
 
 	if = {
 		limit = {
 			check_variable = {
-				var = rdc_policy_allignment
-				value = npp_policy_allignment
+				var = rdc_policy_alignment
+				value = npp_policy_alignment
 				compare = greater_than_or_equals
 			}
 		}
-		add_to_temp_variable = { rdc_policy_allignment = part_b }
+		add_to_temp_variable = { rdc_policy_alignment = part_b }
 	}
 	else_if = {
 		limit = {
 			check_variable = {
-				var = npp_policy_allignment
-				value = rdc_policy_allignment
+				var = npp_policy_alignment
+				value = rdc_policy_alignment
 				compare = greater_than
 			}
 		}
-		add_to_temp_variable = { npp_policy_allignment = part_b }
+		add_to_temp_variable = { npp_policy_alignment = part_b }
 	}
 
-	set_variable = { checkthis1 = rdc_policy_allignment }
-	set_variable = { checkthis2 = npp_policy_allignment }
+	set_variable = { checkthis1 = rdc_policy_alignment }
+	set_variable = { checkthis2 = npp_policy_alignment }
 	set_variable = { checkthis3 = policy_voters }
 
 	multiply_temp_variable = { policy_voters = 0.96 }
-	multiply_temp_variable = { rdc_policy_allignment = policy_voters }
-	multiply_temp_variable = { npp_policy_allignment = policy_voters }
-	set_variable = { checkthis = rdc_policy_allignment }
-	add_to_variable = { rdc_votes_sen = rdc_policy_allignment }
-	add_to_variable = { npp_votes_sen = npp_policy_allignment }
+	multiply_temp_variable = { rdc_policy_alignment = policy_voters }
+	multiply_temp_variable = { npp_policy_alignment = policy_voters }
+	set_variable = { checkthis = rdc_policy_alignment }
+	add_to_variable = { rdc_votes_sen = rdc_policy_alignment }
+	add_to_variable = { npp_votes_sen = npp_policy_alignment }
 
 	add_to_variable = { rdc_votes_sen = npp_to_rdc }
 	add_to_variable = { npp_votes_sen = rdc_to_npp }
@@ -15336,105 +15472,105 @@ US_hold_MOCK_senate_election_polling = { # for nominations
 	add_to_variable = { npp_votes_sen = rdc_to_npp }
 
 	# policy voter comb
-	add_to_temp_variable = { rdc_policy_allignment = USA.RDC_civil_rights_policy }
-	add_to_temp_variable = { rdc_policy_allignment = USA.RDC_economic_policy }
-	add_to_temp_variable = { rdc_policy_allignment = USA.RDC_domestic_policy }
-	add_to_temp_variable = { rdc_policy_allignment = USA.RDC_foreign_policy }
-	divide_temp_variable = { rdc_policy_allignment = 4 }
-	add_to_temp_variable = { npp_policy_allignment = USA.NPP_civil_rights_policy }
-	add_to_temp_variable = { npp_policy_allignment = USA.NPP_economic_policy }
-	add_to_temp_variable = { npp_policy_allignment = USA.NPP_domestic_policy }
-	add_to_temp_variable = { npp_policy_allignment = USA.NPP_foreign_policy }
-	divide_temp_variable = { npp_policy_allignment = 4 }
-	add_to_temp_variable = { nat_policy_allignment = USA.national_civil_rights_policy }
-	add_to_temp_variable = { nat_policy_allignment = USA.national_economic_policy }
-	add_to_temp_variable = { nat_policy_allignment = USA.national_domestic_policy }
-	add_to_temp_variable = { nat_policy_allignment = USA.national_foreign_policy }
-	divide_temp_variable = { nat_policy_allignment = 4 }
+	add_to_temp_variable = { rdc_policy_alignment = USA.RDC_civil_rights_policy }
+	add_to_temp_variable = { rdc_policy_alignment = USA.RDC_economic_policy }
+	add_to_temp_variable = { rdc_policy_alignment = USA.RDC_domestic_policy }
+	add_to_temp_variable = { rdc_policy_alignment = USA.RDC_foreign_policy }
+	divide_temp_variable = { rdc_policy_alignment = 4 }
+	add_to_temp_variable = { npp_policy_alignment = USA.NPP_civil_rights_policy }
+	add_to_temp_variable = { npp_policy_alignment = USA.NPP_economic_policy }
+	add_to_temp_variable = { npp_policy_alignment = USA.NPP_domestic_policy }
+	add_to_temp_variable = { npp_policy_alignment = USA.NPP_foreign_policy }
+	divide_temp_variable = { npp_policy_alignment = 4 }
+	add_to_temp_variable = { nat_policy_alignment = USA.national_civil_rights_policy }
+	add_to_temp_variable = { nat_policy_alignment = USA.national_economic_policy }
+	add_to_temp_variable = { nat_policy_alignment = USA.national_domestic_policy }
+	add_to_temp_variable = { nat_policy_alignment = USA.national_foreign_policy }
+	divide_temp_variable = { nat_policy_alignment = 4 }
 
-	subtract_from_temp_variable = { rdc_policy_allignment = nat_policy_allignment }
-	subtract_from_temp_variable = { npp_policy_allignment = nat_policy_allignment }
+	subtract_from_temp_variable = { rdc_policy_alignment = nat_policy_alignment }
+	subtract_from_temp_variable = { npp_policy_alignment = nat_policy_alignment }
 	if = {
 		limit = {
 			check_variable = {
-				var = rdc_policy_allignment
+				var = rdc_policy_alignment
 				value = 0
 				compare = less_than
 			}
 		}
-		multiply_temp_variable = { rdc_policy_allignment = -1 }
+		multiply_temp_variable = { rdc_policy_alignment = -1 }
 	}
 	if = {
 		limit = {
 			check_variable = {
-				var = npp_policy_allignment
+				var = npp_policy_alignment
 				value = 0
 				compare = less_than
 			}
 		}
-		multiply_temp_variable = { npp_policy_allignment = -1 }
+		multiply_temp_variable = { npp_policy_alignment = -1 }
 	}
-	subtract_from_temp_variable = { rdc_policy_allignment = 1 }
-	subtract_from_temp_variable = { npp_policy_allignment = 1 }
+	subtract_from_temp_variable = { rdc_policy_alignment = 1 }
+	subtract_from_temp_variable = { npp_policy_alignment = 1 }
 	if = {
 		limit = {
 			check_variable = {
-				var = rdc_policy_allignment
+				var = rdc_policy_alignment
 				value = 0
 				compare = less_than
 			}
 		}
-		multiply_temp_variable = { rdc_policy_allignment = -1 }
+		multiply_temp_variable = { rdc_policy_alignment = -1 }
 	}
 	if = {
 		limit = {
 			check_variable = {
-				var = npp_policy_allignment
+				var = npp_policy_alignment
 				value = 0
 				compare = less_than
 			}
 		}
-		multiply_temp_variable = { npp_policy_allignment = -1 }
+		multiply_temp_variable = { npp_policy_alignment = -1 }
 	}
 
-	divide_temp_variable = { rdc_policy_allignment = 20 }
-	divide_temp_variable = { npp_policy_allignment = 20 }
-	set_temp_variable = { part_a = rdc_policy_allignment }
-	add_to_temp_variable = { part_a = npp_policy_allignment }
+	divide_temp_variable = { rdc_policy_alignment = 20 }
+	divide_temp_variable = { npp_policy_alignment = 20 }
+	set_temp_variable = { part_a = rdc_policy_alignment }
+	add_to_temp_variable = { part_a = npp_policy_alignment }
 	set_temp_variable = { part_b = 1 }
 	subtract_from_temp_variable = { part_b = part_a }
 
 	if = {
 		limit = {
 			check_variable = {
-				var = rdc_policy_allignment
-				value = npp_policy_allignment
+				var = rdc_policy_alignment
+				value = npp_policy_alignment
 				compare = greater_than_or_equals
 			}
 		}
-		add_to_temp_variable = { rdc_policy_allignment = part_b }
+		add_to_temp_variable = { rdc_policy_alignment = part_b }
 	}
 	else_if = {
 		limit = {
 			check_variable = {
-				var = npp_policy_allignment
-				value = rdc_policy_allignment
+				var = npp_policy_alignment
+				value = rdc_policy_alignment
 				compare = greater_than
 			}
 		}
-		add_to_temp_variable = { npp_policy_allignment = part_b }
+		add_to_temp_variable = { npp_policy_alignment = part_b }
 	}
 
-	set_variable = { checkthis1 = rdc_policy_allignment }
-	set_variable = { checkthis2 = npp_policy_allignment }
+	set_variable = { checkthis1 = rdc_policy_alignment }
+	set_variable = { checkthis2 = npp_policy_alignment }
 	set_variable = { checkthis3 = policy_voters }
 
 	multiply_temp_variable = { policy_voters = 0.96 }
-	multiply_temp_variable = { rdc_policy_allignment = policy_voters }
-	multiply_temp_variable = { npp_policy_allignment = policy_voters }
-	set_variable = { checkthis = rdc_policy_allignment }
-	add_to_variable = { rdc_votes_sen = rdc_policy_allignment }
-	add_to_variable = { npp_votes_sen = npp_policy_allignment }
+	multiply_temp_variable = { rdc_policy_alignment = policy_voters }
+	multiply_temp_variable = { npp_policy_alignment = policy_voters }
+	set_variable = { checkthis = rdc_policy_alignment }
+	add_to_variable = { rdc_votes_sen = rdc_policy_alignment }
+	add_to_variable = { npp_votes_sen = npp_policy_alignment }
 
 	add_to_variable = { rdc_votes_sen = npp_to_rdc }
 	add_to_variable = { npp_votes_sen = rdc_to_npp }
@@ -16394,105 +16530,105 @@ US_hold_presidential_election_polling = {
 	add_to_variable = { npp_votes = rdc_to_npp }
 
 	# policy voter comb
-	add_to_temp_variable = { rdc_policy_allignment = USA.RDC_civil_rights_policy }
-	add_to_temp_variable = { rdc_policy_allignment = USA.RDC_economic_policy }
-	add_to_temp_variable = { rdc_policy_allignment = USA.RDC_domestic_policy }
-	add_to_temp_variable = { rdc_policy_allignment = USA.RDC_foreign_policy }
-	divide_temp_variable = { rdc_policy_allignment = 4 }
-	add_to_temp_variable = { npp_policy_allignment = USA.NPP_civil_rights_policy }
-	add_to_temp_variable = { npp_policy_allignment = USA.NPP_economic_policy }
-	add_to_temp_variable = { npp_policy_allignment = USA.NPP_domestic_policy }
-	add_to_temp_variable = { npp_policy_allignment = USA.NPP_foreign_policy }
-	divide_temp_variable = { npp_policy_allignment = 4 }
-	add_to_temp_variable = { nat_policy_allignment = USA.national_civil_rights_policy }
-	add_to_temp_variable = { nat_policy_allignment = USA.national_economic_policy }
-	add_to_temp_variable = { nat_policy_allignment = USA.national_domestic_policy }
-	add_to_temp_variable = { nat_policy_allignment = USA.national_foreign_policy }
-	divide_temp_variable = { nat_policy_allignment = 4 }
+	add_to_temp_variable = { rdc_policy_alignment = USA.RDC_civil_rights_policy }
+	add_to_temp_variable = { rdc_policy_alignment = USA.RDC_economic_policy }
+	add_to_temp_variable = { rdc_policy_alignment = USA.RDC_domestic_policy }
+	add_to_temp_variable = { rdc_policy_alignment = USA.RDC_foreign_policy }
+	divide_temp_variable = { rdc_policy_alignment = 4 }
+	add_to_temp_variable = { npp_policy_alignment = USA.NPP_civil_rights_policy }
+	add_to_temp_variable = { npp_policy_alignment = USA.NPP_economic_policy }
+	add_to_temp_variable = { npp_policy_alignment = USA.NPP_domestic_policy }
+	add_to_temp_variable = { npp_policy_alignment = USA.NPP_foreign_policy }
+	divide_temp_variable = { npp_policy_alignment = 4 }
+	add_to_temp_variable = { nat_policy_alignment = USA.national_civil_rights_policy }
+	add_to_temp_variable = { nat_policy_alignment = USA.national_economic_policy }
+	add_to_temp_variable = { nat_policy_alignment = USA.national_domestic_policy }
+	add_to_temp_variable = { nat_policy_alignment = USA.national_foreign_policy }
+	divide_temp_variable = { nat_policy_alignment = 4 }
 
-	subtract_from_temp_variable = { rdc_policy_allignment = nat_policy_allignment }
-	subtract_from_temp_variable = { npp_policy_allignment = nat_policy_allignment }
+	subtract_from_temp_variable = { rdc_policy_alignment = nat_policy_alignment }
+	subtract_from_temp_variable = { npp_policy_alignment = nat_policy_alignment }
 	if = {
 		limit = {
 			check_variable = {
-				var = rdc_policy_allignment
+				var = rdc_policy_alignment
 				value = 0
 				compare = less_than
 			}
 		}
-		multiply_temp_variable = { rdc_policy_allignment = -1 }
+		multiply_temp_variable = { rdc_policy_alignment = -1 }
 	}
 	if = {
 		limit = {
 			check_variable = {
-				var = npp_policy_allignment
+				var = npp_policy_alignment
 				value = 0
 				compare = less_than
 			}
 		}
-		multiply_temp_variable = { npp_policy_allignment = -1 }
+		multiply_temp_variable = { npp_policy_alignment = -1 }
 	}
-	subtract_from_temp_variable = { rdc_policy_allignment = 1 }
-	subtract_from_temp_variable = { npp_policy_allignment = 1 }
+	subtract_from_temp_variable = { rdc_policy_alignment = 1 }
+	subtract_from_temp_variable = { npp_policy_alignment = 1 }
 	if = {
 		limit = {
 			check_variable = {
-				var = rdc_policy_allignment
+				var = rdc_policy_alignment
 				value = 0
 				compare = less_than
 			}
 		}
-		multiply_temp_variable = { rdc_policy_allignment = -1 }
+		multiply_temp_variable = { rdc_policy_alignment = -1 }
 	}
 	if = {
 		limit = {
 			check_variable = {
-				var = npp_policy_allignment
+				var = npp_policy_alignment
 				value = 0
 				compare = less_than
 			}
 		}
-		multiply_temp_variable = { npp_policy_allignment = -1 }
+		multiply_temp_variable = { npp_policy_alignment = -1 }
 	}
 
-	divide_temp_variable = { rdc_policy_allignment = 20 }
-	divide_temp_variable = { npp_policy_allignment = 20 }
-	set_temp_variable = { part_a = rdc_policy_allignment }
-	add_to_temp_variable = { part_a = npp_policy_allignment }
+	divide_temp_variable = { rdc_policy_alignment = 20 }
+	divide_temp_variable = { npp_policy_alignment = 20 }
+	set_temp_variable = { part_a = rdc_policy_alignment }
+	add_to_temp_variable = { part_a = npp_policy_alignment }
 	set_temp_variable = { part_b = 1 }
 	subtract_from_temp_variable = { part_b = part_a }
 
 	if = {
 		limit = {
 			check_variable = {
-				var = rdc_policy_allignment
-				value = npp_policy_allignment
+				var = rdc_policy_alignment
+				value = npp_policy_alignment
 				compare = greater_than_or_equals
 			}
 		}
-		add_to_temp_variable = { rdc_policy_allignment = part_b }
+		add_to_temp_variable = { rdc_policy_alignment = part_b }
 	}
 	else_if = {
 		limit = {
 			check_variable = {
-				var = npp_policy_allignment
-				value = rdc_policy_allignment
+				var = npp_policy_alignment
+				value = rdc_policy_alignment
 				compare = greater_than
 			}
 		}
-		add_to_temp_variable = { npp_policy_allignment = part_b }
+		add_to_temp_variable = { npp_policy_alignment = part_b }
 	}
 
-	set_variable = { checkthis1 = rdc_policy_allignment }
-	set_variable = { checkthis2 = npp_policy_allignment }
+	set_variable = { checkthis1 = rdc_policy_alignment }
+	set_variable = { checkthis2 = npp_policy_alignment }
 	set_variable = { checkthis3 = policy_voters }
 
 	multiply_temp_variable = { policy_voters = 0.96 }
-	multiply_temp_variable = { rdc_policy_allignment = policy_voters }
-	multiply_temp_variable = { npp_policy_allignment = policy_voters }
-	set_variable = { checkthis = rdc_policy_allignment }
-	add_to_variable = { rdc_votes = rdc_policy_allignment }
-	add_to_variable = { npp_votes = npp_policy_allignment }
+	multiply_temp_variable = { rdc_policy_alignment = policy_voters }
+	multiply_temp_variable = { npp_policy_alignment = policy_voters }
+	set_variable = { checkthis = rdc_policy_alignment }
+	add_to_variable = { rdc_votes = rdc_policy_alignment }
+	add_to_variable = { npp_votes = npp_policy_alignment }
 
 	add_to_variable = { rdc_votes = npp_to_rdc }
 	add_to_variable = { npp_votes = rdc_to_npp }
@@ -16723,6 +16859,85 @@ USA_charts_update = { #For poll purposes
 
 	set_variable = {NPP_to_RD_results_difference = NPP_poll_pop_for_gui_text}
 	subtract_from_variable = {NPP_to_RD_results_difference = RDC_poll_pop_for_gui_text}
+
+	if = {
+		limit = {
+			USA = {owns_state = 629}
+		}
+		set_variable = {USA_big_map_frame = 3}
+	}
+	else_if = {
+		limit = {
+			USA = {owns_state = 768}
+		}
+		set_variable = {USA_big_map_frame = 2}
+	}
+	else = {
+		set_variable = {USA_big_map_frame = 1}
+	}
+	clear_array = USA_big_state_outlines_array_main
+	clear_array = USA_big_state_outlines_array_secondary
+	for_loop_effect = {
+		start = 0
+		end = 43
+		value = idx
+
+		add_to_array = {USA_big_state_outlines_array_main = USA_states_icon_array^idx}
+		add_to_variable = {USA_big_state_outlines_array_main^idx = 2}
+		if = {
+			limit = {
+				check_variable = {USA_big_state_outlines_array_main^idx = 43}
+			}
+			set_variable = {USA_big_state_outlines_array_main^idx = 1}
+		}
+	}
+	for_loop_effect = {
+		start = 0
+		end = 9
+		value = idx
+
+		add_to_array = {USA_big_state_outlines_array_secondary = USA_states_icon_array^idx}
+		add_to_variable = {USA_big_state_outlines_array_secondary^idx = 1}
+	}
+	if = {
+		limit = {
+			USA = {owns_state = 768}
+		}
+		set_variable = {USA_big_state_outlines_array_secondary^2 = 11}
+	}
+	if = {
+		limit = {
+			USA = {owns_state = 772}
+		}
+		set_variable = {USA_big_state_outlines_array_secondary^0 = 10}
+	}
+	set_variable = {US_voting_close_state_var = USA_frame_for_map^US_voting_selected_state}
+
+	USA_calc_map_position = yes
+}
+
+USA_calc_map_position = {
+	USA_x_y_setup_big = yes
+	clear_Variable = USA_big_map_x
+	clear_Variable = USA_big_map_y
+
+	for_loop_effect = {
+		start = 0
+		end = 43
+		value = idx
+
+		add_to_variable = {USA_states_x_array_big^idx = US_GUI_map_offset_value_x^US_voting_region}
+		add_to_variable = {USA_states_y_array_big^idx = US_GUI_map_offset_value_y^US_voting_region}
+
+		add_to_variable = {USA_states_x_array_big_secondary^idx = US_GUI_map_offset_value_x^US_voting_region}
+		add_to_variable = {USA_states_y_array_big_secondary^idx = US_GUI_map_offset_value_y^US_voting_region}
+
+		add_to_variable = {USA_states_x_array_area_outlines^idx = US_GUI_map_offset_value_x^US_voting_region}
+		add_to_variable = {USA_states_y_array_area_outlines^idx = US_GUI_map_offset_value_y^US_voting_region}
+
+		set_variable = {USA_big_map_x = US_GUI_map_offset_value_x^US_voting_region}
+		set_variable = {USA_big_map_y = US_GUI_map_offset_value_y^US_voting_region}
+	}
 }
 
 USA_popularity_drain_pro_to_com_effect = {
@@ -18821,105 +19036,105 @@ US_hold_presidential_election_polling_for_state_pops = {
 	add_to_variable = { npp_votes = rdc_to_npp }
 
 	# policy voter comb
-	add_to_temp_variable = { rdc_policy_allignment = USA.RDC_civil_rights_policy }
-	add_to_temp_variable = { rdc_policy_allignment = USA.RDC_economic_policy }
-	add_to_temp_variable = { rdc_policy_allignment = USA.RDC_domestic_policy }
-	add_to_temp_variable = { rdc_policy_allignment = USA.RDC_foreign_policy }
-	divide_temp_variable = { rdc_policy_allignment = 4 }
-	add_to_temp_variable = { npp_policy_allignment = USA.NPP_civil_rights_policy }
-	add_to_temp_variable = { npp_policy_allignment = USA.NPP_economic_policy }
-	add_to_temp_variable = { npp_policy_allignment = USA.NPP_domestic_policy }
-	add_to_temp_variable = { npp_policy_allignment = USA.NPP_foreign_policy }
-	divide_temp_variable = { npp_policy_allignment = 4 }
-	add_to_temp_variable = { nat_policy_allignment = USA.national_civil_rights_policy }
-	add_to_temp_variable = { nat_policy_allignment = USA.national_economic_policy }
-	add_to_temp_variable = { nat_policy_allignment = USA.national_domestic_policy }
-	add_to_temp_variable = { nat_policy_allignment = USA.national_foreign_policy }
-	divide_temp_variable = { nat_policy_allignment = 4 }
+	add_to_temp_variable = { rdc_policy_alignment = USA.RDC_civil_rights_policy }
+	add_to_temp_variable = { rdc_policy_alignment = USA.RDC_economic_policy }
+	add_to_temp_variable = { rdc_policy_alignment = USA.RDC_domestic_policy }
+	add_to_temp_variable = { rdc_policy_alignment = USA.RDC_foreign_policy }
+	divide_temp_variable = { rdc_policy_alignment = 4 }
+	add_to_temp_variable = { npp_policy_alignment = USA.NPP_civil_rights_policy }
+	add_to_temp_variable = { npp_policy_alignment = USA.NPP_economic_policy }
+	add_to_temp_variable = { npp_policy_alignment = USA.NPP_domestic_policy }
+	add_to_temp_variable = { npp_policy_alignment = USA.NPP_foreign_policy }
+	divide_temp_variable = { npp_policy_alignment = 4 }
+	add_to_temp_variable = { nat_policy_alignment = USA.national_civil_rights_policy }
+	add_to_temp_variable = { nat_policy_alignment = USA.national_economic_policy }
+	add_to_temp_variable = { nat_policy_alignment = USA.national_domestic_policy }
+	add_to_temp_variable = { nat_policy_alignment = USA.national_foreign_policy }
+	divide_temp_variable = { nat_policy_alignment = 4 }
 
-	subtract_from_temp_variable = { rdc_policy_allignment = nat_policy_allignment }
-	subtract_from_temp_variable = { npp_policy_allignment = nat_policy_allignment }
+	subtract_from_temp_variable = { rdc_policy_alignment = nat_policy_alignment }
+	subtract_from_temp_variable = { npp_policy_alignment = nat_policy_alignment }
 	if = {
 		limit = {
 			check_variable = {
-				var = rdc_policy_allignment
+				var = rdc_policy_alignment
 				value = 0
 				compare = less_than
 			}
 		}
-		multiply_temp_variable = { rdc_policy_allignment = -1 }
+		multiply_temp_variable = { rdc_policy_alignment = -1 }
 	}
 	if = {
 		limit = {
 			check_variable = {
-				var = npp_policy_allignment
+				var = npp_policy_alignment
 				value = 0
 				compare = less_than
 			}
 		}
-		multiply_temp_variable = { npp_policy_allignment = -1 }
+		multiply_temp_variable = { npp_policy_alignment = -1 }
 	}
-	subtract_from_temp_variable = { rdc_policy_allignment = 1 }
-	subtract_from_temp_variable = { npp_policy_allignment = 1 }
+	subtract_from_temp_variable = { rdc_policy_alignment = 1 }
+	subtract_from_temp_variable = { npp_policy_alignment = 1 }
 	if = {
 		limit = {
 			check_variable = {
-				var = rdc_policy_allignment
+				var = rdc_policy_alignment
 				value = 0
 				compare = less_than
 			}
 		}
-		multiply_temp_variable = { rdc_policy_allignment = -1 }
+		multiply_temp_variable = { rdc_policy_alignment = -1 }
 	}
 	if = {
 		limit = {
 			check_variable = {
-				var = npp_policy_allignment
+				var = npp_policy_alignment
 				value = 0
 				compare = less_than
 			}
 		}
-		multiply_temp_variable = { npp_policy_allignment = -1 }
+		multiply_temp_variable = { npp_policy_alignment = -1 }
 	}
 
-	divide_temp_variable = { rdc_policy_allignment = 20 }
-	divide_temp_variable = { npp_policy_allignment = 20 }
-	set_temp_variable = { part_a = rdc_policy_allignment }
-	add_to_temp_variable = { part_a = npp_policy_allignment }
+	divide_temp_variable = { rdc_policy_alignment = 20 }
+	divide_temp_variable = { npp_policy_alignment = 20 }
+	set_temp_variable = { part_a = rdc_policy_alignment }
+	add_to_temp_variable = { part_a = npp_policy_alignment }
 	set_temp_variable = { part_b = 1 }
 	subtract_from_temp_variable = { part_b = part_a }
 
 	if = {
 		limit = {
 			check_variable = {
-				var = rdc_policy_allignment
-				value = npp_policy_allignment
+				var = rdc_policy_alignment
+				value = npp_policy_alignment
 				compare = greater_than_or_equals
 			}
 		}
-		add_to_temp_variable = { rdc_policy_allignment = part_b }
+		add_to_temp_variable = { rdc_policy_alignment = part_b }
 	}
 	else_if = {
 		limit = {
 			check_variable = {
-				var = npp_policy_allignment
-				value = rdc_policy_allignment
+				var = npp_policy_alignment
+				value = rdc_policy_alignment
 				compare = greater_than
 			}
 		}
-		add_to_temp_variable = { npp_policy_allignment = part_b }
+		add_to_temp_variable = { npp_policy_alignment = part_b }
 	}
 
-	set_variable = { checkthis1 = rdc_policy_allignment }
-	set_variable = { checkthis2 = npp_policy_allignment }
+	set_variable = { checkthis1 = rdc_policy_alignment }
+	set_variable = { checkthis2 = npp_policy_alignment }
 	set_variable = { checkthis3 = policy_voters }
 
 	multiply_temp_variable = { policy_voters = 0.96 }
-	multiply_temp_variable = { rdc_policy_allignment = policy_voters }
-	multiply_temp_variable = { npp_policy_allignment = policy_voters }
-	set_variable = { checkthis = rdc_policy_allignment }
-	add_to_variable = { rdc_votes = rdc_policy_allignment }
-	add_to_variable = { npp_votes = npp_policy_allignment }
+	multiply_temp_variable = { rdc_policy_alignment = policy_voters }
+	multiply_temp_variable = { npp_policy_alignment = policy_voters }
+	set_variable = { checkthis = rdc_policy_alignment }
+	add_to_variable = { rdc_votes = rdc_policy_alignment }
+	add_to_variable = { npp_votes = npp_policy_alignment }
 
 	add_to_variable = { rdc_votes = npp_to_rdc }
 	add_to_variable = { npp_votes = rdc_to_npp }

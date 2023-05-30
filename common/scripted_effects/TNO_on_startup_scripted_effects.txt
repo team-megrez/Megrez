@@ -30,7 +30,7 @@ TNO_startup_nation = {
 			add_dynamic_modifier = { modifier = TNO_base_econ_shit_dynamic_modifier }
 			add_dynamic_modifier = { modifier = TNO_factory_multiplier }
 			add_dynamic_modifier = { modifier = TNO_inflation_dynamic_modifier }
-			#add_dynamic_modifier = { modifier = TNO_economy_type_id_1_dynamic_modifier }
+			#add_dynamic_modifier = { modifier = TNO_economy_type_capitalism_dynamic_modifier }
 			add_dynamic_modifier = { modifier = TNO_vol_troops_modifier }
 			if = {
 				limit = { NOT = { is_russian_nation = yes } }
@@ -220,6 +220,7 @@ TNO_startup_nation = {
 			}
 			update_economy_tab = yes 
 		}
+		add_to_variable = { TNO_laws_dirty = 1 }
 	}
 }
 

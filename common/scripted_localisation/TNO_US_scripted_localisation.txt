@@ -32,13 +32,13 @@ defined_text = {
 		trigger = {
 			has_country_flag = USA_civil_rights_passed
 		}
-		localization_key = "Henry Jackson"
+		localization_key = USA_Jackson_First_Last_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_civil_rights_blocked
 		}
-		localization_key = "Bobby Kennedy"
+		localization_key = USA_RFK_First_Last_Name
 	}
 }
 
@@ -48,13 +48,13 @@ defined_text = {
 		trigger = {
 			has_country_flag = USA_civil_rights_passed
 		}
-		localization_key = "Jackson"
+		localization_key = USA_Jackson_Last_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_civil_rights_blocked
 		}
-		localization_key = "Kennedy"
+		localization_key = USA_RFK_Last_Name
 	}
 }
 
@@ -1450,135 +1450,6 @@ defined_text = {
 	}
 }
 
-#Nuclear disarmament event chain (for his holyness Glenn)
-defined_text = {
-	name = GetNuclearPickedCity
-	text = {
-		trigger = {
-			USA = {
-				has_country_flag = USA_nuclear_picked_istanbul
-			}
-		}
-		localization_key = glenn.nuclear.2.a #reduce reuse recycle
-	}
-	text = {
-		trigger = {
-			USA = {
-				has_country_flag = USA_nuclear_picked_buenos_aires
-			}
-		}
-		localization_key = glenn.nuclear.2.b
-	}
-	text = {
-		trigger = {
-			USA = {
-				has_country_flag = USA_nuclear_picked_lhasa
-			}
-		}
-		localization_key = glenn.nuclear.2.c
-	}
-}
-
-defined_text = {
-	name = GetNumberOfConversion
-	text = {
-		trigger = {
-			USA = {
-				check_variable = {glenn_number_of_icbms_converted = 100}
-			}
-		}
-		localization_key = "100"
-	}
-	text = {
-		trigger = {
-			USA = {
-				check_variable = {glenn_number_of_icbms_converted = 200}
-			}
-		}
-		localization_key = "200"
-	}
-	text = {
-		trigger = {
-			USA = {
-				check_variable = {glenn_number_of_icbms_converted = 300}
-			}
-		}
-		localization_key = "300"
-	}
-}
-
-defined_text = {
-	name = GetRatioOfConversion
-	text = {
-		trigger = {
-			USA = {
-				check_variable = {glenn_ratio_of_icbms_converted = 3}
-			}
-		}
-		localization_key = "3:1"
-	}
-	text = {
-		trigger = {
-			USA = {
-				check_variable = {glenn_ratio_of_icbms_converted = 2}
-			}
-		}
-		localization_key = "2:1"
-	}
-	text = {
-		trigger = {
-			USA = {
-				check_variable = {glenn_ratio_of_icbms_converted = 1}
-			}
-		}
-		localization_key = "1:1"
-	}
-}
-
-defined_text = {
-	name = GetNumberICBMScrap
-	text = {
-		trigger = {
-			USA = {
-				has_country_flag = glenn_nuclear_reduce_to_1000
-			}
-		}
-		localization_key = "1000"
-	}
-	text = {
-		trigger = {
-			USA = {
-				NOT = {
-					has_country_flag = glenn_nuclear_reduce_to_1000
-				}
-			}
-		}
-		localization_key = "500"
-	}
-}
-
-defined_text = {
-	name = GetCanReduceRange
-	text = {
-		trigger = {
-			USA = {
-				has_country_flag = glenn_nuclear_reduce_can_be_converted
-			}
-		}
-		localization_key = "In addition, they have permitted us to convert the reduced warheads into Intermediate Range Ballistic Missiles."
-	}
-	text = {
-		trigger = {
-			USA = {
-				NOT = {
-					has_country_flag = glenn_nuclear_reduce_can_be_converted
-				}
-			}
-		}
-		localization_key = ""
-	}
-}
-
 #quick honolulu accord stuff
 
 defined_text = {
@@ -1644,121 +1515,121 @@ defined_text = {
 		trigger = {
 			NOT = { has_country_flag = USA_nixon_impeached }
 		}
-		localization_key = "Richard"
+		localization_key = USA_Nixon_First_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_JFK_is_president
 		}
-		localization_key = "John"
+		localization_key = USA_JFK_First_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = mccormack_is_president
 		}
-		localization_key = "John"
+		localization_key = USA_McCormack_First_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_64_D_RDC
 		}
-		localization_key = "Lyndon"
+		localization_key = USA_LBJ_First_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_64_R_RDC
 		}
-		localization_key = "Wallace"
+		localization_key = USA_Bennett_First_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_68_D_RDC
 		}
-		localization_key = "Philip"
+		localization_key = USA_Hart_First_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_68_R_RDC
 		}
-		localization_key = "Barry"
+		localization_key = USA_Goldwater_First_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_72_D_RDC
 		}
-		localization_key = "Jeane"
+		localization_key = USA_Kirkpatrick_First_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_72_R_RDC
 		}
-		localization_key = "George"
+		localization_key = USA_Romney_First_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_64_FR_NPP
 		}
-		localization_key = "George"
+		localization_key = USA_Wallace_First_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_64_C_NPP
 		}
-		localization_key = "Robert"
+		localization_key = USA_RFK_First_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_68_FR_NPP
 		}
-		localization_key = "Margaret"
+		localization_key = USA_MCS_First_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_68_C_NPP
 		}
-		localization_key = "Michael"
+		localization_key = USA_Harrington_First_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_72_FR_NPP
 		}
-		localization_key = "Phyllis"
+		localization_key = USA_Schlafly_First_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_72_C_NPP
 		}
-		localization_key = "Henry"
+		localization_key = USA_Jackson_First_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_72_L_NPP
 		}
-		localization_key = "Gus"
+		localization_key = USA_Hall_First_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_72_R_NPP
 		}
-		localization_key = "Francis"
+		localization_key = USA_Yockey_First_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_THURMOND_FR_NPP
 		}
-		localization_key = "Strom"
+		localization_key = USA_Thurmond_First_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_LEMAY
 		}
-		localization_key = "Curtis"
+		localization_key = USA_Lemay_First_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_chep_presidency
 		}
-		localization_key = "Chep"
+		localization_key = USA_Morrison_First_Name
 	}
 }
 
@@ -1768,121 +1639,121 @@ defined_text = {
 		trigger = {
 			NOT = { has_country_flag = USA_nixon_impeached }
 		}
-		localization_key = "Nixon"
+		localization_key = USA_Nixon_Last_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_JFK_is_president
 		}
-		localization_key = "Kennedy"
+		localization_key = USA_JFK_Last_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = mccormack_is_president
 		}
-		localization_key = "McCormack"
+		localization_key = USA_McCormack_Last_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_64_D_RDC
 		}
-		localization_key = "Johnson"
+		localization_key = USA_LBJ_Last_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_64_R_RDC
 		}
-		localization_key = "Bennett"
+		localization_key = USA_Bennett_Last_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_68_D_RDC
 		}
-		localization_key = "Hart"
+		localization_key = USA_Hart_Last_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_68_R_RDC
 		}
-		localization_key = "Goldwater"
+		localization_key = USA_Goldwater_Last_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_72_D_RDC
 		}
-		localization_key = "Kirkpatrick"
+		localization_key = USA_Kirkpatrick_Last_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_72_R_RDC
 		}
-		localization_key = "Romney"
+		localization_key = USA_Romney_Last_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_64_FR_NPP
 		}
-		localization_key = "Wallace"
+		localization_key = USA_Wallace_Last_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_64_C_NPP
 		}
-		localization_key = "Kennedy"
+		localization_key = USA_RFK_Last_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_68_FR_NPP
 		}
-		localization_key = "Smith"
+		localization_key = USA_MCS_Last_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_68_C_NPP
 		}
-		localization_key = "Harrington"
+		localization_key = USA_Harrington_Last_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_72_FR_NPP
 		}
-		localization_key = "Schlafly"
+		localization_key = USA_Schlafly_Last_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_72_C_NPP
 		}
-		localization_key = "Jackson"
+		localization_key = USA_Jackson_Last_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_72_L_NPP
 		}
-		localization_key = "Hall"
+		localization_key = USA_Hall_Last_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_72_R_NPP
 		}
-		localization_key = "Yockey"
+		localization_key = USA_Yockey_Last_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_THURMOND_FR_NPP
 		}
-		localization_key = "Thurmond"
+		localization_key = USA_Thurmond_Last_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_LEMAY
 		}
-		localization_key = "LeMay"
+		localization_key = USA_LeMay_Last_Name
 	}
 	text = {
 		trigger = {
 			has_country_flag = USA_chep_presidency
 		}
-		localization_key = "Morrison"
+		localization_key = USA_Morrison_Last_Name
 	}
 }
 
@@ -1895,14 +1766,14 @@ defined_text = {
 				has_country_flag = USA_68_D_RDC
 			}
 		}
-		localization_key = "The Secretary of State"
+		localization_key = USA_Forpol_SoS
 	}
 
 	text = {
 		trigger = {
 			has_country_flag = USA_68_D_RDC
 		}
-		localization_key = "Kissinger"
+		localization_key = USA_Forpol_Kissinger
 	}
 }
 
@@ -1913,13 +1784,13 @@ defined_text = {
 		trigger = {
 			NOT = { is_female = yes }
 		}
-		localization_key = "Mr."
+		localization_key = TNO_honorific_mr
 	}
 	text = {
 		trigger = {
 			is_female = yes
 		}
-		localization_key = "Mrs."
+		localization_key = TNO_honorific_mrs
 	}
 }
 
@@ -1929,13 +1800,13 @@ defined_text = {
 		trigger = {
 			NOT = { is_female = yes }
 		}
-		localization_key = "Sir"
+		localization_key = TNO_honorific_sir
 	}
 	text = {
 		trigger = {
 			is_female = yes
 		}
-		localization_key = "Ma'am"
+		localization_key = TNO_honorific_maam
 	}
 }
 
@@ -2617,181 +2488,6 @@ defined_text = {
 }
 
 defined_text = {
-	name = GetCIARecruitStatus
-	text = {
-		trigger = { has_country_flag = USA_CIA_currently_recruiting }
-		localization_key = "USA_CIA_already_recruiting"
-	}
-	text = {
-		trigger = {
-			check_variable = { USA_CIA_Budget > 0.014 }
-			check_variable = { USA_CIA_expertise > 49 }
-			OR = {
-				check_variable = { USA_CIA_operatives < 9 }
-				AND = {
-					check_variable = { USA_CIA_operatives < 10 }
-					NOT = { has_country_flag = USA_CIA_operative_active }
-				}
-			}
-		}
-		localization_key = "USA_CIA_can_recruit"
-	}
-	text = {
-		trigger = {
-			OR = {
-				check_variable = { USA_CIA_operatives > 9 }
-				AND = {
-					check_variable = { USA_CIA_operatives >8 }
-					NOT = { has_country_flag = USA_CIA_operative_active }
-				}
-			}
-		}
-		localization_key = "USA_CIA_at_operative_cap"
-	}
-	text = {
-		trigger = {
-			OR = {
-				check_variable = { USA_CIA_Budget < 0.015 }
-				check_variable = { USA_CIA_expertise < 50 }
-			}
-		}
-		localization_key = "USA_CIA_cant_recruit"
-	}
-}
-
-defined_text = {
-	name = GetCIARecruitBarStatus
-	text = {
-		trigger = { has_country_flag = USA_CIA_currently_recruiting }
-		localization_key = "USA_CIA_training_progress"
-	}
-	text = {
-		trigger = { NOT = { has_country_flag = USA_CIA_currently_recruiting } }
-		localization_key = "USA_CIA_not_recruiting"
-	}
-}
-
-defined_text = {
-	name = GetCIAEAStatus
-	text = {
-		trigger = { NOT = { has_country_flag = USA_CIA_East_Asia_Unlocked } }
-		localization_key = "USA_CIA_region_locked"
-	}
-	text = {
-		trigger = { has_country_flag = USA_CIA_East_Asia_Unlocked }
-		localization_key = "USA_CIA_ea_status_tooltip"
-	}
-}
-
-defined_text = {
-	name = GetCIAAFStatus
-	text = {
-		trigger = { NOT = { has_country_flag = USA_CIA_Africa_Unlocked } }
-		localization_key = "USA_CIA_region_locked"
-	}
-	text = {
-		trigger = { has_country_flag = USA_CIA_Africa_Unlocked }
-		localization_key = "USA_CIA_af_status_tooltip"
-	}
-}
-
-defined_text = {
-	name = GetCIACAStatus
-	text = {
-		trigger = { NOT = { has_country_flag = USA_CIA_Central_America_Unlocked } }
-		localization_key = "USA_CIA_region_locked"
-	}
-	text = {
-		trigger = { has_country_flag = USA_CIA_Central_America_Unlocked }
-		localization_key = "USA_CIA_ca_status_tooltip"
-	}
-}
-
-defined_text = {
-	name = GetCIAEUStatus
-	text = {
-		trigger = { NOT = { has_country_flag = USA_CIA_Europe_Unlocked } }
-		localization_key = "USA_CIA_region_locked"
-	}
-	text = {
-		trigger = { has_country_flag = USA_CIA_Europe_Unlocked }
-		localization_key = "USA_CIA_eu_status_tooltip"
-	}
-}
-
-defined_text = {
-	name = GetCIAMEStatus
-	text = {
-		trigger = { NOT = { has_country_flag = USA_CIA_Middle_East_Unlocked } }
-		localization_key = "USA_CIA_region_locked"
-	}
-	text = {
-		trigger = { has_country_flag = USA_CIA_Middle_East_Unlocked }
-		localization_key = "USA_CIA_me_status_tooltip"
-	}
-}
-
-defined_text = {
-	name = GetCIANAStatus
-	text = {
-		trigger = { NOT = { has_country_flag = USA_CIA_North_America_Unlocked } }
-		localization_key = "USA_CIA_region_locked"
-	}
-	text = {
-		trigger = { has_country_flag = USA_CIA_North_America_Unlocked }
-		localization_key = "USA_CIA_na_status_tooltip"
-	}
-}
-
-defined_text = {
-	name = GetCIARUStatus
-	text = {
-		trigger = { NOT = { has_country_flag = USA_CIA_Russia_Unlocked } }
-		localization_key = "USA_CIA_region_locked"
-	}
-	text = {
-		trigger = { has_country_flag = USA_CIA_Russia_Unlocked }
-		localization_key = "USA_CIA_ru_status_tooltip"
-	}
-}
-
-defined_text = {
-	name = GetCIASAStatus
-	text = {
-		trigger = { NOT = { has_country_flag = USA_CIA_South_America_Unlocked } }
-		localization_key = "USA_CIA_region_locked"
-	}
-	text = {
-		trigger = { has_country_flag = USA_CIA_South_America_Unlocked }
-		localization_key = "USA_CIA_sa_status_tooltip"
-	}
-}
-
-defined_text = {
-	name = GetCIASEAStatus
-	text = {
-		trigger = { NOT = { has_country_flag = USA_CIA_South_East_Asia_Unlocked } }
-		localization_key = "USA_CIA_region_locked"
-	}
-	text = {
-		trigger = { has_country_flag = USA_CIA_South_East_Asia_Unlocked }
-		localization_key = "USA_CIA_sea_status_tooltip"
-	}
-}
-
-defined_text = {
-	name = GetCIAAUStatus
-	text = {
-		trigger = { NOT = { has_country_flag = USA_CIA_Australia_Unlocked } }
-		localization_key = "USA_CIA_region_locked"
-	}
-	text = {
-		trigger = { has_country_flag = USA_CIA_Australia_Unlocked }
-		localization_key = "USA_CIA_au_status_tooltip"
-	}
-}
-
-defined_text = {
 	name = USAGetStromCRAStatus
 	text = {
 		trigger = { has_country_flag = USA_strom_repealed_cra }
@@ -2800,28 +2496,6 @@ defined_text = {
 	text = {
 		trigger = { NOT = { has_country_flag = USA_strom_repealed_cra } }
 		localization_key = USA_Strom_68_vra
-	}
-}
-
-defined_text = {
-	name = USAGetIcelandAndGuyana
-	text = {
-		trigger = { is_in_faction_with = GUY }
-		localization_key = ", Iceland, and Guyana"
-	}
-	text = {
-		localization_key = " and Iceland"
-	}
-}
-
-defined_text = {
-	name = USA_ICW_Active
-	text = {
-		trigger = { NOT = { has_country_flag = USA_INS_CW_meddling } }
-		localization_key = "To truly gauge where our people stand, we need to involve ourselves first and foremost..."
-	}
-	text = {
-		localization_key = "USA_ICW_Domestic_Pop"
 	}
 }
 
@@ -10915,5 +10589,39 @@ defined_text = {
 	}
 	text = {
 		localization_key = ""
+	}
+}
+
+defined_text = {
+	name = USA_NPP_Nationalist_Caucus_Leader
+	text = {
+		trigger = {
+			check_variable = { NPP_N_LEADER = 0 }
+		}
+		localization_key = USA_NPP_N_Fulbright_Name
+	}
+	text = {
+		trigger = {
+			check_variable = { NPP_N_LEADER = 1 }
+		}
+		localization_key = USA_NPP_N_Griffin_Name
+	}
+	text = {
+		trigger = {
+			check_variable = { NPP_N_LEADER = 2 }
+		}
+		localization_key = USA_NPP_N_Benson_Name
+	}
+	text = {
+		trigger = {
+			check_variable = { NPP_N_LEADER = 3 }
+		}
+		localization_key = USA_NPP_N_Smothers_Name
+	}
+	text = {
+		trigger = {
+			check_variable = { NPP_N_LEADER = 4 }
+		}
+		localization_key = USA_NPP_N_Gray_Name
 	}
 }
