@@ -53,8 +53,8 @@ GER_BOR_set_up_moskowien = {
 			set_popularities = { national_socialism = 100 }
 			set_party_name = {
 				ideology = national_socialism
-				long_name = "BOR_military_government"
-				name = "BOR_military_government"
+				long_name = BOR_military_government
+				name = BOR_military_government
 			}
 			add_country_leader_role = {
 				character = GER_walther_wenck
@@ -548,36 +548,4 @@ GER_Bormann_Sphere_Trade_calculate_relationship_effects = {
 	multiply_variable = { BOR_Sphere_Trade_gdp_growth_modifier = OpinionGDPEffects }
 
 	force_update_dynamic_modifier = yes
-}
-
-#############
-# Orpo mech #
-#############
-Orpo_initialize_mechanic = {
-	log = "[GetDateText]: [Root.GetName]: Bormann Orpo mechanic initialized"
-	unlock_decision_category_tooltip = GER_Espionage_category
-	add_dynamic_modifier = { modifier = GER_BOR_Orpo_dynamic_modifier }
-	set_country_flag = GER_Bormann_MegaOrpo
-
-	#Variables setting
-
-	set_variable = { RND_training_lvl = 0 }
-	set_variable = { RND_budget = 0.025 }
-	set_variable = { RND_investment = 0.010 }
-
-	set_variable = { RND_research_progress = 0 }
-	set_variable = { RND_research_speed_display = 2.5 }
-
-	add_to_array = { GER_global_surveillance = 6 }	#Europe
-	add_to_array = { GER_global_surveillance = -1 }	#Russia
-	add_to_array = { GER_global_surveillance = -1 }	#East Asia
-	add_to_array = { GER_global_surveillance = -1 }	#Middle East
-	add_to_array = { GER_global_surveillance = -1 }	#Southeast Asia
-	add_to_array = { GER_global_surveillance = -1 }	#Oceania
-	add_to_array = { GER_global_surveillance = -1 }	#Africa
-	add_to_array = { GER_global_surveillance = -1 }	#North America
-	add_to_array = { GER_global_surveillance = -1 }	#Central America
-	add_to_array = { GER_global_surveillance = -1 }	#South America
-
-	hidden_effect = { country_event = GER_Espionage.0 }
 }

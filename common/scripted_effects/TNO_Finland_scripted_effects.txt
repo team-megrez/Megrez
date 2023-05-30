@@ -557,7 +557,19 @@ FIN_allocate_prime_minister = {
 		}
 		if = {
 			limit = {
-				check_variable = { FIN_prime_minister_party = 2 }
+				OR = {
+					AND = {
+						has_game_rule = {
+							rule = FIN_1963_ELECTIONS
+							option = DEFAULT
+						}
+						check_variable = { FIN_prime_minister_party = 2 }
+					}
+					has_game_rule = {
+						rule = FIN_1963_ELECTIONS
+						option = FIN_1963_ELECTIONS_SDP
+					}
+				}
 			}
 			log = "Elected Erkki Lindfors (SDP) as Finnish PM."
 			add_ideas = FIN_Erkki_Lindfors_hog
@@ -571,7 +583,19 @@ FIN_allocate_prime_minister = {
 		}
 		if = {
 			limit = {
-				check_variable = { FIN_prime_minister_party = 4 }
+				OR = {
+					AND = {
+						has_game_rule = {
+							rule = FIN_1963_ELECTIONS
+							option = DEFAULT
+						}
+						check_variable = { FIN_prime_minister_party = 4 }
+					}
+					has_game_rule = {
+						rule = FIN_1963_ELECTIONS
+						option = FIN_1963_ELECTIONS_ML
+					}
+				}
 			}
 			log = "Elected Johannes Virolainen (ML) as Finnish PM."
 			add_ideas = FIN_Johannes_Virolainen_hog
@@ -585,7 +609,19 @@ FIN_allocate_prime_minister = {
 		}
 		if = {
 			limit = {
-				check_variable = { FIN_prime_minister_party = 5 }
+				OR = {
+					AND = {
+						has_game_rule = {
+							rule = FIN_1963_ELECTIONS
+							option = DEFAULT
+						}
+						check_variable = { FIN_prime_minister_party = 5 }
+					}
+					has_game_rule = {
+						rule = FIN_1963_ELECTIONS
+						option = FIN_1963_ELECTIONS_RKP
+					}
+				}
 			}
 			log = "Elected Johan Otto Söderhjelm (RKP) as Finnish PM."
 			add_ideas = FIN_Johan_Otto_Soderhjelm_hog
@@ -599,6 +635,10 @@ FIN_allocate_prime_minister = {
 		}
 		if = {
 			limit = {
+				has_game_rule = {
+					rule = FIN_1963_ELECTIONS
+					option = DEFAULT
+				}
 				check_variable = { FIN_prime_minister_party = 6 }
 			}
 			log = "Elected Johan Otto Söderhjelm (RKP) as Finnish PM."
@@ -613,7 +653,19 @@ FIN_allocate_prime_minister = {
 		}
 		if = {
 			limit = {
-				check_variable = { FIN_prime_minister_party = 7 }
+				OR = {
+					AND = {
+						has_game_rule = {
+							rule = FIN_1963_ELECTIONS
+							option = DEFAULT
+						}
+						check_variable = { FIN_prime_minister_party = 7 }
+					}
+					has_game_rule = {
+						rule = FIN_1963_ELECTIONS
+						option = FIN_1963_ELECTIONS_SMP
+					}
+				}
 			}
 			log = "Elected Veikko VENNAMO! (SMP) as Finnish PM."
 			add_ideas = FIN_Veikko_Vennamo_hog
@@ -627,7 +679,19 @@ FIN_allocate_prime_minister = {
 		}
 		if = {
 			limit = {
-				check_variable = { FIN_prime_minister_party = 8 }
+				OR = {
+					AND = {
+						has_game_rule = {
+							rule = FIN_1963_ELECTIONS
+							option = DEFAULT
+						}
+						check_variable = { FIN_prime_minister_party = 8 }
+					}
+					has_game_rule = {
+						rule = FIN_1963_ELECTIONS
+						option = FIN_1963_ELECTIONS_KOK
+					}
+				}
 			}
 			log = "Elected Niilo Kosola (Kok.) as Finnish PM."
 			add_ideas = FIN_Niilo_Kosola_hog
@@ -646,7 +710,24 @@ FIN_allocate_prime_minister = {
 		}
 		if = {
 			limit = {
-				check_variable = { FIN_prime_minister_party = 2 }
+				OR = {
+					AND = {
+						has_game_rule = {
+							rule = FIN_1966_ELECTIONS
+							option = DEFAULT
+						}
+						check_variable = { FIN_prime_minister_party = 2 }
+					}
+					AND = {
+						has_game_rule = {
+							rule = FIN_1966_ELECTIONS
+							option = FIN_1966_ELECTIONS_SDP
+						}
+						NOT = {
+							has_government = fascism
+						}
+					}
+				}
 			}
 			log = "Elected Mauno Koivisto (SDP) as Finnish PM."
 			add_ideas = FIN_Mauno_Koivisto_hog
@@ -660,7 +741,24 @@ FIN_allocate_prime_minister = {
 		}
 		if = {
 			limit = {
-				check_variable = { FIN_prime_minister_party = 3 }
+				OR = {
+					AND = {
+						has_game_rule = {
+							rule = FIN_1966_ELECTIONS
+							option = DEFAULT
+						}
+						check_variable = { FIN_prime_minister_party = 3 }
+					}
+					AND = {
+						has_game_rule = {
+							rule = FIN_1966_ELECTIONS
+							option = FIN_1966_ELECTIONS_SKP
+						}
+						NOT = {
+							has_government = fascism
+						}
+					}
+				}
 			}
 			log = "Elected Ensio Kytömaa (SKP) as Finnish PM."
 			add_ideas = FIN_Ensio_Kytomaa_hog
@@ -674,7 +772,24 @@ FIN_allocate_prime_minister = {
 		}
 		if = {
 			limit = {
-				check_variable = { FIN_prime_minister_party = 4 }
+				OR = {
+					AND = {
+						has_game_rule = {
+							rule = FIN_1966_ELECTIONS
+							option = DEFAULT
+						}
+						check_variable = { FIN_prime_minister_party = 4 }
+					}
+					AND = {
+						has_game_rule = {
+							rule = FIN_1966_ELECTIONS
+							option = FIN_1966_ELECTIONS_ML
+						}
+						NOT = {
+							has_government = fascism
+						}
+					}
+				}
 			}
 			log = "Elected Veikko Pihlajamäki (ML) as Finnish PM."
 			add_ideas = FIN_Veikko_Pihlajamaki_hog
@@ -688,7 +803,24 @@ FIN_allocate_prime_minister = {
 		}
 		if = {
 			limit = {
-				check_variable = { FIN_prime_minister_party = 5 }
+				OR = {
+					AND = {
+						has_game_rule = {
+							rule = FIN_1966_ELECTIONS
+							option = DEFAULT
+						}
+						check_variable = { FIN_prime_minister_party = 5 }
+					}
+					AND = {
+						has_game_rule = {
+							rule = FIN_1966_ELECTIONS
+							option = FIN_1966_ELECTIONS_RKP
+						}
+						NOT = {
+							has_government = fascism
+						}
+					}
+				}
 			}
 			log = "Elected Jan-Magnus Jansson (RKP) as Finnish PM."
 			add_ideas = FIN_Jan_Magnus_Jansson_hog
@@ -702,6 +834,10 @@ FIN_allocate_prime_minister = {
 		}
 		if = {
 			limit = {
+				has_game_rule = {
+					rule = FIN_1966_ELECTIONS
+					option = DEFAULT
+				}
 				check_variable = { FIN_prime_minister_party = 6 }
 			}
 			log = "Elected Jan-Magnus Jansson (RKP) as Finnish PM."
@@ -716,7 +852,24 @@ FIN_allocate_prime_minister = {
 		}
 		if = {
 			limit = {
-				check_variable = { FIN_prime_minister_party = 7 }
+				OR = {
+					AND = {
+						has_game_rule = {
+							rule = FIN_1966_ELECTIONS
+							option = DEFAULT
+						}
+						check_variable = { FIN_prime_minister_party = 7 }
+					}
+					AND = {
+						has_game_rule = {
+							rule = FIN_1966_ELECTIONS
+							option = FIN_1966_ELECTIONS_SMP
+						}
+						NOT = {
+							has_government = fascism
+						}
+					}
+				}
 			}
 			log = "Elected Veikko VENNAMO! (SMP) as Finnish PM."
 			add_ideas = FIN_Veikko_Vennamo_hog
@@ -730,7 +883,24 @@ FIN_allocate_prime_minister = {
 		}
 		if = {
 			limit = {
-				check_variable = { FIN_prime_minister_party = 8 }
+				OR = {
+					AND = {
+						has_game_rule = {
+							rule = FIN_1966_ELECTIONS
+							option = DEFAULT
+						}
+						check_variable = { FIN_prime_minister_party = 8 }
+					}
+					AND = {
+						has_game_rule = {
+							rule = FIN_1966_ELECTIONS
+							option = FIN_1966_ELECTIONS_KOK
+						}
+						NOT = {
+							has_government = fascism
+						}
+					}
+				}
 			}
 			log = "Elected Tuure Junnila (Kok.) as Finnish PM."
 			add_ideas = FIN_Tuure_Junnila_hog
@@ -763,7 +933,25 @@ FIN_allocate_prime_minister = {
 		}
 		if = {
 			limit = {
-				check_variable = { FIN_prime_minister_party = 0 }
+				OR = {
+					AND = {
+						has_game_rule = {
+							rule = FIN_1969_ELECTIONS
+							option = DEFAULT
+						}
+						check_variable = { FIN_prime_minister_party = 0 }
+					}
+					AND = {
+						has_game_rule = {
+							rule = FIN_1969_ELECTIONS
+							option = FIN_1969_ELECTIONS_SDTP
+						}
+						check_variable = { FIN_party_legality^0 = 1 }
+						NOT = {
+							has_government = fascism
+						}
+					}
+				}
 			}
 			log = "Elected Aarne Saarinen (SDTP) as Finnish PM."
 			add_ideas = FIN_Aarne_Saarinen_hog
@@ -777,7 +965,35 @@ FIN_allocate_prime_minister = {
 		}
 		if = {
 			limit = {
-				check_variable = { FIN_prime_minister_party = 2 }
+				OR = {
+					AND = {
+						OR = {
+							has_game_rule = {
+								rule = FIN_1969_ELECTIONS
+								option = DEFAULT
+							}
+							AND = {
+								has_game_rule = {
+									rule = FIN_1969_ELECTIONS
+									option = FIN_1969_ELECTIONS_SDTP
+								}
+								NOT = {
+									check_variable = { FIN_party_legality^0 = 1 }
+								}
+							}
+						}
+						check_variable = { FIN_prime_minister_party = 2 }
+					}
+					AND = {
+						has_game_rule = {
+							rule = FIN_1969_ELECTIONS
+							option = FIN_1969_ELECTIONS_SDP
+						}
+						NOT = {
+							has_government = fascism
+						}
+					}
+				}
 			}
 			log = "Elected Mauno Koivisto (SDP) as Finnish PM."
 			add_ideas = FIN_Mauno_Koivisto_hog
@@ -791,7 +1007,35 @@ FIN_allocate_prime_minister = {
 		}
 		if = {
 			limit = {
-				check_variable = { FIN_prime_minister_party = 3 }
+				OR = {
+					AND = {
+						OR = {
+							has_game_rule = {
+								rule = FIN_1969_ELECTIONS
+								option = DEFAULT
+							}
+							AND = {
+								has_game_rule = {
+									rule = FIN_1969_ELECTIONS
+									option = FIN_1969_ELECTIONS_SDTP
+								}
+								NOT = {
+									check_variable = { FIN_party_legality^0 = 1 }
+								}
+							}
+						}
+						check_variable = { FIN_prime_minister_party = 3 }
+					}
+					AND = {
+						has_game_rule = {
+							rule = FIN_1969_ELECTIONS
+							option = FIN_1969_ELECTIONS_SKP
+						}
+						NOT = {
+							has_government = fascism
+						}
+					}
+				}
 			}
 			log = "Elected Teuvo Aura (SKP) as Finnish PM."
 			add_ideas = FIN_Teuvo_Aura_hog
@@ -805,7 +1049,35 @@ FIN_allocate_prime_minister = {
 		}
 		if = {
 			limit = {
-				check_variable = { FIN_prime_minister_party = 4 }
+				OR = {
+					AND = {
+						OR = {
+							has_game_rule = {
+								rule = FIN_1969_ELECTIONS
+								option = DEFAULT
+							}
+							AND = {
+								has_game_rule = {
+									rule = FIN_1969_ELECTIONS
+									option = FIN_1969_ELECTIONS_SDTP
+								}
+								NOT = {
+									check_variable = { FIN_party_legality^0 = 1 }
+								}
+							}
+						}
+						check_variable = { FIN_prime_minister_party = 4 }
+					}
+					AND = {
+						has_game_rule = {
+							rule = FIN_1969_ELECTIONS
+							option = FIN_1969_ELECTIONS_ML
+						}
+						NOT = {
+							has_government = fascism
+						}
+					}
+				}
 			}
 			log = "Elected Veikko Pihlajamäki (ML) as Finnish PM."
 			add_ideas = FIN_Veikko_Pihlajamaki_hog
@@ -819,7 +1091,35 @@ FIN_allocate_prime_minister = {
 		}
 		if = {
 			limit = {
-				check_variable = { FIN_prime_minister_party = 5 }
+				OR = {
+					AND = {
+						OR = {
+							has_game_rule = {
+								rule = FIN_1969_ELECTIONS
+								option = DEFAULT
+							}
+							AND = {
+								has_game_rule = {
+									rule = FIN_1969_ELECTIONS
+									option = FIN_1969_ELECTIONS_SDTP
+								}
+								NOT = {
+									check_variable = { FIN_party_legality^0 = 1 }
+								}
+							}
+						}
+						check_variable = { FIN_prime_minister_party = 5 }
+					}
+					AND = {
+						has_game_rule = {
+							rule = FIN_1969_ELECTIONS
+							option = FIN_1969_ELECTIONS_RKP
+						}
+						NOT = {
+							has_government = fascism
+						}
+					}
+				}
 			}
 			log = "Elected Jan-Magnus Jansson (RKP) as Finnish PM."
 			add_ideas = FIN_Jan_Magnus_Jansson_hog
@@ -833,6 +1133,21 @@ FIN_allocate_prime_minister = {
 		}
 		if = {
 			limit = {
+				OR = {
+					has_game_rule = {
+						rule = FIN_1969_ELECTIONS
+						option = DEFAULT
+					}
+					AND = {
+						has_game_rule = {
+							rule = FIN_1969_ELECTIONS
+							option = FIN_1969_ELECTIONS_SDTP
+						}
+						NOT = {
+							check_variable = { FIN_party_legality^0 = 1 }
+						}
+					}
+				}
 				check_variable = { FIN_prime_minister_party = 6 }
 			}
 			log = "Elected Jan-Magnus Jansson (RKP) as Finnish PM."
@@ -847,7 +1162,35 @@ FIN_allocate_prime_minister = {
 		}
 		if = {
 			limit = {
-				check_variable = { FIN_prime_minister_party = 7 }
+				OR = {
+					AND = {
+						OR = {
+							has_game_rule = {
+								rule = FIN_1969_ELECTIONS
+								option = DEFAULT
+							}
+							AND = {
+								has_game_rule = {
+									rule = FIN_1969_ELECTIONS
+									option = FIN_1969_ELECTIONS_SDTP
+								}
+								NOT = {
+									check_variable = { FIN_party_legality^0 = 1 }
+								}
+							}
+						}
+						check_variable = { FIN_prime_minister_party = 7 }
+					}
+					AND = {
+						has_game_rule = {
+							rule = FIN_1969_ELECTIONS
+							option = FIN_1969_ELECTIONS_SMP
+						}
+						NOT = {
+							has_government = fascism
+						}
+					}
+				}
 			}
 			log = "Elected Veikko VENNAMO! (SMP) as Finnish PM."
 			add_ideas = FIN_Veikko_Vennamo_hog
@@ -861,7 +1204,35 @@ FIN_allocate_prime_minister = {
 		}
 		if = {
 			limit = {
-				check_variable = { FIN_prime_minister_party = 8 }
+				OR = {
+					AND = {
+						OR = {
+							has_game_rule = {
+								rule = FIN_1969_ELECTIONS
+								option = DEFAULT
+							}
+							AND = {
+								has_game_rule = {
+									rule = FIN_1969_ELECTIONS
+									option = FIN_1969_ELECTIONS_SDTP
+								}
+								NOT = {
+									check_variable = { FIN_party_legality^0 = 1 }
+								}
+							}
+						}
+						check_variable = { FIN_prime_minister_party = 8 }
+					}
+					AND = {
+						has_game_rule = {
+							rule = FIN_1969_ELECTIONS
+							option = FIN_1969_ELECTIONS_KOK
+						}
+						NOT = {
+							has_government = fascism
+						}
+					}
+				}
 			}
 			log = "Elected Kullervo Rainio (Kok.) as Finnish PM."
 			add_ideas = FIN_Kullervo_Rainio_hog
@@ -894,7 +1265,25 @@ FIN_allocate_prime_minister = {
 		}
 		if = {
 			limit = {
-				check_variable = { FIN_prime_minister_party = 0 }
+				OR = {
+					AND = {
+						has_game_rule = {
+							rule = FIN_1972_ELECTIONS
+							option = DEFAULT
+						}
+						check_variable = { FIN_prime_minister_party = 0 }
+					}
+					AND = {
+						has_game_rule = {
+							rule = FIN_1972_ELECTIONS
+							option = FIN_1972_ELECTIONS_SDTP
+						}
+						check_variable = { FIN_party_legality^0 = 1 }
+						NOT = {
+							has_government = fascism
+						}
+					}
+				}
 			}
 			log = "Elected Aarne Saarinen (SDTP) as Finnish PM."
 			add_ideas = FIN_Aarne_Saarinen_hog
@@ -908,7 +1297,35 @@ FIN_allocate_prime_minister = {
 		}
 		if = {
 			limit = {
-				check_variable = { FIN_prime_minister_party = 2 }
+				OR = {
+					AND = {
+						OR = {
+							has_game_rule = {
+								rule = FIN_1972_ELECTIONS
+								option = DEFAULT
+							}
+							AND = {
+								has_game_rule = {
+									rule = FIN_1972_ELECTIONS
+									option = FIN_1972_ELECTIONS_SDTP
+								}
+								NOT = {
+									check_variable = { FIN_party_legality^0 = 1 }
+								}
+							}
+						}
+						check_variable = { FIN_prime_minister_party = 2 }
+					}
+					AND = {
+						has_game_rule = {
+							rule = FIN_1972_ELECTIONS
+							option = FIN_1972_ELECTIONS_SDP
+						}
+						NOT = {
+							has_government = fascism
+						}
+					}
+				}
 			}
 			log = "Elected Pirkko Työläjärvi (SDP) as Finnish PM."
 			add_ideas = FIN_Pirkko_Tyolajarvi_hog
@@ -922,7 +1339,35 @@ FIN_allocate_prime_minister = {
 		}
 		if = {
 			limit = {
-				check_variable = { FIN_prime_minister_party = 3 }
+				OR = {
+					AND = {
+						OR = {
+							has_game_rule = {
+								rule = FIN_1972_ELECTIONS
+								option = DEFAULT
+							}
+							AND = {
+								has_game_rule = {
+									rule = FIN_1972_ELECTIONS
+									option = FIN_1972_ELECTIONS_SDTP
+								}
+								NOT = {
+									check_variable = { FIN_party_legality^0 = 1 }
+								}
+							}
+						}
+						check_variable = { FIN_prime_minister_party = 3 }
+					}
+					AND = {
+						has_game_rule = {
+							rule = FIN_1972_ELECTIONS
+							option = FIN_1972_ELECTIONS_SKP
+						}
+						NOT = {
+							has_government = fascism
+						}
+					}
+				}
 			}
 			log = "Elected Olavi Borg (SKP) as Finnish PM."
 			add_ideas = FIN_Olavi_Borg_hog
@@ -936,7 +1381,35 @@ FIN_allocate_prime_minister = {
 		}
 		if = {
 			limit = {
-				check_variable = { FIN_prime_minister_party = 4 }
+				OR = {
+					AND = {
+						OR = {
+							has_game_rule = {
+								rule = FIN_1972_ELECTIONS
+								option = DEFAULT
+							}
+							AND = {
+								has_game_rule = {
+									rule = FIN_1972_ELECTIONS
+									option = FIN_1972_ELECTIONS_SDTP
+								}
+								NOT = {
+									check_variable = { FIN_party_legality^0 = 1 }
+								}
+							}
+						}
+						check_variable = { FIN_prime_minister_party = 4 }
+					}
+					AND = {
+						has_game_rule = {
+							rule = FIN_1972_ELECTIONS
+							option = FIN_1972_ELECTIONS_ML
+						}
+						NOT = {
+							has_government = fascism
+						}
+					}
+				}
 			}
 			log = "Elected Taisto Tähkämaa (ML) as Finnish PM."
 			add_ideas = FIN_Taisto_Tahkamaa_hog
@@ -950,7 +1423,35 @@ FIN_allocate_prime_minister = {
 		}
 		if = {
 			limit = {
-				check_variable = { FIN_prime_minister_party = 5 }
+				OR = {
+					AND = {
+						OR = {
+							has_game_rule = {
+								rule = FIN_1972_ELECTIONS
+								option = DEFAULT
+							}
+							AND = {
+								has_game_rule = {
+									rule = FIN_1972_ELECTIONS
+									option = FIN_1972_ELECTIONS_SDTP
+								}
+								NOT = {
+									check_variable = { FIN_party_legality^0 = 1 }
+								}
+							}
+						}
+						check_variable = { FIN_prime_minister_party = 5 }
+					}
+					AND = {
+						has_game_rule = {
+							rule = FIN_1972_ELECTIONS
+							option = FIN_1972_ELECTIONS_RKP
+						}
+						NOT = {
+							has_government = fascism
+						}
+					}
+				}
 			}
 			log = "Elected Carl Olof Tallgren (RKP) as Finnish PM."
 			add_ideas = FIN_Carl_Olaf_Talgren_hog
@@ -964,6 +1465,21 @@ FIN_allocate_prime_minister = {
 		}
 		if = {
 			limit = {
+				OR = {
+					has_game_rule = {
+						rule = FIN_1972_ELECTIONS
+						option = DEFAULT
+					}
+					AND = {
+						has_game_rule = {
+							rule = FIN_1972_ELECTIONS
+							option = FIN_1972_ELECTIONS_SDTP
+						}
+						NOT = {
+							check_variable = { FIN_party_legality^0 = 1 }
+						}
+					}
+				}
 				check_variable = { FIN_prime_minister_party = 6 }
 			}
 			log = "Elected Carl Olof Tallgren (RKP) as Finnish PM."
@@ -978,7 +1494,35 @@ FIN_allocate_prime_minister = {
 		}
 		if = {
 			limit = {
-				check_variable = { FIN_prime_minister_party = 7 }
+				OR = {
+					AND = {
+						OR = {
+							has_game_rule = {
+								rule = FIN_1972_ELECTIONS
+								option = DEFAULT
+							}
+							AND = {
+								has_game_rule = {
+									rule = FIN_1972_ELECTIONS
+									option = FIN_1972_ELECTIONS_SDTP
+								}
+								NOT = {
+									check_variable = { FIN_party_legality^0 = 1 }
+								}
+							}
+						}
+						check_variable = { FIN_prime_minister_party = 7 }
+					}
+					AND = {
+						has_game_rule = {
+							rule = FIN_1972_ELECTIONS
+							option = FIN_1972_ELECTIONS_SMP
+						}
+						NOT = {
+							has_government = fascism
+						}
+					}
+				}
 			}
 			log = "Elected Veikko VENNAMO! (SMP) as Finnish PM."
 			add_ideas = FIN_Veikko_Vennamo_hog
@@ -992,7 +1536,35 @@ FIN_allocate_prime_minister = {
 		}
 		if = {
 			limit = {
-				check_variable = { FIN_prime_minister_party = 8 }
+				OR = {
+					AND = {
+						OR = {
+							has_game_rule = {
+								rule = FIN_1972_ELECTIONS
+								option = DEFAULT
+							}
+							AND = {
+								has_game_rule = {
+									rule = FIN_1972_ELECTIONS
+									option = FIN_1972_ELECTIONS_SDTP
+								}
+								NOT = {
+									check_variable = { FIN_party_legality^0 = 1 }
+								}
+							}
+						}
+						check_variable = { FIN_prime_minister_party = 8 }
+					}
+					AND = {
+						has_game_rule = {
+							rule = FIN_1972_ELECTIONS
+							option = FIN_1972_ELECTIONS_KOK
+						}
+						NOT = {
+							has_government = fascism
+						}
+					}
+				}
 			}
 			log = "Elected Eero Lattula (Kok.) as Finnish PM."
 			add_ideas = FIN_Eero_Lattula_hog

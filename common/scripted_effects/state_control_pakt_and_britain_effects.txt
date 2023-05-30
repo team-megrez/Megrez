@@ -2,7 +2,7 @@
 #BRG
 state_control_effect_6 = { #Flanders
 	if = {
-		limit = { 
+		limit = {
 			is_controlled_by = HOL
 		}
 		if = {
@@ -12,14 +12,14 @@ state_control_effect_6 = { #Flanders
 			set_province_name = { id = 6598 name = VICTORY_POINTS_6598_hol_eng }
 			set_province_name = { id = 6560 name = VICTORY_POINTS_6560_hol_eng }
 		}
-		else = { 
-			set_state_name = STATE_6_hol 
+		else = {
+			set_state_name = STATE_6_hol
 			set_province_name = { id = 6446 name = VICTORY_POINTS_6446_nor }
 			reset_province_name = 6598
 			reset_province_name = 6560
 		}
 	}
-	else = { 
+	else = {
 		if = {
 			limit = { has_global_flag = TNO_exonym_mode }
 			set_state_name = STATE_6_hol_eng
@@ -30,9 +30,9 @@ state_control_effect_6 = { #Flanders
 		reset_province_name = 6560
 	}
 }
-state_control_effect_17 = { 
+state_control_effect_17 = {
 	if = {
-		limit = { 
+		limit = {
 			OR = {
 				is_controlled_by = GER
 				is_controlled_by = GLC
@@ -41,10 +41,10 @@ state_control_effect_17 = {
 				is_controlled_by = FLR
 				AND = {
 					is_controlled_by = BEL
-					BEL = { 
+					BEL = {
 						has_government = ultranationalism
 					}
-				} 
+				}
 			}
 		}
 		reset_state_name = yes
@@ -53,7 +53,7 @@ state_control_effect_17 = {
 		reset_province_name = 9642
 		reset_province_name = 698
 	}
-	else = { 
+	else = {
 		set_state_name = STATE_17_fra
 		set_province_name = { id = 11516 name = VICTORY_POINTS_11516_fra }
 		set_province_name = { id = 6689 name = VICTORY_POINTS_6689_fra }
@@ -61,9 +61,9 @@ state_control_effect_17 = {
 		set_province_name = { id = 698 name = VICTORY_POINTS_698_fra }
 	}
 }
-state_control_effect_18 = { 
+state_control_effect_18 = {
 	if = {
-		limit = { 
+		limit = {
 			OR = {
 				is_controlled_by = GER
 				is_controlled_by = GLC
@@ -72,10 +72,10 @@ state_control_effect_18 = {
 				is_controlled_by = FLR
 				AND = {
 					is_controlled_by = BEL
-					BEL = { 
+					BEL = {
 						has_government = ultranationalism
 					}
-				} 
+				}
 			}
 		}
 		if = {
@@ -86,15 +86,15 @@ state_control_effect_18 = {
 		reset_province_name = 5291
 		reset_province_name = 9472
 	}
-	else = { 
+	else = {
 		set_state_name = STATE_18_fra
 		set_province_name = { id = 5291 name = VICTORY_POINTS_5291_fra }
 		set_province_name = { id = 9472 name = VICTORY_POINTS_9472_fra }
 	}
 }
-state_control_effect_29 = { 
+state_control_effect_29 = {
 	if = {
-		limit = { 
+		limit = {
 			OR = {
 				is_controlled_by = GER
 				is_controlled_by = GLC
@@ -103,10 +103,10 @@ state_control_effect_29 = {
 				is_controlled_by = FLR
 				AND = {
 					is_controlled_by = BEL
-					BEL = { 
+					BEL = {
 						has_government = ultranationalism
 					}
-				} 
+				}
 			}
 		}
 		reset_state_name = yes
@@ -114,7 +114,7 @@ state_control_effect_29 = {
 		reset_province_name = 11483
 		reset_province_name = 11548
 	}
-	else = { 
+	else = {
 		set_state_name = STATE_29_fra
 		set_province_name = { id = 11483 name = VICTORY_POINTS_11483_fra }
 		set_province_name = { id = 575 name = VICTORY_POINTS_575_fra }
@@ -123,7 +123,7 @@ state_control_effect_29 = {
 }
 state_control_effect_34 = { #Wallonia
 	if = {
-		limit = { 
+		limit = {
 			OR = {
 				is_controlled_by = GER
 				is_controlled_by = GLC
@@ -132,10 +132,10 @@ state_control_effect_34 = { #Wallonia
 				is_controlled_by = FLR
 				AND = {
 					is_controlled_by = BEL
-					BEL = { 
+					BEL = {
 						has_government = ultranationalism
 					}
-				} 
+				}
 			}
 		}
 		if = {
@@ -146,7 +146,7 @@ state_control_effect_34 = { #Wallonia
 		reset_province_name = 9536
 		reset_province_name = 11519
 	}
-	else = { 
+	else = {
 		if = {
 			limit = { has_global_flag = TNO_exonym_mode }
 			set_state_name = STATE_34_fra_eng
@@ -156,9 +156,9 @@ state_control_effect_34 = { #Wallonia
 		set_province_name = { id = 11519 name = VICTORY_POINTS_11519_nor }
 	}
 }
-state_control_effect_1733 = { 
+state_control_effect_1733 = {
 	if = {
-		limit = { 
+		limit = {
 			OR = {
 				is_controlled_by = GER
 				is_controlled_by = GLC
@@ -167,21 +167,21 @@ state_control_effect_1733 = {
 				is_controlled_by = FLR
 				AND = {
 					is_controlled_by = BEL
-					BEL = { 
+					BEL = {
 						has_government = ultranationalism
 					}
-				} 
+				}
 			}
 		}
 		reset_province_name = 3476
 	}
-	else = { 
+	else = {
 		set_province_name = { id = 3476 name = VICTORY_POINTS_3476_fra }
 	}
 }
 state_control_effect_1734 = { #Brussels
 	if = {
-		limit = { 
+		limit = {
 			is_controlled_by = HOL
 		}
 		if = {
@@ -189,12 +189,12 @@ state_control_effect_1734 = { #Brussels
 			set_state_name = STATE_1734_hol
 			set_province_name = { id = 516 name = VICTORY_POINTS_516_hol }
 		}
-		else = { 
-			set_state_name = STATE_1734_bel_eng 
+		else = {
+			set_state_name = STATE_1734_bel_eng
 			set_province_name = { id = 516 name = VICTORY_POINTS_516_nor }
 		}
 	}
-	else = { 
+	else = {
 		if = {
 			limit = { has_global_flag = TNO_exonym_mode }
 			set_state_name = STATE_1734_bel_eng
@@ -204,12 +204,12 @@ state_control_effect_1734 = { #Brussels
 	}
 }
 #BUL
-state_control_effect_1271 = { 
+state_control_effect_1271 = {
 	if = {
 		limit = { is_controlled_by = BUL }
 		set_province_name = {
-			id = 3882
-			name = VICTORY_POINTS_3882_bul
+			id = 14668
+			name = VICTORY_POINTS_14668_bul
 		}
 		set_province_name = {
 			id = 974
@@ -218,23 +218,23 @@ state_control_effect_1271 = {
 	}
 	else = {
 		reset_province_name = 974
-		reset_province_name = 3882
+		reset_province_name = 14668
 	}
 }
 #FRA
-state_control_effect_15 = { 
+state_control_effect_15 = {
 	if = {
-		limit = { 
+		limit = {
 			OR = {
 				is_controlled_by = BRG
 				is_controlled_by = PIC
 				is_controlled_by = FLR
 				AND = {
 					is_controlled_by = BEL
-					BEL = { 
+					BEL = {
 						has_government = ultranationalism
 					}
-				} 
+				}
 			}
 		}
 		if = {
@@ -246,7 +246,7 @@ state_control_effect_15 = {
 		set_province_name = { id = 9434 name = VICTORY_POINTS_9434_brg }
 	}
 	else_if = {
-		limit = { 
+		limit = {
 			NOT = { has_global_flag = TNO_exonym_mode }
 			OR = {
 				is_controlled_by = GER
@@ -257,7 +257,7 @@ state_control_effect_15 = {
 		set_province_name = { id = 11563 name = VICTORY_POINTS_11563_brg }
 		set_province_name = { id = 9434 name = VICTORY_POINTS_9434_brg }
 	}
-	else = { 
+	else = {
 		if = {
 			limit = { has_global_flag = TNO_exonym_mode }
 			reset_state_name = yes
@@ -267,9 +267,9 @@ state_control_effect_15 = {
 		reset_province_name = 9434
 	}
 }
-state_control_effect_16 = { 
+state_control_effect_16 = {
 	if = {
-		limit = { 
+		limit = {
 			OR = {
 				is_controlled_by = GER
 				is_controlled_by = GLC
@@ -278,10 +278,10 @@ state_control_effect_16 = {
 				is_controlled_by = FLR
 				AND = {
 					is_controlled_by = BEL
-					BEL = { 
+					BEL = {
 						has_government = ultranationalism
 					}
-				} 
+				}
 			}
 		}
 		if = {
@@ -295,7 +295,7 @@ state_control_effect_16 = {
 		}
 		else = { reset_province_name = 11506 }
 	}
-	else = { 
+	else = {
 		reset_state_name = yes
 		if = {
 			limit = { has_global_flag = TNO_endonym_mode }
@@ -313,7 +313,7 @@ state_control_effect_786 = {  #Paris/South Paris
 		}
 		else = {
 			if = {
-				limit = { 
+				limit = {
 					OR = {
 						is_controlled_by = GER
 						is_controlled_by = GLC
@@ -328,9 +328,9 @@ state_control_effect_786 = {  #Paris/South Paris
 	}
 	else = { reset_province_name = 9523 }
 }
-state_control_effect_788 = { 
+state_control_effect_788 = {
 	if = {
-		limit = { 
+		limit = {
 			OR = {
 				is_controlled_by = GER
 				is_controlled_by = GLC
@@ -339,23 +339,23 @@ state_control_effect_788 = {
 				is_controlled_by = FLR
 				AND = {
 					is_controlled_by = BEL
-					BEL = { 
+					BEL = {
 						has_government = ultranationalism
 					}
-				} 
+				}
 			}
 		}
 		set_state_name = STATE_788_brg
 		set_province_name = { id = 11518 name = VICTORY_POINTS_11518_ger }
 	}
-	else = { 
+	else = {
 		reset_state_name = yes
 		reset_province_name = 11518
 	}
 }
-state_control_effect_1625 = { 
+state_control_effect_1625 = {
 	if = {
-		limit = { 
+		limit = {
 			OR = {
 				is_controlled_by = GER
 				is_controlled_by = GLC
@@ -364,10 +364,10 @@ state_control_effect_1625 = {
 				is_controlled_by = FLR
 				AND = {
 					is_controlled_by = BEL
-					BEL = { 
+					BEL = {
 						has_government = ultranationalism
 					}
-				} 
+				}
 			}
 		}
 		if = {
@@ -377,14 +377,14 @@ state_control_effect_1625 = {
 		else = { set_state_name = STATE_1625_brg }
 		set_province_name = { id = 13011 name = VICTORY_POINTS_13011_brg }
 	}
-	else = { 
+	else = {
 		reset_state_name = yes
 		reset_province_name = 13011
 	}
 }
-state_control_effect_1626 = { 
+state_control_effect_1626 = {
 	if = {
-		limit = { 
+		limit = {
 			OR = {
 				is_controlled_by = GER
 				is_controlled_by = GLC
@@ -393,10 +393,10 @@ state_control_effect_1626 = {
 				is_controlled_by = FLR
 				AND = {
 					is_controlled_by = BEL
-					BEL = { 
+					BEL = {
 						has_government = ultranationalism
 					}
-				} 
+				}
 			}
 		}
 		if = {
@@ -406,14 +406,14 @@ state_control_effect_1626 = {
 		else = { set_state_name = STATE_1626_brg }
 		set_province_name = { id = 9561 name = VICTORY_POINTS_9561_ger }
 	}
-	else = { 
+	else = {
 		reset_state_name = yes
 		reset_province_name = 9561
 	}
 }
-state_control_effect_1635 = { 
+state_control_effect_1635 = {
 	if = {
-		limit = { 
+		limit = {
 			OR = {
 				is_controlled_by = GER
 				is_controlled_by = GLC
@@ -422,10 +422,10 @@ state_control_effect_1635 = {
 				is_controlled_by = FLR
 				AND = {
 					is_controlled_by = BEL
-					BEL = { 
+					BEL = {
 						has_government = ultranationalism
 					}
-				} 
+				}
 			}
 		}
 		if = {
@@ -435,13 +435,13 @@ state_control_effect_1635 = {
 		else = { set_state_name = STATE_1635_brg }
 		set_province_name = { id = 3652 name = VICTORY_POINTS_3652_brg }
 	}
-	else = { 
+	else = {
 		reset_state_name = yes
 		reset_province_name = 3652
 	}
 }
 #GER
-state_control_effect_67 = { 
+state_control_effect_67 = {
 	if = {
 		limit = { is_controlled_by = POL }
 		if = {
@@ -460,19 +460,19 @@ state_control_effect_67 = {
 			name = VICTORY_POINTS_11467_pol
 		}
 	}
-	else = { 
+	else = {
 		if = {
 			limit = { NOT = { has_global_flag = TNO_exonym_mode } }
 			set_state_name = STATE_67_ger
-		} 
+		}
 		else = {
 			reset_state_name = yes
-		} 
+		}
 		reset_province_name = 6464
 		reset_province_name = 11467
 	}
 }
-state_control_effect_87 = { 
+state_control_effect_87 = {
 	if = {
 		limit = { is_controlled_by = POL }
 		set_state_name = STATE_87_pol
@@ -485,13 +485,13 @@ state_control_effect_87 = {
 			name = VICTORY_POINTS_9546_pol
 		}
 	}
-	else = { 
+	else = {
 		reset_state_name = yes
 		reset_province_name = 9508
 		reset_province_name = 9546
 	}
 }
-state_control_effect_97 = { 
+state_control_effect_97 = {
 	if = {
 		limit = { is_controlled_by = POL }
 		if = {
@@ -506,18 +506,18 @@ state_control_effect_97 = {
 			name = VICTORY_POINTS_11301_pol
 		}
 	}
-	else = { 
+	else = {
 		if = {
 			limit = { NOT = { has_global_flag = TNO_exonym_mode } }
 			set_state_name = STATE_97_ger
-		} 
+		}
 		else = {
 			reset_state_name = yes
-		} 
+		}
 		reset_province_name = 11301
 	}
 }
-state_control_effect_98 = { 
+state_control_effect_98 = {
 	#if = {
 	#	limit = { is_controlled_by = POL }
 	#	if = {
@@ -532,18 +532,18 @@ state_control_effect_98 = {
 	#		name = VICTORY_POINTS_3230_pol
 	#	}
 	#}
-	#else = { 
+	#else = {
 	#	if = {
 	#		limit = { NOT = { has_global_flag = TNO_exonym_mode } }
 	#		set_state_name = STATE_98_ger
-	#	} 
+	#	}
 	#	else = {
 	#		reset_state_name = yes
-	#	} 
+	#	}
 	#	reset_province_name = 3230
 	#}
 	if = {
-		limit = { 
+		limit = {
 			OR = {
 				is_controlled_by = GER
 				is_controlled_by = RKB
@@ -565,8 +565,8 @@ state_control_effect_98 = {
 		set_state_name = STATE_98_ita
 		reset_province_name = 9596
 	}
-	else = { 
-		reset_state_name = yes 
+	else = {
+		reset_state_name = yes
 		reset_province_name = 9596
 	}
 }
@@ -634,9 +634,9 @@ state_control_effect_196 = { #Taurida/Kherson
 		set_province_name = { id = 568 name = VICTORY_POINTS_568_ukr }
 	}
 }
-state_control_effect_770 = { 
+state_control_effect_770 = {
 	if = {
-		limit = { 
+		limit = {
 			OR = {
 				is_controlled_by = GER
 				is_controlled_by = RKB
@@ -645,7 +645,7 @@ state_control_effect_770 = {
 		if = {
 			limit = { NOT = { has_global_flag = TNO_exonym_mode } }
 			set_state_name = STATE_770_ger
-		} 
+		}
 		set_province_name = {
 			id = 665
 			name = VICTORY_POINTS_665_ger
@@ -660,18 +660,18 @@ state_control_effect_770 = {
 		reset_province_name = 665
 	}
 	else_if = {
-		limit = { 
+		limit = {
 			is_controlled_by = ITA
 			has_global_flag = TNO_endonym_mode
 		}
-		set_state_name = STATE_770_ita 
+		set_state_name = STATE_770_ita
 		set_province_name = {
 			id = 665
 			name = VICTORY_POINTS_665_ita
 		}
 	}
-	else = { 
-		reset_state_name = yes 
+	else = {
+		reset_state_name = yes
 		reset_province_name = 665
 	}
 }
@@ -681,8 +681,8 @@ state_control_effect_774 = { #North Schleswig
 		set_state_name = STATE_774_den
 		reset_province_name = 332
 	}
-	else = { 
-		set_state_name = STATE_774_ger 
+	else = {
+		set_state_name = STATE_774_ger
 		if = {
 			limit = { has_global_flag = TNO_endonym_mode }
 			set_province_name = {
@@ -707,7 +707,7 @@ state_control_effect_1532 = { #Theodorichshafen/Sevastopol
 		reset_province_name = 3686
 	}
 	else_if = {
-		limit = { 
+		limit = {
 			OR = {
 				is_controlled_by = UKS
 				is_controlled_by = FUK
@@ -722,7 +722,7 @@ state_control_effect_1532 = { #Theodorichshafen/Sevastopol
 	}
 }
 #GGN (POL)
-state_control_effect_10 = { 
+state_control_effect_10 = {
 	if = {
 		limit = {
 			OR = {
@@ -734,7 +734,7 @@ state_control_effect_10 = {
 		reset_province_name = 3544
 	}
 	else_if = {
-		limit = { 
+		limit = {
 			is_controlled_by = POL
 		}
 		if = { #when controlled by poland, in the endonym mode the name will be displayed as Warszawa, otherwise it'll be Warsaw(its status as a major city and genocidal nazi policies means 'Warschau' will be considered a renaming rather than just an exonym, both for that reason and for story effects)
@@ -1004,8 +1004,8 @@ state_control_effect_1383 = {
 				name = VICTORY_POINTS_3482_pol
 			}
 		}
-		else = { 
-			set_state_name = STATE_1383_ger 
+		else = {
+			set_state_name = STATE_1383_ger
 			reset_province_name = 3482
 		}
 	}
@@ -1054,12 +1054,12 @@ state_control_effect_1385 = {
 			reset_province_name = 442
 			reset_province_name = 6499
 		}
-		else = { 
+		else = {
 			set_state_name = STATE_1385_ger
 			set_province_name = {
 				id = 442
 				name = VICTORY_POINTS_442_ger
-			} 
+			}
 			set_province_name = {
 				id = 6499
 				name = VICTORY_POINTS_6499_ger
@@ -1087,8 +1087,8 @@ state_control_effect_1386 = {
 			reset_state_name = yes
 			reset_province_name = 3434
 		}
-		else = { 
-			set_state_name = STATE_1386_ger 
+		else = {
+			set_state_name = STATE_1386_ger
 			set_province_name = {
 				id = 3434
 				name = VICTORY_POINTS_3434_ger
@@ -1283,7 +1283,7 @@ state_control_effect_1394 = {
 }
 
 #MCW
-state_control_effect_195 = { 
+state_control_effect_195 = {
 	if = {
 		limit = {
 			OR = {
@@ -1315,11 +1315,11 @@ state_control_effect_195 = {
 				is_controlled_by = WRS
 				is_controlled_by = TYM
 				is_controlled_by = IRK
-			} 
+			}
 		}
 		set_state_name = STATE_195_com
 	}
-	else = { 
+	else = {
 		if = {
 			limit = { has_global_flag = TNO_endonym_mode }
 			set_state_name = STATE_195_rus
@@ -1327,7 +1327,7 @@ state_control_effect_195 = {
 		else = { reset_state_name = yes }
 	}
 }
-state_control_effect_209 = { 
+state_control_effect_209 = {
 	if = {
 		limit = {
 			OR = {
@@ -1360,7 +1360,7 @@ state_control_effect_209 = {
 		reset_province_name = 11392
 	}
 }
-state_control_effect_210 = { 
+state_control_effect_210 = {
 	if = {
 		limit = {
 			OR = {
@@ -1391,7 +1391,7 @@ state_control_effect_210 = {
 		reset_province_name = 6369
 	}
 }
-state_control_effect_217 = { 
+state_control_effect_217 = {
 	if = {
 		limit = {
 			OR = {
@@ -1430,7 +1430,7 @@ state_control_effect_217 = {
 		set_state_name = STATE_217_rus
 	}
 }
-state_control_effect_219 = { 
+state_control_effect_219 = {
 	if = {
 		limit = {
 			OR = {
@@ -1463,7 +1463,7 @@ state_control_effect_219 = {
 		reset_state_name = yes
 	}
 }
-state_control_effect_222 = { 
+state_control_effect_222 = {
 	if = {
 		limit = {
 			OR = {
@@ -1486,7 +1486,7 @@ state_control_effect_222 = {
 		}
 		if = {
 			limit = { has_global_flag = TNO_exonym_mode }
-			reset_state_name = yes 
+			reset_state_name = yes
 			reset_province_name = 328
 			set_province_name = { id = 9355 name = VICTORY_POINTS_9355_ger }
 		}
@@ -1494,18 +1494,18 @@ state_control_effect_222 = {
 			set_province_name = { id = 328 name = VICTORY_POINTS_328_ger }
 			set_province_name = { id = 9355 name = VICTORY_POINTS_9355_ger }
 			set_state_name = STATE_222_ger
-		}	
+		}
 		set_state_name = STATE_222_ger
 		set_province_name = { id = 3335 name = VICTORY_POINTS_3335_ger }
 	}
-	else = { 
+	else = {
 		reset_province_name = 328
 		reset_province_name = 9355
 		reset_province_name = 3335
 		reset_state_name = yes
 	}
 }
-state_control_effect_224 = { 
+state_control_effect_224 = {
 	if = {
 		limit = {
 			OR = {
@@ -1534,7 +1534,7 @@ state_control_effect_224 = {
 		reset_province_name = 9565
 	}
 }
-state_control_effect_237 = { 
+state_control_effect_237 = {
 	if = {
 		limit = {
 			OR = {
@@ -1558,12 +1558,12 @@ state_control_effect_237 = {
 		set_state_name = STATE_237_ger
 		set_province_name = { id = 6468 name = VICTORY_POINTS_6468_ger }
 	}
-	else = { 
+	else = {
 		reset_state_name = yes
 		reset_province_name = 6468
 	}
 }
-state_control_effect_238 = { 
+state_control_effect_238 = {
 	if = {
 		limit = {
 			OR = {
@@ -1602,7 +1602,7 @@ state_control_effect_238 = {
 		reset_province_name = 3202
 	}
 }
-state_control_effect_239 = { 
+state_control_effect_239 = {
 	if = {
 		limit = {
 			OR = {
@@ -1637,14 +1637,14 @@ state_control_effect_239 = {
 					is_controlled_by = WRS
 					is_controlled_by = TYM
 					is_controlled_by = IRK
-				} 
+				}
 			}
 			set_state_name = STATE_239_com
 		}
 		else = { reset_state_name = yes }
 	}
 }
-state_control_effect_241 = { 
+state_control_effect_241 = {
 	if = {
 		limit = {
 			OR = {
@@ -1669,7 +1669,7 @@ state_control_effect_241 = {
 	}
 	else = { reset_state_name = yes }
 }
-state_control_effect_242 = { 
+state_control_effect_242 = {
 	if = {
 		limit = {
 			OR = {
@@ -1695,14 +1695,14 @@ state_control_effect_242 = {
 		set_province_name = { id = 289 name = VICTORY_POINTS_289_ger }
 		set_province_name = { id = 11336 name = VICTORY_POINTS_11336_ger }
 	}
-	else = { 
+	else = {
 		reset_province_name = 3362
 		reset_province_name = 9382
 		reset_province_name = 289
 		reset_province_name = 11336
 	}
 }
-state_control_effect_243 = { 
+state_control_effect_243 = {
 	if = {
 		limit = {
 			OR = {
@@ -1738,7 +1738,7 @@ state_control_effect_243 = {
 					is_controlled_by = WRS
 					is_controlled_by = TYM
 					is_controlled_by = IRK
-				} 
+				}
 			}
 			set_state_name = STATE_243_com
 		}
@@ -1746,7 +1746,7 @@ state_control_effect_243 = {
 		reset_province_name = 3529
 	}
 }
-state_control_effect_244 = { 
+state_control_effect_244 = {
 	if = {
 		limit = {
 			OR = {
@@ -1772,12 +1772,12 @@ state_control_effect_244 = {
 		set_state_name =  STATE_244_ger
 		set_province_name = { id = 11429 name = VICTORY_POINTS_11429_ger }
 	}
-	else = { 
-		reset_state_name = yes 
+	else = {
+		reset_state_name = yes
 		reset_province_name = 11429
 	}
 }
-state_control_effect_245 = { 
+state_control_effect_245 = {
 	if = {
 		limit = {
 			OR = {
@@ -1802,13 +1802,13 @@ state_control_effect_245 = {
 		set_province_name = { id = 3465 name = VICTORY_POINTS_3465_ger }
 		set_province_name = { id = 257 name = VICTORY_POINTS_257_ger }
 	}
-	else = { 
-		reset_state_name = yes 
+	else = {
+		reset_state_name = yes
 		reset_province_name = 3465
 		reset_province_name = 257
 	}
 }
-state_control_effect_246 = { 
+state_control_effect_246 = {
 	if = {
 		limit = {
 			OR = {
@@ -1834,14 +1834,14 @@ state_control_effect_246 = {
 		set_province_name = { id = 6101 name = VICTORY_POINTS_6101_ger }
 		set_province_name = { id = 252 name = VICTORY_POINTS_252_ger }
 	}
-	else = { 
-		reset_state_name = yes 
-		reset_province_name = 6356 
+	else = {
+		reset_state_name = yes
+		reset_province_name = 6356
 		reset_province_name = 6101
 		reset_province_name = 252
 	}
 }
-state_control_effect_247 = { 
+state_control_effect_247 = {
 	if = {
 		limit = {
 			OR = {
@@ -1877,7 +1877,7 @@ state_control_effect_247 = {
 					is_controlled_by = WRS
 					is_controlled_by = TYM
 					is_controlled_by = IRK
-				} 
+				}
 			}
 			set_state_name = STATE_247_com
 		}
@@ -1887,7 +1887,7 @@ state_control_effect_247 = {
 		reset_province_name = 3235
 	}
 }
-state_control_effect_257 = { 
+state_control_effect_257 = {
 	if = {
 		limit = {
 			OR = {
@@ -1920,7 +1920,7 @@ state_control_effect_257 = {
 		reset_province_name = 9386
 	}
 }
-state_control_effect_260 = { 
+state_control_effect_260 = {
 	if = {
 		limit = {
 			OR = {
@@ -1943,15 +1943,15 @@ state_control_effect_260 = {
 		}
 		set_province_name = { id = 6450 name = VICTORY_POINTS_6450_ger }
 		set_province_name = { id = 3477 name = VICTORY_POINTS_3477_ger }
-		set_state_name = STATE_260_ger 
+		set_state_name = STATE_260_ger
 	}
-	else = { 
-		reset_state_name = yes 
+	else = {
+		reset_state_name = yes
 		reset_province_name = 6450
 		reset_province_name = 3477
 	}
 }
-state_control_effect_263 = { 
+state_control_effect_263 = {
 	if = {
 		limit = {
 			OR = {
@@ -1974,11 +1974,11 @@ state_control_effect_263 = {
 		}
 		set_state_name = STATE_263_ger
 	}
-	else = { 
+	else = {
 		reset_state_name = yes
 	}
 }
-state_control_effect_264 = { 
+state_control_effect_264 = {
 	if = {
 		limit = {
 			OR = {
@@ -2003,13 +2003,13 @@ state_control_effect_264 = {
 		set_province_name = { id = 81 name = VICTORY_POINTS_81_ger }
 		set_state_name = STATE_264_ger
 	}
-	else = { 
+	else = {
 		reset_state_name = yes
 		reset_province_name = 6189
 		reset_province_name = 81
 	}
 }
-state_control_effect_401 = { 
+state_control_effect_401 = {
 	if = {
 		limit = {
 			OR = {
@@ -2033,14 +2033,14 @@ state_control_effect_401 = {
 			}
 		}
 		reset_state_name = yes
-		reset_province_name = 6315 
+		set_province_name = { id = 6315 name = VICTORY_POINTS_6315_ger }
 	}
-	else = {  
+	else = {
 		set_state_name = STATE_401_rus
-		set_province_name = { id = 6315 name = VICTORY_POINTS_6315_rus }
+		reset_province_name = 6315
 	}
 }
-state_control_effect_1421 = { 
+state_control_effect_1421 = {
 	if = {
 		limit = {
 			OR = {
@@ -2071,11 +2071,11 @@ state_control_effect_1421 = {
 		}
 		else = { reset_state_name = yes }
 	}
-	else = { 
+	else = {
 		if = {
 			limit = { has_global_flag = TNO_endonym_mode }
 			set_state_name = STATE_1421_rus
-		}	
+		}
 		else = { set_state_name = STATE_1421_rus_eng }
 		if = {
 			limit = {
@@ -2086,7 +2086,7 @@ state_control_effect_1421 = {
 					is_controlled_by = WRS
 					is_controlled_by = TYM
 					is_controlled_by = IRK
-				} 
+				}
 			}
 			set_province_name = { id = 11068 name = VICTORY_POINTS_11068_sov }
 			set_province_name = { id = 3120 name = VICTORY_POINTS_3120_sov }
@@ -2101,15 +2101,15 @@ state_control_effect_1421 = {
 			reset_province_name = 11068
 			reset_province_name = 3120
 		}
-		else = { 
-			set_province_name = { id = 11068 name = VICTORY_POINTS_11068_rus } 
+		else = {
+			set_province_name = { id = 11068 name = VICTORY_POINTS_11068_rus }
 			reset_province_name = 3120
 		}
 		reset_province_name = 9197
 		reset_province_name = 11080
 	}
 }
-state_control_effect_1434 = { 
+state_control_effect_1434 = {
 	if = {
 		limit = {
 			OR = {
@@ -2139,7 +2139,7 @@ state_control_effect_1434 = {
 		set_province_name = { id = 3235 name = VICTORY_POINTS_3235_ger }
 		set_province_name = { id = 39 name = VICTORY_POINTS_39_ger }
 	}
-	else = { 
+	else = {
 		set_state_name = STATE_1434_rus
 		set_province_name = { id = 9234 name = VICTORY_POINTS_9234_rus }
 		reset_province_name = 11048
@@ -2148,7 +2148,7 @@ state_control_effect_1434 = {
 		reset_province_name = 39
 	}
 }
-state_control_effect_1435 = { 
+state_control_effect_1435 = {
 	if = {
 		limit = {
 			OR = {
@@ -2171,11 +2171,11 @@ state_control_effect_1435 = {
 		}
 		set_province_name = { id = 580 name = VICTORY_POINTS_580_ger }
 	}
-	else = { 
+	else = {
 		reset_province_name = 580
 	}
 }
-state_control_effect_1436 = { 
+state_control_effect_1436 = {
 	if = {
 		limit = {
 			OR = {
@@ -2201,7 +2201,7 @@ state_control_effect_1436 = {
 			reset_province_name = 6329
 		}
 		else = { set_province_name = { id = 376 name = VICTORY_POINTS_376_ger } }
-		reset_state_name = yes 
+		reset_state_name = yes
 	}
 	else_if = {
 		limit = {
@@ -2213,12 +2213,12 @@ state_control_effect_1436 = {
 		reset_state_name = yes
 		reset_province_name = 376
 	}
-	else = { 
+	else = {
 		set_state_name = STATE_1436_rus
 		reset_province_name = 376
 	}
 }
-state_control_effect_1441 = { 
+state_control_effect_1441 = {
 	if = {
 		limit = {
 			OR = {
@@ -2242,12 +2242,12 @@ state_control_effect_1441 = {
 		reset_state_name = yes
 		set_province_name = { id = 9273 name = VICTORY_POINTS_9273_ger }
 	}
-	else = { 
+	else = {
 		set_state_name = STATE_1441_rus
 		reset_province_name = 9273
 	}
 }
-state_control_effect_1442 = { 
+state_control_effect_1442 = {
 	if = {
 		limit = {
 			OR = {
@@ -2277,7 +2277,7 @@ state_control_effect_1442 = {
 		}
 		reset_province_name = 6380
 	}
-	else = { 
+	else = {
 		if = {
 			limit = { has_global_flag = TNO_exonym_mode }
 			set_state_name = STATE_1442_rus_eng
@@ -2285,16 +2285,16 @@ state_control_effect_1442 = {
 		}
 		else_if = {
 			limit = { has_global_flag = TNO_endonym_mode }
-			set_state_name = STATE_1442_rus 
+			set_state_name = STATE_1442_rus
 			set_province_name = { id = 6380 name = VICTORY_POINTS_6380_rus }
 		}
 		else = {
 			set_state_name = STATE_1442_rus
 			set_province_name = { id = 6380 name = VICTORY_POINTS_6380_rus_eng }
-		}	
+		}
 	}
 }
-state_control_effect_1443 = { 
+state_control_effect_1443 = {
 	if = {
 		limit = {
 			OR = {
@@ -2318,7 +2318,7 @@ state_control_effect_1443 = {
 		set_province_name = { id = 3387 name = VICTORY_POINTS_3387_ger }
 		reset_state_name = yes
 	}
-	else = { 
+	else = {
 		set_state_name = STATE_1443_rus
 		reset_province_name = 3387
 	}
@@ -2341,7 +2341,7 @@ state_control_effect_76 = {
 	}
 }
 
-state_control_effect_1288 = { 
+state_control_effect_1288 = {
 	if = {
 		limit = { is_controlled_by = HUN }
 		set_province_name = { id = 746 name = VICTORY_POINTS_746_hun }
@@ -2355,9 +2355,9 @@ state_control_effect_1288 = {
 	}
 }
 
-state_control_effect_1289 = { 
+state_control_effect_1289 = {
 	if = {
-		limit = { 
+		limit = {
 			is_controlled_by = ROM
 			has_global_flag = TNO_endonym_mode
 		}
@@ -2373,13 +2373,13 @@ state_control_effect_1289 = {
 		}
 		else = { reset_state_name = yes }
 	}
-	else = { 
+	else = {
 		reset_state_name = yes
 		reset_province_name = 9670
 	}
 }
-#UKR 
-state_control_effect_93 = { 
+#UKR
+state_control_effect_93 = {
 	if = {
 		limit = {
 			OR = {
@@ -2410,7 +2410,7 @@ state_control_effect_93 = {
 		reset_province_name = 6435
 	}
 }
-state_control_effect_197 = { 
+state_control_effect_197 = {
 	if = {
 		limit = {
 			OR = {
@@ -2440,7 +2440,7 @@ state_control_effect_197 = {
 		reset_province_name = 3755
 	}
 }
-state_control_effect_199 = { 
+state_control_effect_199 = {
 	if = {
 		limit = {
 			OR = {
@@ -2461,7 +2461,7 @@ state_control_effect_199 = {
 		reset_province_name = 3457
 	}
 }
-state_control_effect_200 = { 
+state_control_effect_200 = {
 	if = {
 		limit = {
 			OR = {
@@ -2478,7 +2478,7 @@ state_control_effect_200 = {
 		reset_state_name = yes
 	}
 }
-state_control_effect_202 = { 
+state_control_effect_202 = {
 	if = {
 		limit = {
 			OR = {
@@ -2501,7 +2501,7 @@ state_control_effect_202 = {
 		reset_province_name = 15809
 	}
 }
-state_control_effect_218 = { 
+state_control_effect_218 = {
 	if = {
 		limit = {
 			OR = {
@@ -2522,7 +2522,7 @@ state_control_effect_218 = {
 		reset_province_name = 11450
 	}
 }
-state_control_effect_221 = { 
+state_control_effect_221 = {
 	if = {
 		limit = {
 			OR = {
@@ -2554,7 +2554,7 @@ state_control_effect_221 = {
 		reset_province_name = 3508
 	}
 }
-state_control_effect_225 = { 
+state_control_effect_225 = {
 	if = {
 		limit = {
 			OR = {
@@ -2569,7 +2569,7 @@ state_control_effect_225 = {
 		reset_province_name = 9566
 	}
 }
-state_control_effect_226 = { 
+state_control_effect_226 = {
 	if = {
 		limit = {
 			OR = {
@@ -2588,7 +2588,7 @@ state_control_effect_226 = {
 		set_province_name = { id = 11561 name = VICTORY_POINTS_11561_ukr }
 	}
 }
-state_control_effect_227 = { 
+state_control_effect_227 = {
 	if = {
 		limit = {
 			OR = {
@@ -2601,7 +2601,7 @@ state_control_effect_227 = {
 		set_province_name = { id = 6493 name = VICTORY_POINTS_6493_ger }
 		reset_province_name = 6474
 		reset_state_name = yes
-		
+
 	}
 	else = {
 		if = {
@@ -2609,7 +2609,7 @@ state_control_effect_227 = {
 			set_province_name = { id = 6474 name = VICTORY_POINTS_6474_sov }
 			set_state_name = STATE_227_sov
 		}
-		else = { 
+		else = {
 			set_province_name = { id = 6474 name = VICTORY_POINTS_6474_ukr }
 			set_state_name = STATE_227_ukr
 		}
@@ -2617,7 +2617,7 @@ state_control_effect_227 = {
 		reset_province_name = 6493
 	}
 }
-state_control_effect_228 = { 
+state_control_effect_228 = {
 	if = {
 		limit = {
 			OR = {
@@ -2635,13 +2635,13 @@ state_control_effect_228 = {
 			set_province_name = { id = 9461 name = VICTORY_POINTS_9461_sov }
 			set_state_name = STATE_228_sov
 		}
-		else = { 
+		else = {
 			set_province_name = { id = 9461 name = VICTORY_POINTS_9461_ukr }
 			set_state_name = STATE_228_ukr
 		}
 	}
 }
-state_control_effect_259 = { 
+state_control_effect_259 = {
 	if = {
 		limit = {
 			OR = {
@@ -2660,7 +2660,7 @@ state_control_effect_259 = {
 		reset_province_name = 6507
 	}
 }
-state_control_effect_773 = { 
+state_control_effect_773 = {
 	if = {
 		limit = {
 			OR = {
@@ -2677,7 +2677,7 @@ state_control_effect_773 = {
 		reset_province_name = 9481
 	}
 }
-state_control_effect_1426 = { 
+state_control_effect_1426 = {
 	if = {
 		limit = {
 			OR = {
@@ -2696,7 +2696,7 @@ state_control_effect_1426 = {
 		reset_province_name = 486
 	}
 }
-state_control_effect_1427 = { 
+state_control_effect_1427 = {
 	if = {
 		limit = {
 			OR = {
@@ -2715,7 +2715,7 @@ state_control_effect_1427 = {
 		reset_province_name = 9437
 	}
 }
-state_control_effect_1428 = { 
+state_control_effect_1428 = {
 	if = {
 		limit = {
 			OR = {
@@ -2744,7 +2744,7 @@ state_control_effect_1428 = {
 		set_province_name = { id = 525 name = VICTORY_POINTS_525_ukr }
 	}
 }
-state_control_effect_1429 = { 
+state_control_effect_1429 = {
 	if = {
 		limit = {
 			OR = {
@@ -2761,7 +2761,7 @@ state_control_effect_1429 = {
 		reset_province_name = 9249
 	}
 }
-state_control_effect_1430 = { 
+state_control_effect_1430 = {
 	if = {
 		limit = {
 			OR = {
@@ -2780,7 +2780,7 @@ state_control_effect_1430 = {
 		reset_province_name = 11514
 	}
 }
-state_control_effect_1431 = { 
+state_control_effect_1431 = {
 	if = {
 		limit = {
 			OR = {
@@ -2827,5 +2827,5 @@ state_control_effect_772 = {
 		}
 		reset_state_name = yes
 		reset_province_name = 13067
-	}	
+	}
 }

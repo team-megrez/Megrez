@@ -2221,206 +2221,268 @@ econ_subtype_change = { #super janky, if there's a better option tell me
 	set_variable = { TNO_economy_subtype = TNO_economy_subtype_temp }
 	hidden_effect = {
 		if = { #Not the best, but stops it from throwing errors with every econ type change
-			limit = { has_dynamic_modifier = { modifier = TNO_economy_type_id_1_dynamic_modifier } } 
-			remove_dynamic_modifier = { modifier = TNO_economy_type_id_1_dynamic_modifier }
+			limit = { has_dynamic_modifier = { modifier = TNO_economy_type_capitalism_dynamic_modifier } } 
+			remove_dynamic_modifier = { modifier = TNO_economy_type_capitalism_dynamic_modifier }
 		}
 		else_if = { 
-			limit = { has_dynamic_modifier = { modifier = TNO_economy_type_id_2_dynamic_modifier } } 
-			remove_dynamic_modifier = { modifier = TNO_economy_type_id_2_dynamic_modifier }
+			limit = { has_dynamic_modifier = { modifier = TNO_economy_type_corporatism_dynamic_modifier } } 
+			remove_dynamic_modifier = { modifier = TNO_economy_type_corporatism_dynamic_modifier }
 		}
 		else_if = { 
-			limit = { has_dynamic_modifier = { modifier = TNO_economy_type_id_3_dynamic_modifier } } 
-			remove_dynamic_modifier = { modifier = TNO_economy_type_id_3_dynamic_modifier }
+			limit = { has_dynamic_modifier = { modifier = TNO_economy_type_planned_dynamic_modifier } } 
+			remove_dynamic_modifier = { modifier = TNO_economy_type_planned_dynamic_modifier }
 		}
 	}
 	if = {
 		limit = {
-			check_variable = { TNO_economy_subtype_temp = 1 }
+			check_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_American_Capitalism }
 		}
-		custom_effect_tooltip = econ_subtype_change_1_tt
-		set_variable = { TNO_economy_type = 1 }
+		custom_effect_tooltip = Econ_Subtype_American_Capitalism_change_tt
+		set_variable = { TNO_economy_type = token:Econ_Type_Capitalism }
 		hidden_effect = {
-			add_dynamic_modifier = { modifier = TNO_economy_type_id_1_dynamic_modifier }
+			add_dynamic_modifier = { modifier = TNO_economy_type_capitalism_dynamic_modifier }
 		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { TNO_economy_subtype_temp = 2 }
+			check_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Worker_Directed }
 		}
-		custom_effect_tooltip = econ_subtype_change_2_tt
-		set_variable = { TNO_economy_type = 3 }
+		custom_effect_tooltip = Econ_Subtype_Worker_Directed_change_tt
+		set_variable = { TNO_economy_type = token:Econ_Type_Planned }
 		hidden_effect = {
-			add_dynamic_modifier = { modifier = TNO_economy_type_id_3_dynamic_modifier }
+			add_dynamic_modifier = { modifier = TNO_economy_type_planned_dynamic_modifier }
 		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { TNO_economy_subtype_temp = 3 }
+			check_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Crown_Corporatism }
 		}
-		custom_effect_tooltip = econ_subtype_change_3_tt
-		set_variable = { TNO_economy_type = 2 }
+		custom_effect_tooltip = Econ_Subtype_Crown_Corporatism_change_tt
+		set_variable = { TNO_economy_type = token:Econ_Type_Corporatism }
 		hidden_effect = {
-			add_dynamic_modifier = { modifier = TNO_economy_type_id_2_dynamic_modifier }
+			add_dynamic_modifier = { modifier = TNO_economy_type_corporatism_dynamic_modifier }
 		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { TNO_economy_subtype_temp = 4 }
+			check_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Anarchic }
 		}
-		custom_effect_tooltip = econ_type_change_anarchism_tt
-		set_variable = { TNO_economy_type = 3 }
+		custom_effect_tooltip = Econ_Subtype_Anarchic_change_tt
+		set_variable = { TNO_economy_type = token:Econ_Type_Planned }
 		hidden_effect = {
-			add_dynamic_modifier = { modifier = TNO_economy_type_id_3_dynamic_modifier }
+			add_dynamic_modifier = { modifier = TNO_economy_type_planned_dynamic_modifier }
 		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { TNO_economy_subtype_temp = 5 }
+			check_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Nazi_Corporatocracy }
 		}
-		custom_effect_tooltip = econ_subtype_change_5_tt
-		set_variable = { TNO_economy_type = 2 }
+		custom_effect_tooltip = Econ_Subtype_Nazi_Corporatocracy_change_tt
+		set_variable = { TNO_economy_type = token:Econ_Type_Corporatism }
 		hidden_effect = {
-			add_dynamic_modifier = { modifier = TNO_economy_type_id_2_dynamic_modifier }
+			add_dynamic_modifier = { modifier = TNO_economy_type_corporatism_dynamic_modifier }
 		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { TNO_economy_subtype_temp = 6 }
+			check_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Military_Directed }
 		}
-		custom_effect_tooltip = econ_subtype_change_6_tt
-		set_variable = { TNO_economy_type = 3 }
+		custom_effect_tooltip = Econ_Subtype_Military_Directed_change_tt
+		set_variable = { TNO_economy_type = token:Econ_Type_Planned }
 		hidden_effect = {
-			add_dynamic_modifier = { modifier = TNO_economy_type_id_3_dynamic_modifier }
+			add_dynamic_modifier = { modifier = TNO_economy_type_planned_dynamic_modifier }
 		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { TNO_economy_subtype_temp = 7 }
+			check_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Burgsys }
 		}
-		custom_effect_tooltip = econ_subtype_change_7_tt
-		set_variable = { TNO_economy_type = 3 }
+		custom_effect_tooltip = Econ_Subtype_Burgsys_change_tt
+		set_variable = { TNO_economy_type = token:Econ_Type_Planned }
 		hidden_effect = {
-			add_dynamic_modifier = { modifier = TNO_economy_type_id_3_dynamic_modifier }
+			add_dynamic_modifier = { modifier = TNO_economy_type_planned_dynamic_modifier }
 		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { TNO_economy_subtype_temp = 8 }
+			check_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Banditry }
 		}
-		custom_effect_tooltip = econ_subtype_change_8_tt
-		set_variable = { TNO_economy_type = 3 }
+		custom_effect_tooltip = Econ_Subtype_Banditry_change_tt
+		set_variable = { TNO_economy_type = token:Econ_Type_Planned }
 		hidden_effect = {
-			add_dynamic_modifier = { modifier = TNO_economy_type_id_3_dynamic_modifier }
+			add_dynamic_modifier = { modifier = TNO_economy_type_planned_dynamic_modifier }
 		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { TNO_economy_subtype_temp = 9 }
+			check_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Corporate_Oligopoly }
 		}
-		custom_effect_tooltip = econ_subtype_change_9_tt
-		set_variable = { TNO_economy_type = 1 }
+		custom_effect_tooltip = Econ_Subtype_Corporate_Oligopoly_change_tt
+		set_variable = { TNO_economy_type = token:Econ_Type_Capitalism }
 		hidden_effect = {
-			add_dynamic_modifier = { modifier = TNO_economy_type_id_1_dynamic_modifier }
+			add_dynamic_modifier = { modifier = TNO_economy_type_capitalism_dynamic_modifier }
 		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { TNO_economy_subtype_temp = 10 }
+			check_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Dirigisme }
 		}
-		custom_effect_tooltip = econ_subtype_change_10_tt
-		set_variable = { TNO_economy_type = 2 }
+		custom_effect_tooltip = Econ_Subtype_Dirigisme_change_tt
+		set_variable = { TNO_economy_type = token:Econ_Type_Corporatism }
 		hidden_effect = {
-			add_dynamic_modifier = { modifier = TNO_economy_type_id_2_dynamic_modifier }
+			add_dynamic_modifier = { modifier = TNO_economy_type_corporatism_dynamic_modifier }
 		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { TNO_economy_subtype_temp = 11 }
+			check_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Anarcho_Communism }
 		}
-		custom_effect_tooltip = econ_subtype_change_11_tt
-		set_variable = { TNO_economy_type = 3 }
+		custom_effect_tooltip = Econ_Subtype_Anarcho_Communism_change_tt
+		set_variable = { TNO_economy_type = token:Econ_Type_Planned }
 		hidden_effect = {
-			add_dynamic_modifier = { modifier = TNO_economy_type_id_3_dynamic_modifier }
+			add_dynamic_modifier = { modifier = TNO_economy_type_planned_dynamic_modifier }
 		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { TNO_economy_subtype_temp = 12 }
+			check_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Deytsch_Economics }
 		}
-		custom_effect_tooltip = econ_subtype_change_12_tt
-		set_variable = { TNO_economy_type = 3 }
+		custom_effect_tooltip = Econ_Subtype_Deytsch_Economics_change_tt
+		set_variable = { TNO_economy_type = token:Econ_Type_Planned }
 		hidden_effect = {
-			add_dynamic_modifier = { modifier = TNO_economy_type_id_3_dynamic_modifier }
+			add_dynamic_modifier = { modifier = TNO_economy_type_planned_dynamic_modifier }
 		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { TNO_economy_subtype_temp = 13 }
+			check_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_War_Communism }
 		}
-		custom_effect_tooltip = econ_subtype_change_13_tt
-		set_variable = { TNO_economy_type = 3 }
+		custom_effect_tooltip = Econ_Subtype_War_Communism_change_tt
+		set_variable = { TNO_economy_type = token:Econ_Type_Planned }
 		hidden_effect = {
-			add_dynamic_modifier = { modifier = TNO_economy_type_id_3_dynamic_modifier }
+			add_dynamic_modifier = { modifier = TNO_economy_type_planned_dynamic_modifier }
 		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { TNO_economy_subtype_temp = 14 }
+			check_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Permit_Raj }
 		}
-		custom_effect_tooltip = econ_subtype_change_14_tt
-		set_variable = { TNO_economy_type = 1 }
+		custom_effect_tooltip = Econ_Subtype_Permit_Raj_change_tt
+		set_variable = { TNO_economy_type = token:Econ_Type_Capitalism }
 		hidden_effect = {
-			add_dynamic_modifier = { modifier = TNO_economy_type_id_1_dynamic_modifier }
+			add_dynamic_modifier = { modifier = TNO_economy_type_capitalism_dynamic_modifier }
 		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { TNO_economy_subtype_temp = 15 }
+			check_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Christian_Anarchism }
 		}
-		custom_effect_tooltip = econ_subtype_change_15_tt
-		set_variable = { TNO_economy_type = 3 }
+		custom_effect_tooltip = Econ_Subtype_Christian_Anarchism_change_tt
+		set_variable = { TNO_economy_type = token:Econ_Type_Planned }
 		hidden_effect = {
-			add_dynamic_modifier = { modifier = TNO_economy_type_id_3_dynamic_modifier }
+			add_dynamic_modifier = { modifier = TNO_economy_type_planned_dynamic_modifier }
 		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { TNO_economy_subtype_temp = 16 }
+			check_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Social_Market }
 		}
-		custom_effect_tooltip = econ_subtype_change_16_tt
-		set_variable = { TNO_economy_type = 1 }
+		custom_effect_tooltip = Econ_Subtype_Social_Market_change_tt
+		set_variable = { TNO_economy_type = token:Econ_Type_Capitalism }
 		hidden_effect = {
-			add_dynamic_modifier = { modifier = TNO_economy_type_id_1_dynamic_modifier }
+			add_dynamic_modifier = { modifier = TNO_economy_type_capitalism_dynamic_modifier }
 		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { TNO_economy_subtype_temp = 17 }
+			check_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Agrarian_Spartanism }
 		}
-		custom_effect_tooltip = econ_subtype_change_17_tt
-		set_variable = { TNO_economy_type = 3 }
+		custom_effect_tooltip = Econ_Subtype_Agrarian_Spartanism_change_tt
+		set_variable = { TNO_economy_type = token:Econ_Type_Planned }
 		hidden_effect = {
-			add_dynamic_modifier = { modifier = TNO_economy_type_id_3_dynamic_modifier }
+			add_dynamic_modifier = { modifier = TNO_economy_type_planned_dynamic_modifier }
 		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { TNO_economy_subtype_temp = 18 }
+			check_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Socialized_Economy }
 		}
-		custom_effect_tooltip = econ_subtype_change_18_tt
-		set_variable = { TNO_economy_type = 2 }
+		custom_effect_tooltip = Econ_Subtype_Socialized_Economy_change_tt
+		set_variable = { TNO_economy_type = token:Econ_Type_Corporatism }
 		hidden_effect = {
-			add_dynamic_modifier = { modifier = TNO_economy_type_id_2_dynamic_modifier }
+			add_dynamic_modifier = { modifier = TNO_economy_type_corporatism_dynamic_modifier }
 		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { TNO_economy_subtype_temp = 19 }
+			check_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Yagoda }
 		}
-		custom_effect_tooltip = econ_subtype_change_19_tt
-		set_variable = { TNO_economy_type = 1 }
+		custom_effect_tooltip = Econ_Subtype_Yagoda
+		set_variable = { TNO_economy_type = token:Econ_Type_Capitalism }
 		hidden_effect = {
-			add_dynamic_modifier = { modifier = TNO_economy_type_id_1_dynamic_modifier }
+			add_dynamic_modifier = { modifier = TNO_economy_type_capitalism_dynamic_modifier }
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Colonial_Economy_Free_Market }
+		}
+		custom_effect_tooltip = Econ_Subtype_Colonial_Economy_Free_Market_change_tt
+		set_variable = { TNO_economy_type = token:Econ_Type_Capitalism }
+		hidden_effect = {
+			add_dynamic_modifier = { modifier = TNO_economy_type_capitalism_dynamic_modifier }
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Colonial_Economy_Corporatism }
+		}
+		custom_effect_tooltip = Econ_Subtype_Colonial_Economy_Corporatism_change_tt
+		set_variable = { TNO_economy_type = token:Econ_Type_Corporatism }
+		hidden_effect = {
+			add_dynamic_modifier = { modifier = TNO_economy_type_corporatism_dynamic_modifier }
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Colonial_Economy_Planned }
+		}
+		custom_effect_tooltip = Econ_Subtype_Colonial_Economy_Planned_change_tt
+		set_variable = { TNO_economy_type = token:Econ_Type_Planned }
+		hidden_effect = {
+			add_dynamic_modifier = { modifier = TNO_economy_type_planned_dynamic_modifier }
+		}
+	}
+	else_if = { # Econ Subtype Wipe
+		limit = {
+			check_variable = { TNO_economy_subtype_temp = 0 }
+		}
+		if = {
+			limit = {
+				check_variable = { TNO_economy_type = token:Econ_Type_Capitalism }
+			}
+			custom_effect_tooltip = Econ_Type_Capitalism_change_tt
+			hidden_effect = {
+				add_dynamic_modifier = { modifier = TNO_economy_type_capitalism_dynamic_modifier }
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { TNO_economy_type = token:Econ_Type_Corporatism }
+			}
+			custom_effect_tooltip = Econ_Type_Corporatism_change_tt
+			hidden_effect = {
+				add_dynamic_modifier = { modifier = TNO_economy_type_corporatism_dynamic_modifier }
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { TNO_economy_type = token:Econ_Type_Planned }
+			}
+			custom_effect_tooltip = Econ_Type_Planned_change_tt
+			hidden_effect = {
+				add_dynamic_modifier = { modifier = TNO_economy_type_planned_dynamic_modifier }
+			}
 		}
 	}
 }
@@ -2430,43 +2492,43 @@ econ_type_change = { #super janky, if there's a better option tell me
 	set_variable = { TNO_economy_subtype = 0 }
 	hidden_effect = { #Not the best, but stops it from throwing errors with every econtype change
 		if = { 
-			limit = { has_dynamic_modifier = { modifier = TNO_economy_type_id_1_dynamic_modifier } } 
-			remove_dynamic_modifier = { modifier = TNO_economy_type_id_1_dynamic_modifier }
+			limit = { has_dynamic_modifier = { modifier = TNO_economy_type_capitalism_dynamic_modifier } } 
+			remove_dynamic_modifier = { modifier = TNO_economy_type_capitalism_dynamic_modifier }
 		}
 		else_if = { 
-			limit = { has_dynamic_modifier = { modifier = TNO_economy_type_id_2_dynamic_modifier } } 
-			remove_dynamic_modifier = { modifier = TNO_economy_type_id_2_dynamic_modifier }
+			limit = { has_dynamic_modifier = { modifier = TNO_economy_type_corporatism_dynamic_modifier } } 
+			remove_dynamic_modifier = { modifier = TNO_economy_type_corporatism_dynamic_modifier }
 		}
 		else_if = { 
-			limit = { has_dynamic_modifier = { modifier = TNO_economy_type_id_3_dynamic_modifier } } 
-			remove_dynamic_modifier = { modifier = TNO_economy_type_id_3_dynamic_modifier }
+			limit = { has_dynamic_modifier = { modifier = TNO_economy_type_planned_dynamic_modifier } } 
+			remove_dynamic_modifier = { modifier = TNO_economy_type_planned_dynamic_modifier }
 		}
 	}
 	if = {
 		limit = {
-			check_variable = { TNO_economy_type_temp = 1 }
+			check_variable = { TNO_economy_type_temp = token:Econ_Type_Capitalism }
 		}
-		custom_effect_tooltip = econ_type_change_capitalism_tt
+		custom_effect_tooltip = Econ_Type_Capitalism_change_tt
 		hidden_effect = {
-			add_dynamic_modifier = { modifier = TNO_economy_type_id_1_dynamic_modifier }
+			add_dynamic_modifier = { modifier = TNO_economy_type_capitalism_dynamic_modifier }
 		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { TNO_economy_type_temp = 2 }
+			check_variable = { TNO_economy_type_temp = token:Econ_Type_Corporatism }
 		}
-		custom_effect_tooltip = econ_type_change_corporatism_tt
+		custom_effect_tooltip = Econ_Type_Corporatism_change_tt
 		hidden_effect = {
-			add_dynamic_modifier = { modifier = TNO_economy_type_id_2_dynamic_modifier }
+			add_dynamic_modifier = { modifier = TNO_economy_type_corporatism_dynamic_modifier }
 		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { TNO_economy_type_temp = 3 }
+			check_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
 		}
-		custom_effect_tooltip = econ_type_change_planned_tt
+		custom_effect_tooltip = Econ_Type_Planned_change_tt
 		hidden_effect = {
-			add_dynamic_modifier = { modifier = TNO_economy_type_id_3_dynamic_modifier }
+			add_dynamic_modifier = { modifier = TNO_economy_type_planned_dynamic_modifier }
 		}
 	}
 }

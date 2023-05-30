@@ -506,24 +506,28 @@ defined_text = {
 	text = {
 		trigger = {
 			check_variable = { USA_HR_Coalition_Sup > .75 }
+			NOT = { check_variable = { USA_HR_Coalition_Sup > .90 } }
 		}
 		localization_key = USA_RDC_support_emphatic
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_HR_Coalition_Sup > .50 }
+			NOT = { check_variable = { USA_HR_Coalition_Sup > .75 } }
 		}
 		localization_key = USA_RDC_support_middling
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_HR_Coalition_Sup > .25 }
+			NOT = { check_variable = { USA_HR_Coalition_Sup > .50 } }
 		}
 		localization_key = USA_RDC_support_lacking
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_HR_Coalition_Sup > -1 }
+			NOT = { check_variable = { USA_HR_Coalition_Sup > .25 } }
 		}
 		localization_key = USA_RDC_support_nonexistent
 	}
@@ -539,24 +543,28 @@ defined_text = {
 	text = {
 		trigger = {
 			check_variable = { USA_RR_Coalition_Sup > .75 }
+			NOT = { check_variable = { USA_RR_Coalition_Sup > .90 } }
 		}
 		localization_key = USA_RDC_support_emphatic
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_RR_Coalition_Sup > .50 }
+			NOT = { check_variable = { USA_RR_Coalition_Sup > .75 } }
 		}
 		localization_key = USA_RDC_support_middling
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_RR_Coalition_Sup > .25 }
+			NOT = { check_variable = { USA_RR_Coalition_Sup > .50 } }
 		}
 		localization_key = USA_RDC_support_lacking
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_RR_Coalition_Sup > -1 }
+			NOT = { check_variable = { USA_RR_Coalition_Sup > .25 } }
 		}
 		localization_key = USA_RDC_support_nonexistent
 	}
@@ -572,24 +580,28 @@ defined_text = {
 	text = {
 		trigger = {
 			check_variable = { USA_LD_Coalition_Sup > .75 }
+			NOT = { check_variable = { USA_LD_Coalition_Sup > .90 } }
 		}
 		localization_key = USA_RDC_support_emphatic
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_LD_Coalition_Sup > .50 }
+			NOT = { check_variable = { USA_LD_Coalition_Sup > .75 } }
 		}
 		localization_key = USA_RDC_support_middling
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_LD_Coalition_Sup > .25 }
+			NOT = { check_variable = { USA_LD_Coalition_Sup > .50 } }
 		}
 		localization_key = USA_RDC_support_lacking
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_LD_Coalition_Sup > -1 }
+			NOT = { check_variable = { USA_LD_Coalition_Sup > .25 } }
 		}
 		localization_key = USA_RDC_support_nonexistent
 	}
@@ -605,24 +617,28 @@ defined_text = {
 	text = {
 		trigger = {
 			check_variable = { USA_DC_Coalition_Sup > .75 }
+			NOT = { check_variable = { USA_DC_Coalition_Sup > .90 } }
 		}
 		localization_key = USA_RDC_support_emphatic
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_DC_Coalition_Sup > .50 }
+			NOT = { check_variable = { USA_DC_Coalition_Sup > .75 } }
 		}
 		localization_key = USA_RDC_support_middling
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_DC_Coalition_Sup > .25 }
+			NOT = { check_variable = { USA_DC_Coalition_Sup > .50 } }
 		}
 		localization_key = USA_RDC_support_lacking
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_DC_Coalition_Sup > -1 }
+			NOT = { check_variable = { USA_DC_Coalition_Sup > .25 } }
 		}
 		localization_key = USA_RDC_support_nonexistent
 	}
@@ -639,24 +655,28 @@ defined_text = {
 	text = {
 		trigger = {
 			check_variable = { USA_RDC_Coalition_Sup > .75 }
+			NOT = { check_variable = { USA_RDC_Coalition_Sup > .90 } }
 		}
 		localization_key = USA_RDC_support_emphatic
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_RDC_Coalition_Sup > .50 }
+			NOT = { check_variable = { USA_RDC_Coalition_Sup > .75 } }
 		}
 		localization_key = USA_RDC_support_middling
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_RDC_Coalition_Sup > .25 }
+			NOT = { check_variable = { USA_RDC_Coalition_Sup > .50 } }
 		}
 		localization_key = USA_RDC_support_lacking
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_RDC_Coalition_Sup > -1 }
+			NOT = { check_variable = { USA_RDC_Coalition_Sup > .25 } }
 		}
 		localization_key = USA_RDC_support_nonexistent
 	}
@@ -1644,307 +1664,307 @@ defined_text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 0 } 
 		}
-		localization_key = "ALABAMA"
+		localization_key = US_VOTE_ALABAMA_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 1 } 
 		}
-		localization_key = "ALASKA"
+		localization_key = US_VOTE_ALASKA_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 2 } 
 		}
-		localization_key = "ARIZONA"
+		localization_key = US_VOTE_ARIZONA_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 3 } 
 		}
-		localization_key = "ARKANSAS"
+		localization_key = US_VOTE_ARKANSAS_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 4 } 
 		}
-		localization_key = "CALIFORNIA"
+		localization_key = US_VOTE_CALIFORNIA_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 5 } 
 		}
-		localization_key = "COLORADO"
+		localization_key = US_VOTE_COLORADO_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 6 } 
 		}
-		localization_key = "CONNECTICUT"
+		localization_key = US_VOTE_CONNECTICUT_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 7 } 
 		}
-		localization_key = "DELAWARE"
+		localization_key = US_VOTE_DELAWARE_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 8 } 
 		}
-		localization_key = "FLORIDA"
+		localization_key = US_VOTE_FLORIDA_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 9 } 
 		}
-		localization_key = "GEORGIA"
+		localization_key = US_VOTE_GEORGIA_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 10 } 
 		}
-		localization_key = "HAWAII"
+		localization_key = US_VOTE_HAWAII_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 11 } 
 		}
-		localization_key = "IDAHO"
+		localization_key = US_VOTE_IDAHO_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 12 } 
 		}
-		localization_key = "ILLINOIS"
+		localization_key = US_VOTE_ILLINOIS_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 13 } 
 		}
-		localization_key = "INDIANA"
+		localization_key = US_VOTE_INDIANA_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 14 } 
 		}
-		localization_key = "IOWA"
+		localization_key = US_VOTE_IOWA_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 15 } 
 		}
-		localization_key = "KANSAS"
+		localization_key = US_VOTE_KANSAS_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 16 } 
 		}
-		localization_key = "KENTUCKY"
+		localization_key = US_VOTE_KENTUCKY_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 17 } 
 		}
-		localization_key = "LOUISIANA"
+		localization_key = US_VOTE_LOUISIANA_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 18 } 
 		}
-		localization_key = "MAINE"
+		localization_key = US_VOTE_MAINE_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 19 } 
 		}
-		localization_key = "MARYLAND"
+		localization_key = US_VOTE_MARYLAND_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 20 } 
 		}
-		localization_key = "MASSACH..."
+		localization_key = US_VOTE_MASSACHUSETTS_TEXT_SHORT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 21 } 
 		}
-		localization_key = "MICHIGAN"
+		localization_key = US_VOTE_MICHIGAN_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 22 } 
 		}
-		localization_key = "MINNESOTA"
+		localization_key = US_VOTE_MINNESOTA_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 23 } 
 		}
-		localization_key = "MISSISSIPPI"
+		localization_key = US_VOTE_MISSISSIPPI_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 24 } 
 		}
-		localization_key = "MISSOURI"
+		localization_key = US_VOTE_MISSOURI_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 25 } 
 		}
-		localization_key = "MONTANA"
+		localization_key = US_VOTE_MONTANA_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 26 } 
 		}
-		localization_key = "NEBRASKA"
+		localization_key = US_VOTE_NEBRASKA_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 27 } 
 		}
-		localization_key = "NEVADA"
+		localization_key = US_VOTE_NEVADA_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 28 } 
 		}
-		localization_key = "NEW HAMP..."
+		localization_key = US_VOTE_NEW_HAMPSHIRE_TEXT_SHORT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 29 } 
 		}
-		localization_key = "NEW JERSEY"
+		localization_key = US_VOTE_NEW_JERSEY_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 30 } 
 		}
-		localization_key = "NEW MEXICO"
+		localization_key = US_VOTE_NEW_MEXICO_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 31 } 
 		}
-		localization_key = "NEW YORK"
+		localization_key = US_VOTE_NEW_YORK_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 32 } 
 		}
-		localization_key = "NORTH CA..."
+		localization_key = US_VOTE_NORTH_CAROLINA_TEXT_SHORT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 33 } 
 		}
-		localization_key = "NORTH DAKOTA"
+		localization_key = US_VOTE_NORTH_DAKOTA_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 34 } 
 		}
-		localization_key = "OHIO"
+		localization_key = US_VOTE_OHIO_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 35 } 
 		}
-		localization_key = "OKLAHOMA"
+		localization_key = US_VOTE_OKLAHOMA_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 36 } 
 		}
-		localization_key = "OREGON"
+		localization_key = US_VOTE_OREGON_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 37 } 
 		}
-		localization_key = "PENNSYLVANIA"
+		localization_key = US_VOTE_PENNSYLVANIA_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 38 } 
 		}
-		localization_key = "RHODE ISLAND"
+		localization_key = US_VOTE_RHODE_ISLAND_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 39 } 
 		}
-		localization_key = "SOUTH CA..."
+		localization_key = US_VOTE_SOUTH_CAROLINA_TEXT_SHORT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 40 } 
 		}
-		localization_key = "SOUTH DAKOTA"
+		localization_key = US_VOTE_SOUTH_DAKOTA_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 41 } 
 		}
-		localization_key = "TENNESSEE"
+		localization_key = US_VOTE_TENNESSEE_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 42 } 
 		}
-		localization_key = "TEXAS"
+		localization_key = US_VOTE_TEXAS_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 43 } 
 		}
-		localization_key = "UTAH"
+		localization_key = US_VOTE_UTAH_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 44 } 
 		}
-		localization_key = "VERMONT"
+		localization_key = US_VOTE_VERMONT_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 45 } 
 		}
-		localization_key = "VIRGINIA"
+		localization_key = US_VOTE_VIRGINIA_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 46 } 
 		}
-		localization_key = "WASHINGTON"
+		localization_key = US_VOTE_WASHINGTON_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 47 } 
 		}
-		localization_key = "WEST VIRGINIA"
+		localization_key = US_VOTE_WEST_VIRGINIA_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 48 } 
 		}
-		localization_key = "WISCONSIN"
+		localization_key = US_VOTE_WISCONSIN_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 49 } 
 		}
-		localization_key = "WYOMING"
+		localization_key = US_VOTE_WYOMING_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 50 } 
 		}
-		localization_key = "DIST. COL."
+		localization_key = US_VOTE_DISTRICT_OF_COLUMBIA_TEXT_SHORT
 	}
 }
 defined_text = { 
@@ -1953,31 +1973,31 @@ defined_text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 20 } 
 		}
-		localization_key = "MASSACHUSETTS"
+		localization_key = US_VOTE_MASSACHUSETTS_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 28 } 
 		}
-		localization_key = "NEW HAMPSHIRE"
+		localization_key = US_VOTE_NEW_HAMPSHIRE_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 32 } 
 		}
-		localization_key = "NORTH CAROLINA"
+		localization_key = US_VOTE_NORTH_CAROLINA_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 39 } 
 		}
-		localization_key = "SOUTH CAROLINA"
+		localization_key = US_VOTE_SOUTH_CAROLINA_TEXT
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_states_dots^idx = 50 } 
 		}
-		localization_key = "DISTRICT OF COLOMBIA"
+		localization_key = US_VOTE_DISTRICT_OF_COLUMBIA_TEXT
 	}
 }
 defined_text = { 
@@ -19897,202 +19917,162 @@ defined_text = {
 	name = GetRDCPresContenderName
 	text = {
 		trigger = {
-			check_variable = { USA_GUI_selected_prev_year = 1940 }
-			check_variable = {USA_GUI_selected_tab_sub = 4}
-		}
-		localization_key = "Harry L. Hopkins"
-	}
-	text = {
-		trigger = {
-			check_variable = { USA_GUI_selected_prev_year = 1944 }
-			check_variable = {USA_GUI_selected_tab_sub = 4}
-		}
-		localization_key = "James A. Farley"
-	}
-	text = {
-		trigger = {
-			check_variable = { USA_GUI_selected_prev_year = 1948 }
-			check_variable = {USA_GUI_selected_tab_sub = 4}
-		}
-		localization_key = "Dwight D. Eisenhower"
-	}
-	text = {
-		trigger = {
-			check_variable = { USA_GUI_selected_prev_year = 1952 }
-			check_variable = {USA_GUI_selected_tab_sub = 4}
-		}
-		localization_key = "Dwight D. Eisenhower"
-	}
-	text = {
-		trigger = {
-			check_variable = { USA_GUI_selected_prev_year = 1956 }
-			check_variable = {USA_GUI_selected_tab_sub = 4}
-		}
-		localization_key = "Carey E. Kefauver"
-	}
-	text = {
-		trigger = {
-			check_variable = { USA_GUI_selected_prev_year = 1960 }
-			check_variable = {USA_GUI_selected_tab_sub = 4}
-		}
-		localization_key = "Richard M. Nixon"
-	}
-	text = {
-		trigger = {
 			check_variable = { USA_pres_contender_rd = 1 }
-			check_variable = {USA_GUI_selected_tab = 2}
-			check_variable = {USA_GUI_selected_prev_year > 1962}
 		}
-		localization_key = "Wallace F. Bennett"
+		localization_key = USA_presidental_candidate_harry_hopkins
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_pres_contender_rd = 2 }
-			check_variable = {USA_GUI_selected_tab = 2}
-			check_variable = {USA_GUI_selected_prev_year > 1962}
 		}
-		localization_key = "Lyndon B. Johnson"
+		localization_key = USA_presidental_candidate_james_farley
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_pres_contender_rd = 3 }
-			check_variable = {USA_GUI_selected_tab = 2}
-			check_variable = {USA_GUI_selected_prev_year > 1962}
 		}
-		localization_key = "Barry M. Goldwater"
+		localization_key = USA_presidental_candidate_dwight_eisenhower
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_pres_contender_rd = 4 }
-			check_variable = {USA_GUI_selected_tab = 2}
-			check_variable = {USA_GUI_selected_prev_year > 1962}
 		}
-		localization_key = "Philip A. Hart"
+		localization_key = USA_presidental_candidate_dwight_eisenhower
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_pres_contender_rd = 5 }
-			check_variable = {USA_GUI_selected_tab = 2}
-			check_variable = {USA_GUI_selected_prev_year > 1962}
 		}
-		localization_key = "George M. Romney"
+		localization_key = USA_presidental_candidate_carey_kefauver
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_pres_contender_rd = 6 }
-			check_variable = {USA_GUI_selected_tab = 2}
-			check_variable = {USA_GUI_selected_prev_year > 1962}
 		}
-		localization_key = "Jeane D. Kirkpatrick"
+		localization_key = USA_presidental_candidate_richard_nixon
+	}
+	text = {
+		trigger = {
+			check_variable = { USA_pres_contender_rd = 7 }
+		}
+		localization_key = USA_presidental_candidate_wallace_bennett
+	}
+	text = {
+		trigger = {
+			check_variable = { USA_pres_contender_rd = 8 }
+		}
+		localization_key = USA_presidental_candidate_lyndon_johnson
+	}
+	text = {
+		trigger = {
+			check_variable = { USA_pres_contender_rd = 9 }
+		}
+		localization_key = USA_presidental_candidate_barry_goldwater
+	}
+	text = {
+		trigger = {
+			check_variable = { USA_pres_contender_rd = 10 }
+		}
+		localization_key = USA_presidental_candidate_philip_hart
+	}
+	text = {
+		trigger = {
+			check_variable = { USA_pres_contender_rd = 11 }
+		}
+		localization_key = USA_presidental_candidate_george_romney
+	}
+	text = {
+		trigger = {
+			check_variable = { USA_pres_contender_rd = 12 }
+		}
+		localization_key = USA_presidental_candidate_jeane_kirkpatrick
 	}
 }
 defined_text = { 
 	name = GetNPPPresContenderName
 	text = {
 		trigger = {
-			check_variable = { USA_GUI_selected_prev_year = 1940 }
-			check_variable = {USA_GUI_selected_tab_sub = 4}
-		}
-		localization_key = "Thomas E. Dewey"
-	}
-	text = {
-		trigger = {
-			check_variable = { USA_GUI_selected_prev_year = 1944 }
-			check_variable = {USA_GUI_selected_tab_sub = 4}
-		}
-		localization_key = "Thomas E. Dewey"
-	}
-	text = {
-		trigger = {
-			check_variable = { USA_GUI_selected_prev_year = 1948 }
-			check_variable = {USA_GUI_selected_tab_sub = 4}
-		}
-		localization_key = "Robert A. Taft"
-	}
-	text = {
-		trigger = {
-			check_variable = { USA_GUI_selected_prev_year = 1952 }
-			check_variable = {USA_GUI_selected_tab_sub = 4}
-		}
-		localization_key = "Edward Martin"
-	}
-	text = {
-		trigger = {
-			check_variable = { USA_GUI_selected_prev_year = 1956 }
-			check_variable = {USA_GUI_selected_tab_sub = 4}
-		}
-		localization_key = "Albert B. Chandler"
-	}
-	text = {
-		trigger = {
-			check_variable = { USA_GUI_selected_prev_year = 1960 }
-			check_variable = {USA_GUI_selected_tab_sub = 4}
-		}
-		localization_key = "Henry M. Jackson"
-	}
-	text = {
-		trigger = {
 			check_variable = { USA_pres_contender_npp = 1 }
-			check_variable = {USA_GUI_selected_tab = 2}
-			check_variable = {USA_GUI_selected_prev_year > 1962}
 		}
-		localization_key = "George C. Wallace"
+		localization_key = USA_presidental_candidate_thomas_dewey
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_pres_contender_npp = 2 }
-			check_variable = {USA_GUI_selected_tab = 2}
-			check_variable = {USA_GUI_selected_prev_year > 1962}
 		}
-		localization_key = "Robert F. Kennedy"
+		localization_key = USA_presidental_candidate_thomas_dewey
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_pres_contender_npp = 3 }
-			check_variable = {USA_GUI_selected_tab = 2}
-			check_variable = {USA_GUI_selected_prev_year > 1962}
 		}
-		localization_key = "Edward M. Harrington"
+		localization_key = USA_presidental_candidate_robert_taft
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_pres_contender_npp = 4 }
-			check_variable = {USA_GUI_selected_tab = 2}
-			check_variable = {USA_GUI_selected_prev_year > 1962}
 		}
-		localization_key = "Margret C. Smith"
+		localization_key = USA_presidental_candidate_edward_martin
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_pres_contender_npp = 5 }
-			check_variable = {USA_GUI_selected_tab = 2}
-			check_variable = {USA_GUI_selected_prev_year > 1962}
 		}
-		localization_key = "Henry M. Jackson"
+		localization_key = USA_presidental_candidate_albert_chandler
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_pres_contender_npp = 6 }
-			check_variable = {USA_GUI_selected_tab = 2}
-			check_variable = {USA_GUI_selected_prev_year > 1962}
 		}
-		localization_key = "Phyllis S. Schlafly"
+		localization_key = USA_presidental_candidate_henry_jackson
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_pres_contender_npp = 7 }
-			check_variable = {USA_GUI_selected_tab = 2}
-			check_variable = {USA_GUI_selected_prev_year > 1962}
 		}
-		localization_key = "Francis P. Yockey"
+		localization_key = USA_presidental_candidate_george_wallace
 	}
 	text = {
 		trigger = {
 			check_variable = { USA_pres_contender_npp = 8 }
-			check_variable = {USA_GUI_selected_tab = 2}
-			check_variable = {USA_GUI_selected_prev_year > 1962}
 		}
-		localization_key = "Gus Hall"
+		localization_key = USA_presidental_candidate_robert_kennedy
+	}
+	text = {
+		trigger = {
+			check_variable = { USA_pres_contender_npp = 9 }
+		}
+		localization_key = USA_presidental_candidate_edward_harrington
+	}
+	text = {
+		trigger = {
+			check_variable = { USA_pres_contender_npp = 10 }
+		}
+		localization_key = USA_presidental_candidate_margaret_smith
+	}
+	text = {
+		trigger = {
+			check_variable = { USA_pres_contender_npp = 11 }
+		}
+		localization_key = USA_presidental_candidate_henry_jackson
+	}
+	text = {
+		trigger = {
+			check_variable = { USA_pres_contender_npp = 12 }
+		}
+		localization_key = USA_presidental_candidate_phyllis_schlafly
+	}
+	text = {
+		trigger = {
+			check_variable = { USA_pres_contender_npp = 13 }
+		}
+		localization_key = USA_presidental_candidate_francis_yockey
+	}
+	text = {
+		trigger = {
+			check_variable = { USA_pres_contender_npp = 14 }
+		}
+		localization_key = USA_presidental_candidate_gus_hall
 	}
 }
 defined_text = { 
@@ -21600,5 +21580,20 @@ defined_text = {
 	}
 	text = {
 		localization_key = NPP_AMOUNT_TEXT
+	}
+}
+defined_text = { 
+	name = GetPresActualVotesImage
+	text = {
+		trigger = {
+			OR = {
+				check_variable = { USA_states_icon_array^idx = 2 }
+				check_variable = { USA_states_icon_array^idx = 5 } 
+			}
+		}
+		localization_key = GFX_USA_vote_count_animated_hunds
+	}
+	text = {
+		localization_key = GFX_USA_vote_count_animated
 	}
 }

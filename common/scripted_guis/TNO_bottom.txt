@@ -70,26 +70,6 @@ scripted_gui = {
 			yokusankai_crt_icon_visible = {
 				original_tag = JAP
 			}
-			fascist_italian_empire_crt_icon_visible = {
-				original_tag = ITA
-				NOT = {
-					has_country_flag = ITA_PNF_has_died
-					ITA = {
-						is_puppet = yes
-					}
-				}
-			}
-			democratic_italian_empire_crt_icon_visible = {
-				original_tag = ITA
-				ITA = {
-					has_country_flag = ITA_PNF_has_died
-				}
-				NOT = {
-					ITA = {
-						is_puppet = yes
-					}
-				}
-			}
 			novosib_gui_crt_icon_visible = {
 				tag = NOV
 				NOT = {
@@ -260,36 +240,6 @@ scripted_gui = {
 				else_if = {
 					limit = { has_country_flag = JAP_Internal_GUI_open_flag }
 					clr_country_flag = JAP_Internal_GUI_open_flag
-				}
-				clr_country_flag = gui_alert_visible_2
-			}
-			fascist_italian_empire_crt_icon_click = {
-				if = {
-					limit = {
-						NOT = { has_country_flag = ITA_influence_window_open_flag }
-					}
-					set_country_flag = ITA_influence_window_open_flag
-				}
-				else_if = {
-					limit = {
-						has_country_flag = ITA_influence_window_open_flag
-					}
-					clr_country_flag = ITA_influence_window_open_flag
-				}
-				clr_country_flag = gui_alert_visible_2
-			}
-			democratic_italian_empire_crt_icon_click = {
-				if = {
-					limit = {
-						NOT = { has_country_flag = ITA_influence_window_open_flag }
-					}
-					set_country_flag = ITA_influence_window_open_flag
-				}
-				else_if = {
-					limit = {
-						has_country_flag = ITA_influence_window_open_flag
-					}
-					clr_country_flag = ITA_influence_window_open_flag
 				}
 				clr_country_flag = gui_alert_visible_2
 			}

@@ -854,6 +854,30 @@ TNO_clamping_tension_vars = {
 	}
 }
 
+TNO_tension_animation_check = {
+	while_loop_effect = {
+		limit = {
+			check_variable = { old_threat > 20 }
+		}
+		subtract_from_temp_variable = { old_threat = 20 }
+		add_to_temp_variable = { old_threat_20s = 1 }
+	}
+	while_loop_effect = {
+		limit = {
+			check_variable = { new_threat > 20 }
+		}
+		subtract_from_temp_variable = { new_threat = 20 }
+		add_to_temp_variable = { new_threat_20s = 1 }
+	}
+	
+	if = {
+		limit = {
+			check_variable = { var = old_threat_20s value = new_threat_20s compare = not_equals }
+		}
+		add_to_array = { global.TNO_WT_static_controller = 1 }
+	}
+}
+
 TNO_tension_setup = { #The Setup for the Tension Tab. Different Arrays show the different Incidents and Involved Superpowers
 	## Past Incidents must be added chronologically, with the latest one at the top and the previous ones following
 	# Hawaiian Missile Crisis
@@ -861,33 +885,38 @@ TNO_tension_setup = { #The Setup for the Tension Tab. Different Arrays show the 
 	add_to_array = { global.TNO_Cold_War_GUI_Tension_Incidents_Involved_Superpower_1 = JAP }
 	add_to_array = { global.TNO_Cold_War_GUI_Tension_Incidents_Involved_Superpower_2 = USA } 
 	add_to_array = { global.TNO_Cold_War_GUI_Tension_Incidents_WT = 25 }
+	add_to_array = { global.TNO_Cold_War_GUI_Tension_Incidents_Date = 60985.272 }
 
 	# End of the Akagi Accords
 	add_to_array = { global.TNO_Cold_War_GUI_Tension_Tab_Incidents_List = 4 }
 	add_to_array = { global.TNO_Cold_War_GUI_Tension_Incidents_Involved_Superpower_1 = JAP }
 	add_to_array = { global.TNO_Cold_War_GUI_Tension_Incidents_Involved_Superpower_2 = USA }
 	add_to_array = { global.TNO_Cold_War_GUI_Tension_Incidents_WT = 15 }
+	add_to_array = { global.TNO_Cold_War_GUI_Tension_Incidents_Date = 60923.76 }
 
 	# End of the Tripartite Pact
 	add_to_array = { global.TNO_Cold_War_GUI_Tension_Tab_Incidents_List = 3 }
 	add_to_array = { global.TNO_Cold_War_GUI_Tension_Incidents_Involved_Superpower_1 = GER }
 	add_to_array = { global.TNO_Cold_War_GUI_Tension_Incidents_Involved_Superpower_2 = JAP }
 	add_to_array = { global.TNO_Cold_War_GUI_Tension_Incidents_WT = 40 }
+	add_to_array = { global.TNO_Cold_War_GUI_Tension_Incidents_Date = 60876.624 }
 
 	# Akagi Accords
 	add_to_array = { global.TNO_Cold_War_GUI_Tension_Tab_Incidents_List = 2 }
 	add_to_array = { global.TNO_Cold_War_GUI_Tension_Incidents_Involved_Superpower_1 = JAP }
 	add_to_array = { global.TNO_Cold_War_GUI_Tension_Incidents_Involved_Superpower_2 = USA }
 	add_to_array = { global.TNO_Cold_War_GUI_Tension_Incidents_WT = 50 }
+	add_to_array = { global.TNO_Cold_War_GUI_Tension_Incidents_Date = 60844.056 }
 
 	# Westminster Treaty
 	add_to_array = { global.TNO_Cold_War_GUI_Tension_Tab_Incidents_List = 1 }
 	add_to_array = { global.TNO_Cold_War_GUI_Tension_Incidents_Involved_Superpower_1 = USA }
 	add_to_array = { global.TNO_Cold_War_GUI_Tension_Incidents_Involved_Superpower_2 = GER }
 	add_to_array = { global.TNO_Cold_War_GUI_Tension_Incidents_WT = 50 }
+	add_to_array = { global.TNO_Cold_War_GUI_Tension_Incidents_Date = 60841.248 }
 
 	## Setup initial tensions
-	add_to_array = { global.TNO_superpower_tension = 55 } # German-American
+	add_to_array = { global.TNO_superpower_tension = 50 } # German-American
 	add_to_array = { global.TNO_superpower_tension = 40 } # German-Japanese
 	add_to_array = { global.TNO_superpower_tension = 90 } # Japanese-American
 	set_variable = { global.TNO_superpower_tension_areas = 3 }
@@ -912,17 +941,32 @@ TNO_tension_calc = {
 	divide_variable = { TNO_average_threat = global.TNO_superpower_tension_areas }
 	round_variable = TNO_average_threat
 	set_variable = { global.TNO_World_Tension = TNO_average_threat }
-	add_threat = -100
-	add_threat = TNO_average_threat
+	
+	set_temp_variable = { old_threat = global.threat }
+	multiply_temp_variable = { old_threat = 100 }
+	
+	set_variable = { threat_negative = global.threat }
+	multiply_variable = { threat_negative = -100 }
+	add_threat = var:threat_negative
+	add_threat = var:TNO_average_threat
+	
+	set_temp_variable = { new_threat = global.threat }
+	multiply_temp_variable = { new_threat = 100 }
+	
 	TNO_clamping_tension_vars = yes
 	TNO_calc_tension_dynmod_effects = yes
+	TNO_tension_animation_check = yes
 }
 
 TNO_change_tension = { ##Modify World Tension Script
-	add_to_array = { array = global.TNO_Cold_War_GUI_Tension_Incidents_WT value = tension_WT index = 0 } #How much world tension there has to be modified
-	add_to_array = { array = global.TNO_Cold_War_GUI_Tension_Incidents_Involved_Superpower_1 value = tension_superpower_1 index = 0 } #Side 1
-	add_to_array = { array = global.TNO_Cold_War_GUI_Tension_Incidents_Involved_Superpower_2 value = tension_superpower_2 index = 0 } #Side 2
-	add_to_array = { array = global.TNO_Cold_War_GUI_Tension_Tab_Incidents_List value = tension_ID index = 0 } #What the Conflict's ID is. Refer to Cold_War_scripted_localisation
+	if = {
+		limit = { has_variable = tension_ID }
+		add_to_array = { array = global.TNO_Cold_War_GUI_Tension_Incidents_WT value = tension_WT index = 0 } #How much world tension there has to be modified
+		add_to_array = { array = global.TNO_Cold_War_GUI_Tension_Incidents_Involved_Superpower_1 value = tension_superpower_1 index = 0 } #Side 1
+		add_to_array = { array = global.TNO_Cold_War_GUI_Tension_Incidents_Involved_Superpower_2 value = tension_superpower_2 index = 0 } #Side 2
+		add_to_array = { array = global.TNO_Cold_War_GUI_Tension_Tab_Incidents_List value = tension_ID index = 0 } #What the Conflict's ID is. Refer to Cold_War_scripted_localisation
+		add_to_array = { array = global.TNO_Cold_War_GUI_Tension_Incidents_Date value = global.date index = 0 } # The date when this effect is executed
+	}
 
 	if = {
 		limit = {

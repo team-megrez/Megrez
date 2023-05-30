@@ -128,18 +128,14 @@ scripted_gui = {
 		}
 
 		ai_enabled = { original_tag = YUN }
-		ai_test_interval = 168
+		ai_test_interval = 24
 		ai_weights = {
 			YUN_WI_Warlord_GUI_XIK_button_click = {
 				ai_will_do = {
 					base = 0
 					modifier = {
 						add = 100
-						OR = {
-							check_variable = { YUN_WI_Warlord = 0 }
-							check_variable = { YUN_WI_Warlord = 6 }
-						}
-						NOT = { has_country_flag = YUN_button_clicked }
+						check_variable = { global.YUN_WI_war_momentum_check > 60 }
 					}
 				}
 			}
@@ -148,8 +144,7 @@ scripted_gui = {
 					base = 0
 					modifier = {
 						add = 100
-						check_variable = { YUN_WI_Warlord = 1 }
-						NOT = { has_country_flag = YUN_button_clicked }
+						check_variable = { global.YUN_WI_war_momentum_check > 70 }
 					}
 				}
 			}
@@ -158,8 +153,7 @@ scripted_gui = {
 					base = 0
 					modifier = {
 						add = 100
-						check_variable = { YUN_WI_Warlord = 2 }
-						NOT = { has_country_flag = YUN_button_clicked }
+						check_variable = { global.YUN_WI_war_momentum_check > 80 }
 					}
 				}
 			}
@@ -168,8 +162,7 @@ scripted_gui = {
 					base = 0
 					modifier = {
 						add = 100
-						check_variable = { YUN_WI_Warlord = 3 }
-						NOT = { has_country_flag = YUN_button_clicked }
+						check_variable = { global.YUN_WI_war_momentum_check > 90 }
 					}
 				}
 			}
@@ -178,8 +171,7 @@ scripted_gui = {
 					base = 0
 					modifier = {
 						add = 100
-						check_variable = { YUN_WI_Warlord = 4 }
-						NOT = { has_country_flag = YUN_button_clicked }
+						check_variable = { global.YUN_WI_war_momentum_check > 100 }
 					}
 				}
 			}
@@ -189,7 +181,11 @@ scripted_gui = {
 					modifier = {
 						add = 100
 						check_variable = { YUN_WI_Warlord = 5 }
-						NOT = { has_country_flag = YUN_button_clicked }
+						OR = {
+							has_global_flag = XIK_joins_NPA
+							has_full_control_of_state = 964
+						}
+						NOT = { has_country_flag = YUN_TIB_contacted }
 					}
 				}
 			}

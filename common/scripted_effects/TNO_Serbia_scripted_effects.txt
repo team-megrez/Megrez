@@ -118,7 +118,6 @@ SER_blow_up_the_country = {
 		country_leader = {
 			expire = "1999.1.1.1"
 			ideology = despotism_partisan_movement_subtype
-			traits = { }
 		}
 		promote_leader = yes
 	}
@@ -147,7 +146,7 @@ SER_blow_up_the_country = {
 		long_name = SER_despotism_party_NLM_long
 		name = SER_despotism_party_NLM
 	}
-	set_temp_variable = { TNO_economy_type_temp = 1 }
+	set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Capitalism }
 	econ_type_change = yes
 	remove_all_ministers = yes
 	add_ideas = {

@@ -1,0 +1,58 @@
+TNO_arrange_ICE_coalition_seats = {
+	ICE = {
+		clear_array = CA_Conference_seat_x
+		clear_array = CA_Conference_seat_y
+		
+		set_temp_variable = { outer_x = 45 }
+		set_temp_variable = { outer_y = 13 }
+
+		for_loop_effect = {
+			start = 0
+			end = 63
+			value = j
+
+			if = {
+				limit = {
+				
+				}
+
+				set_temp_variable = { last_outer_x = outer_x }
+
+				if = {
+					limit = { check_variable = { j < 31 } }
+					add_to_array = { CA_Conference_seat_x = outer_x }
+					add_to_array = { CA_Conference_seat_y = outer_y }
+				}
+			}
+			
+			add_to_array = { CA_Conference_seat_x = outer_x }
+			add_to_array = { CA_Conference_seat_y = outer_y }
+			add_to_temp_variable = { outer_x = 1 }
+			add_to_temp_variable = { outer_y = 1 }
+		}
+
+		clear_array = CA_Conference_indices
+		for_loop_effect = {
+			start = 0
+			end = 63
+			value = j
+
+			add_to_array = { CA_Conference_indices = j }
+		}
+
+		for_loop_effect = {
+			start = 0
+			end = 63
+			value = j
+
+			set_temp_variable = { k = 1 }
+			multiply_temp_variable = { k = 63 }
+			round_temp_variable = k
+
+			set_temp_variable = { tmp_CA = CA_Conference_indices^k }
+			set_variable = { CA_Conference_indices^k = CA_Conference_indices^j }
+			set_variable = { CA_Conference_indices^j = tmp_CA }
+		}
+
+	}
+}

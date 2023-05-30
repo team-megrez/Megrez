@@ -105,6 +105,9 @@ TNO_run_socintern_script = {
 							has_government = communist
 							has_government = socialist
 						}
+						NOT = {
+							has_idea = ZZZ_anarchy
+						}
 					}
 					if = {
 						limit = {
@@ -137,6 +140,9 @@ TNO_run_socintern_script = {
 							has_government = communist
 							has_government = socialist
 						}
+						NOT = {
+							has_idea = ZZZ_anarchy
+						}
 					}
 					if = {
 						limit = {
@@ -158,6 +164,7 @@ TNO_run_socintern_script = {
 				}
 			}
 			every_country = {
+				limit = { is_ai = no }
 				news_event = {
 					id = WORLD.1918
 					days = 3
@@ -571,7 +578,7 @@ SocIntern_Change_Leader = {
 		array = global.COMECON_MEMBERS
 	}
 	for_each_scope_loop = {
-		array = global.COMECON_MEMBERS^0
+		array = global.COMECON_MEMBERS^1
 		country_event = socintern.400
 	}
 	SocIntern_Refresh_Arrays = yes

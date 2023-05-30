@@ -373,7 +373,7 @@ YUN_WI_e_insurgent_help = {
 		}
 		capital_scope = {
 			create_unit = {
-				division = "division_template = \"Guofang Juntuan\" start_experience_factor = 0.5 start_equipment_factor = 1.0"
+				division = "division_template = \"Bubing Shi\" start_experience_factor = 0.5 start_equipment_factor = 1.0"
 				owner = YUN
 				count = 3
 			}
@@ -386,7 +386,7 @@ YUN_WI_e_insurgent_help = {
 		}
 		capital_scope = {
 			create_unit = {
-				division = "division_template = \"Guofang Juntuan\" start_experience_factor = 0.5 start_equipment_factor = 1.0"
+				division = "division_template = \"Bubing Shi\" start_experience_factor = 0.5 start_equipment_factor = 1.0"
 				owner = YUN
 				count = 2
 			}
@@ -399,7 +399,7 @@ YUN_WI_e_insurgent_help = {
 		}
 		capital_scope = {
 			create_unit = {
-				division = "division_template = \"Guofang Juntuan\" start_experience_factor = 0.5 start_equipment_factor = 1.0"
+				division = "division_template = \"Bubing Shi\" start_experience_factor = 0.5 start_equipment_factor = 1.0"
 				owner = YUN
 				count = 1
 			}
@@ -712,8 +712,8 @@ WI_Sichuan_influence_calc = {
 			randomize_temp_variable = {
 				var = WI_Sichuan_NPA_support_calc
 				distribution = uniform
-				min = 10
-				max = 20
+				min = 5
+				max = 25
 			}
 			add_to_variable = { global.WI_Sichuan_NPA_support = WI_Sichuan_NPA_support_calc }
 		}
@@ -724,7 +724,7 @@ WI_Sichuan_influence_calc = {
 				var = WI_Sichuan_RGOC_support_calc
 				distribution = uniform
 				min = 10
-				max = 25
+				max = 20
 			}
 			add_to_variable = { global.WI_Sichuan_RGOC_support = WI_Sichuan_RGOC_support_calc }
 		}
@@ -755,14 +755,14 @@ WI_Sichuan_influence_calc = {
 	randomize_temp_variable = {
 		var = GUI_SIC_NPA_clash
 		distribution = uniform
-		min = 5
+		min = 10
 		max = 20
 	}
 	randomize_temp_variable = {
 		var = GUI_SIC_RGOC_clash
 		distribution = uniform
 		min = 5
-		max = 20
+		max = 25
 	}
 	subtract_from_variable = { global.WI_Sichuan_NPA_support = GUI_SIC_NPA_clash }
 	subtract_from_variable = { global.WI_Sichuan_RGOC_support = GUI_SIC_RGOC_clash }
@@ -849,21 +849,21 @@ YUN_Sichuan_struggle_ends = {
 				limit = { check_variable = { global.GUI_SIC_NPA_Influence > 70 } }
 				605 = {
 					create_unit = {
-						division = "division_template = \"Guofang Juntuan\" start_experience_factor = 0.25 start_equipment_factor = 1.0"
+						division = "division_template = \"Bubing Shi\" start_experience_factor = 0.25 start_equipment_factor = 1.0"
 						owner = YUN
 						count = 1
 					}
 				}
 				1537 = {
 					create_unit = {
-						division = "division_template = \"Guofang Juntuan\" start_experience_factor = 0.25 start_equipment_factor = 1.0"
+						division = "division_template = \"Bubing Shi\" start_experience_factor = 0.25 start_equipment_factor = 1.0"
 						owner = YUN
 						count = 1
 					}
 				}
 				1538 = {
 					create_unit = {
-						division = "division_template = \"Guofang Juntuan\" start_experience_factor = 0.25 start_equipment_factor = 1.0"
+						division = "division_template = \"Bubing Shi\" start_experience_factor = 0.25 start_equipment_factor = 1.0"
 						owner = YUN
 						count = 1
 					}
@@ -874,14 +874,14 @@ YUN_Sichuan_struggle_ends = {
 				limit = { check_variable = { global.GUI_SIC_NPA_Influence > 50 } }
 				605 = {
 					create_unit = {
-						division = "division_template = \"Guofang Juntuan\" start_experience_factor = 0.25 start_equipment_factor = 1.0"
+						division = "division_template = \"Bubing Shi\" start_experience_factor = 0.25 start_equipment_factor = 1.0"
 						owner = YUN
 						count = 1
 					}
 				}
 				1538 = {
 					create_unit = {
-						division = "division_template = \"Guofang Juntuan\" start_experience_factor = 0.25 start_equipment_factor = 1.0"
+						division = "division_template = \"Bubing Shi\" start_experience_factor = 0.25 start_equipment_factor = 1.0"
 						owner = YUN
 						count = 1
 					}
@@ -891,7 +891,7 @@ YUN_Sichuan_struggle_ends = {
 			else = {
 				605 = {
 					create_unit = {
-						division = "division_template = \"Guofang Juntuan\" start_experience_factor = 0.25 start_equipment_factor = 1.0"
+						division = "division_template = \"Bubing Shi\" start_experience_factor = 0.25 start_equipment_factor = 1.0"
 						owner = YUN
 						count = 1
 					}
@@ -924,7 +924,7 @@ YUN_Sichuan_struggle_ends = {
 				limit = { check_variable = { global.GUI_SIC_RGOC_Influence > 70 } }
 				605 = {
 					create_unit = {
-						division = "division_template = \"Qianxian Bubing Juntuan\" start_experience_factor = 0.4 start_equipment_factor = 1.0"
+						division = "division_template = \"Qianxian Bubing Juntuan\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
 						owner = CHI
 						count = 1
 					}
@@ -932,7 +932,7 @@ YUN_Sichuan_struggle_ends = {
 				}
 				1537 = {
 					create_unit = {
-						division = "division_template = \"Qianxian Bubing Juntuan\" start_experience_factor = 0.4 start_equipment_factor = 1.0"
+						division = "division_template = \"Qianxian Bubing Juntuan\" start_experience_factor = 0.2 start_equipment_factor = 1.0"
 						owner = CHI
 						count = 1
 					}
@@ -940,7 +940,7 @@ YUN_Sichuan_struggle_ends = {
 				}
 				1538 = {
 					create_unit = {
-						division = "division_template = \"Qianxian Bubing Juntuan\" start_experience_factor = 0.4 start_equipment_factor = 1.0"
+						division = "division_template = \"Qianxian Bubing Juntuan\" start_experience_factor = 0.2 start_equipment_factor = 1.0"
 						owner = CHI
 						count = 1
 					}
@@ -951,7 +951,7 @@ YUN_Sichuan_struggle_ends = {
 				limit = { check_variable = { global.GUI_SIC_RGOC_Influence > 50 } }
 				605 = {
 					create_unit = {
-						division = "division_template = \"Qianxian Bubing Juntuan\" start_experience_factor = 0.4 start_equipment_factor = 1.0"
+						division = "division_template = \"Qianxian Bubing Juntuan\" start_experience_factor = 0.2 start_equipment_factor = 1.0"
 						owner = CHI
 						count = 1
 					}
@@ -959,7 +959,7 @@ YUN_Sichuan_struggle_ends = {
 				}
 				1537 = {
 					create_unit = {
-						division = "division_template = \"Qianxian Bubing Juntuan\" start_experience_factor = 0.4 start_equipment_factor = 1.0"
+						division = "division_template = \"Qianxian Bubing Juntuan\" start_experience_factor = 0.2 start_equipment_factor = 1.0"
 						owner = CHI
 						count = 1
 					}
@@ -970,7 +970,7 @@ YUN_Sichuan_struggle_ends = {
 			else = {
 				605 = {
 					create_unit = {
-						division = "division_template = \"Qianxian Bubing Juntuan\" start_experience_factor = 0.4 start_equipment_factor = 1.0"
+						division = "division_template = \"Qianxian Bubing Juntuan\" start_experience_factor = 0.2 start_equipment_factor = 1.0"
 						owner = CHI
 						count = 1
 					}
@@ -1344,7 +1344,7 @@ YUN_Long_Yun_Coup_effects = {
 		retire_character = YUN_zeng_wanzhong
 		retire_character = YUN_wang_shaoyuan
 		retire_character = YUN_sun_du
-		set_politics = {ruling_party = ultranationalism }
+		set_politics = { ruling_party = ultranationalism }
 		YUN_long_yun = {
 			remove_advisor_role = { slot = head_of_government }
 			add_advisor_role = {
@@ -1374,7 +1374,7 @@ YUN_Long_Yun_Coup_effects = {
 			}
 		}
 
-		set_temp_variable = {TNO_economy_subtype_temp = 6}
+		set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Military_Directed}
 		econ_subtype_change = yes
 		add_popularity = {
 			ideology = ultranationalism
@@ -1441,26 +1441,14 @@ YUN_Long_Yun_Coup_effects = {
 
 		set_variable = {YUN_fail_counter = 0}
 
-		if = {
-			limit = {
-				is_ai = yes
-			}
-			set_variable = { YUN_legitimacy = 0 }
-			set_variable = { YUN_WI_warbuff = 0 }
-			YUN_update_legitimacy_effects = yes
-			YUN_update_warbuff_effects = yes
+		set_variable = { YUN_legitimacy = 0 }
+		set_variable = { YUN_WI_warbuff = 0 }
+		YUN_update_legitimacy_effects = yes
+		YUN_update_warbuff_effects = yes
 
-			load_oob = "YUN_NPA_AI_start_army"
-		}
-		else = {
-			set_variable = { YUN_legitimacy = 0 }
-			set_variable = { YUN_WI_warbuff = 0 }
-			YUN_update_legitimacy_effects = yes
-			YUN_update_warbuff_effects = yes
-
-			load_oob = "YUN_NPA_player_start_army"
-			load_oob = "YUN_NPA_army"
-		}
+		load_oob = "YUN_NPA_player_start_army"
+		load_oob = "YUN_NPA_army"
+		
 		leave_faction = yes
 		econ_leave_sphere = yes
 		remove_faction_status = yes
@@ -1594,6 +1582,7 @@ WI_Start_effects = {
 				}
 			}
 			else = {
+				country_event = { id = chi.10002 }
 				CHI = {
 					country_event = { id = chi.9998 days = 14 }
 					country_event = { id = chi.9999 days = 730 } 
@@ -1688,52 +1677,54 @@ WI_GAW_Start_Effects = {
 }
 
 GAW_go_eat_dirt_paradox_ai = {
-	delete_unit_template_and_units = {
-		division_template = "Dai Shidan (Triangular)"
-		disband = yes
-	}
-	delete_unit_template_and_units = {
-		division_template = "Sensha Shidan"
-		disband = yes
-	}
-	delete_unit_template_and_units = {
-		division_template = "Dai Shidan (Motorized)"
-		disband = yes
-	}
-	delete_unit_template_and_units = {
-		division_template = "Dai Shidan (Square)"
-		disband = yes
-	}
-	delete_unit_template_and_units = {
-		division_template = "Tokubetsu Rikusentai"
-		disband = yes
-	}
-	delete_unit_template_and_units = {
-		division_template = "Teishin Shudan"
-		disband = yes
-	}
-	delete_unit_template_and_units = {
-		division_template = "Konoe Shidan"
-		disband = yes
-	}
-	if = {
-		limit = { has_dlc = "No Step Back" }
-		create_equipment_variant = {
-			name = "IFV Flame Chassis GAW"
-			type = IFV_flame_chassis_2
-			parent_version = 0
-			modules = {
-				main_armament_slot = flamethrower
-				turret_type_slot = IFV_one_man_tank_turret
-				suspension_type_slot = tank_christie_suspension
-				armor_type_slot = tank_riveted_armor
-				engine_type_slot = tank_gasoline_engine
-			}
+	JAP = {
+		delete_unit_template_and_units = {
+			division_template = "Dai Shidan (Triangular)"
+			disband = yes
 		}
-		load_oob = JAP_GAW_army
-	}
-	else = {
-		load_oob = JAP_GAW_army_2 #Blame Paradox DLC
+		delete_unit_template_and_units = {
+			division_template = "Sensha Shidan"
+			disband = yes
+		}
+		delete_unit_template_and_units = {
+			division_template = "Dai Shidan (Motorized)"
+			disband = yes
+		}
+		delete_unit_template_and_units = {
+			division_template = "Dai Shidan (Square)"
+			disband = yes
+		}
+		delete_unit_template_and_units = {
+			division_template = "Tokubetsu Rikusentai"
+			disband = yes
+		}
+		delete_unit_template_and_units = {
+			division_template = "Teishin Shudan"
+			disband = yes
+		}
+		delete_unit_template_and_units = {
+			division_template = "Konoe Shidan"
+			disband = yes
+		}
+		if = {
+			limit = { has_dlc = "No Step Back" }
+			create_equipment_variant = {
+				name = "IFV Flame Chassis GAW"
+				type = IFV_flame_chassis_2
+				parent_version = 0
+				modules = {
+					main_armament_slot = flamethrower
+					turret_type_slot = IFV_one_man_tank_turret
+					suspension_type_slot = tank_christie_suspension
+					armor_type_slot = tank_riveted_armor
+					engine_type_slot = tank_gasoline_engine
+				}
+			}
+			load_oob = JAP_GAW_army
+		}
+		else = {
+			load_oob = JAP_GAW_army_2 #Blame Paradox DLC
+		}
 	}
 }
 
@@ -1978,6 +1969,8 @@ YUN_WI_Victory_ROC = {
 		set_temp_variable = { Victory_Points = -1500 }
 		Cold_War_GUI_ManipulateVictory = yes
 		country_event = { id = japdlc_endgame.17 days = 60 }
+		527 = { set_demilitarized_zone = no }
+		1024 = { set_demilitarized_zone = no }
 	}
 	set_global_flag = JAP_GAW_total_defeat
 	every_country = { news_event = WORLD.1911 }
@@ -2115,7 +2108,7 @@ greater_china_states_initialize = {
 		set_variable = { greater_china_states_X = 594 }
 		set_variable = { greater_china_states_Y = 413 }
 		set_variable = { greater_china_states_group = 1 }
-		set_state_flag = WI_NCPC_state
+		add_to_array = { YUN.WI_NCPC_state = THIS }
 	}
 	1014 = { #Kaifeng - 17
 		add_to_array = { YUN.greater_china_states = THIS }
@@ -2123,7 +2116,7 @@ greater_china_states_initialize = {
 		set_variable = { greater_china_states_X = 618 }
 		set_variable = { greater_china_states_Y = 393 }
 		set_variable = { greater_china_states_group = 1 }
-		set_state_flag = WI_NCPC_state
+		add_to_array = { YUN.WI_NCPC_state = THIS }
 	}
 	607 = { #Henan - 18
 		add_to_array = { YUN.greater_china_states = THIS }
@@ -2131,7 +2124,7 @@ greater_china_states_initialize = {
 		set_variable = { greater_china_states_X = 588 }
 		set_variable = { greater_china_states_Y = 382 }
 		set_variable = { greater_china_states_group = 1 }
-		set_state_flag = WI_NCPC_state
+		add_to_array = { YUN.WI_NCPC_state = THIS }
 	}
 	600 = { #Jiangxi - 19
 		add_to_array = { YUN.greater_china_states = THIS }
@@ -2189,7 +2182,7 @@ greater_china_states_initialize = {
 		set_variable = { greater_china_states_X = 640 }
 		set_variable = { greater_china_states_Y = 405 }
 		set_variable = { greater_china_states_group = 1 }
-		set_state_flag = WI_NCPC_state
+		add_to_array = { YUN.WI_NCPC_state = THIS }
 	}
 	598 = { #Jiangsu - 27
 		add_to_array = { YUN.greater_china_states = THIS }
@@ -2197,7 +2190,7 @@ greater_china_states_initialize = {
 		set_variable = { greater_china_states_X = 653 }
 		set_variable = { greater_china_states_Y = 399 }
 		set_variable = { greater_china_states_group = 1 }
-		set_state_flag = WI_NCPC_state
+		add_to_array = { YUN.WI_NCPC_state = THIS }
 	}
 	1020 = { #Jinan - 28
 		add_to_array = { YUN.greater_china_states = THIS }
@@ -2205,7 +2198,7 @@ greater_china_states_initialize = {
 		set_variable = { greater_china_states_X = 643 }
 		set_variable = { greater_china_states_Y = 362 }
 		set_variable = { greater_china_states_group = 1 }
-		set_state_flag = WI_NCPC_state
+		add_to_array = { YUN.WI_NCPC_state = THIS }
 	}
 	597 = { #Shandong - 29
 		add_to_array = { YUN.greater_china_states = THIS }
@@ -2213,7 +2206,7 @@ greater_china_states_initialize = {
 		set_variable = { greater_china_states_X = 664 }
 		set_variable = { greater_china_states_Y = 384 }
 		set_variable = { greater_china_states_group = 1 }
-		set_state_flag = WI_NCPC_state
+		add_to_array = { YUN.WI_NCPC_state = THIS }
 	}
 	1021 = { #Weifang - 30
 		add_to_array = { YUN.greater_china_states = THIS }
@@ -2221,7 +2214,7 @@ greater_china_states_initialize = {
 		set_variable = { greater_china_states_X = 676 }
 		set_variable = { greater_china_states_Y = 366 }
 		set_variable = { greater_china_states_group = 1 }
-		set_state_flag = WI_NCPC_state
+		add_to_array = { YUN.WI_NCPC_state = THIS }
 	}
 	812 = { #Chintao - 31
 		add_to_array = { YUN.greater_china_states = THIS }
@@ -2236,7 +2229,7 @@ greater_china_states_initialize = {
 		set_variable = { greater_china_states_X = 692 }
 		set_variable = { greater_china_states_Y = 363 }
 		set_variable = { greater_china_states_group = 1 }
-		set_state_flag = WI_NCPC_state
+		add_to_array = { YUN.WI_NCPC_state = THIS }
 	}
 	811 = { #Ikaiei - 33
 		add_to_array = { YUN.greater_china_states = THIS }
@@ -2337,7 +2330,7 @@ greater_china_states_initialize = {
 		set_variable = { greater_china_states_X = 652 }
 		set_variable = { greater_china_states_Y = 331 }
 		set_variable = { greater_china_states_group = 1 }
-		set_state_flag = WI_NCPC_state
+		add_to_array = { YUN.WI_NCPC_state = THIS }
 	}
 	614 = { #Hebei - 47
 		add_to_array = { YUN.greater_china_states = THIS }
@@ -2345,7 +2338,7 @@ greater_china_states_initialize = {
 		set_variable = { greater_china_states_X = 643 }
 		set_variable = { greater_china_states_Y = 334 }
 		set_variable = { greater_china_states_group = 1 }
-		set_state_flag = WI_NCPC_state
+		add_to_array = { YUN.WI_NCPC_state = THIS }
 	}
 	609 = { #East Hebei - 48
 		add_to_array = { YUN.greater_china_states = THIS }
@@ -2353,7 +2346,7 @@ greater_china_states_initialize = {
 		set_variable = { greater_china_states_X = 660 }
 		set_variable = { greater_china_states_Y = 326 }
 		set_variable = { greater_china_states_group = 1 }
-		set_state_flag = WI_NCPC_state
+		add_to_array = { YUN.WI_NCPC_state = THIS }
 	}
 	1023 = { #Shijiazhuang - 49
 		add_to_array = { YUN.greater_china_states = THIS }
@@ -2361,7 +2354,7 @@ greater_china_states_initialize = {
 		set_variable = { greater_china_states_X = 623 }
 		set_variable = { greater_china_states_Y = 338 }
 		set_variable = { greater_china_states_group = 1 }
-		set_state_flag = WI_NCPC_state
+		add_to_array = { YUN.WI_NCPC_state = THIS }
 	}
 	615 = { #Shanxi - 50
 		add_to_array = { YUN.greater_china_states = THIS }
@@ -3121,6 +3114,99 @@ YUN_WI_greater_china_states_actions_initialize = {
 	}
 }
 
+YUN_save_paradox_ai = {
+	random_list = {
+		15 = {
+			capital_scope = {
+				create_unit = {
+					division = "division_template = \"Bubing Shi\" start_equipment_factor = 1.0"
+					owner = YUN
+					count = 3
+				}
+			}
+		}
+		40 = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 3000
+			}
+			add_equipment_to_stockpile = {
+				type = anti_tank_equipment
+				amount = 675
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 360
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 720
+			}
+		}
+		25 = {
+			random_controlled_state = {
+				add_building_construction = {
+					type = barracks
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_controlled_state = {
+				add_building_construction = {
+					type = barracks
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_controlled_state = {
+				add_building_construction = {
+					type = barracks
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_to_variable = { YUN_legitimacy_pu = 3 }
+		}
+		20 = {
+			random_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				set_temp_variable = { state_value_multiplier_temp = 1.02 }
+				econ_state_value_change_multiply_specified_state = yes
+			}
+			random_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				set_temp_variable = { state_value_multiplier_temp = 1.02 }
+				econ_state_value_change_multiply_specified_state = yes
+			}
+			random_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				set_temp_variable = { state_value_multiplier_temp = 1.02 }
+				econ_state_value_change_multiply_specified_state = yes
+			}
+		}
+	}
+	add_political_power = 30
+	add_command_power = 15
+	set_temp_variable = { YUN_WI_temp_legitimacy = 2.0 }
+	YUN_WI_legitimacy_change = yes
+	country_event = { id = chi.10002 days = 90 }
+}
+
 YUN_WI_china_states_action_starts = {
 	if = {
 		limit = {
@@ -3128,7 +3214,7 @@ YUN_WI_china_states_action_starts = {
 		}
 		THIS = {
 			create_unit = {
-				division = "division_template = \"Guofang Juntuan\" start_equipment_factor = 1.0"
+				division = "division_template = \"Bubing Shi\" start_equipment_factor = 1.0"
 				owner = YUN
 				count = 1
 			}
@@ -3392,7 +3478,7 @@ YUN_WI_china_states_action_GUI_starts = {
 		}
 		var:china_acted_state = {
 			create_unit = {
-				division = "division_template = \"Guofang Juntuan\" start_equipment_factor = 1.0"
+				division = "division_template = \"Bubing Shi\" start_equipment_factor = 1.0"
 				owner = YUN
 				count = 1
 			}
@@ -4040,13 +4126,23 @@ YUN_conquered_state_calc = {
 		}
 		add_dynamic_modifier = { modifier = YUN_WI_province_status_dynamic }
 		add_dynamic_modifier = { modifier = YUN_WI_province_army_status }
-		set_variable = { WI_current_state_officer = 0 }
 		set_temp_variable = { WI_state_officer_calc = state_population_k }
 		multiply_temp_variable = { WI_state_officer_calc = 0.1 }
 		multiply_temp_variable = { WI_state_officer_calc = 0.001 }
 		set_variable = { WI_state_officer_needed = WI_state_officer_calc }
-		set_variable = { YUN_WI_state_logunit_percent = 0 }
-		set_variable = { YUN_state_officer_percentage = 0 }
+		if = {
+			limit = { YUN = { is_ai = yes } }
+			set_temp_variable = { tempAIOfficer = WI_state_officer_needed }
+			multiply_temp_variable = { tempAIOfficer = 0.5 }
+			set_variable = { WI_current_state_officer = tempAIOfficer }
+			set_variable = { YUN_WI_state_logunit_percent = 50 }
+			set_variable = { YUN_state_officer_percentage = 50 }
+		}
+		else = {
+			set_variable = { WI_current_state_officer = 0 }
+			set_variable = { YUN_WI_state_logunit_percent = 0 }
+			set_variable = { YUN_state_officer_percentage = 0 }
+		}
 		set_variable = { WI_state_integrate_progress = 0 }
 		set_variable = { WI_state_mil_level_confirmed = 50 }
 		set_variable = { WI_state_mil_level_true = WI_state_mil_level_confirmed }
@@ -4113,74 +4209,6 @@ YUN_WI_officer_spend_calc = {
 	add_to_variable = { econ_admin_expenditures_maximal_pct = YUN_WI_admin_max_spend }
 	add_to_variable = { econ_admin_expenditures_minimal_pct = YUN_WI_admin_min_spend }
 	update_economy_tab = yes
-}
-
-YUN_testing = {
-	if = {
-		limit = {
-			NOT = { has_global_flag = YUN_NCPC_revived }
-		}
-		every_state = {
-			limit = { has_state_flag = WI_NCPC_state }
-			add_core_of = NCC
-		}
-		set_global_flag = YUN_NCPC_revived
-		if = {
-			limit = { YUN = { is_ai = no } }
-			JAP = { GAW_go_eat_dirt_paradox_ai = yes }
-		}
-	}
-
-	if = {
-		limit = {
-			YUN = { has_country_flag = YUN_long_yun_crusade }
-			NOT = { country_exists = NCC }
-			NOT = { has_global_flag = YUN_NPA_GAW_Crisis }
-			NOT = { has_global_flag = JAP_Western_Insurrection_Intervention }
-		}
-		597 = { set_demilitarized_zone = yes }
-		598 = { set_demilitarized_zone = yes }
-		606 = { set_demilitarized_zone = yes }
-		607 = { set_demilitarized_zone = yes }
-		608 = { set_demilitarized_zone = yes }
-		609 = { set_demilitarized_zone = yes }
-		614 = { set_demilitarized_zone = yes }
-		1014 = { set_demilitarized_zone = yes }
-		1015 = { set_demilitarized_zone = yes }
-		1020 = { set_demilitarized_zone = yes }
-		1021 = { set_demilitarized_zone = yes }
-		1022 = { set_demilitarized_zone = yes }
-		1023 = { set_demilitarized_zone = yes }
-		country_event = { id = yun.2023 days = 1 }
-	}
-	else = {
-		597 = { set_demilitarized_zone = no }
-		598 = { set_demilitarized_zone = no }
-		606 = { set_demilitarized_zone = no }
-		607 = { set_demilitarized_zone = no }
-		608 = { set_demilitarized_zone = no }
-		609 = { set_demilitarized_zone = no }
-		614 = { set_demilitarized_zone = no }
-		1014 = { set_demilitarized_zone = no }
-		1015 = { set_demilitarized_zone = no }
-		1020 = { set_demilitarized_zone = no }
-		1021 = { set_demilitarized_zone = no }
-		1022 = { set_demilitarized_zone = no }
-		1023 = { set_demilitarized_zone = no }
-	}
-}
-
-YUN_testing_2 = {
-	if = {
-		limit = { has_global_flag = YUN_NPA_GAW_Crisis }
-		527 = { set_demilitarized_zone = yes }
-		1024 = { set_demilitarized_zone = yes }
-		country_event = { id = yun.2024 days = 1 }
-	}
-	else = {
-		527 = { set_demilitarized_zone = no }
-		1024 = { set_demilitarized_zone = no }
-	}
 }
 
 YUN_NPA_fails_effects = {

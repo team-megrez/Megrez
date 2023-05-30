@@ -3491,8 +3491,8 @@ USA_prepare_presidential_election = {
 		limit = { can_have_elections_in_state = yes }
 	}
 	USA_recalculate_polls = yes
-	set_variable = {USA_GUI_current_election_rdc_candidate = 0}
-	set_variable = {USA_GUI_current_election_npp_candidate = 0}
+	set_variable = {USA_current_election_rd_candidate = 15}
+	set_variable = {USA_current_election_npp_candidate = 15}
 }
 
 USA_clamp_state_popularities_diffname = { # unused and causing errors
@@ -3637,6 +3637,10 @@ USA_print_pop_to_log = {
 		# log = "THIS_IS_USEL_DATA_1,\"[GetDateText]\",[This.GetName],RD,[?RD_popularity],NPP,[?NPP_popularity],Senator1,[?senator_1],Senator2,[?senator_2]"
 		# log = "THIS_IS_USEL_DATA_2,\"[GetDateText]\",[This.GetName],Bonus,,Popularity,,R,[?RD_R_bonus_popularity],D,[?RD_D_bonus_popularity],L,[?NPP_L_bonus_popularity],C,[?NPP_C_bonus_popularity],F,[?NPP_FR_bonus_popularity],Y,[?NPP_Y_bonus_popularity]"
 	}
+}
+
+USA_conversion_rate_loop = {
+	USA_conversion_rate_loop = yes
 }
 
 USA_campaigning_effect = {
@@ -4482,45 +4486,45 @@ USA_GUI_voting_setup = {
 
 	set_variable = {USA_total_votes_rdc_prev_1^1940 = 23}
 	set_variable = {USA_total_votes_rdc_prev_2^1940 = 1866}
-	set_variable = {USA_total_votes_rdc_prev_3^1940 = 1860}
+	set_variable = {USA_total_votes_rdc_prev_3^1940 = 860}
 	set_variable = {USA_total_votes_npp_prev_1^1940 = 24}
 	set_variable = {USA_total_votes_npp_prev_2^1940 = 1064}
-	set_variable = {USA_total_votes_npp_prev_3^1940 = 1107}
+	set_variable = {USA_total_votes_npp_prev_3^1940 = 107}
 
 	set_variable = {USA_total_votes_rdc_prev_1^1944 = 18}
 	set_variable = {USA_total_votes_rdc_prev_2^1944 = 1207}
-	set_variable = {USA_total_votes_rdc_prev_3^1944 = 1984}
+	set_variable = {USA_total_votes_rdc_prev_3^1944 = 984}
 	set_variable = {USA_total_votes_npp_prev_1^1944 = 19}
 	set_variable = {USA_total_votes_npp_prev_2^1944 = 1783}
-	set_variable = {USA_total_votes_npp_prev_3^1944 = 1675}
+	set_variable = {USA_total_votes_npp_prev_3^1944 = 675}
 
 	set_variable = {USA_total_votes_rdc_prev_1^1948 = 31}
 	set_variable = {USA_total_votes_rdc_prev_2^1948 = 1967}
-	set_variable = {USA_total_votes_rdc_prev_3^1948 = 1257}
+	set_variable = {USA_total_votes_rdc_prev_3^1948 = 257}
 	set_variable = {USA_total_votes_npp_prev_1^1948 = 21}
 	set_variable = {USA_total_votes_npp_prev_2^1948 = 1275}
-	set_variable = {USA_total_votes_npp_prev_3^1948 = 1505}
+	set_variable = {USA_total_votes_npp_prev_3^1948 = 505}
 
 	set_variable = {USA_total_votes_rdc_prev_1^1952 = 26}
 	set_variable = {USA_total_votes_rdc_prev_2^1952 = 1316}
-	set_variable = {USA_total_votes_rdc_prev_3^1952 = 1801}
+	set_variable = {USA_total_votes_rdc_prev_3^1952 = 801}
 	set_variable = {USA_total_votes_npp_prev_1^1952 = 23}
 	set_variable = {USA_total_votes_npp_prev_2^1952 = 1983}
-	set_variable = {USA_total_votes_npp_prev_3^1952 = 1559}
+	set_variable = {USA_total_votes_npp_prev_3^1952 = 559}
 
 	set_variable = {USA_total_votes_rdc_prev_1^1956 = 26}
 	set_variable = {USA_total_votes_rdc_prev_2^1956 = 1408}
-	set_variable = {USA_total_votes_rdc_prev_3^1956 = 1954}
+	set_variable = {USA_total_votes_rdc_prev_3^1956 = 954}
 	set_variable = {USA_total_votes_npp_prev_1^1956 = 10}
 	set_variable = {USA_total_votes_npp_prev_2^1956 = 1972}
-	set_variable = {USA_total_votes_npp_prev_3^1956 = 1612}
+	set_variable = {USA_total_votes_npp_prev_3^1956 = 612}
 
 	set_variable = {USA_total_votes_rdc_prev_1^1960 = 38}
 	set_variable = {USA_total_votes_rdc_prev_2^1960 = 1687}
-	set_variable = {USA_total_votes_rdc_prev_3^1960 = 1346}
+	set_variable = {USA_total_votes_rdc_prev_3^1960 = 346}
 	set_variable = {USA_total_votes_npp_prev_1^1960 = 26}
 	set_variable = {USA_total_votes_npp_prev_2^1960 = 1254}
-	set_variable = {USA_total_votes_npp_prev_3^1960 = 1489}
+	set_variable = {USA_total_votes_npp_prev_3^1960 = 489}
 
 	set_variable = {USA_GUI_selected_prev_year = 1960}
 	set_variable = {USA_prev_selected_year = 1960}
@@ -4582,16 +4586,16 @@ USA_GUI_voting_setup = {
 	set_variable = {USA_pres_contender_rd_prev^1940 = 1}
 	set_variable = {USA_pres_contender_rd_prev^1944 = 2}
 	set_variable = {USA_pres_contender_rd_prev^1948 = 3}
-	set_variable = {USA_pres_contender_rd_prev^1952 = 3}
-	set_variable = {USA_pres_contender_rd_prev^1956 = 4}
-	set_variable = {USA_pres_contender_rd_prev^1960 = 5}
+	set_variable = {USA_pres_contender_rd_prev^1952 = 4}
+	set_variable = {USA_pres_contender_rd_prev^1956 = 5}
+	set_variable = {USA_pres_contender_rd_prev^1960 = 6}
 
 	set_variable = {USA_pres_contender_npp_prev^1940 = 1}
-	set_variable = {USA_pres_contender_npp_prev^1944 = 1}
-	set_variable = {USA_pres_contender_npp_prev^1948 = 2}
-	set_variable = {USA_pres_contender_npp_prev^1952 = 3}
-	set_variable = {USA_pres_contender_npp_prev^1956 = 4}
-	set_variable = {USA_pres_contender_npp_prev^1960 = 5}
+	set_variable = {USA_pres_contender_npp_prev^1944 = 2}
+	set_variable = {USA_pres_contender_npp_prev^1948 = 3}
+	set_variable = {USA_pres_contender_npp_prev^1952 = 4}
+	set_variable = {USA_pres_contender_npp_prev^1956 = 5}
+	set_variable = {USA_pres_contender_npp_prev^1960 = 6}
 
 	# Setting up variables to clear an error
 	set_variable = { REP_STATE_PCT = 0 }
@@ -4606,8 +4610,11 @@ USA_GUI_voting_setup = {
 
 	USA_polls_setup_effect = yes
 
+	USA_GUI_fetch_real_index_numbers = yes
+
 	clear_variable = USA_state_number_to_add
 	clear_array = USA_states_icon_array
+	clear_array = USA_states_outline_array
 	for_loop_effect = {
 		start = 0
 		end = 53
@@ -4615,6 +4622,7 @@ USA_GUI_voting_setup = {
 
 		set_variable = {USA_number_to_add = idx}
 		add_to_array = {USA_states_icon_array = USA_number_to_add}
+		add_to_array = {USA_states_outline_array = USA_number_to_add}
 	}
 	set_variable = {USA_previously_selected_state_in_region^1 = 18}
 	set_variable = {USA_previously_selected_state_in_region^2 = 31}
@@ -4641,6 +4649,57 @@ USA_GUI_voting_setup = {
 	set_variable = {USA_npp_total_votes_from_election_prev^1960 = 26254.489}
 
 	USA_set_state_flags_for_campaigning = yes
+
+	clear_array = USA_previous_elections_presidential
+	add_to_array = {USA_previous_elections_presidential = 1940}
+	add_to_array = {USA_previous_elections_presidential = 1944}
+	add_to_array = {USA_previous_elections_presidential = 1948}
+	add_to_array = {USA_previous_elections_presidential = 1952}
+	add_to_array = {USA_previous_elections_presidential = 1956}
+	add_to_array = {USA_previous_elections_presidential = 1960}
+	add_to_array = {USA_previous_elections_presidential = 1964}
+	add_to_array = {USA_previous_elections_presidential = 1968}
+	add_to_array = {USA_previous_elections_presidential = 1972}
+
+	clear_array = USA_previous_elections_senate
+	add_to_array = {USA_previous_elections_senate = 1962}
+	add_to_array = {USA_previous_elections_senate = 1964}
+	add_to_array = {USA_previous_elections_senate = 1966}
+	add_to_array = {USA_previous_elections_senate = 1968}
+	add_to_array = {USA_previous_elections_senate = 1970}
+	add_to_array = {USA_previous_elections_senate = 1972}
+
+	set_variable = {US_prev_idx = 5}
+	set_variable = {US_prev_idx_sen = 0}
+
+	clear_array = USA_previous_elections_presidential_index
+	add_to_array = {USA_previous_elections_presidential_index = 1}
+	add_to_array = {USA_previous_elections_presidential_index = 2}
+	add_to_array = {USA_previous_elections_presidential_index = 3}
+	add_to_array = {USA_previous_elections_presidential_index = 4}
+	add_to_array = {USA_previous_elections_presidential_index = 5}
+	add_to_array = {USA_previous_elections_presidential_index = 106}
+	add_to_array = {USA_previous_elections_presidential_index = 8}
+	add_to_array = {USA_previous_elections_presidential_index = 10}
+	add_to_array = {USA_previous_elections_presidential_index = 12}
+
+	clear_array = USA_previous_elections_senate_index
+	add_to_array = {USA_previous_elections_senate_index = 107}
+	add_to_array = {USA_previous_elections_senate_index = 8}
+	add_to_array = {USA_previous_elections_senate_index = 9}
+	add_to_array = {USA_previous_elections_senate_index = 10}
+	add_to_array = {USA_previous_elections_senate_index = 11}
+	add_to_array = {USA_previous_elections_senate_index = 12}
+
+	for_loop_effect = {
+		start = 0
+		end = 51
+		value = idx
+
+		set_variable = {state_value = USA_states^idx}
+		set_variable = {Electoral_votes^idx = state_value:electoral_votes}
+	}
+
 }
 USA_set_state_flags_for_campaigning = {
 	#New England
@@ -4714,7 +4773,6 @@ USA_set_state_flags_for_campaigning = {
 USA_save_presidential_election_results = {
 	set_variable = {USA_GUI_selected_tab = 2}
 	set_variable = {USA_GUI_selected_tab_sub = 3}
-	USA_display_election_results = yes
 	set_variable = {US_GUI_year_to_save = USA_GUI_saving_years_pres^USA_no_of_presidential_elections}
 
 	if = {
@@ -4774,6 +4832,7 @@ USA_save_presidential_election_results = {
 
 	set_variable = {USA_rd_total_votes_from_election_prev^US_GUI_year_to_save = USA_rd_total_votes_from_election}
 	set_variable = {USA_npp_total_votes_from_election_prev^US_GUI_year_to_save = USA_npp_total_votes_from_election}
+	USA_display_election_results = yes
 }
 USA_GUI_setup_nat_pop_map = {
 	for_loop_effect = {
@@ -4875,13 +4934,25 @@ USA_voting_GUI_work_out_previous_presidential_results = {
 		add_to_variable = {USA_GUI_republican_vote^USA_GUI_selected_prev_year = USA_GUI_nationalist_vote^USA_GUI_selected_prev_year}
 	}
 
-	set_variable = {US_voting_actual_rd_votes_first_part_prev = USA_total_votes_rdc_prev_1^USA_GUI_selected_prev_year}
-	set_variable = {US_voting_actual_rd_votes_second_part_prev = USA_total_votes_rdc_prev_2^USA_GUI_selected_prev_year}
-	set_variable = {US_voting_actual_rd_votes_third_part_prev = USA_total_votes_rdc_prev_3^USA_GUI_selected_prev_year}
+	set_variable = {US_voting_votes_display^0 = USA_total_votes_rdc_prev_1^USA_GUI_selected_prev_year}
+	set_variable = {US_voting_votes_display_actual^0 = USA_total_votes_rdc_prev_1^USA_GUI_selected_prev_year}
+	set_variable = {US_voting_votes_display^1 = USA_total_votes_rdc_prev_2^USA_GUI_selected_prev_year}
+	set_variable = {US_voting_votes_display_actual^1 = USA_total_votes_rdc_prev_2^USA_GUI_selected_prev_year}
+	set_variable = {US_voting_votes_display^2 = USA_total_votes_rdc_prev_3^USA_GUI_selected_prev_year}
+	set_variable = {US_voting_votes_display_actual^2 = USA_total_votes_rdc_prev_3^USA_GUI_selected_prev_year}
+	multiply_variable = {US_voting_votes_display^0 = 1000}
+	multiply_variable = {US_voting_votes_display^1 = 1000}
+	multiply_variable = {US_voting_votes_display^2 = 1000}
 
-	set_variable = {US_voting_actual_npp_votes_first_part_prev = USA_total_votes_npp_prev_1^USA_GUI_selected_prev_year}
-	set_variable = {US_voting_actual_npp_votes_second_part_prev = USA_total_votes_npp_prev_2^USA_GUI_selected_prev_year}
-	set_variable = {US_voting_actual_npp_votes_third_part_prev = USA_total_votes_npp_prev_3^USA_GUI_selected_prev_year}
+	set_variable = {US_voting_votes_display^3 = USA_total_votes_npp_prev_1^USA_GUI_selected_prev_year}
+	set_variable = {US_voting_votes_display_actual^3 = USA_total_votes_npp_prev_1^USA_GUI_selected_prev_year}
+	set_variable = {US_voting_votes_display^4 = USA_total_votes_npp_prev_2^USA_GUI_selected_prev_year}
+	set_variable = {US_voting_votes_display_actual^4 = USA_total_votes_npp_prev_2^USA_GUI_selected_prev_year}
+	set_variable = {US_voting_votes_display^5 = USA_total_votes_npp_prev_3^USA_GUI_selected_prev_year}
+	set_variable = {US_voting_votes_display_actual^5 = USA_total_votes_npp_prev_3^USA_GUI_selected_prev_year}
+	multiply_variable = {US_voting_votes_display^3 = 1000}
+	multiply_variable = {US_voting_votes_display^4 = 1000}
+	multiply_variable = {US_voting_votes_display^5 = 1000}
 
 	if = {
 		limit = {
@@ -4889,6 +4960,27 @@ USA_voting_GUI_work_out_previous_presidential_results = {
 		}
 		set_variable = {US_voting_rdc_electoral_college_votes_prev = USA_GUI_democrat_vote_points^USA_GUI_selected_prev_year}
 		set_variable = {US_voting_npp_electoral_college_votes_prev = USA_GUI_republican_vote_points^USA_GUI_selected_prev_year}
+		set_variable = {US_voting_rdc_electoral_college_votes = USA_GUI_democrat_vote_points^USA_GUI_selected_prev_year}
+		set_variable = {US_GUI_rdc_elec_votes_prev = 0}
+		set_variable = {US_voting_npp_electoral_college_votes = USA_GUI_republican_vote_points^USA_GUI_selected_prev_year}
+		set_variable = {US_GUI_npp_elec_votes_prev = 0}
+
+		set_variable = {USA_prev_year_total = USA_GUI_democrat_vote_points^USA_GUI_selected_prev_year}
+		add_to_variable = {USA_prev_year_total = USA_GUI_republican_vote_points^USA_GUI_selected_prev_year}
+		add_to_variable = {USA_prev_year_total = USA_GUI_nationalist_vote_points^USA_GUI_selected_prev_year}
+		add_to_variable = {USA_prev_year_total = USA_GUI_progressive_vote_points^USA_GUI_selected_prev_year}
+		set_variable = {USA_prev_year_percent = USA_GUI_democrat_vote_points^USA_GUI_selected_prev_year}
+		set_variable = {USA_prev_year_rep_percent = USA_GUI_republican_vote_points^USA_GUI_selected_prev_year}
+		divide_variable = {USA_prev_year_percent = USA_prev_year_total}
+		divide_variable = {USA_prev_year_rep_percent = USA_prev_year_total}
+		multiply_variable = {USA_prev_year_percent = 100}
+		multiply_variable = {USA_prev_year_rep_percent = 100}
+		round_variable = USA_prev_year_percent
+		round_variable = USA_prev_year_rep_percent
+		multiply_variable = {USA_prev_year_rep_percent = 1000}
+		set_variable = {US_voting_animated_bar_frame = 1100000}
+		subtract_from_variable = {US_voting_animated_bar_frame = USA_prev_year_rep_percent}
+		add_to_variable = {US_voting_animated_bar_frame = USA_prev_year_percent}
 	}
 	else_if = {
 		limit = {
@@ -4896,10 +4988,59 @@ USA_voting_GUI_work_out_previous_presidential_results = {
 		}
 		set_variable = {US_voting_rdc_electoral_college_votes_prev = USA_GUI_democrat_vote_points^USA_GUI_selected_prev_year}
 		set_variable = {US_voting_npp_electoral_college_votes_prev = USA_GUI_nationalist_vote_points^USA_GUI_selected_prev_year}
+		set_variable = {US_voting_rdc_electoral_college_votes = USA_GUI_democrat_vote_points^USA_GUI_selected_prev_year}
+		set_variable = {US_GUI_rdc_elec_votes_prev = 0}
+		set_variable = {US_voting_npp_electoral_college_votes = USA_GUI_nationalist_vote_points^USA_GUI_selected_prev_year}
+		set_variable = {US_GUI_npp_elec_votes_prev = 0}
+
+		set_variable = {USA_prev_year_total = USA_GUI_democrat_vote_points^USA_GUI_selected_prev_year}
+		add_to_variable = {USA_prev_year_total = USA_GUI_republican_vote_points^USA_GUI_selected_prev_year}
+		add_to_variable = {USA_prev_year_total = USA_GUI_nationalist_vote_points^USA_GUI_selected_prev_year}
+		add_to_variable = {USA_prev_year_total = USA_GUI_progressive_vote_points^USA_GUI_selected_prev_year}
+
+		set_variable = {USA_prev_year_percent = USA_GUI_democrat_vote_points^USA_GUI_selected_prev_year}
+		set_variable = {USA_prev_year_rep_percent = USA_prev_year_total}
+		set_variable = {USA_prev_year_nat_percent = USA_prev_year_total}
+
+		subtract_from_variable = {USA_prev_year_nat_percent = USA_GUI_nationalist_vote_points^USA_GUI_selected_prev_year}
+		subtract_from_variable = {USA_prev_year_rep_percent = USA_GUI_republican_vote_points^USA_GUI_selected_prev_year}
+		subtract_from_variable = {USA_prev_year_rep_percent = USA_GUI_nationalist_vote_points^USA_GUI_selected_prev_year}
+
+		divide_variable = {USA_prev_year_nat_percent = USA_prev_year_total}
+		divide_variable = {USA_prev_year_rep_percent = USA_prev_year_total}
+		divide_variable = {USA_prev_year_percent = USA_prev_year_total}
+
+		multiply_variable = {USA_prev_year_nat_percent = 100}
+		multiply_variable = {USA_prev_year_rep_percent = 100}
+		multiply_variable = {USA_prev_year_percent = 100}
+
+		round_variable = USA_prev_year_nat_percent
+		round_variable = USA_prev_year_rep_percent
+		round_variable = USA_prev_year_percent
+
+		set_variable = {US_voting_animated_bar_frame = 1000000}
+		multiply_variable = {USA_prev_year_percent = 10000}
+		add_to_variable = {US_voting_animated_bar_frame = USA_prev_year_percent}
+		multiply_variable = {USA_prev_year_rep_percent = 100}
+		add_to_variable = {US_voting_animated_bar_frame = USA_prev_year_rep_percent}
+		add_to_variable = {US_voting_animated_bar_frame = USA_prev_year_nat_percent}
 	}
 	else = {
 		set_variable = {US_voting_rdc_electoral_college_votes_prev = USA_GUI_rd_vote_points^USA_GUI_selected_prev_year}
 		set_variable = {US_voting_npp_electoral_college_votes_prev = USA_GUI_npp_vote_points^USA_GUI_selected_prev_year}
+		set_variable = {US_voting_rdc_electoral_college_votes = USA_GUI_rd_vote_points^USA_GUI_selected_prev_year}
+		set_variable = {US_GUI_rdc_elec_votes_prev = 0}
+		set_variable = {US_voting_npp_electoral_college_votes = USA_GUI_npp_vote_points^USA_GUI_selected_prev_year}
+		set_variable = {US_GUI_npp_elec_votes_prev = 0}
+
+		set_variable = {USA_prev_year_total = USA_GUI_rd_vote_points^USA_GUI_selected_prev_year}
+		add_to_variable = {USA_prev_year_total = USA_GUI_npp_vote_points^USA_GUI_selected_prev_year}
+		set_variable = {USA_prev_year_percent = USA_GUI_rd_vote_points^USA_GUI_selected_prev_year}
+		divide_variable = {USA_prev_year_percent = USA_prev_year_total}
+		multiply_variable = {USA_prev_year_percent = 100}
+		round_variable = USA_prev_year_percent
+		set_variable = {US_voting_animated_bar_frame = 1000000}
+		add_to_variable = {US_voting_animated_bar_frame = USA_prev_year_percent}
 	}
 
 	set_variable = {US_california_status = US_prev_elec_cali_status^USA_GUI_selected_prev_year}
@@ -4909,8 +5050,52 @@ USA_voting_GUI_work_out_previous_presidential_results = {
 	set_variable = {USA_pres_contender_rd = USA_pres_contender_rd_prev^USA_GUI_selected_prev_year}
 	set_variable = {USA_pres_contender_npp = USA_pres_contender_npp_prev^USA_GUI_selected_prev_year}
 
+	set_variable = {USA_pres_contender_rd_animation = USA_pres_contender_rd_prev^USA_GUI_selected_prev_year}
+	set_variable = {USA_pres_contender_npp_animation = USA_pres_contender_npp_prev^USA_GUI_selected_prev_year}
+
 	set_variable = {USA_npp_total_votes_from_election = USA_npp_total_votes_from_election_prev^USA_GUI_selected_prev_year}
 	set_variable = {USA_rd_total_votes_from_election = USA_rd_total_votes_from_election_prev^USA_GUI_selected_prev_year}
+
+	if = {
+		limit = {
+			OR = {
+				check_variable = {USA_GUI_selected_prev_year = 1940}
+				check_variable = {USA_GUI_selected_prev_year = 1952}
+				check_variable = {USA_GUI_selected_prev_year = 1956}
+			}
+		}
+		set_variable = {US_GUI_victory_lines_frame = 1}
+	}
+	else_if = {
+		limit = {
+			check_variable = {USA_GUI_selected_prev_year = 1944}
+		}
+		set_variable = {US_GUI_victory_lines_frame = 2}
+	}
+	else_if = {
+		limit = {
+			check_variable = {USA_GUI_selected_prev_year = 1948}
+		}
+		set_variable = {US_GUI_victory_lines_frame = 3}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				check_variable = {USA_GUI_selected_prev_year = 1960}
+				AND = {
+					check_variable = {USA_GUI_selected_prev_year > 1960}
+					check_variable = {US_hawaii_status = 1}
+				}
+			}
+		}
+		set_variable = {US_GUI_victory_lines_frame = 4}
+	}
+	else = {
+		set_variable = {US_GUI_victory_lines_frame = 5}
+	}
+	USA_GUI_update_text_animation = yes
+	US_GUI_update_elec_college_display = yes
+	US_GUI_update_elec_bar = yes
 }
 USA_determine_senate_map_breakdown = {
 	for_each_scope_loop = {
@@ -4965,17 +5150,180 @@ USA_GUI_determine_previous_election_map = {
 	USA_set_variables_for_map = yes
 }
 USA_set_variables_for_map = {
+	clear_variable = USA_alaska_on_map
+	clear_variable = USA_cali_on_map
 	for_loop_effect = {
 		start = 0
 		end = 51
 		value = idx
 
 		set_variable = {USA_state_number = USA_states^idx}
-		set_variable = {USA_frame_for_map^idx = USA_state_number:USA_first_party}
+		set_variable = {var_state_number = idx}
+		if = {
+			limit = {
+				check_variable = {USA_state_number:USA_map_split = 100}
+			}
+			set_variable = {USA_state_number:USA_map_split = 0}
+			set_variable = {USA_first_party_temp = USA_state_number:USA_first_party}
+			set_variable = {USA_state_number:USA_first_party = USA_state_number:USA_second_party}
+			set_variable = {USA_state_number:USA_second_party = USA_first_party_temp}
+		}
+		set_variable = {USA_frame_for_map^idx = var_state_number}
+		if = {
+			limit = {
+				check_variable = {USA_frame_for_map^idx = 1}
+				OR = {
+					AND = {
+						NOT = {
+							OR = {
+								check_variable = {USA_GUI_selected_tab_sub = 4}
+								check_variable = {USA_GUI_selected_tab_sub = 2}
+							}
+						}
+						USA = {owns_state = 772}
+					}
+					AND = {
+						OR = {
+							check_variable = {USA_GUI_selected_tab_sub = 4}
+							check_variable = {USA_GUI_selected_tab_sub = 2}
+						}
+						check_variable = {US_alaska_status = 2}
+					}
+				}
+			}
+			set_variable = {USA_frame_for_map^idx = 51}
+			set_variable = {USA_alaska_on_map = 1}
+		}
+		if = {
+			limit = {
+				check_variable = {USA_frame_for_map^idx = 4}
+				OR = {
+					AND = {
+						NOT = {
+							OR = {
+								check_variable = {USA_GUI_selected_tab_sub = 4}
+								check_variable = {USA_GUI_selected_tab_sub = 2}
+							}
+						}
+						USA = {owns_state = 768}
+					}
+					AND = {
+						OR = {
+							check_variable = {USA_GUI_selected_tab_sub = 4}
+							check_variable = {USA_GUI_selected_tab_sub = 2}
+						}
+						check_variable = {US_california_status = 2}
+					}
+				}
+			}
+			set_variable = {USA_frame_for_map^idx = 52}
+			set_variable = {USA_cali_on_map = 1}
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						check_variable = {USA_states_icon_array^idx = 50}
+						OR = {
+							check_variable = {USA_GUI_selected_tab = 1}
+							AND = {
+								check_variable = {USA_GUI_selected_tab_sub = 4}
+								check_variable = {USA_GUI_selected_prev_year < 1961}
+							}
+						}
+					}
+					AND = {
+						has_country_flag = USA_senate_elections
+						check_variable = {USA_state_senate_status^idx = 0}
+						check_variable = {USA_GUI_selected_tab_sub = 1}
+						has_country_flag = USA_hidden_unelected_states
+					}
+				}
+			}
+			set_variable = {USA_state_number:USA_first_party = 0}
+			set_variable = {USA_state_number:USA_second_party = 0}
+			set_variable = {USA_state_number:USA_map_split = 0}
+		}
+		add_to_variable = {USA_frame_for_map^idx = 1}
+		multiply_variable = {USA_frame_for_map^idx = 10}
+		add_to_variable = {USA_frame_for_map^idx = USA_state_number:USA_first_party}
 		multiply_variable = {USA_frame_for_map^idx = 10}
 		add_to_variable = {USA_frame_for_map^idx = USA_state_number:USA_second_party}
-		multiply_variable = {USA_frame_for_map^idx = 1000}
+		multiply_variable = {USA_frame_for_map^idx = 100}
 		add_to_variable = {USA_frame_for_map^idx = USA_state_number:USA_map_split}
+	}
+	USA_setup_variables_for_big_map = yes
+}
+USA_setup_variables_for_big_map = {
+	clear_array = USA_frame_for_big_map
+	clear_array = USA_frame_for_big_map_secondary
+	clear_variable = USA_GUI_state_offset
+	clear_variable = USA_GUI_state_offset_check
+	for_loop_effect = {
+		start = 0
+		end = 51
+		value = idx
+
+		set_variable = {USA_GUI_index_checking = idx}
+		set_variable = {USA_state_number = USA_states^idx}
+		set_variable = {USA_map_var = USA_GUI_index_checking}
+		if = {
+			limit = {
+				OR = {
+					check_variable = {USA_GUI_index_checking = 1}
+					check_variable = {USA_GUI_index_checking = 2}
+					check_variable = {USA_GUI_index_checking = 4}
+					check_variable = {USA_GUI_index_checking = 10}
+					check_variable = {USA_GUI_index_checking = 30}
+					check_variable = {USA_GUI_index_checking = 35}
+					check_variable = {USA_GUI_index_checking = 36}
+					check_variable = {USA_GUI_index_checking = 42}
+					check_variable = {USA_GUI_index_checking = 46}
+				}
+			}
+			add_to_variable = {USA_GUI_state_offset = 1}
+			set_variable = {USA_map_var = USA_GUI_state_offset}
+		}
+		else = {
+			subtract_from_variable = {USA_map_var = USA_GUI_state_offset}
+			add_to_variable = {USA_map_var = 2}
+		}
+		if = {
+			limit = {
+				check_variable = {USA_alaska_on_map = 1}
+				check_variable = {USA_GUI_index_checking = 1}
+			}
+			set_variable = {USA_map_var = 10}
+		}
+		if = {
+			limit = {
+				check_variable = {USA_cali_on_map = 1}
+				check_variable = {USA_GUI_index_checking = 4}
+			}
+			set_variable = {USA_map_var = 11}
+		}
+		if = {
+			limit = {
+				check_variable = {USA_GUI_index_checking = 50}
+			}
+			set_variable = {USA_map_var = 1}
+		}
+		multiply_variable = {USA_map_var = 10}
+		add_to_variable = {USA_map_var = USA_state_number:USA_first_party}
+		multiply_variable = {USA_map_var = 10}
+		add_to_variable = {USA_map_var = USA_state_number:USA_second_party}
+		multiply_variable = {USA_map_var = 100}
+		add_to_variable = {USA_map_var = USA_state_number:USA_map_split}
+		if = {
+			limit = {
+				check_variable = {USA_GUI_state_offset = USA_GUI_state_offset_check}
+			}
+			add_to_array = {USA_frame_for_big_map = USA_map_var}
+		}
+		else = {
+			add_to_array = {USA_frame_for_big_map_secondary = USA_map_var}
+			set_variable = {USA_GUI_state_offset_check = USA_GUI_state_offset}
+		}
 	}
 }
 USA_GUI_state_colour_previous_setup = {
@@ -5471,14 +5819,14 @@ USA_GUI_state_x_y_setup = {
 	add_to_array = {USA_states_x_array = 680}
 	add_to_array = {USA_states_y_array = 468}
 
-	add_to_array = {USA_states_x_array = 168}
-	add_to_array = {USA_states_y_array = 529}
+	add_to_array = {USA_states_x_array = 167}
+	add_to_array = {USA_states_y_array = 530}
 
 	add_to_array = {USA_states_x_array = 275}
 	add_to_array = {USA_states_y_array = 413}
 
 	add_to_array = {USA_states_x_array = 584}
-	add_to_array = {USA_states_y_array = 445}
+	add_to_array = {USA_states_y_array = 447}
 
 	add_to_array = {USA_states_x_array = 173}
 	add_to_array = {USA_states_y_array = 291}
@@ -5601,13 +5949,13 @@ USA_GUI_state_x_y_setup = {
 	add_to_array = {USA_states_y_array = 322}
 
 	add_to_array = {USA_states_x_array = 856}
-	add_to_array = {USA_states_y_array = 250}
+	add_to_array = {USA_states_y_array = 251}
 
-	add_to_array = {USA_states_x_array = 749}
+	add_to_array = {USA_states_x_array = 750}
 	add_to_array = {USA_states_y_array = 372}
 
-	add_to_array = {USA_states_x_array = 210}
-	add_to_array = {USA_states_y_array = 172}
+	add_to_array = {USA_states_x_array = 210} #Washington
+	add_to_array = {USA_states_y_array = 173}
 
 	add_to_array = {USA_states_x_array = 754}
 	add_to_array = {USA_states_y_array = 356}
@@ -5628,9 +5976,116 @@ USA_GUI_state_x_y_setup = {
 		end = 51
 		value = idx
 
+		add_to_variable = {USA_states_y_array^idx = -1}
+
 		add_to_array = {USA_states_x_array_retained_order = USA_states_x_array^idx}
 		add_to_array = {USA_states_y_array_retained_order = USA_states_y_array^idx}
 	}
+	USA_x_y_setup_outlines = yes
+	clear_array = US_GUI_map_offset_value_x
+	clear_array = US_GUI_map_offset_value_y
+
+	add_to_array = {US_GUI_map_offset_value_x = 0}
+	add_to_array = {US_GUI_map_offset_value_y = 0}
+
+	add_to_array = {US_GUI_map_offset_value_x = -1124}
+	add_to_array = {US_GUI_map_offset_value_y = 57}
+
+	add_to_array = {US_GUI_map_offset_value_x = -1002}
+	add_to_array = {US_GUI_map_offset_value_y = 12}
+
+	add_to_array = {US_GUI_map_offset_value_x = -802}
+	add_to_array = {US_GUI_map_offset_value_y = -259}
+
+	add_to_array = {US_GUI_map_offset_value_x = -897}
+	add_to_array = {US_GUI_map_offset_value_y = -147}
+
+	add_to_array = {US_GUI_map_offset_value_x = -822}
+	add_to_array = {US_GUI_map_offset_value_y = 15}
+
+	add_to_array = {US_GUI_map_offset_value_x = -620}
+	add_to_array = {US_GUI_map_offset_value_y = 18}
+
+	add_to_array = {US_GUI_map_offset_value_x = -449}
+	add_to_array = {US_GUI_map_offset_value_y = -241}
+
+	add_to_array = {US_GUI_map_offset_value_x = -296}
+	add_to_array = {US_GUI_map_offset_value_y = 14}
+
+	add_to_array = {US_GUI_map_offset_value_x = 0}
+	add_to_array = {US_GUI_map_offset_value_y = -15}
+
+	clear_array = US_GUI_topbar_buttons_x
+	clear_array = US_GUI_topbar_buttons_y
+
+	add_to_array = {US_GUI_topbar_buttons_x = 0}
+	add_to_array = {US_GUI_topbar_buttons_y = 0}
+
+	add_to_array = {US_GUI_topbar_buttons_x = 13}
+	add_to_array = {US_GUI_topbar_buttons_y = 17}
+
+	add_to_array = {US_GUI_topbar_buttons_x = 372}
+	add_to_array = {US_GUI_topbar_buttons_y = 17}
+
+	add_to_array = {US_GUI_topbar_buttons_x = 732}
+	add_to_array = {US_GUI_topbar_buttons_y = 17}
+
+	add_to_array = {US_GUI_topbar_buttons_x = 18}
+	add_to_array = {US_GUI_topbar_buttons_y = 35}
+
+	add_to_array = {US_GUI_topbar_buttons_x = 192}
+	add_to_array = {US_GUI_topbar_buttons_y = 35}
+
+	add_to_array = {US_GUI_topbar_buttons_x = 378}
+	add_to_array = {US_GUI_topbar_buttons_y = 35}
+
+	add_to_array = {US_GUI_topbar_buttons_x = 552}
+	add_to_array = {US_GUI_topbar_buttons_y = 35}
+
+	add_to_array = {US_GUI_topbar_buttons_x = 737}
+	add_to_array = {US_GUI_topbar_buttons_y = 35}
+
+	add_to_array = {US_GUI_topbar_buttons_x = 853}
+	add_to_array = {US_GUI_topbar_buttons_y = 35}
+
+	add_to_array = {US_GUI_topbar_buttons_x = 969}
+	add_to_array = {US_GUI_topbar_buttons_y = 35}
+
+	USA_GUI_setup_topbar_array = yes
+	USA_GUI_current_predictions_button_array = yes
+
+	USA_GUI_set_actual_votes_position = yes
+}
+USA_GUI_setup_topbar_array = {
+	clear_array = US_GUI_topbar_array
+	add_to_array = {US_GUI_topbar_array = 0}
+	add_to_array = {US_GUI_topbar_array = 101}
+	add_to_array = {US_GUI_topbar_array = 2}
+	add_to_array = {US_GUI_topbar_array = 3}
+	add_to_array = {US_GUI_topbar_array = 104}
+	add_to_array = {US_GUI_topbar_array = 5}
+	add_to_array = {US_GUI_topbar_array = 6}
+	add_to_array = {US_GUI_topbar_array = 7}
+	add_to_array = {US_GUI_topbar_array = 8}
+	add_to_array = {US_GUI_topbar_array = 9}
+	add_to_array = {US_GUI_topbar_array = 10}
+
+	set_variable = {USA_topbar_prev_index = 4}
+}
+USA_GUI_set_actual_votes_position = {
+	set_variable = {US_GUI_actual_votes_y = 182}
+	clear_array = US_GUI_actual_votes_x
+	add_to_array = {US_GUI_actual_votes_x = 67}
+	add_to_array = {US_GUI_actual_votes_x = 100}
+	add_to_array = {US_GUI_actual_votes_x = 133}
+	add_to_array = {US_GUI_actual_votes_x = 1022}
+	add_to_array = {US_GUI_actual_votes_x = 1055}
+	add_to_array = {US_GUI_actual_votes_x = 1088}
+}
+USA_GUI_current_predictions_button_array = {
+	clear_array = US_GUI_current_predictions_array
+	add_to_array = {US_GUI_current_predictions_array = 101}
+	add_to_array = {US_GUI_current_predictions_array = 2}
 }
 USA_determine_senate_dots = {
 	for_loop_effect = {
@@ -5808,6 +6263,8 @@ USA_determine_senate_map_breakdown_prediction = {
 			set_variable = {US_state_colour_for_map = 3}
 			set_variable = {USA_map_split = 50}
 		}
+		set_variable = {USA_first_party = 1}
+		set_variable = {USA_second_party = 2}
 	}
 	for_loop_effect = {
 		start = 0
@@ -5880,6 +6337,10 @@ USA_GUI_opening_effect = {
 			limit = {
 				has_country_flag = USA_animation_in_progress
 			}
+			set_variable = {US_GUI_topbar_array^1 = 1}
+			set_variable = {US_GUI_topbar_array^2 = 102}
+			set_variable = {US_GUI_topbar_array^4 = 4}
+			set_variable = {US_GUI_topbar_array^6 = 106}
 			set_variable = {USA_GUI_selected_tab = 2}
 			set_variable = {USA_GUI_selected_tab_sub = 3}
 		}
@@ -5910,6 +6371,7 @@ USA_GUI_opening_effect = {
 			}
 		}
 		US_election_update_gui_post_senate = yes
+		USA_GUI_setup_topbar_array = yes
 	}
 	every_owned_state = {
 		limit = { has_state_flag = US_election_state }
@@ -5924,6 +6386,7 @@ USA_GUI_opening_effect = {
 		set_variable = {US_voting_npp_electoral_college_votes = US_current_total_pres_votes_npp}
 		USA_display_pres_bars_animation = yes
 	}
+	USA_GUI_current_predictions_button_array = yes 
 }
 US_calculate_numbers_blocker_offset = {
 	###This is hard to explain why, but what we need is two variables (3 in the second case) each containing the digits in the number###
@@ -6896,8 +7359,11 @@ USA_display_current_election = {
 	set_variable = {USA_GUI_pres_right_side_frame = 1}
 	set_variable = {USA_pres_contender_rd = USA_current_election_rd_candidate}
 	set_variable = {USA_pres_contender_npp = USA_current_election_npp_candidate}
+	set_variable = {USA_pres_contender_rd_animation = USA_current_election_rd_candidate}
+	set_variable = {USA_pres_contender_npp_animation = USA_current_election_npp_candidate}
 	USA_display_map_for_presidential_race = yes
 	USA_display_pres_bars_current = yes
+	US_GUI_update_elec_college_display = yes
 }
 USA_display_map_for_presidential_race = {
 	clear_variable = US_voting_uncertain_electoral_college_votes
@@ -6981,15 +7447,29 @@ USA_display_pres_bars_current = {
 	add_to_variable = {USA_current_election_total_votes = US_voting_npp_electoral_college_votes}
 	add_to_variable = {USA_current_election_total_votes = US_voting_uncertain_electoral_college_votes}
 
+	set_variable = {US_voting_animated_bar_frame = 1100000}
+
 	set_variable = {US_voting_rdc_bar_frame = US_voting_rdc_electoral_college_votes}
-	set_variable = {US_voting_npp_bar_frame = US_voting_npp_electoral_college_votes}
-	set_variable = {US_voting_uncertainty_bar_frame = 100}
-
 	divide_variable = {US_voting_rdc_bar_frame = USA_current_election_total_votes}
-	divide_variable = {US_voting_npp_bar_frame = USA_current_election_total_votes}
-
 	multiply_variable = {US_voting_rdc_bar_frame = 100}
+	round_variable = US_voting_rdc_bar_frame
+
+	set_variable = {US_voting_npp_bar_frame = US_voting_npp_electoral_college_votes}
+	divide_variable = {US_voting_npp_bar_frame = USA_current_election_total_votes}
 	multiply_variable = {US_voting_npp_bar_frame = 100}
+	round_variable = US_voting_npp_bar_frame
+
+	multiply_variable = {US_voting_npp_bar_frame = 1000}
+	subtract_from_variable = {US_voting_animated_bar_frame = US_voting_npp_bar_frame}
+	add_to_variable = {US_voting_animated_bar_frame = US_voting_rdc_bar_frame}
+
+	set_variable = {US_voting_rdc_electoral_college_votes = US_voting_rdc_electoral_college_votes}
+	set_variable = {US_voting_rdc_electoral_college_votes_prev = 0}
+	set_variable = {US_voting_npp_electoral_college_votes = US_voting_npp_electoral_college_votes}
+	set_variable = {US_voting_npp_electoral_college_votes_prev = 0}
+
+	US_GUI_update_elec_college_display = yes
+	US_GUI_update_elec_bar = yes
 }
 USA_GUI_previous_election_display_shenanigans = {
 	if = {
@@ -7007,6 +7487,8 @@ USA_GUI_previous_election_display_shenanigans = {
 		}
 		set_variable = {USA_pres_contender_rd = USA_pres_contender_rd_prev}
 		set_variable = {USA_pres_contender_npp = USA_pres_contender_npp_prev}
+		set_variable = {USA_pres_contender_rd_animation = USA_pres_contender_rd_prev}
+		set_variable = {USA_pres_contender_npp_animation = USA_pres_contender_npp_prev}
 		set_variable = {USA_GUI_pres_left_side_frame = USA_GUI_pres_left_side_frame_prev}
 		set_variable = {USA_GUI_pres_right_side_frame = USA_GUI_pres_right_side_frame_prev}
 	}
@@ -7038,7 +7520,16 @@ US_initiate_animation = {
 	set_variable = {US_voting_rdc_total_votes = 0}
 	set_variable = {US_voting_npp_total_votes = 0}
 	set_variable = {US_voting_actual_rd_votes_first_part = 0}
+	set_variable = {US_voting_actual_rd_votes_second_part = 0}
+	set_variable = {US_voting_actual_rd_votes_third_part = 0}
 	set_variable = {US_voting_actual_npp_votes_first_part = 0}
+	set_variable = {US_voting_actual_npp_votes_second_part = 0}
+	set_variable = {US_voting_actual_npp_votes_third_part = 0}
+	set_variable = {US_rdc_electoral_votes_animated = 000010}
+	set_variable = {US_npp_electoral_votes_animated = 1000010}
+	set_variable = {US_voting_animated_bar_frame = 1000050}
+	USA_set_up_portrait_animation = yes
+	USA_sort_out_total_votes_display = yes
 	if = {
 		limit = {
 			has_country_flag = US_animation_disabled
@@ -7058,6 +7549,70 @@ US_initiate_animation = {
 	USA = {
 		country_event = { id = USA.animation.1 hours = 2 }
 	}
+	USA_GUI_setup_topbar_array = yes
+	set_variable = {US_GUI_topbar_array^1 = 1}
+	set_variable = {US_GUI_topbar_array^2 = 102}
+	set_variable = {US_GUI_topbar_array^4 = 4}
+	set_variable = {US_GUI_topbar_array^6 = 106}
+	set_variable = {USA_GUI_selected_tab = 2}
+	set_variable = {USA_GUI_selected_tab_sub = 3}
+
+	set_variable = {US_rdc_elec_votes_y = 63}
+	set_variable = {US_rdc_elec_votes_x = 97}
+
+	US_GUI_update_elec_votes = yes
+	set_variable = {USA_topbar_prev_index = 6}
+	US_GUI_update_elec_bar = yes
+}
+USA_set_up_portrait_animation = {
+	set_variable = {USA_pres_contender_rd_animation = USA_current_election_rd_candidate}
+	set_variable = {USA_pres_contender_npp_animation = USA_current_election_npp_candidate}
+
+	multiply_variable = {USA_pres_contender_rd_animation = 100}
+	multiply_variable = {USA_pres_contender_npp_animation = 100}
+
+	if = {
+		limit = {
+			check_variable = {USA_no_of_presidential_elections = 0}
+		}
+		add_to_variable = {USA_pres_contender_rd_animation = USA_current_election_rd_candidate}
+		add_to_variable = {USA_pres_contender_npp_animation = USA_current_election_npp_candidate}
+
+		multiply_variable = {USA_pres_contender_rd_animation = 100}
+		multiply_variable = {USA_pres_contender_npp_animation = 100}
+
+		add_to_variable = {USA_pres_contender_rd_animation = USA_current_election_rd_candidate}
+		add_to_variable = {USA_pres_contender_npp_animation = USA_current_election_npp_candidate}
+	}
+
+	if = {
+		limit = {
+			check_variable = {USA_no_of_presidential_elections = 1}
+		}
+		add_to_variable = {USA_pres_contender_rd_animation = USA_current_election_rd_candidate}
+		add_to_variable = {USA_pres_contender_npp_animation = USA_current_election_npp_candidate}
+
+		multiply_variable = {USA_pres_contender_rd_animation = 100}
+		multiply_variable = {USA_pres_contender_npp_animation = 100}
+
+		add_to_variable = {USA_pres_contender_rd_animation = USA_pres_contender_rd_prev^1964}
+		add_to_variable = {USA_pres_contender_npp_animation = USA_pres_contender_rd_prev^1964}
+	}
+
+	if = {
+		limit = {
+			check_variable = {USA_no_of_presidential_elections = 2}
+		}
+		add_to_variable = {USA_pres_contender_rd_animation = USA_pres_contender_rd_prev^1964}
+		add_to_variable = {USA_pres_contender_npp_animation = USA_pres_contender_rd_prev^1964}
+
+		multiply_variable = {USA_pres_contender_rd_animation = 100}
+		multiply_variable = {USA_pres_contender_npp_animation = 100}
+
+		add_to_variable = {USA_pres_contender_rd_animation = USA_pres_contender_rd_prev^1968}
+		add_to_variable = {USA_pres_contender_npp_animation = USA_pres_contender_rd_prev^1968}
+	}
+	set_variable = {USA_GUI_selected_tab_fade_animation_play = 1}
 }
 US_clear_animation_vars = {
 	#Otherwise it won't work#
@@ -7066,7 +7621,7 @@ US_clear_animation_vars = {
 		end = 51
 		value = idx
 
-		clear_variable = US_which_state_to_bring_on^idx
+		clear_variable = US_GUI_animated_icon_play^idx
 	}
 }
 US_cool_animation_setup = {
@@ -7108,6 +7663,15 @@ US_grab_state_frames_and_votes_for_animation = {
 		set_variable = {rdc_votes_index^idx = temp_state:rdc_votes}
 		set_variable = {npp_votes_index^idx = temp_state:npp_votes}
 		set_variable = {state_pop_index^idx = temp_state:state_population_k}
+
+		set_variable = {USA_frame_for_map_animated^idx = idx}
+		multiply_variable = {USA_frame_for_map_animated^idx = 10}
+		add_to_variable = {USA_frame_for_map_animated^idx = temp_state:US_state_colour_for_map}
+		multiply_variable = {USA_frame_for_map_animated^idx = 100}
+		set_variable = {USA_animation_random_var = random} #Surprise tool
+		multiply_variable = {USA_animation_random_var = 99} #needs to be 0-99
+		round_variable = USA_animation_random_var
+		add_to_variable = {USA_frame_for_map_animated^idx = USA_animation_random_var}
 	}
 	if = {
 		limit = {
@@ -7150,45 +7714,22 @@ US_add_to_array_in_specific_order = {
 US_animation_progress = {
 	#Brings next state on or ends the animation#
 	set_variable = {US_animation_state_index = US_state_indx^US_state_position}
-	set_variable = {US_which_state_to_bring_on^US_animation_state_index = 1}
+	set_variable = {US_GUI_animated_icon_play^US_animation_state_index = 1}
+	set_variable = {US_GUI_rdc_elec_votes_prev = US_voting_rdc_electoral_college_votes}
+	set_variable = {US_GUI_npp_elec_votes_prev = US_voting_npp_electoral_college_votes}
 	if = {
 		limit = {
 			check_variable = {US_state_voted_which_way^US_animation_state_index = 1}
 		}
 		add_to_variable = {US_voting_rdc_electoral_college_votes = US_state_voted_college_votes^US_animation_state_index}
-		if = {
-			limit = {
-				check_variable = {US_animation_state_index = 10}
-				629 = {
-					is_owned_by = JAP
-				}
-			}
-			subtract_from_variable = {US_voting_rdc_electoral_college_votes = US_state_voted_college_votes^US_animation_state_index}
-		}
 	}
 	if = {
 		limit = {
 			check_variable = {US_state_voted_which_way^US_animation_state_index = 2}
 		}
 		add_to_variable = {US_voting_npp_electoral_college_votes = US_state_voted_college_votes^US_animation_state_index}
-		if = {
-			limit = {
-				check_variable = {US_animation_state_index = 10}
-				629 = {
-					is_owned_by = JAP
-				}
-			}
-			subtract_from_variable = {US_voting_npp_electoral_college_votes = US_state_voted_college_votes^US_animation_state_index}
-		}
 	}
-	if = {
-		limit = {
-			has_country_flag = US_animation_disabled
-		}
-		add_to_array = {USA_states_icon_array = US_animation_state_index}
-		add_to_array = {USA_states_x_array = USA_states_x_array_retained_order^US_animation_state_index}
-		add_to_array = {USA_states_y_array = USA_states_y_array_retained_order^US_animation_state_index}
-	}
+	US_GUI_update_elec_college_display = yes
 	set_variable = {US_total_votes_in_each_state = rdc_votes_index^US_animation_state_index}
 	add_to_variable = {US_total_votes_in_each_state = npp_votes_index^US_animation_state_index}
 	set_variable = {US_rdc_pct = rdc_votes_index^US_animation_state_index}
@@ -7205,61 +7746,84 @@ US_animation_progress = {
 	add_to_variable = {USA_rd_total_votes_from_election = US_rdc_real_votes}
 	add_to_variable = {USA_npp_total_votes_from_election = US_npp_real_votes}
 
-	if = {
-		limit = {
-			check_variable = {US_animation_state_index = 4}
-		}
-		set_variable = {US_rdc_real_votes = 378.state_population_k}
-		set_variable = {US_npp_real_votes = 378.state_population_k}
-		multiply_variable = {US_rdc_real_votes = US_rdc_pct}
-		multiply_variable = {US_npp_real_votes = US_npp_pct}
-		multiply_variable = {US_rdc_real_votes = 0.419}
-		multiply_variable = {US_npp_real_votes = 0.419}
-		add_to_variable = {USA_rd_total_votes_from_election = US_rdc_real_votes}
-		add_to_variable = {USA_npp_total_votes_from_election = US_npp_real_votes}
-	}
-
-	if = {
-		limit = {
-			check_variable = {US_animation_state_index = 42}
-		}
-		set_variable = {US_rdc_real_votes = 375.state_population_k}
-		set_variable = {US_npp_real_votes = 374.state_population_k}
-		multiply_variable = {US_rdc_real_votes = US_rdc_pct}
-		multiply_variable = {US_npp_real_votes = US_npp_pct}
-		multiply_variable = {US_rdc_real_votes = 0.419}
-		multiply_variable = {US_npp_real_votes = 0.419}
-		add_to_variable = {USA_rd_total_votes_from_election = US_rdc_real_votes}
-		add_to_variable = {USA_npp_total_votes_from_election = US_npp_real_votes}
-	}
-
-	add_to_variable = {US_state_position = 1}
-	USA_display_pres_bars_animation = yes
 	USA_sort_out_total_votes_display = yes
 	USA = {
 		country_event = { id = USA.animation.1 hours = 1}
 	}
 	set_variable = {US_current_total_pres_votes_rdc = US_voting_rdc_electoral_college_votes}
 	set_variable = {US_current_total_pres_votes_npp = US_voting_npp_electoral_college_votes}
+	USA_display_pres_bars_animation = yes
+	add_to_variable = {US_state_position = 1}
+	set_variable = {USA_GUI_selected_tab_fade_animation_play = 0}
+	set_variable = {USA_pres_contender_rd_animation = USA_current_election_rd_candidate}
+	set_variable = {USA_pres_contender_npp_animation = USA_current_election_npp_candidate}
 }
 USA_display_pres_bars_animation = {
+	set_variable = {USA_total_votes = US_current_total_pres_votes_rdc}
+	add_to_variable = {USA_total_votes = US_current_total_pres_votes_npp}
+
+	set_variable = {US_GUI_bar_frame_previous = US_voting_rdc_bar_frame}
+	set_variable = {US_voting_rdc_bar_frame = US_voting_rdc_electoral_college_votes}
+	divide_variable = {US_voting_rdc_bar_frame = USA_total_votes}
+	multiply_variable = {US_voting_rdc_bar_frame = 100}
+	round_variable = US_voting_rdc_bar_frame
+	set_variable = {US_voting_animated_bar_frame = US_voting_rdc_bar_frame}
+	multiply_variable = {US_voting_animated_bar_frame = 1000}
 	if = {
 		limit = {
-			USA = {
-				owns_state = 629
-			}
+			check_variable = {US_state_position = 0}
 		}
-		set_variable = {USA_total_votes = 540}
+		add_to_variable = {US_voting_animated_bar_frame = 50}
 	}
 	else = {
-		set_variable = {USA_total_votes = 536}
+		add_to_variable = {US_voting_animated_bar_frame = US_GUI_bar_frame_previous}
 	}
-	set_variable = {US_voting_rdc_bar_frame = US_voting_rdc_electoral_college_votes}
-	set_variable = {US_voting_npp_bar_frame = US_voting_npp_electoral_college_votes}
-	divide_variable = {US_voting_rdc_bar_frame = USA_total_votes}
-	divide_variable = {US_voting_npp_bar_frame = USA_total_votes}
-	multiply_variable = {US_voting_rdc_bar_frame = 100}
-	multiply_variable = {US_voting_npp_bar_frame = 100}
+	US_GUI_update_elec_bar = yes
+}
+US_GUI_update_elec_college_display = {
+	set_variable = {US_rdc_elec_votes_y = 63}
+	set_variable = {US_rdc_elec_votes_x = 97}
+	set_variable = {US_rdc_electoral_votes_animated = US_voting_rdc_electoral_college_votes}
+	multiply_variable = {US_rdc_electoral_votes_animated = 1000}
+	add_to_variable = {US_rdc_electoral_votes_animated = US_GUI_rdc_elec_votes_prev}
+
+	set_variable = {US_npp_electoral_votes_animated = US_voting_npp_electoral_college_votes}
+	multiply_variable = {US_npp_electoral_votes_animated = 1000}
+	add_to_variable = {US_npp_electoral_votes_animated = US_GUI_npp_elec_votes_prev}
+	add_to_variable = {US_npp_electoral_votes_animated = 1000000}
+
+	US_GUI_update_elec_votes = yes
+
+	if = {
+		limit = {
+			check_variable = {US_voting_rdc_electoral_college_votes > 9}
+		}
+		set_variable = {US_rdc_elec_votes_x = 117}
+	}
+	if = {
+		limit = {
+			check_variable = {US_voting_rdc_electoral_college_votes > 99}
+		}
+		set_variable = {US_rdc_elec_votes_x = 137}
+	}
+}
+US_GUI_update_elec_votes = {
+	add_to_variable = {US_vote_elec_animation_update = 1}
+	if = {
+		limit = {
+			check_variable = {US_vote_elec_animation_update = 2}
+		}
+		set_variable = {US_vote_elec_animation_update = 0}
+	}
+}
+US_GUI_update_elec_bar = {
+	add_to_variable = {US_animated_bar_refresh = 1}
+	if = {
+		limit = {
+			check_variable = {US_animated_bar_refresh = 2}
+		}
+		set_variable = {US_animated_bar_refresh = 0}
+	}
 }
 US_GUI_save_senate_election_result = {
 	set_variable = {USA_GUI_selected_tab = 1}
@@ -7548,32 +8112,52 @@ USA_display_election_results = {
 	clear_variable = US_voting_npp_electoral_college_votes
 	set_variable = {US_voting_rdc_electoral_college_votes = RDC_electoral_votes_this_election}
 	set_variable = {US_voting_npp_electoral_college_votes = NPP_electoral_votes_this_election}
-	if = {
-		limit = {
-			NOT = {
-				USA = {
-					owns_state = 629
-				}
-			}
-		}
-		if = {
-			limit = {
-				check_variable = {629.US_state_colour_for_map = 1}
-			}
-			subtract_from_variable = {US_voting_rdc_electoral_college_votes = US_state_worth^10}
-		}
-		if = {
-			limit = {
-				check_variable = {629.US_state_colour_for_map = 2}
-			}
-			subtract_from_variable = {US_voting_npp_electoral_college_votes = US_state_worth^10}
-		}
-	}
 	USA_display_pres_bars_current = yes
 
 	set_variable = {USA_pres_contender_rd = USA_current_election_rd_candidate}
 	set_variable = {USA_pres_contender_npp = USA_current_election_npp_candidate}
-	USA_sort_out_total_votes_display = yes
+
+	set_variable = {USA_pres_contender_rd_animation = USA_current_election_rd_candidate}
+	set_variable = {USA_pres_contender_npp_animation = USA_current_election_npp_candidate}
+
+	set_variable = {US_voting_rdc_electoral_college_votes = RDC_electoral_votes_this_election}
+	set_variable = {US_GUI_rdc_elec_votes_prev = 0}
+	set_variable = {US_voting_npp_electoral_college_votes = NPP_electoral_votes_this_election}
+	set_variable = {US_GUI_npp_elec_votes_prev = 0}
+	US_GUI_update_elec_college_display = yes
+
+	USA_display_finished_election_results = yes
+
+	USA_GUI_update_text_animation = yes
+	US_GUI_update_elec_college_display = yes
+	US_GUI_update_elec_bar = yes
+}
+USA_display_finished_election_results = {
+	set_variable = {US_voting_votes_display^2 = US_voting_actual_rd_votes_third_part}
+	multiply_variable = {US_voting_votes_display^2 = 1000}
+	add_to_variable = {US_voting_votes_display^2 = US_voting_actual_npp_votes_third_part}
+
+	set_variable = {US_voting_votes_display^1 = US_voting_actual_rd_votes_second_part}
+	multiply_variable = {US_voting_votes_display^1 = 1000}
+	add_to_variable = {US_voting_votes_display^1 = US_voting_actual_rd_votes_second_part}
+	subtract_from_variable = {US_voting_votes_display^1 = 1000}
+
+	set_variable = {US_voting_votes_display^0 = US_voting_actual_rd_votes_first_part}
+	multiply_variable = {US_voting_votes_display^0 = 1000}
+	add_to_variable = {US_voting_votes_display^0 = US_voting_actual_rd_votes_first_part}
+
+	set_variable = {US_voting_votes_display^5 = US_voting_actual_npp_votes_third_part}
+	multiply_variable = {US_voting_votes_display^5 = 1000}
+	add_to_variable = {US_voting_votes_display^5 = US_voting_actual_npp_votes_third_part}
+
+	set_variable = {US_voting_votes_display^4 = US_voting_actual_npp_votes_second_part}
+	multiply_variable = {US_voting_votes_display^4 = 1000}
+	add_to_variable = {US_voting_votes_display^4 = US_voting_actual_npp_votes_second_part}
+	subtract_from_variable = {US_voting_votes_display^4 = 1000}
+
+	set_variable = {US_voting_votes_display^3 = US_voting_actual_npp_votes_first_part}
+	multiply_variable = {US_voting_votes_display^3 = 1000}
+	add_to_variable = {US_voting_votes_display^3 = US_voting_actual_npp_votes_first_part}
 }
 USA_clear_campaiging_vars = {
 	clear_variable = 1:US_voting_campaign_countdown
@@ -7645,7 +8229,728 @@ USA_prepare_predictions_for_rubber_band = {
 	set_variable = {anv_senators_predicted_value = NPP_R_senators}
 	set_variable = {nat_senators_predicted_value = NPP_FR_senators}
 }
+USA_x_y_setup_outlines = {
+	clear_array = state_outline_main_x
+	clear_array = state_outline_main_y
+
+	add_to_array = {state_outline_main_x = 581}
+	add_to_array = {state_outline_main_y = 443}
+
+	add_to_array = {state_outline_main_x = 581}
+	add_to_array = {state_outline_main_y = 443}
+
+	add_to_array = {state_outline_main_x = 581}
+	add_to_array = {state_outline_main_y = 443}
+
+	add_to_array = {state_outline_main_x = 223}
+	add_to_array = {state_outline_main_y = 187}
+
+	add_to_array = {state_outline_main_x = 854}
+	add_to_array = {state_outline_main_y = 195}
+
+	add_to_array = {state_outline_main_x = 751}
+	add_to_array = {state_outline_main_y = 252}
+
+	add_to_array = {state_outline_main_x = 581}
+	add_to_array = {state_outline_main_y = 443}
+
+	add_to_array = {state_outline_main_x = 581}
+	add_to_array = {state_outline_main_y = 443}
+
+	add_to_array = {state_outline_main_x = 223}
+	add_to_array = {state_outline_main_y = 187}
+
+	add_to_array = {state_outline_main_x = 600}
+	add_to_array = {state_outline_main_y = 239}
+
+	add_to_array = {state_outline_main_x = 600}
+	add_to_array = {state_outline_main_y = 239}
+
+	add_to_array = {state_outline_main_x = 450}
+	add_to_array = {state_outline_main_y = 209}
+
+	add_to_array = {state_outline_main_x = 450}
+	add_to_array = {state_outline_main_y = 209}
+
+	add_to_array = {state_outline_main_x = 647}
+	add_to_array = {state_outline_main_y = 370}
+
+	add_to_array = {state_outline_main_x = 581}
+	add_to_array = {state_outline_main_y = 443}
+
+	add_to_array = {state_outline_main_x = 854}
+	add_to_array = {state_outline_main_y = 195}
+
+	add_to_array = {state_outline_main_x = 751}
+	add_to_array = {state_outline_main_y = 252}
+
+	add_to_array = {state_outline_main_x = 854}
+	add_to_array = {state_outline_main_y = 195}
+
+	add_to_array = {state_outline_main_x = 600}
+	add_to_array = {state_outline_main_y = 239}
+
+	add_to_array = {state_outline_main_x = 450}
+	add_to_array = {state_outline_main_y = 209}
+
+	add_to_array = {state_outline_main_x = 581}
+	add_to_array = {state_outline_main_y = 443}
+
+	add_to_array = {state_outline_main_x = 450}
+	add_to_array = {state_outline_main_y = 209}
+
+	add_to_array = {state_outline_main_x = 223}
+	add_to_array = {state_outline_main_y = 187}
+
+	add_to_array = {state_outline_main_x = 450}
+	add_to_array = {state_outline_main_y = 209}
+
+	add_to_array = {state_outline_main_x = 223}
+	add_to_array = {state_outline_main_y = 187}
+
+	add_to_array = {state_outline_main_x = 854}
+	add_to_array = {state_outline_main_y = 195}
+
+	add_to_array = {state_outline_main_x = 751}
+	add_to_array = {state_outline_main_y = 252}
+
+	add_to_array = {state_outline_main_x = 751}
+	add_to_array = {state_outline_main_y = 252}
+
+	add_to_array = {state_outline_main_x = 647}
+	add_to_array = {state_outline_main_y = 370}
+
+	add_to_array = {state_outline_main_x = 450}
+	add_to_array = {state_outline_main_y = 209}
+
+	add_to_array = {state_outline_main_x = 600}
+	add_to_array = {state_outline_main_y = 239}
+
+	add_to_array = {state_outline_main_x = 751}
+	add_to_array = {state_outline_main_y = 252}
+
+	add_to_array = {state_outline_main_x = 854}
+	add_to_array = {state_outline_main_y = 195}
+
+	add_to_array = {state_outline_main_x = 581}
+	add_to_array = {state_outline_main_y = 443}
+
+	add_to_array = {state_outline_main_x = 450}
+	add_to_array = {state_outline_main_y = 209}
+
+	add_to_array = {state_outline_main_x = 647}
+	add_to_array = {state_outline_main_y = 370}
+
+	add_to_array = {state_outline_main_x = 223}
+	add_to_array = {state_outline_main_y = 187}
+
+	add_to_array = {state_outline_main_x = 854}
+	add_to_array = {state_outline_main_y = 195}
+
+	add_to_array = {state_outline_main_x = 647}
+	add_to_array = {state_outline_main_y = 370}
+
+	add_to_array = {state_outline_main_x = 751}
+	add_to_array = {state_outline_main_y = 252}
+
+	add_to_array = {state_outline_main_x = 600}
+	add_to_array = {state_outline_main_y = 239}
+
+	add_to_array = {state_outline_main_x = 223}
+	add_to_array = {state_outline_main_y = 187}
+
+	add_to_array = {state_outline_main_x = 751}
+	add_to_array = {state_outline_main_y = 252}
+
+	clear_array = state_outline_secondary_x
+	clear_array = state_outline_secondary_y
+
+	add_to_array = {state_outline_secondary_x = 163}
+	add_to_array = {state_outline_secondary_y = 169}
+
+	add_to_array = {state_outline_secondary_x = 163}
+	add_to_array = {state_outline_secondary_y = 169}
+
+	add_to_array = {state_outline_secondary_x = 272}
+	add_to_array = {state_outline_secondary_y = 411}
+
+	add_to_array = {state_outline_secondary_x = 163}
+	add_to_array = {state_outline_secondary_y = 169}
+
+	add_to_array = {state_outline_secondary_x = 163}
+	add_to_array = {state_outline_secondary_y = 169}
+
+	add_to_array = {state_outline_secondary_x = 272}
+	add_to_array = {state_outline_secondary_y = 411}
+
+	add_to_array = {state_outline_secondary_x = 272}
+	add_to_array = {state_outline_secondary_y = 411}
+
+	add_to_array = {state_outline_secondary_x = 163}
+	add_to_array = {state_outline_secondary_y = 169}
+
+	add_to_array = {state_outline_secondary_x = 272}
+	add_to_array = {state_outline_secondary_y = 411}
+
+	add_to_array = {state_outline_secondary_x = 163}
+	add_to_array = {state_outline_secondary_y = 169}
+
+	USA_x_y_setup_big = yes
+}
+USA_x_y_setup_big = {
+	clear_array = USA_states_x_array_big
+	clear_array = USA_states_y_array_big
+
+	add_to_array = {USA_states_x_array_big = 1016}
+	add_to_array = {USA_states_y_array_big = 425}
+
+	add_to_array = {USA_states_x_array_big = 886}
+	add_to_array = {USA_states_y_array_big = 383}
+
+	add_to_array = {USA_states_x_array_big = 530}
+	add_to_array = {USA_states_y_array_big = 143}
+
+	add_to_array = {USA_states_x_array_big = 1337}
+	add_to_array = {USA_states_y_array_big = 227}
+
+	add_to_array = {USA_states_x_array_big = 1292}
+	add_to_array = {USA_states_y_array_big = 290}
+
+	add_to_array = {USA_states_x_array_big = 1036}
+	add_to_array = {USA_states_y_array_big = 533}
+
+	add_to_array = {USA_states_x_array_big = 1078}
+	add_to_array = {USA_states_y_array_big = 427}
+
+	add_to_array = {USA_states_x_array_big = 398}
+	add_to_array = {USA_states_y_array_big = 18}
+
+	add_to_array = {USA_states_x_array_big = 951}
+	add_to_array = {USA_states_y_array_big = 214}
+
+	add_to_array = {USA_states_x_array_big = 1026}
+	add_to_array = {USA_states_y_array_big = 235}
+
+	add_to_array = {USA_states_x_array_big = 841}
+	add_to_array = {USA_states_y_array_big = 183}
+
+	add_to_array = {USA_states_x_array_big = 725}
+	add_to_array = {USA_states_y_array_big = 282}
+
+	add_to_array = {USA_states_x_array_big = 997}
+	add_to_array = {USA_states_y_array_big = 311}
+
+	add_to_array = {USA_states_x_array_big = 898}
+	add_to_array = {USA_states_y_array_big = 480}
+
+	add_to_array = {USA_states_x_array_big = 1392}
+	add_to_array = {USA_states_y_array_big = 66}
+
+	add_to_array = {USA_states_x_array_big = 1211}
+	add_to_array = {USA_states_y_array_big = 293}
+
+	add_to_array = {USA_states_x_array_big = 1340}
+	add_to_array = {USA_states_y_array_big = 202}
+
+	add_to_array = {USA_states_x_array_big = 979}
+	add_to_array = {USA_states_y_array_big = 67}
+
+	add_to_array = {USA_states_x_array_big = 831}
+	add_to_array = {USA_states_y_array_big = 6}
+
+	add_to_array = {USA_states_x_array_big = 951}
+	add_to_array = {USA_states_y_array_big = 425}
+
+	add_to_array = {USA_states_x_array_big = 861}
+	add_to_array = {USA_states_y_array_big = 269}
+
+	add_to_array = {USA_states_x_array_big = 423}
+	add_to_array = {USA_states_y_array_big = 18}
+
+	add_to_array = {USA_states_x_array_big = 681}
+	add_to_array = {USA_states_y_array_big = 197}
+
+	add_to_array = {USA_states_x_array_big = 335}
+	add_to_array = {USA_states_y_array_big = 227}
+
+	add_to_array = {USA_states_x_array_big = 1360}
+	add_to_array = {USA_states_y_array_big = 128}
+
+	add_to_array = {USA_states_x_array_big = 1298}
+	add_to_array = {USA_states_y_array_big = 246}
+
+	add_to_array = {USA_states_x_array_big = 1204}
+	add_to_array = {USA_states_y_array_big = 137}
+
+	add_to_array = {USA_states_x_array_big = 1107}
+	add_to_array = {USA_states_y_array_big = 381}
+
+	add_to_array = {USA_states_x_array_big = 680}
+	add_to_array = {USA_states_y_array_big = 17}
+
+	add_to_array = {USA_states_x_array_big = 1096}
+	add_to_array = {USA_states_y_array_big = 226}
+
+	add_to_array = {USA_states_x_array_big = 1190}
+	add_to_array = {USA_states_y_array_big = 218}
+
+	add_to_array = {USA_states_x_array_big = 1375}
+	add_to_array = {USA_states_y_array_big = 228}
+
+	add_to_array = {USA_states_x_array_big = 1128}
+	add_to_array = {USA_states_y_array_big = 419}
+
+	add_to_array = {USA_states_x_array_big = 681}
+	add_to_array = {USA_states_y_array_big = 110}
+
+	add_to_array = {USA_states_x_array_big = 982}
+	add_to_array = {USA_states_y_array_big = 381}
+
+	add_to_array = {USA_states_x_array_big = 466}
+	add_to_array = {USA_states_y_array_big = 226}
+
+	add_to_array = {USA_states_x_array_big = 1344}
+	add_to_array = {USA_states_y_array_big = 139}
+
+	add_to_array = {USA_states_x_array_big = 1121}
+	add_to_array = {USA_states_y_array_big = 304}
+
+	add_to_array = {USA_states_x_array_big = 1144}
+	add_to_array = {USA_states_y_array_big = 268}
+
+	add_to_array = {USA_states_x_array_big = 922}
+	add_to_array = {USA_states_y_array_big = 83}
+
+	add_to_array = {USA_states_x_array_big = 575}
+	add_to_array = {USA_states_y_array_big = 254}
+
+	add_to_array = {USA_states_x_array_big = 1253}
+	add_to_array = {USA_states_y_array_big = 304}
+
+	clear_array = USA_states_x_array_big_secondary
+	clear_array = USA_states_y_array_big_secondary
+
+	add_to_array = {USA_states_x_array_big_secondary = 1}
+	add_to_array = {USA_states_y_array_big_secondary = 258}
+
+	add_to_array = {USA_states_x_array_big_secondary = 451}
+	add_to_array = {USA_states_y_array_big_secondary = 369}
+
+	add_to_array = {USA_states_x_array_big_secondary = 243}
+	add_to_array = {USA_states_y_array_big_secondary = 228}
+
+	add_to_array = {USA_states_x_array_big_secondary = 42}
+	add_to_array = {USA_states_y_array_big_secondary = 117}
+
+	add_to_array = {USA_states_x_array_big_secondary = 573}
+	add_to_array = {USA_states_y_array_big_secondary = 369}
+
+	add_to_array = {USA_states_x_array_big_secondary = 703}
+	add_to_array = {USA_states_y_array_big_secondary = 371}
+
+	add_to_array = {USA_states_x_array_big_secondary = 240}
+	add_to_array = {USA_states_y_array_big_secondary = 100}
+
+	add_to_array = {USA_states_x_array_big_secondary = 629}
+	add_to_array = {USA_states_y_array_big_secondary = 386}
+
+	add_to_array = {USA_states_x_array_big_secondary = 236}
+	add_to_array = {USA_states_y_array_big_secondary = 17}
+
+	clear_array = USA_states_x_array_area_outlines
+	clear_array = USA_states_y_array_area_outlines
+
+	add_to_array = {USA_states_x_array_area_outlines = 0}
+	add_to_array = {USA_states_y_array_area_outlines = 0}
+
+	add_to_array = {USA_states_x_array_area_outlines = 1337}
+	add_to_array = {USA_states_y_array_area_outlines = 63}
+
+	add_to_array = {USA_states_x_array_area_outlines = 1143}
+	add_to_array = {USA_states_y_array_area_outlines = 134}
+
+	add_to_array = {USA_states_x_array_area_outlines = 885}
+	add_to_array = {USA_states_y_array_area_outlines = 382}
+
+	add_to_array = {USA_states_x_array_area_outlines = 979}
+	add_to_array = {USA_states_y_array_area_outlines = 304}
+
+	add_to_array = {USA_states_x_array_area_outlines = 921}
+	add_to_array = {USA_states_y_array_area_outlines = 64}
+
+	add_to_array = {USA_states_x_array_area_outlines = 681}
+	add_to_array = {USA_states_y_array_area_outlines = 4}
+
+	add_to_array = {USA_states_x_array_area_outlines = 446}
+	add_to_array = {USA_states_y_array_area_outlines = 367}
+
+	add_to_array = {USA_states_x_array_area_outlines = 333}
+	add_to_array = {USA_states_y_array_area_outlines = 16}
+
+	add_to_array = {USA_states_x_array_area_outlines = -1}
+	add_to_array = {USA_states_y_array_area_outlines = 16}
+}
+USA_GUI_delete_map_outlines = {
+	set_country_flag = no_state_outlines
+	clear_array = USA_states_outline_array
+	for_loop_effect = {
+		start = 0
+		end = 53
+		value = idx
+
+		set_variable = {USA_number_to_add = idx}
+		add_to_array = {USA_states_outline_array = USA_number_to_add}
+		add_to_variable = {USA_states_outline_array^idx = 1000}
+	}
+}
+USA_GUI_add_map_outlines_back = {
+	clr_country_flag = no_state_outlines
+	clear_array = USA_states_outline_array
+	for_loop_effect = {
+		start = 0
+		end = 53
+		value = idx
+
+		set_variable = {USA_number_to_add = idx}
+		add_to_array = {USA_states_outline_array = USA_number_to_add}
+	}
+}
+USA_GUI_fetch_real_index_numbers = {
+	clear_array = USA_GUI_real_index_main
+	add_to_array = {USA_GUI_real_index_main = 0}
+	add_to_array = {USA_GUI_real_index_main = 3}
+	add_to_array = {USA_GUI_real_index_main = 5}
+	add_to_array = {USA_GUI_real_index_main = 6}
+	add_to_array = {USA_GUI_real_index_main = 7}
+	add_to_array = {USA_GUI_real_index_main = 8}
+	add_to_array = {USA_GUI_real_index_main = 9}
+	add_to_array = {USA_GUI_real_index_main = 11}
+	add_to_array = {USA_GUI_real_index_main = 12}
+	add_to_array = {USA_GUI_real_index_main = 13}
+	add_to_array = {USA_GUI_real_index_main = 14}
+	add_to_array = {USA_GUI_real_index_main = 15}
+	add_to_array = {USA_GUI_real_index_main = 16}
+	add_to_array = {USA_GUI_real_index_main = 17}
+	add_to_array = {USA_GUI_real_index_main = 18}
+	add_to_array = {USA_GUI_real_index_main = 19}
+	add_to_array = {USA_GUI_real_index_main = 20}
+	add_to_array = {USA_GUI_real_index_main = 21}
+	add_to_array = {USA_GUI_real_index_main = 22}
+	add_to_array = {USA_GUI_real_index_main = 23}
+	add_to_array = {USA_GUI_real_index_main = 24}
+	add_to_array = {USA_GUI_real_index_main = 25}
+	add_to_array = {USA_GUI_real_index_main = 26}
+	add_to_array = {USA_GUI_real_index_main = 27}
+	add_to_array = {USA_GUI_real_index_main = 28}
+	add_to_array = {USA_GUI_real_index_main = 29}
+	add_to_array = {USA_GUI_real_index_main = 31}
+	add_to_array = {USA_GUI_real_index_main = 32}
+	add_to_array = {USA_GUI_real_index_main = 33}
+	add_to_array = {USA_GUI_real_index_main = 34}
+	add_to_array = {USA_GUI_real_index_main = 37}
+	add_to_array = {USA_GUI_real_index_main = 38}
+	add_to_array = {USA_GUI_real_index_main = 39}
+	add_to_array = {USA_GUI_real_index_main = 40}
+	add_to_array = {USA_GUI_real_index_main = 41}
+	add_to_array = {USA_GUI_real_index_main = 43}
+	add_to_array = {USA_GUI_real_index_main = 44}
+	add_to_array = {USA_GUI_real_index_main = 45}
+	add_to_array = {USA_GUI_real_index_main = 47}
+	add_to_array = {USA_GUI_real_index_main = 48}
+	add_to_array = {USA_GUI_real_index_main = 49}
+	add_to_array = {USA_GUI_real_index_main = 50}
+
+	clear_array = USA_GUI_real_index_secondary
+	add_to_array = {USA_GUI_real_index_secondary = 1}
+	add_to_array = {USA_GUI_real_index_secondary = 2}
+	add_to_array = {USA_GUI_real_index_secondary = 4}
+	add_to_array = {USA_GUI_real_index_secondary = 10}
+	add_to_array = {USA_GUI_real_index_secondary = 30}
+	add_to_array = {USA_GUI_real_index_secondary = 35}
+	add_to_array = {USA_GUI_real_index_secondary = 36}
+	add_to_array = {USA_GUI_real_index_secondary = 42}
+	add_to_array = {USA_GUI_real_index_secondary = 46}
+
+	clear_array = USA_GUI_real_index_main_area
+	add_to_array = {USA_GUI_real_index_main_area = 3}
+	add_to_array = {USA_GUI_real_index_main_area = 3}
+	add_to_array = {USA_GUI_real_index_main_area = 8}
+	add_to_array = {USA_GUI_real_index_main_area = 1}
+	add_to_array = {USA_GUI_real_index_main_area = 2}
+	add_to_array = {USA_GUI_real_index_main_area = 3}
+	add_to_array = {USA_GUI_real_index_main_area = 3}
+	add_to_array = {USA_GUI_real_index_main_area = 8}
+	add_to_array = {USA_GUI_real_index_main_area = 5}
+	add_to_array = {USA_GUI_real_index_main_area = 5}
+	add_to_array = {USA_GUI_real_index_main_area = 6}
+	add_to_array = {USA_GUI_real_index_main_area = 6}
+	add_to_array = {USA_GUI_real_index_main_area = 4}
+	add_to_array = {USA_GUI_real_index_main_area = 3}
+	add_to_array = {USA_GUI_real_index_main_area = 1}
+	add_to_array = {USA_GUI_real_index_main_area = 2}
+	add_to_array = {USA_GUI_real_index_main_area = 1}
+	add_to_array = {USA_GUI_real_index_main_area = 5}
+	add_to_array = {USA_GUI_real_index_main_area = 6}
+	add_to_array = {USA_GUI_real_index_main_area = 3}
+	add_to_array = {USA_GUI_real_index_main_area = 6}
+	add_to_array = {USA_GUI_real_index_main_area = 8}
+	add_to_array = {USA_GUI_real_index_main_area = 6}
+	add_to_array = {USA_GUI_real_index_main_area = 8}
+	add_to_array = {USA_GUI_real_index_main_area = 1}
+	add_to_array = {USA_GUI_real_index_main_area = 2}
+	add_to_array = {USA_GUI_real_index_main_area = 2}
+	add_to_array = {USA_GUI_real_index_main_area = 4}
+	add_to_array = {USA_GUI_real_index_main_area = 6}
+	add_to_array = {USA_GUI_real_index_main_area = 5}
+	add_to_array = {USA_GUI_real_index_main_area = 2}
+	add_to_array = {USA_GUI_real_index_main_area = 1}
+	add_to_array = {USA_GUI_real_index_main_area = 3}
+	add_to_array = {USA_GUI_real_index_main_area = 6}
+	add_to_array = {USA_GUI_real_index_main_area = 4}
+	add_to_array = {USA_GUI_real_index_main_area = 8}
+	add_to_array = {USA_GUI_real_index_main_area = 1}
+	add_to_array = {USA_GUI_real_index_main_area = 4}
+	add_to_array = {USA_GUI_real_index_main_area = 2}
+	add_to_array = {USA_GUI_real_index_main_area = 5}
+	add_to_array = {USA_GUI_real_index_main_area = 8}
+	add_to_array = {USA_GUI_real_index_main_area = 2}
+
+	clear_array = USA_GUI_real_index_secondary_area
+	add_to_array = {USA_GUI_real_index_secondary_area = 9}
+	add_to_array = {USA_GUI_real_index_secondary_area = 7}
+	add_to_array = {USA_GUI_real_index_secondary_area = 9}
+	add_to_array = {USA_GUI_real_index_secondary_area = 9}
+	add_to_array = {USA_GUI_real_index_secondary_area = 7}
+	add_to_array = {USA_GUI_real_index_secondary_area = 7}
+	add_to_array = {USA_GUI_real_index_secondary_area = 9}
+	add_to_array = {USA_GUI_real_index_secondary_area = 7}
+	add_to_array = {USA_GUI_real_index_secondary_area = 9}
+}
+USA_tab_1_click_effect = {
+	USA_GUI_previous_election_display_shenanigans = yes
+	USA_save_prev_date = yes
+	set_variable = {USA_GUI_selected_tab = 1}
+	set_variable = {USA_GUI_selected_tab_sub = 1}
+	USA_determine_senate_map_breakdown = yes
+	USA_determine_senate_dots = yes
+	USA_GUI_total_up_senators = yes
+	remove_from_array = {USA_states_dots = 50}
+	USA_GUI_add_map_outlines_back = yes
+}
+USA_tab_2_click_effect = {
+	set_variable = {USA_GUI_selected_tab = 2}
+	set_variable = {USA_GUI_selected_tab_sub = 4}
+	set_variable = {USA_GUI_selected_prev_year = USA_prev_selected_year}
+	USA_voting_GUI_work_out_previous_presidential_results = yes
+	clr_country_flag = USA_predictions_selected
+	clr_country_flag = USA_hidden_unelected_states
+	USA_GUI_determine_previous_election_map = yes
+	US_calculate_numbers_blocker_offset = yes
+	USA_GUI_total_up_senators = yes
+	add_to_array = {USA_states_dots = 50}
+	USA_GUI_delete_map_outlines = yes
+}
+USA_tab_3_click_effect = {
+	USA_GUI_previous_election_display_shenanigans = yes
+	USA_save_prev_date = yes
+	set_variable = {USA_GUI_selected_tab = 3}
+	set_variable = {USA_GUI_selected_tab_sub = 5}
+	USA_GUI_setup_nat_pop_map = yes
+	clr_country_flag = USA_predictions_selected
+	clr_country_flag = USA_hidden_unelected_states
+	USA_GUI_total_up_senators = yes
+	remove_from_array = {USA_states_dots = 50}
+	USA_GUI_delete_map_outlines = yes
+}
+USA_tab_1_1_click_effect = {
+	set_variable = {USA_GUI_selected_tab_sub = 1}
+	USA_determine_senate_map_breakdown = yes
+	USA_determine_senate_dots = yes
+	USA_GUI_total_up_senators = yes
+	USA_GUI_add_map_outlines_back = yes
+}
+USA_tab_1_2_click_effect = {
+	set_variable = {USA_GUI_selected_tab_sub = 2}
+	clr_country_flag = USA_predictions_selected
+	clr_country_flag = USA_hidden_unelected_states
+	USA_recall_senate_election_result = yes
+	USA_GUI_total_up_senators = yes
+	USA_GUI_delete_map_outlines = yes
+}
+USA_tab_2_1_click_effect = {
+	USA_GUI_previous_election_display_shenanigans = yes
+	USA_save_prev_date = yes
+	set_variable = {USA_GUI_selected_tab_sub = 3}
+	if = {
+		limit = {
+			NOT = {
+				has_country_flag = USA_presidential_conclusion
+			}
+		}
+		USA_display_current_election = yes
+	}
+	if = {
+		limit = {
+			has_country_flag = USA_presidential_conclusion
+		}
+		USA_display_election_results = yes
+	}
+	USA_GUI_total_up_senators = yes
+	USA_GUI_add_map_outlines_back = yes
+	if = {
+		limit = {
+			USA = {owns_state = 629}
+		}
+		set_variable = {US_GUI_victory_lines_frame = 5}
+	}
+	else = {
+		set_variable = {US_GUI_victory_lines_frame = 4}
+	}
+	US_GUI_update_elec_bar = yes
+}
+USA_tab_2_2_click_effect = {
+	USA_GUI_previous_election_display_shenanigans = yes
+	set_variable = {USA_GUI_selected_tab_sub = 4}
+	set_variable = {USA_GUI_selected_prev_year = USA_prev_selected_year}
+	USA_voting_GUI_work_out_previous_presidential_results = yes
+	US_calculate_numbers_blocker_offset = yes
+	USA_GUI_determine_previous_election_map = yes
+	USA_GUI_total_up_senators = yes
+	USA_GUI_delete_map_outlines = yes
+}
+USA_tab_3_1_click_effect = {
+	set_variable = {USA_GUI_selected_tab_sub = 5}
+	USA_GUI_setup_nat_pop_map = yes
+	every_owned_state = {
+		limit = { has_state_flag = US_election_state }
+		USA_party_populairty_in_every_state = yes
+	}
+	USA_GUI_total_up_senators = yes
+	USA_GUI_delete_map_outlines = yes
+}
+USA_tab_3_2_click_effect = {
+	set_variable = {USA_GUI_selected_tab_sub = 6}
+	USA_GUI_setup_rdc_pop_map = yes
+	every_owned_state = {
+		limit = { has_state_flag = US_election_state }
+		USA_party_populairty_in_every_state = yes
+	}
+	USA_GUI_total_up_senators = yes
+	USA_GUI_delete_map_outlines = yes
+}
+USA_tab_3_3_click_effect = {
+	set_variable = {USA_GUI_selected_tab_sub = 7}
+	USA_GUI_setup_npp_pop_map = yes
+	every_owned_state = {
+		limit = { has_state_flag = US_election_state }
+		USA_party_populairty_in_every_state = yes
+	}
+	USA_GUI_total_up_senators = yes
+	USA_GUI_delete_map_outlines = yes
+}
+USA_GUI_update_numbers_position = {
+	USA_GUI_set_actual_votes_position = yes
+	clear_variable = US_actual_vote_numbers_x_adjust_rdc
+	clear_variable = US_actual_vote_numbers_x_adjust_npp
+	if = {
+		limit = {
+			check_variable = {US_voting_votes_display_actual^0 < 10}
+		}
+		set_variable = {US_actual_vote_numbers_x_adjust_rdc = 11}
+		if = {
+			limit = {
+				check_variable = {US_voting_votes_display_actual^0 < 1}
+			}
+			add_to_variable = {US_actual_vote_numbers_x_adjust_rdc = 14}
+			if = {
+				limit = {
+					check_variable = {US_voting_votes_display_actual^1 < 100}
+				}
+				add_to_variable = {US_actual_vote_numbers_x_adjust_rdc = 11}
+				if = {
+					limit = {
+						check_variable = {US_voting_votes_display_actual^1 < 10}
+					}
+					add_to_variable = {US_actual_vote_numbers_x_adjust_rdc = 11}
+				}
+			}
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {US_voting_votes_display_actual^0 = 0}
+			check_variable = {US_voting_votes_display_actual^1 = 0}
+			check_variable = {US_voting_votes_display_actual^2 = 0}
+		}
+		set_variable = {US_actual_vote_numbers_x_adjust_rdc = 77}
+	}
+	if = {
+		limit = {
+			check_variable = {US_voting_votes_display_actual^3 < 10}
+		}
+		set_variable = {US_actual_vote_numbers_x_adjust_npp = 11}
+		if = {
+			limit = {
+				check_variable = {US_voting_votes_display_actual^3 < 1}
+			}
+			add_to_variable = {US_actual_vote_numbers_x_adjust_npp = 14}
+			if = {
+				limit = {
+					check_variable = {US_voting_votes_display_actual^4 < 100}
+				}
+				add_to_variable = {US_actual_vote_numbers_x_adjust_npp = 11}
+				if = {
+					limit = {
+						check_variable = {US_voting_votes_display_actual^4 < 10}
+					}
+					add_to_variable = {US_actual_vote_numbers_x_adjust_npp = 11}
+				}
+			}
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {US_voting_votes_display_actual^3 = 0}
+			check_variable = {US_voting_votes_display_actual^4 = 0}
+			check_variable = {US_voting_votes_display_actual^5 = 0}
+		}
+		set_variable = {US_actual_vote_numbers_x_adjust_npp = 77}
+	}
+	for_loop_effect = {
+		start = 0
+		end = 6
+		value = idx
+
+		set_variable = {index_check = idx}
+		if = {
+			limit = {
+				check_variable = {index_check < 3}
+			}
+			subtract_from_variable = {US_GUI_actual_votes_x^idx = US_actual_vote_numbers_x_adjust_rdc}
+		}
+		else = {
+			subtract_from_variable = {US_GUI_actual_votes_x^idx = US_actual_vote_numbers_x_adjust_npp}
+		}
+	}
+}
+USA_GUI_update_text_animation = {
+	add_to_variable = {US_vote_count_animation_update = 1}
+	if = {
+		limit = {
+			check_variable = {US_vote_count_animation_update = 2}
+		}
+		set_variable = {US_vote_count_animation_update = 0}
+	}
+}
 USA_sort_out_total_votes_display = {
+	set_variable = {US_voting_actual_rd_votes_third_part_prev = US_voting_actual_rd_votes_third_part}
+	set_variable = {US_voting_actual_rd_votes_second_part_prev = US_voting_actual_rd_votes_second_part}
+	set_variable = {US_voting_actual_rd_votes_first_part_prev = US_voting_actual_rd_votes_first_part}
+
+	set_variable = {US_voting_actual_npp_votes_third_part_prev = US_voting_actual_npp_votes_third_part}
+	set_variable = {US_voting_actual_npp_votes_second_part_prev = US_voting_actual_npp_votes_second_part}
+	set_variable = {US_voting_actual_npp_votes_first_part_prev = US_voting_actual_npp_votes_first_part}
+
 	set_variable = {US_voting_actual_rd_votes_third_part = USA_rd_total_votes_from_election}
 	round_variable = US_voting_actual_rd_votes_third_part
 	subtract_from_variable = {US_voting_actual_rd_votes_third_part = USA_rd_total_votes_from_election}
@@ -7710,45 +9015,51 @@ USA_sort_out_total_votes_display = {
 	divide_variable = {US_voting_actual_npp_votes_first_part = 1000}
 	multiply_variable = {US_voting_actual_npp_votes_third_part = 1000}
 
-	add_to_variable = {US_voting_actual_rd_votes_third_part = 1000}
-	add_to_variable = {US_voting_actual_rd_votes_second_part = 1000}
-	add_to_variable = {US_voting_actual_npp_votes_third_part = 1000}
-	add_to_variable = {US_voting_actual_npp_votes_second_part = 1000}
-
 	if = {
 		limit = {
-			check_variable = {USA_rd_total_votes_from_election < 1}
+			check_variable = {US_voting_actual_rd_votes_first_part > 1}
 		}
-		set_variable = {US_voting_actual_rd_votes_first_part = US_voting_actual_rd_votes_third_part}
-		subtract_from_variable = {US_voting_actual_rd_votes_first_part = 1000}
+		add_to_variable = {US_voting_actual_rd_votes_second_part = 1000}
 	}
-	else_if = {
-		limit = {
-			check_variable = {USA_rd_total_votes_from_election < 1000}
-		}
-		set_variable = {US_voting_actual_rd_votes_first_part = US_voting_actual_rd_votes_second_part}
-		set_variable = {US_voting_actual_rd_votes_second_part = US_voting_actual_rd_votes_third_part}
-		subtract_from_variable = {US_voting_actual_rd_votes_first_part = 1000}
-	}
-	else = {}
-
 	if = {
 		limit = {
-			check_variable = {USA_npp_total_votes_from_election < 1}
+			check_variable = {US_voting_actual_npp_votes_first_part > 1}
 		}
-		set_variable = {US_voting_actual_npp_votes_first_part = US_voting_actual_npp_votes_third_part}
-		subtract_from_variable = {US_voting_actual_npp_votes_first_part = 1000}
+		add_to_variable = {US_voting_actual_npp_votes_second_part = 1000}
 	}
-	else_if = {
-		limit = {
-			check_variable = {USA_npp_total_votes_from_election < 1000}
-		}
-		set_variable = {US_voting_actual_npp_votes_first_part = US_voting_actual_npp_votes_second_part}
-		set_variable = {US_voting_actual_npp_votes_second_part = US_voting_actual_npp_votes_third_part}
-		subtract_from_variable = {US_voting_actual_npp_votes_first_part = 1000}
-	}
-	else = {}
+	set_variable = {US_voting_votes_display^2 = US_voting_actual_rd_votes_third_part}
+	multiply_variable = {US_voting_votes_display^2 = 1000}
+	add_to_variable = {US_voting_votes_display^2 = US_voting_actual_rd_votes_third_part_prev}
 
-	US_calculate_numbers_blocker_offset = yes
+	set_variable = {US_voting_votes_display^1 = US_voting_actual_rd_votes_second_part}
+	multiply_variable = {US_voting_votes_display^1 = 1000}
+	add_to_variable = {US_voting_votes_display^1 = US_voting_actual_rd_votes_second_part_prev}
+
+	set_variable = {US_voting_votes_display^0 = US_voting_actual_rd_votes_first_part}
+	multiply_variable = {US_voting_votes_display^0 = 1000}
+	add_to_variable = {US_voting_votes_display^0 = US_voting_actual_rd_votes_first_part_prev}
+
+	set_variable = {US_voting_votes_display^5 = US_voting_actual_npp_votes_third_part}
+	multiply_variable = {US_voting_votes_display^5 = 1000}
+	add_to_variable = {US_voting_votes_display^5 = US_voting_actual_npp_votes_third_part_prev}
+
+	set_variable = {US_voting_votes_display^4 = US_voting_actual_npp_votes_second_part}
+	multiply_variable = {US_voting_votes_display^4 = 1000}
+	add_to_variable = {US_voting_votes_display^4 = US_voting_actual_npp_votes_second_part_prev}
+
+	set_variable = {US_voting_votes_display^3 = US_voting_actual_npp_votes_first_part}
+	multiply_variable = {US_voting_votes_display^3 = 1000}
+	add_to_variable = {US_voting_votes_display^3 = US_voting_actual_npp_votes_first_part_prev}
+
+	set_variable = {US_voting_votes_display_actual^0 = US_voting_actual_rd_votes_first_part}
+	set_variable = {US_voting_votes_display_actual^1 = US_voting_actual_rd_votes_second_part}
+	set_variable = {US_voting_votes_display_actual^2 = US_voting_actual_rd_votes_third_part}
+
+	set_variable = {US_voting_votes_display_actual^3 = US_voting_actual_npp_votes_first_part}
+	set_variable = {US_voting_votes_display_actual^4 = US_voting_actual_npp_votes_second_part}
+	set_variable = {US_voting_votes_display_actual^5 = US_voting_actual_npp_votes_third_part}
+
+	USA_GUI_update_text_animation = yes
+	USA_GUI_update_numbers_position = yes
 }
 #Do not add another effect below this as they dont't work, add them above this effect#

@@ -16,7 +16,7 @@ scripted_gui = {
 		window_name = "TNO_ParliamentMechanic_open"
 
 		visible = {
-			OR = { tag = AST tag = FEN }
+			OR = { tag = ENG tag = FEN }
 			NOT = { has_country_flag = ENG_Parliament_Disabled }
 		}
 
@@ -61,7 +61,7 @@ scripted_gui = {
 		window_name = "TNO_ParliamentMechanic_Container"
 
 		visible = {
-			OR = { tag = AST tag = FEN }
+			OR = { tag = ENG tag = FEN }
 			has_country_flag = ParliamentMechanic_screen_open
 		}
 
@@ -112,16 +112,8 @@ scripted_gui = {
 				image = "[TNO_ParliamentMechanic_Ideas_Get_Monarch_Picture]"
 			}
 
-			TNO_ParliamentMechanic_PD_Portrait_vice_Speaker = {
-				image = "[TNO_ParliamentMechanic_Ideas_Get_vice_Speaker_Picture]"
-			}
-			
-			TNO_ParliamentMechanic_PD_Portrait_UK_PM = {
-				image = "[TNO_ParliamentMechanic_Ideas_Get_UK_PM_Picture]"
-			}
-			
-			TNO_ParliamentMechanic_PD_Portrait_Second_leader = {
-				image = "[TNO_ParliamentMechanic_Ideas_Get_second_leader_Picture]"
+			TNO_ParliamentMechanic_PD_Portrait_OppLeader = {
+				image = "[TNO_ParliamentMechanic_Ideas_Get_OppLeader_Picture]"
 			}
 
 			TNO_ParliamentMechanic_Seats_Entry_Gov_Box = {

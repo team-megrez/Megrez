@@ -192,7 +192,6 @@ USA_OFN_mandates_formed = { #Why this freakin' mess is not scripted here serious
 			retire = yes
 		}
 		add_ideas = OFN_Mandate
-		remove_ideas = AS_Member
 		inherit_technology = USA
 		OFN_MANDATE_set_starting_laws = yes
 		set_party_name = {
@@ -392,7 +391,7 @@ USA_OFN_mandates_formed = { #Why this freakin' mess is not scripted here serious
 	if = {
 		limit = {
 			ANG = {
-				NOT = { has_global_flag = ANG_Free }
+				NOT = { has_country_flag = ANG_Free }
 			}
 		}
 		ANG = {
@@ -402,7 +401,6 @@ USA_OFN_mandates_formed = { #Why this freakin' mess is not scripted here serious
 			}
 			set_capital = { state = 1035 }
 			add_ideas = OFN_Mandate
-			remove_ideas = AS_Member
 			econ_join_sphere_USA = yes
 			inherit_technology = USA
 			OFN_MANDATE_set_starting_laws = yes
@@ -474,6 +472,7 @@ USA_OFN_mandates_formed = { #Why this freakin' mess is not scripted here serious
 			}
 			ANG_Jonas_Savimbi = {
 				promote_character = { ideology = despotism_personalistic_dictatorship_subtype }
+				promote_character = { ideology = paternalism_controlled_democracy_subtype }
 			}
 			set_politics = { ruling_party = paternalism }
 			set_popularities = {
@@ -508,6 +507,7 @@ USA_OFN_mandates_formed = { #Why this freakin' mess is not scripted here serious
 				ANG_SKL_Air_Exercises
 				ANG_SKL_RD_Expanded
 				ANG_Secure_The_Homefront
+				ANG_Boer_Help
 				ANG_In_The_Nuts
 				ANG_In_The_Nuts_2
 				ANG_In_The_Nuts_3
@@ -696,6 +696,36 @@ TNO_ANG_Warlord_Balance_Check = {
 	else = {
 		custom_effect_tooltip = TNO_ANG_No_Path_Yet
 	}
+	if = { 
+		limit = {
+			has_game_rule = {
+				rule = ANG_ROOT
+				option = ANG_ROOT_MLPA
+			}
+		}
+		set_variable = { OFN_MANDATE_ANG_MPLA_power_level = 30 }
+		set_variable = { OFN_MANDATE_ANG_UNITA_power_level = 0 }
+	}
+	else_if = { 
+		limit = {
+			has_game_rule = {
+				rule = ANG_ROOT
+				option = ANG_ROOT_UNITA
+			}
+		}
+		set_variable = { OFN_MANDATE_ANG_MPLA_power_level = 0 }
+		set_variable = { OFN_MANDATE_ANG_UNITA_power_level = 30 }
+	}
+	else_if = { 
+		limit = {
+			has_game_rule = {
+				rule = ANG_ROOT
+				option = ANG_ROOT_FNLA
+			}
+		}
+		set_variable = { OFN_MANDATE_ANG_MPLA_power_level = 0 }
+		set_variable = { OFN_MANDATE_ANG_UNITA_power_level = 0 }
+	}
 }
 
 
@@ -774,91 +804,6 @@ clamp_OFN_mandate_rebel_stability = {
 	set_variable = { OFN_MANDATE_rebel_stability_display = OFN_MANDATE_rebel_stability }
 	multiply_variable = { OFN_MANDATE_rebel_stability_display = 100 }
 	round_variable = OFN_MANDATE_rebel_stability_display
-	if = {
-		limit = {
-			NOT = {
-				has_game_rule = {
-					rule = ANG_ROOT
-					option = DEFAULT
-				}
-			}
-		}
-		set_variable = { CCP_OFN_MANDATE_ANG_gov_strength = OFN_MANDATE_ANG_MPLA_power_level }
-		subtract_from_variable = { CCP_OFN_MANDATE_ANG_gov_strength = OFN_MANDATE_ANG_UNITA_power_level }
-		if = {
-			limit = { check_variable = { CCP_OFN_MANDATE_ANG_gov_strength < 0 } }
-			multiply_variable = { CCP_OFN_MANDATE_ANG_gov_strength = -1 }
-		}
-	}
-	if = { 
-		limit = {
-			has_game_rule = {
-				rule = ANG_ROOT
-				option = ANG_ROOT_MLPA
-			}
-			OR = {
-				NOT = {
-					check_variable = { OFN_MANDATE_ANG_MPLA_power_level > OFN_MANDATE_ANG_UNITA_power_level }
-				}
-				NOT = {
-					check_variable = { CCP_OFN_MANDATE_ANG_gov_strength > 25 }
-				}
-			}
-		}
-		random_list = {
-			50 = {
-				set_variable = { OFN_MANDATE_ANG_MPLA_power_level = OFN_MANDATE_ANG_UNITA_power_level }
-			}
-			50 = {
-				set_variable = { OFN_MANDATE_ANG_UNITA_power_level = OFN_MANDATE_ANG_MPLA_power_level }
-			}
-		}
-		add_to_variable = { OFN_MANDATE_ANG_MPLA_power_level = 15 }
-		subtract_from_variable = { OFN_MANDATE_ANG_UNITA_power_level = 15 }
-	}
-	else_if = { 
-		limit = {
-			has_game_rule = {
-				rule = ANG_ROOT
-				option = ANG_ROOT_UNITA
-			}
-			OR = {
-				NOT = {
-					check_variable = { OFN_MANDATE_ANG_UNITA_power_level > OFN_MANDATE_ANG_MPLA_power_level }
-				}
-				NOT = {
-					check_variable = { CCP_OFN_MANDATE_ANG_gov_strength > 25 }
-				}
-			}
-		}
-		random_list = {
-			50 = {
-				set_variable = { OFN_MANDATE_ANG_MPLA_power_level = OFN_MANDATE_ANG_UNITA_power_level }
-			}
-			50 = {
-				set_variable = { OFN_MANDATE_ANG_UNITA_power_level = OFN_MANDATE_ANG_MPLA_power_level }
-			}
-		}
-		add_to_variable = { OFN_MANDATE_ANG_UNITA_power_level = 15 }
-		subtract_from_variable = { OFN_MANDATE_ANG_MPLA_power_level = 15 }
-	}
-	else_if = { 
-		limit = {
-			has_game_rule = {
-				rule = ANG_ROOT
-				option = ANG_ROOT_FNLA
-			}
-			check_variable = { CCP_OFN_MANDATE_ANG_gov_strength > 25 }
-		}
-		random_list = {
-			50 = {
-				set_variable = { OFN_MANDATE_ANG_MPLA_power_level = OFN_MANDATE_ANG_UNITA_power_level }
-			}
-			50 = {
-				set_variable = { OFN_MANDATE_ANG_UNITA_power_level = OFN_MANDATE_ANG_MPLA_power_level }
-			}
-		}
-	}
 }
 
 USA_AFRICA_set_start_stability = {
@@ -1989,7 +1934,6 @@ OFN_MANDATE_set_starting_laws = {
 }
 
 OFN_CAR_Initialize = {
-	log = "[GetDateText]: [Root.GetName]: CAR Initializing"
 	every_state = {
 		limit = {
 			OR = {
@@ -2093,6 +2037,7 @@ OFN_COG_MANDATE_CIVIL_WAR = {
 			transfer_state = 1163
 			add_state_core = 1163
 			#Kéllé
+			transfer_state = 1165
 			add_state_core = 1165
 
 			econ_join_sphere_USA = yes
@@ -2109,7 +2054,7 @@ OFN_COG_MANDATE_CIVIL_WAR = {
 			#Bangui
 			transfer_state = 1171
 			add_state_core = 1171
-			#Bambari
+			#Bombari
 			transfer_state = 538
 			add_state_core = 538
 			#Hitlerstadt
@@ -2155,6 +2100,9 @@ OFN_COG_MANDATE_CIVIL_WAR = {
 			#Uvira
 			transfer_state = 1175
 			add_state_core = 1175
+			#Mbandaka
+			transfer_state = 1775
+			add_state_core = 1775
 		}
 		CFS = {
 			#Dekese
@@ -2169,6 +2117,9 @@ OFN_COG_MANDATE_CIVIL_WAR = {
 			#Bealdwinstadt
 			transfer_state = 1174
 			add_state_core = 1174
+			#Bandundu
+			transfer_state = 1773
+			add_state_core = 1773
 		}
 		KTG = {
 			#Richardstadt
@@ -2266,11 +2217,6 @@ ANG_free_from_OFN_peace = {
 		}
 		set_capital = { state = 1035 }
 		drop_cosmetic_tag = yes
-		set_party_name = {
-			ideology = paternalism
-			long_name = ANG_post_decolonization_paternalism_long
-			name = ANG_post_decolonization_paternalism
-		}
 		if = {
 			limit = {
 				has_country_flag = OFN_MANTADE_ANG_favored_mpla
