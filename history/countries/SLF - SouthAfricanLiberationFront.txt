@@ -1,10 +1,10 @@
 capital = 933
 
 # Vacant
-#recruit_character = SLF_Generic_Vacant
+# recruit_character = SLF_Generic_Vacant
 fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
 
-
+# recruit_character = SLF_Constand_Viljoen
 
 oob = "BFR_1962"
 
@@ -67,29 +67,18 @@ set_politics = {
 
 set_popularities = {
 	communist = 0
-	ultranationalism = 0
 	socialist = 10
 	progressivism = 0
 	liberalism = 10
-
+	liberal_conservatism = 0
 	conservatism = 20
 	paternalism = 0
 	despotism = 60
+	ultranationalism = 0
 	fascism = 0
-	
+	national_socialism = 0
 }
 
-create_country_leader = {
-	name = "Constand Viljoen"
-	desc = "POLITICS_CONSTAND_VILJOEN_DESC"
-	picture = "Portrait_South_Africa_Constand_Viljoen.dds"
-	expire = "1999.1.23"
-	ideology = despotism_military_junta_subtype
-	traits = {
-		
-	}
-}
-
-set_variable = { TNO_economy_type = 3 }
-set_variable = { TNO_economy_subtype = 6 }
+set_variable = { TNO_economy_type = token:Econ_Type_Planned }
+set_variable = { TNO_economy_subtype = token:Econ_Subtype_Military_Directed }
 TNO_startup_nation = yes

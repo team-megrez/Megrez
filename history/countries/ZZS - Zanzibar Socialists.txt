@@ -1,10 +1,10 @@
 capital = 1030
 
 # Vacant
-#recruit_character = ZZS_Generic_Vacant
+# recruit_character = ZZS_Generic_Vacant
 fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
 
-
+# recruit_character = ZZS_Abdulrahman_Mohamed_Babu
 
 oob = "CAF_1962"
 
@@ -84,18 +84,6 @@ set_popularities = {
 }
 
 #econtype
-set_variable = { TNO_economy_type = 3 }
-
-
-create_country_leader = {
-	name = "Abdulrahman Mohamed Babu"
-	desc = "POLITICS_ABDULRAHMAN_MOHAMED_BABU_DESC"
-	picture = "Portrait_Zanzibar_Abdulrahman_Mohamed_Babu.dds"
-	expire = "1999.1.23"
-	ideology = socialist_panafricanism_subtype
-	traits = {
-		
-	}
-}
+set_variable = { TNO_economy_type = token:Econ_Type_Planned }
 
 TNO_startup_nation = yes

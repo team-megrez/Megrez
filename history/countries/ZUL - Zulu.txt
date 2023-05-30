@@ -1,10 +1,10 @@
 capital = 1078
 
 # Vacant
-#recruit_character = ZUL_Generic_Vacant
+# recruit_character = ZUL_Generic_Vacant
 fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
 
-
+# recruit_character = ZUL_Mangosuthu_Buthelezi
 
 oob = "BFR_1962"
 
@@ -67,28 +67,19 @@ set_politics = {
 
 set_popularities = {
 	communist = 0
-	ultranationalism = 0
 	socialist = 20
 	progressivism = 0
 	liberalism = 0
-
+	liberal_conservatism = 0
 	conservatism = 80
 	paternalism = 0
 	despotism = 0
+	ultranationalism = 0
 	fascism = 0
-	
+	national_socialism = 0
 }
 
 #econtype
-set_variable = { TNO_economy_type = 1 }
+set_variable = { TNO_economy_type = token:Econ_Type_Capitalism }
 
-create_country_leader = {
-	name = "Mangosuthu Buthelezi"
-	desc = "POLITICS_MANGOSUTHU_BUTHELEZI_DESC"
-	picture = "Portrait_Zulu_Mangosuthu_Buthelezi.dds"
-	expire = "1999.1.23"
-	ideology = conservatism_subtype
-	traits = {
-		
-	}
-}
+TNO_startup_nation = yes

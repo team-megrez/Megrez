@@ -1,59 +1,51 @@
-﻿capital = 96
-oob = "LIT"
-set_research_slots = 3
-set_war_support = 0.1
-set_convoys = 10
-set_cosmetic_tag = LIT_monarchy
+capital = 11
 
-
-recruit_character = LIT_Vytautas_II
-
+# Vacant
+# recruit_character = LIT_Generic_Vacant
 fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
 
-set_technology = {
-}
 
-TNO_startup_nation = yes
 
 add_ideas = {
-	#political#
-	tno_political_parties_multiparty_system
-	tno_religious_rights_pluralism
-	tno_trade_unions_all_allowed
-	tno_immigration_quota_immigration
-	tno_slavery_outlawed
-	tno_public_meetings_allowed
-	tno_press_rights_free_press
-	tno_vote_franchise_universal
-	#military#
-	tno_conscription_service_by_requirement
+	#political
+	tno_political_parties_one_party_state
+	tno_religious_rights_secularism
+	tno_trade_unions_illegal
+	tno_immigration_closed_borders
+	tno_slavery_penal_labor
+	tno_public_meetings_outlawed
+	tno_press_rights_state_press_only
+	tno_vote_franchise_no_voting
+	#MILITARY
+	tno_conscription_all_adults_serve
 	tno_military_supervision_rules_of_engagement
 	tno_training_basic_training
 	tno_draft_exemptions_none
-	#economic#
-	tno_trade_laws_export_focus
-	tno_income_taxation_high_income_weighted
-	tno_minimum_wage_acceptable_minimum
-	tno_max_workhours_10_hour_work_day
-	tno_pensions_acceptable_pensions
-	tno_unemployment_moderate_subsidies
-	#social#
+	#SOCIAL
 	tno_health_care_low_income_protections
 	tno_education_public_education
-	tno_penal_system_incarceration
+	tno_penal_system_harsh_penal_code
 	tno_gender_rights_women_in_the_workplace
 	tno_security_regulated_police
 	tno_regulations_moderate_regulations
-	#misc
-	tno_refugees_skilled
-	tno_women_military_assistance
-	tno_racial_integration_integrated_military
-	tno_child_labor_illegal
+	#ECONOMIC
+	tno_trade_laws_export_focus
+	tno_income_taxation_flat_taxes
+	tno_minimum_wage_low_minimum_wage
+	tno_max_workhours_12_hour_work_day
+	tno_pensions_acceptable_pensions
+	tno_unemployment_trinket_subsidies
+	#MISC
+	tno_refugees_banned
+	tno_women_banned
+	tno_racial_integration_enforced_integration
 	tno_safety_acceptable_regulations
 	tno_pollution_some_regulations
-	tno_lgbt_rights_lgbt_allowed
-	tno_minorities_equal_rights
+	tno_lgbt_rights_lgbt_outlawed
+	tno_minorities_segregation
+	tno_child_labor_illegal
 	#social development
+	
 	tno_army_professionalism_political_interference
 	tno_industrial_expertise_nascent
 	tno_industrial_equipment_power_tools
@@ -64,24 +56,221 @@ add_ideas = {
 	tno_academic_base_basic_literacy
 }
 
+set_technology = {
+	basic_train = 1
+
+	##INFANTRY##
+	# infantry_equipment_0 = 1
+	infantry_weapons_1 = 1
+	night_vision_1 = 1
+	
+	infantry_kit_1 = 1
+	infantry_weapons_2 = 1
+	night_vision_2 = 1
+	infantry_kit_2 = 1
+	infantry_weapons_improvements_mine_1 = 1
+	infantry_kit_3 = 1
+	infantry_weapons_improvements_ammo_1 = 1
+	infantry_weapons_improvements_grenade_1 = 1
+	#
+	infantry_weapons_3 = 1
+	night_vision_3 = 1
+	infantry_kit_4 = 1
+	infantry_weapons_improvements_mine_2 = 1
+	basic_infantry_equipment = 1
+	support_weapons = 1
+	support_weapons_hmg_1 = 1
+	combat_support_equipment_1 = 1
+	
+	support_weapons_arty_1 = 1
+	support_weapons_hmg_2 = 1
+	combat_support_equipment_2 = 1
+	infantry_at = 1
+	infantry_at_upgrade_1 = 1
+	#
+	
+	motorized_infantry = 1
+	motorized_rocket_unit = 1
+	motorized_infantry_1 = 1
+	marines = 1
+	#
+	tech_special_forces = 1
+	tech_mountaineers = 1
+	#
+	tech_mountaineers2 = 1
+	tech_mountaineers3 = 1
+	paratroopers = 1
+	paratroopers2 = 1
+	paratroopers3 = 1
+
+	##SUPPORT##
+	tech_support = 1
+	tech_engineers = 1
+	assault_weapons_1 = 1
+	tech_engineers2 = 1
+	assault_weapons_2 = 1
+	tech_engineers3 = 1
+	assault_weapons_3 = 1
+	tech_recon = 1
+	tech_recon2 = 1
+	tech_military_police = 1
+	tech_military_police2 = 1
+	tech_military_police3 = 1
+	tech_maintenance_company = 1
+	tech_maintenance_company2 = 1
+	tech_field_hospital = 1
+	tech_field_hospital2 = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	tech_signal_company2 = 1
+
+	##ARMOR##
+	advanced_light_tank = 1
+	advanced_medium_tank = 1
+	mechanised_infantry3 = 1
+
+	APC_1950 = 1
+	APC_1950_basic_turret = 1
+	#APC_1950_basic_engine = 1
+	APC_1950_basic_armor = 1
+	APC_1960 = 1
+
+	IFV_1950 = 1
+	IFV_1950_basic_turret = 1
+	IFV_1950_basic_armor = 1
+	#IFV_1950_basic_engine = 1
+	IFV_1960 = 1
+	
+	MBT_1950 = 1
+	MBT_1950_basic_turret = 1
+	#MBT_1950_basic_engine = 1
+	MBT_1950_basic_armor = 1
+	MBT_1960 = 1
+
+	AC_1945 = 1
+	AC_1950 = 1
+	AC_1960 = 1
+
+	##ARTY##
+	antiair5 = 1
+	antiair_1950 = 1
+	SPAA_1950 = 1
+	artillery4 = 1
+	artillery_1950 = 1
+	artillery_1950_soft_attack = 1
+	SPART_1950 = 1
+	SPART_1950_soft_attack = 1
+	#SPART_1950_speed = 1
+
+	##LAND DOCTRINE##
+	strategic_theorem = 1
+
+	##NAVAL##
+	ww2_destroyer = 1
+	ww2_cruiser = 1
+	ww2_battleship = 1
+	ww2_submarine = 1
+	basic_submarine = 1
+	improved_submarine = 1
+	transport = 1
+
+	##NAVAL DOCTRINE##
+
+	##HELICOPTERS##
+	very_early_helicopter = 1
+	early_helicopter = 1
+	transport_helicopter_1960 = 1
+	attack_helicopter_1960 = 1
+
+	##LIGHT AIR##
+	early_fighter = 1
+	interceptor_1945 = 1
+	interceptor_1950 = 1
+	fighter_1945 = 1
+	fighter_1950 = 1
+	CAS_1945 = 1
+	CAS_1950 = 1
+
+	##HEAVY AIR##
+	tac_bomber1 = 1
+	tac_air_1945 = 1
+	tac_air_1950 = 1
+	tac_air_1960 = 1
+	strategic_bomber1 = 1
+	heavy_air_1945 = 1
+	heavy_air_1950 = 1
+	heavy_air_1960 = 1
+	transport_air1 = 1
+	transport_air_1945 = 1
+	transport_air_1950 = 1
+	transport_air_1960 = 1
+
+	##ENGINEERING##
+	electronic_mechanical_engineering = 1
+	radio = 1
+	radio_detection = 1
+	decimetric_radar = 1
+	centimetric_radar = 1
+	mechanical_computing = 1
+	computing_machine = 1
+	basic_encryption = 1
+	basic_decryption = 1
+	improved_computing_machine = 1
+	improved_encryption = 1
+	improved_decryption = 1
+	advanced_computing_machine = 1
+	advanced_encryption = 1
+	computing_machine_1950 = 1
+	computing_machine_1960 = 1
+	
+	
+	
+	helicopter_engines = 1
+	jet_engines = 1
+	jet_engines_bombers = 1
+	improved_jet_engines_bombers_1 = 1
+	
+	
+	
+	
+
+	##INDUSTRY##
+	ww2_line_production = 1
+	mass_production_1 = 1
+	building_construction_1 = 1
+	consumer_goods_reduction_1 = 1
+	
+	oil_processing = 1
+	rubber_processing = 1
+	energy_technology_1 = 1
+	social_construction_1 = 1
+	resource_extraction_methods = 1
+	excavation0 = 1
+	administration_construction_1 = 1
+	excavation1 = 1
+	excavation2 = 1
+	military_construction_1 = 1
+	prison_construction_1 = 1
+	batch_production_1 = 1
+}
+
 set_politics = {
-	ruling_party = anocrat
-	last_election = "1888.6.15"
+ruling_party = despotism
+	last_election = "1962.1.1"
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	vanguardist = 0
-	syndicalist = 0
+	communist = 0
+	ultranationalism = 0
 	socialist = 0
-	conspiracist = 0
-	progressive = 2
-	liberal = 6
-	conservative = 6
-	ecologist = 12
-	anocrat = 47
-	paternalist = 15
-	national_populist = 12
-	technoscience_elitist = 0
+	progressivism = 0
+	liberalism = 0
+
+	conservatism = 0
+	paternalism = 0
+	despotism = 100
+	fascism = 0
+	national_socialism = 0
 }

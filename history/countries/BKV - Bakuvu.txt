@@ -1,10 +1,10 @@
 capital = 1030
 
 # Vacant
-#recruit_character = BKV_Generic_Vacant
+# recruit_character = BKV_Generic_Vacant
 fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
 
-
+# recruit_character = BKV_Alexandre_Singa
 
 oob = "CAF_1962"
 add_ideas = {
@@ -69,27 +69,16 @@ set_politics = {
 
 set_popularities = {
 	communist = 0
-	ultranationalism = 0
 	socialist = 0
 	progressivism = 0
 	liberalism = 0
-
+	liberal_conservatism = 0
 	conservatism = 0
 	paternalism = 20
 	despotism = 80
+	ultranationalism = 0
 	fascism = 0
-	
-}
-
-create_country_leader = {
-	name = "Alexandre Singa"
-	desc = "POLITICS_ALEXANDRE_SINGA_DESC"
-	picture = "Portrait_Bakuvu_Alexandre_Singa.dds"
-	expire = "1999.1.23"
-	ideology = despotism_subtype
-	traits = {
-		
-	}
+	national_socialism = 0
 }
 
 TNO_startup_nation = yes

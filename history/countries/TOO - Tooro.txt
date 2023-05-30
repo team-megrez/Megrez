@@ -1,10 +1,10 @@
 capital = 1030
 
 # Vacant
-#recruit_character = TOO_Generic_Vacant
+# recruit_character = TOO_Generic_Vacant
 fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
 
-
+# recruit_character = TOO_Olimi_III
 
 oob = "CAF_1962"
 
@@ -63,7 +63,7 @@ add_ideas = {
 }
 
 set_politics = {
-	ruling_party = fascism
+	ruling_party = paternalism
 	last_election = "1933.5.17"
 	election_frequency = 60
 	elections_allowed = no
@@ -77,30 +77,10 @@ set_popularities = {
 	liberalism = 0
 
 	conservatism = 0
-	paternalism = 0
+	paternalism = 40
 	despotism = 60
-	fascism = 40
+	fascism = 0
 	
 }
 
-create_country_leader = {
-	name = "Olimi III"
-	desc = "POLITICS_OLIMI_III_DESC"
-	picture = "Portrait_Tooro_Olimi_III.dds"
-	expire = "1999.1.23"
-	ideology = despotism_absolute_monarchy_subtype
-	traits = {
-		
-	}
-}
-
-create_country_leader = {
-	name = "Tito Okello"
-	desc = "POLITICS_TITO_OKELLO_DESC"
-	picture = "Portrait_Tooro_Tito_Okello.dds"
-	expire = "1999.1.23"
-	ideology = fascism_revolutionary_nationalism_subtype
-	traits = {
-		
-	}
-}
+TNO_startup_nation = yes

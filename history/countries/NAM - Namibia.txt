@@ -1,17 +1,22 @@
 capital = 778
 
-#recruit_character = NAM_Sam_Nujoma
+# recruit_character = NAM_Sam_Nujoma
 
-#recruit_character = NAM_Andimba_Toivo_ya_Toivo
-#recruit_character = NAM_Peter_Katjavivi
-#recruit_character = NAM_Klaus_Dierks
-#recruit_character = NAM_Peter_Mweshihange
+# recruit_character = NAM_Andimba_Toivo_ya_Toivo
+# recruit_character = NAM_Peter_Katjavivi
+# recruit_character = NAM_Klaus_Dierks
+# recruit_character = NAM_Peter_Mweshihange
 
-#recruit_character = NAM_Generic_Vacant
+# recruit_character = NAM_Generic_Vacant
 
 oob = "NAM_1962"
 
 add_ideas = {
+	#ministers#
+	NAM_Andimba_Toivo_ya_Toivo_hog
+	NAM_Peter_Katjavivi_for
+	NAM_Klaus_Dierks_eco
+	NAM_Peter_Mweshihange_sec
 	#political#
 	tno_political_parties_multiparty_system
 	tno_religious_rights_pluralism
@@ -70,18 +75,18 @@ set_politics = {
 
 set_popularities = {
 	communist = 0
-	ultranationalism = 0
 	socialist = 60
 	progressivism = 10
 	liberalism = 10
-
+	liberal_conservatism = 0
 	conservatism = 10
 	paternalism = 10
 	despotism = 0
+	ultranationalism = 0
 	fascism = 0
-	
+	national_socialism = 0
 }
 
-set_variable = { TNO_economy_type = 3 }
+set_variable = { TNO_economy_type = token:Econ_Type_Planned }
 
 TNO_startup_nation = yes

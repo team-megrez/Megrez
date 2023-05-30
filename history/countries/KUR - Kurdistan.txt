@@ -1,12 +1,10 @@
-﻿capital = 350
+capital = 1243
 
-
+# Vacant
+# recruit_character = KUR_Generic_Vacant
 fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
 
-set_technology = {
-}
 
-TNO_startup_nation = yes
 
 add_ideas = {
 	#political#
@@ -30,23 +28,24 @@ add_ideas = {
 	tno_max_workhours_10_hour_work_day
 	tno_pensions_acceptable_pensions
 	tno_unemployment_moderate_subsidies
+	tno_regulations_moderate_regulations
 	#social#
 	tno_health_care_low_income_protections
 	tno_education_public_education
 	tno_penal_system_incarceration
 	tno_gender_rights_women_in_the_workplace
 	tno_security_regulated_police
-	tno_regulations_moderate_regulations
-	#misc
-	tno_refugees_skilled
-	tno_women_military_assistance
-	tno_racial_integration_integrated_military
-	tno_child_labor_illegal
-	tno_safety_acceptable_regulations
+	#misc#
 	tno_pollution_some_regulations
-	tno_lgbt_rights_lgbt_allowed
+	tno_safety_acceptable_regulations
+	tno_child_labor_illegal
+	tno_refugees_skilled
+	tno_racial_integration_integrated_military
+	tno_women_military_assistance
 	tno_minorities_equal_rights
+	tno_lgbt_rights_lgbt_outlawed
 	#social development
+	
 	tno_army_professionalism_political_interference
 	tno_industrial_expertise_nascent
 	tno_industrial_equipment_power_tools
@@ -58,23 +57,31 @@ add_ideas = {
 }
 
 set_politics = {
-	ruling_party = anocrat
-	last_election = "1888.6.15"
+	ruling_party = paternalism
+	last_election = "1962.1.1"
 	election_frequency = 48
 	elections_allowed = no
 }
 
+set_variable = { TNO_economy_type = token:Econ_Type_Planned }
+
 set_popularities = {
-	vanguardist = 0
-	syndicalist = 0
-	socialist = 0
-	conspiracist = 0
-	progressive = 2
-	liberal = 6
-	conservative = 6
-	ecologist = 12
-	anocrat = 47
-	paternalist = 15
-	national_populist = 12
-	technoscience_elitist = 0
+	communist = 12
+	socialist = 12
+	progressivism = 0
+	liberalism = 12
+
+	conservatism = 0
+	paternalism = 64
+	despotism = 0
+	fascism = 0
+	national_socialism = 0
+	ultranationalism = 0
+	
 }
+
+### Country Leaders ###
+# recruit_character = KUR_Jalal_Talabani
+# recruit_character = KUR_Mustafa_Barzani
+
+TNO_startup_nation = yes

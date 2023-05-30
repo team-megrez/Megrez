@@ -1,10 +1,10 @@
 capital = 15
 
 # Vacant
-#recruit_character = RPY_Generic_Vacant
+# recruit_character = RPY_Generic_Vacant
 fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
 
-
+# recruit_character = RPY_Henri_Groues
 
 #oob = "RPY_1962"
 
@@ -227,31 +227,20 @@ set_politics = {
 
 set_popularities = {
 	communist = 7
-	ultranationalism = 0
-	national_socialism = 0
 	socialist = 86
 	progressivism = 7
 	liberalism = 0
-
+	liberal_conservatism = 0
 	conservatism = 0
 	paternalism = 0
 	despotism = 0
+	ultranationalism = 0
 	fascism = 0
-	
-}
-
-create_country_leader = {
-	name = "Henri Grouès"
-	desc = "POLITICS_HENRI_GROUES_DESC"
-	picture = "Portrait_Red_Poppy_Henri_Groues.dds"
-	expire = "1983.1.1"
-	ideology = socialist_subtype
-	traits = {
-	}
+	national_socialism = 0
 }
 
 #econtype
-set_variable = { TNO_economy_type = 3 }
-set_variable = { TNO_economy_subtype = 2 }
+set_variable = { TNO_economy_type = token:Econ_Type_Planned }
+set_variable = { TNO_economy_subtype = token:Econ_Subtype_Worker_Directed }
 
 TNO_startup_nation = yes

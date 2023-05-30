@@ -1,80 +1,92 @@
-﻿capital = 324
-oob = "BHU"
-set_research_slots = 1
+capital = 324
 
-fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
-set_technology = {
-}
+# Vacant
+# recruit_character = BHU_Generic_Vacant
 
-TNO_startup_nation = yes
+# recruit_character = BHU_kanwal_singh
+# recruit_character = BHU_ian_cardozo
+# recruit_character = BHU_piru_singh
+# recruit_character = BHU_hussain_muhammad_ershad
+# recruit_character = BHU_dasho_kesang
+# recruit_character = BHU_lhendup_dorji
+# recruit_character = BHU_jigme_dorji_wangchuck
+# recruit_character = BHU_khaled_mosharraf
 
-add_ideas = {
-	#political#
-	tno_political_parties_multiparty_system
-	tno_religious_rights_pluralism
-	tno_trade_unions_all_allowed
-	tno_immigration_quota_immigration
-	tno_slavery_outlawed
-	tno_public_meetings_allowed
-	tno_press_rights_free_press
-	tno_vote_franchise_universal
-	#military#
-	tno_conscription_service_by_requirement
-	tno_military_supervision_rules_of_engagement
-	tno_training_basic_training
-	tno_draft_exemptions_none
-	#economic#
-	tno_trade_laws_export_focus
-	tno_income_taxation_high_income_weighted
-	tno_minimum_wage_acceptable_minimum
-	tno_max_workhours_10_hour_work_day
-	tno_pensions_acceptable_pensions
-	tno_unemployment_moderate_subsidies
-	#social#
-	tno_health_care_low_income_protections
-	tno_education_public_education
-	tno_penal_system_incarceration
-	tno_gender_rights_women_in_the_workplace
-	tno_security_regulated_police
-	tno_regulations_moderate_regulations
-	#misc
-	tno_refugees_skilled
-	tno_women_military_assistance
-	tno_racial_integration_integrated_military
-	tno_child_labor_illegal
-	tno_safety_acceptable_regulations
-	tno_pollution_some_regulations
-	tno_lgbt_rights_lgbt_allowed
-	tno_minorities_equal_rights
-	#social development
-	tno_army_professionalism_political_interference
-	tno_industrial_expertise_nascent
-	tno_industrial_equipment_power_tools
-	tno_admin_efficiency_functional_administrative_systems
-	tno_healthcare_nascent
-	tno_agriculture_basic_mechanized
-	tno_research_facilities_outdated
-	tno_academic_base_basic_literacy
-}
+
+oob = "BHU_1962"
 
 set_politics = {
-	ruling_party = anocrat
-	last_election = "1888.6.15"
+	ruling_party = despotism
+	last_election = "1962.1.1"
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	vanguardist = 0
-	syndicalist = 0
-	socialist = 0
-	conspiracist = 0
-	progressive = 2
-	liberal = 6
-	conservative = 6
-	ecologist = 12
-	anocrat = 47
-	paternalist = 15
-	national_populist = 12
-	technoscience_elitist = 0
+	paternalism = 30
+	despotism = 70
+}
+
+set_cosmetic_tag = BHU_AZH
+
+
+set_country_flag = TNO_eliminate_military_spending
+
+add_ideas = {
+	#DIPLO
+	Sphere_Coequal
+	#STARTING
+	BHU_Transitional_Military_Occupation
+	BHU_Bhotamuzh_Resistance
+	#MINISTERS
+	BHU_Kanwal_Singh_hog
+	BHU_Ian_Cardozo_eco
+	BHU_Piru_Singh_for
+	BHU_Hussain_Muhammad_Ershad_sec
+	#POLITICAL
+	tno_political_parties_one_party_state
+	tno_religious_rights_state_atheism
+	tno_trade_unions_illegal
+	tno_immigration_quota_immigration
+	tno_slavery_penal_labor
+	tno_public_meetings_outlawed
+	tno_press_rights_state_press_only
+	tno_vote_franchise_no_voting
+	#MILITARY
+	tno_conscription_extensive_conscription
+	tno_military_supervision_rules_of_engagement
+	tno_training_advanced_training_methods
+	tno_draft_exemptions_none
+	#SOCIAL
+	tno_health_care_low_income_protections
+	tno_education_public_education
+	tno_penal_system_harsh_penal_code
+	tno_gender_rights_gender_equality
+	tno_security_oppressive_police
+	tno_regulations_moderate_regulations
+	#ECONOMIC
+	tno_trade_laws_export_focus
+	tno_income_taxation_high_income_weighted
+	tno_minimum_wage_low_minimum_wage
+	tno_max_workhours_12_hour_work_day
+	tno_pensions_acceptable_pensions
+	tno_unemployment_trinket_subsidies
+	#MISC
+	tno_refugees_skilled
+	tno_women_total_equality
+	tno_racial_integration_segregated_regiments
+	tno_safety_limited_regulations
+	tno_pollution_few_regulations
+	tno_lgbt_rights_lgbt_outlawed
+	tno_minorities_segregation
+	tno_child_labor_illegal
+	#DEVELOPMENT#
+	tno_industrial_expertise_experienced
+	tno_industrial_equipment_factory_complexes
+	tno_healthcare_rudimentary
+	tno_agriculture_subsistence
+	tno_research_facilities_outdated
+	tno_academic_base_mass_illiteracy
+	tno_army_professionalism_professional
+	tno_admin_efficiency_deficient_administrative_systems
 }

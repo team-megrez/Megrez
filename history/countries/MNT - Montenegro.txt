@@ -1,81 +1,108 @@
-﻿capital = 105
-set_research_slots = 3
+capital = 745 # Montenegro
 
-
-fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
-
-set_technology = {
-}
-
-TNO_startup_nation = yes
+# Vacant
+# recruit_character = MNT_Generic_Vacant
+#Characters
+# recruit_character = MNT_Nikola_II
+# recruit_character = MNT_Ranieri_di_Campello
+# recruit_character = MNT_Riccardo_Maraffa
+# recruit_character = MNT_Savic_Markovic_Stedimlija
+# recruit_character = MNT_Sekula_Drljevic
+# recruit_character = MNT_Pavle_Urisic
+# recruit_character = MNT_Zaharije_Ostojic
+# recruit_character = MNT_Arso_Jovanovic
 
 add_ideas = {
-	#political#
-	tno_political_parties_multiparty_system
+
+	TRI_Member_Client
+	
+	MNT_new_absolutism
+	MNT_durisic_chetniks
+	MNT_unending_unrest
+	
+	MNT_Ranieri_di_Campello_hog
+	MNT_Savic_Markovic_Stedimlija_for
+	MNT_Sekula_Drljevic_eco
+	MNT_Pavle_Urisic_sec
+
+	### Political Laws ###
+	tno_political_parties_one_party_state
 	tno_religious_rights_pluralism
-	tno_trade_unions_all_allowed
-	tno_immigration_quota_immigration
-	tno_slavery_outlawed
-	tno_public_meetings_allowed
-	tno_press_rights_free_press
-	tno_vote_franchise_universal
-	#military#
-	tno_conscription_service_by_requirement
-	tno_military_supervision_rules_of_engagement
+	tno_trade_unions_state_controlled
+	tno_immigration_open_immigration
+	tno_slavery_penal_labor
+	tno_public_meetings_outlawed
+	tno_press_rights_censored_press
+	tno_vote_franchise_no_voting
+
+	### Military Laws ###
+	tno_conscription_broadened_conscription
+	tno_military_supervision_no_supervision
 	tno_training_basic_training
 	tno_draft_exemptions_none
-	#economic#
+
+	### Economic Laws ###
 	tno_trade_laws_export_focus
-	tno_income_taxation_high_income_weighted
-	tno_minimum_wage_acceptable_minimum
-	tno_max_workhours_10_hour_work_day
+	tno_income_taxation_low_income_weighted
+	tno_minimum_wage_trinket_minimum_wage
+	tno_max_workhours_8_hour_work_day
 	tno_pensions_acceptable_pensions
-	tno_unemployment_moderate_subsidies
-	#social#
+	tno_unemployment_low_subsidies
+
+	### Social Laws ###
 	tno_health_care_low_income_protections
 	tno_education_public_education
-	tno_penal_system_incarceration
+	tno_penal_system_politicized_penal_system
 	tno_gender_rights_women_in_the_workplace
-	tno_security_regulated_police
-	tno_regulations_moderate_regulations
-	#misc
-	tno_refugees_skilled
+	tno_security_oppressive_police
+	tno_regulations_token_regulations
+
+	### Misc Laws###
+	tno_refugees_vetted_entry
 	tno_women_military_assistance
-	tno_racial_integration_integrated_military
-	tno_child_labor_illegal
-	tno_safety_acceptable_regulations
-	tno_pollution_some_regulations
+	tno_racial_integration_segregated_regiments
+	tno_child_labor_restricted
+	tno_safety_limited_regulations
+	tno_pollution_few_regulations
 	tno_lgbt_rights_lgbt_allowed
-	tno_minorities_equal_rights
-	#social development
-	tno_army_professionalism_political_interference
-	tno_industrial_expertise_nascent
-	tno_industrial_equipment_power_tools
+	tno_minorities_oppression
+	
+	### Societal Development ###
+	tno_academic_base_primary_schooling
+	tno_research_facilities_modern
+	tno_agriculture_modern
+	tno_healthcare_developed
 	tno_admin_efficiency_functional_administrative_systems
-	tno_healthcare_nascent
-	tno_agriculture_basic_mechanized
-	tno_research_facilities_outdated
-	tno_academic_base_basic_literacy
+	tno_industrial_equipment_modern
+	tno_industrial_expertise_experienced
+	tno_army_professionalism_cronyism
 }
 
+set_research_slots = 3
+
 set_politics = {
-	ruling_party = anocrat
-	last_election = "1888.6.15"
+	ruling_party = fascism
+	last_election = "1958.1.8"
 	election_frequency = 48
 	elections_allowed = no
 }
 
+promote_character = MNT_Arso_Jovanovic
+promote_character = MNT_Sekula_Drljevic
+promote_character = MNT_Pavle_Urisic
+promote_character = MNT_Nikola_II
+
 set_popularities = {
-	vanguardist = 0
-	syndicalist = 0
+	communist = 15
+	ultranationalism = 0
 	socialist = 0
-	conspiracist = 0
-	progressive = 2
-	liberal = 6
-	conservative = 6
-	ecologist = 12
-	anocrat = 47
-	paternalist = 15
-	national_populist = 12
-	technoscience_elitist = 0
+	progressivism = 0
+	liberalism = 0
+
+	conservatism = 0
+	paternalism = 20
+	despotism = 22
+	fascism = 43
+	national_socialism = 0
+	
 }

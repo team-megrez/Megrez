@@ -1,21 +1,23 @@
 capital = 319
 
 # Vacant
-#recruit_character = CAL_Generic_Vacant
+# recruit_character = CAL_Generic_Vacant
 
 # Characters
-#recruit_character = CAL_Alberto_Bayo
-#recruit_character = CAL_Manuel_Uribarri
-#recruit_character = CAL_William_Alexander_Morgan
-#recruit_character = CAL_Eloy_Menoyo
-#recruit_character = CAL_Rolando_Cubela
+# recruit_character = CAL_Alberto_Bayo
+# recruit_character = CAL_Manuel_Uribarri
+# recruit_character = CAL_William_Alexander_Morgan
+## recruit_character = CAL_Eloy_Menoyo
+## recruit_character = CAL_Rolando_Cubela
+# recruit_character = CAL_Horacio_Ornes
 
 # flags for mass migrating characters
 CAL_Alberto_Bayo = { set_character_flag = CAL_character }
 CAL_Manuel_Uribarri = { set_character_flag = CAL_character }
 CAL_William_Alexander_Morgan = { set_character_flag = CAL_character }
-CAL_Eloy_Menoyo = { set_character_flag = CAL_character }
-CAL_Rolando_Cubela = { set_character_flag = CAL_character }
+#CAL_Eloy_Menoyo = { set_character_flag = CAL_character }
+#CAL_Rolando_Cubela = { set_character_flag = CAL_character }
+CAL_Horacio_Ornes = { set_character_flag = CAL_character }
 
 add_ideas = {
 	# Ideas
@@ -303,7 +305,7 @@ set_popularities = {
 set_stability = 0.6
 set_war_support = 1
 
-set_variable = { TNO_economy_type = 3 }
-set_variable = { TNO_economy_subtype = 6 }
+set_variable = { TNO_economy_type = token:Econ_Type_Planned }
+set_variable = { TNO_economy_subtype = token:Econ_Subtype_Military_Directed }
 
 TNO_startup_nation = yes

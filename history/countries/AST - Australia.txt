@@ -1,168 +1,561 @@
 ﻿capital = 1215
-oob = "AST"
-set_naval_oob = "AST_naval"
-set_research_slots = 3
-set_stability = 0.8
-set_war_support = 0.3
-set_convoys = 100
 
-####선거 초기 지지율####
-set_variable = { NORTHERN_QUEENZILAND = 5 }
-set_variable = { QUEENZILAND = 1 }
-set_variable = { NEW_SOUTHWEALS = 6 }
-set_variable = { AST_CAPITAL = 9 }
-set_variable = { VICTORIA = 10 }
-set_variable = { AST_SOUTH_AST = 2 }
-set_variable = { AST_INNER_AST = 2 }
-set_variable = { AST_EAST_OUTBACK = 3 }
-set_variable = { AST_MIDDEL_AST = 4 }
-set_variable = { AST_NORDERN = 7 }
-set_variable = { AST_KIMBERILY = 8 }
-set_variable = { AST_WESTERN_AST = 1 }
-set_variable = { AST_EXPERIANCE = 11 }
-set_variable = { AST_SWAN_RIVER = 20 }
-set_variable = { AST_TEZMANIA = 25 }
-set_variable = { AST_SOUTH_ISLAND = 30 }
-set_variable = { AST_NOTTH_ISLAND = 25 }
-
-
-
-
-
-## 경제 상황 
-set_variable = { GDP = 251.453 } # 10억 단위, 총 GDP
-set_variable = { GDP_growth = 4.1 } # 퍼센트, GDP 상승률
-set_variable = { income_tax_rate = 0.15 } # 근로세율
-set_variable = { business_tax_rate = 0.25 } # 사업세율
-set_variable = { poverty_rate = 29.2 } # 빈곤률
-set_variable = { poverty_monthly_change = 0.04 } # 빈곤율 변화량
-set_variable = { money_reserves = 0.0 } #10억 단위 유동자산금
-set_variable = { national_debt = 260.517 } #10억 단위 국가 부채
-set_variable = { misc_income = 0.0 } # 기타 세율
-set_variable = { misc_costs = 0.0 } # 기타 지출
-set_variable = { base_inflation_rate = 2.5 } # 기본 인플레이션
-
-set_temp_variable = { temp_credit_rating = 8 } # 현재 신용등급
-set_temp_variable = { temp_credit_rating_min = 8 } # 최소 신용등급
-set_temp_variable = { temp_credit_rating_max = 10 } # 최대 신용등급
-econ_initialize_credit_rating_system = yes
-
-set_variable = { economic_centralization = 60 } # 경제 중앙화 지수
-
-set_variable = { other_taxes = 0 } # 10억 단위, 기타 수입
-set_variable = { rubberband_inflation_rate = 0 } # ???
-set_variable = { sales_tax_rate = 0.025 } # 판매세율
-set_variable = { consumer_goods_use_modifier = 1 } # 소비재
-set_variable = { civilian_costs_variable = 0 } # 10억 단위, 민간 지출
-
-initiate_display_vars = yes
-				
-# States
-# 634 = { set_variable = { defined_state_value = 10 } } # 특정 주에 대한 GDP
-
-set_variable = {TNO_economy_type = 2} 
-# 경제 타입  : 1, 자본주의 2, 조합주의, 3, 계획경제
-set_variable = {TNO_economy_subtype = 3} 
-# 경제 서브 타입 :
-# 0. 기본값 (경제타입), 1. 미국 자본주의, 2. 노동자 주도, 3. 왕관 협동조합주의, 4. 무정부 상태, 5. 국가사회주의 협동조합주의,
-# 6. 군사 주도, 7. 부르군트 체제, 8. 도적질, 9. 기업 독과점, 10. 지도주의, 11. 아나키스트 공산주의, 12. 도길 경제 (러시아판 나치 경제),
-# 13. 전시 공산주의, 14. 라지 허가제, 15. 사회 시장, 16. 기독교 아나키즘, 17. 농본 스파르타주의, 18. 사회화 경제, 19. 호즈라스초트 체제
-# 20. 식민지 경제 (Autonomous, Corporativist, Centralized)
-
-
-
-set_cosmetic_tag = AST_australasia_entente
-set_country_flag = has_symbolic_figurehead
-set_country_flag = ENG_KING_EDWARD_VIII
-
+# Vacant
+# recruit_character = AST_Generic_Vacant
 fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
+
+
+
+oob = "AST_1962"
+
 set_technology = {
+	basic_train = 1
+
+	transport = 1
+	advanced_medium_tank = 1
+	advanced_light_tank = 1
+	infantry_weapons_1 = 1
+	night_vision_1 = 1
+
+	infantry_kit_1 = 1
+	infantry_weapons_2 = 1
+	night_vision_2 = 1
+	infantry_kit_2 = 1
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	motorized_infantry = 1
+	marines = 1
+	#
+	tech_special_forces = 1
+	artillery4 = 1
+	early_fighter = 1
+	fighter_1945 = 1
+	fighter_1950 = 1
+	cv_1950_fighter = 1
+	interceptor_1945 = 1
+	interceptor_1950 = 1
+	CAS_1945 = 1
+	cv_1945_CAS = 1
+	CAS_1950 = 1
+	cv_1950_CAS = 1
+	very_early_helicopter = 1
+	early_helicopter = 1
+	strategic_bomber1 = 1
+	heavy_air_1945 = 1
+	heavy_air_1950 = 1
+	tac_bomber1 = 1
+	tac_air_1945 = 1
+	tac_air_1950 = 1
+	transport_air1 = 1
+	transport_air_1945 = 1
+	transport_air_1950 = 1
+
+
+	electronic_mechanical_engineering = 1
+	radio = 1
+	radio_detection = 1
+	decimetric_radar = 1
+	centimetric_radar = 1
+	radar_1950 = 1
+	radar_1960 = 1
+	mechanical_computing = 1
+	computing_machine = 1
+	improved_computing_machine = 1
+	advanced_computing_machine = 1
+	computing_machine_1950 = 1
+	computing_machine_1960 = 1
+	basic_encryption = 1
+	improved_encryption = 1
+	advanced_encryption = 1
+	encryption_1950 = 1
+	encryption_1960 = 1
+	basic_decryption = 1
+	improved_decryption = 1
+	advanced_decryption = 1
+	decryption_1950 = 1
+	decryption_1960 = 1
+
+
+	helicopter_engines = 1
+	jet_engines = 1
+	jet_engines_bombers = 1
+	improved_jet_engines_1 = 1
+	improved_jet_engines_bombers_1 = 1
+	building_construction_1 = 1
+	production_unit_gain_1 = 1
+
+	administration_construction_1 = 1
+	prison_construction_1 = 1
+	infantry_weapons_1 = 1
+	night_vision_1 = 1
+
+	infantry_kit_1 = 1
+	infantry_weapons_2 = 1
+	night_vision_2 = 1
+	infantry_kit_2 = 1
+	infantry_weapons_improvements_mine_1 = 1
+	infantry_kit_3 = 1
+	infantry_weapons_improvements_ammo_1 = 1
+	infantry_weapons_improvements_grenade_1 = 1
+	#
+	infantry_weapons_3 = 1
+	night_vision_3 = 1
+	infantry_kit_4 = 1
+	infantry_weapons_improvements_mine_2 = 1
+	basic_infantry_equipment = 1
+	support_weapons = 1
+	support_weapons_hmg_1 = 1
+	combat_support_equipment_1 = 1
+
+	support_weapons_arty_1 = 1
+	support_weapons_hmg_2 = 1
+	combat_support_equipment_2 = 1
+	infantry_at = 1
+	infantry_at_upgrade_1 = 1
+	#
+	infantry_at2 = 1
+	infantry_at_upgrade_2 = 1
+
+
+
+
+	motorized_infantry_1 = 1
+	tech_engineers2 = 1
+	tech_engineers3 = 1
+	assault_weapons_1 = 1
+	assault_weapons_2 = 1
+	tech_recon2 = 1
+	tech_recon3 = 1
+	tech_military_police = 1
+	tech_maintenance_company = 1
+	tech_maintenance_company2 = 1
+	tech_field_hospital = 1
+	tech_field_hospital2 = 1
+	tech_logistics_company = 1
+	tech_logistics_company2 = 1
+	tech_signal_company = 1
+	tech_signal_company2 = 1
+	tech_signal_company3 = 1
 }
 
-TNO_startup_nation = yes
-ParliamentMechanic_Initialize_Gamestart = yes
+# NSB tech #
 
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		advanced_light_tank = 1
+		advanced_medium_tank = 1
+		mechanised_infantry3 = 1
+		APC_1950 = 1
+		APC_1950_basic_turret = 1
+		#APC_1950_basic_engine = 1
+		APC_1950_basic_armor = 1
+		APC_1960 = 1
+		IFV_1950 = 1
+		IFV_1950_basic_turret = 1
+		IFV_1950_basic_armor = 1
+		#IFV_1950_basic_engine = 1
+		IFV_1960 = 1
+		MBT_1950 = 1
+		MBT_1950_basic_turret = 1
+		#MBT_1950_basic_engine = 1
+		MBT_1950_basic_armor = 1
+		MBT_1960 = 1
+		AC_1945 = 1
+		AC_1950 = 1
+		AC_1960 = 1
+
+		Heavy_1945 = 1
+		Heavy_1950 = 1
+		Heavy_1960 = 1
+		Superheavy_1945 = 1
+		Superheavy_1950 = 1
+
+		antiair5 = 1
+		antiair_1950 = 1
+		light_SPAA_1950 = 1
+		light_SPAA_1960 = 1
+		SPAA_1950 = 1
+		artillery4 = 1
+		artillery_1950 = 1
+		light_SPART_1950 = 1
+		light_SPART_1950_soft_attack = 1
+		SPART_1950 = 1
+		SPART_1950_soft_attack = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		NSB_APC_1945 = 1
+		NSB_APC_1950 = 1
+		#
+		#
+		NSB_APC_1960 = 1
+		NSB_IFV_1945 = 1
+		NSB_IFV_1945_modules_1 = 1
+		NSB_IFV_1945_modules_2 = 1
+		NSB_IFV_1950 = 1
+		NSB_IFV_1950_modules_1 = 1
+		NSB_IFV_1950_modules_2 = 1
+		NSB_IFV_1960 = 1
+		NSB_MBT_1945 = 1
+		NSB_MBT_1945_modules_1 = 1
+		NSB_MBT_1945_modules_2 = 1
+		NSB_MBT_1950 = 1
+		NSB_MBT_1950_modules_1 = 1
+		NSB_MBT_1950_modules_2 = 1
+		NSB_MBT_1960 = 1
+		NSB_AC_1945 = 1
+		NSB_AC_1950 = 1
+		NSB_AC_1960 = 1
+		NSB_Armour_1 = 1
+		NSB_Armour_2 = 1
+		NSB_Engine_1 = 1
+		NSB_Engine_2 = 1
+
+		NSB_Heavy_1945 = 1
+		NSB_Heavy_1950 = 1
+		NSB_Heavy_1960 = 1
+		NSB_Superheavy_1945 = 1
+		NSB_Superheavy_1950 = 1
+
+		NSB_artillery_1945 = 1
+		NSB_artillery_1950 = 1
+		NSB_artillery_MODULE = 1
+		NSB_artillery_1950_SA = 1
+
+		NSB_antiair_1945 = 1
+		NSB_antiair_1950 = 1
+		NSB_antiair_MODULE = 1
+		NSB_antiair_1950_AA = 1
+	}
+}
+
+set_research_slots = 4
+set_convoys = 300
+set_stability = 0.6
+
+set_politics = {
+	ruling_party = progressivism
+	last_election = "1960.12.9"
+	election_frequency = 36
+	elections_allowed = yes
+}
+
+set_popularities = {
+	communist = 1
+	ultranationalism = 0
+	socialist = 15
+	progressivism = 37
+	liberalism = 20
+	liberal_conservatism = 10
+	conservatism = 10
+	paternalism = 6
+	despotism = 0
+	fascism = 1
+	national_socialism = 0
+
+}
+
+if = { #quick placeholder for now, more or less based off otl
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	set_technology = {
+		mtg_transport = 1
+		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
+		improved_ship_hull_light = 1
+		early_ship_hull_cruiser = 1
+		basic_ship_hull_cruiser = 1
+		improved_ship_hull_cruiser = 1
+		early_ship_hull_heavy = 1
+		early_ship_hull_submarine = 1
+		basic_ship_hull_submarine = 1
+		early_ship_hull_carrier = 1
+		basic_ship_hull_carrier = 1
+		improved_ship_hull_carrier = 1
+		early_ship_hull_more_light = 1
+		basic_ship_hull_more_light = 1
+		improved_ship_hull_more_light = 1
+		early_ship_hull_very_light = 1
+		basic_ship_hull_very_light = 1
+		improved_ship_hull_very_light = 1
+		smoke_generator = 1
+		basic_depth_charges = 1
+		sonar = 1
+	}
+	set_naval_oob = "AST_1962_naval_mtg"
+	create_equipment_variant = {
+		name = "River Class"
+		type = ship_hull_more_light_3
+		#name_group = AST_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_radar_slot = ship_radar_1
+			fixed_ship_engine_slot = light_ship_engine_3
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_2
+			fixed_ship_torpedo_slot = ship_torpedo_2
+			fixed_ship_anti_air_slot = ship_anti_air_2
+			fixed_ship_battery_slot = ship_light_battery_2
+			front_1_custom_slot = ship_light_battery_2
+			mid_1_custom_slot = ship_anti_ship_missile_battery_1
+			rear_1_custom_slot = ship_anti_air_missile_battery_1
+		}
+	}
+	create_equipment_variant = {
+		name = "Battle Class"
+		type = ship_hull_light_1
+		#name_group = AST_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = empty
+			fixed_ship_radar_slot = ship_sonar_1
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_depth_charge_1
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+	}
+	create_equipment_variant = {
+		name = "Daring Class"
+		type = ship_hull_light_2
+		#name_group = AST_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_2
+			fixed_ship_radar_slot = ship_radar_2
+			fixed_ship_engine_slot = light_ship_engine_2
+			fixed_ship_torpedo_slot = ship_torpedo_2
+			mid_1_custom_slot = ship_light_battery_2
+			rear_1_custom_slot = ship_anti_air_2
+		}
+	}
+	create_equipment_variant = {
+		name = "Perth Class"
+		type = ship_hull_light_3
+		#name_group = AST_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_engine_slot = light_ship_engine_3
+			fixed_ship_radar_slot = ship_sonar_3
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+			fixed_ship_anti_air_slot = ship_anti_air_missile_battery_1
+			fixed_ship_battery_slot = ship_light_battery_2
+			fixed_ship_torpedo_slot = ship_torpedo_2
+			front_1_custom_slot = ship_anti_ship_missile_battery_1
+			mid_1_custom_slot = ship_mine_sweeper_1
+			rear_1_custom_slot = ship_depth_charge_3
+		}
+	}
+	create_equipment_variant = {
+		name = "Forrestal Class"
+		type = ship_hull_carrier_2
+		#name_group = AST_CV_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_deck_slot_1 = ship_deck_space_medium
+			fixed_ship_deck_slot_2 = ship_deck_space_medium
+			fixed_ship_anti_air_slot = ship_anti_air_missile_battery_2
+			fixed_ship_radar_slot = ship_radar_2
+			fixed_ship_engine_slot = carrier_ship_engine_2
+			fixed_ship_secondaries_slot = ship_secondaries_2
+			front_1_custom_slot = ship_deck_space_medium
+			mid_1_custom_slot = ship_deck_space_medium
+		}
+	}
+}
+
+if = {
+	limit = {
+		NOT = { has_dlc = "Man the Guns" }
+	}
+	set_technology = {
+		transport = 1
+		ww2_frigate = 1
+		basic_frigate = 1
+		improved_frigate = 1
+		ww2_destroyer = 1
+		basic_destroyer = 1
+		improved_destroyer = 1
+		ww2_cruiser = 1
+		basic_cruiser = 1
+		improved_cruiser = 1
+		ww2_battleship = 1
+		ww2_submarine = 1
+		basic_submarine = 1
+		ww2_carrier = 1
+		early_carrier = 1
+		improved_carrier = 1
+	}
+	set_naval_oob = "AST_1962_naval"
+	create_equipment_variant = {
+		name = "River Class"
+		type = frigate_3
+	}
+	create_equipment_variant = {
+		name = "Battle Class"
+		type = destroyer_1
+	}
+	create_equipment_variant = {
+		name = "Daring Class"
+		type = destroyer_2
+	}
+	create_equipment_variant = {
+		name = "Perth Class"
+		type = destroyer_3
+	}
+	create_equipment_variant = {
+		name = "Forrestal Class"
+		type = carrier_2
+	}
+}
+
+set_air_oob = "AST_1962_air"
+
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	create_equipment_variant = {
+		name = "Universal Carrier"
+		type = APC_chassis_0
+		parent_version = 0
+		modules = {
+			APC_designation_slot = APC_infantry
+			APC_armament_slot = APC_no_weapon
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = additional_machine_guns
+		}
+
+		icon = GFX_AST_mechanised_infantry3_medium
+		upgrades = {
+			ac_nsb_engine_upgrade = 5
+			ac_nsb_armor_upgrade = 1
+		}
+	}
+}
+
+# Country leaders
+# recruit_character = AST_Kim_Beazley_Sr
+# recruit_character = AST_Arthur_Calwell
+# recruit_character = AST_Clyde_Cameron
+# recruit_character = AST_Herbert_Vere_Evatt
+# recruit_character = AST_John_Gorton
+# recruit_character = AST_Paul_Hasluck
+# recruit_character = AST_Harold_Holt
+# recruit_character = AST_William_McMahon
+# recruit_character = AST_Gough_Whitlam
+# recruit_character = AST_Jim_Cairns
+# recruit_character = AST_Malcolm_Fraser
+# recruit_character = AST_Joh_Bjelke_Petersen
+# recruit_character = AST_Reg_Pollard
+# recruit_character = AST_Billy_Snedden
+# recruit_character = AST_John_McEwen
+
+# Ministers
+# recruit_character = AST_Les_Bury
+# recruit_character = AST_Doug_Anthony
+
+#Generals
+
+
+promote_character = AST_Herbert_Vere_Evatt
 add_ideas = {
-	#political#
+	AST_The_Curlew_Cries
+	AST_Hes_Coming_South
+	AST_A_Nation_of_Many_Differences
+
+	#FACTION STATUS
+	OFN_Independent_Member
+	#ministers
+	#AST_John_McEwen_hog
+	#AST_Paul_Hasluck_for
+	#AST_Les_Bury_eco
+	#AST_Doug_Anthony_sec
+
+	##POLITICAL LAWS##
 	tno_political_parties_multiparty_system
-	tno_religious_rights_pluralism
-	tno_trade_unions_all_allowed
+	tno_religious_rights_secularism
+	tno_trade_unions_nonsocialist_allowed
 	tno_immigration_quota_immigration
-	tno_slavery_outlawed
+	tno_slavery_penal_labor
 	tno_public_meetings_allowed
 	tno_press_rights_free_press
 	tno_vote_franchise_universal
-	#military#
-	tno_conscription_service_by_requirement
+
+	##MILITARY LAWS###
+	tno_conscription_limited_conscription
 	tno_military_supervision_rules_of_engagement
 	tno_training_basic_training
-	tno_draft_exemptions_none
-	#economic#
+	tno_draft_exemptions_educational_deferment
+
+	##SOCIAL LAWS##
 	tno_trade_laws_export_focus
 	tno_income_taxation_high_income_weighted
 	tno_minimum_wage_acceptable_minimum
 	tno_max_workhours_10_hour_work_day
 	tno_pensions_acceptable_pensions
-	tno_unemployment_moderate_subsidies
-	#social#
-	tno_health_care_low_income_protections
-	tno_education_public_education
-	tno_penal_system_incarceration
+	tno_unemployment_low_subsidies
+
+	##ECONOMIC LAWS##
+	tno_health_care_universal_health_care
+	tno_education_subsidised_higher_education
+	tno_penal_system_rehabilitation
 	tno_gender_rights_women_in_the_workplace
 	tno_security_regulated_police
-	tno_regulations_moderate_regulations
-	#misc
-	tno_refugees_skilled
-	tno_women_military_assistance
+	tno_regulations_strict_regulations
+
+	##MISC LAWS##
+	tno_women_noncombat_only
 	tno_racial_integration_integrated_military
+	tno_refugees_skilled
 	tno_child_labor_illegal
-	tno_safety_acceptable_regulations
+	tno_safety_excellent_regulations
 	tno_pollution_some_regulations
-	tno_lgbt_rights_lgbt_allowed
-	tno_minorities_equal_rights
-	#social development
-	tno_army_professionalism_political_interference
-	tno_industrial_expertise_nascent
-	tno_industrial_equipment_power_tools
+	tno_lgbt_rights_lgbt_outlawed
+	tno_minorities_segregation
+
+	##SOCIETAL DEVELOPMENT##
+	tno_academic_base_secondary_schooling
+	tno_research_facilities_modern
+	tno_agriculture_mass_mechanized
+	tno_healthcare_developed
+	tno_industrial_equipment_modern
+	tno_industrial_expertise_experienced
+	tno_army_professionalism_professional
 	tno_admin_efficiency_functional_administrative_systems
-	tno_healthcare_nascent
-	tno_agriculture_basic_mechanized
-	tno_research_facilities_outdated
-	tno_academic_base_basic_literacy
-	
-	
-	MEG_ParliamentMechanic_Alec_Douglas_Home
-	MEG_ParliamentMechanic_edward_viii
-	MEG_ParliamentMechanic_robert_Menzies
-	MEG_ParliamentMechanic_Keith_Holyoake
-	MEG_ParliamentMechanic_not_decided
-	
-	ENG_king_edward_viii
 }
 
-set_politics = {
-	ruling_party = conservative
-	last_election = "1888.6.15"
-	election_frequency = 48
-	elections_allowed = no
-}
-
-set_popularities = {
-	vanguardist = 0
-	syndicalist = 0
-	socialist = 0
-	conspiracist = 0
-	progressive = 2
-	liberal = 6
-	conservative = 6
-	ecologist = 12
-	anocrat = 47
-	paternalist = 15
-	national_populist = 12
-	technoscience_elitist = 0
-}
-
-
-####country_leaders####
-recruit_character = AST_Robert_Menzies
-promote_character = AST_Robert_Menzies
+set_variable = { liberal_seats = 48 }
+set_variable = { country_seats = 19 }
+set_variable = { labor_seats = 55 }
+set_variable = { coalitions_seats = 67 }
+				add_to_variable = {
+					var = coalitions_seats_majority
+					value = coalitions_seats
+				}
+				subtract_from_variable = {
+					var = coalitions_seats_majority
+					value = labor_seats
+				}
+				add_to_variable = {
+					var = labor_seats_majority
+					value = labor_seats
+				}
+				subtract_from_variable = {
+					var = labor_seats_majority
+					value = coalitions_seats
+				}

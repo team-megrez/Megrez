@@ -1,13 +1,13 @@
 capital = 1312
 
 # Vacant
-#recruit_character = CDL_Generic_Vacant
+# recruit_character = CDL_Generic_Vacant
 fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
 #Characters
-#recruit_character = CDL_Beyers_Naude
-#recruit_character = CDL_Joe_Slovo
-#recruit_character = CDL_Thabo_Mbeki
-#recruit_character = CDL_Nelson_Mandela
+# recruit_character = CDL_Beyers_Naude
+# recruit_character = CDL_Joe_Slovo
+# recruit_character = CDL_Thabo_Mbeki
+# recruit_character = CDL_Nelson_Mandela
 
 
 
@@ -70,17 +70,19 @@ set_politics = {
 
 set_popularities = {
 	communist = 5
-	ultranationalism = 0
 	socialist = 10
 	progressivism = 25
 	liberalism = 15
-
+	liberal_conservatism = 0
 	conservatism = 45
 	paternalism = 0
 	despotism = 0
+	ultranationalism = 0
 	fascism = 0
-	
+	national_socialism = 0
 }
 
 #econtype
-set_variable = { TNO_economy_type = 1 }
+set_variable = { TNO_economy_type = token:Econ_Type_Capitalism }
+
+TNO_startup_nation = yes

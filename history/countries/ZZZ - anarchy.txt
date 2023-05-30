@@ -1,7 +1,7 @@
 ﻿capital = 1297
 
 # Vacant
-
+# recruit_character = ZZZ_Generic_Vacant
 fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
 
 set_research_slots = 0
@@ -21,14 +21,14 @@ set_popularities = {
 }
 
 #econtype
-set_variable = { TNO_economy_type = 3 }
-set_variable = { TNO_economy_subtype = 4 }
+set_variable = { TNO_economy_type = token:Econ_Type_Planned }
+set_variable = { TNO_economy_subtype = token:Econ_Subtype_Anarchic }
 
 set_country_flag = TNO_eliminate_building_demand
 set_country_flag = can_not_use_econ_system
 
 create_country_leader = {
-	name = "Anarchy"
+	name = ZZZ_anarchy
 	desc = "POLITICS_ANARCHY_DESC"
 	picture = "Portrait_ZZZ_Anarchy.dds"
 	expire = "3000.1.1"

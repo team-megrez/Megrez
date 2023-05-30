@@ -1,10 +1,10 @@
 capital = 718
 
 # Vacant
-#recruit_character = CPR_Generic_Vacant
+# recruit_character = CPR_Generic_Vacant
 fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
 
-
+# recruit_character = CPR_Christophe_Gbenye
 
 oob = "CAF_1962"
 
@@ -71,30 +71,19 @@ set_politics = {
 
 set_popularities = {
 	communist = 15
-	ultranationalism = 0
 	socialist = 70
 	progressivism = 15
 	liberalism = 0
-
+	liberal_conservatism = 0
 	conservatism = 0
 	paternalism = 0
 	despotism = 0
+	ultranationalism = 0
 	fascism = 0
-	
+	national_socialism = 0
 }
 
 #econtype
-set_variable = { TNO_economy_type = 3 }
-
-create_country_leader = {
-	name = "Christophe Gbenye"
-	desc = "POLITICS_PATRICE_LUMUMBA_DESC"
-	picture = "Portrait_Congo_Christophe_Gbenye.dds"
-	expire = "1999.1.23"
-	ideology = socialist_panafricanism_subtype
-	traits = {
-		
-	}
-}
+set_variable = { TNO_economy_type = token:Econ_Type_Planned }
 
 TNO_startup_nation = yes

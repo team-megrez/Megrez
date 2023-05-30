@@ -1,17 +1,16 @@
-capital = 946
+capital = 945
 
 # Vacant
-#recruit_character = MDG_Generic_Vacant
-#recruit_character = MDG_paul_ludwig_hirschfeld
-#recruit_character = MDG_alexander_stahlberg
-
-MDG = {
-	set_cosmetic_tag = MDG_FIXED
-}
+# recruit_character = MDG_Generic_Vacant
+fill_empty_minister_nochecks = yes
 
 oob = "MDG_1962"
 
 add_ideas = {
+	MDG_generalburo
+	MDG_neverending_supply_crisis
+	MDG_secret_societies
+
 	##POLITICAL LAWS##
 	tno_political_parties_one_party_state
 	tno_religious_rights_secularism
@@ -70,24 +69,11 @@ set_politics = {
 
 }
 
-set_popularities = {
-	communist = 0
-	ultranationalism = 12
-	socialist = 0
-	progressivism = 0
-	liberalism = 0
-
-	conservatism = 0
-	paternalism = 0
-	despotism = 0
-	fascism = 21
-	national_socialism = 67
-	
-}
+set_popularities = { national_socialism = 100 }
 
 #econtype
-set_variable = { TNO_economy_type = 3 }
-set_variable = { TNO_economy_subtype = 6 }
+set_variable = { TNO_economy_type = token:Econ_Type_Planned }
+set_variable = { TNO_economy_subtype = token:Econ_Subtype_Military_Directed }
 
 TNO_startup_nation = yes
 

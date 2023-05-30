@@ -1,12 +1,12 @@
 capital = 6
 
 # Vacant
-#recruit_character = FLR_Generic_Vacant
+# recruit_character = FLR_Generic_Vacant
 
-#recruit_character = FLR_Ward_Hermans
-#recruit_character = FLR_Rene_Lagrou
-#recruit_character = FLR_Albert_Luykx
-#recruit_character = FLR_Jef_Francois
+# recruit_character = FLR_Ward_Hermans
+# recruit_character = FLR_Rene_Lagrou
+# recruit_character = FLR_Albert_Luykx
+# recruit_character = FLR_Jef_Francois
 
 
 #oob = "FLR_1962"
@@ -278,19 +278,9 @@ set_popularities = {
 	esoteric_nazism = 10
 }
 
-create_country_leader = {
-	name = "Bert Eriksson"
-	desc = "POLITICS_BERT_ERIKSSON_DESC"
-	picture = "Portrait_Flanders_Bert_Eriksson.dds"
-	expire = "1983.1.1"
-	ideology = ultranationalism_ultramilitarism_subtype
-	traits = {
-	}
-}
-
 #econ type
-set_variable = { TNO_economy_type = 3 }
-set_variable = { TNO_economy_subtype = 6 }
+set_variable = { TNO_economy_type = token:Econ_Type_Planned }
+set_variable = { TNO_economy_subtype = token:Econ_Subtype_Military_Directed }
 
 
 TNO_startup_nation = yes

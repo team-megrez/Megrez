@@ -1,7 +1,7 @@
 capital = 1030
 
 # Vacant
-#recruit_character = ZMO_Generic_Vacant
+# recruit_character = ZMO_Generic_Vacant
 fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
 
 
@@ -63,7 +63,7 @@ add_ideas = {
 }
 
 set_politics = {
-	ruling_party = fascism
+	ruling_party = socialist
 	last_election = "1933.5.17"
 	election_frequency = 60
 	elections_allowed = no
@@ -72,26 +72,15 @@ set_politics = {
 set_popularities = {
 	communist = 25
 	ultranationalism = 0
-	socialist = 15
+	socialist = 50
 	progressivism = 0
 	liberalism = 0
 
 	conservatism = 0
 	paternalism = 0
 	despotism = 10
-	fascism = 50
+	fascism = 15
 	
-}
-
-create_country_leader = {
-	name = "Leopold Takawira"
-	desc = "POLITICS_LEOPOLD_TAKAWIRA_DESC"
-	picture = "Portrait_Zimbabwe_Leopold_Takawira.dds"
-	expire = "1999.1.23"
-	ideology = fascism_subtype
-	traits = {
-		
-	}
 }
 
 TNO_startup_nation = yes

@@ -1,18 +1,36 @@
-﻿capital = 298
-oob = "LIB"
-set_research_slots = 2
-set_war_support = 0.1
-set_convoys = 20
+capital = 298
 
+# recruit_character = LIB_william_tubman
+# recruit_character = LIB_william_tolbert
+# recruit_character = LIB_joseph_rudolph_grimes
+# recruit_character = LIB_james_aa_pierre
+# recruit_character = LIB_alford_russ
+# recruit_character = LIB_hans_jurgen_massaquoi
+# recruit_character = LIB_fatima_massaquoi
+# recruit_character = LIB_gabriel_baccus_matthews
+# recruit_character = LIB_theophilus_ernest_eastman
+# recruit_character = LIB_george_t_washington
+# recruit_character = LIB_jenkins_yancey
+# recruit_character = LIB_david_nimley
+# recruit_character = LIB_reginald_brandon
+# recruit_character = LIB_james_wah_wleh
 
-fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
+# Vacant
+# recruit_character = LIB_Generic_Vacant
 
-set_technology = {
-}
-
-TNO_startup_nation = yes
+oob = "LIB_1962"
 
 add_ideas = {
+	OFN_Observer
+	LIB_idea_gridlocked_politics
+	LIB_idea_ofn_support
+	LIB_idea_widespread_corruption
+
+	LIB_William_Tolbert_hog
+	LIB_Joseph_Rudolph_Grimes_for
+	LIB_James_A_A_Pierre_eco
+	LIB_Alford_Russ_sec
+	
 	#political#
 	tno_political_parties_multiparty_system
 	tno_religious_rights_pluralism
@@ -34,23 +52,24 @@ add_ideas = {
 	tno_max_workhours_10_hour_work_day
 	tno_pensions_acceptable_pensions
 	tno_unemployment_moderate_subsidies
+	tno_regulations_moderate_regulations
 	#social#
 	tno_health_care_low_income_protections
 	tno_education_public_education
 	tno_penal_system_incarceration
 	tno_gender_rights_women_in_the_workplace
 	tno_security_regulated_police
-	tno_regulations_moderate_regulations
-	#misc
-	tno_refugees_skilled
-	tno_women_military_assistance
-	tno_racial_integration_integrated_military
-	tno_child_labor_illegal
-	tno_safety_acceptable_regulations
+	#misc#
 	tno_pollution_some_regulations
-	tno_lgbt_rights_lgbt_allowed
+	tno_safety_acceptable_regulations
+	tno_child_labor_illegal
+	tno_refugees_skilled
+	tno_racial_integration_integrated_military
+	tno_women_military_assistance
 	tno_minorities_equal_rights
+	tno_lgbt_rights_lgbt_outlawed
 	#social development
+	
 	tno_army_professionalism_political_interference
 	tno_industrial_expertise_nascent
 	tno_industrial_equipment_power_tools
@@ -61,24 +80,41 @@ add_ideas = {
 	tno_academic_base_basic_literacy
 }
 
+set_research_slots = 2
+
+set_technology = {
+	basic_train = 1
+
+	infantry_weapons_1 = 1
+	night_vision_1 = 1
+	
+	infantry_kit_1 = 1
+	motorized_infantry = 1
+	support_weapons = 1
+	tech_support = 1
+	artillery4 = 1
+	radio = 1
+	building_construction_1 = 1
+	administration_construction_1 = 1
+}
+
 set_politics = {
-	ruling_party = anocrat
-	last_election = "1888.6.15"
+	ruling_party = conservatism
+	last_election = "1959.5.7"
 	election_frequency = 48
-	elections_allowed = no
+	elections_allowed = yes
 }
 
 set_popularities = {
-	vanguardist = 0
-	syndicalist = 0
-	socialist = 0
-	conspiracist = 0
-	progressive = 2
-	liberal = 6
-	conservative = 6
-	ecologist = 12
-	anocrat = 47
-	paternalist = 15
-	national_populist = 12
-	technoscience_elitist = 0
+	communist = 5
+	ultranationalism = 0
+	socialist = 16
+	progressivism = 17
+	liberalism = 13
+	conservatism = 34
+	paternalism = 15
+	despotism = 0
+	fascism = 0
+	
 }
+

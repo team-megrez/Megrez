@@ -3,32 +3,33 @@ oob = "GNG_1962"
 set_convoys = 125
 
 # Vacant
-#recruit_character = GNG_Generic_Vacant
+# recruit_character = GNG_Generic_Vacant
 
-#recruit_character = GNG_suzuki_teiichi
-#recruit_character = GNG_matsuzawa_takuji
-#recruit_character = GNG_morita_akio
-#recruit_character = GNG_matsushita_masaharu
-#recruit_character = GNG_ibuka_masaru
-#recruit_character = GNG_miyazaki_kiyotaka
-#recruit_character = GNG_li_kashing
-#recruit_character = GNG_stanley_ho
-#recruit_character = GNG_kan_omori
-#recruit_character = GNG_komai_kenichiro
-#recruit_character = GNG_no_authority
-#recruit_character = GNG_yokoi_hideki
-#recruit_character = GNG_tsuchida_kuniyasu
-#recruit_character = GNG_nagano_shigeto
-#recruit_character = GNG_takeda_goro
-#recruit_character = GNG_takashima_masuo
-#recruit_character = GNG_murai_sumio
-#recruit_character = GNG_watanabe_keitaro
-#recruit_character = GNG_kuribayashi_tadamichi
-#recruit_character = GNG_arisue_seizo
-#recruit_character = GNG_kayanomiya_tsunenorio
-#recruit_character = GNG_kobayashi_masami
-#recruit_character = GNG_ptrg
+# recruit_character = GNG_suzuki_teiichi
+# recruit_character = GNG_matsuzawa_takuji
+# recruit_character = GNG_morita_akio
+# recruit_character = GNG_matsushita_masaharu
+# recruit_character = GNG_ibuka_masaru
+# recruit_character = GNG_miyazaki_kiyotaka
+# recruit_character = GNG_li_kashing
+# recruit_character = GNG_stanley_ho
+# recruit_character = GNG_omori_kan
+# recruit_character = GNG_komai_kenichiro
+# recruit_character = GNG_no_authority
+# recruit_character = GNG_yokoi_hideki
+# recruit_character = GNG_tsuchida_kuniyasu
+# recruit_character = GNG_nagano_shigeto
+# recruit_character = GNG_takeda_goro
+# recruit_character = GNG_takashima_masuo
+# recruit_character = GNG_murai_sumio
+# recruit_character = GNG_watanabe_keitaro
+# recruit_character = GNG_kuribayashi_tadamichi
+# recruit_character = GNG_arisue_seizo
+# recruit_character = GNG_kayanomiya_tsunenorio
+# recruit_character = GNG_kobayashi_masami
+# recruit_character = GNG_ptrg
 
+set_variable = { chi_influence = 0 }
 load_focus_tree = GNG_suzuki_tree
 set_country_flag = tno_playable_country
 
@@ -501,8 +502,8 @@ country_lock_all_division_template = yes
 GNG_Arms_Market_initialise = yes
 
 #econtype
-set_variable = { TNO_economy_type = 1 }
-set_variable = { TNO_economy_subtype = 9 }
+set_variable = { TNO_economy_type = token:Econ_Type_Capitalism }
+set_variable = { TNO_economy_subtype = token:Econ_Subtype_Corporate_Oligopoly }
 
 add_ideas = {
 	#Country#
@@ -659,5 +660,3 @@ set_variable = { tno_conscription_effectiveness = 73 }
 set_variable = { tno_military_supervision_effectiveness = 18 }
 set_variable = { tno_training_effectiveness = 24 }
 set_variable = { tno_draft_exemptions_effectiveness = 23 }
-
-

@@ -1,8 +1,11 @@
 capital = 603
 
 # Vacant
-#recruit_character = GUZ_Generic_Vacant
+# recruit_character = GUZ_Generic_Vacant
 fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
+
+# recruit_character = GUZ_He_Yingqin
+# recruit_character = GUZ_Lu_Han
 
 set_variable = { chi_influence = 0 }
 
@@ -66,7 +69,7 @@ add_ideas = {
 	tno_admin_efficiency_deficient_administrative_systems
 
 	#Sphere Status
-	Sphere_Economic_Dependent
+	Sphere_Chinese_Warlord
 }
 
 set_country_flag = tno_defined_startup_effectiveness
@@ -220,14 +223,4 @@ set_popularities = {
 	despotism = 78
 	fascism = 0
 	
-}
-create_country_leader = {
-	name = "He Yingqin"
-	desc = "POLITICS_HE_YINGQIN_DESC"
-	picture = "Portrait_Guizhou_He_Yingqin.dds"
-	expire = "2000.1.1"
-	ideology = despotism_warlordism_subtype
-	traits = {
-		#
-	}
 }
