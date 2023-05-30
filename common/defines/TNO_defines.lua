@@ -57,6 +57,16 @@ NDefines.NMilitary.MAX_OUT_OF_SUPPLY_DAYS = 60 				   -- how many days of shitty
 NDefines.NMilitary.CORPS_COMMANDER_DIVISIONS_CAP = 12			-- how many divisions a corps commander is limited to. 0 = inf, < 0 = blocked
 NDefines.NMilitary.FIELD_MARSHAL_DIVISIONS_CAP = 12			-- how many divisions a field marshall is limited to. 0 = inf, < 0 = blocked
 NDefines.NMilitary.FIELD_MARSHAL_ARMIES_CAP = 3				-- how many armies a field marshall is limited to. 0 = inf, < 0 = blocked
+NDefines.NMilitary.NUKE_DELAY_HOURS = 0 -- nukes fire off immediately
+NDefines.NMilitary.UNIT_DIGIN_CAP = 6                          -- how "deep" you can dig you can dig in until hitting max bonus
+NDefines.NMilitary.UNIT_DIGIN_SPEED = 0.5						   -- how "deep" you can dig a day.
+NDefines.NMilitary.UNIT_EXPERIENCE_PER_TRAINING_DAY = 0.001
+NDefines.NMilitary.UNIT_EXPERIENCE_PER_COMBAT_HOUR = 0.0001
+NDefines.NMilitary.ARMY_EXP_BASE_LEVEL = 3
+NDefines.NMilitary.UNIT_EXP_LEVELS = { 0.03, 0.07, 0.1, 0.17, 0.24, 0.3, 0.4, 0.6, 0.72, 0.8, 0.88, 0.96 }
+NDefines.NMilitary.TRAINING_MAX_LEVEL = 6
+NDefines.NMilitary.DEPLOY_TRAINING_MAX_LEVEL = 3
+NDefines.NMilitary.EXPERIENCE_COMBAT_FACTOR = 0.1
 
 --NDefines.NAI.MIN_ANTAGONIZE_FOR_WARGOAL_JUSTIFICATION = 200
 --NDefines.NAI.WARGOAL_GENERATION_STRENGTH_FACTOR = 100
