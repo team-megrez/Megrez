@@ -10,11 +10,18 @@ TNO_start_gazaland_civil_war = {
 			add_core_of = GZO
 			remove_core_of = GAZ
 		}
+		retire_country_leader = yes
 		set_politics = { ruling_party = socialist }
-		GAZ = {
-			GAZ_Eduardo_Mondlane = { set_nationality = GZO }
+		create_country_leader = {
+			name = "Eduardo Mondlane"
+			desc = "POLITICS_EDUARDO_MONDLANE_DESC"
+			picture = "Portrait_Gazaland_Eduardo_Mondlane.dds"
+			expire = "1999.1.1"
+			ideology = socialist_left_wing_nationalism_subtype
+			traits = {
+				#
+			}
 		}
-		promote_character = GAZ_Eduardo_Mondlane
 		set_popularities = {
 			communist = 32
 			ultranationalism = 0
@@ -28,7 +35,7 @@ TNO_start_gazaland_civil_war = {
 			fascism = 0
 			
 		}
-		set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Worker_Directed }
+		set_temp_variable = { TNO_economy_subtype_temp = 2 }
 		econ_subtype_change = yes
 		declare_war_on = {
 			target = GAZ
@@ -42,7 +49,6 @@ TNO_start_gazaland_civil_war = {
 					option = GAZALAND_CIVIL_WAR_OUTCOME_GZO
 				}
 			}
-			set_country_flag = request_strong_CCP_buff
 			apply_war_buff_with_10_divisions = yes
 		}
 	}

@@ -118,7 +118,6 @@ BRA_hundred_days_crisis_begins = { # a
 	}
 	set_politics = {
 		ruling_party = despotism
-		elections_allowed = yes #not yet
 	}
 	if = {
 		limit = {
@@ -155,7 +154,6 @@ BRA_hundred_days_crisis_begins = { # a
 	hidden_effect = {
 		country_event = { id = brazil.337 days = 14 }
 		every_country = {
-			limit = { is_ai = no }
 			news_event = {
 				id = LATAM_news.11
 			}
@@ -170,7 +168,6 @@ BRA_quadros_wins_hundred_days = {
 		}
 	set_politics = {
 		ruling_party = conservatism
-		elections_allowed = yes
 	}
 	if = {
 		limit = {
@@ -206,7 +203,6 @@ BRA_goulart_wins_hundred_days = {
 	## TODO
 	set_politics = {
 		ruling_party = progressivism
-		elections_allowed = yes
 	}
 
 	custom_effect_tooltip = BRA_new_cabinet_tt
@@ -224,7 +220,7 @@ BRA_goulart_wins_hundred_days = {
 		remove_all_ministers = yes
 		add_ideas = { BRA_Neves_hog BRA_Hermes_pol BRA_Celso_eco BRA_Argemiro_de_Assis_Brasil_sec }
 	}
-
+	
 
 	load_focus_tree = { tree = BRA_Goulart_Hundred_Days_tree }
 
@@ -249,7 +245,6 @@ BRA_adhemar_wins_hundred_days = {
 	## TODO
 	set_politics = {
 		ruling_party = paternalism
-		elections_allowed = yes
 	}
 
 	custom_effect_tooltip = BRA_new_cabinet_tt
@@ -265,7 +260,7 @@ BRA_adhemar_wins_hundred_days = {
 		remove_all_ministers = yes
 		add_ideas = { BRA_Laudol_Natel_hog BRA_Vasco_Leitao_da_Cunha_adhemar_pol BRA_Benedito_Manhaes_Barreto_eco BRA_Amaury_Kruel_sec }
 	}
-
+	
 
 	load_focus_tree = { tree = BRA_Adhemar_Hundred_Days_tree }
 
@@ -290,7 +285,6 @@ BRA_kubitschek_wins_hundred_days = {
 	## TODO
 	set_politics = {
 		ruling_party = liberalism
-		elections_allowed = yes
 	}
 	if = {
 		limit = {
@@ -349,14 +343,13 @@ BRA_lacerda_wins_hundred_days = {
 	## TODO
 	set_politics = {
 		ruling_party = liberal_conservatism
-		elections_allowed = yes
 	}
 	if = {
 		limit = {
 			NOT = { has_country_leader = { character = BRA_Carlos_Lacerda } }
 		}
 		BRA_Carlos_Lacerda = {
-			promote_character = liberal_conservatism_subtype
+			promote_character = liberal_conservatism
 		}
 	}
 
@@ -365,7 +358,7 @@ BRA_lacerda_wins_hundred_days = {
 		remove_all_ministers = yes
 		add_ideas = { BRA_Milton_hog BRA_Vasco_Leitao_da_Cunha_lacerda_pol BRA_Helio_Beltrao_eco BRA_Golbery_do_Couto_e_Silva_sec }
 	}
-
+	
 
 	load_focus_tree = { tree = BRA_Lacerda_Hundred_Days_tree }
 
@@ -1022,7 +1015,7 @@ BRA_bill_complete = {
 				has_game_rule = {
 					rule = BRA_BILL_PASS_CHEAT
 					option = BRA_BILL_PASS_CHEAT_YES
-				}
+				} 
 			}
 		}
 
@@ -1151,7 +1144,7 @@ BRA_bill_complete = {
 				BRA_boost_PTB_candidates_nationwide_low = yes
 			}
 		}
-
+		
 		else_if = { # Andean Pact
 			limit = {
 				check_variable = { BRA_pl_bill_id = 9 }
@@ -1279,7 +1272,7 @@ BRA_bill_complete = {
 			}
 			BRA = {
 				country_event = { id = LATAM.18 }
-			}
+			}			
 		}
 		if = {
 			limit = { check_variable = { BRA_pl_bill_id = 10 } }
@@ -1453,7 +1446,7 @@ BRA_init_lacerda_mechanic = {
 BRA_coalition_partners_abandon_UDN = {
 	custom_effect_tooltip = BRA_coalition_partners_abandon_UDN
 	hidden_effect = {
-
+		
 		set_variable = { BRA_senate_major_party_align^PARTY_PDC = PARTY_PSP }
 		set_variable = { BRA_senate_major_party_align^PARTY_PTN = PARTY_PTB }
 		set_variable = { BRA_senate_major_party_align^PARTY_PR  = PARTY_PSD }
@@ -1470,7 +1463,7 @@ BRA_coalition_partners_abandon_UDN = {
 
 BRA_trigger_military_coup = {
 	set_cosmetic_tag = BRA_military_coup
-
+	
 	hidden_effect = {
 		remove_ideas = BRA_idea_hundred_days
 	}
@@ -1502,7 +1495,6 @@ BRA_trigger_military_coup = {
 	}
 	set_politics = {
 		ruling_party = despotism
-		elections_allowed = no
 	}
 	add_country_leader_role = {
 		character = BRA_Ranieri_Mazzilli
@@ -2721,7 +2713,7 @@ BRA_develop_update_projects = {
 		BRA_compute_build_speed = yes
 
 		set_variable = { BRA_megaprojects_build_speed^project_idx = build_speed }
-
+		
 		clamp_variable = { var = BRA_megaprojects_progress^project_idx min = 0 max = 100 }
 	}
 
@@ -3252,14 +3244,14 @@ BRA_pres_select_region = {
 	set_temp_variable = { my_pres_idx = BRA_pres_selected_region }
 	multiply_temp_variable = { my_pres_idx = BRA_pres_candidates^num }
 
-	for_loop_effect = {
+	for_loop_effect = { 
 		start = 0
 		end = BRA_pres_candidates^num
 		value = i
 
 		if = {
 			limit = { check_variable = { BRA_pres_candidates^i = BRA_pres_chosen_candidate } }
-			add_to_temp_variable = { my_pres_idx = i }
+			add_to_temp_variable = { my_pres_idx = i }	
 			set_variable = { BRA_pres_chosen_candidate_index = i }
 			set_variable = { BRA_pres_chosen_candidate_party_display = BRA_pres_candidate_parties^i }
 		}
@@ -3394,7 +3386,7 @@ BRA_pres_others_campaign = {
 				set_temp_variable = { idx = chosen_region }
 				multiply_temp_variable = { idx = BRA_pres_candidates^num }
 				add_to_temp_variable = { idx = k }
-
+				
 				# Campaigning is the same strength in each state, but the momentum tick
 				# will be weaker for more populous states
 				set_temp_variable = { amount = 13.5 }
@@ -3405,7 +3397,7 @@ BRA_pres_others_campaign = {
 
 			subtract_from_variable = { BRA_pres_fatigue^chosen_region = 0.15 }
 			clamp_variable = { var = BRA_pres_fatigue^chosen_region min = 0 max = 1 }
-
+		
 			set_variable = { BRA_pres_campaigning_party^chosen_region = BRA_pres_candidate_parties^k }
 
 			add_to_temp_array = { BRA_taken_regions = chosen_region }
@@ -4108,7 +4100,7 @@ BRA_redraw_senate_diagram = {
 		}
 	}
 
-
+	
 	clear_array = BRA_menu_senate_parties
 	clear_array = BRA_menu_senate_types
 
@@ -4132,7 +4124,7 @@ BRA_redraw_senate_diagram = {
 				value = party_id_2
 
 				if = {
-					limit = {
+					limit = { 
 						check_variable = { BRA_senate_major_party_align^party_id_2 = party_id }
 						NOT = { check_variable = { party_id_2 = party_id } }
 						check_variable = { BRA_num_senate_seats^party_id_2 > 0 }
@@ -4515,10 +4507,10 @@ BRA_senate_update_selected_state = {
 	}
 }
 
-# Set up the initial senate seats
+# Set up the initial senate seats 
 BRA_initialize_senado = {
 	BRA_setup_senate_positions = yes
-
+	
 	## Set party helper vars
 
 	set_variable = { NUM_PARTIES_CONST = 20 }
@@ -4570,7 +4562,7 @@ BRA_initialize_senado = {
 	add_to_array = { BRA_base_ordered_senate_parties = PARTY_PNB }
 
 	add_to_array = { BRA_base_ordered_senate_parties = PARTY_ARENA }
-
+	
 	## Set up party alignments
 	clear_array = BRA_senate_major_party_align
 	for_loop_effect = {
@@ -4580,7 +4572,7 @@ BRA_initialize_senado = {
 
 		add_to_array = { BRA_senate_major_party_align = i }
 	}
-
+	
 	# Initial UDN-aligned bloc
 	set_variable = { BRA_senate_major_party_align^PARTY_PDC = PARTY_UDN }
 	set_variable = { BRA_senate_major_party_align^PARTY_PTN = PARTY_UDN }
@@ -4966,7 +4958,7 @@ BRA_dissolve_the_senate = {
 	custom_effect_tooltip = BRA_dissolve_the_senate_tt
 	hidden_effect = {
 		BRA_cancel_elections = yes
-
+		
 		set_country_flag = BRA_senate_dissolved
 
 		#clear_array = BRA_is_state_selected
@@ -5291,7 +5283,7 @@ BRA_monthly_on_action_effect = {
 			limit = { check_variable = { j > 0.5 } }
 			add_to_variable = { BRA_develop_region_industry^j = -0.05 }
 		}
-
+		
 		set_temp_variable = { base = j }
 		multiply_temp_variable = { base = 13 }
 
@@ -5321,7 +5313,7 @@ BRA_monthly_on_action_effect = {
 
 	BRA_develop_ready_graph = yes
 	BRA_develop_update_regional_progress = yes
-
+	 
 	BRA_develop_project_monthly = yes
 
 	BRA_corruption_refresh = yes
@@ -5329,18 +5321,18 @@ BRA_monthly_on_action_effect = {
 }
 
 BRA_remove_SAW_decisions = {
-	remove_decision = BRA_SAW_begin_blockade
-	remove_decision = BRA_SAW_reassign_hardliners
-	remove_decision = BRA_SAW_reassign_sorbonne
-	remove_decision = BRA_SAW_reassign_const
-	remove_decision = BRA_SAW_brazilian_tech_assistance
-	remove_decision = BRA_SAW_operation_search_destroy
-	remove_decision = BRA_SAW_buy_guns
-	remove_decision = BRA_SAW_buy_motorized_equipments
-	remove_decision = BRA_SAW_buy_tanks
-	remove_decision = BRA_SAW_buy_APC
-	remove_decision = BRA_SAW_sell_guns
-	remove_decision = BRA_SAW_sell_motorized_equipments
-	remove_decision = BRA_SAW_sell_tanks
-	remove_decision = BRA_SAW_sell_APC
+    remove_decision = BRA_SAW_begin_blockade
+    remove_decision = BRA_SAW_reassign_hardliners
+    remove_decision = BRA_SAW_reassign_sorbonne
+    remove_decision = BRA_SAW_reassign_const
+    remove_decision = BRA_SAW_brazilian_tech_assistance
+    remove_decision = BRA_SAW_operation_search_destroy
+    remove_decision = BRA_SAW_buy_guns
+    remove_decision = BRA_SAW_buy_motorized_equipments
+    remove_decision = BRA_SAW_buy_tanks
+    remove_decision = BRA_SAW_buy_APC
+    remove_decision = BRA_SAW_sell_guns
+    remove_decision = BRA_SAW_sell_motorized_equipments
+    remove_decision = BRA_SAW_sell_tanks
+    remove_decision = BRA_SAW_sell_APC
 }

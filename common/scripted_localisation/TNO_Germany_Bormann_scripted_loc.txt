@@ -3958,6 +3958,14 @@ defined_text = {
 	}
 }
 
+BOR_DoesDenmarkExist = {
+	name = BOR_DoesDenmarkExist
+	text = {
+		trigger = { country_exists = DEN }
+		localization_key = " Denmark,"
+	}
+}
+
 ##############################
 #     Sphere mech stuff      #
 ##############################
@@ -4145,18 +4153,5 @@ defined_text = {
 	}
 	text = {
 		localization_key = BGR_Take_Moskowien_desc_MSK
-	}
-}
-
-defined_text = {
-	name = BOR_das_reich_im_indischen_ozean_mad_status
-	text = {
-		trigger = {
-			has_global_flag = MAD_colony_won
-		}
-		localization_key = BOR_das_reich_im_indischen_ozean_mdg_victory
-	}
-	text = {
-		localization_key = BOR_das_reich_im_indischen_ozean_mdg_loss
 	}
 }

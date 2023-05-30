@@ -425,8 +425,8 @@ GER_GCW_begin = {
 		}
 
 		#econtype
-		set_variable = { TNO_economy_type = token:Econ_Type_Corporatism }
-		set_variable = { TNO_economy_subtype = token:Econ_Subtype_Nazi_Corporatocracy }
+		set_variable = { TNO_economy_type = 2 }
+		set_variable = { TNO_economy_subtype = 5 }
 
 		if = {
 			limit = {
@@ -506,8 +506,8 @@ GER_GCW_begin = {
 		#}
 
 		#econtype
-		set_variable = { TNO_economy_type = token:Econ_Type_Corporatism }
-		set_variable = { TNO_economy_subtype = token:Econ_Subtype_Nazi_Corporatocracy }
+		set_variable = { TNO_economy_type = 2 }
+		set_variable = { TNO_economy_subtype = 5 }
 
 		if = {
 			limit = {
@@ -566,8 +566,8 @@ GER_GCW_begin = {
 		GCW_intialise_legitimacy = yes
 
 		#econtype
-		set_variable = { TNO_economy_type = token:Econ_Type_Corporatism }
-		set_variable = { TNO_economy_subtype = token:Econ_Subtype_Nazi_Corporatocracy }
+		set_variable = { TNO_economy_type = 2 }
+		set_variable = { TNO_economy_subtype = 5 }
 
 		if = {
 			limit = {
@@ -657,8 +657,8 @@ GER_GCW_begin = {
 			#}
 
 			#econtype
-			set_variable = { TNO_economy_type = token:Econ_Type_Planned }
-			set_variable = { TNO_economy_subtype = token:Econ_Subtype_Burgsys }
+			set_variable = { TNO_economy_type = 3 }
+			set_variable = { TNO_economy_subtype = 7 }
 
 			if = {
 				limit = {
@@ -840,7 +840,6 @@ GER_GCW_begin = {
 
 	## News Event Time
 	every_country = {
-		limit = { is_ai = no }
 		news_event = WORLD_REICH.8
 	}
 
@@ -1051,7 +1050,14 @@ GER_GCW_conclude = {
 			air_experience = 100
 			navy_experience = 20
 
-			if = { # adds serbia to the pakt if necessary
+			if = {
+				limit = { NOT = { has_country_flag = heydrich_for_germany } }
+				#Re-adding Observer ideas
+				#PER = { add_ideas = Pakt_Observer }
+				# CYL = { add_ideas = Pakt_Observer }
+			}
+
+			if = {		#adds serbia to the pakt if necessary
 				limit = {
 					NOT = {
 						has_global_flag = SER_join_pakt_properly
@@ -1065,7 +1071,9 @@ GER_GCW_conclude = {
 
 				SER = {
 					econ_join_sphere_GER = yes
-					add_ideas = Pakt_Mitstreiter
+					add_ideas = {
+					Pakt_Mitstreiter
+					}
 				}
 			}
 			add_ideas = {
@@ -1135,34 +1143,64 @@ GER_GCW_conclude = {
 			}
 
 			# German Madagascar Returns
-			
 			if = {
 				limit = {
-					MAD = { has_cosmetic_tag = MDG_GERMAN }
+					country_exists = MDG
+					MDG = { has_war = no }
+					NOT = {
+						has_global_flag = german_civil_war_speervic
+						has_global_flag = german_civil_war_goeringvic
+						has_global_flag = german_civil_war_heydrichvic
+					}
 				}
+				add_to_faction = MDG
+				clr_global_flag = madagaskar_civil_war
 				if = {
-					limit = { 
-						check_variable = {
-							var = global.Madagascar_GER_influence
-							value = global.Madagascar_FRA_influence
-							compare = greater_than_or_equals
-						}
-					}
-					# event, legal annex 
+					limit = { has_global_flag = german_civil_war_speervic }
 					country_event = {
-						id = MAD.600
-						days = 14
+						id = MADAGASKAR.13
+						days = 160
 					}
 				}
-				else = {
-					# illegal annex
-					country_event = {
-						id = MAD.601
-						days = 14
-					}
+				transfer_state = 706
+				transfer_state = 707
+				MDG = {
+					add_ideas = Pakt_Military_Authority
+					econ_join_sphere_GER = yes
+					apply_party_popularities = yes
 				}
-			}
+				set_temp_variable = { SeaZone_ID = 6 } # 6; Indian Ocean
+				Cold_War_GUI_PowerProjection_AddSeaZone = yes
+				MDG = {
+					get_current_government_type = yes
+					save_party_popularities = yes
+				}
+				GER = {
+					set_autonomy = {
+						target = MDG
+						autonomy_state = autonomy_military_government
+					}
+				}	
+				MDG = {
+					restore_previous_government_type = yes
+					apply_party_popularities = yes
+				}	
 		
+			}
+			else_if = {
+				limit = {
+					country_exists = MDG
+					MDG = {
+						has_war = yes
+					}
+					OR = {
+						has_global_flag = german_civil_war_speervic
+						has_global_flag = german_civil_war_bormannvic
+					}
+				}
+				set_country_flag = GER_MaCW_overdue
+			}
+
 			# North Sea control
 			set_temp_variable = { SeaZone_ID = 4 } # 4; North Sea
 			Cold_War_GUI_PowerProjection_AddSeaZone = yes
@@ -1206,9 +1244,7 @@ GER_GCW_conclude_bormann = {
 
 	## Politics
 	GER = {
-		GER_martin_bormann = {
-			promote_character = national_socialism_subtype
-		}
+		GER_martin_bormann = { promote_character = national_socialism }
 		GER_hans_filbinger = {
 			promote_character = paternalism_subtype
 		}
@@ -1707,15 +1743,11 @@ GER_GCW_conclude_heydrich = {
 	}
 
 	## Politics
-	GER = {
-		GER_reinhard_heydrich = {
-			promote_character = national_socialism_spartanism_subtype
-		}
-	}
+	GER = { GER_reinhard_heydrich = { promote_character = national_socialism } }
 
 	#econtype
-	set_variable = { TNO_economy_type = token:Econ_Type_Planned }
-	set_variable = { TNO_economy_subtype = token:Econ_Subtype_Burgsys }
+	set_variable = { TNO_economy_type = 3 }
+	set_variable = { TNO_economy_subtype = 7 }
 
 	# Political Popularity & Ruling Party
 	set_politics = { ruling_party = national_socialism }

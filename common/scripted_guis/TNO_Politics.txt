@@ -126,14 +126,6 @@ scripted_gui = {
 				#is_subject = no
 				has_country_flag = Mano_MEMBER
 			}
-			faction_icon_Haitian_United_Front_visible = {
-				is_in_faction = yes
-				has_idea = HUF_Faction
-			}
-			faction_icon_Hispaniola_Front_visible = {
-				is_in_faction = yes
-				has_idea = HRF_Faction
-			}
 			faction_icon_generic_visible = {
 				is_in_faction = yes
 				#is_subject = no
@@ -213,21 +205,6 @@ scripted_gui = {
 			}
 		}
 	}
-	
-	TNO_SG_politics_bop_cover = {
-		context_type = player_context
-		parent_window_token = politics_tab
-		window_name = "TNO_SG_politics_bop_cover"
-		visible = {
-			NOT = { has_country_flag = TNO_disable_bop_cover }
-			has_any_power_balance = yes
-		}
-		effects = {
-			cover_button_click = {
-				set_country_flag = TNO_disable_bop_cover
-			}
-		}
-	}
 
 	TNO_SG_politics_law_emergency_close = {
 		context_type = player_context
@@ -258,7 +235,6 @@ scripted_gui = {
 		context_type = player_context
 		parent_window_token = politics_tab
 		window_name = "TNO_SG_politics_laws"
-		#dirty = TNO_laws_dirty # Disabled until I can figure out why it doesnt update at the start of the game
 
 		visible = {
 			always = yes
@@ -423,8 +399,6 @@ scripted_gui = {
 					add_to_array = { array = TNO_Politics_Law_display value = 1 index = 1 }
 					set_variable = { TNO_category_1_collapse = 1 }
 				}
-				
-				add_to_variable = { TNO_laws_dirty = 1 }
 			}
 			category_header_2_click = {
 				if = {
@@ -447,8 +421,6 @@ scripted_gui = {
 						}
 					}
 				}
-				
-				add_to_variable = { TNO_laws_dirty = 1 }
 			}
 			category_header_3_click = {
 				if = {
@@ -473,8 +445,6 @@ scripted_gui = {
 						}
 					}
 				}
-				
-				add_to_variable = { TNO_laws_dirty = 1 }
 			}
 			category_header_4_click = {
 				if = {
@@ -499,8 +469,6 @@ scripted_gui = {
 						}
 					}
 				}
-				
-				add_to_variable = { TNO_laws_dirty = 1 }
 			}
 			category_5_collapse_btn_click = { # Assorted Laws is different
 				if = {
@@ -513,8 +481,6 @@ scripted_gui = {
 					set_variable = { TNO_category_5_collapse = 1 }
 					set_variable = { tno_opened_laws_category = 100 }
 				}
-				
-				add_to_variable = { TNO_laws_dirty = 1 }
 			}
 			category_header_6_click = {
 				if = {
@@ -541,8 +507,6 @@ scripted_gui = {
 						}
 					}
 				}
-				
-				add_to_variable = { TNO_laws_dirty = 1 }
 			}
 
 			# Politics

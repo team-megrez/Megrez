@@ -407,10 +407,6 @@ initialize_heydrich_himmler_influence_vars = {
 						limit = { has_id = 121 }
 						retire = yes
 					}
-					every_unit_leader = {
-						limit = { has_id = 105 }
-						retire = yes
-					}
 				}
 			}
 			else_if = {
@@ -514,6 +510,12 @@ initialize_heydrich_himmler_influence_vars = {
 		set_country_flag = HGR_Warlord_Nation
 		set_variable = { movementState = 6 }
 	}
+	BRT = {
+		set_variable = { HGR_Influence_Balance = 50 } # Change depending on leader
+		set_variable = { HGR_Himmler_Influence_Bonus_Mult = 1 }
+		set_variable = { HGR_Heydrich_Influence_Bonus_Mult = 1 }
+		set_country_flag = HGR_Warlord_Nation
+	}
 	CAU = {
 		set_variable = { HGR_Influence_Balance = 35 }
 		set_variable = { HGR_Himmler_Influence_Bonus_Mult = 1 }
@@ -565,6 +567,12 @@ initialize_heydrich_himmler_influence_vars = {
 			}
 			HOL = { add_to_variable = { HGR_Influence_Balance = 5 } }
 			CAU = { add_to_variable = { HGR_Influence_Balance = 10 } }
+		}
+		if = {
+			limit = {
+				has_country_flag = HGR_asked_Brittany
+			}
+			BRT = { add_to_variable = { HGR_Influence_Balance = 10 } }
 		}
 		if = {
 			limit = {
@@ -1879,6 +1887,10 @@ decrease_ss_hardliner_HGR_Heydrich_Influence_Bonus_Mult_Large = {
 
 Heydrich_Clean_Up = {
 	GER = {
+		if = {
+			limit = { GER = { has_war_with = BRT } }
+			GER = { white_peace = BRT }
+		}
 		if = {
 			limit = { GER = { has_war_with = POL } }
 			GER = { white_peace = POL }
@@ -3313,6 +3325,12 @@ HimmlerBOT = {
 					}
 					# They don't join
 				}
+				else_if = {
+					limit = {
+						tag = BRT
+					}
+					# They don't join
+				}
 				else = {
 					every_unit_leader = {
 						limit = { has_unit_leader_flag = HGR_Leader }
@@ -3524,6 +3542,29 @@ HimmlerBOT = {
 				add_to_variable = { NativeOpinion = -3 }
 				log = "[GetDateText]: [Root.GetName]: HimmlerBOT - DECAY GER NativeOpinion"
 			}
+
+			#if = { # Annex SS Brittany after 8 months if Heydrich hasn't done anything
+			#	limit = {
+			#		check_variable = { HimmlerBOT_Months_Counter = 8 }
+			#		GER = { NOT = { has_completed_focus = HGR_money_talks } }
+			#	}
+			#	annex_country = {
+			#		target = BRT
+			#		transfer_troops = yes
+			#	}
+			#	log = "[GetDateText]: [Root.GetName]: HimmlerBOT - ANNEX SS BRT"
+			#}
+			#if = { # Declare war on any Brittany after 16 months if Heydrich hasn't done anything
+			#	limit = {
+			#		check_variable = { HimmlerBOT_Months_Counter = 16 }
+			#		GER = { NOT = { has_completed_focus = HGR_money_talks } }
+			#	}
+			#	declare_war_on = {
+			#		target = BRT
+			#		type = annex_everything
+			#	}
+			#	log = "[GetDateText]: [Root.GetName]: HimmlerBOT - DECLARE ON BRT"
+			#}
 			if = { # FSP declares on PRK after a year, or if the slaves join Heydrich
 				limit = {
 					OR = {

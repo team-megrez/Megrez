@@ -33,7 +33,7 @@ INS_ICW_spawn_all_tags = {
 		set_variable = { JAP.ICW_discontent = 25 }
 		set_country_leader_description = { desc = "POLITICS_SUKARNO_ICW_DESC" }
 		add_to_array = { global.INS_soekarnoite_faction = THIS }
-
+		
 		remove_ideas = Sphere_Economic_Dependent
 		add_ideas = INS_leader
 
@@ -113,8 +113,8 @@ INS_ICW_spawn_all_tags = {
 				is_ai = no
 			}
 		}
-		country_event = {
-			id = INS_GNG_helper.1
+		country_event = { 
+			id = INS_GNG_helper.1 
 			days = 90
 		}
 	}
@@ -977,7 +977,6 @@ INS_ICW_spawn_JJK = {
 			INS_Sarwo_Edhie_Wibowo_for
 			INS_Frans_Seda_eco
 			INS_Suharto_sec
-			JJK_sultans_neutrality
 		}
 		load_oob = INS_JJK_ICW
 	}
@@ -1467,8 +1466,8 @@ INS_ICW_escalate_conflict = {
 			}
 		}
 		GNG = {
-			country_event = {
-				id = GNG_PTRG.19
+			country_event = { 
+				id = GNG_PTRG.19 
 				days = 5
 			}
 		}
@@ -1650,10 +1649,7 @@ INS_ICW_declare_war = {
 				option = INDONESIA_CIVIL_WAR_OUTCOME_INS
 			}
 		}
-		INS = {
-			set_country_flag = request_strong_CCP_buff
-			apply_war_buff_with_10_divisions = yes
-		}
+		INS = { apply_COG_war_buff_with_10_divisions = yes }
 	}
 	else_if = {
 		limit = {
@@ -1666,6 +1662,22 @@ INS_ICW_declare_war = {
 					rule = INDONESIA_CIVIL_WAR_OUTCOME
 					option = INDONESIA_CIVIL_WAR_OUTCOME_LUBIS_LOSE
 				}
+			}
+		}
+		FRI = { add_ideas = Custom_TNO_war_buff }
+	}
+	else_if = {
+		limit = {
+			has_game_rule = {
+				rule = INDONESIA_CIVIL_WAR_OUTCOME
+				option = INDONESIA_CIVIL_WAR_OUTCOME_FRI
+			}
+		}
+		FRI = { apply_COG_war_buff_with_10_divisions = yes }
+	}
+	else_if = {
+		limit = {
+			OR = {
 				has_game_rule = {
 					rule = INDONESIA_CIVIL_WAR_OUTCOME
 					option = INDONESIA_CIVIL_WAR_OUTCOME_SUHARTO
@@ -1676,27 +1688,7 @@ INS_ICW_declare_war = {
 				}
 			}
 		}
-		every_country = {
-			limit = {
-				OR = {
-					is_in_faction_with = FRI
-					is_in_faction_with = INS
-				}
-			}
-			add_ideas = Custom_TNO_INS_front_line_stopper
-		}
-	}
-	else_if = {
-		limit = {
-			has_game_rule = {
-				rule = INDONESIA_CIVIL_WAR_OUTCOME
-				option = INDONESIA_CIVIL_WAR_OUTCOME_FRI
-			}
-		}
-		FRI = {
-			set_country_flag = request_strong_CCP_buff
-			apply_war_buff_with_10_divisions = yes
-		}
+		INS = { add_ideas = Custom_TNO_war_buff }
 	}
 }
 
@@ -1713,6 +1705,13 @@ INS_ICW_duumvirate_goncang_time = {
 					rule = INDONESIA_CIVIL_WAR_OUTCOME
 					option = INDONESIA_CIVIL_WAR_OUTCOME_LUBIS_LOSE
 				}
+			}
+		}
+		FRI = { remove_ideas = Custom_TNO_war_buff }
+	}
+	else_if = {
+		limit = {
+			OR = {
 				has_game_rule = {
 					rule = INDONESIA_CIVIL_WAR_OUTCOME
 					option = INDONESIA_CIVIL_WAR_OUTCOME_SUHARTO
@@ -1723,12 +1722,7 @@ INS_ICW_duumvirate_goncang_time = {
 				}
 			}
 		}
-		every_country = {
-			limit = {
-				has_idea = Custom_TNO_INS_front_line_stopper
-			}
-			remove_ideas = Custom_TNO_INS_front_line_stopper
-		}
+		INS = { remove_ideas = Custom_TNO_war_buff }
 	}
 	every_country = {
 		diplomatic_relation = {
@@ -1778,7 +1772,7 @@ INS_ICW_duumvirate_goncang_time = {
 			target = JJK
 			transfer_troops = yes
 		}
-
+		
 		SRB = {
 			INS_Guerilla_Command = {
 				set_nationality = INS
@@ -1815,23 +1809,7 @@ INS_ICW_duumvirate_goncang_time = {
 	}
 	if = {
 		limit = {
-			OR = {
-				has_game_rule = {
-					rule = INDONESIA_CIVIL_WAR_OUTCOME
-					option = INDONESIA_CIVIL_WAR_OUTCOME_LUBIS
-				}
-				has_game_rule = {
-					rule = INDONESIA_CIVIL_WAR_OUTCOME
-					option = INDONESIA_CIVIL_WAR_OUTCOME_LUBIS_LOSE
-				}
-				AND = {
-					has_game_rule = {
-						rule = INDONESIA_CIVIL_WAR_OUTCOME
-						option = DEFAULT
-					}
-					check_variable = { INS.surrender_progress > FRI.surrender_progress }
-				}
-			}
+			check_variable = { INS.surrender_progress > FRI.surrender_progress }
 		}
 		#limit = { always = yes } # for testing
 		set_country_flag = INS_lubis_duumvirate
@@ -1856,36 +1834,29 @@ INS_ICW_duumvirate_goncang_time = {
 		}
 		drop_cosmetic_tag = yes
 		set_cosmetic_tag = INS_duum_cos_lubis
-
+		
 		JAP = {
 			set_temp_variable = { target = INS }
 			TNO_clear_and_recall_volunteers = yes
 		}
-
+		
 		econ_leave_sphere = yes
-
+		
 		set_politics = { ruling_party = paternalism }
-
-		remove_ideas = {
-			INS_The_Year_of_Living_Dangerously
-			INS_On_Land_Sea_and_Air
-			INS_Tokyos_Lifeline
-			INS_leader
-		}
 
 		set_popularities = {
 			paternalism = 40
 			communist = 10
 			despotism = 50
 		}
-
+		
 		SRB = {
 			annex_country = {
 				target = ABD
 				transfer_troops = no
 			}
 		}
-
+		
 		transfer_state = 1331
 		FRI = {
 			dismantle_faction = yes
@@ -1894,7 +1865,7 @@ INS_ICW_duumvirate_goncang_time = {
 			target = FRI
 			transfer_troops = yes
 		}
-
+		
 		annex_country = {
 			target = DMS
 			transfer_troops = yes
@@ -2113,37 +2084,30 @@ INS_ICW_duumvirate_goncang_time = {
 		dismantle_faction = yes
 		drop_cosmetic_tag = yes
 		set_cosmetic_tag = INS_duum_cos
-		econ_leave_sphere = yes
 
 		set_politics = { ruling_party = despotism }
-
+		
 		JAP = {
 			set_temp_variable = { target = INS }
 			TNO_clear_and_recall_volunteers = yes
 		}
-
+		
 		USA = {
 			set_temp_variable = { target = FRI }
 			TNO_clear_and_recall_volunteers = yes
 		}
-
-		remove_ideas = {
-			INS_The_Year_of_Living_Dangerously
-			INS_On_Land_Sea_and_Air
-			INS_Tokyos_Lifeline
-		}
-
+		
 		set_popularities = {
 			paternalism = 40
 			communist = 10
 			despotism = 50
 		}
-
+		
 		annex_country = {
 			target = FRI
 			transfer_troops = yes
 		}
-
+		
 		annex_country = {
 			target = BKB
 			transfer_troops = yes
@@ -2252,7 +2216,7 @@ INS_ICW_duumvirate_goncang_time = {
 				}
 			}
 		}
-
+		
 		JAP = {
 			country_event = { id = TT_ICW_Common.202 }
 		}
@@ -2276,10 +2240,7 @@ INS_ICW_duumvirate_goncang_time = {
 				}
 			}
 		}
-		INS = {
-			set_country_flag = request_strong_CCP_buff
-			apply_war_buff_with_10_divisions = yes
-		}
+		INS = { apply_COG_war_buff_with_10_divisions = yes }
 	}
 	else_if = {
 		limit = {
@@ -2294,12 +2255,11 @@ INS_ICW_duumvirate_goncang_time = {
 				}
 			}
 		}
-		every_country = {
-			limit = {
-				has_war_with = INS
+		INS = {
+			add_ideas = {
+				Custom_TNO_JAP_war_debuff
+				Custom_TNO_CHI_war_debuff
 			}
-			set_country_flag = request_strong_CCP_buff
-			apply_war_buff_with_10_divisions = yes
 		}
 	}
 }
@@ -2330,7 +2290,7 @@ ICW_victory_effect_FRI = {
 	}
 	remove_all_ministers = yes
 
-	set_variable = { TNO_economy_type = token:Econ_Type_Capitalism }
+	set_variable = { TNO_economy_type = 1 }
 	set_variable = { TNO_economy_subtype = 0 }
 
 	econ_leave_sphere = yes
@@ -2347,7 +2307,7 @@ ICW_victory_effect_FRI = {
 		despotism = 5
 		fascism = 3
 	}
-
+	
 	retire_ideology_leader = communist
 	retire_ideology_leader = socialist
 	retire_ideology_leader = progressivism
@@ -2404,7 +2364,7 @@ ICW_victory_effect_FRI = {
 		name = FRI_progressivism_party
 	}
 	set_party_name = {
-		ideology = paternalism
+		ideology = paternalism 
 		long_name = FRI_paternalism_party_long
 		name = FRI_paternalism_party
 	}
@@ -2414,12 +2374,12 @@ ICW_victory_effect_FRI = {
 		name = FRI_liberalism_party
 	}
 	set_party_name = {
-		ideology = liberal_conservatism
+		ideology = liberal_conservatism 
 		long_name = FRI_liberal_conservatism_party_long
 		name = FRI_liberal_conservatism_party
 	}
 	set_party_name = {
-		ideology = conservatism
+		ideology = conservatism 
 		long_name = FRI_conservatism_party_long
 		name = FRI_conservatism_party
 	}
@@ -2447,7 +2407,7 @@ ICW_victory_effect_FRI = {
 		INS_Wilopo_eco
 		INS_Tahi_Bonar_Simatupang_sec
 	}
-
+	
 	remove_ideas = {
 		INS_leader
 		INS_The_Year_of_Living_Dangerously
@@ -2627,10 +2587,14 @@ ICW_victory_effect_DUUMVIRATE = {
 		}
 		JAP = { country_event = { id = JAP_ICW.8 } }
 		USA = { country_event = { id = USA_INS.7 } }
-
+		
+		JAP = {
+			add_to_faction = INS
+		}
+		
 		remove_ideas = INS_leader
-		econ_leave_sphere = yes
-
+		add_ideas = Sphere_Economic_Dependent
+		
 		every_country = {
 			limit = { is_ai = no }
 			news_event = {
@@ -2639,18 +2603,18 @@ ICW_victory_effect_DUUMVIRATE = {
 		}
 	}
 	else = {
-
+		
 		JAP = { country_event = { id = JAP_ICW.11 } }
 		USA = { country_event = { id = USA_INS.4 } }
-
+		
 		set_global_flag = lubis_won_INS_ICW
-
+		
 		remove_ideas = INS_leader
 		add_ideas = OFN_Observer
-
+		
 		econ_leave_sphere = yes
 		econ_join_sphere_USA = yes
-
+		
 		every_country = {
 			limit = { is_ai = no }
 			news_event = {
@@ -2683,7 +2647,7 @@ ICW_defeat_effect_DUUMVIRATE = {
 				}
 			}
 			set_nationality = INS
-		}
+		}	
 	}
 	INS_Bambang_Supeno = {
 		promote_character = despotism_military_junta_subtype
@@ -2696,21 +2660,16 @@ ICW_defeat_effect_DUUMVIRATE = {
 		fascism = 45
 		despotism = 55
 	}
-
-	remove_ideas = {
-		INS_The_Year_of_Living_Dangerously
-		INS_On_Land_Sea_and_Air
-		INS_Tokyos_Lifeline
-		INS_leader
-	}
+	
+	remove_ideas = INS_leader
 	JAP = {
 		add_to_faction = INS
 	}
 	add_ideas = Sphere_Economic_Dependent
 	econ_leave_sphere = yes
 	econ_join_sphere_JAP = yes
-
-
+	
+	
 	ICW_shared_ending_effect = yes
 
 	if = {
@@ -2720,21 +2679,18 @@ ICW_defeat_effect_DUUMVIRATE = {
 		set_politics = { ruling_party = fascism }
 		JAP = { country_event = { id = JAP_ICW.12 } }
 		USA = { country_event = { id = USA_INS.8 } }
-
+	
 		every_country = {
 			news_event = WORLD.16528
 		}
 		drop_cosmetic_tag = yes
 		set_cosmetic_tag = INS_duum_loss_cos
-		econ_leave_sphere = yes
-		remove_ideas = Sphere_Economic_Dependent
-		leave_faction = yes
 	}
 	else = {
 		set_politics = { ruling_party = despotism }
 		JAP = { country_event = { id = JAP_ICW.12 } }
 		USA = { country_event = { id = USA_INS.8 } }
-
+	
 		every_country = {
 			news_event = WORLD.16527
 		}
@@ -2783,7 +2739,7 @@ ICW_shared_ending_effect = {
 		transfer_state = 1331
 		transfer_state = 1330
 	}
-
+	
 	JAP = {
 		TNO_fopo_remove_indonesia_tab = yes
 		set_temp_variable = { target = INS }
@@ -2809,10 +2765,10 @@ ICW_shared_ending_effect = {
 	GNG = {
 		GNG_PTRG_Indonesia_END = yes
 	}
-
+	
 	PMT = { remove_state_core = 1331 }
 	JJK = { remove_state_core = 1756 }
-
+	
 	clr_global_flag = TNO_indonesian_civil_war_ongoing
 	clear_array = global.INS_soekarnoite_faction
 	clear_array = global.INS_hattaite_faction

@@ -693,7 +693,9 @@ MSK_Dissolution_Start = {
 					MSK_Herbert_Backe = {
 						retire = yes
 					}
-					set_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Nazi_Corporatocracy }
+					set_variable = { TNO_economy_type_temp = 2 }
+					econ_type_change = yes
+					set_variable = { TNO_economy_subtype_temp = 5 }
 					econ_subtype_change = yes
 				}
 			}

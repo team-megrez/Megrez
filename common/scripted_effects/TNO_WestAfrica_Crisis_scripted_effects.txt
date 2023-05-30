@@ -836,7 +836,9 @@ WAC_1_WAA_VICTORY = {
 			add_ideas = WAA_Protectorate
 		}
 		WOL = { add_to_faction = EWE }
-		set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Dirigisme }
+		set_temp_variable = { TNO_economy_type_temp = 2 }
+		set_temp_variable = { TNO_economy_subtype_temp = 10 }
+		econ_type_change = yes
 		econ_subtype_change = yes
 	}
 
@@ -862,7 +864,9 @@ WAC_1_WAA_VICTORY = {
 			add_ideas = WAA_Protectorate
 		}
 		WOL = { add_to_faction = SUS }
-		set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Dirigisme }
+		set_temp_variable = { TNO_economy_type_temp = 2 }
+		set_temp_variable = { TNO_economy_subtype_temp = 10 }
+		econ_type_change = yes
 		econ_subtype_change = yes
 	}
 
@@ -894,7 +898,9 @@ WAC_1_WAA_VICTORY = {
 			remove_faction_status = yes
 			add_ideas = WAA_Protectorate
 		}
-		set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Dirigisme }
+		set_temp_variable = { TNO_economy_type_temp = 2 }
+		set_temp_variable = { TNO_economy_subtype_temp = 10 }
+		econ_type_change = yes
 		econ_subtype_change = yes
 	}
 
@@ -1057,35 +1063,6 @@ WAC_1_WAA_VICTORY = {
 
 WAC_1_PALF_VICTORY = {
 	if = {
-		limit = {
-			has_global_flag = TNO_HAI_civil_war_communist_victory
-			NOT = { HAI = { has_country_flag = HAI_amazonism_entrenched } }
-		}
-		HAI_Jacques_Stephen_Alexis = {
-			add_country_leader_role = {
-				country_leader = {
-					desc = "POLITICS_HAI_JACQUES_STEPHEN_DESC"
-					expire = "1990.1.1"
-					ideology = socialist_panafricanism_subtype
-					traits = {}
-				}
-				promote_leader = yes
-			}
-		}
-		HAI = {
-			set_politics = { ruling_party = socialist }
-			set_popularities = {
-				despotism = 6
-				communist = 23
-				socialist = 32
-				liberalism = 11
-				liberal_conservatism = 8
-				paternalism = 20
-			}
-			set_country_flag = HAI_panafricanism_entrenched
-		}
-	}
-	if = {
 		limit = { USA = { has_active_mission = USA_WAC_cameroon_capitulates } }
 		USA = { remove_mission = USA_WAC_cameroon_capitulates }
 	}
@@ -1194,7 +1171,7 @@ WAC_1_PALF_VICTORY = {
 			remove_faction_status = yes
 			add_ideas = PALF_Satellite
 		}
-		set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
+		set_temp_variable = { TNO_economy_type_temp = 3 }
 		econ_type_change = yes
 	}
 	BKF = {
@@ -1233,7 +1210,7 @@ WAC_1_PALF_VICTORY = {
 			remove_faction_status = yes
 			add_ideas = PALF_Satellite
 		}
-		set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
+		set_temp_variable = { TNO_economy_type_temp = 3 }
 		econ_type_change = yes
 	}
 	IVO = {
@@ -1275,7 +1252,7 @@ WAC_1_PALF_VICTORY = {
 			remove_faction_status = yes
 			add_ideas = PALF_Satellite
 		}
-		set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
+		set_temp_variable = { TNO_economy_type_temp = 3 }
 		econ_type_change = yes
 	}
 	WOL = {
@@ -1324,7 +1301,7 @@ WAC_1_PALF_VICTORY = {
 			target = JOL
 			transfer_troops = no
 		}
-		set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
+		set_temp_variable = { TNO_economy_type_temp = 3 }
 		econ_type_change = yes
 	}
 	MLI = {
@@ -1356,7 +1333,7 @@ WAC_1_PALF_VICTORY = {
 			character = MLI_aoua_keita
 			promote_leader = yes
 			country_leader = {
-				expire = "1999.1.1"
+				expire = "1965.1.1"
 				ideology = socialist_panafricanism_subtype
 				traits = { }
 				id = -1
@@ -1384,7 +1361,7 @@ WAC_1_PALF_VICTORY = {
 			remove_faction_status = yes
 			add_ideas = PALF_Satellite
 		}
-		set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
+		set_temp_variable = { TNO_economy_type_temp = 3 }
 		econ_type_change = yes
 	}
 	
@@ -1507,6 +1484,13 @@ WAC_2_PALF_BEATEN = {
 		}
 	}
 
+	event_target:wac_winner = {
+		annex_country = {
+			target = SWB
+			transfer_troops = no
+		}
+	}
+
 	CAO = {
 		if = {
 			limit = { exists = no }
@@ -1561,13 +1545,22 @@ WAC_2_PALF_BEATEN = {
 	set_global_flag = WAC_scen2_PALF_fell
 
 	if = { # FMA victory
-		limit = { has_global_flag = WAC_scen2_WAA_fell }
+		limit = {
+			event_target:wac_winner = { is_in_array = { global.WAC_FMA_faction = THIS } }
+			has_global_flag = WAC_scen2_WAA_fell
+		}
 		ZZZ = { WAC_2_FFR_VICTORY = yes }
 	}
 	else_if = { # WAA victory
-		limit = { has_global_flag = WAC_scen2_FMA_fell }
+		limit = {
+			event_target:wac_winner = { is_in_array = { global.WAC_WAA_faction = THIS } }
+			has_global_flag = WAC_scen2_FMA_fell
+		}
 		ZZZ = { WAC_2_WAA_VICTORY = yes }
 	}
+
+	clear_global_event_target = wac_winner
+	clear_global_event_target = wac_loser
 }
 
 WAC_2_FFR_VICTORY = {
@@ -1688,7 +1681,9 @@ WAC_2_FFR_VICTORY = {
 			remove_faction_status = yes
 			add_ideas = FMA_Puppet
 		}
-		set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Dirigisme }
+		set_temp_variable = { TNO_economy_type_temp = 2 }
+		set_temp_variable = { TNO_economy_subtype_temp = 10 }
+		econ_type_change = yes
 		econ_subtype_change = yes
 	}
 
@@ -1725,7 +1720,9 @@ WAC_2_FFR_VICTORY = {
 			remove_faction_status = yes
 			add_ideas = FMA_Puppet
 		}
-		set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Dirigisme }
+		set_temp_variable = { TNO_economy_type_temp = 2 }
+		set_temp_variable = { TNO_economy_subtype_temp = 10 }
+		econ_type_change = yes
 		econ_subtype_change = yes
 	}
 
@@ -1769,7 +1766,9 @@ WAC_2_FFR_VICTORY = {
 			remove_faction_status = yes
 			add_ideas = FMA_Puppet
 		}
-		set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Dirigisme }
+		set_temp_variable = { TNO_economy_type_temp = 2 }
+		set_temp_variable = { TNO_economy_subtype_temp = 10 }
+		econ_type_change = yes
 		econ_subtype_change = yes
 	}
 
@@ -1817,7 +1816,9 @@ WAC_2_FFR_VICTORY = {
 			target = JOL
 			transfer_troops = no
 		}
-		set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Dirigisme }
+		set_temp_variable = { TNO_economy_type_temp = 2 }
+		set_temp_variable = { TNO_economy_subtype_temp = 10 }
+		econ_type_change = yes
 		econ_subtype_change = yes
 	}
 
@@ -1917,7 +1918,9 @@ WAC_2_WAA_VICTORY = {
 			remove_faction_status = yes
 			add_ideas = WAA_Protectorate
 		}
-		set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Dirigisme }
+		set_temp_variable = { TNO_economy_type_temp = 2 }
+		set_temp_variable = { TNO_economy_subtype_temp = 10 }
+		econ_type_change = yes
 		econ_subtype_change = yes
 	}
 
@@ -1948,7 +1951,9 @@ WAC_2_WAA_VICTORY = {
 			remove_faction_status = yes
 			add_ideas = WAA_Protectorate
 		}
-		set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Dirigisme }
+		set_temp_variable = { TNO_economy_type_temp = 2 }
+		set_temp_variable = { TNO_economy_subtype_temp = 10 }
+		econ_type_change = yes
 		econ_subtype_change = yes
 	}
 
@@ -1984,7 +1989,9 @@ WAC_2_WAA_VICTORY = {
 			remove_faction_status = yes
 			add_ideas = WAA_Protectorate
 		}
-		set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Dirigisme }
+		set_temp_variable = { TNO_economy_type_temp = 2 }
+		set_temp_variable = { TNO_economy_subtype_temp = 10 }
+		econ_type_change = yes
 		econ_subtype_change = yes
 	}
 
@@ -2060,8 +2067,10 @@ WAC_2_WAA_VICTORY = {
 			remove_faction_status = yes
 			add_ideas = WAA_Protectorate
 		}
-		set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Dirigisme }
-		econ_subtype_change = yes
+		set_temp_variable = { TNO_economy_type_temp = 2 }
+		set_temp_variable = { TNO_economy_subtype_temp = 10 }
+		econ_type_change = yes
+		econ_subtype_change = yes		
 	}
 
 	WOL = {
@@ -2135,35 +2144,6 @@ WAC_2_WAA_VICTORY = {
 }
 
 WAC_2_PALF_VICTORY = {
-	if = {
-		limit = {
-			has_global_flag = TNO_HAI_civil_war_communist_victory
-			NOT = { HAI = { has_country_flag = HAI_amazonism_entrenched } }
-		}
-		HAI_Jacques_Stephen_Alexis = {
-			add_country_leader_role = {
-				country_leader = {
-					desc = "POLITICS_HAI_JACQUES_STEPHEN_DESC"
-					expire = "1990.1.1"
-					ideology = socialist_panafricanism_subtype
-					traits = {}
-				}
-				promote_leader = yes
-			}
-		}
-		HAI = {
-			set_politics = { ruling_party = socialist }
-			set_popularities = {
-				despotism = 6
-				communist = 23
-				socialist = 32
-				liberalism = 11
-				liberal_conservatism = 8
-				paternalism = 20
-			}
-			set_country_flag = HAI_panafricanism_entrenched
-		}
-	}
 	if = {
 		limit = { USA = { has_active_mission = USA_WAC_cameroon_capitulates } }
 		USA = { remove_mission = USA_WAC_cameroon_capitulates }
@@ -2255,7 +2235,7 @@ WAC_2_PALF_VICTORY = {
 			remove_faction_status = yes
 			add_ideas = PALF_Satellite
 		}
-		set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
+		set_temp_variable = { TNO_economy_type_temp = 3 }
 		econ_type_change = yes
 	}
 
@@ -2289,7 +2269,7 @@ WAC_2_PALF_VICTORY = {
 			remove_faction_status = yes
 			add_ideas = PALF_Satellite
 		}
-		set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
+		set_temp_variable = { TNO_economy_type_temp = 3 }
 		econ_type_change = yes
 	}
 
@@ -2330,7 +2310,7 @@ WAC_2_PALF_VICTORY = {
 			remove_faction_status = yes
 			add_ideas = PALF_Satellite
 		}
-		set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
+		set_temp_variable = { TNO_economy_type_temp = 3 }
 		econ_type_change = yes
 		annex_country = {
 			target = JOL
@@ -2379,7 +2359,7 @@ WAC_2_PALF_VICTORY = {
 			character = MLI_aoua_keita
 			promote_leader = yes
 			country_leader = {
-				expire = "1999.1.1"
+				expire = "1965.1.1"
 				ideology = socialist_panafricanism_subtype
 				traits = { }
 				id = -1
@@ -2402,7 +2382,7 @@ WAC_2_PALF_VICTORY = {
 			remove_faction_status = yes
 			add_ideas = PALF_Satellite
 		}
-		set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
+		set_temp_variable = { TNO_economy_type_temp = 3 }
 		econ_type_change = yes
 		KAY = {
 			remove_state_core = 836
@@ -2463,7 +2443,7 @@ WAC_2_PALF_VICTORY = {
 			remove_faction_status = yes
 			add_ideas = PALF_Satellite
 		}
-		set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
+		set_temp_variable = { TNO_economy_type_temp = 3 }
 		econ_type_change = yes
 	}
 
@@ -2494,7 +2474,7 @@ WAC_2_PALF_VICTORY = {
 			remove_faction_status = yes
 			add_ideas = PALF_Satellite
 		}
-		set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
+		set_temp_variable = { TNO_economy_type_temp = 3 }
 		econ_type_change = yes
 	}
 
@@ -2536,7 +2516,7 @@ WAC_2_PALF_VICTORY = {
 			remove_faction_status = yes
 			add_ideas = PALF_Satellite
 		}
-		set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
+		set_temp_variable = { TNO_economy_type_temp = 3 }
 		econ_type_change = yes
 	}
 
@@ -2767,7 +2747,9 @@ WAC_3_FMA_VICTORY = {
 			remove_faction_status = yes
 			add_ideas = FMA_Puppet
 		}
-		set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_Dirigisme }
+		set_temp_variable = { TNO_economy_type_temp = 2 }
+		set_temp_variable = { TNO_economy_subtype_temp = 10 }
+		econ_type_change = yes
 		econ_subtype_change = yes
 	}
 
@@ -2875,35 +2857,6 @@ WAC_3_FMA_VICTORY = {
 }
 
 WAC_3_PALF_VICTORY = {
-	if = {
-		limit = {
-			has_global_flag = TNO_HAI_civil_war_communist_victory
-			NOT = { HAI = { has_country_flag = HAI_amazonism_entrenched } }
-		}
-		HAI_Jacques_Stephen_Alexis = {
-			add_country_leader_role = {
-				country_leader = {
-					desc = "POLITICS_HAI_JACQUES_STEPHEN_DESC"
-					expire = "1990.1.1"
-					ideology = socialist_panafricanism_subtype
-					traits = {}
-				}
-				promote_leader = yes
-			}
-		}
-		HAI = {
-			set_politics = { ruling_party = socialist }
-			set_popularities = {
-				despotism = 6
-				communist = 23
-				socialist = 32
-				liberalism = 11
-				liberal_conservatism = 8
-				paternalism = 20
-			}
-			set_country_flag = HAI_panafricanism_entrenched
-		}
-	}
 	if = {
 		limit = { USA = { has_active_mission = USA_WAC_cameroon_capitulates } }
 		USA = { remove_mission = USA_WAC_cameroon_capitulates }
@@ -3019,7 +2972,7 @@ WAC_3_PALF_VICTORY = {
 			remove_faction_status = yes
 			add_ideas = PALF_Satellite
 		}
-		set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
+		set_temp_variable = { TNO_economy_type_temp = 3 }
 		econ_type_change = yes
 	}
 
@@ -3056,7 +3009,7 @@ WAC_3_PALF_VICTORY = {
 			remove_faction_status = yes
 			add_ideas = PALF_Satellite
 		}
-		set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
+		set_temp_variable = { TNO_economy_type_temp = 3 }
 		econ_type_change = yes
 	}
 	CPP = {
@@ -3104,7 +3057,7 @@ WAC_3_PALF_VICTORY = {
 			remove_faction_status = yes
 			add_ideas = PALF_Satellite
 		}
-		set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
+		set_temp_variable = { TNO_economy_type_temp = 3 }
 		econ_type_change = yes
 	}
 	WOL = {
@@ -3143,7 +3096,7 @@ WAC_3_PALF_VICTORY = {
 			remove_faction_status = yes
 			add_ideas = PALF_Satellite
 		}
-		set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
+		set_temp_variable = { TNO_economy_type_temp = 3 }
 		econ_type_change = yes
 		annex_country = {
 			target = JOL
@@ -3374,7 +3327,6 @@ FFR_create_community = {
 }
 
 CAO_create_community = {
-	set_global_flag = PACMEA_created
 	CAO = {
 		set_temp_variable = { gdp_growth_temp = 0.2 }
 		econ_gdp_growth_change = yes
@@ -3440,37 +3392,6 @@ CAO_create_community = {
 		ANL = { country_event = { id = ANG_PW.5 days = 5 } }
 	}
 
-	if = {
-		limit = {
-			has_global_flag = HIS_HAI_civil_war_finished
-			has_global_flag = TNO_HAI_civil_war_communist_victory
-			HAI = { has_country_flag = HAI_panafricanism_entrenched }
-		}
-		HAI = {
-			set_temp_variable = { gdp_growth_temp = 0.2 }
-			econ_gdp_growth_change = yes
-			econ_join_sphere_CAO = yes
-		}
-	}
-
-	if = {
-		limit = {
-			MAD = {
-				has_country_leader = {
-					character = MAD_Charles_Ravoajanahary
-					ruling_only = yes
-				}
-				NOT = {
-					check_variable = { ECON_SPHERE_LEADER = CAO }
-				}
-			}
-		}
-		MAD = {
-			econ_leave_sphere = yes
-			econ_join_sphere_CAO = yes
-		}
-	}
-
 	every_country = {
 		limit = { is_ai = no }
 		news_event = {
@@ -3513,7 +3434,7 @@ MANO_PALF_VICTORY = {
 			remove_ideas = LIB_idea_usa_resource
 			add_ideas = PALF_Satellite_peace
 		}
-		set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
+		set_temp_variable = { TNO_economy_type_temp = 3 }
 		econ_type_change = yes
 
 		econ_join_sphere_CAO = yes
@@ -3552,7 +3473,7 @@ MANO_PALF_VICTORY = {
 			remove_ideas = LIB_idea_usa_resource
 			add_ideas = PALF_Satellite_peace
 		}
-		set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
+		set_temp_variable = { TNO_economy_type_temp = 3 }
 		econ_type_change = yes
 
 		econ_join_sphere_CAO = yes

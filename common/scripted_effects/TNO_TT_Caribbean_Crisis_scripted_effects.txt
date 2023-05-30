@@ -39,7 +39,7 @@ TNO_jamaica_leaves_WIF_referendum = {
 			OFN_Dependent_Member
 		}
 		econ_join_sphere_USA = yes
-		set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_American_Capitalism }
+		set_temp_variable = { TNO_economy_subtype_temp = 1 }
 		econ_subtype_change = yes
 	}
 	USA = {
@@ -110,7 +110,6 @@ TNO_jamaica_stays_WIF_referendum = {
 	}
 
 	every_country = {
-		limit = { is_ai	= no }
 		news_event = {
 			id = wif_crisis.17
 		}
@@ -185,7 +184,7 @@ TNO_trinidad_leaves_WIF_negotiation = {
 			promote_character = yes
 		}
 		econ_join_sphere_USA = yes
-		set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_American_Capitalism }
+		set_temp_variable = { TNO_economy_subtype_temp = 1 }
 		econ_subtype_change = yes
 	}
 	WIN = {
@@ -328,7 +327,7 @@ TNO_WIF_joins_USA = {
 		apply_party_popularities = yes
 		set_politics = { ruling_party = liberalism }
 		set_cosmetic_tag = WIN_puppeted
-		set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_American_Capitalism }
+		set_temp_variable = { TNO_economy_subtype_temp = 1 }
 		econ_subtype_change = yes
 	}
 	USA = {
@@ -381,7 +380,7 @@ TNO_trinidad_bpr_succeeds = {
 		TRI_Makandal_Daaga = {
 			promote_character = yes
 		}
-		set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Planned }
+		set_temp_variable = { TNO_economy_type_temp = 3 }
 		econ_type_change = yes
 		econ_leave_sphere = yes
 		remove_ideas = {
@@ -1369,7 +1368,7 @@ TNO_total_WIF_collapse = {
 			}
 		}
 		apply_party_popularities = yes
-		set_temp_variable = { TNO_economy_subtype_temp = token:Econ_Subtype_American_Capitalism }
+		set_temp_variable = { TNO_economy_subtype_temp = 1 }
 		econ_subtype_change = yes
 	}
 	

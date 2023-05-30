@@ -71,6 +71,68 @@ defined_text = {
 }
 
 defined_text = {
+	name = HGRgetBrittany
+	text = {
+		trigger = {
+			BRT = {
+				check_variable = { HGR_Influence_Balance < 41 }
+			}
+		}
+		localization_key = GFX_HGR_Brittany_Burg
+	}
+	text = {
+		trigger = {
+			BRT = {
+				check_variable = { HGR_Influence_Balance > 59 }
+			}
+		}
+		localization_key = GFX_HGR_Brittany_Ger
+	}
+	text = {
+		trigger = {
+			BRT = {
+				AND = {
+					check_variable = { HGR_Influence_Balance < 60 }
+					check_variable = { HGR_Influence_Balance > 40 }
+				}
+			}
+		}
+		localization_key = GFX_HGR_Brittany_Neu
+	}
+}
+
+defined_text = {
+	name = HGRgetBrittanyBorder
+	text = {
+		trigger = {
+			BRT = {
+				check_variable = { HGR_Influence_Balance < 41 }
+			}
+		}
+		localization_key = GFX_HGR_Border_Brittany_Burg
+	}
+	text = {
+		trigger = {
+			BRT = {
+				check_variable = { HGR_Influence_Balance > 59 }
+			}
+		}
+		localization_key = GFX_HGR_Border_Brittany_Ger
+	}
+	text = {
+		trigger = {
+			BRT = {
+				AND = {
+					check_variable = { HGR_Influence_Balance < 60 }
+					check_variable = { HGR_Influence_Balance > 40 }
+				}
+			}
+		}
+		localization_key = GFX_HGR_Border_Brittany_Neu
+	}
+}
+
+defined_text = {
 	name = HGRgetCornwall
 	text = {
 		trigger = {
@@ -253,6 +315,68 @@ defined_text = {
 			}
 		}
 		localization_key = GFX_HGR_Border_Kaukasia_Neu
+	}
+}
+
+defined_text = {
+	name = HGRgetOstland
+	text = {
+		trigger = {
+			OSL = {
+				check_variable = { HGR_Influence_Balance < 41 }
+			}
+		}
+		localization_key = GFX_HGR_Ostland_Burg
+	}
+	text = {
+		trigger = {
+			OSL = {
+				check_variable = { HGR_Influence_Balance > 59 }
+			}
+		}
+		localization_key = GFX_HGR_Ostland_Ger
+	}
+	text = {
+		trigger = {
+			OSL = {
+				AND = {
+					check_variable = { HGR_Influence_Balance < 60 }
+					check_variable = { HGR_Influence_Balance > 40 }
+				}
+			}
+		}
+		localization_key = GFX_HGR_Ostland_Neu
+	}
+}
+
+defined_text = {
+	name = HGRgetOstlandBorder
+	text = {
+		trigger = {
+			OSL = {
+				check_variable = { HGR_Influence_Balance < 41 }
+			}
+		}
+		localization_key = GFX_HGR_Border_Ostland_Burg
+	}
+	text = {
+		trigger = {
+			OSL = {
+				check_variable = { HGR_Influence_Balance > 59 }
+			}
+		}
+		localization_key = GFX_HGR_Border_Ostland_Ger
+	}
+	text = {
+		trigger = {
+			OSL = {
+				AND = {
+					check_variable = { HGR_Influence_Balance < 60 }
+					check_variable = { HGR_Influence_Balance > 40 }
+				}
+			}
+		}
+		localization_key = GFX_HGR_Border_Ostland_Neu
 	}
 }
 
@@ -3627,7 +3751,7 @@ defined_text = {
 	text = {
 		trigger = {
 			has_country_flag = HGR_MILITARISTS_OPEN
-			OER = { has_country_leader = { character = HWL_Ferdinand_Schorner ruling_only = yes } }
+			OER = { has_country_leader = { character = GER_ferdinand_schorner ruling_only = yes } }
 		}
 		localization_key = GFX_HGR_Militarists_Leader_Schorner
 	}

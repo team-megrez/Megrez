@@ -386,21 +386,13 @@ scripted_gui = {
 		}
 	}
 	
-	TNO_Country_Info_Screen_Signal_Lost = {
-		window_name = TNO_Country_Info_Screen_Signal_Lost
-		context_type = player_context
-		parent_window_name = TNO_Country_Info_Screen
-		visible = {
-			NOT = { has_country_flag = TNO_Country_Info_Screen_Visible }
-		}
-	}
-	
 	TNO_Country_Info_Screen_Opening_Logo = {
 		window_name = TNO_Country_Info_Screen_Opening_Logo
 		context_type = player_context
 		parent_window_name = TNO_Country_Info_Screen
 		visible = {
 			NOT = { has_variable = CountryInfo_Selected }
+			has_country_flag = TNO_Country_Info_Screen_Visible
 		}
 	}
 	

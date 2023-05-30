@@ -29,13 +29,7 @@ FRA_civil_war_poujade_start = {
 			}
 		}
 	}
-	every_country = {
-		limit = { is_ai = no }
-		news_event = {
-			id = WORLD.229
-			days = 1
-		}
-	}
+	every_country = { news_event = { id = WORLD.229 days = 1 } }
 	FRD = {
 		FRA_civil_war_resistance_setup = yes
 
@@ -167,13 +161,7 @@ FRA_civil_war_sidos_start = {
 			}
 		}
 	}
-	every_country = {
-		limit = { is_ai = no }
-		news_event = {
-			id = WORLD.30100
-			days = 1
-		}
-	}
+	every_country = { news_event = { id = WORLD.30100 days = 1 } }
 	FRD = {
 		FRA_civil_war_resistance_setup = yes
 
@@ -211,9 +199,9 @@ FRA_civil_war_sidos_start = {
 		limit = { NOT = { FRS = { has_idea = Pakt_Bundnispartner } } }
 		FGR = {
 			FRA_civil_war_DUPRAT_setup = yes
-
+	
 			transfer_state = 25
-
+	
 			set_province_controller = 625
 			set_province_controller = 651
 			set_province_controller = 6651
@@ -224,7 +212,7 @@ FRA_civil_war_sidos_start = {
 		limit = { NOT = { FRS = { has_idea = FRA_mediterranean_brotherhood } } }
 		FIT = {
 			FRA_civil_war_sauge_setup = yes
-
+	
 			transfer_state = 31
 			transfer_state = 1609
 		}
@@ -420,15 +408,15 @@ FRA_civil_war_resistance_setup = {
 	set_variable = { misc_income = 0.0 }
 	set_variable = { misc_costs = 0.0 }
 	initiate_display_vars = yes
-
+	
 	set_temp_variable = { temp_credit_rating = 6 }
 	set_temp_variable = { temp_credit_rating_min = 1 }
 	set_temp_variable = { temp_credit_rating_max = 7 }
-
+	
 	econ_set_max_credit_rating = yes
 	econ_set_min_credit_rating = yes
 	econ_set_credit_rating = yes
-
+	
 	set_country_flag = tno_defined_startup_effectiveness
 
 	set_variable = { tno_trade_laws_effectiveness = 30 }
@@ -462,7 +450,7 @@ FRA_civil_war_resistance_setup = {
 	every_state = {
 		limit = {
 			is_core_of = FRA
-			NOT = {
+			NOT = { 
 				is_core_of = ALG
 				state = 784 # Algiers
 			}
@@ -485,15 +473,15 @@ FRA_civil_war_revolutionnaires_setup = {
 	set_variable = { misc_income = 0.0 }
 	set_variable = { misc_costs = 0.0 }
 	initiate_display_vars = yes
-
+	
 	set_temp_variable = { temp_credit_rating = 3 }
 	set_temp_variable = { temp_credit_rating_min = 1 }
 	set_temp_variable = { temp_credit_rating_max = 5 }
-
+	
 	econ_set_max_credit_rating = yes
 	econ_set_min_credit_rating = yes
 	econ_set_credit_rating = yes
-
+	
 	set_country_flag = tno_defined_startup_effectiveness
 
 	set_variable = { tno_trade_laws_effectiveness = 75 }
@@ -523,11 +511,11 @@ FRA_civil_war_revolutionnaires_setup = {
 	set_variable = { tno_military_supervision_effectiveness = 35 }
 	set_variable = { tno_training_effectiveness = 75 }
 	set_variable = { tno_draft_exemptions_effectiveness = 65 }
-
+	
 	every_state = {
 		limit = {
 			is_core_of = FRA
-			NOT = {
+			NOT = { 
 				is_core_of = ALG
 				state = 784 # Algiers
 			}
@@ -551,15 +539,15 @@ FRA_civil_war_sauge_setup = {
 	set_variable = { misc_income = 0.0 }
 	set_variable = { misc_costs = 0.0 }
 	initiate_display_vars = yes
-
+	
 	set_temp_variable = { temp_credit_rating = 5 }
 	set_temp_variable = { temp_credit_rating_min = 1 }
 	set_temp_variable = { temp_credit_rating_max = 7 }
-
+	
 	econ_set_max_credit_rating = yes
 	econ_set_min_credit_rating = yes
 	econ_set_credit_rating = yes
-
+	
 	set_country_flag = tno_defined_startup_effectiveness
 
 	set_variable = { tno_trade_laws_effectiveness = 65 }
@@ -589,7 +577,7 @@ FRA_civil_war_sauge_setup = {
 	set_variable = { tno_military_supervision_effectiveness = 40 }
 	set_variable = { tno_training_effectiveness = 60 }
 	set_variable = { tno_draft_exemptions_effectiveness = 50 }
-
+	
 	FRA = {
 		FRA_Jean_Cuq = {
 			set_nationality = FIT
@@ -625,7 +613,7 @@ FRA_civil_war_sauge_setup = {
 	}
 
 	TNO_startup_nation = yes
-
+	
 }
 
 FRA_civil_war_SALAN_setup = {
@@ -640,15 +628,15 @@ FRA_civil_war_SALAN_setup = {
 	set_variable = { misc_income = 0.0 }
 	set_variable = { misc_costs = 0.0 }
 	initiate_display_vars = yes
-
+	
 	set_temp_variable = { temp_credit_rating = 5 }
 	set_temp_variable = { temp_credit_rating_min = 1 }
 	set_temp_variable = { temp_credit_rating_max = 7 }
-
+	
 	econ_set_max_credit_rating = yes
 	econ_set_min_credit_rating = yes
 	econ_set_credit_rating = yes
-
+	
 	set_country_flag = tno_defined_startup_effectiveness
 
 	set_variable = { tno_trade_laws_effectiveness = 65 }
@@ -678,7 +666,7 @@ FRA_civil_war_SALAN_setup = {
 	set_variable = { tno_military_supervision_effectiveness = 40 }
 	set_variable = { tno_training_effectiveness = 60 }
 	set_variable = { tno_draft_exemptions_effectiveness = 50 }
-
+	
 	FRA = {
 		FRA_Raoul_Salan = {
 			set_nationality = FRM
@@ -730,9 +718,9 @@ FRA_civil_war_SALAN_setup = {
 		}
 		add_core_of = FRM
 	}
-
+	
 	TNO_startup_nation = yes
-
+	
 }
 
 FRA_civil_war_DARNAND_setup = {
@@ -747,15 +735,15 @@ FRA_civil_war_DARNAND_setup = {
 	set_variable = { misc_income = 0.0 }
 	set_variable = { misc_costs = 0.0 }
 	initiate_display_vars = yes
-
+	
 	set_temp_variable = { temp_credit_rating = 5 }
 	set_temp_variable = { temp_credit_rating_min = 1 }
 	set_temp_variable = { temp_credit_rating_max = 7 }
-
+	
 	econ_set_max_credit_rating = yes
 	econ_set_min_credit_rating = yes
 	econ_set_credit_rating = yes
-
+	
 	set_country_flag = tno_defined_startup_effectiveness
 
 	set_variable = { tno_trade_laws_effectiveness = 65 }
@@ -785,7 +773,7 @@ FRA_civil_war_DARNAND_setup = {
 	set_variable = { tno_military_supervision_effectiveness = 40 }
 	set_variable = { tno_training_effectiveness = 60 }
 	set_variable = { tno_draft_exemptions_effectiveness = 50 }
-
+	
 	FRA = {
 		FRA_Joseph_Darnand = {
 			set_nationality = FMM
@@ -873,15 +861,15 @@ FRA_civil_war_DUPRAT_setup = {
 	set_variable = { misc_income = 0.0 }
 	set_variable = { misc_costs = 0.0 }
 	initiate_display_vars = yes
-
+	
 	set_temp_variable = { temp_credit_rating = 5 }
 	set_temp_variable = { temp_credit_rating_min = 1 }
 	set_temp_variable = { temp_credit_rating_max = 7 }
-
+	
 	econ_set_max_credit_rating = yes
 	econ_set_min_credit_rating = yes
 	econ_set_credit_rating = yes
-
+	
 	set_country_flag = tno_defined_startup_effectiveness
 
 	set_variable = { tno_trade_laws_effectiveness = 65 }
@@ -918,7 +906,7 @@ FRA_civil_war_DUPRAT_setup = {
 		}
 		add_core_of = FGR
 	}
-
+	
 	TNO_startup_nation = yes
-
+	
 }

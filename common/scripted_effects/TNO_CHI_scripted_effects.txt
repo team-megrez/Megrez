@@ -23,12 +23,12 @@ CHI_GUI_LegYuan_Setup = {
 		max = 100
 	}
 	if = {
-		limit = {
-			check_variable = {
-				var = CHI_GUI_old_guard_influence
-				value = 50
-				compare = greater_than_or_equals
-			}
+		limit = { 
+			check_variable = { 
+				var = CHI_GUI_old_guard_influence 
+				value = 50 
+				compare = greater_than_or_equals 
+			} 
 		}
 		set_party_name = {
 			ideology = despotism
@@ -38,7 +38,7 @@ CHI_GUI_LegYuan_Setup = {
 		set_variable = { zhou_fohai_china = 1 }
 	}
 	else_if = {
-		limit = {
+		limit = { 
 			check_variable = { CHI_GUI_old_guard_influence < 50 }
 			check_variable = { zhou_fohai_china = 1 }
 		}
@@ -904,13 +904,13 @@ CHI_GAW_warlord_cta = {
 				}
 				exists = yes
 			}
-			country_event = {id = chinesewarlord.1003 hours = 6 random_hours = 18}
+			country_event = {id = chinesewarlord.1003 hours = 6 random = 18}
 		}
 		else_if = {
 			limit = {
 				exists = yes
 			}
-			country_event = {id = chinesewarlord.1000 hours = 6 random_hours = 18}
+			country_event = {id = chinesewarlord.1000 hours = 6 random = 18}
 		}
 	}
 }
@@ -986,7 +986,6 @@ CHI_GAW_release_warlord = {
 ### YUN stuff ###
 
 clamp_chi_influence = {
-	set_variable = { chi_influence = chi_influence }
 	clamp_variable = {
 		var = chi_influence
 		min = 0
@@ -996,6 +995,7 @@ clamp_chi_influence = {
 
 get_infiltration_result = {
 	set_variable = { result_infiltration_warlord = From.chi_intelligence }
+	subtract_from_variable = { result_infiltration_warlord = warlord_counterintelligence }
 	if = {
 		limit = {
 			check_variable = {
@@ -1455,10 +1455,13 @@ WI_Japan_is_happy = {
 			name = CHI_fascism_party
 			long_name = CHI_fascism_party_long
 		}
-		NCC = {
-			CHI_wang_yintai = { set_nationality = CHI }
+		create_country_leader = {
+			name = CHI_wang_yintai
+			desc = "POLITICS_WANG_YINTAI_DESC"
+			picture = "Portrait_China_Wang_Yintai.dds"
+			expire = "1999.10.12"
+			ideology = fascism_corporatism_subtype
 		}
-		promote_character = CHI_wang_yintai
 		set_politics = {
 			ruling_party = fascism
 			last_election = "1960.11.11"
@@ -1621,9 +1624,9 @@ WI_Japan_is_happy = {
 			}
 			add_to_faction = GAN
 			every_state = {
-				limit = { is_owned_by = GAN }
-				add_core_of = GAN
-			}
+			    limit = { is_owned_by = GAN } 
+			    add_core_of = GAN
+		    }
 		}
 		else = {
 			GAN = {
@@ -1631,9 +1634,9 @@ WI_Japan_is_happy = {
 				transfer_state = 906
 				set_cosmetic_tag = GAN_northwest
 				every_state = {
-					limit = { is_owned_by = GAN }
-					add_core_of = GAN
-				}
+			        limit = { is_owned_by = GAN } 
+			        add_core_of = GAN
+		        }   
 			}
 		}
 	}
@@ -1644,16 +1647,16 @@ WI_Japan_is_happy = {
 				limit = { is_core_of = GAN }
 				GAN = { transfer_state = PREV }
 			}
-			GAN = {
+			GAN = { 
 				add_ideas = Sphere_Imp_Protectorate
 				econ_join_sphere_JAP = yes
-				TNO_startup_nation = yes
+				TNO_startup_nation = yes 
 			}
 			add_to_faction = GAN
 			every_state = {
-				limit = { is_owned_by = GAN }
-				add_core_of = GAN
-			}
+			    limit = { is_owned_by = GAN } 
+			    add_core_of = GAN
+		    }
 		}
 	}
 
@@ -2108,9 +2111,9 @@ WI_Japan_is_angry = {
 			econ_join_sphere_JAP = yes
 			TNO_startup_nation = yes
 			every_state = {
-				limit = { is_owned_by = SIC }
-				add_core_of = SIC
-			}
+			    limit = { is_owned_by = SIC } 
+			    add_core_of = SIC
+		    }
 		}
 	}
 	else = {
@@ -2126,9 +2129,9 @@ WI_Japan_is_angry = {
 			econ_join_sphere_JAP = yes
 			TNO_startup_nation = yes
 			every_state = {
-				limit = { is_owned_by = SIC }
-				add_core_of = SIC
-			}
+			    limit = { is_owned_by = SIC } 
+			    add_core_of = SIC
+		    }
 		}
 	}
 
@@ -2156,7 +2159,7 @@ WI_Japan_is_angry = {
 		}
 	}
 	else = {
-		TIB = {
+		TIB = { 
 			add_ideas = Sphere_Observer
 			econ_join_sphere_JAP = yes
 		}
@@ -2209,7 +2212,7 @@ WI_Japan_is_angry = {
 	}
 	#every_state = {
 	#	limit = {
-	#		is_in_array = { YUN.greater_china_states = THIS }
+	#		is_in_array = { YUN.greater_china_states = THIS } 
 	#		controller = { is_in_faction_with = JAP }
 	#	}
 	#}
@@ -2436,7 +2439,7 @@ WI_Japan_is_crazy = {
 	}
 	#every_state = {
 	#	limit = {
-	#		is_in_array = { YUN.greater_china_states = THIS }
+	#		is_in_array = { YUN.greater_china_states = THIS } 
 	#	}
 	#	if = {
 	#		limit = { controller = { tag = CHI } }

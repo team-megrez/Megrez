@@ -23,7 +23,19 @@ BRY_sablin_good_boy_increase = {
 			BRY_badboy_army_stage2
 		}
 		hidden_effect = {
-			set_country_leader_ideology = communist_subtype
+			set_politics = {
+				ruling_party = communist
+			}
+			create_country_leader = {
+				name = "Valery Sablin"
+				desc = "POLITICS_VALERY_SABLIN_DESC"
+				picture = "Portrait_Buryatia_Valery_Sablin.dds"
+				expire = "1999.1.1"
+				ideology = communist_subtype
+				traits = {
+					the_last_sentry
+				}
+			}
 		}
 	}
 }
@@ -50,7 +62,19 @@ BRY_sablin_bad_boy_increase = {
 			BRY_goodboy_army_stage2
 		}
 		hidden_effect = {
-			set_country_leader_ideology = communist_bolshevism_subtype
+			set_politics = {
+				ruling_party = communist
+			}
+			create_country_leader = {
+				name = "Valery Sablin"
+				desc = "POLITICS_VALERY_SABLIN_DESC"
+				picture = "Portrait_Buryatia_Valery_Sablin.dds"
+				expire = "1999.1.1"
+				ideology = communist_bolshevism_subtype
+				traits = {
+					the_last_sentry
+				}
+			}
 		}
 	}
 }

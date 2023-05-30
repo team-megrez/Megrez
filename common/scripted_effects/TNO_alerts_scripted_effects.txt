@@ -43,8 +43,6 @@ TNO_initialize_alerts = {
 	resize_array = { array = TNO_alert_data size = 1 value = 0 }
 
 	clear_array = TNO_alert_types_suppression
-	
-	TNO_alert_update_gui =  yes
 }
 
 
@@ -71,8 +69,6 @@ add_TNO_alert = {
 
 		# sound_effect = "crabrave"
 	}
-	
-	TNO_alert_update_gui =  yes
 }
 
 # Removes all alerts with id `alert_id`
@@ -92,8 +88,6 @@ remove_TNO_alert = {
 		}
 		add_to_temp_variable = { idx = 1 }
 	}
-	
-	TNO_alert_update_gui =  yes
 }
 
 # Removes all alerts with id `alert_id` and data `alert_data`
@@ -116,8 +110,6 @@ remove_TNO_alert_data = {
 		}
 		add_to_temp_variable = { idx = 1 }
 	}	
-	
-	TNO_alert_update_gui =  yes
 }
 
 # Alert click effect
@@ -240,8 +232,6 @@ TNO_alert_click = {
 		}
 		set_country_flag = TNO_GNG_LegCo_GUI_Open
 	}
-	
-	TNO_alert_update_gui =  yes
 }
 
 # Alert cancel effect
@@ -287,7 +277,6 @@ suppress_TNO_alert = {
 			add_to_array = { TNO_alert_types_suppression_time = suppression_weeks }
 		}
 	}
-	TNO_alert_update_gui =  yes
 }
 
 TNO_alert_suppression_weekly_tick = {
@@ -310,17 +299,7 @@ TNO_alert_suppression_weekly_tick = {
 		}
 		add_to_temp_variable = { idx = 1 }
 	}
-	TNO_alert_update_gui =  yes
 }
 
 TNO_alert_suppression_expired = {
-}
-
-TNO_alert_update_gui = {
-	if = {
-		limit = {
-			is_ai = no
-		}
-		add_to_variable = { TNO_alertbar_dirty = 0.001 }
-	}
 }

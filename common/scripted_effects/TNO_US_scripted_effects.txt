@@ -5302,33 +5302,9 @@ USA_WAL_Crisis_At_Central_High = { #KEPT, up for rework
 					days = 10
 					random = 240
 				}
-				modifier = {
-					factor = 0
-					has_game_rule = { rule = USA_WALLACE_IMPEACHMENT_PATH option = USA_WALLACE_IMPEACHMENT_PATH_SECOND_STAGE }
-				}
-				modifier = {
-					factor = 0
-					has_game_rule = { rule = USA_WALLACE_IMPEACHMENT_PATH option = USA_WALLACE_IMPEACHMENT_PATH_THIRD_STAGE }
-				}
-				modifier = {
-					factor = 0
-					has_game_rule = { rule = USA_WALLACE_IMPEACHMENT_PATH option = USA_WALLACE_IMPEACHMENT_PATH_FOURTH_STAGE }
-				}
-				modifier = {
-					factor = 0
-					has_game_rule = { rule = USA_WALLACE_IMPEACHMENT_PATH option = USA_WALLACE_IMPEACHMENT_PATH_FIFTH_STAGE }
-				}
-				modifier = {
-					factor = 0
-					has_game_rule = { rule = USA_WALLACE_IMPEACHMENT_PATH option = USA_WALLACE_IMPEACHMENT_PATH_IMPEACHMENT_NOT_HAPPENING }
-				}
 			}
 			95 = {
-				#Nothing happens
-				modifier = {
-					factor = 0
-					has_game_rule = { rule = USA_WALLACE_IMPEACHMENT_PATH option = USA_WALLACE_IMPEACHMENT_PATH_FIRST_STAGE }
-				}
+				 #Nothing happens
 			}
 		}
 	}
@@ -5355,29 +5331,9 @@ USA_WAL_Crisis_At_Central_High = { #KEPT, up for rework
 					days = 8
 					random = 192
 				}
-				modifier = {
-					factor = 0
-					has_game_rule = { rule = USA_WALLACE_IMPEACHMENT_PATH option = USA_WALLACE_IMPEACHMENT_PATH_THIRD_STAGE }
-				}
-				modifier = {
-					factor = 0
-					has_game_rule = { rule = USA_WALLACE_IMPEACHMENT_PATH option = USA_WALLACE_IMPEACHMENT_PATH_FOURTH_STAGE }
-				}
-				modifier = {
-					factor = 0
-					has_game_rule = { rule = USA_WALLACE_IMPEACHMENT_PATH option = USA_WALLACE_IMPEACHMENT_PATH_FIFTH_STAGE }
-				}
-				modifier = {
-					factor = 0
-					has_game_rule = { rule = USA_WALLACE_IMPEACHMENT_PATH option = USA_WALLACE_IMPEACHMENT_PATH_IMPEACHMENT_NOT_HAPPENING }
-				}
 			}
 			85 = {
-				#Nothing happens
-				modifier = {
-					factor = 0
-					has_game_rule = { rule = USA_WALLACE_IMPEACHMENT_PATH option = USA_WALLACE_IMPEACHMENT_PATH_SECOND_STAGE }
-				}
+				 #Nothing happens
 			}
 		}
 	}
@@ -5403,25 +5359,9 @@ USA_WAL_Crisis_At_Central_High = { #KEPT, up for rework
 					days = 5
 					random = 120
 				}
-				modifier = {
-					factor = 0
-					has_game_rule = { rule = USA_WALLACE_IMPEACHMENT_PATH option = USA_WALLACE_IMPEACHMENT_PATH_FOURTH_STAGE }
-				}
-				modifier = {
-					factor = 0
-					has_game_rule = { rule = USA_WALLACE_IMPEACHMENT_PATH option = USA_WALLACE_IMPEACHMENT_PATH_FIFTH_STAGE }
-				}
-				modifier = {
-					factor = 0
-					has_game_rule = { rule = USA_WALLACE_IMPEACHMENT_PATH option = USA_WALLACE_IMPEACHMENT_PATH_IMPEACHMENT_NOT_HAPPENING }
-				}
 			}
 			70 = {
-				#Nothing happens
-				modifier = {
-					factor = 0
-					has_game_rule = { rule = USA_WALLACE_IMPEACHMENT_PATH option = USA_WALLACE_IMPEACHMENT_PATH_THIRD_STAGE }
-				}
+				 #Nothing happens
 			}
 		}
 	}
@@ -5447,21 +5387,9 @@ USA_WAL_Crisis_At_Central_High = { #KEPT, up for rework
 					days = 4
 					random = 96
 				}
-				modifier = {
-					factor = 0
-					has_game_rule = { rule = USA_WALLACE_IMPEACHMENT_PATH option = USA_WALLACE_IMPEACHMENT_PATH_FIFTH_STAGE }
-				}
-				modifier = {
-					factor = 0
-					has_game_rule = { rule = USA_WALLACE_IMPEACHMENT_PATH option = USA_WALLACE_IMPEACHMENT_PATH_IMPEACHMENT_NOT_HAPPENING }
-				}
 			}
 			55 = {
-				#Nothing happens
-				modifier = {
-					factor = 0
-					has_game_rule = { rule = USA_WALLACE_IMPEACHMENT_PATH option = USA_WALLACE_IMPEACHMENT_PATH_FOURTH_STAGE }
-				}
+				 #Nothing happens
 			}
 		}
 	}
@@ -5482,17 +5410,9 @@ USA_WAL_Crisis_At_Central_High = { #KEPT, up for rework
 					days = 2
 					random = 48
 				}
-				modifier = {
-					factor = 0
-					has_game_rule = { rule = USA_WALLACE_IMPEACHMENT_PATH option = USA_WALLACE_IMPEACHMENT_PATH_IMPEACHMENT_NOT_HAPPENING }
-				}
 			}
 			25 = {
-				#Nothing happens
-				modifier = {
-					factor = 0
-					has_game_rule = { rule = USA_WALLACE_IMPEACHMENT_PATH option = USA_WALLACE_IMPEACHMENT_PATH_FIFTH_STAGE }
-				}
+					 #Nothing happens
 			}
 		}
 	}
@@ -8952,7 +8872,7 @@ TP_trade_calculator = {
 			limit = {
 				tag = USA 
 			}
-			custom_effect_tooltip = GNG_begin_sales_operations_USA_tt
+			custom_effect_tooltip = GNG_begin_sales_operations_tt
 		}
 		hidden_effect = {
 			GNG = { #Guangdong Opens up markets to the US
@@ -9103,7 +9023,7 @@ USA_SAF_WAR_Insurgency_war_crime_event_chooser = {
 	random_list = {
 		13 = { country_event = { id = USA.saf.effects.4 days = 3 } }
 		13 = { country_event = { id = USA.saf.effects.5 days = 3 } }
-		12 = { country_event = { id = USA.saf.effects.6 days = 3 } modifier = { factor = 1.1 has_country_flag = USA_SAF_WAR_Insurgency_War_Crime_Napalm_Activated } }
+		12 = { country_event = { id = USA.saf.effects.6 days = 3 } modifier = { factor = 1.1 has_country_flag = USA_SAF_WAR_Insurgency_Bring_Out_Napalm_Tooltip } }
 		12 = { country_event = { id = USA.saf.effects.7 days = 3 } modifier = { factor = 1.1 has_country_flag = USA_SAF_WAR_Insurgency_War_Crime_Massacared_Village } }
 		12 = { country_event = { id = USA.saf.effects.8 days = 3 } }
 		12 = { country_event = { id = USA.saf.effects.9 days = 3 } }
@@ -10969,8 +10889,8 @@ USA_management_efficiency_adjust = {
 }
 
 USA_upkeep_cost_adjust = {
-	subtract_from_variable = { USA_CITY_upkeep_cost = USA_temp_upkeep_cost_var }
-	custom_effect_tooltip = USA_HART_upkeep_cost_adjust_tooltip 
+	add_to_variable = { USA_CITY_upkeep_cost = USA_temp_upkeep_cost_var }
+	custom_effect_tooltip = USA_HART_upkeep_cost_adjust_tooltip
 	clamp_variable = {
 		var = USA_CITY_upkeep_cost
 		min = -0.5
@@ -11182,20 +11102,20 @@ USA_hart_city_vars_interact = {
 	}
 
 	# low budget -> lower efficiency
-	# if = {
-	#	limit = {
-	#		# above .25
-	#		check_variable = {
-	#			var = USA_CITY_upkeep_cost
-	#			value = 0.15
-	#			compare = greater_than_or_equals
-	#		}
-	#	}
+	if = {
+		limit = {
+			# above .25
+			check_variable = {
+				var = USA_CITY_upkeep_cost
+				value = 0.15
+				compare = greater_than_or_equals
+			}
+		}
 		custom_effect_tooltip = USA_budget_efficiency_tt
 		set_temp_variable = { USA_temp_management_efficiency_var = USA_CITY_upkeep_cost } # .15 to .50
-		multiply_temp_variable = { USA_temp_management_efficiency_var = -0.02 } # -0.006 to -0.02
+		multiply_temp_variable = { USA_temp_management_efficiency_var = -0.04 } # -0.006 to -0.02
 		USA_management_efficiency_adjust = yes
-	#}
+	}
 
 	# high budget -> bad economy
 	if = {
@@ -11227,26 +11147,26 @@ USA_hart_city_vars_interact = {
 		custom_effect_tooltip = USA_management_economy_tt
 		set_temp_variable = { USA_temp_spending_power_var = USA_CITY_management_efficiency } # -.50 to .25
 		add_to_temp_variable = { USA_temp_spending_power_var = -0.5 } # -1 to -.25
-		multiply_temp_variable = { USA_temp_spending_power_var = 0.018 } # 0.03 to 0.0075
+		multiply_temp_variable = { USA_temp_spending_power_var = -0.018 } # 0.03 to 0.0075
 		USA_spending_power_adjust = yes
 	}
 
 	# bad economy -> increase homelessness, poverty
-	# if = {
-	# 	limit = {
-	# 		# under 0
-	# 		check_variable = {
-	# 			var = USA_CITY_spending_power
-	# 			value = 0
-	# 			compare = less_than_or_equals
-	# 		}
-	# 	}
+	if = {
+		limit = {
+			# under 0
+			check_variable = {
+				var = USA_CITY_spending_power
+				value = 0
+				compare = less_than_or_equals
+			}
+		}
 		custom_effect_tooltip = USA_economy_homelessness_tt
 		set_temp_variable = { USA_temp_homeless_rate_var = USA_CITY_spending_power } # 0 to -.50
-		# add_to_temp_variable = { USA_temp_homeless_rate_var = -.5 } # -1 to 1
+		add_to_temp_variable = { USA_temp_homeless_rate_var = -.5 } # -1 to -.5
 		multiply_temp_variable = { USA_temp_homeless_rate_var = -0.018 } # 0.03 to 0.015
 		USA_homeless_rate_adjust = yes
-	# }
+	}
 	if = {
 		limit = {
 			# under 0

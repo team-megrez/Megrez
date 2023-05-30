@@ -117,6 +117,22 @@ TNO_ENG_Fiscal_Crisis = {
 		ENG_Thatcher_Add_Elite_Love_3 = yes
 		add_to_variable = { ENG_Maggie_Party_Lead = -0.20 }
 		add_to_variable = { ENG_OG_Party_Lead = 0.20 }
+		if = {
+			limit = {
+				OR = {
+					has_game_rule = {
+						rule = COLLAB_COUP
+						option = COLLAB_COUP_NO
+					}
+					has_game_rule = {
+						rule = COLLAB_COUP
+						option = COLLAB_COUP_MONTY
+					}
+				}
+				check_variable = { ENG_OG_Party_Lead > 0.9 }
+			}
+			set_variable = { ENG_OG_Party_Lead = 0.9 }
+		}
 	}
 	else_if = {
 		limit = {

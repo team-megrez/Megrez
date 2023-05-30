@@ -75,7 +75,8 @@ TNO_sliders_initialize = {
 	set_variable = { econ_social_unemployment_slider_pct = 50 }
 
 	set_variable = { econ_admin_security_slider_pct = 50 }
-	set_variable = { econ_admin_regulations_slider_pct = 50 }
+	set_variable = { econ_admin_safety_slider_pct = 50 }
+	set_variable = { econ_admin_pollution_slider_pct = 50 }
 	set_variable = { econ_admin_bureaucracy_slider_pct = 50 }
 
 	set_variable = { econ_research_science_slider_pct = 50 }
@@ -92,7 +93,7 @@ TNO_sliders_initialize = {
 	set_variable = { econ_social_unemployment_minimal_pct = 25 }
 
 	set_variable = { econ_admin_security_minimal_pct = 25 }
-	set_variable = { econ_admin_regulations_minimal_pct = 25 }
+	set_variable = { econ_admin_safety_minimal_pct = 25 }
 	set_variable = { econ_admin_pollution_minimal_pct = 25 }
 	set_variable = { econ_admin_bureaucracy_minimal_pct = 25 }
 
@@ -111,7 +112,7 @@ TNO_sliders_initialize = {
 	set_variable = { econ_social_unemployment_maximal_pct = 75 }
 
 	set_variable = { econ_admin_security_maximal_pct = 75 }
-	set_variable = { econ_admin_regulations_maximal_pct = 75 }
+	set_variable = { econ_admin_safety_maximal_pct = 75 }
 	set_variable = { econ_admin_pollution_maximal_pct = 75 }
 	set_variable = { econ_admin_bureaucracy_maximal_pct = 75 }
 
@@ -1184,7 +1185,8 @@ calculate_admin_expenditures = {
 
 	set_variable = { total_ap_costs = 0 }
 
-	calculate_regulations_expenditures = yes
+	calculate_safety_expenditures = yes 
+	calculate_pollution_expenditures = yes
 	calculate_security_expenditures = yes 
 	calculate_bureaucracy_expenditures = yes
 	calculate_admin_costs_misc = yes 
@@ -1196,7 +1198,7 @@ calculate_admin_expenditures = {
 
 	multiply_variable = { basic_admin_costs = adm_cost_slider_effect }
 
-	add_to_variable = { total_ap_costs = admin_regulations_costs }
+	add_to_variable = { total_ap_costs = admin_safety_costs }
 	add_to_variable = { total_ap_costs = admin_pollution_costs }
 	add_to_variable = { total_ap_costs = admin_security_costs }
 	add_to_variable = { total_ap_costs = admin_bureaucracy_costs }
@@ -1240,17 +1242,32 @@ calculate_security_expenditures = {
 	multiply_variable = { admin_security_costs = security_cost_slider_effect }
 }
 
-calculate_regulations_expenditures = {
-	set_variable = { admin_regulations_costs = tno_regulations_policy_cost }
-	multiply_variable = { admin_regulations_costs = GDP }
-	divide_variable = { admin_regulations_costs = 100 } # So that we never go out of limits 
+calculate_safety_expenditures = {
+	set_variable = { admin_safety_costs = tno_safety_policy_cost_per_capita }
+	multiply_variable = { admin_safety_costs = modifier@admin_program_cost_factor }
+	multiply_variable = { admin_safety_costs = total_core_pop_m }
+	divide_variable = { admin_safety_costs = 800 } # instead of doing it properly we do this because I feel like it 
 	
-	set_variable = { regulations_cost_slider_effect = econ_admin_regulations_slider_pct }
-	multiply_variable = { regulations_cost_slider_effect = 0.8 }
-	add_to_variable = { regulations_cost_slider_effect = 20 }
-	divide_variable = { regulations_cost_slider_effect = 100 }
+	set_variable = { safety_cost_slider_effect = econ_admin_safety_slider_pct }
+	multiply_variable = { safety_cost_slider_effect = 0.8 }
+	add_to_variable = { safety_cost_slider_effect = 20 }
+	divide_variable = { safety_cost_slider_effect = 100 }
 	
-	multiply_variable = { admin_regulations_costs = regulations_cost_slider_effect }
+	multiply_variable = { admin_safety_costs = safety_cost_slider_effect }
+}
+
+calculate_pollution_expenditures = {
+	set_variable = { admin_pollution_costs = tno_pollution_policy_cost_per_capita }
+	multiply_variable = { admin_pollution_costs = modifier@admin_program_cost_factor }
+	multiply_variable = { admin_pollution_costs = total_core_pop_m }
+	divide_variable = { admin_pollution_costs = 400 }
+	
+	set_variable = { pollution_cost_slider_effect = econ_admin_pollution_slider_pct }
+	multiply_variable = { pollution_cost_slider_effect = 0.8 }
+	add_to_variable = { pollution_cost_slider_effect = 20 }
+	divide_variable = { pollution_cost_slider_effect = 100 }
+	
+	multiply_variable = { admin_pollution_costs = pollution_cost_slider_effect }
 }
 
 ##Research
@@ -1499,7 +1516,9 @@ calculate_admin_funding_effects_display = {
 	
 	calculate_admin_security_funding_effects_display = yes 
 
-	calculate_admin_regulations_funding_effects_display = yes 
+	# calculate_admin_pollution_funding_effects_display = yes 
+
+	calculate_admin_safety_funding_effects_display = yes 
 	
 }
 
@@ -1512,13 +1531,13 @@ calculate_admin_security_funding_effects_display = {
 	divide_variable = { TNO_security_funding_effectiveness_display = 100 }
 }
 
-calculate_admin_regulations_funding_effects_display = {
-	set_variable = { TNO_regulations_funding_effect_display = econ_admin_regulations_slider_pct }
-	divide_variable = { TNO_regulations_funding_effect_display = 100 }
+calculate_admin_safety_funding_effects_display = {
+	set_variable = { TNO_safety_funding_effect_display = econ_admin_safety_slider_pct }
+	divide_variable = { TNO_safety_funding_effect_display = 100 }
 	
-	set_variable = { TNO_regulations_funding_effectiveness_display = tno_regulations_effectiveness }
-	multiply_variable = { TNO_regulations_funding_effectiveness_display = TNO_regulations_funding_effect_display }
-	divide_variable = { TNO_regulations_funding_effectiveness_display = 100 }
+	set_variable = { TNO_safety_funding_effectiveness_display = tno_safety_effectiveness }
+	multiply_variable = { TNO_safety_funding_effectiveness_display = TNO_safety_funding_effect_display }
+	divide_variable = { TNO_safety_funding_effectiveness_display = 100 }
 }
 
 calculate_admin_bureaucracy_funding_effects_display = {
@@ -1628,7 +1647,7 @@ update_econ_sliders = {
 	clamp_variable = { var = econ_social_unemployment_minimal_pct min = 0 max = 100 }
 
 	clamp_variable = { var = econ_admin_security_minimal_pct min = 0 max = 100 }
-	clamp_variable = { var = econ_admin_regulations_minimal_pct min = 0 max = 100 }
+	clamp_variable = { var = econ_admin_safety_minimal_pct min = 0 max = 100 }
 	clamp_variable = { var = econ_admin_pollution_minimal_pct min = 0 max = 100 }
 	clamp_variable = { var = econ_admin_bureaucracy_minimal_pct min = 0 max = 100 }
 
@@ -1646,7 +1665,7 @@ update_econ_sliders = {
 	clamp_variable = { var = econ_social_unemployment_maximal_pct min = 0 max = 100 }
 
 	clamp_variable = { var = econ_admin_security_maximal_pct min = 0 max = 100 }
-	clamp_variable = { var = econ_admin_regulations_maximal_pct min = 0 max = 100 }
+	clamp_variable = { var = econ_admin_safety_maximal_pct min = 0 max = 100 }
 	clamp_variable = { var = econ_admin_pollution_maximal_pct min = 0 max = 100 }
 	clamp_variable = { var = econ_admin_bureaucracy_maximal_pct min = 0 max = 100 }
 
@@ -1928,28 +1947,45 @@ update_econ_sliders = {
 	set_variable = { econ_admin_security_slider_value = econ_admin_security_slider_pct }
 	divide_variable = { econ_admin_security_slider_value = 5 }
 	########## Safety crap
-	set_variable = { econ_admin_regulations_minimal_pct = econ_admin_expenditures_minimal_pct }
-	set_variable = { econ_admin_regulations_maximal_pct = econ_admin_expenditures_maximal_pct }
-	set_temp_variable = {econ_admin_regulations_maximal_pct_multiplier = 1}
-	add_to_temp_variable = {econ_admin_regulations_maximal_pct_multiplier = modifier@econ_admin_regulations_maximal_pct_modifier}
-	multiply_variable = {econ_admin_regulations_maximal_pct = econ_admin_regulations_maximal_pct_multiplier}
-	clamp_variable = { var = econ_admin_regulations_maximal_pct min = econ_admin_regulations_minimal_pct max = 100}
+	set_variable = { econ_admin_safety_minimal_pct = econ_admin_expenditures_minimal_pct }
+	set_variable = { econ_admin_safety_maximal_pct = econ_admin_expenditures_maximal_pct }
+	set_temp_variable = {econ_admin_safety_maximal_pct_multiplier = 1}
+	add_to_temp_variable = {econ_admin_safety_maximal_pct_multiplier = modifier@econ_admin_safety_maximal_pct_modifier}
+	multiply_variable = {econ_admin_safety_maximal_pct = econ_admin_safety_maximal_pct_multiplier}
+	clamp_variable = { var = econ_admin_safety_maximal_pct min = econ_admin_safety_minimal_pct max = 100}
 
-	clamp_variable = { var = econ_admin_regulations_slider_pct min = econ_admin_regulations_minimal_pct max = econ_admin_regulations_maximal_pct }
+	clamp_variable = { var = econ_admin_safety_slider_pct min = econ_admin_safety_minimal_pct max = econ_admin_safety_maximal_pct }
 
-	set_variable = { econ_admin_regulations_slider_dot_x = econ_admin_regulations_slider_pct }
-	multiply_variable = { econ_admin_regulations_slider_dot_x = 1.88 }
-	add_to_variable = { econ_admin_regulations_slider_dot_x = 45 }
-	set_variable = { econ_admin_regulations_minimal_x = econ_admin_regulations_minimal_pct }
-	multiply_variable = { econ_admin_regulations_minimal_x = 1.88 }
-	add_to_variable = { econ_admin_regulations_minimal_x = 45 }
-	set_variable = { econ_admin_regulations_maximal_x = econ_admin_regulations_maximal_pct }
-	multiply_variable = { econ_admin_regulations_maximal_x = 1.88 }
-	add_to_variable = { econ_admin_regulations_maximal_x = 42 }
+	set_variable = { econ_admin_safety_slider_dot_x = econ_admin_safety_slider_pct }
+	multiply_variable = { econ_admin_safety_slider_dot_x = 1.88 }
+	add_to_variable = { econ_admin_safety_slider_dot_x = 45 }
+	set_variable = { econ_admin_safety_minimal_x = econ_admin_safety_minimal_pct }
+	multiply_variable = { econ_admin_safety_minimal_x = 1.88 }
+	add_to_variable = { econ_admin_safety_minimal_x = 45 }
+	set_variable = { econ_admin_safety_maximal_x = econ_admin_safety_maximal_pct }
+	multiply_variable = { econ_admin_safety_maximal_x = 1.88 }
+	add_to_variable = { econ_admin_safety_maximal_x = 42 }
 
-	set_variable = { econ_admin_regulations_slider_value = econ_admin_regulations_slider_pct }
-	divide_variable = { econ_admin_regulations_slider_value = 5 }
+	set_variable = { econ_admin_safety_slider_value = econ_admin_safety_slider_pct }
+	divide_variable = { econ_admin_safety_slider_value = 5 }
+	########## Pollution crap
+	set_variable = { econ_admin_pollution_minimal_pct = econ_admin_expenditures_minimal_pct }
+	set_variable = { econ_admin_pollution_maximal_pct = econ_admin_expenditures_maximal_pct }
 
+	clamp_variable = { var = econ_admin_pollution_slider_pct min = econ_admin_pollution_minimal_pct max = econ_admin_pollution_maximal_pct }
+
+	set_variable = { econ_admin_pollution_slider_dot_x = econ_admin_pollution_slider_pct }
+	multiply_variable = { econ_admin_pollution_slider_dot_x = 1.88 }
+	add_to_variable = { econ_admin_pollution_slider_dot_x = 45 }
+	set_variable = { econ_admin_pollution_minimal_x = econ_admin_pollution_minimal_pct }
+	multiply_variable = { econ_admin_pollution_minimal_x = 1.88 }
+	add_to_variable = { econ_admin_pollution_minimal_x = 45 }
+	set_variable = { econ_admin_pollution_maximal_x = econ_admin_pollution_maximal_pct }
+	multiply_variable = { econ_admin_pollution_maximal_x = 1.88 }
+	add_to_variable = { econ_admin_pollution_maximal_x = 42 }
+
+	set_variable = { econ_admin_pollution_slider_value = econ_admin_pollution_slider_pct }
+	divide_variable = { econ_admin_pollution_slider_value = 5 }
 	########## Bureau crap
 	set_variable = { econ_admin_bureaucracy_minimal_pct = econ_admin_expenditures_minimal_pct }
 	set_variable = { econ_admin_bureaucracy_maximal_pct = econ_admin_expenditures_maximal_pct }
@@ -2060,22 +2096,25 @@ update_social_mainslider = {
 
 update_admin_subsliders = { 
 	set_variable = { econ_admin_security_slider_pct = econ_admin_expenditures_slider_pct } 
-	set_variable = { econ_admin_regulations_slider_pct = econ_admin_expenditures_slider_pct } 
+	set_variable = { econ_admin_safety_slider_pct = econ_admin_expenditures_slider_pct } 
+	set_variable = { econ_admin_pollution_slider_pct = econ_admin_expenditures_slider_pct } 
 	set_variable = { econ_admin_bureaucracy_slider_pct = econ_admin_expenditures_slider_pct } 
 }
 
 update_admin_mainslider = { 
 	
 	clamp_variable = { var = econ_admin_security_slider_pct min = econ_admin_expenditures_minimal_pct max = econ_admin_security_maximal_pct }
-	clamp_variable = { var = econ_admin_regulations_slider_pct min = econ_admin_expenditures_minimal_pct max = econ_admin_regulations_maximal_pct }
+	clamp_variable = { var = econ_admin_safety_slider_pct min = econ_admin_expenditures_minimal_pct max = econ_admin_safety_maximal_pct }
+	clamp_variable = { var = econ_admin_pollution_slider_pct min = econ_admin_expenditures_minimal_pct max = econ_admin_expenditures_maximal_pct }
 	clamp_variable = { var = econ_admin_bureaucracy_slider_pct min = econ_admin_expenditures_minimal_pct max = econ_admin_expenditures_maximal_pct }
 
 	
 	set_temp_variable = { econ_admin_average_spending = econ_admin_security_slider_pct }
-	add_to_temp_variable = { econ_admin_average_spending = econ_admin_regulations_slider_pct }
+	add_to_temp_variable = { econ_admin_average_spending = econ_admin_safety_slider_pct }
+	add_to_temp_variable = { econ_admin_average_spending = econ_admin_pollution_slider_pct }
 	add_to_temp_variable = { econ_admin_average_spending = econ_admin_bureaucracy_slider_pct }
 
-	divide_temp_variable = { econ_admin_average_spending = 3 }
+	divide_temp_variable = { econ_admin_average_spending = 4 }
 	round_temp_variable = econ_admin_average_spending
 	
 	clamp_variable = {var = econ_admin_average_spending min = econ_admin_expenditures_minimal_pct max = econ_admin_expenditures_maximal_pct}
@@ -2467,7 +2506,7 @@ calculate_admin_funding_effects = {
 
 	set_variable = { TNO_admin_funding_security_effect = TNO_security_funding_effect_display }
 	
-	set_variable = { TNO_admin_funding_regulations_effect = TNO_regulations_funding_effect_display }
+	set_variable = { TNO_admin_funding_safety_effect = TNO_safety_funding_effect_display }
 	
 	set_variable = { TNO_admin_funding_pollution_effect = TNO_pollution_funding_effect_display }
 
@@ -4148,20 +4187,20 @@ calculate_display_variables = {
 	
 	#central bank policies
 	if = { 
-		limit = { check_variable = { selected_central_bank_id = 0 } }
-		set_variable = { central_bank_effectiveness_display = central_bank_effectiveness_0 }
+		limit = { check_variable = {selected_central_bank_id = 0} }
+		set_variable = {central_bank_effectiveness_display = central_bank_effectiveness_0 }
 	}
 	else_if = { 
-		limit = { check_variable = { selected_central_bank_id = 1 } }
-		set_variable = { central_bank_effectiveness_display = central_bank_effectiveness_1 }
+		limit = { check_variable = {selected_central_bank_id = 1} }
+		set_variable = {central_bank_effectiveness_display = central_bank_effectiveness_1 }
 	}
 	else_if = { 
-		limit = { check_variable = { selected_central_bank_id = 2 } }
-		set_variable = { central_bank_effectiveness_display = central_bank_effectiveness_2 }
+		limit = { check_variable = {selected_central_bank_id = 2} }
+		set_variable = {central_bank_effectiveness_display = central_bank_effectiveness_2 }
 	}
 	else_if = { 
-		limit = { check_variable = { selected_central_bank_id = 3 } }
-		set_variable = { central_bank_effectiveness_display = central_bank_effectiveness_3 }
+		limit = { check_variable = {selected_central_bank_id = 3} }
+		set_variable = {central_bank_effectiveness_display = central_bank_effectiveness_3 }
 	}
 	
 	multiply_variable = { central_bank_effectiveness_display = 100 }
@@ -4207,7 +4246,7 @@ TNO_startup_econ_type = {
 					has_government = ultranationalism
 				}
 			}
-			set_variable = { TNO_economy_type = token:Econ_Type_Planned }
+			set_variable = { TNO_economy_type = 3 }
 		}
 		else_if = {
 			limit = {
@@ -4216,10 +4255,10 @@ TNO_startup_econ_type = {
 					has_government = national_socialism
 				}
 			}
-			set_variable = { TNO_economy_type = token:Econ_Type_Corporatism }
+			set_variable = { TNO_economy_type = 2 }
 		}
 		else = {
-			set_variable = { TNO_economy_type = token:Econ_Type_Capitalism }
+			set_variable = { TNO_economy_type = 1 }
 		}
 	}
 	if = {
@@ -4230,15 +4269,15 @@ TNO_startup_econ_type = {
 	}
 	#dynmods
 	if = {
-		limit = { check_variable = { TNO_economy_type = token:Econ_Type_Planned } }
-		add_dynamic_modifier = { modifier = TNO_economy_type_planned_dynamic_modifier } #Planned (nerds)
+		limit = { check_variable = { TNO_economy_type = 3 } }
+		add_dynamic_modifier = { modifier = TNO_economy_type_id_3_dynamic_modifier } #Planned (nerds)
 	}
 	else_if = {
-		limit = { check_variable = { TNO_economy_type = token:Econ_Type_Corporatism } }
-		add_dynamic_modifier = { modifier = TNO_economy_type_corporatism_dynamic_modifier } #Corpos (mean)
+		limit = { check_variable = { TNO_economy_type = 2 } }
+		add_dynamic_modifier = { modifier = TNO_economy_type_id_2_dynamic_modifier } #Corpos (mean)
 	}
 	else = {
-		add_dynamic_modifier = { modifier = TNO_economy_type_capitalism_dynamic_modifier } #Crapitalists
+		add_dynamic_modifier = { modifier = TNO_economy_type_id_1_dynamic_modifier } #Crapitalists
 	}
 }
 
@@ -4426,9 +4465,9 @@ validate_maximal_minimal_positions = {
 	}
 	if = {
 		limit = {
-			check_variable = { econ_admin_regulations_minimal_x < 34 }
+			check_variable = { econ_admin_safety_minimal_x < 34 }
 		}
-		set_variable = { econ_admin_regulations_minimal_x = 34 }
+		set_variable = { econ_admin_safety_minimal_x = 34 }
 	}
 	if = {
 		limit = {
@@ -4514,9 +4553,9 @@ validate_maximal_minimal_positions = {
 	}
 	if = {
 		limit = {
-			check_variable = { econ_admin_regulations_maximal_x > 228 }
+			check_variable = { econ_admin_safety_maximal_x > 228 }
 		}
-		set_variable = { econ_admin_regulations_maximal_x = 228 }
+		set_variable = { econ_admin_safety_maximal_x = 228 }
 	}
 	if = {
 		limit = {
@@ -4638,9 +4677,9 @@ validate_maximal_minimal_positions = {
 	}
 	if = {
 		limit = {
-			check_variable = { econ_admin_regulations_minimal_x > econ_admin_regulations_maximal_x }
+			check_variable = { econ_admin_safety_minimal_x > econ_admin_safety_maximal_x }
 		}
-		set_variable = { econ_admin_regulations_minimal_x = econ_admin_regulations_maximal_x }
+		set_variable = { econ_admin_safety_minimal_x = econ_admin_safety_maximal_x }
 	}
 	if = {
 		limit = {
@@ -5471,11 +5510,11 @@ PU_trade_integration_calculation = {
 economic_centralization_calculation = {
 
 	if = {
-		limit = { check_variable = { TNO_economy_type = token:Econ_Type_Capitalism } }
+		limit = { check_variable = { TNO_economy_type = 1 } }
 		calculate_market_centralization_effect = yes 
 	}
 	else_if = {
-		limit = { check_variable = { TNO_economy_type = token:Econ_Type_Corporatism } }
+		limit = { check_variable = { TNO_economy_type = 2 } }
 		calculate_corporatism_centralization_effect = yes 
 	}
 	else = {
@@ -5709,11 +5748,6 @@ econ_calculations_ON_MONTHLY_Human = {
 	apply_credit_rating_progress_change = yes
 
 	apply_central_bank_policy = yes
-
-	if = {
-		limit = { 845 = { OWNER = { check_variable = { base_conversion_rate = 5 } has_country_flag = tno_playable_country } } }
-		random_list = { 67 = {} 33 = { USA_conversion_rate_loop = yes } }
-	}
 
 	force_update_dynamic_modifier = yes
 	calculate_nominal_GDP_growth = yes
@@ -6354,7 +6388,7 @@ apply_central_bank_policy = {
 	
 	#policy 2 calculations
 	set_variable = { central_bank_poverty_monthly_rate = central_bank_effectiveness_2 }
-	divide_variable = { central_bank_poverty_monthly_rate = 10 }
+	divide_variable = { central_bank_poverty_monthly_rate = 100 }
 	
 	set_variable = { central_bank_effectiveness_2_gdp_cost = central_bank_effectiveness_2 }
 	divide_variable = { central_bank_effectiveness_2_gdp_cost = 2 }
@@ -6364,7 +6398,7 @@ apply_central_bank_policy = {
 	
 	#policy 3
 	set_variable = { central_bank_power = central_bank_effectiveness_3 }
-	multiply_variable = { central_bank_power = 0.15 }
+	divide_variable = { central_bank_power = 10 }
 	set_variable = { central_bank_power_display = central_bank_power }
 	multiply_variable = { central_bank_power = resource@power }
 	round_variable = central_bank_power

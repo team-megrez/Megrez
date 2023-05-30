@@ -65,7 +65,7 @@ TNO_Start_Balintawak_Blitz = {
 			days = 60
 			value = 1
 		}
-
+		
 		# Decide if AI wants to do USFIP-only or wants UFF
 		random_list = {
 			1 = {
@@ -218,7 +218,7 @@ TNO_Blitz_UPH_victory = {
 		clear_variable = SPH_fucking_surrender_limit
 		remove_ideas = balintawak_blitz_against_japan
 	}
-
+	
 	UPH = {
 		diplomatic_relation = {
 			country = SPH
@@ -324,12 +324,12 @@ TNO_Blitz_PHI_victory = {
 			days = 14
 		}
 	}
-	#USA = {
-	#	country_event = {
-	#		id = PHI_Blitz.111
-	#		days = 7
-	#	}
-	#}
+	USA = {
+		country_event = {
+			id = PHI_Blitz.111
+			days = 7
+		}
+	}
 	PHI = {
 		set_cosmetic_tag = PHI_Victory
 		every_owned_state = {
@@ -454,13 +454,13 @@ TNO_Blitz_Landing_Start = {
 			set_province_controller = 4368
 			set_province_controller = 10241
 		}
-
+		
 		add_ideas = {
 			PHI_home_of_the_14th_army
 			PHI_vengance_for_the_dead
 			PHI_volunteer_army
 		}
-
+		
 		if = {
 			limit = {
 				check_variable = {
@@ -554,9 +554,9 @@ TNO_Blitz_Landing_Start = {
 TNO_14th_army_load_oob = { #Scars' breaking point
 	FGB = {
 		load_oob = "PHI_14th_Army_Template"
-
+	
 		### INFANTRY DIVISIONS ###
-
+	
 		if = {
 			limit = {
 				JAP = {
@@ -641,9 +641,9 @@ TNO_14th_army_load_oob = { #Scars' breaking point
 				}
 			}
 		}
-
+		
 		## ELITE INFANTRY ##
-
+		
 		if = {
 			limit = {
 				JAP = {
@@ -672,9 +672,9 @@ TNO_14th_army_load_oob = { #Scars' breaking point
 				}
 			}
 		}
-
+		
 		### ARMORED DIVISIONS ###
-
+		
 		if = {
 			limit = {
 				JAP = {
@@ -703,9 +703,9 @@ TNO_14th_army_load_oob = { #Scars' breaking point
 				}
 			}
 		}
-
+		
 		### SPECIAL FORCES ###
-
+		
 		if = {
 			limit = {
 				JAP = {
@@ -743,14 +743,14 @@ TNO_14th_Army_Ceasefire_North = {
 	FGB = {
 		white_peace = UPH
 		white_peace = SPH
-
+			
 		transfer_state = 1455
 		transfer_state = 1456
 		transfer_state = 623
 		transfer_state = 1457
 		transfer_state = 327
 		transfer_state = 624
-
+		
 		set_capital = { state = 327 remember_old_capital = no }
 	}
 }
@@ -759,19 +759,19 @@ TNO_14th_Army_Ceasefire_Mid = {
 	FGB = {
 		white_peace = UPH
 		white_peace = SPH
-
+		
 		transfer_state = 1455
 		transfer_state = 1456
 		transfer_state = 623
 		transfer_state = 1457
 		transfer_state = 327
 		transfer_state = 624
-
+		
 		transfer_state = 625
 		transfer_state = 626
 		transfer_state = 628
 		transfer_state = 1458
-
+		
 		set_capital = { state = 327 remember_old_capital = no }
 	}
 }
@@ -811,25 +811,7 @@ TNO_SPH_Form_Coalition_Government = {
 				transfer_troops = yes
 			}
 			UPH = {
-				UPH_Wendell_Fertig = {
-					set_nationality = SPH
-				}
-				UPH_Carlos_Romulo = {
-					set_nationality = SPH
-				}
-				UPH_Carlos_Garcia = {
-					set_nationality = SPH
-				}
-				UPH_Lorenzo_Tanada = {
-					set_nationality = SPH
-				}
-				UPH_Ramon_Magsaysay = {
-					set_nationality = SPH
-				}
-				UPH_Jose_Avelino = {
-					set_nationality = SPH
-				}
-				UPH_Diosdado_Macapagal = {
+				every_unit_leader = {
 					set_nationality = SPH
 				}
 			}
@@ -847,30 +829,16 @@ TNO_SPH_Form_Coalition_Government = {
 				remove = supremo_ng_himagsikan
 				add = para_sa_walandugoang_himagsikan
 			}
-
-			UPH_Ramon_Magsaysay = {
-				add_country_leader_role = {
-					promote_leader = yes
-					country_leader = {
-						#desc = "POLITICS_RAMON_DEL_FIERRO_MAGSAYSAY_DESC"
-						expire = "2000.1.1"
-						ideology = paternalism_oligarchy_subtype
-						traits = { for_the_safety_of_the_republic }
-						id = -1
-					}
-				}
-			}
-			promote_character = UPH_Diosdado_Macapagal
-			promote_character = UPH_Lorenzo_Tanada
+			promote_character = SPH_Ramon_Magsaysay
 			set_popularities = {
-				progressivism = 33
-				liberal_conservatism = 34
+				socialist = 33
+				liberalism = 34
 				paternalism = 33
 			}
-			set_politics = { ruling_party = progressivism }
+			set_politics = { ruling_party = liberalism }
 			set_party_name = { ideology = paternalism name = SPH_coalition_authdem_party long_name = SPH_coalition_authdem_party_long }
-			set_party_name = { ideology = liberal_conservatism name = SPH_coalition_libdem_party long_name = SPH_coalition_libdem_party_long }
-			set_party_name = { ideology = progressivism name = SPH_coalition_socialism_party long_name = SPH_coalition_socialism_party_long }
+			set_party_name = { ideology = liberalism name = SPH_coalition_libdem_party long_name = SPH_coalition_libdem_party_long }
+			set_party_name = { ideology = socialist name = SPH_coalition_socialism_party long_name = SPH_coalition_socialism_party_long }
 			set_cosmetic_tag = SPH_Coalition_Government
 			set_capital = { state = 327 remember_old_capital = no }
 			every_owned_state = {
@@ -922,11 +890,11 @@ PHI_reconstruction_complete = {
 	else_if = {
 		limit = { country_exists = UPH }
 		remove_mission = USA_USFIP_recon_timeout
-		UPH = { country_event = { id = PHI_Blitz.30 days = 180 } } #Don't need a check for Letye, just fails without it.
+		USA = { country_event = PHI_Blitz.21 } #Don't need a check for Letye, just fails without it.
 	}
 	else_if = {
 		limit = { country_exists = SPH }
-		SPH = { country_event = { id = PHI_Blitz.30 days = 180 } }
+		SPH = { country_event = { id = PHI_Blitz.20 days = 100 } }
 		remove_mission = USA_SPH_recon_timeout
 	}
 	TNO_fopo_remove_philippines_reconstruction_tab = yes

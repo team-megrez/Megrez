@@ -107,11 +107,11 @@ BRG_Monthly_Economy_Constant = {
 
 
 BRG_Collapse_Economy = {
-	custom_effect_tooltip = BRG_economy_returns
 	BRG = {
+		custom_effect_tooltip = BRG_economy_returns
 		hidden_effect = {
 			add_dynamic_modifier = { modifier = TNO_consumer_goods_production_dynamic_modifier }
-			add_dynamic_modifier = { modifier = TNO_economy_type_capitalism_dynamic_modifier }
+			add_dynamic_modifier = { modifier = TNO_economy_type_id_1_dynamic_modifier }
 			add_dynamic_modifier = { modifier = Central_Bank_Dynamic_Modifier }
 			add_dynamic_modifier = { modifier = TNO_inflation_dynamic_modifier }
 			add_dynamic_modifier = { modifier = TNO_vol_troops_modifier }
@@ -119,15 +119,9 @@ BRG_Collapse_Economy = {
 			add_dynamic_modifier = { modifier = TNO_factory_multiplier }
 			add_dynamic_modifier = { modifier = TNO_base_econ_shit_dynamic_modifier }
 			add_dynamic_modifier = { modifier = TNO_deficit_effects_modifier }
-
-			every_owned_state = { # Fixes Econ recalulating after collapse
-				set_temp_variable = { state_value_multiplier_temp = 0.1 }
-				econ_state_value_change_multiply = yes
-			}
-			calculate_total_state_gdp = yes
-			generate_country_gdp = yes
 		}
 
+		set_variable = { GDP = 1.11 } #in billions
 		set_variable = { GDP_growth = -15.9 }
 		set_variable = { base_inflation_rate = 15.9 }
 		set_variable = { poverty_rate = 90 }

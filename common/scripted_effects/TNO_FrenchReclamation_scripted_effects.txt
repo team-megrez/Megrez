@@ -23,8 +23,8 @@ FFR_begin_reclamation = {
 			has_global_flag = IBR_FFR_negotiations_successful
 			IBR = { check_variable = { IBR.FFR_negotiations_5 = 1 } }
 		}
-		IBR = {
-			country_event = france_reclamation.proxy.IBR.1
+		IBR = { 
+			country_event = france_reclamation.proxy.IBR.1 
 			diplomatic_relation = {
 				country = FRD
 				relation = non_aggression_pact
@@ -47,43 +47,19 @@ FFR_begin_reclamation = {
 	if = {
 		limit = { FRA = { is_in_faction_with = GER } }
 		FRA = {
-			add_ideas = GER_BOR_dont_join_wars_please
-			set_country_flag = reclamation_was_german_puppet
 			leave_faction = yes
 			#remove_ideas = Pakt_Mitstreiter
 			#econ_leave_sphere = yes
 		}
 		GER = { end_puppet = FRA }
-		every_country = {
-			limit = { is_puppet_of = FRA }
-			add_ideas = { GER_BOR_dont_join_wars_please }
-		}
 	}
-	else_if = {
-		limit = { FRA = { is_in_faction_with = ITA } }
-		FRA = {
-			add_ideas = GER_BOR_dont_join_wars_please
-			set_country_flag = reclamation_was_italian_puppet
-			leave_faction = yes
-			#remove_ideas = Pakt_Mitstreiter
-			#econ_leave_sphere = yes
-		}
-		ITA = { end_puppet = FRA }
-		every_country = {
-			limit = { is_puppet_of = FRA }
-			add_ideas = { GER_BOR_dont_join_wars_please }
-		}
-	}
+	FRA = { add_ideas = GER_BOR_dont_join_wars_please }
 
 	# Spawns #
 	FFR = {
 		add_ideas = {
 			GER_BOR_dont_join_wars_please
 			FFR_the_reclamation
-		}
-		every_country = {
-			limit = { is_puppet_of = FFR }
-			add_ideas = { GER_BOR_dont_join_wars_please }
 		}
 		if = {
 			limit = {
@@ -183,7 +159,7 @@ FFR_begin_reclamation = {
 				active = yes
 			}
 			add_to_faction = FRD
-		}
+		}	
 		every_country = {
 			limit = { is_in_faction_with = FFR }
 			diplomatic_relation = {
@@ -252,7 +228,7 @@ FFR_begin_reclamation = {
 	}
 
 	FFR_reclamation_dynamic_modifier_calculate = yes
-
+	
 	# Events #
 	USA = { country_event = france_reclamation.proxy.USA.1 }
 	GER = { country_event = france_reclamation.proxy.GER.1 }
@@ -284,10 +260,6 @@ FFR_begin_reclamation_civil_war = {
 			GER_BOR_dont_join_wars_please
 			FFR_the_reclamation
 		}
-	}
-	every_country = {
-		limit = { is_puppet_of = FFR }
-		add_ideas = { GER_BOR_dont_join_wars_please }
 	}
 
 	# Spawns #
@@ -321,7 +293,6 @@ FFR_begin_reclamation_civil_war = {
 				relation = docking_rights
 				active = yes
 			}
-			add_to_faction = FRD
 
 			if = {
 				limit = {
@@ -404,7 +375,6 @@ FFR_begin_reclamation_civil_war = {
 				relation = docking_rights
 				active = yes
 			}
-			add_to_faction = FRD
 
 			if = {
 				limit = {
@@ -579,8 +549,8 @@ FFR_reclamation_dynamic_modifier_calculate = {
 
 USA_FFR_reclamation_dynamic_modifier_calculate = {
 	USA = {
-		if = {
-			limit = { is_in_array = { TNO_active_conflicts = token:GC_FranceCW } }
+		if = { 
+			limit = { is_in_array = { TNO_active_conflicts = 28 } }
 			if = {
 				limit = { check_variable = { FFR.FrenchReclamation_Focus^0 = 0 } }
 				set_variable = { USA_FFR_Reclamation_Modifier_command_power_gain = 0 }
@@ -836,7 +806,6 @@ FFR_reconciliation_setup = {
 		remove_ideas = {
 			BKF_idea_remnant_francophilia
 			BKF_idea_relative_democracy
-			WEST_AFRICA_idea_obliterated_infrastructures
 		}
 
 		promote_character = BKF_daniel_ouezzin_coulibaly
@@ -869,7 +838,7 @@ FFR_reconciliation_setup = {
 			add_to_faction = IVO
 			add_to_faction = BKF
 		}
-
+		
 		IVO = {
 			set_country_flag = WAA_MEMBER
 			remove_faction_status = yes
@@ -888,7 +857,7 @@ FFR_reconciliation_setup = {
 			add_to_faction = IVO
 			add_to_faction = BKF
 		}
-
+		
 		IVO = {
 			set_country_flag = WAF_MEMBER
 			remove_faction_status = yes
@@ -1276,7 +1245,6 @@ FFR_reclamation_victory = {
 		remove_ideas = {
 			BKF_idea_remnant_francophilia
 			BKF_idea_relative_democracy
-			WEST_AFRICA_idea_obliterated_infrastructures
 		}
 
 		promote_character = BKF_daniel_ouezzin_coulibaly
@@ -1309,7 +1277,7 @@ FFR_reclamation_victory = {
 			add_to_faction = IVO
 			add_to_faction = BKF
 		}
-
+		
 		IVO = {
 			set_country_flag = WAA_MEMBER
 			remove_faction_status = yes
@@ -1328,7 +1296,7 @@ FFR_reclamation_victory = {
 			add_to_faction = IVO
 			add_to_faction = BKF
 		}
-
+		
 		IVO = {
 			set_country_flag = WAF_MEMBER
 			remove_faction_status = yes
@@ -1616,7 +1584,7 @@ FFR_reclamation_victory = {
 	}
 	GER = {
 		TNO_fopo_remove_french_reclamation_any_tab = yes
-		country_event = france_reclamation.proxy.GER.9999
+		country_event = france_reclamation.proxy.GER.9998
 	}
 	# Live Iberia Reaction #
 	if = {
@@ -1630,6 +1598,7 @@ FFR_reclamation_victory = {
 }
 
 FFR_reclamation_defeat = {
+
 	log = "[GetDateText]: [Root.GetName]: FFR_reclamation_defeat; Executing."
 
 	set_global_flag = FFR_reclamation_defeat
@@ -1638,23 +1607,13 @@ FFR_reclamation_defeat = {
 
 	FRD = { remove_ideas = FRD_aiding_the_reclamation }
 
-	every_country = { #Peaces out West Africa
-		limit = {
-			is_in_faction_with = FFR
-		}
-		white_peace = FRA
-	}
-
 	every_country = { # End puppets
 		limit = { is_puppet_of = FFR }
 
 		FFR = { end_puppet = PREV }
 		leave_faction = yes
 		remove_faction_status = yes
-		remove_ideas = GER_BOR_dont_join_wars_please
 	}
-
-	FRA = { remove_ideas = GER_BOR_dont_join_wars_please }
 
 	if = { # Dismantle econ sphere
 		limit = { FFR = { has_country_flag = HAS_ECON_SPHERE } }
@@ -1691,7 +1650,7 @@ FFR_reclamation_defeat = {
 			leave_faction = yes
 			remove_faction_status = yes
 			clr_country_flag = FMA_MEMBER
-			clr_country_flag = FRU_MEMBER
+			clr_country_flag = FRU_MEMBER			
 		}
 	}
 
@@ -1749,7 +1708,7 @@ FFR_reclamation_defeat = {
 			add_to_faction = IVO
 			add_to_faction = BKF
 		}
-
+		
 		IVO = {
 			set_country_flag = WAA_MEMBER
 			remove_faction_status = yes
@@ -1768,7 +1727,7 @@ FFR_reclamation_defeat = {
 			add_to_faction = IVO
 			add_to_faction = BKF
 		}
-
+		
 		IVO = {
 			set_country_flag = WAF_MEMBER
 			remove_faction_status = yes
@@ -1795,13 +1754,14 @@ FFR_reclamation_defeat = {
 		remove_dynamic_modifier = { modifier = FFR_Reclamation_DynamicModifier }
 	}
 
+	# If France is in Pakt
 	if = {
-		limit = { FRA = { has_country_flag = reclamation_was_german_puppet } }
+		limit = {
+			FRA = {
+				check_variable = { ECON_SPHERE_LEADER = GER }
+			}
+		}
 		GER = { add_to_faction = FRA }
-	}
-	else_if = {
-		limit = { FRA = { has_country_flag = reclamation_was_italian_puppet } }
-		ITA = { add_to_faction = FRA }
 	}
 
 	# Live America & Germany Reaction #
@@ -1811,7 +1771,7 @@ FFR_reclamation_defeat = {
 	}
 	GER = {
 		TNO_fopo_remove_french_reclamation_any_tab = yes
-		country_event = france_reclamation.proxy.GER.9998
+		country_event = france_reclamation.proxy.GER.9999
 	}
 	# Live Iberia Reaction #
 	if = {

@@ -5,22 +5,22 @@ Turkmenistan_Regime_Change_A2 = {
 		promote_leader = yes
 		country_leader = {
 			desc = "POLITICS_BABAKHAN_DESC"
-			ideology = progressivism_islamic_modernism_subtype
+			ideology = communist_islamic_marxism_subtype
 			expire = "1999.1.1"
 			traits = { }
 			id = -1
 		}
 	}
 	set_politics = {
-		ruling_party = progressivism
+		ruling_party = communist
 		last_election = "1933.3.5"
 		election_frequency = 48
 		elections_allowed = no
 	}
 	set_popularities = {
-		progressivism = 50
+		communist = 50
 		socialist = 30
-		communist = 20
+		progressivism = 20
 	}
 	remove_ideas = {
 		TRK_Question_Of_Identity
@@ -34,40 +34,6 @@ Turkmenistan_Regime_Change_A2 = {
 		TRK_Shamsuddin_Babakhan_sec
 	}
 	set_cosmetic_tag = TRK_Islamic
-	USA = {
-		if = {
-			limit = {
-				OR = {
-					has_country_leader = {
-						character = USA_George_Wallace
-						ruling_only = yes
-					}
-					has_country_leader = {
-						character = USA_Curtis_LeMay
-						ruling_only = yes
-					}
-					has_country_leader = {
-						character = USA_Margaret_Chase_Smith
-						ruling_only = yes
-					}
-					has_country_leader = {
-						character = USA_Barry_Goldwater
-						ruling_only = yes
-					}
-				}
-			}
-			country_event = {
-				id = CA_US.14
-				days = 5
-			}
-		}
-		else = {
-			country_event = {
-				id = CA_US.15
-				days = 5
-			}
-		}
-	}
 }
 Turkmenistan_Regime_Change_A1 = {
 	retire_country_leader = yes
@@ -76,22 +42,22 @@ Turkmenistan_Regime_Change_A1 = {
 		promote_leader = yes
 		country_leader = {
 			desc = "POLITICS_GALIYEV_DESC"
-			ideology = socialist_islamic_socialism_subtype
+			ideology = communist_national_communism_subtype
 			expire = "1999.1.1"
 			traits = { }
 			id = -1
 		}
 	}
 	set_politics = {
-		ruling_party = socialist
+		ruling_party = communist
 		last_election = "1933.3.5"
 		election_frequency = 48
 		elections_allowed = no
 	}
 	set_popularities = {
-		socialist = 33
+		communist = 33
 		ultranationalism = 0
-		communist = 27
+		socialist = 27
 		progressivism = 12
 		liberalism = 0
 
@@ -112,79 +78,11 @@ Turkmenistan_Regime_Change_A1 = {
 		TRK_Mamazhan_Dadazhanov_for
 	}
 	set_cosmetic_tag = TRK_Basmachi
-	USA = {
-		if = {
-			limit = {
-				OR = {
-					has_country_leader = {
-						character = USA_George_Wallace
-						ruling_only = yes
-					}
-					has_country_leader = {
-						character = USA_Curtis_LeMay
-						ruling_only = yes
-					}
-					has_country_leader = {
-						character = USA_Margaret_Chase_Smith
-						ruling_only = yes
-					}
-					has_country_leader = {
-						character = USA_Barry_Goldwater
-						ruling_only = yes
-					}
-				}
-			}
-			country_event = {
-				id = CA_US.12
-				days = 5
-			}
-		}
-		else = {
-			country_event = {
-				id = CA_US.13
-				days = 5
-			}
-		}
-	}
 }
 Turkmenistan_Regime_Change_A3 = {
 	remove_ideas = {
 		TRK_Question_Of_Identity
 		TRK_Fragmented_Tribes
-	}
-	USA = {
-		if = {
-			limit = {
-				OR = {
-					has_country_leader = {
-						character = USA_George_Wallace
-						ruling_only = yes
-					}
-					has_country_leader = {
-						character = USA_Curtis_LeMay
-						ruling_only = yes
-					}
-					has_country_leader = {
-						character = USA_Margaret_Chase_Smith
-						ruling_only = yes
-					}
-					has_country_leader = {
-						character = USA_Barry_Goldwater
-						ruling_only = yes
-					}
-				}
-			}
-			country_event = {
-				id = CA_US.6
-				days = 5
-			}
-		}
-		else = {
-			country_event = {
-				id = CA_US.11
-				days = 5
-			}
-		}
 	}
 }
 Turkmenistan_Regime_Change_A4 = {
@@ -273,7 +171,7 @@ Tajikistan_Regime_Change_A3 = {
 		ruling_party = conservatism
 		last_election = "1933.3.5"
 		election_frequency = 48
-		elections_allowed = yes
+		elections_allowed = no
 	}
 	set_cosmetic_tag = TAJ_ConDem
 	promote_character = TAJ_Buriniso_Berdieva
@@ -1178,18 +1076,6 @@ TNO_CA_change_TK_days = {
 	custom_effect_tooltip = TNO_CA_change_TK_days_tt
 }
 
-TNO_CA_change_TK_suspicion = {
-	add_to_variable = { TRK.CA_Conference_suspicion = CA_Conference_suspicion_temp }
-	clamp_variable = { var = TRK.CA_Conference_suspicion min = 0 max = 100 }
-	custom_effect_tooltip = TK_change_suspicion_tt
-}
-
-TNO_CA_change_TK_tension = {
-	add_to_variable = { TRK.CA_Conference_tension = CA_Conference_tension_temp }
-	clamp_variable = { var = TRK.CA_Conference_tension min = 0 max = 100 }
-	custom_effect_tooltip = TK_change_tension_tt
-}
-
 TNO_CA_Conference_daily_tick = {
 	subtract_from_variable = { CA_Conference_days_left = 1 }
 	if = {
@@ -1319,11 +1205,58 @@ TNO_CA_Conference_daily_tick = {
 		if = {
 			limit = {
 				check_variable = {
+					CA_Conference_days_left > 0
+				}
+				check_variable = {
 					TK_delegates^0 > 850
 				}
 			}
 			set_variable = {
 				TK_delegates^0 = 850
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					CA_Conference_days_left = 0
+				}
+				check_variable = {
+					TK_delegates^1 > 599
+				}
+			}
+			set_variable = {
+				TK_delegates^1 = 599
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					CA_Conference_days_left = 0
+				}
+				check_variable = {
+					TK_delegates^2 > 499
+				}
+				check_variable = {
+					CA_Conference_tension > 70
+				}
+			}
+			set_variable = {
+				TK_delegates^2 = 499
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					CA_Conference_days_left = 0
+				}
+				NOT = {
+					check_variable = {
+						TK_delegates^0 > 599
+					}
+				}
+			}
+			set_variable = {
+				TK_delegates^0 = 600
 			}
 		}
 		if = {
@@ -1376,7 +1309,8 @@ TNO_CA_Conference_daily_tick = {
 			set_temp_variable = { CA_Conference_days_change_temp = 30 }
 			TNO_CA_change_TK_days = yes
 			set_temp_variable = { CA_Conference_suspicion_temp = 10 }
-			TNO_CA_change_TK_suspicion = yes
+			add_to_variable = {TRK.CA_Conference_suspicion = CA_Conference_suspicion_temp}
+			clamp_variable = { var = TRK.CA_Conference_suspicion min = 0 max = 100 }
 			JAP = {
 				add_political_power = -30
 			}
@@ -1385,91 +1319,6 @@ TNO_CA_Conference_daily_tick = {
 			}
 			add_to_variable = {
 				CCP_JAP_delay_the_conference_counter = 1
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			has_game_rule = {
-				rule = CA_CONFERENCE
-				option = CA_CONFERENCE_AFG
-			}
-		}
-		if = {
-			limit = {
-				check_variable = {
-					CA_Conference_days_left = 0
-				}
-				check_variable = {
-					TK_delegates^1 > 599
-				}
-			}
-			set_variable = {
-				TK_delegates^1 = 599
-			}
-		}
-		if = {
-			limit = {
-				check_variable = {
-					CA_Conference_days_left = 0
-				}
-				check_variable = {
-					TK_delegates^2 > 499
-				}
-				check_variable = {
-					CA_Conference_tension > 70
-				}
-			}
-			set_variable = {
-				TK_delegates^2 = 499
-			}
-		}		
-		if = {
-			limit = {
-				check_variable = {
-					CA_Conference_days_left = 0
-				}
-				NOT = {
-					check_variable = {
-						TK_delegates^0 > 599
-					}
-				}
-			}
-			set_variable = {
-				TK_delegates^0 = 600
-			}
-		}
-		if = {
-			limit = {
-				check_variable = {
-					TK_delegates^1 > 850
-				}
-			}
-			set_variable = {
-				TK_delegates^1 = 850
-			}
-		}
-		if = {
-			limit = {
-				check_variable = {
-					TK_delegates^2 > 850
-				}
-				check_variable = {
-					CA_Conference_tension > 70
-				}
-			}
-			set_variable = {
-				TK_delegates^2 = 850
-			}
-		}
-		if = {
-			limit = {
-				check_variable = { CA_Conference_suspicion > 95 }
-				check_variable = { CA_Conference_days_left > 0 }
-				JAP = { has_country_flag = TNO_CA_WARNING_2 }
-			}
-			set_variable = {
-				CA_Conference_suspicion = 95
 			}
 		}
 	}
@@ -1583,8 +1432,10 @@ TNO_CA_Conference_daily_tick = {
 						check_variable = { CA_Conference_suspicion > 70 }
 						check_variable = { CA_Conference_days_left > 0 }
 						NOT = {
-							JAP = { has_country_flag = TNO_CA_WARNING_1 }
-							JAP = { has_country_flag = TNO_CA_WARNING_2 }
+							OR = {
+								JAP = { has_country_flag = TNO_CA_WARNING_1 }
+								JAP = { has_country_flag = TNO_CA_WARNING_2 }
+							}
 						}
 					}
 				}
@@ -2027,8 +1878,6 @@ UZB_KRK_TNO_UNIFICATION_scripted_effect = {
 			defender = {
 				state = 585
 				num_provinces = 4
-				on_win = central_asia.13
-				on_lose = central_asia.12
 			}
 		}
 		KYR = { transfer_state = 1467 }
@@ -2041,133 +1890,488 @@ UZB_KRK_TNO_UNIFICATION_scripted_effect = {
 US_ELECTION_CA_INTERVERENCE_CALCULATOR = {
 	if = {
 		limit = {
-			has_game_rule = {
-				rule = TRK_PATH
-				option = TRK_PATH_BABAKHAN
-			}
+			USA = { has_country_flag = SUPPORTED_PODA }
 		}
-		Turkmenistan_Regime_Change_A2 = yes
-	}
-	else_if = {
-		limit = {
-			has_game_rule = {
-				rule = TRK_PATH
-				option = TRK_PATH_GALIYEV
-			}
+		randomize_temp_variable = {
+			var = throwaway_temp_value
+			distribution = uniform
+			min = 1
+			max = 5
 		}
-		Turkmenistan_Regime_Change_A1 = yes
-	}
-	else_if = {
-		limit = {
-			has_game_rule = {
-				rule = TRK_PATH
-				option = TRK_PATH_POGA
-			}
-		}
-		Turkmenistan_Regime_Change_A3 = yes
-	}
-	else = {
+		round_temp_variable = throwaway_temp_value
 		if = {
 			limit = {
-				USA = { has_country_flag = SUPPORTED_PODA }
+				check_variable = { throwaway_temp_value = 1 } ###Babakhan Won
 			}
-			randomize_temp_variable = {
-				var = throwaway_temp_value
-				distribution = uniform
-				min = 1
-				max = 5
-			}
-			round_temp_variable = throwaway_temp_value
 			if = {
 				limit = {
-					check_variable = { throwaway_temp_value = 1 } ###Babakhan Won
+					OR = {
+						has_country_leader = {
+							character = USA_George_Wallace
+							ruling_only = yes
+						}
+						has_country_leader = {
+							character = USA_Curtis_LeMay
+							ruling_only = yes
+						}
+						has_country_leader = {
+							character = USA_Margaret_Chase_Smith
+							ruling_only = yes
+						}
+						has_country_leader = {
+							character = USA_Barry_Goldwater
+							ruling_only = yes
+						}
+					}
 				}
-				Turkmenistan_Regime_Change_A2 = yes
-			}
-			else_if = {
-				limit = {
-					check_variable = { throwaway_temp_value = 2 } ###Galiyev Won
+				country_event = {
+					id = CA_US.14
+					days = 5
 				}
-				Turkmenistan_Regime_Change_A1 = yes
 			}
-			else_if = {
-				limit = {
-					check_variable = { throwaway_temp_value > 2 } ###Elections Rigged, Poga Won
+			else = {
+				country_event = {
+					id = CA_US.15
+					days = 5
 				}
-				Turkmenistan_Regime_Change_A3 = yes
 			}
+			Turkmenistan_Regime_Change_A2 = yes
 		}
 		else_if = {
 			limit = {
-				USA = { has_country_flag = SUPPORTED_BABAKHAN }
+				check_variable = { throwaway_temp_value = 2 } ###Galiyev Won
 			}
-			randomize_temp_variable = {
-				var = throwaway_temp_value
-				distribution = uniform
-				min = 1
-				max = 5
-			}
-			round_temp_variable = throwaway_temp_value
 			if = {
 				limit = {
-					check_variable = { throwaway_temp_value = 1 } ###Galiyev Won
+					OR = {
+						has_country_leader = {
+							character = USA_George_Wallace
+							ruling_only = yes
+						}
+						has_country_leader = {
+							character = USA_Curtis_LeMay
+							ruling_only = yes
+						}
+						has_country_leader = {
+							character = USA_Margaret_Chase_Smith
+							ruling_only = yes
+						}
+						has_country_leader = {
+							character = USA_Barry_Goldwater
+							ruling_only = yes
+						}
+					}
 				}
-				Turkmenistan_Regime_Change_A1 = yes
-			}
-			else_if = {
-				limit = {
-					check_variable = { throwaway_temp_value = 2 } ###Elections Rigged, Poga Won
+				country_event = {
+					id = CA_US.12
+					days = 5
 				}
-				Turkmenistan_Regime_Change_A3 = yes
 			}
-			else_if = {
-				limit = {
-					check_variable = { throwaway_temp_value > 2 } ###Babakhan Won
+			else = {
+				country_event = {
+					id = CA_US.13
+					days = 5
 				}
-				Turkmenistan_Regime_Change_A2 = yes
 			}
+			Turkmenistan_Regime_Change_A1 = yes
 		}
 		else_if = {
 			limit = {
-				USA = { has_country_flag = SUPPORTED_GALIYEV }
+				check_variable = { throwaway_temp_value > 2 } ###Elections Rigged, Poga Won
 			}
-			randomize_temp_variable = {
-				var = throwaway_temp_value
-				distribution = uniform
-				min = 1
-				max = 5
-			}
-			round_temp_variable = throwaway_temp_value
 			if = {
 				limit = {
-					check_variable = { throwaway_temp_value = 1 } ###Elections Rigged, Poga Won
+					OR = {
+						has_country_leader = {
+							character = USA_George_Wallace
+							ruling_only = yes
+						}
+						has_country_leader = {
+							character = USA_Curtis_LeMay
+							ruling_only = yes
+						}
+						has_country_leader = {
+							character = USA_Margaret_Chase_Smith
+							ruling_only = yes
+						}
+						has_country_leader = {
+							character = USA_Barry_Goldwater
+							ruling_only = yes
+						}
+					}
 				}
-				Turkmenistan_Regime_Change_A3 = yes
-			}
-			else_if = {
-				limit = {
-					check_variable = { throwaway_temp_value = 2 } ###Babakhan Won
+				country_event = {
+					id = CA_US.6
+					days = 5
 				}
-				Turkmenistan_Regime_Change_A2 = yes
 			}
-			else_if = {
+			else = {
+				country_event = {
+					id = CA_US.11
+					days = 5
+				}
+			}
+			Turkmenistan_Regime_Change_A3 = yes
+		}
+	}
+	else_if = {
+		limit = {
+			USA = { has_country_flag = SUPPORTED_BABAKHAN }
+		}
+		randomize_temp_variable = {
+			var = throwaway_temp_value
+			distribution = uniform
+			min = 1
+			max = 5
+		}
+		round_temp_variable = throwaway_temp_value
+		if = {
+			limit = {
+				check_variable = { throwaway_temp_value = 1 } ###Galiyev Won
+			}
+			if = {
 				limit = {
-					check_variable = { throwaway_temp_value > 2 } ###Galiyev Won
+					OR = {
+						has_country_leader = {
+							character = USA_George_Wallace
+							ruling_only = yes
+						}
+						has_country_leader = {
+							character = USA_Curtis_LeMay
+							ruling_only = yes
+						}
+						has_country_leader = {
+							character = USA_Margaret_Chase_Smith
+							ruling_only = yes
+						}
+						has_country_leader = {
+							character = USA_Barry_Goldwater
+							ruling_only = yes
+						}
+					}
+				}
+				country_event = {
+					id = CA_US.12
+					days = 5
+				}
+			}
+			else = {
+				country_event = {
+					id = CA_US.13
+					days = 5
+				}
+			}
+			Turkmenistan_Regime_Change_A1 = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = { throwaway_temp_value = 2 } ###Elections Rigged, Poga Won
+			}
+			if = {
+				limit = {
+					OR = {
+						has_country_leader = {
+							character = USA_George_Wallace
+							ruling_only = yes
+						}
+						has_country_leader = {
+							character = USA_Curtis_LeMay
+							ruling_only = yes
+						}
+						has_country_leader = {
+							character = USA_Margaret_Chase_Smith
+							ruling_only = yes
+						}
+						has_country_leader = {
+							character = USA_Barry_Goldwater
+							ruling_only = yes
+						}
+					}
+				}
+				country_event = {
+					id = CA_US.6
+					days = 5
+				}
+			}
+			else = {
+				country_event = {
+					id = CA_US.11
+					days = 5
+				}
+			}
+			Turkmenistan_Regime_Change_A3 = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = { throwaway_temp_value > 2 } ###Babakhan Won
+			}
+			if = {
+				limit = {
+					OR = {
+						has_country_leader = {
+							character = USA_George_Wallace
+							ruling_only = yes
+						}
+						has_country_leader = {
+							character = USA_Curtis_LeMay
+							ruling_only = yes
+						}
+						has_country_leader = {
+							character = USA_Margaret_Chase_Smith
+							ruling_only = yes
+						}
+						has_country_leader = {
+							character = USA_Barry_Goldwater
+							ruling_only = yes
+						}
+					}
+				}
+				country_event = {
+					id = CA_US.14
+					days = 5
+				}
+			}
+			else = {
+				country_event = {
+					id = CA_US.15
+					days = 5
+				}
+			}
+			Turkmenistan_Regime_Change_A2 = yes
+		}
+	}
+	else_if = {
+		limit = {
+			USA = { has_country_flag = SUPPORTED_GALIYEV }
+		}
+		randomize_temp_variable = {
+			var = throwaway_temp_value
+			distribution = uniform
+			min = 1
+			max = 5
+		}
+		round_temp_variable = throwaway_temp_value
+		if = {
+			limit = {
+				check_variable = { throwaway_temp_value = 1 } ###Elections Rigged, Poga Won
+			}
+			if = {
+				limit = {
+					OR = {
+						has_country_leader = {
+							character = USA_George_Wallace
+							ruling_only = yes
+						}
+						has_country_leader = {
+							character = USA_Curtis_LeMay
+							ruling_only = yes
+						}
+						has_country_leader = {
+							character = USA_Margaret_Chase_Smith
+							ruling_only = yes
+						}
+						has_country_leader = {
+							character = USA_Barry_Goldwater
+							ruling_only = yes
+						}
+					}
+				}
+				country_event = {
+					id = CA_US.6
+					days = 5
+				}
+			}
+			else = {
+				country_event = {
+					id = CA_US.11
+					days = 5
+				}
+			}
+			Turkmenistan_Regime_Change_A3 = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = { throwaway_temp_value = 2 } ###Babakhan Won
+			}
+			if = {
+				limit = {
+					OR = {
+						has_country_leader = {
+							character = USA_George_Wallace
+							ruling_only = yes
+						}
+						has_country_leader = {
+							character = USA_Curtis_LeMay
+							ruling_only = yes
+						}
+						has_country_leader = {
+							character = USA_Margaret_Chase_Smith
+							ruling_only = yes
+						}
+						has_country_leader = {
+							character = USA_Barry_Goldwater
+							ruling_only = yes
+						}
+					}
+				}
+				country_event = {
+					id = CA_US.14
+					days = 5
+				}
+			}
+			else = {
+				country_event = {
+					id = CA_US.15
+					days = 5
+				}
+			}
+			Turkmenistan_Regime_Change_A2 = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = { throwaway_temp_value > 2 } ###Galiyev Won
+			}
+			if = {
+				limit = {
+					OR = {
+						has_country_leader = {
+							character = USA_George_Wallace
+							ruling_only = yes
+						}
+						has_country_leader = {
+							character = USA_Curtis_LeMay
+							ruling_only = yes
+						}
+						has_country_leader = {
+							character = USA_Margaret_Chase_Smith
+							ruling_only = yes
+						}
+						has_country_leader = {
+							character = USA_Barry_Goldwater
+							ruling_only = yes
+						}
+					}
+				}
+				country_event = {
+					id = CA_US.12
+					days = 5
+				}
+			}
+			else = {
+				country_event = {
+					id = CA_US.13
+					days = 5
+				}
+			}
+			Turkmenistan_Regime_Change_A1 = yes
+		}
+	}
+	else = {
+		random_list = {
+			1 = {
+				if = {
+					limit = {
+						OR = {
+							has_country_leader = {
+								character = USA_George_Wallace
+								ruling_only = yes
+							}
+							has_country_leader = {
+								character = USA_Curtis_LeMay
+								ruling_only = yes
+							}
+							has_country_leader = {
+								character = USA_Margaret_Chase_Smith
+								ruling_only = yes
+							}
+							has_country_leader = {
+								character = USA_Barry_Goldwater
+								ruling_only = yes
+							}
+						}
+					}
+					country_event = {
+						id = CA_US.12
+						days = 5
+					}
+				}
+				else = {
+					country_event = {
+						id = CA_US.13
+						days = 5
+					}
 				}
 				Turkmenistan_Regime_Change_A1 = yes
 			}
-		}
-		else = {
-			random_list = {
-				1 = {
-					Turkmenistan_Regime_Change_A1 = yes
+			1 = {
+				if = {
+					limit = {
+						OR = {
+							has_country_leader = {
+								character = USA_George_Wallace
+								ruling_only = yes
+							}
+							has_country_leader = {
+								character = USA_Curtis_LeMay
+								ruling_only = yes
+							}
+							has_country_leader = {
+								character = USA_Margaret_Chase_Smith
+								ruling_only = yes
+							}
+							has_country_leader = {
+								character = USA_Barry_Goldwater
+								ruling_only = yes
+							}
+						}
+					}
+					country_event = {
+						id = CA_US.14
+						days = 5
+					}
 				}
-				1 = {
-					Turkmenistan_Regime_Change_A2 = yes
+				else = {
+					country_event = {
+						id = CA_US.15
+						days = 5
+					}
 				}
-				1 = {
-					Turkmenistan_Regime_Change_A3 = yes
+				Turkmenistan_Regime_Change_A2 = yes
+			}
+			1 = {
+				if = {
+					limit = {
+						OR = {
+							has_country_leader = {
+								character = USA_George_Wallace
+								ruling_only = yes
+							}
+							has_country_leader = {
+								character = USA_Curtis_LeMay
+								ruling_only = yes
+							}
+							has_country_leader = {
+								character = USA_Margaret_Chase_Smith
+								ruling_only = yes
+							}
+							has_country_leader = {
+								character = USA_Barry_Goldwater
+								ruling_only = yes
+							}
+						}
+					}
+					country_event = {
+						id = CA_US.6
+						days = 5
+					}
 				}
+				else = {
+					country_event = {
+						id = CA_US.11
+						days = 5
+					}
+				}
+				Turkmenistan_Regime_Change_A3 = yes
 			}
 		}
 	}
@@ -2226,5 +2430,6 @@ US_COUP_PODA_HURR_DURR = {
 
 TK_test_tension = {
 	set_temp_variable = { CA_Conference_tension_temp = 15 }
-	TNO_CA_change_TK_tension = yes
+	add_to_variable = {TRK.CA_Conference_tension = CA_Conference_tension_temp}
+	clamp_variable = { var = TRK.CA_Conference_tension min = 0 max = 100 }
 }

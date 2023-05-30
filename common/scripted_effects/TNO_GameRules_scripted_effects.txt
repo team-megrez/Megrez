@@ -1,13 +1,5 @@
 apply_war_buff_with_2_divisions = {
-	if = {
-		limit = {
-			has_country_flag = request_strong_CCP_buff
-		}
-		add_ideas = Custom_TNO_SFG_war_buff
-	}
-	else = {
-		add_ideas = Custom_TNO_war_buff
-	}
+	add_ideas = Custom_TNO_war_buff
 	division_template = {
 		name = "Custom TNO Division"
 		is_locked = yes
@@ -38,69 +30,69 @@ apply_war_buff_with_2_divisions = {
 	}
 }
 
-#apply_SHO_buff_with_2_division = {
-#	add_ideas = Custom_TNO_SHO_war_buff
-#	division_template = {
-#		name = "Custom TNO Division"
-#		is_locked = yes
-#		regiments = {
-#			infantry = { x = 0 y = 0 }
-#			infantry = { x = 0 y = 1 }
-#			infantry = { x = 0 y = 2 }
-#			infantry = { x = 0 y = 3 }
-#			infantry = { x = 0 y = 4 }
-#			infantry = { x = 1 y = 0 }
-#			infantry = { x = 1 y = 1 }
-#			artillery_brigade = { x = 2 y = 0 }
-#			artillery_brigade = { x = 2 y = 1 }
-#		}
-#		support = {
-#			recon = { x = 0 y = 0 }
-#			engineer = { x = 0 y = 1 }
-#			artillery = { x = 0 y = 2 }
-#			anti_tank = { x = 0 y = 3 }
-#		}
-#	}
-#	random_controlled_state = {
-#		create_unit = {
-#			division = "division_template = \"Custom TNO Division\" start_experience_factor = 1 start_equipment_factor = 1"
-#			owner = PREV
-#			count = 2
-#		}
-#	}
-#}
+apply_MLY_buff_with_1_division = {
+	add_ideas = Custom_TNO_MLY_war_buff
+	division_template = {
+		name = "Custom TNO Division"
+		is_locked = yes
+		regiments = {
+			infantry = { x = 0 y = 0 }
+			infantry = { x = 0 y = 1 }
+			infantry = { x = 0 y = 2 }
+			infantry = { x = 0 y = 3 }
+			infantry = { x = 0 y = 4 }
+			infantry = { x = 1 y = 0 }
+			infantry = { x = 1 y = 1 }
+			artillery_brigade = { x = 2 y = 0 }
+			artillery_brigade = { x = 2 y = 1 }
+		}
+		support = {
+			recon = { x = 0 y = 0 }
+			engineer = { x = 0 y = 1 }
+			artillery = { x = 0 y = 2 }
+			anti_tank = { x = 0 y = 3 }
+		}
+	}
+	random_controlled_state = {
+		create_unit = {
+			division = "division_template = \"Custom TNO Division\" start_experience_factor = 1 start_equipment_factor = 1"
+			owner = PREV
+			count = 1
+		}
+	}
+}
 
-#apply_MLY_buff_with_2_division = {
-#	add_ideas = Custom_TNO_MLY_war_buff
-#	division_template = {
-#		name = "Custom TNO Division"
-#		is_locked = yes
-#		regiments = {
-#			infantry = { x = 0 y = 0 }
-#			infantry = { x = 0 y = 1 }
-#			infantry = { x = 0 y = 2 }
-#			infantry = { x = 0 y = 3 }
-#			infantry = { x = 0 y = 4 }
-#			infantry = { x = 1 y = 0 }
-#			infantry = { x = 1 y = 1 }
-#			artillery_brigade = { x = 2 y = 0 }
-#			artillery_brigade = { x = 2 y = 1 }
-#		}
-#		support = {
-#			recon = { x = 0 y = 0 }
-#			engineer = { x = 0 y = 1 }
-#			artillery = { x = 0 y = 2 }
-#			anti_tank = { x = 0 y = 3 }
-#		}
-#	}
-#	random_controlled_state = {
-#		create_unit = {
-#			division = "division_template = \"Custom TNO Division\" start_experience_factor = 1 start_equipment_factor = 1"
-#			owner = PREV
-#			count = 2
-#		}
-#	}
-#}
+apply_SHO_buff_with_2_division = {
+	add_ideas = Custom_TNO_SHO_war_buff
+	division_template = {
+		name = "Custom TNO Division"
+		is_locked = yes
+		regiments = {
+			infantry = { x = 0 y = 0 }
+			infantry = { x = 0 y = 1 }
+			infantry = { x = 0 y = 2 }
+			infantry = { x = 0 y = 3 }
+			infantry = { x = 0 y = 4 }
+			infantry = { x = 1 y = 0 }
+			infantry = { x = 1 y = 1 }
+			artillery_brigade = { x = 2 y = 0 }
+			artillery_brigade = { x = 2 y = 1 }
+		}
+		support = {
+			recon = { x = 0 y = 0 }
+			engineer = { x = 0 y = 1 }
+			artillery = { x = 0 y = 2 }
+			anti_tank = { x = 0 y = 3 }
+		}
+	}
+	random_controlled_state = {
+		create_unit = {
+			division = "division_template = \"Custom TNO Division\" start_experience_factor = 1 start_equipment_factor = 1"
+			owner = PREV
+			count = 2
+		}
+	}
+}
 
 apply_TUR_buff_with_1_division = {
 	add_timed_idea = {
@@ -209,15 +201,7 @@ apply_ITA_buff_with_6_division = {
 }
 
 apply_war_buff_with_5_divisions = {
-	if = {
-		limit = {
-			has_country_flag = request_strong_CCP_buff
-		}
-		add_ideas = Custom_TNO_SFG_war_buff
-	}
-	else = {
-		add_ideas = Custom_TNO_war_buff
-	}
+	add_ideas = Custom_TNO_war_buff
 	division_template = {
 		name = "Custom TNO Division"
 		is_locked = yes
@@ -258,15 +242,7 @@ apply_war_buff_with_5_divisions = {
 }
 
 apply_OMA_buff_with_5_divisions = {
-	if = {
-		limit = {
-			has_country_flag = request_strong_CCP_buff
-		}
-		add_ideas = Custom_TNO_SFG_war_buff
-	}
-	else = {
-		add_ideas = Custom_TNO_war_buff
-	}
+	add_ideas = Custom_TNO_war_buff
 	division_template = {
 		name = "Custom TNO Division"
 		is_locked = yes
@@ -307,15 +283,7 @@ apply_OMA_buff_with_5_divisions = {
 }
 
 apply_YEM_buff_with_5_divisions = {
-	if = {
-		limit = {
-			has_country_flag = request_strong_CCP_buff
-		}
-		add_ideas = Custom_TNO_SFG_war_buff
-	}
-	else = {
-		add_ideas = Custom_TNO_war_buff
-	}
+	add_ideas = Custom_TNO_war_buff
 	division_template = {
 		name = "Custom TNO Division"
 		is_locked = yes
@@ -467,15 +435,89 @@ apply_komi_war_buff_with_15_divisions = {
 }
 
 apply_war_buff_with_10_divisions = {
-	if = {
-		limit = {
-			has_country_flag = request_strong_CCP_buff
+	add_ideas = Custom_TNO_war_buff
+	division_template = {
+		name = "Custom TNO Division"
+		is_locked = yes
+		regiments = {
+			infantry = { x = 0 y = 0 }
+			infantry = { x = 0 y = 1 }
+			infantry = { x = 0 y = 2 }
+			infantry = { x = 0 y = 3 }
+			infantry = { x = 0 y = 4 }
+			infantry = { x = 1 y = 0 }
+			infantry = { x = 1 y = 1 }
+			infantry = { x = 1 y = 2 }
+			infantry = { x = 1 y = 3 }
+			infantry = { x = 1 y = 4 }
+			artillery_brigade = { x = 2 y = 0 }
+			artillery_brigade = { x = 2 y = 1 }
+			artillery_brigade = { x = 2 y = 2 }
+			artillery_brigade = { x = 2 y = 3 }
+			infantry = { x = 3 y = 0 }
+			infantry = { x = 3 y = 1 }
+			infantry = { x = 3 y = 2 }
+			infantry = { x = 3 y = 3 }
 		}
-		add_ideas = Custom_TNO_SFG_war_buff
+		support = {
+			recon = { x = 0 y = 0 }
+			engineer = { x = 0 y = 1 }
+			artillery = { x = 0 y = 2 }
+			anti_tank = { x = 0 y = 3 }
+		}
 	}
-	else = {
-		add_ideas = Custom_TNO_war_buff
+	random_controlled_state = {
+		create_unit = {
+			division = "division_template = \"Custom TNO Division\" start_experience_factor = 1 start_equipment_factor = 1"
+			owner = PREV
+			count = 10
+		}
 	}
+}
+
+apply_SFG_war_buff_with_20_divisions = {
+	add_ideas = Custom_TNO_SFG_war_buff
+	division_template = {
+		name = "Custom TNO Division"
+		is_locked = yes
+		regiments = {
+			infantry = { x = 0 y = 0 }
+			infantry = { x = 0 y = 1 }
+			infantry = { x = 0 y = 2 }
+			infantry = { x = 0 y = 3 }
+			infantry = { x = 0 y = 4 }
+			infantry = { x = 1 y = 0 }
+			infantry = { x = 1 y = 1 }
+			infantry = { x = 1 y = 2 }
+			infantry = { x = 1 y = 3 }
+			infantry = { x = 1 y = 4 }
+			artillery_brigade = { x = 2 y = 0 }
+			artillery_brigade = { x = 2 y = 1 }
+			artillery_brigade = { x = 2 y = 2 }
+			artillery_brigade = { x = 2 y = 3 }
+			infantry = { x = 3 y = 0 }
+			infantry = { x = 3 y = 1 }
+			infantry = { x = 3 y = 2 }
+			infantry = { x = 3 y = 3 }
+		}
+		support = {
+			recon = { x = 0 y = 0 }
+			engineer = { x = 0 y = 1 }
+			artillery = { x = 0 y = 2 }
+			anti_tank = { x = 0 y = 3 }
+		}
+	}
+	random_controlled_state = {
+		create_unit = {
+			division = "division_template = \"Custom TNO Division\" start_experience_factor = 1 start_equipment_factor = 1"
+			owner = PREV
+			count = 20
+		}
+	}
+}
+
+apply_COG_war_buff_with_10_divisions = {
+	add_ideas = Custom_TNO_SFG_war_buff
 	division_template = {
 		name = "Custom TNO Division"
 		is_locked = yes
@@ -516,15 +558,7 @@ apply_war_buff_with_10_divisions = {
 }
 
 apply_war_buff_with_15_divisions = {
-	if = {
-		limit = {
-			has_country_flag = request_strong_CCP_buff
-		}
-		add_ideas = Custom_TNO_SFG_war_buff
-	}
-	else = {
-		add_ideas = Custom_TNO_war_buff
-	}
+	add_ideas = Custom_TNO_war_buff
 	division_template = {
 		name = "Custom TNO Division"
 		is_locked = yes
@@ -606,16 +640,7 @@ apply_war_buff_with_20_divisions = {
 }
 
 remove_war_buff = {
-	if = {
-		limit = {
-			has_country_flag = request_strong_CCP_buff
-		}
-		remove_ideas = Custom_TNO_SFG_war_buff
-		clr_country_flag = request_strong_CCP_buff
-	}
-	else = {
-		remove_ideas = Custom_TNO_war_buff
-	}
+	remove_ideas = Custom_TNO_war_buff
 	delete_unit_template_and_units = {
 		division_template = "Custom TNO Division"
 		disband = no
@@ -631,39 +656,56 @@ remove_war_buff = {
 	}
 }
 
-#remove_MLY_war_buff = {
-#	remove_ideas = Custom_TNO_MLY_war_buff
-#	delete_unit_template_and_units = {
-#		division_template = "Custom TNO Division"
-#		disband = no
-#	}
-#	if = {
-#		limit = {
-#			has_template = "Custom TNO Division 2"
-#		}
-#		delete_unit_template_and_units = {
-#			division_template = "Custom TNO Division 2"
-#			disband = no
-#		}
-#	}
-#}
+remove_MLY_war_buff = {
+	remove_ideas = Custom_TNO_MLY_war_buff
+	delete_unit_template_and_units = {
+		division_template = "Custom TNO Division"
+		disband = no
+	}
+	if = {
+		limit = {
+			has_template = "Custom TNO Division 2"
+		}
+		delete_unit_template_and_units = {
+			division_template = "Custom TNO Division 2"
+			disband = no
+		}
+	}
+}
 
-#remove_SHO_war_buff = {
-#	remove_ideas = Custom_TNO_SHO_war_buff
-#	delete_unit_template_and_units = {
-#		division_template = "Custom TNO Division"
-#		disband = no
-#	}
-#	if = {
-#		limit = {
-#			has_template = "Custom TNO Division 2"
-#		}
-#		delete_unit_template_and_units = {
-#			division_template = "Custom TNO Division 2"
-#			disband = no
-#		}
-#	}
-#}
+remove_SHO_war_buff = {
+	remove_ideas = Custom_TNO_SHO_war_buff
+	delete_unit_template_and_units = {
+		division_template = "Custom TNO Division"
+		disband = no
+	}
+	if = {
+		limit = {
+			has_template = "Custom TNO Division 2"
+		}
+		delete_unit_template_and_units = {
+			division_template = "Custom TNO Division 2"
+			disband = no
+		}
+	}
+}
+
+remove_SFG_war_buff = {
+	remove_ideas = Custom_TNO_SFG_war_buff
+	delete_unit_template_and_units = {
+		division_template = "Custom TNO Division"
+		disband = no
+	}
+	if = {
+		limit = {
+			has_template = "Custom TNO Division 2"
+		}
+		delete_unit_template_and_units = {
+			division_template = "Custom TNO Division 2"
+			disband = no
+		}
+	}
+}
 
 remove_russian_war_buff = {
 	remove_ideas = Custom_TNO_russian_war_buff
@@ -699,36 +741,36 @@ remove_komi_war_buff = {
 	}
 }
 
-#apply_2_divisions = {
-#	division_template = {
-#		name = "Custom TNO Division"
-#		is_locked = yes
-#		regiments = {
-#			infantry = { x = 0 y = 0 }
-#			infantry = { x = 0 y = 1 }
-#			infantry = { x = 0 y = 2 }
-#			infantry = { x = 0 y = 3 }
-#			infantry = { x = 0 y = 4 }
-#			infantry = { x = 1 y = 0 }
-#			infantry = { x = 1 y = 1 }
-#			artillery_brigade = { x = 2 y = 0 }
-#			artillery_brigade = { x = 2 y = 1 }
-#		}
-#		support = {
-#			recon = { x = 0 y = 0 }
-#			engineer = { x = 0 y = 1 }
-#			artillery = { x = 0 y = 2 }
-#			anti_tank = { x = 0 y = 3 }
-#		}
-#	}
-#	random_controlled_state = {
-#		create_unit = {
-#			division = "division_template = \"Custom TNO Division\" start_experience_factor = 1 start_equipment_factor = 1"
-#			owner = PREV
-#			count = 2
-#		}
-#	}
-#}
+apply_2_divisions = {
+	division_template = {
+		name = "Custom TNO Division"
+		is_locked = yes
+		regiments = {
+			infantry = { x = 0 y = 0 }
+			infantry = { x = 0 y = 1 }
+			infantry = { x = 0 y = 2 }
+			infantry = { x = 0 y = 3 }
+			infantry = { x = 0 y = 4 }
+			infantry = { x = 1 y = 0 }
+			infantry = { x = 1 y = 1 }
+			artillery_brigade = { x = 2 y = 0 }
+			artillery_brigade = { x = 2 y = 1 }
+		}
+		support = {
+			recon = { x = 0 y = 0 }
+			engineer = { x = 0 y = 1 }
+			artillery = { x = 0 y = 2 }
+			anti_tank = { x = 0 y = 3 }
+		}
+	}
+	random_controlled_state = {
+		create_unit = {
+			division = "division_template = \"Custom TNO Division\" start_experience_factor = 1 start_equipment_factor = 1"
+			owner = PREV
+			count = 2
+		}
+	}
+}
 
 apply_5_divisions = {
 	division_template = {

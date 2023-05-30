@@ -2225,7 +2225,6 @@ GNG_initialize_riots_underworld = {
 		}
 		set_variable = { riot_spt = 80 }
 		set_variable = { govt_spt = 20 }
-		set_state_flag = GNG_rioter_rural_state
 	}
 	random_owned_state = {
 		limit = {
@@ -2627,13 +2626,13 @@ GNG_backfill_graphs = {
 
 	#Backfill Target GDP Graphs - purely to prevent 2 errors
 	set_variable = { GNG_GDP_Goal = 21.2 } # Starting GDP
-	set_variable = { GNG_Growth_Goal = 0.06 } # Pre-1962 Normal Growth
+	set_variable = { GNG_Growth_Goal = 0.08 } # Normal Growth Target
 	for_loop_effect = {
 		start = 0
 		end = 25
 		value = i
 
-		add_to_array = { array = GNG_target_gdp_history value = GNG_GDP_Goal index = 0 }
+		set_variable = { GNG_target_gdp_history^i = GNG_GDP_Goal }
 	}
 	set_temp_variable = { GNG_Growth_Goal_temp = GNG_Growth_Goal }
 	multiply_temp_variable = { GNG_Growth_Goal_temp = 100 }
@@ -2642,7 +2641,7 @@ GNG_backfill_graphs = {
 		end = 25
 		value = i
 
-		add_to_array = { array = GNG_target_gdp_growth_history value = GNG_Growth_Goal_temp index = 0 }
+		set_variable = { GNG_target_gdp_growth_history^i = GNG_Growth_Goal_temp }
 	}
 
 	#Backfill Debt History
@@ -7989,16 +7988,6 @@ GNG_research_modifiers_base_calc = {
 }
 
 GNG_research_monthly_calc = {
-	for_each_loop = {
-		array = GNG_ARR_research_bars
-		index = i
-		value = val
-
-		if = {
-			limit = { check_variable = { i < 6 } }
-			add_to_variable = { GNG_ARR_research_bars^i = GNG_ARR_research_monthly_real^i }
-		}
-	}
 	if = {
 		limit = {
 			check_variable = { GNG_ARR_research_bars^1 > 99.9 }
@@ -8051,6 +8040,7 @@ GNG_research_monthly_calc = {
 
 		if = {
 			limit = { check_variable = { i < 6 } }
+			add_to_variable = { GNG_ARR_research_bars^i = GNG_ARR_research_monthly_real^i }
 			clamp_variable = {
 				var = GNG_ARR_research_bars^i
 				min = 0
@@ -10382,7 +10372,6 @@ GNG_fail_ordinance_event_effect = {
 		limit = {
 			check_variable = { GNG_legco_current_ordinance_id = 23 } #Corruption Advisory Ordinance
 		}
-		set_country_flag = GNG_ICAC_ended
 		country_event = {
 			id = guangdong_sonyflavor.117
 		}
@@ -10391,7 +10380,6 @@ GNG_fail_ordinance_event_effect = {
 		limit = {
 			check_variable = { GNG_legco_current_ordinance_id = 24 } #Inspector General Ordinance
 		}
-		set_country_flag = GNG_ICAC_ended
 		country_event = {
 			id = guangdong_sonyflavor.117
 		}
@@ -10400,7 +10388,6 @@ GNG_fail_ordinance_event_effect = {
 		limit = {
 			check_variable = { GNG_legco_current_ordinance_id = 25 } #Independent Commsion Against Corruption
 		}
-		set_country_flag = GNG_ICAC_ended
 		country_event = {
 			id = guangdong_sonyflavor.117
 		}
@@ -10409,7 +10396,6 @@ GNG_fail_ordinance_event_effect = {
 		limit = {
 			check_variable = { GNG_legco_current_ordinance_id = 26 } #Public Order Ordinance
 		}
-		set_country_flag = GNG_Public_Order_Ordinance_ended
 		country_event = {
 			id = guangdong_sonyflavor.133
 		}
@@ -10418,7 +10404,6 @@ GNG_fail_ordinance_event_effect = {
 		limit = {
 			check_variable = { GNG_legco_current_ordinance_id = 27 } #Casino Licensing Review Ordinance, Stanley Edition
 		}
-		set_country_flag = GNG_Casino_License_ended
 		country_event = {
 			id = guangdong_sonyCasino.9
 		}
@@ -10427,7 +10412,6 @@ GNG_fail_ordinance_event_effect = {
 		limit = {
 			check_variable = { GNG_legco_current_ordinance_id = 28 } #Casino Licensing Review Ordinance, Yokoi Edition
 		}
-		set_country_flag = GNG_Casino_License_ended
 		country_event = {
 			id = guangdong_sonyCasino.12
 		}
@@ -10980,7 +10964,6 @@ GNG_ordinances_effects = {
 		limit = {
 			check_variable = { GNG_temp_legco_id = 23 } #Corruption Advisory Ordinance
 		}
-		set_country_flag = GNG_ICAC_ended
 		set_country_flag = GNG_morita_corruption_advisory_ordinance
 		custom_effect_tooltip = GNG_corruption_advisory_ordinance_passed_tt
 		add_to_variable = { GNG_morita_security_ordinances_passed = 1 }
@@ -10991,7 +10974,6 @@ GNG_ordinances_effects = {
 		limit = {
 			check_variable = { GNG_temp_legco_id = 24 } #Inspector General Ordinance
 		}
-		set_country_flag = GNG_ICAC_ended
 		set_country_flag = GNG_morita_inspector_general_ordinance
 		custom_effect_tooltip = GNG_inspector_general_ordinance_passed_tt
 		add_to_variable = { GNG_morita_security_ordinances_passed = 1 }
@@ -11002,7 +10984,6 @@ GNG_ordinances_effects = {
 		limit = {
 			check_variable = { GNG_temp_legco_id = 25 } #ICAC Ordinance
 		}
-		set_country_flag = GNG_ICAC_ended
 		custom_effect_tooltip = GNG_ICAC_ordinance_passed_tt
 		add_to_variable = { GNG_morita_security_ordinances_passed = 1 }
 		set_temp_variable = { v = 21 }
@@ -11012,7 +10993,6 @@ GNG_ordinances_effects = {
 		limit = {
 			check_variable = { GNG_temp_legco_id = 26 } #Public Order Ordinance
 		}
-		set_country_flag = GNG_Public_Order_Ordinance_ended
 		add_to_variable = { GNG_morita_security_ordinances_passed = 1 }
 		if = {
 			limit = {
@@ -11091,7 +11071,6 @@ GNG_ordinances_effects = {
 		limit = {
 			check_variable = { GNG_temp_legco_id = 27 } #Casino License, Ho Edition
 		}
-		set_country_flag = GNG_Casino_License_ended
 		every_owned_state = {
 			set_temp_variable = { tri_spt_temp = 2.5 }
 			GNG_triad_control_change = yes
@@ -11128,7 +11107,6 @@ GNG_ordinances_effects = {
 		limit = {
 			check_variable = { GNG_temp_legco_id = 28 } #Casino License, Yokoi Edition
 		}
-		set_country_flag = GNG_Casino_License_ended
 		every_owned_state = {
 			set_temp_variable = { yak_spt_temp = 2.5 }
 			GNG_yakuza_control_change = yes
@@ -18394,6 +18372,9 @@ GNG_amendment_effects = {
 				check_variable = { GNG_legco_amendment_id = 19.6 } #Building Codes
 			}
 			TNO_improve_regulations_policy_effectiveness_high = yes
+			hidden_effect = {
+				TNO_improve_regulations_policy_effectiveness_high = yes
+			}
 			TNO_improve_poverty_med = yes
 			every_owned_state = {
 				set_temp_variable = { zhu_app_temp = 0.3 }
@@ -18406,7 +18387,8 @@ GNG_amendment_effects = {
 			limit = {
 				check_variable = { GNG_legco_amendment_id = 19.7 } #Worker Safety
 			}
-			TNO_improve_regulations_policy_effectiveness_high = yes
+			tno_regulations_improve = yes
+			TNO_worsen_regulations_policy_effectiveness_med = yes
 			TNO_improve_poverty_med = yes
 			every_owned_state = {
 				set_temp_variable = { zhu_app_temp = 0.3 }

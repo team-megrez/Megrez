@@ -1,6 +1,6 @@
 scripted_gui = {
-	TNO_state_lore_button = {
-		window_name = "TNO_state_lore_button"
+	TNO_EaW_state_lore_button = {
+		window_name = "TNO_EaW_state_lore_button"
 		context_type = selected_state_context
 		parent_window_token = selected_state_view
 		visible = {
@@ -60,8 +60,8 @@ scripted_gui = {
 		}
 	}
 
-	TNO_state_lore = {
-		window_name = "TNO_state_lore"
+	TNO_EaW_state_lore = {
+		window_name = "TNO_EaW_state_lore"
 		context_type = player_context
 		visible = { has_variable = selected_lore }
 		dynamic_lists = {
@@ -108,9 +108,9 @@ scripted_gui = {
 		}
 	}
 	
-	TNO_state_lore_mapicons = {
+	TNO_EaW_state_lore_mapicons = {
 		context_type = state_mapicon
-		window_name = "TNO_state_lore_mapicons"
+		window_name = "TNO_EaW_state_lore_mapicons"
 		visible = { ROOT = { has_country_flag = TNO_state_lore_mapicons_enabled } }
 		mapmode = default
 		mapicon_targets = {
@@ -132,11 +132,6 @@ scripted_gui = {
 				ROOT = {
 					set_variable = { selected_lore = lore_entries_onscreen^0 }
 					set_variable = { selected_lore_alt = lore_entries_onscreen^0 }
-				}
-			}
-			state_lore_mapicon_right_click = {
-				ROOT = {
-					clr_country_flag = TNO_state_lore_mapicons_enabled
 				}
 			}
 		}

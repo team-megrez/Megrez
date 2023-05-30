@@ -23,33 +23,6 @@ scripted_gui = {
 #	}
 #
 #
-	topbar_stability_warsupport = {
-		context_type = player_context
-		window_name = topbar_stability_warsupport
-		parent_window_token = top_bar
-		
-		triggers = {
-			pol_power_positive_visible = {
-				NOT = { check_variable = { political_power < 0 } }
-			}
-			pol_power_negative_visible = {
-				check_variable = { political_power < 0 }
-			}
-			stability_positive_visible = {
-				NOT = { check_variable = { stability < 0 } }
-			}
-			stability_negative_visible = {
-				check_variable = { stability < 0 }
-			}
-			war_support_positive_visible = {
-				NOT = { check_variable = { has_war_support < 0 } }
-			}
-			war_support_negative_visible = {
-				check_variable = { has_war_support < 0 }
-			}
-		}
-	}
-
 	topbar_exo_endo = {
 		context_type = player_context
 		window_name = "topbar_exo_endo"

@@ -847,31 +847,6 @@ defined_text = {
 	# Puerto Plata Invasion
 	text = {
 		trigger = {
-			has_global_flag = PPI_ceasefire_collapsed
-			event_target:winning_country = {
-				tag = CAL
-			}
-			event_target:losing_country = {
-				tag = DOM
-			}
-		}
-		localization_key = TNO_PEACE_POPUP_WAR_CONCLUSION_CAL_DOM_ceasefire
-	}
-	text = {
-		trigger = {
-			has_global_flag = PPI_ceasefire_collapsed
-			event_target:winning_country = {
-				tag = DOM
-			}
-			event_target:losing_country = {
-				tag = CAL
-			}
-		}
-		localization_key = TNO_PEACE_POPUP_WAR_CONCLUSION_DOM_CAL_ceasefire
-	}
-
-	text = {
-		trigger = {
 			event_target:winning_country = {
 				tag = CAL
 			}
@@ -2464,6 +2439,15 @@ defined_text = {
 	text = {
 		trigger = {
 			event_target:losing_country = {
+				original_tag = PCZ
+			}
+		}
+		localization_key = TNO_PEACE_POPUP_FLAVOR_CANAL
+	}
+
+	text = {
+		trigger = {
+			event_target:losing_country = {
 				original_tag = URG
 			}
 		}
@@ -2481,24 +2465,24 @@ defined_text = {
 
 	text = {
 		trigger = {
-			NOT = { has_global_flag = PPI_ceasefire_collapsed }
 			event_target:winning_country = {
 				original_tag = CAL
 			}
 			event_target:losing_country = {
 				original_tag = DOM
+				NOT = { has_global_flag = DOM_Ceasefire }
 			}
 		}
 		localization_key = TNO_PEACE_POPUP_FLAVOR_Trujillo
 	}
 	text = {
 		trigger = {
-			has_global_flag = PPI_ceasefire_collapsed
 			event_target:winning_country = {
 				original_tag = CAL
 			}
 			event_target:losing_country = {
 				original_tag = DOM
+				has_global_flag = DOM_Ceasefire
 			}
 		}
 		localization_key = TNO_PEACE_POPUP_FLAVOR_DOM_Ceasefire

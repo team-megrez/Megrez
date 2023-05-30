@@ -69,7 +69,7 @@ scripted_gui = {
 			Cold_War_GUI_Sea_Zone_Med = { frame = Cold_War_GUI_SeaZone_SelectedSuperpower_Frame }
 			Cold_War_GUI_Sea_Zone_South_Atlantic = { frame = Cold_War_GUI_SeaZone_SelectedSuperpower_Frame }
 			Cold_War_GUI_Sea_Zone_Indian_Ocean = { frame = Cold_War_GUI_SeaZone_SelectedSuperpower_Frame }
-
+	
 			TNO_Cold_War_GUI_DEFCON_Meter = { image = "[get_world_tension_topbar_defcon]" }
 			TNO_Cold_War_GUI_Nuke_Small_Icon = { frame = TNO_Cold_War_GUI_Nuke_Small_Icon_Frame }
 			TNO_Cold_War_GUI_PB = {
@@ -255,7 +255,7 @@ scripted_gui = {
 					set_temp_variable = { Victory_Outcome = 5 }
 					set_temp_variable = { Victory_Points = 250 }
 					Cold_War_GUI_AddVictory = yes
-
+	
 					Cold_War_GUI_CalculateDisplayArrays = yes
 					Cold_War_GUI_Score_Calculation = yes
 				}
@@ -274,7 +274,7 @@ scripted_gui = {
 				change_scope = yes
 				entry_container = TNO_Cold_War_GUI_Rankings_Tab_Superpower_Large_Entry
 			}
-
+			
 			TNO_Cold_War_GUI_Rankings_Tab_Superpower_Info_Entry_Victory_List_Gridbox = {
 				array = Cold_War_GUI_Selected_Superpower.TNO_Cold_War_GUI_Victory_Entry_Display
 				index = TNO_Cold_War_GUI_Victories_i
@@ -314,7 +314,7 @@ scripted_gui = {
 				clear_array = global.TNO_Cold_War_GUI_Tension_Incidents_Involved_Superpower_1
 				clear_array = global.TNO_Cold_War_GUI_Tension_Incidents_Involved_Superpower_2
 			}
-			Cold_War_GUI_Tension_Tab_sample_logs_click = {
+			Cold_War_GUI_Tension_Tab_sample_logs_click = {    
 				add_to_array = { global.TNO_Cold_War_GUI_Tension_Incidents_WT = 30 }
 				add_to_array = { global.TNO_Cold_War_GUI_Tension_Incidents_Involved_Superpower_1 = USA }
 				add_to_array = { global.TNO_Cold_War_GUI_Tension_Incidents_Involved_Superpower_2 = JAP }
@@ -322,7 +322,7 @@ scripted_gui = {
 				add_to_array = { global.TNO_Cold_War_GUI_Tension_Incidents_WT = 15 }
 				add_to_array = { global.TNO_Cold_War_GUI_Tension_Incidents_Involved_Superpower_1 = USA }
 				add_to_array = { global.TNO_Cold_War_GUI_Tension_Incidents_Involved_Superpower_2 = GER }
-				add_to_array = { global.TNO_Cold_War_GUI_Tension_Tab_Incidents_List = 2 }
+				add_to_array = { global.TNO_Cold_War_GUI_Tension_Tab_Incidents_List = 2 } 
 				add_to_array = { global.TNO_Cold_War_GUI_Tension_Incidents_Involved_Superpower_1 = GER }
 				add_to_array = { global.TNO_Cold_War_GUI_Tension_Incidents_Involved_Superpower_2 = JAP }
 				add_to_array = { global.TNO_Cold_War_GUI_Tension_Incidents_WT = -8 }

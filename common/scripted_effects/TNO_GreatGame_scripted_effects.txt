@@ -590,6 +590,13 @@ great_game_get_winner = {
 					}
 					add_ideas = Sphere_Coequal
 				}
+				else_if = {
+					limit = {
+						ITA = { is_faction_leader = yes }
+						NOT = { has_global_flag = Triumvirate_Collapse }
+					}
+					add_ideas = TRI_Member_Client
+				}
 			}
 			hidden_effect = {
 				every_country = {
@@ -620,6 +627,13 @@ great_game_get_winner = {
 						ITA = { is_in_faction_with = JAP }
 					}
 					add_ideas = Sphere_Coequal
+				}
+				else_if = {
+					limit = {
+						ITA = { is_faction_leader = yes }
+						NOT = { has_global_flag = Triumvirate_Collapse }
+					}
+					add_ideas = TRI_Member_Client
 				}
 			}
 			hidden_effect = {
@@ -659,6 +673,13 @@ great_game_get_winner = {
 						ITA = { is_in_faction_with = JAP }
 					}
 					add_ideas = Sphere_Coequal
+				}
+				else_if = {
+					limit = {
+						ITA = { is_faction_leader = yes }
+						NOT = { has_global_flag = Triumvirate_Collapse }
+					}
+					add_ideas = TRI_Member_Client
 				}
 			}
 			hidden_effect = {

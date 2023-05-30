@@ -40,18 +40,19 @@ defined_text = {
 	name = YOLProgress
 	text = {
 		trigger = {
+			has_country_flag = ITA_YOL_begun
+		}
+		localization_key = "Counter Terror"
+	}
+
+	text = {
+		trigger = {
 			AND = {
 				has_country_flag = ITA_YOL_begun
 				has_country_flag = ITA_YOL_progress
 			}
 		}
-		localization_key = ita_the_years_of_lead_yol
-	}
-	text = {
-		trigger = {
-			has_country_flag = ITA_YOL_begun
-		}
-		localization_key = ita_the_years_of_lead_counter_terror
+		localization_key = "The Years of Lead"
 	}
 }
 
@@ -890,97 +891,7 @@ defined_text = {
 		localization_key = ITA_CRO_NON
 	}
 }
-defined_text = {
-	name = ITAINF_BOSNIA
-	text = {
-		trigger = {
-			ITA = {
-				check_variable = {
-					var = BOS_ITA_Influence
-					value = 300
-					compare = greater_than_or_equals
-				}
-				check_variable = {
-					var = BOS_ITA_Influence
-					value = 400
-					compare = less_than
-				}
-			}
-		}
-		localization_key = ITA_BOS_HI
-	}
-	text = {
-		trigger = {
-			ITA = {
-				check_variable = {
-					var = BOS_ITA_Influence
-					value = 400
-					compare = greater_than_or_equals
-				}
-				check_variable = {
-					var = BOS_ITA_Influence
-					value = 500
-					compare = less_than
-				}
-			}
-		}
-		localization_key = ITA_BOS_RE
-	}
-	text = {
-		trigger = {
-			ITA = {
-				check_variable = {
-					var = BOS_ITA_Influence
-					value = 500
-					compare = greater_than_or_equals
-				}
-			}
-		}
-		localization_key = ITA_BOS_GOV
-	}
-	text = {
-		trigger = {
-			ITA = {
-				check_variable = {
-					var = BOS_ITA_Influence
-					value = 200
-					compare = greater_than_or_equals
-				}
-				check_variable = {
-					var = BOS_ITA_Influence
-					value = 300
-					compare = less_than
-				}
-			}
-		}
-		localization_key = ITA_BOS_AS
-	}
-	text = {
-		trigger = {
-			ITA = {
-				check_variable = {
-					var = BOS_ITA_Influence
-					value = 100
-					compare = greater_than_or_equals
-				}
-				check_variable = {
-					var = BOS_ITA_Influence
-					value = 200
-					compare = less_than
-				}
-			}
-		}
-		localization_key = ITA_BOS_ANT
-	}
-	text = {
-		trigger = {
-			ITA = {
-				check_variable = { BOS_ITA_Influence = 0 }
-			}
-		}
-		localization_key = ITA_BOS_NON
-	}
-}
+
 defined_text = {
 	name = ITAINF_MONTENEGRO
 	text = {
