@@ -1,0 +1,52 @@
+guiTypes = {
+
+	containerWindowType = {
+		name = "RF_welcome_splash_container"
+		position = { x = 0 y = 0 }
+		size = { width = 750 height = 630 }
+		moveable = yes
+		orientation = CENTER
+		origo = center
+
+		background = {
+			name = "RF_logo"
+			spriteType ="GFX_splash"
+			position = { x = -4 y = 0 }
+		}
+
+		background = {
+			name = "RF_logo_bg"
+			spriteType = "GFX_splash_box"
+			position = { x = 4 y = 357 }
+		}
+
+		instantTextboxType = {
+			name = "tab_1_text_header_2"
+			position = { x=224 y=376 }
+			font = "hoi_36header"
+			text = "RF_SPLASH_TITLE"
+			maxWidth = 700
+		}
+
+		instantTextboxType = {
+			name = "tab_1_cont3_text"
+			position = { x=61 y=447 }
+			font = "hoi_18mbs"
+			text = "RF_SPLASH_CREDITS"
+			maxWidth = 650
+			maxHeight = 140
+			scrollbarType = standardtext_slider
+		}
+
+		buttonType = {
+			name = "mod_options_button"
+			position = { x = 255 y = 590 }
+			quadTextureSprite ="GFX_main_lobby_button"	
+			buttonText = "Continue"
+			buttonFont = "hoi_24header"
+			clicksound = click_default
+			oversound = ui_menu_over
+			shortcut = "ESCAPE"
+		}
+	}
+}

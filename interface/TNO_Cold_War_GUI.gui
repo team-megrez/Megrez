@@ -1,0 +1,135 @@
+guiTypes = {
+	containerWindowType = {
+		name = "TNO_Cold_War_GUI"
+		position = { x = 0 y = -8 }
+		size = { width = 550 height = 100%% }
+		# verticalScrollbar = "right_vertical_slider"
+		orientation = upper_left
+
+		containerWindowType = {
+			name = "TNO_Cold_War_GUI_DEFCON_Meter_Container"
+			position = { x = 0 y = 0 }
+			size = { width = 550 height = 75 }
+			orientation = upper_left
+
+			background = {
+				name = "Background"
+				spriteType ="GFX_tiled_window_thin_border2"
+			}
+
+			iconType = {
+				name = "TNO_Cold_War_GUI_DEFCON_Meter"
+				position = { x = 13 y = 13 }
+			}
+			
+			iconType = {
+				name = "TNO_Cold_War_GUI_PB"
+				spriteType = "GFX_Cold_War_GUI_PB_Defcon5"
+				position = { x = 63 y = 12 }
+				pdx_tooltip = "TNO_Cold_War_GUI_World_Tension_PB_tt"
+				pdx_tooltip_delayed = "TNO_Cold_War_GUI_World_Tension_PB_tt_delayed"
+			}
+
+			iconType = {
+				name = "TNO_Cold_War_GUI_Nuke_Small_Icon_Outline"
+				spriteType = "GFX_Cold_War_GUI_Nuke_Small_Icon_Outline"
+				position = { x = 488 y = 13 }
+			}
+			buttonType = {
+				name = "Cold_War_GUI_Nuke_Small_Icon"
+				spriteType = "GFX_Cold_War_GUI_Nuke_Small_Icon"
+				position = { x = 490 y = 16 }
+				frame = 2
+				pdx_tooltip = "nuke_icon_tt"
+			}
+		}
+
+	}
+
+	containerWindowType = {
+			name = "Cold_War_GUI_Nukes_Tab_RedButton"
+			position = { x = 0 y = 266 }
+			size = { width = 550 height = 100%% }
+			
+			background = {
+				name = "Background"
+				spriteType ="GFX_tiled_window_thin_border2"
+			}
+
+			containerWindowType = {
+				name = "Cold_War_GUI_Nukes_Tab_RedButton1"
+				position = { x = 60 y = 156 }
+
+				buttonType = {
+				name = "Cold_War_GUI_Display_SwitchLeft"
+				position = { x = 67 y = 20 }
+				quadTextureSprite = "GFX_Nuke_GUI_switches"
+				clicksound = click_close
+				frame = 1
+			}
+			buttonType = {
+				name = "Cold_War_GUI_Display_BigRedButton"
+				position = { x = 135 y = 21 }
+				quadTextureSprite = "GFX_Nuke_GUI_big_shiny_button"
+				clicksound = click_close
+			}
+			buttonType = {
+				name = "Cold_War_GUI_Display_SwitchRight"
+				position = { x = 305 y = 20 }
+				quadTextureSprite = "GFX_Nuke_GUI_switches"
+				clicksound = click_close
+				frame = 1
+			}
+			}
+			
+			buttonType = {
+			name = "close"
+			quadTextureSprite ="GFX_crt_closebutton"
+			position = { x = -35 y = 19 }
+			Orientation = "UPPER_RIGHT"
+			}
+		}
+
+	containerWindowType = {
+		name = "TNO_Cold_War_GUI_Nuke_Confirmation_Tooltip"
+		position = { x = 80 y = 73 }
+		size = { width = 400 height = 190 }
+		fade_time = 300
+		fade_type = linear
+
+		background = {
+			name = "Background"
+			spriteType ="GFX_tiled_window_thin_border2"
+		}
+
+		instantTextboxType = {
+			name = "Cold_War_GUI_Nuke_Confirmation_Tooltip_Title"
+			position = { x = 10 y = 40 }
+			font = "aldrich_32_outline"
+			text = Cold_War_GUI_Nuke_Confirmation_Tooltip_Title_tt
+			maxWidth = 380
+			format = center
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "Cold_War_GUI_Nuke_Confirmation_Tooltip_NoButton"
+			position = { x = 55 y = 130 }
+			quadTextureSprite = "GFX_speerdometer_conservative_button"
+			clicksound = click_close
+			buttonText = Cold_War_GUI_Nuke_Confirmation_Tooltip_NoButton_tt
+			buttonFont = "aldrich_20_outline"
+		}
+		buttonType = {
+			name = "Cold_War_GUI_Nuke_Confirmation_Tooltip_YesButton"
+			position = { x = -175 y = 130 }
+			quadTextureSprite = "GFX_speerdometer_reformist_button"
+			clicksound = click_close
+			buttonText = Cold_War_GUI_Nuke_Confirmation_Tooltip_YesButton_tt
+			buttonFont = "aldrich_20_outline"
+			orientation = UPPER_RIGHT
+		}
+	}
+}
+
+
