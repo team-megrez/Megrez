@@ -1,0 +1,295 @@
+####################
+###Xikang Tree######
+####################
+####################
+
+shared_focus = {
+	id = XIK_Mad_Dog_at_door
+	icon = GFX_CHI_Long_Yun_threat
+	cost = 5.00
+	allow_branch = {
+		has_country_flag = XIK_china_yunnan_tree
+	}
+	bypass = {
+		always = yes
+	}
+	x = 15
+	y = 0
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus XIK_Mad_Dog_at_door"
+		hidden_effect = {
+			country_event = {
+				id = xik.1
+				days = 4
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = XIK_Let_the_eager_fight
+	icon = GFX_CAU_Prepare_the_Troops
+	cost = 1.00
+	relative_position_id = XIK_Mad_Dog_at_door
+	prerequisite = {
+		focus = XIK_Mad_Dog_at_door
+	}
+	x = 0
+	y = 1
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus XIK_Let_the_eager_fight"
+		custom_effect_tooltip = XIK_Let_the_eager_fight_tt
+		hidden_effect = {
+			country_event = {
+				id = xik.2
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = XIK_Caution_is_the_better_part_survival
+	icon = GFX_Generic_Peace
+	cost = 5.00
+	relative_position_id = XIK_Mad_Dog_at_door
+	prerequisite = {
+		focus = XIK_Mad_Dog_at_door
+	}
+	mutually_exclusive = {
+		focus = XIK_fortune_favors_the_bold
+	}
+	x = -4
+	y = 2
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus XIK_Caution_is_the_better_part_survival"
+		add_stability = 0.1
+	}
+}
+
+shared_focus = {
+	id = XIK_fortune_favors_the_bold
+	icon = GFX_CHI_Fortune_favors_the_Bold
+	cost = 5.00
+	relative_position_id = XIK_Mad_Dog_at_door
+	prerequisite = {
+		focus = XIK_Mad_Dog_at_door
+	}
+	mutually_exclusive = {
+		focus = XIK_Caution_is_the_better_part_survival
+	}
+	x = 4
+	y = 2
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus XIK_fortune_favors_the_bold"
+		add_war_support = 0.05
+		add_stability = -0.05
+	}
+}
+
+shared_focus = {
+	id = XIK_Fortifying_the_border
+	icon = GFX_MGN_fortification_production_charter
+	cost = 5.00
+	relative_position_id = XIK_Caution_is_the_better_part_survival
+	prerequisite = {
+		focus = XIK_Caution_is_the_better_part_survival
+	}
+	x = -1
+	y = 1
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus XIK_Fortifying_the_border"
+		905 = {
+			add_building_construction = {
+				type = bunker
+				level = 1
+				instant_build = yes
+				province = 1999
+			}
+			add_building_construction = {
+				type = bunker
+				level = 1
+				instant_build = yes
+				province = 10726
+			}
+			add_building_construction = {
+				type = bunker
+				level = 1
+				instant_build = yes
+				province = 7294
+			}
+			add_building_construction = {
+				type = bunker
+				level = 1
+				instant_build = yes
+				province = 2067
+			}
+			add_building_construction = {
+				type = bunker
+				level = 1
+				instant_build = yes
+				province = 7294
+			}
+			add_building_construction = {
+				type = bunker
+				level = 1
+				instant_build = yes
+				province = 12819
+			}
+		}
+		964 = {
+			add_building_construction = {
+				type = bunker
+				level = 1
+				instant_build = yes
+				province = 12724
+			}
+			add_building_construction = {
+				type = bunker
+				level = 1
+				instant_build = yes
+				province = 4407
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = XIK_Silence_the_hawks
+	icon = GFX_CHI_Silence_the_hawks
+	cost = 5.00
+	relative_position_id = XIK_Caution_is_the_better_part_survival
+	prerequisite = {
+		focus = XIK_Caution_is_the_better_part_survival
+	}
+	x = 1
+	y = 1
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus XIK_Silence_the_hawks"
+		custom_effect_tooltip = XIK_Silence_the_hawks_tt
+	}
+}
+
+shared_focus = {
+	id = XIK_Refugees
+	icon = GFX_Generic_Refugees
+	cost = 5.00
+	relative_position_id = XIK_Caution_is_the_better_part_survival
+	prerequisite = { focus = XIK_Fortifying_the_border }
+	prerequisite = { focus = XIK_Silence_the_hawks }
+	x = 0
+	y = 2
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus XIK_Refugees"
+		custom_effect_tooltip = XIK_Refugees_tt
+		hidden_effect = {
+			country_event = {
+				id = xik.3
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = XIK_Mobilize_the_troops
+	icon = GFX_CAU_Militarize_The_Outskirts
+	cost = 5.00
+	relative_position_id = XIK_fortune_favors_the_bold
+	prerequisite = { focus = XIK_fortune_favors_the_bold }
+	x = -1
+	y = 1
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus XIK_Mobilize_the_troops"
+		#tno_economic_focus_improve = yes
+	}
+}
+
+shared_focus = {
+	id = XIK_Securing_our_assets
+	icon = GFX_CHI_secure
+	cost = 5.00
+	relative_position_id = XIK_fortune_favors_the_bold
+	prerequisite = { focus = XIK_fortune_favors_the_bold }
+	x = 1
+	y = 1
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus XIK_Securing_our_assets"
+		custom_effect_tooltip = XIK_Securing_our_assets_tt
+	}
+}
+
+shared_focus = {
+	id = XIK_Protect_our_own_back
+	icon = GFX_Generic_Political_Purge
+	cost = 5.00
+	relative_position_id = XIK_fortune_favors_the_bold
+	prerequisite = { focus = XIK_Mobilize_the_troops }
+	prerequisite = { focus = XIK_Securing_our_assets }
+	x = 0
+	y = 2
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus XIK_Protect_our_own_back"
+		custom_effect_tooltip = XIK_Protect_our_own_back_tt
+		hidden_effect = {
+			country_event = {
+				id = xik.50
+				days = 5
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = XIK_Strike_when_the_Iron_is_hot
+	icon = GFX_CHI_Strike_when_the_Iron_is_hot
+	cost = 5.00
+	relative_position_id = XIK_fortune_favors_the_bold
+	prerequisite = { focus = XIK_Protect_our_own_back }
+	mutually_exclusive = { focus = XIK_Make_it_hot_by_striking }
+	x = -1
+	y = 3
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus XIK_Strike_when_the_Iron_is_hot"
+		custom_effect_tooltip = XIK_Strike_when_the_Iron_is_hot_tt
+	}
+}
+
+shared_focus = {
+	id = XIK_Make_it_hot_by_striking
+	icon = GFX_CHI_Smash_Long_Yun
+	cost = 5.00
+	relative_position_id = XIK_fortune_favors_the_bold
+	prerequisite = { focus = XIK_Protect_our_own_back }
+	mutually_exclusive = { focus = XIK_Strike_when_the_Iron_is_hot }
+	x = 1
+	y = 3
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus XIK_Protect_our_own_back"
+		custom_effect_tooltip = XIK_Make_it_hot_by_striking_tt
+		hidden_effect = {
+			country_event = {
+				id = xik.3
+				days = 2
+			}
+			if = {
+				limit = {
+					has_country_flag = XIK_deny_volunteers
+				}
+				country_event = {
+					id = xik.5
+					days = 4
+				}
+			}
+		}
+	}
+}
