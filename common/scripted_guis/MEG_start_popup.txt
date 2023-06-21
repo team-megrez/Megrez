@@ -1,0 +1,69 @@
+scripted_gui = {
+    start_popup = {
+        context_type = player_context
+        parent_window_token = top_bar
+        window_name = "MEG_start_popup_window"
+
+        visible = {
+			has_country_flag = start
+		}
+
+        effects = {
+			MEG_logo_button_click = {
+				if = {
+					limit = {
+						has_country_flag = history_start_desc
+					}
+					clr_country_flag = history_start_desc
+				}
+				if = {
+					limit = {
+						has_country_flag = history_dev_note_desc
+					}
+					clr_country_flag = history_dev_note_desc
+				}
+				set_country_flag = logo_desc
+			}
+			MEG_history_start_button_click = {
+				if = {
+					limit = {
+						has_country_flag = logo_desc
+					}
+					clr_country_flag = logo_desc
+				}
+				if = {
+					limit = {
+						has_country_flag = history_dev_note_desc
+					}
+					clr_country_flag = history_dev_note_desc
+				}
+				set_country_flag = history_start_desc
+			}
+			MEG_history_dev_note_button_click = {
+				if = {
+					limit = {
+						has_country_flag = logo_desc
+					}
+					clr_country_flag = logo_desc
+				}
+				if = {
+					limit = {
+						has_country_flag = history_start_desc
+					}
+					clr_country_flag = history_start_desc
+				}
+				if = {
+					limit = {
+						has_country_flag = history_korean_russia_desc
+					}
+					clr_country_flag = history_korean_russia_desc
+				}
+				set_country_flag = history_dev_note_desc
+			}
+			close_click = {
+				clr_country_flag = start
+			}
+        }
+		
+    }
+}
