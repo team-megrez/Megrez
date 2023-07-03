@@ -4,8 +4,10 @@ capital = 525
 # recruit_character = KOR_Generic_Vacant
 fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
 # recruit_character = KOR_Mr_Korea
-
-
+set_country_flag = start
+set_country_flag = has_symbolic_figurehead
+set_country_flag = KOR_governor_yi_un
+set_cosmetic_tag = GGK_JAP
 add_ideas = {
 	#political#
 	tno_political_parties_multiparty_system
@@ -80,3 +82,13 @@ set_popularities = {
 }
 
 TNO_startup_nation = yes
+
+
+create_country_leader = {
+	name = "Yu Chin-San"
+	desc = ""
+	traits={  }
+	picture = "gfx/leaders/KOR/portrait_KOR_yu_chin_san.png"
+	expire = "1965.1.1"
+	ideology = conservative_subtype
+}
