@@ -1,0 +1,2482 @@
+﻿###########################
+# American Union State Events
+# By Herkles
+###########################
+
+add_namespace = unionstate
+
+### internal conflict stuff 1 - 10 ###
+country_event = { # The American Legion Appointment
+	id = unionstate.1
+	title = unionstate.1.t
+	desc = unionstate.1.d
+	picture = GFX_report_event_USA_soldiers_watching
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { # Connor Fox
+		log = "[GetLogInfo]: event unionstate.1 option unionstate.1.a"
+		name = unionstate.1.a
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = TEX_path option = TEX_PATH_PATAUT }
+					has_game_rule = { rule = TEX_path option = TEX_PATH_NATPOP }
+				}
+			}
+		}
+		set_country_flag = TEX_fox_legion_head
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.1
+		}
+		hidden_effect = {
+			country_event = { id = unionstate.2 days = 7 } # The Business Plot
+
+			# AuthDem Events
+			country_event = { id = unionstate.15 days = 90 random_days = 20 }
+			country_event = { id = unionstate.14 days = 120 random_days = 20 }
+			country_event = { id = unionstate.13 days = 150 random_days = 20 }
+			country_event = { id = unionstate.11 days = 180 random_days = 20 }
+			country_event = { id = unionstate.16 days = 210 random_days = 30 }
+			country_event = { id = unionstate.17 days = 240 random_days = 30 }
+			country_event = { id = unionstate.18 days = 270 random_days = 40 }
+			country_event = { id = unionstate.19 days = 300 random_days = 40 }
+			country_event = { id = unionstate.20 days = 330 random_days = 100 }
+			country_event = { id = unionstate.12 days = 400 random_days = 100 }
+		}
+	}
+	option = { # George Van Horn Moseley
+		log = "[GetLogInfo]: event unionstate.1 option unionstate.1.b"
+		name = unionstate.1.b
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = TEX_path option = TEX_PATH_AUTDEM }
+					has_game_rule = { rule = TEX_path option = TEX_PATH_NATPOP }
+				}
+			}
+		}
+		set_country_flag = TEX_moseley_legion_head
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.1
+		}
+		hidden_effect = {
+			country_event = { id = unionstate.3 days = 10 } # A special Session of Congress
+		}
+	}
+	option = { # William Pelley
+		log = "[GetLogInfo]: event unionstate.1 option unionstate.1.c"
+		name = unionstate.1.c
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 3
+				has_country_flag = TEX_silver_legion_supported
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = TEX_path option = TEX_PATH_AUTDEM }
+					has_game_rule = { rule = TEX_path option = TEX_PATH_PATAUT }
+				}
+			}
+		}
+		set_country_flag = TEX_pelley_legion_head
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.1
+		}
+		hidden_effect = {
+			country_event = { id = unionstate.2 days = 7 } # The Business Plot
+			country_event = { id = unionstate.3 days = 14 } # A special Session of Congress
+		}
+	}
+}
+
+country_event = { # The Business Plot
+	id = unionstate.2
+	title = unionstate.2.t
+	desc = { # Fox Conor exposes the Business Plot
+		text = unionstate.2.d.huey
+		trigger = {
+			has_country_flag = TEX_fox_legion_head
+		}
+	}
+	desc = { # Pelley exposes the Business Plot
+		text = unionstate.2.d.pellley
+		trigger = {
+			has_country_flag = TEX_pelley_legion_head
+		}
+	}
+	picture = GFX_report_event_generic_diplomacy2
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = TEX_war_committee_formed
+	}
+
+	option = { # The Plot is uncovered
+		log = "[GetLogInfo]: event unionstate.2 option unionstate.2.a"
+		name = unionstate.2.a
+		retire_character = TEX_george_van_horn_moseley
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.1
+		}
+	}
+}
+
+country_event = { # A special Session of Congress
+	id = unionstate.3
+	title = unionstate.3.t
+	desc = unionstate.3.d
+	picture = GFX_report_event_USA_congress
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { # pass the law
+		log = "[GetLogInfo]: event unionstate.3 option unionstate.3.a"
+		name = unionstate.3.a
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = TEX_path option = TEX_PATH_PATAUT }
+					has_game_rule = { rule = TEX_path option = TEX_PATH_NATPOP }
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = { id = unionstate.5 days = 3 }
+		}
+		add_ideas = TEX_prohibition_bill
+	}
+	option = { # do not pass the law
+		log = "[GetLogInfo]: event unionstate.3 option unionstate.3.b"
+		name = unionstate.3.b
+		ai_chance = { base = 50 }
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = TEX_moseley_legion_head }
+				country_event = { id = unionstate.4 days = 5 }
+			}
+			else_if = {
+				limit = { has_country_flag = TEX_pelley_legion_head }
+				country_event = { id = unionstate.77 days = 3 }
+			}
+		}
+	}
+}
+
+country_event = { # A midnight Dinner
+	id = unionstate.4
+	title = unionstate.4.t
+	desc = unionstate.4.d
+	picture = GFX_report_event_TEX_share_the_wealth
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = TEX_war_committee_formed
+	}
+
+	option = { # Moseley set in charge
+		log = "[GetLogInfo]: event unionstate.4 option unionstate.4.a"
+		name = unionstate.4.a
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.1
+		}
+		add_stability = -0.10
+		if = {
+			limit = {
+				NOT = {
+					has_cosmetic_tag = america
+					has_cosmetic_tag = america_blue
+				}
+			}
+			set_cosmetic_tag = america
+			TEX_united_states_congress = { set_character_name = USA_united_states_congress }
+		}
+		retire_character = TEX_huey_long
+		set_politics = {
+			ruling_party = paternal_autocrat
+			elections_allowed = no
+		}
+		hidden_effect = {
+			complete_national_focus = TEX_the_business_plot
+			news_event = ustates.1011
+			set_country_flag = { flag = TEX_uncovered value = 0 }
+			country_event = { id = unionstate.33 days = 30 }
+
+			# PatAut Events
+			country_event = { id = unionstate.36 days = 90 random_days = 20 }
+			country_event = { id = unionstate.32 days = 120 random_days = 20 }
+			country_event = { id = unionstate.37 days = 150 random_days = 30 }
+			country_event = { id = unionstate.38 days = 180 random_days = 40 }
+			country_event = { id = unionstate.40 days = 55 random_days = 20 }
+			country_event = { id = unionstate.41 days = 235 random_days = 20 }
+		}
+	}
+}
+
+country_event = { # One Wild Night
+	id = unionstate.5
+	title = unionstate.5.t
+	desc = unionstate.5.d
+	picture = GFX_report_event_USA_congress
+
+	is_triggered_only = yes
+
+	option = { # flavor
+		log = "[GetLogInfo]: event unionstate.5 option unionstate.5.a"
+		name = unionstate.5.a
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.10
+		}
+		retire_character = TEX_william_dudley_pelley
+		hidden_effect = {
+			clr_country_flag = TEX_pelley_legion_head
+
+			# AuthDem Events
+			country_event = { id = unionstate.15 days = 90 random_days = 20 }
+			country_event = { id = unionstate.14 days = 120 random_days = 20 }
+			country_event = { id = unionstate.13 days = 150 random_days = 20 }
+			country_event = { id = unionstate.11 days = 180 random_days = 20 }
+			country_event = { id = unionstate.16 days = 210 random_days = 30 }
+			country_event = { id = unionstate.17 days = 240 random_days = 30 }
+			country_event = { id = unionstate.18 days = 270 random_days = 40 }
+			country_event = { id = unionstate.19 days = 300 random_days = 40 }
+			country_event = { id = unionstate.20 days = 330 random_days = 100 }
+			country_event = { id = unionstate.12 days = 400 random_days = 100 }
+		}
+	}
+}
+
+country_event = { # Night of Long Knives
+	id = unionstate.6
+	title = unionstate.6.t
+	desc = unionstate.6.d
+	picture = GFX_report_event_TEX_silver_legion
+
+	is_triggered_only = yes
+
+	option = { # Pelley is in charge
+		log = "[GetLogInfo]: event unionstate.6 option unionstate.6.a"
+		name = unionstate.6.a
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.10
+		}
+		add_stability = -0.20
+		set_cosmetic_tag = TEX_commonwealth
+		set_politics = {
+			ruling_party = national_populist
+			elections_allowed = no
+		}
+		retire_character = TEX_huey_long
+		if = {
+			limit = { is_in_faction = yes }
+			faction_leader = { country_event = unionstate.9 }
+			leave_faction = yes
+			peace_out_non_neighbours_after_leaving_faction = yes
+		}
+		hidden_effect = {
+			complete_national_focus = TEX_mine_have_seen_the_glory
+			set_country_flag = { flag = TEX_xenophobia value = 0 }
+			country_event = { id = unionstate.79 days = 15 }
+
+			#news event
+			news_event = ustates.1012
+
+			#prompt NEE's reailroad event
+			if = {
+				limit = { country_exists = NEE }
+				NEE = {
+					country_event = { id = newengland.57 days = 5 random_days = 50 }
+				}
+			}
+
+			#NatPop Events
+			country_event = { id = unionstate.51 days = 90 random_days = 20 }
+			country_event = { id = unionstate.63 days = 150 random_days = 20 }
+			country_event = { id = unionstate.61 days = 180 random_days = 20 }
+			country_event = { id = unionstate.55 days = 210 random_days = 20 }
+			country_event = { id = unionstate.57 days = 240 random_days = 20 }
+			country_event = { id = unionstate.58 days = 270 random_days = 20 }
+			country_event = { id = unionstate.54 days = 300 random_days = 30 }
+			country_event = { id = unionstate.62 days = 330 random_days = 30 }
+			country_event = { id = unionstate.60 days = 360 random_days = 30 }
+			country_event = { id = unionstate.59 days = 390 random_days = 40 }
+			country_event = { id = unionstate.53 days = 420 random_days = 40 }
+			country_event = { id = unionstate.40 days = 55 random_days = 20 }
+			country_event = { id = unionstate.41 days = 235 random_days = 20 }
+			country_event = { id = unionstate.52 days = 115 random_days = 20 }
+		}
+	}
+}
+
+country_event = { # Capital of America
+	id = unionstate.7
+	title = unionstate.7.t
+	desc = unionstate.7.d
+	picture = GFX_report_event_TEX_southern_farmers
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		tag = TEX
+		has_global_flag = USA_civil_war_over_flag
+		controls_all_owned_states = yes
+		owns_state = 371
+	}
+
+	option = { # Washington DC
+		log = "[GetLogInfo]: event unionstate.7 option unionstate.7.a"
+		name = unionstate.7.a
+		trigger = {
+			owns_state = 361
+		}
+		ai_chance = { base = 50 }
+		hidden_effect = { set_victory_points = { province = 1453 value = 12 } } #Baton Rouge
+		set_capital = { state = 361 remember_old_capital = no }
+	}
+	option = { # New Orleans
+		log = "[GetLogInfo]: event unionstate.7 option unionstate.7.b"
+		name = unionstate.7.b
+		ai_chance = { base = 15 }
+		hidden_effect = {
+			set_victory_points = { province = 1453 value = 12 } #Baton Rouge
+			random_owned_controlled_state = {
+				ROOT = { set_capital = { state = PREV remember_old_capital = no } } #workaround for a GFX bug when changing with VP is the capital in the same state
+			}
+		}
+		set_capital = { state = 371 remember_old_capital = no }
+	}
+	option = { # Baton Rouge
+		log = "[GetLogInfo]: event unionstate.7 option unionstate.7.c"
+		name = unionstate.7.c
+		ai_chance = { base = 15 }
+		set_country_flag = TEX_baton_rouge_kept
+		set_capital = { state = 371 remember_old_capital = no }
+	}
+	option = { # Saint Louis
+		log = "[GetLogInfo]: event unionstate.7 option unionstate.7.e"
+		name = unionstate.7.e
+		trigger = {
+			owns_state = 373
+		}
+		ai_chance = { base = 15 }
+		hidden_effect = { set_victory_points = { province = 1453 value = 12 } } #Baton Rouge
+		set_capital = { state = 373 remember_old_capital = no }
+	}
+}
+
+country_event = { # All Hail the Kingfish - if Long didn't make the deal with Pelley and Moseley during the civil war
+	id = unionstate.8
+	title = unionstate.8.t
+	desc = unionstate.8.d
+	picture = GFX_report_event_USA_congress
+
+	trigger = {
+		has_country_leader = { character = TEX_huey_long }
+		NOT = {
+			has_country_flag = TEX_silver_legion_supported
+			has_country_flag = TEX_war_committee_formed
+		}
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # Long is victorious
+		log = "[GetLogInfo]: event unionstate.8 option unionstate.8.a"
+		name = unionstate.8.a
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.05
+		}
+	}
+}
+
+country_event = { # Notification for faction leader that Pelley has left the faction
+	id = unionstate.9
+	title = unionstate.9.t
+	desc = unionstate.9.d
+	picture = GFX_report_event_TEX_silver_legion
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event unionstate.9 option unionstate.9.a"
+		name = unionstate.9.a
+	}
+
+	option = {
+		log = "[GetLogInfo]: event unionstate.9 option unionstate.9.b"
+		name = unionstate.9.b
+		ai_chance = { base = 0 }
+		create_wargoal = {
+			target = FROM
+			type = annex_everything
+		}
+	}
+}
+
+### Huey Long Events 10 - 30 ###
+country_event = { # Elections of the president
+	id = unionstate.10
+	title = unionstate.10.t
+	desc = unionstate.10.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # re-elect Long
+		log = "[GetLogInfo]: event unionstate.10 option unionstate.10.a"
+		name = unionstate.10.a
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.05
+		}
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			election_frequency = 48
+			elections_allowed = yes
+		}
+	}
+}
+
+country_event = { # Replace Charles Coughlin?
+	id = unionstate.11
+	title = unionstate.11.t
+	desc = unionstate.11.d
+	picture = GFX_report_event_USA_father_coughlin
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		TEX_charles_edward_coughlin = { is_political_advisor = yes }
+	}
+
+	option = { # Remove
+		log = "[GetLogInfo]: event unionstate.11 option unionstate.11.a"
+		name = unionstate.11.a
+		retire_character = TEX_charles_edward_coughlin
+	}
+	option = { # Keep
+		log = "[GetLogInfo]: event unionstate.11 option unionstate.11.b"
+		name = unionstate.11.b
+		add_political_power = -50
+		set_temp_variable = { ideology_change_var = -0.05 }
+		change_ruling_party_popularity = yes
+	}
+}
+
+country_event = { # The Long Dynasty
+	id = unionstate.12
+	title = unionstate.12.t
+	desc = unionstate.12.d
+	picture = GFX_report_event_TEX_long_family
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_leader = { character = TEX_huey_long }
+		has_free_political_advisor_slot = yes
+	}
+
+	option = { # That's going too far
+		log = "[GetLogInfo]: event unionstate.12 option unionstate.12.a"
+		name = unionstate.12.a
+		add_political_power = 25
+	}
+
+	option = { # You can't go wrong with Long
+		log = "[GetLogInfo]: event unionstate.12 option unionstate.12.b"
+		name = unionstate.12.b
+		add_political_power = -100
+		activate_advisor = TEX_earl_kemp_long
+	}
+}
+
+country_event = { # Improve the Southern Tenant Farmers Union
+	id = unionstate.13
+	title = unionstate.13.t
+	desc = unionstate.13.d
+	picture = GFX_report_event_TEX_southern_farmers
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { # Say hello to the AFTU
+		log = "[GetLogInfo]: event unionstate.13 option unionstate.13.a"
+		name = unionstate.13.a
+		set_temp_variable = { ideology_change_var = 0.05 }
+		change_ruling_party_popularity = yes
+	}
+}
+
+country_event = { # The Truth about Hugo Black
+	id = unionstate.14
+	title = unionstate.14.t
+	desc = unionstate.14.d
+	picture = GFX_report_event_USA_Long_Rally
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		TEX_hugo_lafayette_black = { is_political_advisor = yes }
+	}
+
+	option = { # An intolerable association
+		log = "[GetLogInfo]: event unionstate.14 option unionstate.14.a"
+		name = unionstate.14.a
+		add_political_power = -50
+		retire_character = TEX_hugo_lafayette_black
+	}
+
+	option = { # A man can change
+		log = "[GetLogInfo]: event unionstate.14 option unionstate.14.b"
+		name = unionstate.14.b
+		add_political_power = 25
+		set_temp_variable = { ideology_change_var = -0.1 }
+		change_ruling_party_popularity = yes
+	}
+}
+
+country_event = { # Schism in Share Our Wealth Societies
+	id = unionstate.15
+	title = unionstate.15.t
+	desc = unionstate.15.d
+	picture = GFX_report_event_TEX_share_the_wealth
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { # Side with Townsend
+		log = "[GetLogInfo]: event unionstate.15 option unionstate.15.a"
+		name = unionstate.15.a
+		add_political_power = 50
+	}
+	option = { # Side with McMath
+		log = "[GetLogInfo]: event unionstate.15 option unionstate.15.b"
+		name = unionstate.15.b
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.05
+		}
+	}
+}
+
+country_event = { # McTeauge released in theatres.
+	id = unionstate.16
+	title = unionstate.16.t
+	desc = unionstate.16.d
+	picture = GFX_report_event_TEX_movie
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { # I had a good nap watching
+		log = "[GetLogInfo]: event unionstate.16 option unionstate.16.a"
+		name = unionstate.16.a
+		add_political_power = 5
+	}
+}
+
+country_event = { # Accusations of crypto-socialism
+	id = unionstate.17
+	title = unionstate.17.t
+	desc = unionstate.17.d
+	picture = GFX_report_event_TEX_share_the_wealth
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { # It is better than socialism
+		log = "[GetLogInfo]: event unionstate.17 option unionstate.17.a"
+		name = unionstate.17.a
+		add_political_power = -50
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.01
+		}
+	}
+}
+
+country_event = { # Superman vs The Klan
+	id = unionstate.18
+	title = unionstate.18.t
+	desc = unionstate.18.d
+	picture = GFX_report_event_TEX_superman
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { # Kids love it
+		log = "[GetLogInfo]: event unionstate.18 option unionstate.18.a"
+		name = unionstate.18.a
+		add_political_power = 20
+	}
+}
+
+country_event = { # Governor Earl Long Fires on Protesters
+	id = unionstate.19
+	title = unionstate.19.t
+	desc = unionstate.19.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_leader = { character = TEX_huey_long }
+	}
+
+	option = { # Attend the funeral of the Protesters
+		log = "[GetLogInfo]: event unionstate.19 option unionstate.19.a"
+		name = unionstate.19.a
+		add_stability = -0.1
+	}
+	option = { # Help Earl cover this up.
+		log = "[GetLogInfo]: event unionstate.19 option unionstate.19.b"
+		name = unionstate.19.b
+		add_political_power = -150
+		set_temp_variable = { ideology_change_var = -0.1 }
+		change_ruling_party_popularity = yes
+	}
+}
+
+country_event = { # Black No More by George Schuyler
+	id = unionstate.20
+	title = unionstate.20.t
+	desc = unionstate.20.d
+	picture = GFX_report_event_generic_books
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { # No one shall mock the king
+		log = "[GetLogInfo]: event unionstate.20 option unionstate.20.a"
+		name = unionstate.20.a
+		add_political_power = 5
+	}
+}
+
+country_event = { # Death of the King
+	id = unionstate.21
+	title = unionstate.21.t
+	desc = unionstate.21.d
+	picture = GFX_report_event_usa_funeral
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_leader = { character = TEX_huey_long }
+	}
+
+	option = { # With a Sigh, We Say Goodbye Huey Long
+		log = "[GetLogInfo]: event unionstate.21 option unionstate.21.a"
+		name = unionstate.21.a
+		promote_character = TEX_earl_kemp_long
+		retire_character = TEX_huey_long
+	}
+}
+
+### Business Plot Events 31 - 50 ###
+country_event = { # The Hollywood List
+	id = unionstate.31
+	title = unionstate.31.t
+	desc = unionstate.31.d
+	picture = GFX_report_event_TEX_movie
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_government = paternal_autocrat
+		owns_state = 798 #Los Angeles
+		NOT = {
+			country_exists = PSA
+		}
+	}
+
+	option = { # We'll film their trials
+		log = "[GetLogInfo]: event unionstate.31 option unionstate.31.a"
+		name = unionstate.31.a
+		add_popularity = {
+			ideology = social_liberal
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.05
+		}
+		add_manpower = -50
+	}
+}
+
+country_event = { # Persistance of Anti Semitism
+	id = unionstate.32
+	title = unionstate.32.t
+	desc = unionstate.32.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_government = paternal_autocrat
+	}
+
+	option = { # Side with Ford
+		log = "[GetLogInfo]: event unionstate.32 option unionstate.32.a"
+		name = unionstate.32.a
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.05
+		}
+		add_stability = -0.05
+	}
+	option = { # Side with The Committee
+		log = "[GetLogInfo]: event unionstate.32 option unionstate.32.b"
+		name = unionstate.32.b
+		add_political_power = -100
+		add_stability = 0.03
+	}
+}
+
+country_event = { # Tying up Loose Ends
+	id = unionstate.33
+	title = unionstate.33.t
+	desc = unionstate.33.d
+	picture = GFX_report_event_USA_Riots
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_leader = { character = TEX_george_van_horn_moseley }
+	}
+
+	option = { # Weaving spiders come not here
+		log = "[GetLogInfo]: event unionstate.33 option unionstate.33.a"
+		name = unionstate.33.a
+		custom_effect_tooltip = TEX_covers_up
+		add_political_power = -100
+		add_stability = -0.02
+		hidden_effect = {
+			country_event = { id = unionstate.34 days = 30 }
+		}
+	}
+	option = { # They are harmless
+		log = "[GetLogInfo]: event unionstate.33 option unionstate.33.b"
+		name = unionstate.33.b
+		hidden_effect = {
+			modify_country_flag = {
+				flag = TEX_uncovered
+				value = 1
+			}
+			country_event = { id = unionstate.34 days = 30 }
+		}
+	}
+}
+
+country_event = { # Every Girl a Queen
+	id = unionstate.34
+	title = unionstate.34.t
+	desc = unionstate.34.d
+	picture = GFX_report_event_USA_nra_girls
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_leader = { character = TEX_george_van_horn_moseley }
+	}
+
+	option = { # Side with Rose Long
+		log = "[GetLogInfo]: event unionstate.34 option unionstate.34.a"
+		name = unionstate.34.a
+		custom_effect_tooltip = TEX_covers_up
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.10
+		}
+		add_stability = -0.04
+		hidden_effect = {
+			country_event = { id = unionstate.39 days = 30 random_days = 15 }
+		}
+	}
+	option = { # Side with the Consitiution
+		log = "[GetLogInfo]: event unionstate.34 option unionstate.34.b"
+		name = unionstate.34.b
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.05
+		}
+		hidden_effect = {
+			modify_country_flag = {
+				flag = TEX_uncovered
+				value = 1
+			}
+			country_event = { id = unionstate.39 days = 30 random_days = 15 }
+		}
+	}
+}
+
+country_event = { # But No One Wears A Crown
+	id = unionstate.35
+	title = unionstate.35.t
+	picture = GFX_report_event_USA_military_trial
+
+	desc = {
+		text = unionstate.35.d.coverup
+		trigger = {
+			has_country_flag = {
+				flag = TEX_uncovered
+				value < 1
+			}
+		}
+	}
+	desc = {
+		text = unionstate.35.d.uncovered
+		trigger = {
+			has_country_flag = {
+				flag = TEX_uncovered
+				value > 2
+			}
+		}
+	}
+	desc = {
+		text = unionstate.35.d.scandal
+		trigger = {
+			has_country_flag = {
+				flag = TEX_uncovered
+				value > 0
+			}
+			has_country_flag = {
+				flag = TEX_uncovered
+				value < 3
+			}
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = { # I love the Republic
+		log = "[GetLogInfo]: event unionstate.35 option unionstate.35.a"
+		name = unionstate.35.a
+		trigger = {
+			has_country_flag = {
+				flag = TEX_uncovered
+				value < 1
+			}
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.10
+		}
+		add_stability = 0.05
+	}
+	option = {
+		log = "[GetLogInfo]: event unionstate.35 option unionstate.35.c"
+		name = unionstate.35.c
+		trigger = {
+			has_country_flag = {
+				flag = TEX_uncovered
+				value > 0
+			}
+			has_country_flag = {
+				flag = TEX_uncovered
+				value < 2
+			}
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.10
+		}
+		add_stability = -0.05
+	}
+	option = {
+		log = "[GetLogInfo]: event unionstate.35 option unionstate.35.c"
+		name = unionstate.35.c
+		trigger = {
+			has_country_flag = {
+				flag = TEX_uncovered
+				value > 1
+			}
+			has_country_flag = {
+				flag = TEX_uncovered
+				value < 3
+			}
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.20
+		}
+		add_stability = -0.10
+	}
+	option = { # Walls Come Crumbling Down
+		log = "[GetLogInfo]: event unionstate.35 option unionstate.35.b"
+		trigger = {
+			has_country_flag = {
+				flag = TEX_uncovered
+				value > 2
+			}
+		}
+		name = unionstate.35.b
+		retire_character = TEX_george_van_horn_moseley
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			last_election = "1936.11.16"
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = -0.10
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.10
+		}
+		add_stability = -0.20
+	}
+}
+
+country_event = { # Twenty Second Amendment
+	id = unionstate.36
+	title = unionstate.36.t
+	desc = unionstate.36.d
+	picture = GFX_report_event_USA_congress
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_government = paternal_autocrat
+	}
+
+	option = { # As our Founding Fathers intended
+		log = "[GetLogInfo]: event unionstate.36 option unionstate.36.a"
+		name = unionstate.36.a
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.05
+		}
+	}
+}
+
+country_event = { # Patriotism or Profits
+	id = unionstate.37
+	title = unionstate.37.t
+	desc = unionstate.37.d
+	picture = GFX_report_event_generic_economy_growth
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_government = paternal_autocrat
+	}
+
+	option = { # Business is our Business
+		log = "[GetLogInfo]: event unionstate.37 option unionstate.37.a"
+		name = unionstate.37.a
+		add_stability = -0.05
+		add_one_random_civilian_factory = yes
+		add_one_random_military_factory = yes
+	}
+	option = { # Patriotism is our Business
+		log = "[GetLogInfo]: event unionstate.37 option unionstate.37.b"
+		name = unionstate.37.b
+		add_political_power = 100
+		set_temp_variable = { ideology_change_var = 0.05 }
+		change_ruling_party_popularity = yes
+	}
+}
+
+country_event = { # The Second American Plan
+	id = unionstate.38
+	title = unionstate.38.t
+	desc = unionstate.38.d
+	picture = GFX_report_event_generic_economic_policy
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_government = paternal_autocrat
+	}
+
+	option = { # You have the right
+		log = "[GetLogInfo]: event unionstate.38 option unionstate.38.a"
+		name = unionstate.38.a
+		add_stability = -0.03
+		add_political_power = 50
+		add_popularity = {
+			ideology = syndicalist
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = -0.05
+		}
+	}
+}
+
+country_event = { # War Powers Committee vs Congress
+	id = unionstate.39
+	title = unionstate.39.t
+	desc = unionstate.39.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_leader = { character = TEX_george_van_horn_moseley }
+	}
+
+	option = { # A War Powers Cabinet
+		log = "[GetLogInfo]: event unionstate.39 option unionstate.39.a"
+		name = unionstate.39.a
+		add_political_power = 100
+		hidden_effect = {
+			modify_country_flag = {
+				flag = TEX_uncovered
+				value = 1
+			}
+			country_event = { id = unionstate.35 days = 20 random_days = 20 }
+		}
+	}
+	option = { # Let the Congressmen play
+		log = "[GetLogInfo]: event unionstate.39 option unionstate.39.b"
+		name = unionstate.39.b
+		custom_effect_tooltip = TEX_covers_up
+		add_political_power = -100
+		hidden_effect = {
+			country_event = { id = unionstate.35 days = 20 random_days = 20 }
+		}
+	}
+}
+
+country_event = { # NAACP Declares the government Illegitimate
+	id = unionstate.40
+	title = unionstate.40.t
+	desc = unionstate.40.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_dictatorship_government = yes
+	}
+
+	option = {
+		log = "[GetLogInfo]: event unionstate.40 option unionstate.40.a"
+		name = unionstate.40.a
+		add_stability = -0.08
+		add_manpower = -10000
+	}
+}
+
+country_event = { # Mothers Movement Clashes With Feminists
+	id = unionstate.41
+	title = unionstate.41.t
+	desc = unionstate.41.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_dictatorship_government = yes
+	}
+
+	option = {
+		log = "[GetLogInfo]: event unionstate.41 option unionstate.41.a"
+		name = unionstate.41.a
+		set_temp_variable = { ideology_change_var = 0.05 }
+		change_ruling_party_popularity = yes
+	}
+}
+
+country_event = { # Moseley's Death
+	id = unionstate.42
+	title = unionstate.42.t
+	desc = unionstate.42.d
+	picture = GFX_report_event_usa_funeral
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_leader = { character = TEX_george_van_horn_moseley }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event unionstate.42 option unionstate.42.a"
+		name = unionstate.42.a
+		promote_character = TEX_charles_lindbergh
+		retire_character = TEX_george_van_horn_moseley
+	}
+}
+
+### Pelley Events 51 - 70 ###
+country_event = { # Polio Outbreak throughout America
+	id = unionstate.51
+	title = unionstate.51.t
+	desc = unionstate.51.d
+	picture = GFX_report_event_TEX_polio
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_government = national_populist
+	}
+
+	option = { # Polio must be stamped out
+		log = "[GetLogInfo]: event unionstate.51 option unionstate.51.a"
+		name = unionstate.51.a
+		add_manpower = -10000
+		add_stability = -0.05
+	}
+}
+
+country_event = { # Fate of Murphy Ranch
+	id = unionstate.52
+	title = unionstate.52.t
+	desc = unionstate.52.d
+	picture = GFX_report_event_TEX_silver_legion
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_government = national_populist
+		798 = {
+			is_owned_and_controlled_by = ROOT
+		}
+	}
+
+	option = { # Forify Murphy Ranch
+		log = "[GetLogInfo]: event unionstate.52 option unionstate.52.a"
+		name = unionstate.52.a
+		798 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	option = { # Convert Murphy Ranch
+		log = "[GetLogInfo]: event unionstate.52 option unionstate.52.b"
+		name = unionstate.52.b
+		798 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+
+country_event = { # Can you see the real Pelley?
+	id = unionstate.53
+	title = unionstate.53.t
+	desc = unionstate.53.d
+	picture = GFX_report_event_TEX_christian_identity
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_government = national_populist
+	}
+
+	option = { # The world is not ready
+		log = "[GetLogInfo]: event unionstate.53 option unionstate.53.a"
+		name = unionstate.53.a
+		add_political_power = -150
+	}
+	option = { # The world is ready
+		log = "[GetLogInfo]: event unionstate.53 option unionstate.53.b"
+		name = unionstate.53.b
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.10
+		}
+		add_stability = -0.05
+		add_political_power = 50
+	}
+}
+
+country_event = { # Divergent Thinking in Christian Identity
+	id = unionstate.54
+	title = unionstate.54.t
+	desc = unionstate.54.d
+	picture = GFX_report_event_TEX_christian_identity
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_government = national_populist
+	}
+
+	option = { # Let the innocent lies rest
+		log = "[GetLogInfo]: event unionstate.54 option unionstate.54.a"
+		name = unionstate.54.a
+		add_political_power = -50
+	}
+	option = { # Wickedness must be stamped out
+		log = "[GetLogInfo]: event unionstate.54 option unionstate.54.b"
+		name = unionstate.54.b
+		add_stability = -0.05
+	}
+}
+
+country_event = { # Rise of Speakeasies
+	id = unionstate.55
+	title = unionstate.55.t
+	desc = unionstate.55.d
+	picture = GFX_report_event_TEX_prohibition
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_government = national_populist
+	}
+
+	option = { # Alcoholism must be stamped out
+		log = "[GetLogInfo]: event unionstate.55 option unionstate.55.a"
+		name = unionstate.55.a
+		add_political_power = -100
+		add_stability = -0.04
+	}
+}
+
+country_event = { # Officiate Warren G Harding as black
+	id = unionstate.57
+	title = unionstate.57.t
+	desc = unionstate.57.d
+	picture = GFX_report_event_TEX_silver_legion2
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_government = national_populist
+	}
+
+	option = { # Take That Harding!
+		log = "[GetLogInfo]: event unionstate.57 option unionstate.57.a"
+		name = unionstate.57.a
+		add_political_power = 25
+		add_stability = -0.03
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.03
+		}
+	}
+}
+
+country_event = { # The Sound and the Fury in theatres
+	id = unionstate.58
+	title = unionstate.58.t
+	desc = unionstate.58.d
+	picture = GFX_report_event_TEX_movie
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_government = national_populist
+	}
+
+	option = { # I wrote better films than this!
+		log = "[GetLogInfo]: event unionstate.58 option unionstate.58.a"
+		name = unionstate.58.a
+		add_political_power = 10
+	}
+}
+
+country_event = { # Black Education Act
+	id = unionstate.59
+	title = unionstate.59.t
+	desc = unionstate.59.d
+	picture = GFX_report_event_USA_reading_man
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_government = national_populist
+	}
+
+	option = { # Flavor
+		log = "[GetLogInfo]: event unionstate.59 option unionstate.59.a"
+		name = unionstate.59.a
+		add_political_power = 100
+		add_stability = -0.12
+	}
+}
+
+country_event = { # Black Belt Autonomy
+	id = unionstate.60
+	title = unionstate.60.t
+	desc = unionstate.60.d
+	picture = GFX_report_event_USA_civil_war
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_government = national_populist
+	}
+
+	option = {
+		log = "[GetLogInfo]: event unionstate.60 option unionstate.60.a"
+		name = unionstate.60.a
+		add_political_power = 50
+		add_stability = -0.15
+	}
+	option = {
+		log = "[GetLogInfo]: event unionstate.60 option unionstate.60.b"
+		name = unionstate.60.b
+		add_political_power = -100
+	}
+}
+
+country_event = { # Pass Laws
+	id = unionstate.61
+	title = unionstate.61.t
+	desc = unionstate.61.d
+	picture = GFX_report_event_USA_civil_war
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_government = national_populist
+	}
+
+	option = { # Flavor
+		log = "[GetLogInfo]: event unionstate.61 option unionstate.61.a"
+		name = unionstate.61.a
+		add_political_power = 50
+		add_stability = -0.10
+	}
+}
+
+country_event = { # Penal Labour
+	id = unionstate.62
+	title = unionstate.62.t
+	desc = unionstate.62.d
+	picture = GFX_report_event_AST_laborsplit
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_government = national_populist
+	}
+
+	option = { # Flavor
+		log = "[GetLogInfo]: event unionstate.62 option unionstate.62.a"
+		name = unionstate.62.a
+		add_political_power = 100
+		add_stability = -0.20
+		set_temp_variable = { ideology_change_var = -0.1 }
+		change_ruling_party_popularity = yes
+	}
+}
+
+country_event = { # The third Great Migration
+	id = unionstate.63
+	title = unionstate.63.t
+	desc = unionstate.63.d
+	picture = GFX_report_event_USA_chicago
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_government = national_populist
+	}
+
+	option = { # America is expelling toxins
+		log = "[GetLogInfo]: event unionstate.63 option unionstate.63.a"
+		name = unionstate.63.a
+		ai_chance = { base = 60 }
+		add_timed_idea = {
+			idea = USA_great_migration1
+			days = 180
+		}
+		add_manpower = -100000
+		add_stability = 0.05
+		hidden_effect = {
+			every_country = {
+				limit = {
+					NOT = {
+						has_war_with = TEX
+						is_subject_of = TEX
+					}
+					OR = {
+						tag = PSA
+						tag = NEE
+						tag = LIB
+						tag = MEX
+						tag = HAI
+						tag = CUB
+						tag = HAW
+					}
+				}
+				country_event = { id = unionstate.64 days = 2 }
+			}
+		}
+	}
+	option = { # Quick, Stop Them!
+		log = "[GetLogInfo]: event unionstate.63 option unionstate.63.b"
+		name = unionstate.63.b
+		add_stability = -0.10
+		add_political_power = -200
+		add_timed_idea = {
+			idea = USA_great_migration2
+			days = 90
+		}
+		hidden_effect = {
+			every_country = {
+				limit = {
+					NOT = {
+						has_war_with = TEX
+						is_subject_of = TEX
+					}
+					OR = {
+						tag = PSA
+						tag = NEE
+						tag = LIB
+						tag = MEX
+						tag = HAI
+						tag = CUB
+						tag = HAW
+					}
+				}
+				country_event = { id = unionstate.64 days = 2 }
+			}
+		}
+	}
+}
+
+country_event = { # The third Great Migration(the other countries)
+	id = unionstate.64
+	title = unionstate.64.t
+	picture = GFX_report_event_USA_chicago
+	desc = { # Pacific States
+		text = unionstate.64.d.psa
+		trigger = {
+			tag = PSA
+		}
+	}
+	desc = { # New England
+		text = unionstate.64.d.new_england
+		trigger = {
+			tag = NEE
+		}
+	}
+	desc = { # Liberia
+		text = unionstate.64.d.liberia
+		trigger = {
+			tag = LIB
+		}
+	}
+	desc = { # Mexico
+		text = unionstate.64.d.mexico
+		trigger = {
+			tag = MEX
+		}
+	}
+	desc = { # Haiti
+		text = unionstate.64.d.haiti
+		trigger = {
+			tag = HAI
+		}
+	}
+	desc = { # Cuba
+		text = unionstate.64.d.cuba
+		trigger = {
+			tag = CUB
+		}
+	}
+	desc = { # Hawaii
+		text = unionstate.64.d.hawaii
+		trigger = {
+			tag = HAW
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = { # You are welcome to stay
+		log = "[GetLogInfo]: event unionstate.64 option unionstate.64.a"
+		name = unionstate.64.a
+		ai_chance = { base = 50 }
+		if = {
+			limit = {
+				TEX = {
+					has_idea = USA_great_migration1
+				}
+			}
+			add_timed_idea = {
+				idea = USA_great_migration3
+				days = 90
+			}
+			add_stability = -0.05
+			add_manpower = 3000
+		}
+		if = {
+			limit = {
+				TEX = {
+					has_idea = USA_great_migration2
+				}
+			}
+			add_timed_idea = {
+				idea = USA_great_migration4
+				days = 50
+			}
+			add_stability = -0.05
+			add_manpower = 5000
+		}
+	}
+	option = { # We do not want you
+		log = "[GetLogInfo]: event unionstate.64 option unionstate.64.b"
+		name = unionstate.64.b
+		ai_chance = { base = 30 }
+		trigger = {
+			NOT = {
+				tag = PSA
+				tag = NEE
+			}
+		}
+		if = { #
+			limit = {
+				TEX = {
+					has_idea = USA_great_migration1
+				}
+			}
+			add_timed_idea = {
+				idea = USA_great_migration4
+				days = 90
+			}
+		}
+		if = {
+			limit = {
+				TEX = {
+					has_idea = USA_great_migration2
+				}
+			}
+			add_timed_idea = {
+				idea = USA_great_migration5
+				days = 50
+			}
+		}
+	}
+}
+
+country_event = { # Pelley's Death
+	id = unionstate.65
+	title = unionstate.65.t
+	desc = unionstate.65.d
+	picture = GFX_report_event_usa_funeral
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_leader = { character = TEX_william_dudley_pelley }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event unionstate.65 option unionstate.65.a"
+		name = unionstate.65.a
+		promote_character = TEX_gerald_lyman_kenneth_smith
+		retire_character = TEX_william_dudley_pelley
+	}
+}
+
+### Foreign Events 71 - 100 ###
+country_event = { # the AUS wishes to join the Entente
+	id = unionstate.71
+	title = unionstate.71.t
+	desc = unionstate.71.d
+	picture = GFX_report_event_CAN_cabinet
+
+	is_triggered_only = yes
+
+	option = { # Of course they may join!
+		log = "[GetLogInfo]: event unionstate.71 option unionstate.71.a"
+		name = unionstate.71.a
+		ai_chance = { base = 100 }
+		add_political_power = 50
+		add_to_faction = TEX
+	}
+	option = { # We have no need of them
+		log = "[GetLogInfo]: event unionstate.71 option unionstate.71.b"
+		name = unionstate.71.b
+		ai_chance = { base = 0 }
+		TEX = {
+			country_event = { id = unionstate.72 days = 1 }
+		}
+	}
+}
+
+country_event = { # Canada refuses
+	id = unionstate.72
+	title = unionstate.72.t
+	desc = unionstate.72.d
+	picture = GFX_report_event_CAN_cabinet
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event unionstate.72 option unionstate.72.a"
+		name = unionstate.72.a
+		add_political_power = -50
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_disapproves_of_govt
+		}
+	}
+}
+
+country_event = { # the AUS wishes to join the Reichspakt
+	id = unionstate.73
+	title = unionstate.73.t
+	desc = unionstate.73.d
+	picture = GFX_report_event_POL_german_officer
+
+	is_triggered_only = yes
+
+	option = { # Of course they may join!
+		log = "[GetLogInfo]: event unionstate.73 option unionstate.73.a"
+		name = unionstate.73.a
+		ai_chance = { base = 100 }
+		add_political_power = 50
+		add_to_faction = TEX
+	}
+	option = { # We have no need of them
+		log = "[GetLogInfo]: event unionstate.73 option unionstate.73.b"
+		name = unionstate.73.b
+		ai_chance = { base = 0 }
+		TEX = {
+			country_event = { id = unionstate.74 days = 1 }
+		}
+	}
+}
+
+country_event = { # Germany refuses
+	id = unionstate.74
+	title = unionstate.74.t
+	desc = unionstate.74.d
+	picture = GFX_report_event_POL_german_officer
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event unionstate.74 option unionstate.74.a"
+		name = unionstate.74.a
+		add_political_power = -50
+		add_opinion_modifier = {
+			target = GER
+			modifier = KR_disapproves_of_govt
+		}
+	}
+}
+
+country_event = { # Share Our Wealth appoints Gerald Smith CEO
+	id = unionstate.77
+	title = unionstate.77.t
+	desc = unionstate.77.d
+	picture = GFX_report_event_USA_DOD_interior
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = TEX_silver_legion_supported
+	}
+
+	option = { # How Dare He!
+		log = "[GetLogInfo]: event unionstate.77 option unionstate.77.a"
+		name = unionstate.77.a
+		add_stability = -0.01
+		hidden_effect = {
+			country_event = { id = unionstate.78 days = 3 }
+		}
+	}
+}
+
+country_event = { # Democrat Loyalists Declare AFP Corrupt
+	id = unionstate.78
+	title = unionstate.78.t
+	desc = unionstate.78.d
+	picture = GFX_report_event_generic_scandal
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = TEX_silver_legion_supported
+	}
+
+	option = { # Fools, we are their only home.
+		log = "[GetLogInfo]: event unionstate.78 option unionstate.78.a"
+		name = unionstate.78.a
+		add_political_power = -10
+		hidden_effect = {
+			country_event = { id = unionstate.6 days = 3 }
+		}
+	}
+}
+
+country_event = { # The Officers' Revolt
+	id = unionstate.79
+	title = unionstate.79.t
+	desc = unionstate.79.d
+	picture = GFX_report_event_USA_Riots
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_government = national_populist
+		has_country_leader = { character = TEX_william_dudley_pelley }
+	}
+
+	option = { # Give Patton free rein
+		log = "[GetLogInfo]: event unionstate.79 option unionstate.79.a"
+		name = unionstate.79.a
+		hidden_effect = {
+			country_event = { id = unionstate.83 days = 5 }
+		}
+	}
+	option = { # Only Legion officers may participate
+		log = "[GetLogInfo]: event unionstate.79 option unionstate.79.b"
+		name = unionstate.79.b
+		hidden_effect = {
+			country_event = { id = unionstate.84 days = 5 }
+		}
+	}
+}
+
+country_event = { # Rebuilding the Constitution
+	id = unionstate.80
+	title = unionstate.80.t
+	desc = unionstate.80.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_government = national_populist
+		has_country_leader = { character = TEX_william_dudley_pelley }
+	}
+
+	option = { # States Rights...for now
+		log = "[GetLogInfo]: event unionstate.80 option unionstate.80.a"
+		name = unionstate.80.a
+		custom_effect_tooltip = TEX_xenophobia
+		add_political_power = -200
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.05
+		}
+		hidden_effect = {
+			country_event = { id = unionstate.81 days = 20 random_days = 15 }
+		}
+	}
+	option = { # Have you read Matthew 20:26-27?
+		log = "[GetLogInfo]: event unionstate.80 option unionstate.80.b"
+		name = unionstate.80.b
+		add_political_power = 100
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.05
+		}
+		add_stability = -0.02
+		hidden_effect = {
+			modify_country_flag = {
+				flag = TEX_xenophobia
+				value = 1
+			}
+			country_event = { id = unionstate.81 days = 20 random_days = 15 }
+		}
+	}
+}
+
+country_event = { # Silver Legion Riots in Baltimore
+	id = unionstate.81
+	title = unionstate.81.t
+	desc = unionstate.81.d
+	picture = GFX_report_event_USA_Riots
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_government = national_populist
+		has_country_leader = { character = TEX_william_dudley_pelley }
+	}
+
+	option = { # Abandon the Legionaires to their fate
+		log = "[GetLogInfo]: event unionstate.81 option unionstate.81.a"
+		name = unionstate.81.a
+		add_political_power = 50
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.03
+		}
+		add_stability = -0.02
+		add_manpower = -3000
+		hidden_effect = {
+			modify_country_flag = {
+				flag = TEX_xenophobia
+				value = 1
+			}
+			country_event = { id = unionstate.82 days = 5 random_days = 5 }
+		}
+	}
+	option = { # Pull them out, no matter the cost
+		log = "[GetLogInfo]: event unionstate.81 option unionstate.81.b"
+		name = unionstate.81.b
+		add_political_power = -200
+		add_manpower = -500
+		hidden_effect = {
+			country_event = { id = unionstate.82 days = 5 random_days = 5 }
+		}
+	}
+}
+
+country_event = { # Marching to Zion
+	id = unionstate.82
+	title = unionstate.82.t
+	picture = GFX_report_event_TEX_silver_legion2
+
+	desc = {
+		text = unionstate.82.d.death
+		trigger = {
+			has_country_flag = {
+				flag = TEX_xenophobia
+				value < 1
+			}
+		}
+	}
+	desc = {
+		text = unionstate.82.d.freedom
+		trigger = {
+			has_country_flag = {
+				flag = TEX_xenophobia
+				value > 2
+			}
+		}
+	}
+	desc = {
+		text = unionstate.82.d.mild
+		trigger = {
+			has_country_flag = {
+				flag = TEX_xenophobia
+				value > 0
+			}
+			has_country_flag = {
+				flag = TEX_xenophobia
+				value < 3
+			}
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event unionstate.82 option unionstate.82.a"
+		name = unionstate.82.a
+		trigger = {
+			has_country_flag = {
+				flag = TEX_xenophobia
+				value < 1
+			}
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.10
+		}
+		add_stability = 0.05
+	}
+	option = {
+		log = "[GetLogInfo]: event unionstate.82 option unionstate.82.c"
+		name = unionstate.82.c
+		trigger = {
+			has_country_flag = {
+				flag = TEX_xenophobia
+				value > 0
+			}
+			has_country_flag = {
+				flag = TEX_xenophobia
+				value < 2
+			}
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.10
+		}
+		add_stability = -0.05
+	}
+	option = {
+		log = "[GetLogInfo]: event unionstate.82 option unionstate.82.c"
+		name = unionstate.82.c
+		trigger = {
+			has_country_flag = {
+				flag = TEX_xenophobia
+				value > 1
+			}
+			has_country_flag = {
+				flag = TEX_xenophobia
+				value < 3
+			}
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.20
+		}
+		add_stability = -0.10
+	}
+	option = {
+		log = "[GetLogInfo]: event unionstate.82 option unionstate.82.b"
+		trigger = {
+			has_country_flag = {
+				flag = TEX_xenophobia
+				value > 2
+			}
+		}
+		name = unionstate.82.b
+		if = {
+			limit = { has_cosmetic_tag = TEX_commonwealth }
+			set_cosmetic_tag = america
+			TEX_united_states_congress = { set_character_name = USA_united_states_congress }
+		}
+		retire_character = TEX_william_dudley_pelley
+		set_politics = {
+			ruling_party = paternal_autocrat
+			last_election = "1936.11.16"
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.10
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.20
+		}
+		add_stability = -0.20
+		TEX_george_van_horn_moseley = { set_nationality = ROOT }
+		hidden_effect = {
+			complete_national_focus = TEX_the_business_plot
+
+			# PatAut Events
+			country_event = { id = unionstate.36 days = 90 random_days = 20 }
+			country_event = { id = unionstate.32 days = 120 random_days = 20 }
+			country_event = { id = unionstate.37 days = 150 random_days = 30 }
+			country_event = { id = unionstate.38 days = 180 random_days = 40 }
+		}
+	}
+}
+
+country_event = { # The Washington Massacre
+	id = unionstate.83
+	title = unionstate.83.t
+	desc = unionstate.83.d
+	picture = GFX_report_event_GRE_riot
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event unionstate.83 option unionstate.83.a"
+		name = unionstate.83.a
+		custom_effect_tooltip = TEX_xenophobia
+		retire_character = TEX_george_smith_patton
+		add_political_power = -100
+		add_stability = -0.05
+		add_manpower = -320
+		hidden_effect = {
+			country_event = { id = unionstate.80 days = 30 }
+		}
+	}
+}
+
+country_event = { # The Washington March
+	id = unionstate.84
+	title = unionstate.84.t
+	desc = unionstate.84.d
+	picture = GFX_report_event_USA_Riots
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event unionstate.84 option unionstate.84.a"
+		name = unionstate.84.a
+		add_political_power = -50
+		add_stability = -0.02
+		hidden_effect = {
+			modify_country_flag = {
+				flag = TEX_xenophobia
+				value = 1
+			}
+			country_event = { id = unionstate.80 days = 30 }
+		}
+	}
+}
+
+### Flavor Events ###
+country_event = { # The Future of Warfare
+	id = unionstate.101
+	title = unionstate.101.t
+	desc = unionstate.101.d
+	picture = GFX_report_event_generic_research_lab
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_completed_focus = TEX_reconstruction_is_over
+	}
+
+	option = { # Goddard's Rocket
+		log = "[GetLogInfo]: event unionstate.101 option unionstate.101.a"
+		name = unionstate.101.a
+		hidden_effect = {
+			country_event = { id = unionstate.102 days = 15 }
+		}
+	}
+	option = { # Vannevar Bush's Bomb
+		log = "[GetLogInfo]: event unionstate.101 option unionstate.101.b"
+		name = unionstate.101.b
+		hidden_effect = {
+			country_event = { id = unionstate.103 days = 15 }
+		}
+	}
+}
+
+country_event = { # Missles over White Sands
+	id = unionstate.102
+	title = unionstate.102.t
+	desc = unionstate.102.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = { # Nowhere is Safe
+		log = "[GetLogInfo]: event unionstate.102 option unionstate.102.a"
+		name = unionstate.102.a
+		add_tech_bonus = {
+			name = unionstate.102.t
+			bonus = 1
+			uses = 1
+			category = rocketry
+			category = jet_technology
+		}
+	}
+}
+
+country_event = { # Nuclear Power in New Mexico
+	id = unionstate.103
+	title = unionstate.103.t
+	desc = unionstate.103.d
+	picture = GFX_report_event_generic_research_lab
+
+	is_triggered_only = yes
+
+	option = { # Of course they may join!
+		log = "[GetLogInfo]: event unionstate.103 option unionstate.103.a"
+		name = unionstate.103.a
+		add_tech_bonus = {
+			name = unionstate.103.t
+			bonus = 1
+			uses = 1
+			category = nuclear
+		}
+	}
+}
+
+country_event = { # Trial of the Weapons companies
+	id = unionstate.105
+	title = unionstate.105.t
+	desc = unionstate.105.d
+	picture = GFX_report_event_USA_reconstruction
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			country_event = { id = unionstate.106 days = 7 }
+			country_event = { id = unionstate.107 days = 14 }
+			country_event = { id = unionstate.108 days = 21 }
+			country_event = { id = unionstate.109 days = 28 }
+		}
+	}
+
+	option = { # companies allowed
+		log = "[GetLogInfo]: event unionstate.105 option unionstate.105.a"
+		name = unionstate.105.a
+		ai_chance = { base = 40 }
+		set_temp_variable = { ideology_change_var = -0.05 }
+		change_ruling_party_popularity = yes
+		set_country_flag = USA_weapon_companies_allowed_USA
+		set_country_flag = USA_weapon_companies_allowed_CSA
+		set_country_flag = USA_weapon_companies_allowed_PSA
+		set_country_flag = USA_weapon_companies_allowed_NEE
+		custom_effect_tooltip = USA_allow_companies_tooltip
+	}
+	option = { # companies not allowed
+		log = "[GetLogInfo]: event unionstate.105 option unionstate.105.b"
+		name = unionstate.105.b
+		ai_chance = { base = 60 }
+		set_temp_variable = { ideology_change_var = 0.05 }
+		change_ruling_party_popularity = yes
+		add_political_power = 100
+	}
+}
+
+country_event = { # Trial of the Heavy Equipment companies
+	id = unionstate.106
+	title = unionstate.106.t
+	desc = unionstate.106.d
+	picture = GFX_report_event_USA_reconstruction
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { # companies allowed
+		log = "[GetLogInfo]: event unionstate.106 option unionstate.106.a"
+		name = unionstate.106.a
+		ai_chance = { base = 40 }
+		set_temp_variable = { ideology_change_var = -0.05 }
+		change_ruling_party_popularity = yes
+		set_country_flag = USA_heavy_equipment_companies_allowed_USA
+		set_country_flag = USA_heavy_equipment_companies_allowed_CSA
+		set_country_flag = USA_heavy_equipment_companies_allowed_PSA
+		set_country_flag = USA_heavy_equipment_companies_allowed_NEE
+		custom_effect_tooltip = USA_allow_companies_tooltip
+	}
+	option = { # companies not allowed
+		log = "[GetLogInfo]: event unionstate.106 option unionstate.106.b"
+		name = unionstate.106.b
+		ai_chance = { base = 60 }
+		set_temp_variable = { ideology_change_var = 0.05 }
+		change_ruling_party_popularity = yes
+		add_political_power = 100
+	}
+}
+
+country_event = { # Trial of the Aviation companies
+	id = unionstate.107
+	title = unionstate.107.t
+	desc = unionstate.107.d
+	picture = GFX_report_event_USA_reconstruction
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { # companies allowed
+		log = "[GetLogInfo]: event unionstate.107 option unionstate.107.a"
+		name = unionstate.107.a
+		ai_chance = { base = 40 }
+		set_temp_variable = { ideology_change_var = -0.05 }
+		change_ruling_party_popularity = yes
+		set_country_flag = USA_aviation_companies_allowed_USA
+		set_country_flag = USA_aviation_companies_allowed_CSA
+		set_country_flag = USA_aviation_companies_allowed_PSA
+		set_country_flag = USA_aviation_companies_allowed_NEE
+		custom_effect_tooltip = USA_allow_companies_tooltip
+	}
+	option = { # companies not allowed
+		log = "[GetLogInfo]: event unionstate.107 option unionstate.107.b"
+		name = unionstate.107.b
+		ai_chance = { base = 60 }
+		set_temp_variable = { ideology_change_var = 0.05 }
+		change_ruling_party_popularity = yes
+		add_political_power = 100
+	}
+}
+
+country_event = { # Trial of the Naval companies
+	id = unionstate.108
+	title = unionstate.108.t
+	desc = unionstate.108.d
+	picture = GFX_report_event_USA_reconstruction
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { # companies allowed
+		log = "[GetLogInfo]: event unionstate.108 option unionstate.108.a"
+		name = unionstate.108.a
+		ai_chance = { base = 40 }
+		set_temp_variable = { ideology_change_var = -0.05 }
+		change_ruling_party_popularity = yes
+		set_country_flag = USA_naval_companies_allowed_USA
+		set_country_flag = USA_naval_companies_allowed_CSA
+		set_country_flag = USA_naval_companies_allowed_PSA
+		set_country_flag = USA_naval_companies_allowed_NEE
+		custom_effect_tooltip = USA_allow_companies_tooltip
+	}
+	option = { # companies not allowed
+		log = "[GetLogInfo]: event unionstate.108 option unionstate.108.b"
+		name = unionstate.108.b
+		ai_chance = { base = 60 }
+		set_temp_variable = { ideology_change_var = 0.05 }
+		change_ruling_party_popularity = yes
+		add_political_power = 100
+	}
+}
+
+country_event = { # Trial of the Industry companies
+	id = unionstate.109
+	title = unionstate.109.t
+	desc = unionstate.109.d
+	picture = GFX_report_event_USA_reconstruction
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { # companies allowed
+		log = "[GetLogInfo]: event unionstate.109 option unionstate.109.a"
+		name = unionstate.109.a
+		ai_chance = { base = 40 }
+		set_temp_variable = { ideology_change_var = -0.05 }
+		change_ruling_party_popularity = yes
+		set_country_flag = USA_industrial_companies_allowed_USA
+		set_country_flag = USA_industrial_companies_allowed_CSA
+		set_country_flag = USA_industrial_companies_allowed_PSA
+		set_country_flag = USA_industrial_companies_allowed_NEE
+		custom_effect_tooltip = USA_allow_companies_tooltip
+	}
+	option = { # companies not allowed
+		log = "[GetLogInfo]: event unionstate.109 option unionstate.109.b"
+		name = unionstate.109.b
+		ai_chance = { base = 60 }
+		set_temp_variable = { ideology_change_var = 0.05 }
+		change_ruling_party_popularity = yes
+		add_political_power = 100
+	}
+}
+
+### Initial Events
+country_event = {
+	id = unionstate.150
+	title = unionstate.150.t
+	desc = unionstate.150.d
+	picture = GFX_report_event_generic_conference
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			country_event = { id = unionstate.151 days = 3 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event unionstate.150 option unionstate.150.a"
+		name = unionstate.150.a
+	}
+}
+
+country_event = {
+	id = unionstate.151
+	title = unionstate.151.t
+	desc = unionstate.151.d
+	picture = GFX_report_event_USA_Long_Rally
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			country_event = { id = unionstate.152 days = 10 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event unionstate.151 option unionstate.151.a"
+		name = unionstate.151.a
+	}
+}
+
+country_event = {
+	id = unionstate.152
+	title = unionstate.152.t
+	desc = unionstate.152.d
+	picture = GFX_report_event_generic_rally
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			country_event = { id = unionstate.153 days = 8 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event unionstate.152 option unionstate.152.a"
+		name = unionstate.152.a
+	}
+}
+
+country_event = {
+	id = unionstate.153
+	title = unionstate.153.t
+	desc = unionstate.153.d
+	picture = GFX_report_event_USA_american_brigade
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_war_with = USA }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event unionstate.153 option unionstate.153.a"
+		name = unionstate.153.a
+	}
+}
+
+###############
+##Army Events##
+#by Drozdovite#
+###############
+country_event = { # Requisition of Civilian Trucks
+	id = unionstate.500
+	title = unionstate.500.t
+	desc = unionstate.500.d
+	picture = GFX_report_event_USA_reconstruction
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { # The Kingfish Thanks you for your service
+		log = "[GetLogInfo]: event unionstate.500 option unionstate.500.a"
+		name = unionstate.500.a
+		add_equipment_to_stockpile = {
+			type = motorized_equipment
+			amount = 850
+			producer = TEX
+		}
+	}
+}
+
+country_event = { # Airborne Experiments Begin
+	id = unionstate.501
+	title = unionstate.501.t
+	desc = unionstate.501.d
+	picture = GFX_report_event_ast_paras
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { # We shall await the results
+		log = "[GetLogInfo]: event unionstate.501 option unionstate.501.a"
+		name = unionstate.501.a
+		hidden_effect = {
+			country_event = { id = unionstate.502 days = 55 }
+		}
+	}
+}
+
+country_event = { # Airborne Experiments Successful
+	id = unionstate.502
+	title = unionstate.502.t
+	desc = unionstate.502.d
+	picture = GFX_report_event_USA_they_got_the_guts
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { # To battle!
+		log = "[GetLogInfo]: event unionstate.502 option unionstate.502.a"
+		name = unionstate.502.a
+		add_equipment_to_stockpile = {
+			type = transport_plane_equipment
+			amount = 50
+		}
+		division_template = {
+			name = "Airborne Division"
+			division_names_group = TEX_PAR_01
+			regiments = {
+				paratrooper = { x = 0 y = 0 }
+				paratrooper = { x = 0 y = 1 }
+				paratrooper = { x = 0 y = 2 }
+				paratrooper = { x = 1 y = 0 }
+				paratrooper = { x = 1 y = 1 }
+				paratrooper = { x = 1 y = 2 }
+			}
+			support = {
+				recon = { x = 0 y = 0 }
+			}
+		}
+		random_owned_controlled_state = {
+			prioritize = { 370 }
+			limit = { is_in_home_area = yes }
+			create_unit = {
+				division = "division_name = { is_name_ordered = yes name_order = 11 } division_template = \"Airborne Division\" start_experience_factor = 0.1"
+				owner = ROOT
+			}
+			create_unit = {
+				division = "division_name = { is_name_ordered = yes name_order = 13 } division_template = \"Airborne Division\" start_experience_factor = 0.1"
+				owner = ROOT
+			}
+			create_unit = {
+				division = "division_name = { is_name_ordered = yes name_order = 82 } division_template = \"Airborne Division\" start_experience_factor = 0.1"
+				owner = ROOT
+			}
+			create_unit = {
+				division = "division_name = { is_name_ordered = yes name_order = 17 } division_template = \"Airborne Division\" start_experience_factor = 0.1"
+				owner = ROOT
+			}
+			create_unit = {
+				division = "division_name = { is_name_ordered = yes name_order = 101 } division_template = \"Airborne Division\" start_experience_factor = 0.1"
+				owner = ROOT
+			}
+		}
+	}
+}

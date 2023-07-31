@@ -1,233 +1,129 @@
-capital = 302
-
-# Vacant
-# recruit_character = BOL_Generic_Vacant
-fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
-
-# recruit_character = BOL_Armando_Alba_Zambrana
-# recruit_character = BOL_Collapsed_Authority
-
-oob = "BOL_1962"
-
-add_ideas = {
-	BOL_patchwork_country
-	BOL_century_of_humiliation
-	BOL_boiling_point
-	
-	# Political #
-	tno_political_parties_controlled_opposition
-	tno_religious_rights_pluralism
-	tno_trade_unions_nonsocialist_allowed
-	tno_immigration_encouraged_immigration
-	tno_slavery_penal_labor
-	tno_public_meetings_regulated
-	tno_press_rights_censored_press
-	tno_vote_franchise_registered_voting
-
-	# Military #
-	tno_conscription_broadened_conscription
-	tno_military_supervision_no_supervision
-	tno_training_minimal_training
-	tno_draft_exemptions_none
-
-	# Economic #
-	tno_trade_laws_free_trade
-	tno_income_taxation_tax_havens
-	tno_minimum_wage_no_minimum_wage
-	tno_max_workhours_unlimited_work_day
-	tno_pensions_no_pensions
-	tno_unemployment_no_subsidies
-
-	# Social #
-	tno_health_care_no_government_support
-	tno_education_stratified_education
-	tno_penal_system_harsh_penal_code
-	tno_gender_rights_traditional_roles
-	tno_security_oppressive_police
-	tno_regulations_utterly_unregulated
-
-	# SocDevs
-	tno_academic_base_mass_illiteracy
-	tno_research_facilities_basic
-	tno_agriculture_centralized
-	tno_healthcare_rudimentary
-	tno_industrial_equipment_power_tools
-	tno_industrial_expertise_pre_industrial
-	tno_army_professionalism_reluctant_conscripts
-	tno_admin_efficiency_illegitimate_administration
-}
-
-# Policy effectiveness
-set_country_flag = tno_defined_startup_effectiveness
-
-set_variable = { tno_political_parties_effectiveness = 31 }
-set_variable = { tno_religious_rights_effectiveness = 75 }
-set_variable = { tno_trade_unions_effectiveness = 23 }
-set_variable = { tno_immigration_effectiveness = 100 }
-set_variable = { tno_slavery_effectiveness = 80 }
-set_variable = { tno_public_meetings_effectiveness = 40 }
-set_variable = { tno_press_rights_effectiveness = 44 }
-set_variable = { tno_vote_franchise_effectiveness = 50 }
-
-set_variable = { tno_conscription_effectiveness = 56 }
-set_variable = { tno_military_supervision_effectiveness = 20 }
-set_variable = { tno_training_effectiveness = 45 }
-set_variable = { tno_draft_exemptions_effectiveness = 20 }
-
-set_variable = { tno_trade_laws_effectiveness = 90 }
-set_variable = { tno_income_taxation_effectiveness = 60 }
-set_variable = { tno_minimum_wage_effectiveness = 100 }
-set_variable = { tno_max_workhours_effectiveness = 100 }
-set_variable = { tno_pensions_effectiveness = 100 }
-set_variable = { tno_unemployment_effectiveness = 100 }
-
-set_variable = { tno_health_care_effectiveness = 100 }
-set_variable = { tno_education_effectiveness = 90 }
-set_variable = { tno_penal_system_effectiveness = 70 }
-set_variable = { tno_gender_rights_effectiveness = 40 }
-set_variable = { tno_security_effectiveness = 62 }
-set_variable = { tno_regulations_effectiveness = 100 }
+﻿capital = 302
+oob = "BOL"
+set_research_slots = 2
+set_stability = 0.4
+set_war_support = 0.3
 
 set_technology = {
-	basic_train = 1
-
-	##INFANTRY##
-	infantry_weapons_1 = 1
-	night_vision_1 = 1
-	
-	infantry_kit_1 = 1
-	infantry_weapons_2 = 1
-	infantry_kit_2 = 1
-	infantry_weapons_improvements_mine_1 = 1
-	infantry_weapons_improvements_ammo_1 = 1
-	infantry_weapons_improvements_grenade_1 = 1
-	basic_infantry_equipment = 1
-	support_weapons = 1
-	support_weapons_hmg_1 = 1
-	combat_support_equipment_1 = 1
-	support_weapons_arty_1 = 1
-	infantry_at = 1
-	
-	motorized_infantry = 1
-
-	marines = 1
-	tech_special_forces = 1
+	### Infantry ###
+	infantry_weapons = 1
 	tech_mountaineers = 1
 
-	##SUPPORT##
+	### Support ###
 	tech_support = 1
 	tech_engineers = 1
-	assault_weapons_1 = 1
-	tech_recon = 1
-	tech_military_police = 1
-	tech_maintenance_company = 1
-	tech_field_hospital = 1
-	tech_logistics_company = 1
-	tech_signal_company = 1
 
-	###AERIAL###
-	early_fighter = 1
-	fighter_1945 = 1
-	interceptor_1945 = 1
-	CAS_1945 = 1
-	strategic_bomber1 = 1
-	heavy_air_1945 = 1
-	tac_bomber1 = 1
-	tac_air_1945 = 1
-	transport_air1 = 1
-	transport_air_1945 = 1
+	### Artillery ###
+	gw_artillery = 1
 
-	#### ENGINEERING ####
-	electronic_mechanical_engineering = 1
-	radio = 1
+	### Industry ###
+	fuel_silos = 1
 
-	radio_detection = 1
-	decimetric_radar = 1
-	centimetric_radar = 1
-
-	mechanical_computing = 1
-
-	#### INDUSTRY ####
-	ww2_line_production = 1
-	building_construction_1 = 1
-	energy_technology_1 = 1
-	resource_extraction_methods = 1
-
-	### DOCTRINE ###
-	maneuver_warfare = 1
-
-	air_superiority = 1
+	### Trains ###
+	basic_train = 1
 }
 
+### Starting trains. Not using train buffer since it doesn't add enough trains
+add_equipment_to_stockpile = {
+	type = train_equipment
+	amount = 20
+}
+
+### Planes - BBA ###
 if = {
-	limit = {
-		NOT = { has_dlc = "No Step Back" }
-	}
+	limit = { has_dlc_bba = yes }
+	set_air_oob = "BOL_air_bba"
 	set_technology = {
-		advanced_light_tank = 1
-		advanced_medium_tank = 1
-		mechanised_infantry3 = 1
-		AC_1945 = 1
-
-		antiair5 = 1
-		artillery4 = 1
+		iw_small_airframe = 1
+		aa_lmg = 1
+		engines_1 = 1
 	}
 }
+
+### Planes - non BBA ###
 if = {
-	limit = {
-		has_dlc = "No Step Back"
-	}
-	set_technology = {
-		NSB_APC_1945 = 1
-
-		NSB_IFV_1945 = 1
-
-		NSB_MBT_1945 = 1
-
-		NSB_AC_1945 = 1
-
-		NSB_Armour_1 = 1
-
-		NSB_Engine_1 = 1
-
-		NSB_artillery_1945 = 1
-
-		NSB_antiair_1945 = 1
-	}
+	limit = { has_dlc_bba = no }
+	set_air_oob = "BOL_air_legacy"
+	set_technology = { early_fighter = 1 }
 }
 
-if = {
-	limit = { has_dlc = "La Resistance" }
-	set_technology = {
-		scout_plane_1945 = 1
-	}
-}
-
-set_research_slots = 2
+PAR = { embargo_ROOT = yes }
 
 set_politics = {
-	ruling_party = conservative
-	last_election = "1959.12.5"
+	ruling_party = paternal_autocrat
+	last_election = "1888.6.15"
 	election_frequency = 48
-	elections_allowed = yes
-
+	elections_allowed = no
 }
 
 set_popularities = {
-	liberal_liberal = 19
-	liberal = 14
-	conservative = 32
-	anocrat = 35
+	totalist = 2
+	radical_socialist = 0
+	syndicalist = 8
+	social_democrat = 7
+	social_liberal = 3
+	market_liberal = 19
+	social_conservative = 15
+	authoritarian_democrat = 0
+	paternal_autocrat = 42
+	national_populist = 4
 }
 
-#econtype
-set_variable = { TNO_economy_type = token:Econ_Type_Capitalism }
+add_ideas = {
+	#starting modifiers
+	BOL_Trash_Army
+	BOL_Struggling_Economy
+}
 
-# opinions
-add_opinion_modifier = { target = STC modifier = BOL_STC_traitors }
+### Reparations are now added in history file (was in bol.6)
+add_timed_idea = {
+	idea = BOL_War_Rep
+	days = 730
+}
+PAR = {
+	add_timed_idea = {
+		idea = BOL_War_Rep_Rec
+		days = 730
+	}
+}
 
-add_opinion_modifier = { target = PAR modifier = BOL_PAR_chaco_war }
-reverse_add_opinion_modifier = { target = PAR modifier = BOL_PAR_chaco_war }
+country_event = { id = bol.6 days = 30 }
+country_event = { id = bol.7 days = 200 random_hours = 1000 }
+activate_targeted_decision = { target = CHL decision = BOL_kill_CHL }
 
-add_opinion_modifier = { target = ARG modifier = ARG_BOL_distrust }
-reverse_add_opinion_modifier = { target = ARG modifier = ARG_BOL_distrust }
+### Country Leaders ###
+recruit_character = BOL_bernardino_bilbao_rioja
+recruit_character = BOL_german_busch_becerra
+recruit_character = BOL_carlos_quintanilla_quiroga
+recruit_character = BOL_mamerto_urriolagoitia_harriague
+recruit_character = BOL_enrique_hertzog
+recruit_character = BOL_simon_iturri_patino
+recruit_character = BOL_alcides_arguedas
+recruit_character = BOL_enrique_penaranda_castillo
+recruit_character = BOL_victor_paz_estenssoro
+recruit_character = BOL_francisco_javier_del_granado_y_granado
+recruit_character = BOL_hernan_siles_zuazo
+recruit_character = BOL_franz_tamayo_solares
+recruit_character = BOL_jose_antonio_arze_y_arze
+recruit_character = BOL_daniel_sanchez_bustamante
+recruit_character = BOL_carlos_salazar_mostajo
+
+### Corps Commanders ###
+recruit_character = BOL_angel_ayora
+recruit_character = BOL_gualberto_villarroel_lopez
+recruit_character = BOL_manuel_marzana
+
+### Advisors ###
+recruit_character = BOL_walter_guevara
+recruit_character = BOL_carlos_montenegro
+recruit_character = BOL_moritz_hochschild
+recruit_character = BOL_hugo_ballivian
+recruit_character = BOL_amalia_villa_de_la_tapia
+recruit_character = BOL_ronan_monje_roca
+recruit_character = BOL_david_toro
+recruit_character = BOL_gabriel_gosalvez
+recruit_character = BOL_tomas_monje
+
+recruit_character = BOL_palacio_quemado
+
+activate_advisor = BOL_palacio_quemado_sic

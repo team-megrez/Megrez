@@ -1,3570 +1,1215 @@
 technologies = {
-	### SOVIET TANK NAMES IN COMMENTS SO YOU CAN FIND STUFF MORE EASILY
+	### GERMAN TANK NAMES IN COMMENTS SO YOU CAN FIND STUFF MORE EASILY
+	gwtank = {#Leichttraktor
 
-#########
-##  AC ##
-#########
-
-	AC_1945 = {
 		enable_equipments = {
-			armored_car_equipment_0
+			gw_tank_equipment
 		}
-
+		enable_subunits = {
+			light_armor
+		}
+		on_research_complete_limit = {
+			NOT = { has_template_containing_unit = light_armor }
+			NOT = { has_template_containing_unit = heavy_armor }
+			NOT = { has_template_containing_unit = medium_armor }
+		}
+		on_research_complete = {
+			initialize_armour_template = yes
+			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
+		}
 
 		path = {
-			leads_to_tech = AC_1950
+			leads_to_tech = basic_light_tank
 			research_cost_coeff = 1
 		}
-		research_cost = 2.5
-		start_year = 1945
+
+		path = {
+			leads_to_tech = basic_heavy_tank
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 1918
 		folder = {
 			name = armour_folder
 			position = { x = 0 y = 0 }
 		}
 
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 500
+				is_eligible_for_armor_production = yes
+			}
+		}
+
 		categories = {
-			motorized_equipment
 			armor
+			cat_light_armor
+		}
+	}
+
+	basic_light_tank = {#Panzer I
+
+		enable_equipments = {
+			light_tank_equipment_1
+		}
+		enable_subunits = {
+			light_armor
+		}
+
+		on_research_complete_limit = {
+			NOT = { has_template_containing_unit = light_armor }
+			NOT = { has_template_containing_unit = heavy_armor }
+			NOT = { has_template_containing_unit = medium_armor }
+		}
+		on_research_complete = {
+			initialize_armour_template = yes
+			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
+		}
+
+		path = {
+			leads_to_tech = improved_light_tank
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 1934
+		folder = {
+			name = armour_folder
+			position = { x = -4 y = 2 }
+		}
+
+		sub_technologies = {
+			basic_light_td
+			basic_light_art
+			basic_light_spaa
+		}
+
+		ai_will_do = {
+			base = 0 # KR production changes - only mediums
+		}
+
+		categories = {
+			armor
+			cat_light_armor
+		}
+	}
+
+	basic_light_td = {
+
+		enable_equipments = {
+			light_tank_destroyer_equipment_1
+		}
+		enable_subunits = {
+			light_tank_destroyer_brigade
+		}
+
+		research_cost = 0.5
+		start_year = 1934
+
+		ai_will_do = {
+			base = 0 # KR production changes - only mediums
+		}
+
+		categories = {
+			armor
+		}
+	}
+
+	basic_light_art = {
+
+		enable_equipments = {
+			light_tank_artillery_equipment_1
+		}
+		enable_subunits = {
+			light_sp_artillery_brigade
+		}
+
+		research_cost = 0.5
+		start_year = 1934
+
+		ai_will_do = {
+			base = 0 # KR production changes - only mediums
+		}
+
+		categories = {
+			armor
+		}
+	}
+
+	basic_light_spaa = {
+
+		enable_equipments = {
+			light_tank_aa_equipment_1
+		}
+		enable_subunits = {
+			light_sp_anti_air_brigade
+		}
+
+		research_cost = 0.5
+		start_year = 1934
+
+		ai_will_do = {
+			base = 0 # KR production changes - only mediums
+		}
+
+		categories = {
+			armor
+		}
+	}
+
+	improved_light_tank = {#Panzer II
+
+		enable_equipments = {
+			light_tank_equipment_2
+		}
+
+		path = {
+			leads_to_tech = advanced_light_tank
+			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = amphibious_tank
+			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = basic_medium_tank
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 1936
+
+		folder = {
+			name = armour_folder
+			position = { x = -4 y = 4 }
+		}
+
+		sub_technologies = {
+			improved_light_td
+			improved_light_art
+			improved_light_spaa
+		}
+
+		ai_will_do = {
+			base = 0 # KR production changes - only mediums
+		}
+
+		categories = {
+			armor
+			cat_light_armor
+		}
+	}
+
+	improved_light_td = {
+
+		enable_equipments = {
+			light_tank_destroyer_equipment_2
+		}
+
+		research_cost = 0.5
+		start_year = 1936
+
+		ai_will_do = {
+			base = 0 # KR production changes - only mediums
+		}
+
+		categories = {
+			armor
+		}
+	}
+
+	improved_light_art = {
+
+		enable_equipments = {
+			light_tank_artillery_equipment_2
+		}
+
+		research_cost = 0.5
+		start_year = 1936
+
+		ai_will_do = {
+			base = 0 # KR production changes - only mediums
+		}
+
+		categories = {
+			armor
+		}
+	}
+
+	improved_light_spaa = {
+
+		enable_equipments = {
+			light_tank_aa_equipment_2
+		}
+
+		research_cost = 0.5
+		start_year = 1936
+
+		ai_will_do = {
+			base = 0	# AI doesn't use SPAA
+		}
+
+		categories = {
+			armor
+		}
+	}
+
+	amphibious_tank = {#SchwimmPanzer II
+
+		enable_equipments = {
+			amphibious_tank_equipment_1
 		}
 
 		enable_subunits = {
-			armoured_car
+			amphibious_armor
+		}
+
+		path = {
+			leads_to_tech = amphibious_tank_2
+			research_cost_coeff = 1
+		}
+
+		allow_branch = {
+			has_dlc = "Man the Guns"
+		}
+
+		research_cost = 2
+		start_year = 1940
+
+		folder = {
+			name = armour_folder
+			position = { x = -8 y = 7 }
 		}
 
 		ai_will_do = {
-			factor = 50
-		}
-	}
-
-	AC_1950 = {
-		enable_equipments = {
-			armored_car_equipment_1
-		}
-		path = {
-			leads_to_tech = AC_1960
-			research_cost_coeff = 1
-		}
-		research_cost = 2
-		start_year = 1950
-		folder = {
-			name = armour_folder
-			position = { x = 0 y = 4 }
+			base = 0 # KR production changes - only mediums
 		}
 
 		categories = {
-			motorized_equipment
 			armor
-		}
-
-		ai_will_do = {
-			factor = 50
+			tp_tech
 		}
 	}
 
-	AC_1960 = {
+	amphibious_tank_2 = {#tauchPanzer III
+
 		enable_equipments = {
-			armored_car_equipment_2
+			amphibious_tank_equipment_2
 		}
-		path = {
-			leads_to_tech = AC_1970
-			research_cost_coeff = 1
-		}
+
 		research_cost = 2
-		start_year = 1960
+		start_year = 1942
+
 		folder = {
 			name = armour_folder
-			position = { x = 0 y = 12 }
+			position = { x = -8 y = 9 }
+		}
+
+		ai_will_do = {
+			base = 0 # KR production changes - only mediums
 		}
 
 		categories = {
-			motorized_equipment
 			armor
-		}
-
-		ai_will_do = {
-			factor = 50
+			tp_tech
 		}
 	}
 
-	AC_1970 = {
+	advanced_light_tank = {#Leopard
+
 		enable_equipments = {
-			armored_car_equipment_3
+			light_tank_equipment_3
 		}
-		path = {
-			leads_to_tech = AC_1980
-			research_cost_coeff = 1
-		}
+
 		research_cost = 2
-		start_year = 1970
+		start_year = 1941
+
 		folder = {
 			name = armour_folder
-			position = { x = 0 y = 20 }
+			position = { x = -4 y = 8 }
+		}
+
+		sub_technologies = {
+			advanced_light_td
+			advanced_light_art
+			advanced_light_spaa
+		}
+
+		ai_will_do = {
+			base = 0 # KR production changes - only mediums
 		}
 
 		categories = {
-			motorized_equipment
 			armor
-		}
-
-		ai_will_do = {
-			factor = 50
+			cat_light_armor
 		}
 	}
 
-	AC_1980 = {
+	advanced_light_td = {
+
 		enable_equipments = {
-			armored_car_equipment_4
+			light_tank_destroyer_equipment_3
 		}
-		path = {
-			leads_to_tech = AC_1990
-			research_cost_coeff = 1
-		}
-		research_cost = 2
-		start_year = 1970
-		folder = {
-			name = armour_folder
-			position = { x = 0 y = 28 }
+
+		research_cost = 0.5
+		start_year = 1941
+
+		ai_will_do = {
+			base = 0 # KR production changes - only mediums
 		}
 
 		categories = {
-			motorized_equipment
 			armor
-		}
-
-		ai_will_do = {
-			factor = 50
 		}
 	}
 
-	AC_1990 = {
+	advanced_light_art = {
+
 		enable_equipments = {
-			armored_car_equipment_5
+			light_tank_artillery_equipment_3
 		}
-		research_cost = 2
-		start_year = 1990
-		folder = {
-			name = armour_folder
-			position = { x = 0 y = 36 }
+
+		research_cost = 0.5
+		start_year = 1941
+
+		ai_will_do = {
+			base = 0 # KR production changes - only mediums
 		}
 
 		categories = {
-			motorized_equipment
 			armor
-		}
-
-		ai_will_do = {
-			factor = 50
 		}
 	}
 
-#########
-## APC ##
-#########
-
-	mechanised_infantry3 = {
+	advanced_light_spaa = {
 
 		enable_equipments = {
-			APC_equipment_0
+			light_tank_aa_equipment_3
 		}
+
+		research_cost = 0.5
+		start_year = 1941
+
+		ai_will_do = {
+			base = 0	# AI doesn't use SPAA
+		}
+
+		categories = {
+			armor
+		}
+	}
+
+	basic_medium_tank = {#Panzer III
+
+		enable_equipments = {
+			medium_tank_equipment_1
+		}
+
+		enable_subunits = {
+			medium_armor
+		}
+
 		path = {
-			leads_to_tech = APC_1950
+			leads_to_tech = improved_medium_tank
 			research_cost_coeff = 1
 		}
+
+		research_cost = 2
+		start_year = 1939
+
+		folder = {
+			name = armour_folder
+			position = { x = 0 y = 6 }
+		}
+
+		sub_technologies = {
+			basic_medium_td
+			basic_medium_art
+			basic_medium_spaa
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 500
+				is_eligible_for_armor_production = yes
+			}
+		}
+
+		categories = {
+			armor
+			cat_medium_armor
+		}
+	}
+
+	basic_medium_td = {
+
+		enable_equipments = {
+			medium_tank_destroyer_equipment_1
+		}
+
+		enable_subunits = {
+			medium_tank_destroyer_brigade
+		}
+
+		research_cost = 0.5
+		start_year = 1939
+
+		ai_will_do = {
+			base = 0 # KR production changes - only mediums
+		}
+
+		categories = {
+			armor
+		}
+	}
+
+	basic_medium_art = {
+
+		enable_equipments = {
+			medium_tank_artillery_equipment_1
+		}
+
+		enable_subunits = {
+			medium_sp_artillery_brigade
+		}
+
+		research_cost = 0.5
+		start_year = 1939
+
+		ai_will_do = {
+			base = 0 # KR production changes - only mediums
+		}
+
+		categories = {
+			armor
+		}
+	}
+
+	basic_medium_spaa = {
+
+		enable_equipments = {
+			medium_tank_aa_equipment_1
+		}
+
+		enable_subunits = {
+			medium_sp_anti_air_brigade
+		}
+
+		research_cost = 0.5
+		start_year = 1939
+
+		ai_will_do = {
+			base = 0 # KR production changes - only mediums
+		}
+
+		categories = {
+			armor
+		}
+	}
+
+	improved_medium_tank = {#Panzer IV
+
+		enable_equipments = {
+			medium_tank_equipment_2
+		}
+
+		path = {
+			leads_to_tech = advanced_medium_tank
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = improved_heavy_tank
+			research_cost_coeff = 0.9
+		}
+
+		research_cost = 2
+		start_year = 1941
+
+		folder = {
+			name = armour_folder
+			position = { x = 0 y = 8 }
+		}
+
+		sub_technologies = {
+			improved_medium_td
+			improved_medium_art
+			improved_medium_spaa
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 500
+				is_eligible_for_armor_production = yes
+			}
+		}
+
+		categories = {
+			armor
+			cat_medium_armor
+		}
+	}
+
+	improved_medium_td = {
+
+		enable_equipments = {
+			medium_tank_destroyer_equipment_2
+		}
+
+		research_cost = 0.5
+		start_year = 1941
+
+		ai_will_do = {
+			base = 0 # KR production changes - only mediums
+		}
+
+		categories = {
+			armor
+		}
+	}
+
+	improved_medium_art = {
+
+		enable_equipments = {
+			medium_tank_artillery_equipment_2
+		}
+
+		research_cost = 0.5
+		start_year = 1941
+
+		ai_will_do = {
+			base = 0 # KR production changes - only mediums
+		}
+
+		categories = {
+			armor
+		}
+	}
+
+	improved_medium_spaa = {
+
+		enable_equipments = {
+			medium_tank_aa_equipment_2
+		}
+
+		research_cost = 0.5
+		start_year = 1941
+
+		ai_will_do = {
+			base = 0 # KR production changes - only mediums
+		}
+
+		categories = {
+			armor
+		}
+	}
+
+	advanced_medium_tank = {#Panther
+
+		enable_equipments = {
+			medium_tank_equipment_3
+		}
+
+		path = {
+			leads_to_tech = main_battle_tank
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = advanced_heavy_tank
+			research_cost_coeff = 0.9
+		}
+
+		research_cost = 2
+		start_year = 1943
+
+		folder = {
+			name = armour_folder
+			position = { x = 0 y = 10 }
+		}
+
+		sub_technologies = {
+			advanced_medium_td
+			advanced_medium_art
+			advanced_medium_spaa
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 500
+				is_eligible_for_armor_production = yes
+			}
+		}
+
+		categories = {
+			armor
+			cat_medium_armor
+		}
+	}
+
+	advanced_medium_td = {
+
+		enable_equipments = {
+			medium_tank_destroyer_equipment_3
+		}
+
+		research_cost = 0.5
+		start_year = 1943
+
+		ai_will_do = {
+			base = 0 # KR production changes - only mediums
+		}
+
+		categories = {
+			armor
+		}
+	}
+
+	advanced_medium_art = {
+
+		enable_equipments = {
+			medium_tank_artillery_equipment_3
+		}
+
+		research_cost = 0.5
+		start_year = 1943
+
+		ai_will_do = {
+			base = 0 # KR production changes - only mediums
+		}
+
+		categories = {
+			armor
+		}
+	}
+
+	advanced_medium_spaa = {
+
+		enable_equipments = {
+			medium_tank_aa_equipment_3
+		}
+
+		research_cost = 0.5
+		start_year = 1943
+
+		ai_will_do = {
+			base = 0 # KR production changes - only mediums
+		}
+
+		categories = {
+			armor
+		}
+	}
+
+	main_battle_tank = {#E-50
+
+		enable_equipments = {
+			modern_tank_equipment_1
+		}
+		enable_subunits = {
+			modern_armor
+		}
+
 		research_cost = 2.5
 		start_year = 1945
+
 		folder = {
 			name = armour_folder
-			position = { x = 0 y = 0 }
+			position = { x = 2 y = 12 }
 		}
 
-		categories = {
-			motorized_equipment
-			armor
-			APC
+		sub_technologies = {
+			modern_td
+			modern_art
+			modern_spaa
 		}
 
 		ai_will_do = {
-			factor = 50
+			base = 0
+			modifier = {
+				add = 500
+				is_eligible_for_armor_production = yes
+			}
+		}
+
+		categories = {
+			armor
+			cat_medium_armor
 		}
 	}
 
-	APC_1950 = { #Panzer I
+	modern_td = {
 
 		enable_equipments = {
-			APC_equipment_1
+			modern_tank_destroyer_equipment_1
 		}
 
-		path = {
-			leads_to_tech = APC_1960
-			research_cost_coeff = 1
+		enable_subunits = {
+			modern_tank_destroyer_brigade
 		}
 
-		path = { #1950 armor
-			leads_to_tech = APC_1950_basic_armor
-			research_cost_coeff = 1
-		}
-
-		path = { #1950 turret
-			leads_to_tech = APC_1950_basic_turret
-			research_cost_coeff = 1
-		}
-
-		#path = { #1950 armor engine
-		#	leads_to_tech = APC_1950_basic_engine
-		#	research_cost_coeff = 1
-		#}
-
-		research_cost = 2
-		start_year = 1950
-
-		folder = {
-			name = armour_folder
-			position = { x = 0 y = 4 }
-		}
-
-		ai_will_do = {
-			factor = 50
-
-		}
-
-		categories = {
-			armor
-			APC
-		}
-	}
-
-	APC_1950_basic_armor = {
-
-		APC = {
-			armor_value = 0.05
-			breakthrough = 0.1
-		}
-
-		path = {
-			leads_to_tech = APC_1950_improved_armor
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1953
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 6 }
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-
-		categories = {
-			armor
-			APC
-			armor_improvements
-		}
-	}
-
-	APC_1950_improved_armor = {
-
-		APC = {
-			armor_value = 0.1
-			breakthrough = 0.15
-		}
-
-		path = {
-			leads_to_tech = APC_1950_advanced_armor
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1956
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 8 }
-		}
-
-		categories = {
-			armor
-			APC
-			armor_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-		}
-	}
-
-	APC_1950_advanced_armor = {
-
-		APC = {
-			armor_value = 0.15
-			breakthrough = 0.2
-		}
-
-		research_cost = 1
-
-		start_year = 1959
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 10 }
-		}
-
-		categories = {
-			armor
-			APC
-			armor_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-		}
-	}
-
-	APC_1950_basic_turret = {
-
-		APC = {
-			soft_attack = 0.05
-			hard_attack = 0.05
-			ap_attack = 0.1
-		}
-
-		path = {
-			leads_to_tech = APC_1950_improved_turret
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1953
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 6 }
-		}
-
-		categories = {
-			armor
-			APC
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-		}
-	}
-
-	APC_1950_improved_turret = {
-
-		APC = {
-			soft_attack = 0.1
-			hard_attack = 0.1
-			ap_attack = 0.15
-		}
-
-		path = {
-			leads_to_tech = APC_1950_advanced_turret
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1956
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 8 }
-		}
-
-		categories = {
-			armor
-			APC
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	APC_1950_advanced_turret = {
-
-		APC = {
-			soft_attack = 0.15
-			hard_attack = 0.15
-			ap_attack = 0.2
-		}
-
-		research_cost = 1
-
-		start_year = 1959
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 10 }
-		}
-
-		categories = {
-			armor
-			APC
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	APC_1960 = { #Panzer II / APC 1960
-
-		enable_equipments = {
-			APC_equipment_2
-		}
-
-		path = {
-			leads_to_tech = APC_1970
-			research_cost_coeff = 1
-		}
-		path = { #1960 armor
-			leads_to_tech = APC_1960_basic_armor
-			research_cost_coeff = 1
-		}
-
-		path = { #1960 turret
-			leads_to_tech = APC_1960_basic_turret
-			research_cost_coeff = 1
-		}
-
-		#path = { #1960 armor engine
-		#	leads_to_tech = APC_1960_basic_engine
-		#	research_cost_coeff = 1
-		#}
-		research_cost = 2
-		start_year = 1960
-
-		folder = {
-			name = armour_folder
-			position = { x = 0 y = 12 }
-		}
-
-
-		ai_will_do = {
-			factor = 50
-
-		}
-
-		categories = {
-			armor
-			APC
-		}
-	}
-
-	APC_1960_basic_armor = {
-
-		APC = {
-			armor_value = 0.05
-			breakthrough = 0.1
-		}
-
-		path = {
-			leads_to_tech = APC_1960_improved_armor
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1963
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 14 }
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-
-		categories = {
-			armor
-			APC
-			armor_improvements
-		}
-	}
-
-	APC_1960_improved_armor = {
-
-		APC = {
-			armor_value = 0.1
-			breakthrough = 0.15
-		}
-
-		path = {
-			leads_to_tech = APC_1960_advanced_armor
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1966
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 16 }
-		}
-
-		categories = {
-			armor
-			APC
-			armor_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	APC_1960_advanced_armor = {
-
-		APC = {
-			armor_value = 0.15
-			breakthrough = 0.2
-		}
-
-		research_cost = 1
-
-		start_year = 1969
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 18 }
-		}
-
-		categories = {
-			armor
-			APC
-			armor_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	APC_1960_basic_turret = {
-
-		APC = {
-			soft_attack = 0.05
-			hard_attack = 0.05
-			ap_attack = 0.1
-		}
-
-		path = {
-			leads_to_tech = APC_1960_improved_turret
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1963
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 14 }
-		}
-
-		categories = {
-			armor
-			APC
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	APC_1960_improved_turret = {
-
-		APC = {
-			soft_attack = 0.1
-			hard_attack = 0.1
-			ap_attack = 0.15
-		}
-
-		path = {
-			leads_to_tech = APC_1960_advanced_turret
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1966
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 16 }
-		}
-
-		categories = {
-			armor
-			APC
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	APC_1960_advanced_turret = {
-
-		APC = {
-			soft_attack = 0.15
-			hard_attack = 0.15
-			ap_attack = 0.2
-		}
-
-		research_cost = 1
-
-		start_year = 1969
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 18 }
-		}
-
-		categories = {
-			armor
-			APC
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	APC_1970 = { #Leopard
-
-		enable_equipments = {
-			APC_equipment_3
-		}
-		path = { #1980
-			leads_to_tech = APC_1980
-			research_cost_coeff = 1
-		}
-		path = { #1970 armor
-			leads_to_tech = APC_1970_basic_armor
-			research_cost_coeff = 1
-		}
-		path = { #1970 turret
-			leads_to_tech = APC_1970_basic_turret
-			research_cost_coeff = 1
-		}
-
-		#path = { #1970 armor engine
-		#	leads_to_tech = APC_1970_basic_engine
-		#	research_cost_coeff = 1
-		#}
-
-		research_cost = 2
-		start_year = 1970
-
-		folder = {
-			name = armour_folder
-			position = { x = 0 y = 20 }
-		}
-
-
-		ai_will_do = {
-			factor = 50
-
-		}
-
-		categories = {
-			armor
-			APC
-		}
-	}
-	APC_1970_basic_armor = {
-
-		APC = {
-			armor_value = 0.05
-			breakthrough = 0.1
-		}
-
-		path = {
-			leads_to_tech = APC_1970_improved_armor
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1973
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 22 }
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-
-		categories = {
-			armor
-			APC
-			armor_improvements
-		}
-	}
-
-	APC_1970_improved_armor = {
-
-		APC = {
-			armor_value = 0.1
-			breakthrough = 0.15
-		}
-
-		path = {
-			leads_to_tech = APC_1970_advanced_armor
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1976
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 24 }
-		}
-
-		categories = {
-			armor
-			APC
-			armor_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	APC_1970_advanced_armor = {
-
-		APC = {
-			armor_value = 0.15
-			breakthrough = 0.2
-		}
-
-		research_cost = 1
-
-		start_year = 1979
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 26 }
-		}
-
-		categories = {
-			armor
-			APC
-			armor_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	APC_1970_basic_turret = {
-
-		APC = {
-			soft_attack = 0.05
-			hard_attack = 0.05
-			ap_attack = 0.1
-		}
-
-		path = {
-			leads_to_tech = APC_1970_improved_turret
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1973
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 22 }
-		}
-
-		categories = {
-			armor
-			APC
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	APC_1970_improved_turret = {
-
-		APC = {
-			soft_attack = 0.1
-			hard_attack = 0.1
-			ap_attack = 0.15
-		}
-
-		path = {
-			leads_to_tech = APC_1970_advanced_turret
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1976
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 24 }
-		}
-
-		categories = {
-			armor
-			APC
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	APC_1970_advanced_turret = {
-
-		APC = {
-			soft_attack = 0.15
-			hard_attack = 0.15
-			ap_attack = 0.2
-		}
-
-		research_cost = 1
-
-		start_year = 1979
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 26 }
-		}
-
-		categories = {
-			armor
-			APC
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	APC_1980 = { #Leopard
-
-		enable_equipments = {
-			APC_equipment_4
-		}
-		path = { #1990 armor
-			leads_to_tech = APC_1990
-			research_cost_coeff = 1
-		}
-		path = { #1980 armor
-			leads_to_tech = APC_1980_basic_armor
-			research_cost_coeff = 1
-		}
-
-		path = { #1980 turret
-			leads_to_tech = APC_1980_basic_turret
-			research_cost_coeff = 1
-		}
-
-		research_cost = 2
-		start_year = 1980
-
-		folder = {
-			name = armour_folder
-			position = { x = 0 y = 28 }
-		}
-
-
-		ai_will_do = {
-			factor = 50
-
-		}
-
-		categories = {
-			armor
-			APC
-		}
-	}
-	APC_1980_basic_armor = {
-
-		APC = {
-			armor_value = 0.05
-			breakthrough = 0.1
-		}
-
-		path = {
-			leads_to_tech = APC_1980_improved_armor
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1983
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 30 }
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-
-		categories = {
-			armor
-			APC
-			armor_improvements
-		}
-	}
-
-	APC_1980_improved_armor = {
-
-		APC = {
-			armor_value = 0.1
-			breakthrough = 0.15
-		}
-
-		path = {
-			leads_to_tech = APC_1980_advanced_armor
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1986
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 32 }
-		}
-
-		categories = {
-			armor
-			APC
-			armor_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	APC_1980_advanced_armor = {
-
-		APC = {
-			armor_value = 0.15
-			breakthrough = 0.2
-		}
-
-		research_cost = 1
-
-		start_year = 1989
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 34 }
-		}
-
-		categories = {
-			armor
-			APC
-			armor_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	APC_1980_basic_turret = {
-
-		APC = {
-			soft_attack = 0.05
-			hard_attack = 0.05
-			ap_attack = 0.1
-		}
-
-		path = {
-			leads_to_tech = APC_1980_improved_turret
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1983
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 30 }
-		}
-
-		categories = {
-			armor
-			APC
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	APC_1980_improved_turret = {
-
-		APC = {
-			soft_attack = 0.1
-			hard_attack = 0.1
-			ap_attack = 0.15
-		}
-
-		path = {
-			leads_to_tech = APC_1980_advanced_turret
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1986
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 32 }
-		}
-
-		categories = {
-			armor
-			APC
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	APC_1980_advanced_turret = {
-
-		APC = {
-			soft_attack = 0.15
-			hard_attack = 0.15
-			ap_attack = 0.2
-		}
-
-		research_cost = 1
-
-		start_year = 1989
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 34 }
-		}
-
-		categories = {
-			armor
-			APC
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	APC_1990 = { #Leopard
-
-		enable_equipments = {
-			APC_equipment_5
-		}
-
-		research_cost = 2
-		start_year = 1990
-
-		folder = {
-			name = armour_folder
-			position = { x = 0 y = 36 }
-		}
-
-
-		ai_will_do = {
-			factor = 50
-
-		}
-
-		categories = {
-			armor
-			APC
-		}
-	}
-
-#########
-## IFV ##
-#########
-
-	advanced_light_tank = { #Panther
-
-		enable_equipments = {
-			IFV_equipment_0
-		}
-		path = {
-			leads_to_tech = IFV_1950
-			research_cost_coeff = 1
-		}
-
-		research_cost = 2
+		research_cost = 0.5
 		start_year = 1945
 
-		folder = {
-			name = armour_folder
-			position = { x = 0 y = 0 }
-		}
-
-
 		ai_will_do = {
-			factor = 50
+			base = 0 # KR production changes - only mediums
 		}
 
 		categories = {
 			armor
-			IFV
 		}
 	}
 
-	IFV_1950 = { #Panzer III
+	modern_art = {
 
 		enable_equipments = {
-			IFV_equipment_1
+			modern_tank_artillery_equipment_1
 		}
 
-		path = {
-			leads_to_tech = IFV_1960
-			research_cost_coeff = 1
+		enable_subunits = {
+			modern_sp_artillery_brigade
 		}
 
-		path = { #1950 armor
-			leads_to_tech = IFV_1950_basic_armor
-			research_cost_coeff = 1
-		}
-
-		path = { #1950 turret
-			leads_to_tech = IFV_1950_basic_turret
-			research_cost_coeff = 1
-		}
-
-		#path = { #1950 armor engine
-		#	leads_to_tech = IFV_1950_basic_engine
-		#	research_cost_coeff = 1
-		#}
-
-		research_cost = 2
-		start_year = 1950
-
-		folder = {
-			name = armour_folder
-			position = { x = 0 y = 4 }
-		}
-
-
-		ai_will_do = {
-			factor = 60
-
-		}
-
-		categories = {
-			armor
-			IFV
-		}
-	}
-
-	IFV_1950_basic_armor = {
-
-		IFV = {
-			armor_value = 0.05
-			breakthrough = 0.1
-		}
-
-		path = {
-			leads_to_tech = IFV_1950_improved_armor
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1953
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 6 }
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-
-		categories = {
-			armor
-			IFV
-			armor_improvements
-		}
-	}
-
-	IFV_1950_improved_armor = {
-
-		IFV = {
-			armor_value = 0.1
-			breakthrough = 0.15
-		}
-
-		path = {
-			leads_to_tech = IFV_1950_advanced_armor
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1956
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 8 }
-		}
-
-		categories = {
-			armor
-			IFV
-			armor_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	IFV_1950_advanced_armor = {
-
-		IFV = {
-			armor_value = 0.15
-			breakthrough = 0.2
-		}
-
-		research_cost = 1
-
-		start_year = 1959
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 10 }
-		}
-
-		categories = {
-			armor
-			IFV
-			armor_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	IFV_1950_basic_turret = {
-
-		IFV = {
-			soft_attack = 0.05
-			hard_attack = 0.05
-			ap_attack = 0.1
-		}
-
-		path = {
-			leads_to_tech = IFV_1950_improved_turret
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1953
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 6 }
-		}
-
-		categories = {
-			armor
-			IFV
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	IFV_1950_improved_turret = {
-
-		IFV = {
-			soft_attack = 0.1
-			hard_attack = 0.1
-			ap_attack = 0.15
-		}
-
-		path = {
-			leads_to_tech = IFV_1950_advanced_turret
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1956
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 8 }
-		}
-
-		categories = {
-			armor
-			IFV
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	IFV_1950_advanced_turret = {
-
-		IFV = {
-			soft_attack = 0.15
-			hard_attack = 0.15
-			ap_attack = 0.2
-		}
-
-		research_cost = 1
-
-		start_year = 1959
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 10 }
-		}
-
-		categories = {
-			armor
-			IFV
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	IFV_1960 = { #Panzer IV
-
-		enable_equipments = {
-			IFV_equipment_2
-		}
-
-		path = {
-			leads_to_tech = IFV_1970
-			research_cost_coeff = 1
-		}
-		path = { #1960 armor
-			leads_to_tech = IFV_1960_basic_armor
-			research_cost_coeff = 1
-		}
-
-		path = { #1960 turret
-			leads_to_tech = IFV_1960_basic_turret
-			research_cost_coeff = 1
-		}
-
-		#path = { #1960 armor engine
-		#	leads_to_tech = IFV_1960_basic_engine
-		#	research_cost_coeff = 1
-		#}
-		research_cost = 2
-		start_year = 1960
-
-		folder = {
-			name = armour_folder
-			position = { x = 0 y = 12 }
-		}
-
-
-
-		ai_will_do = {
-			factor = 60
-		}
-
-		categories = {
-			armor
-			IFV
-		}
-	}
-
-	IFV_1960_basic_armor = {
-
-		IFV = {
-			armor_value = 0.05
-			breakthrough = 0.1
-		}
-
-		path = {
-			leads_to_tech = IFV_1960_improved_armor
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1963
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 14 }
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-
-		categories = {
-			armor
-			IFV
-			armor_improvements
-		}
-	}
-
-	IFV_1960_improved_armor = {
-
-		IFV = {
-			armor_value = 0.1
-			breakthrough = 0.15
-		}
-
-		path = {
-			leads_to_tech = IFV_1960_advanced_armor
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1966
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 16 }
-		}
-
-		categories = {
-			armor
-			IFV
-			armor_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	IFV_1960_advanced_armor = {
-
-		IFV = {
-			armor_value = 0.15
-			breakthrough = 0.2
-		}
-
-		research_cost = 1
-
-		start_year = 1969
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 18 }
-		}
-
-		categories = {
-			armor
-			IFV
-			armor_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	IFV_1960_basic_turret = {
-
-		IFV = {
-			soft_attack = 0.05
-			hard_attack = 0.05
-			ap_attack = 0.1
-		}
-
-		path = {
-			leads_to_tech = IFV_1960_improved_turret
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1963
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 14 }
-		}
-
-		categories = {
-			armor
-			IFV
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	IFV_1960_improved_turret = {
-
-		IFV = {
-			soft_attack = 0.1
-			hard_attack = 0.1
-			ap_attack = 0.15
-		}
-
-		path = {
-			leads_to_tech = IFV_1960_advanced_turret
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1966
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 16 }
-		}
-
-		categories = {
-			armor
-			IFV
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	IFV_1960_advanced_turret = {
-
-		IFV = {
-			soft_attack = 0.15
-			hard_attack = 0.15
-			ap_attack = 0.2
-		}
-
-		research_cost = 1
-
-		start_year = 1969
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 18 }
-		}
-
-		categories = {
-			armor
-			IFV
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	IFV_1970 = { #Panther
-
-		enable_equipments = {
-			IFV_equipment_3
-		}
-
-		path = {
-			leads_to_tech = IFV_1980
-			research_cost_coeff = 1
-		}
-		path = { #1970 armor
-			leads_to_tech = IFV_1970_basic_armor
-			research_cost_coeff = 1
-		}
-
-		path = { #1970 turret
-			leads_to_tech = IFV_1970_basic_turret
-			research_cost_coeff = 1
-		}
-
-		#path = { #1970 armor engine
-		#	leads_to_tech = IFV_1970_basic_engine
-		#	research_cost_coeff = 1
-		#}
-		research_cost = 2
-		start_year = 1970
-
-		folder = {
-			name = armour_folder
-			position = { x = 0 y = 20 }
-		}
-
-
-		ai_will_do = {
-			factor = 60
-
-		}
-
-		categories = {
-			armor
-			IFV
-		}
-	}
-
-	IFV_1970_basic_armor = {
-
-		IFV = {
-			armor_value = 0.05
-			breakthrough = 0.1
-		}
-
-		path = {
-			leads_to_tech = IFV_1970_improved_armor
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1973
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 22 }
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-
-		categories = {
-			armor
-			IFV
-			armor_improvements
-		}
-	}
-
-	IFV_1970_improved_armor = {
-
-		IFV = {
-			armor_value = 0.1
-			breakthrough = 0.15
-		}
-
-		path = {
-			leads_to_tech = IFV_1970_advanced_armor
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1976
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 24 }
-		}
-
-		categories = {
-			armor
-			IFV
-			armor_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	IFV_1970_advanced_armor = {
-
-		IFV = {
-			armor_value = 0.15
-			breakthrough = 0.2
-		}
-
-		research_cost = 1
-
-		start_year = 1979
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 26 }
-		}
-
-		categories = {
-			armor
-			IFV
-			armor_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	IFV_1970_basic_turret = {
-
-		IFV = {
-			soft_attack = 0.05
-			hard_attack = 0.05
-			ap_attack = 0.1
-		}
-
-		path = {
-			leads_to_tech = IFV_1970_improved_turret
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1973
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 22 }
-		}
-
-		categories = {
-			armor
-			IFV
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	IFV_1970_improved_turret = {
-
-		IFV = {
-			soft_attack = 0.1
-			hard_attack = 0.1
-			ap_attack = 0.15
-		}
-
-		path = {
-			leads_to_tech = IFV_1970_advanced_turret
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1976
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 24 }
-		}
-
-		categories = {
-			armor
-			IFV
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	IFV_1970_advanced_turret = {
-
-		IFV = {
-			soft_attack = 0.15
-			hard_attack = 0.15
-			ap_attack = 0.2
-		}
-
-		research_cost = 1
-
-		start_year = 1979
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 26 }
-		}
-
-		categories = {
-			armor
-			IFV
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	IFV_1980 = { #E-50
-
-		enable_equipments = {
-			IFV_equipment_4
-		}
-		path = {
-			leads_to_tech = IFV_1990
-			research_cost_coeff = 1
-		}
-		path = { #1980 armor
-			leads_to_tech = IFV_1980_basic_armor
-			research_cost_coeff = 1
-		}
-		path = { #1980 turret
-			leads_to_tech = IFV_1980_basic_turret
-			research_cost_coeff = 1
-		}
-		#path = { #1980 armor engine
-		#	leads_to_tech = IFV_1980_basic_engine
-		#	research_cost_coeff = 1
-		#}
-		research_cost = 2.5
-		start_year = 1980
-
-		folder = {
-			name = armour_folder
-			position = { x = 0 y = 28 }
-		}
-
-
-		ai_will_do = {
-			factor = 60
-
-		}
-
-		categories = {
-			armor
-			IFV
-		}
-	}
-
-	IFV_1980_basic_armor = {
-
-		IFV = {
-			armor_value = 0.05
-			breakthrough = 0.1
-		}
-
-		path = {
-			leads_to_tech = IFV_1980_improved_armor
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1983
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 30 }
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-
-		categories = {
-			armor
-			IFV
-			armor_improvements
-		}
-	}
-
-	IFV_1980_improved_armor = {
-
-		IFV = {
-			armor_value = 0.1
-			breakthrough = 0.15
-		}
-
-		path = {
-			leads_to_tech = IFV_1980_advanced_armor
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1986
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 32 }
-		}
-
-		categories = {
-			armor
-			IFV
-			armor_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	IFV_1980_advanced_armor = {
-
-		IFV = {
-			armor_value = 0.15
-			breakthrough = 0.2
-		}
-
-		research_cost = 1
-
-		start_year = 1989
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 34 }
-		}
-
-		categories = {
-			armor
-			IFV
-			armor_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	IFV_1980_basic_turret = {
-
-		IFV = {
-			soft_attack = 0.05
-			hard_attack = 0.05
-			ap_attack = 0.1
-		}
-
-		path = {
-			leads_to_tech = IFV_1980_improved_turret
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1983
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 30 }
-		}
-
-		categories = {
-			armor
-			IFV
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	IFV_1980_improved_turret = {
-
-		IFV = {
-			soft_attack = 0.1
-			hard_attack = 0.1
-			ap_attack = 0.15
-		}
-
-		path = {
-			leads_to_tech = IFV_1980_advanced_turret
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1986
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 32 }
-		}
-
-		categories = {
-			armor
-			IFV
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	IFV_1980_advanced_turret = {
-
-		IFV = {
-			soft_attack = 0.15
-			hard_attack = 0.15
-			ap_attack = 0.2
-		}
-
-		research_cost = 1
-
-		start_year = 1989
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 34 }
-		}
-
-		categories = {
-			armor
-			IFV
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	IFV_1990 = { #T-90
-
-		enable_equipments = {
-			IFV_equipment_5
-		}
-		research_cost = 2.5
-		start_year = 1990
-
-		folder = {
-			name = armour_folder
-			position = { x = 0 y = 36 }
-		}
-
-
-
-		ai_will_do = {
-			factor = 60
-
-		}
-
-		categories = {
-			armor
-			IFV
-		}
-	}
-
-#########
-## MBT ##
-#########
-
-	advanced_medium_tank = { #Panther
-
-		enable_equipments = {
-			MBT_equipment_0
-		}
-		path = {
-			leads_to_tech = MBT_1950
-			research_cost_coeff = 1
-		}
-
-		research_cost = 2
+		research_cost = 0.5
 		start_year = 1945
 
-		folder = {
-			name = armour_folder
-			position = { x = 0 y = 0 }
-		}
-
-
 		ai_will_do = {
-			factor = 50
+			base = 0 # KR production changes - only mediums
 		}
 
 		categories = {
 			armor
-			MBT
 		}
 	}
 
-	MBT_1950 = { # T-55
+	modern_spaa = {
 
 		enable_equipments = {
-			MBT_equipment_1
+			modern_tank_aa_equipment_1
 		}
 
-		path = {
-			leads_to_tech = MBT_1960
-			research_cost_coeff = 1
+		enable_subunits = {
+			modern_sp_anti_air_brigade
 		}
 
-		path = { #1950 armor
-			leads_to_tech = MBT_1950_basic_armor
-			research_cost_coeff = 1
-		}
-
-		path = { #1950 turret
-			leads_to_tech = MBT_1950_basic_turret
-			research_cost_coeff = 1
-		}
-
-		#path = { #1950 armor engine
-		#	leads_to_tech = MBT_1950_basic_engine
-		#	research_cost_coeff = 1
-		#}
-
-		research_cost = 2
-		start_year = 1950
-
-		folder = {
-			name = armour_folder
-			position = { x = 0 y = 4 }
-		}
-
-		ai_will_do = {
-			factor = 50
-
-		}
-
-		categories = {
-			armor
-			MBT
-		}
-	}
-
-	MBT_1950_basic_armor = {
-
-		MBT = {
-			armor_value = 0.05
-			breakthrough = 0.05
-		}
-
-		path = {
-			leads_to_tech = MBT_1950_improved_armor
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1953
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 6 }
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-
-		categories = {
-			armor
-			MBT
-			armor_improvements
-		}
-	}
-
-	MBT_1950_improved_armor = {
-
-		MBT = {
-			armor_value = 0.1
-			breakthrough = 0.1
-		}
-
-		path = {
-			leads_to_tech = MBT_1950_advanced_armor
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1956
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 8 }
-		}
-
-		categories = {
-			armor
-			MBT
-			armor_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	MBT_1950_advanced_armor = {
-
-		MBT = {
-			armor_value = 0.15
-			breakthrough = 0.15
-		}
-
-		research_cost = 1
-
-		start_year = 1959
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 10 }
-		}
-
-		categories = {
-			armor
-			MBT
-			armor_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	MBT_1950_basic_turret = {
-
-		MBT = {
-			soft_attack = 0.05
-			hard_attack = 0.05
-			ap_attack = 0.1
-		}
-
-		path = {
-			leads_to_tech = MBT_1950_improved_turret
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1953
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 6 }
-		}
-
-		categories = {
-			armor
-			MBT
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	MBT_1950_improved_turret = {
-
-		MBT = {
-			soft_attack = 0.1
-			hard_attack = 0.1
-			ap_attack = 0.15
-		}
-
-		path = {
-			leads_to_tech = MBT_1950_advanced_turret
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1956
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 8 }
-		}
-
-		categories = {
-			armor
-			MBT
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	MBT_1950_advanced_turret = {
-
-		MBT = {
-			soft_attack = 0.15
-			hard_attack = 0.15
-			ap_attack = 0.2
-		}
-
-		research_cost = 1
-
-		start_year = 1959
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 10 }
-		}
-
-		categories = {
-			armor
-			MBT
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	MBT_1960 = { # T-64
-
-		enable_equipments = {
-			MBT_equipment_2
-		}
-
-		path = {
-			leads_to_tech = MBT_1970
-			research_cost_coeff = 1
-		}
-		path = { #1960 armor
-			leads_to_tech = MBT_1960_basic_armor
-			research_cost_coeff = 1
-		}
-
-		path = { #1960 turret
-			leads_to_tech = MBT_1960_basic_turret
-			research_cost_coeff = 1
-		}
-
-		#path = { #1960 armor engine
-		#	leads_to_tech = MBT_1960_basic_engine
-		#	research_cost_coeff = 1
-		#}
-
-		research_cost = 2.5
-		start_year = 1960
-
-		folder = {
-			name = armour_folder
-			position = { x = 0 y = 12 }
-		}
-
-
-		ai_will_do = {
-			factor = 50
-		}
-
-		categories = {
-			armor
-			MBT
-		}
-	}
-
-	MBT_1960_basic_armor = {
-
-		MBT = {
-			armor_value = 0.05
-			breakthrough = 0.05
-		}
-
-		path = {
-			leads_to_tech = MBT_1960_improved_armor
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1963
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 14 }
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-
-		categories = {
-			armor
-			MBT
-			armor_improvements
-		}
-	}
-
-	MBT_1960_improved_armor = {
-
-		MBT = {
-			armor_value = 0.1
-			breakthrough = 0.1
-		}
-
-		path = {
-			leads_to_tech = MBT_1960_advanced_armor
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1966
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 16 }
-		}
-
-		categories = {
-			armor
-			MBT
-			armor_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	MBT_1960_advanced_armor = {
-
-		MBT = {
-			armor_value = 0.15
-			breakthrough = 0.15
-		}
-
-		research_cost = 1
-
-		start_year = 1969
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 18 }
-		}
-
-		categories = {
-			armor
-			MBT
-			armor_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	MBT_1960_basic_turret = {
-
-		MBT = {
-			soft_attack = 0.05
-			hard_attack = 0.05
-			ap_attack = 0.1
-		}
-
-		path = {
-			leads_to_tech = MBT_1960_improved_turret
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1963
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 14 }
-		}
-
-		categories = {
-			armor
-			MBT
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	MBT_1960_improved_turret = {
-
-		MBT = {
-			soft_attack = 0.1
-			hard_attack = 0.1
-			ap_attack = 0.15
-		}
-
-		path = {
-			leads_to_tech = MBT_1960_advanced_turret
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1966
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 16 }
-		}
-
-		categories = {
-			armor
-			MBT
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	MBT_1960_advanced_turret = {
-
-		MBT = {
-			soft_attack = 0.15
-			hard_attack = 0.15
-			ap_attack = 0.2
-		}
-
-		research_cost = 1
-
-		start_year = 1969
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 18 }
-		}
-
-		categories = {
-			armor
-			MBT
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	MBT_1970 = { #King Tiger
-
-		path = {
-			leads_to_tech = MBT_1980
-			research_cost_coeff = 1
-		}
-		path = { #MBT armor
-			leads_to_tech = MBT_1970_basic_armor
-			research_cost_coeff = 1
-		}
-
-		path = { #MBT turret
-			leads_to_tech = MBT_1970_basic_turret
-			research_cost_coeff = 1
-		}
-
-		#path = { #MBT armor engine
-		#	leads_to_tech = MBT_1970_basic_engine
-		#	research_cost_coeff = 1
-		#}
-
-		enable_equipments = {
-			MBT_equipment_3
-		}
-
-		research_cost = 2.5
-		start_year = 1970
-
-		folder = {
-			name = armour_folder
-			position = { x = 0 y = 20 }
-		}
-
-
-		ai_will_do = {
-			factor = 50
-
-		}
-
-		categories = {
-			armor
-			MBT
-		}
-	}
-
-	MBT_1970_basic_armor = {
-
-		MBT = {
-			armor_value = 0.05
-			breakthrough = 0.05
-		}
-
-		path = {
-			leads_to_tech = MBT_1970_improved_armor
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1973
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 22 }
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-
-		categories = {
-			armor
-			MBT
-			armor_improvements
-		}
-	}
-
-	MBT_1970_improved_armor = {
-
-		MBT = {
-			armor_value = 0.1
-			breakthrough = 0.1
-		}
-
-		path = {
-			leads_to_tech = MBT_1970_advanced_armor
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1976
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 24 }
-		}
-
-		categories = {
-			armor
-			MBT
-			armor_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	MBT_1970_advanced_armor = {
-
-		MBT = {
-			armor_value = 0.15
-			breakthrough = 0.15
-		}
-
-		research_cost = 1
-
-		start_year = 1979
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 26 }
-		}
-
-		categories = {
-			armor
-			MBT
-			armor_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	MBT_1970_basic_turret = {
-
-		MBT = {
-			soft_attack = 0.05
-			hard_attack = 0.05
-			ap_attack = 0.1
-		}
-
-		path = {
-			leads_to_tech = MBT_1970_improved_turret
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1973
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 22 }
-		}
-
-		categories = {
-			armor
-			MBT
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	MBT_1970_improved_turret = {
-
-		MBT = {
-			soft_attack = 0.1
-			hard_attack = 0.1
-			ap_attack = 0.15
-		}
-
-		path = {
-			leads_to_tech = MBT_1970_advanced_turret
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1976
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 24 }
-		}
-
-		categories = {
-			armor
-			MBT
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	MBT_1970_advanced_turret = {
-
-		MBT = {
-			soft_attack = 0.15
-			hard_attack = 0.15
-			ap_attack = 0.2
-		}
-
-		research_cost = 1
-
-		start_year = 1979
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 26 }
-		}
-
-		categories = {
-			armor
-			MBT
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	MBT_1980 = { #Maus
-
-		path = {
-			leads_to_tech = MBT_1990
-			research_cost_coeff = 1
-		}
-		path = { #MBT armor
-			leads_to_tech = MBT_1980_basic_armor
-			research_cost_coeff = 1
-		}
-		path = { #MBT turret
-			leads_to_tech = MBT_1980_basic_turret
-			research_cost_coeff = 1
-		}
-		#path = { #MBT armor engine
-		#	leads_to_tech = MBT_1980_basic_engine
-		#	research_cost_coeff = 1
-		#}
-
-		enable_equipments = {
-			MBT_equipment_4
-		}
-
-		research_cost = 2.5
-		start_year = 1980
-		folder = {
-			name = armour_folder
-			position = { x = 0 y = 28 }
-		}
-
-
-		ai_will_do = {
-			factor = 50
-		}
-
-		categories = {
-			armor
-			MBT
-		}
-	}
-
-	MBT_1980_basic_armor = {
-
-		MBT = {
-			armor_value = 0.05
-			breakthrough = 0.05
-		}
-
-		path = {
-			leads_to_tech = MBT_1980_improved_armor
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1983
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 30 }
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-
-		categories = {
-			armor
-			MBT
-			armor_improvements
-		}
-	}
-
-	MBT_1980_improved_armor = {
-
-		MBT = {
-			armor_value = 0.1
-			breakthrough = 0.1
-		}
-
-		path = {
-			leads_to_tech = MBT_1980_advanced_armor
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1986
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 32 }
-		}
-
-		categories = {
-			armor
-			MBT
-			armor_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	MBT_1980_advanced_armor = {
-
-		MBT = {
-			armor_value = 0.15
-			breakthrough = 0.15
-		}
-
-		research_cost = 1
-
-		start_year = 1989
-
-		folder = {
-			name = armour_folder
-			position = { x = 1 y = 34 }
-		}
-
-		categories = {
-			armor
-			MBT
-			armor_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	MBT_1980_basic_turret = {
-
-		MBT = {
-			soft_attack = 0.05
-			hard_attack = 0.05
-			ap_attack = 0.1
-		}
-
-		path = {
-			leads_to_tech = MBT_1980_improved_turret
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1983
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 30 }
-		}
-
-		categories = {
-			armor
-			MBT
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	MBT_1980_improved_turret = {
-
-		MBT = {
-			soft_attack = 0.1
-			hard_attack = 0.1
-			ap_attack = 0.15
-		}
-
-		path = {
-			leads_to_tech = MBT_1980_advanced_turret
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1
-
-		start_year = 1986
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 32 }
-		}
-
-		categories = {
-			armor
-			MBT
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	MBT_1980_advanced_turret = {
-
-		MBT = {
-			soft_attack = 0.15
-			hard_attack = 0.15
-			ap_attack = 0.2
-		}
-
-		research_cost = 1
-
-		start_year = 1989
-
-		folder = {
-			name = armour_folder
-			position = { x = -1 y = 34 }
-		}
-
-		categories = {
-			armor
-			MBT
-			turret_improvements
-		}
-
-		ai_will_do = {
-			factor = 1
-
-		}
-	}
-
-	MBT_1990 = { #T-90
-
-		enable_equipments = {
-			MBT_equipment_5
-		}
-
-		research_cost = 2.5
-		start_year = 1990
-		folder = {
-			name = armour_folder
-			position = { x = 0 y = 36 }
-		}
-
-
-		ai_will_do = {
-			factor = 50
-		}
-
-		categories = {
-			armor
-			MBT
-		}
-	}
-
-#########
-# HEAVY #
-#########
-
-	Heavy_1945 = { #Panther
-
-		enable_equipments = {
-			heavy_tank_equipment_0
-		}
-		path = {
-			leads_to_tech = Heavy_1950
-			research_cost_coeff = 1
-		}
-
-		research_cost = 2
+		research_cost = 0.5
 		start_year = 1945
 
-		folder = {
-			name = armour_folder
-			position = { x = 0 y = 0 }
-		}
-
-
 		ai_will_do = {
-			factor = 50
+			base = 0	# AI doesn't use SPAA
 		}
 
 		categories = {
 			armor
-			MBT
 		}
 	}
 
-	Heavy_1950 = { #Panther
+	basic_heavy_tank = {#Grosstraktor
 
 		enable_equipments = {
 			heavy_tank_equipment_1
 		}
+
+		enable_subunits = {
+			heavy_armor
+		}
+
+		on_research_complete_limit = {
+			NOT = { has_template_containing_unit = light_armor }
+			NOT = { has_template_containing_unit = heavy_armor }
+			NOT = { has_template_containing_unit = medium_armor }
+		}
+		on_research_complete = {
+			initialize_armour_template = yes
+			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
+		}
+
 		path = {
-			leads_to_tech = Heavy_1960
+			leads_to_tech = improved_heavy_tank
 			research_cost_coeff = 1
 		}
 
 		research_cost = 2
-		start_year = 1950
+		start_year = 1934
 
 		folder = {
 			name = armour_folder
-			position = { x = 0 y = 4 }
+			position = { x = 4 y = 2 }
 		}
 
+		sub_technologies = {
+			basic_heavy_td
+			basic_heavy_art
+			basic_heavy_spaa
+		}
 
 		ai_will_do = {
-			factor = 50
+			base = 0 # KR production changes - only mediums
 		}
 
 		categories = {
 			armor
-			MBT
+			cat_heavy_armor
 		}
 	}
 
-	Heavy_1960 = { #Panther
+	basic_heavy_td = {
+
+		enable_equipments = {
+			heavy_tank_destroyer_equipment_1
+		}
+
+		enable_subunits = {
+			heavy_tank_destroyer_brigade
+		}
+
+		research_cost = 0.5
+		start_year = 1934
+
+		ai_will_do = {
+			base = 0
+		}
+
+		categories = {
+			armor
+		}
+	}
+
+	basic_heavy_art = {
+
+		enable_equipments = {
+			heavy_tank_artillery_equipment_1
+		}
+
+		enable_subunits = {
+			heavy_sp_artillery_brigade
+		}
+
+		research_cost = 0.5
+		start_year = 1934
+
+		ai_will_do = {
+			base = 0
+		}
+
+		categories = {
+			armor
+		}
+	}
+
+	basic_heavy_spaa = {
+
+		enable_equipments = {
+			heavy_tank_aa_equipment_1
+		}
+		enable_subunits = {
+			heavy_sp_anti_air_brigade
+		}
+
+		research_cost = 0.5
+		start_year = 1934
+
+		ai_will_do = {
+			base = 0	# AI doesn't use SPAA
+		}
+
+		categories = {
+			armor
+		}
+	}
+
+	improved_heavy_tank = {#Tiger
 
 		enable_equipments = {
 			heavy_tank_equipment_2
 		}
+
 		path = {
-			leads_to_tech = Heavy_1970
+			leads_to_tech = advanced_heavy_tank
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = improved_medium_tank
+			research_cost_coeff = 0.9
+		}
+
+		path = {
+			leads_to_tech = super_heavy_tank
 			research_cost_coeff = 1
 		}
 
-		research_cost = 2
-		start_year = 1960
+		research_cost = 2.5
+		start_year = 1941
 
 		folder = {
 			name = armour_folder
-			position = { x = 0 y = 12 }
+			position = { x = 4 y = 8 }
 		}
 
+		sub_technologies = {
+			improved_heavy_td
+			improved_heavy_art
+			improved_heavy_spaa
+		}
 
 		ai_will_do = {
-			factor = 50
+			base = 0 # KR production changes - only mediums
 		}
 
 		categories = {
 			armor
-			MBT
+			cat_heavy_armor
 		}
 	}
 
-	Heavy_1970 = { #Panther
+	improved_heavy_td = {
+
+		enable_equipments = {
+			heavy_tank_destroyer_equipment_2
+		}
+
+		research_cost = 0.5
+		start_year = 1941
+
+		ai_will_do = {
+			base = 0
+		}
+
+		categories = {
+			armor
+		}
+	}
+
+	improved_heavy_art = {
+
+		enable_equipments = {
+			heavy_tank_artillery_equipment_2
+		}
+
+		research_cost = 0.5
+		start_year = 1941
+
+		ai_will_do = {
+			base = 0
+		}
+
+		categories = {
+			armor
+		}
+	}
+
+	improved_heavy_spaa = {
+
+		enable_equipments = {
+			heavy_tank_aa_equipment_2
+		}
+
+		research_cost = 0.5
+		start_year = 1941
+
+		ai_will_do = {
+			base = 0	# AI doesn't use SPAA
+		}
+
+		categories = {
+			armor
+		}
+	}
+
+	advanced_heavy_tank = {#King Tiger
 
 		enable_equipments = {
 			heavy_tank_equipment_3
 		}
 
-		research_cost = 2
-		start_year = 1970
-
-		folder = {
-			name = armour_folder
-			position = { x = 0 y = 20 }
-		}
-
-
-		ai_will_do = {
-			factor = 50
-		}
-
-		categories = {
-			armor
-			MBT
-		}
-	}
-
-##############
-# SUPERHEAVY #
-##############
-
-	Superheavy_1945 = { #Panther
-
-		enable_equipments = {
-			superheavy_tank_equipment_0
-		}
 		path = {
-			leads_to_tech = Superheavy_1950
+			leads_to_tech = main_battle_tank
 			research_cost_coeff = 1
 		}
-
-		research_cost = 2
-		start_year = 1945
-
-		folder = {
-			name = armour_folder
-			position = { x = 0 y = 0 }
-		}
-
-
-		ai_will_do = {
-			factor = 50
-		}
-
-		categories = {
-			armor
-			MBT
-		}
-	}
-
-	Superheavy_1950 = { #Panther
-
-		enable_equipments = {
-			superheavy_tank_equipment_1
-		}
 		path = {
-			leads_to_tech = Superheavy_1960
-			research_cost_coeff = 1
-		}
-
-		research_cost = 2
-		start_year = 1950
-
-		folder = {
-			name = armour_folder
-			position = { x = 0 y = 4 }
-		}
-
-
-		ai_will_do = {
-			factor = 50
-		}
-
-		categories = {
-			armor
-			MBT
-		}
-	}
-
-	Superheavy_1960 = { #Panther
-
-		enable_equipments = {
-			superheavy_tank_equipment_2
-		}
-
-		research_cost = 2
-		start_year = 1960
-
-		folder = {
-			name = armour_folder
-			position = { x = 0 y = 12 }
-		}
-
-
-		ai_will_do = {
-			factor = 50
-		}
-
-		categories = {
-			armor
-			MBT
-		}
-	}
-
-#########
-# OTHER #
-#########
-
-	MBT_das_liger = { #T-90
-
-		enable_equipments = {
-			MBT_das_liger
+			leads_to_tech = advanced_medium_tank
+			research_cost_coeff = 0.9
 		}
 
 		research_cost = 2.5
-		start_year = 1990
+		start_year = 1943
+
 		folder = {
-			name = hidden_folder
-			position = { x = 0 y = 4 }
+			name = armour_folder
+			position = { x = 4 y = 10 }
+		}
+
+		sub_technologies = {
+			advanced_heavy_td
+			advanced_heavy_art
+			advanced_heavy_spaa
 		}
 
 		ai_will_do = {
-			factor = 0
+			base = 0 # KR production changes - only mediums
 		}
 
 		categories = {
 			armor
-			MBT
+			cat_heavy_armor
 		}
 	}
 
-	laser_AA_tech = { #Szhatie
+	advanced_heavy_td = {
 
 		enable_equipments = {
-			laser_aa_equipment_1
+			heavy_tank_destroyer_equipment_3
+		}
+
+		research_cost = 0.5
+		start_year = 1943
+
+		ai_will_do = {
+			base = 0
+		}
+
+		categories = {
+			armor
+		}
+	}
+
+	advanced_heavy_art = {
+
+		enable_equipments = {
+			heavy_tank_artillery_equipment_3
+		}
+
+		research_cost = 0.5
+		start_year = 1943
+
+		ai_will_do = {
+			base = 0
+		}
+
+		categories = {
+			armor
+		}
+	}
+
+	advanced_heavy_spaa = {
+
+		enable_equipments = {
+			heavy_tank_aa_equipment_3
+		}
+
+		research_cost = 0.5
+		start_year = 1943
+
+		ai_will_do = {
+			base = 0	# AI doesn't use SPAA
+		}
+
+		categories = {
+			armor
+		}
+	}
+
+	super_heavy_tank = {#Maus
+
+		enable_equipments = {
+			super_heavy_tank_equipment_1
 		}
 
 		enable_subunits = {
-			laser_anti_air
+			super_heavy_armor
 		}
 
 		research_cost = 2.5
-		start_year = 1990
+		start_year = 1943
 		folder = {
-			name = hidden_folder
-			position = { x = 0 y = 10 }
+			name = armour_folder
+			position = { x = 8 y = 10 }
+		}
+
+		sub_technologies = {
+			super_heavy_td
+			super_heavy_art
+			super_heavy_spaa
 		}
 
 		ai_will_do = {
-			factor = 0
-		}
-
-		categories = {
-			anti_air_tech
-			MBT
-		}
-	}
-
-	kugelpanzer = {
-
-		enable_equipments = {
-			kugelpanzer_equipment_1
-		}
-
-		research_cost = 2.5
-		start_year = 1950
-
-		folder = {
-			name = hidden_folder
-			position = { x = 0 y = 0 }
-		}
-
-		ai_will_do = {
-			factor = 0
+			base = 0
 		}
 
 		categories = {
 			armor
-			IFV
+			cat_heavy_armor
 		}
 	}
 
-	Maus = {
+	super_heavy_td = {
 
 		enable_equipments = {
-			Maus_equipment_1
+			super_heavy_tank_destroyer_equipment_1
 		}
 
-		research_cost = 2.5
-		start_year = 1948
-
-		folder = {
-			name = hidden_folder
-			position = { x = 0 y = 8 }
+		enable_subunits = {
+			super_heavy_tank_destroyer_brigade
 		}
 
-		path = {
-			leads_to_tech = Flakmaus
-			research_cost_coeff = 1
-		}
+		research_cost = 0.5
+		start_year = 1943
 
 		ai_will_do = {
-			factor = 0
+			base = 0
 		}
 
 		categories = {
 			armor
-			MBT
 		}
 	}
 
-	Flakmaus = {
+	super_heavy_art = {
 
 		enable_equipments = {
-			Maus_aa_equipment_1
+			super_heavy_tank_artillery_equipment_1
 		}
 
-		research_cost = 2.5
-		start_year = 1950
-
-		folder = {
-			name = hidden_folder
-			position = { x = 8 y = 8 }
+		enable_subunits = {
+			super_heavy_sp_artillery_brigade
 		}
+
+		research_cost = 0.5
+		start_year = 1943
 
 		ai_will_do = {
-			factor = 0
+			base = 0
 		}
 
 		categories = {
 			armor
-			MBT
-		}
-	}
-	##Guangdong Experimental Equipment
-	experimental_MBT_equipment_0 = {
-		
-		enable_equipments = {
-			experimental_MBT_equipment_0
-		}
-		
-		research_cost = 2.5
-		start_year = 1950
-		
-		folder = {
-			name = hidden_folder
-			position = { x = 0 y = 22 }
-		}
-
-		ai_will_do = {
-			factor = 0
-		}
-		
-		categories = {
-			armor
-			MBT
 		}
 	}
 
-	experimental_MBT_equipment_1 = {
-		
+	super_heavy_spaa = {
+
 		enable_equipments = {
-			experimental_MBT_equipment_1
+			super_heavy_tank_aa_equipment_1
 		}
-		
-		research_cost = 2.5
-		start_year = 1950
-		
-		folder = {
-			name = hidden_folder
-			position = { x = 4 y = 22 }
+		enable_subunits = {
+			super_heavy_sp_anti_air_brigade
 		}
+
+		research_cost = 0.5
+		start_year = 1943
 
 		ai_will_do = {
-			factor = 0
+			base = 0	# AI doesn't use SPAA
 		}
-		
+
 		categories = {
 			armor
-			MBT
-		}
-	}
-
-	experimental_SPART_equipment_0 = {
-		
-		enable_equipments = {
-			experimental_SPART_equipment_0
-		}
-		
-		research_cost = 2.5
-		start_year = 1950
-		
-		folder = {
-			name = hidden_folder
-			position = { x = 0 y = 30 }
-		}
-
-		ai_will_do = {
-			factor = 0
-		}
-		
-		categories = {
-			armor
-			MBT
-		}
-	}
-
-	experimental_SPART_equipment_1 = {
-		
-		enable_equipments = {
-			experimental_SPART_equipment_1
-		}
-		
-		research_cost = 2.5
-		start_year = 1950
-		
-		folder = {
-			name = hidden_folder
-			position = { x = 4 y = 30 }
-		}
-
-		ai_will_do = {
-			factor = 0
-		}
-		
-		categories = {
-			armor
-			MBT
 		}
 	}
 }
+

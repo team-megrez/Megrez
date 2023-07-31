@@ -1,0 +1,2102 @@
+﻿###########################
+# Spain Events
+###########################
+# By ~mw~
+###########################
+
+add_namespace = sprd
+add_namespace = sprf
+add_namespace = sprc
+
+#Events affecting other countries are under 'Foreign Policy'
+
+# Introduction event moved to intro screen
+
+# Black Monday hits Spain
+country_event = {
+	id = sprd.2
+	title = sprd.2.t
+	desc = sprd.2.d
+	picture = GFX_report_event_NOR_black_monday
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			add_ideas = SPA_black_monday
+			SWF = { add_ideas = SPA_black_monday }
+			SPR = { add_ideas = SPA_black_monday }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sprd.2 option sprd.2.a"
+		name = sprd.2.a
+		add_stability = -0.10
+		effect_tooltip = { add_ideas = SPA_black_monday }
+		hidden_effect = {
+			country_event = { id = sprd.3 days = 30 random_days = 30 }
+		}
+	}
+}
+
+# Social breakdown
+country_event = {
+	id = sprd.3
+	title = sprd.3.t
+	desc = sprd.3.d
+	picture = GFX_report_event_generic_riot
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprd.3 option sprd.3.a"
+		name = sprd.3.a
+		add_stability = -0.20
+	}
+}
+
+### Carlist Event Chains
+
+# Alfonso Carlos de Borbon dies
+country_event = {
+	id = sprd.4
+	title = sprd.4.t
+	desc = sprd.4.d
+	picture = GFX_report_event_europe_funeral
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprd.4 option sprd.4.a"
+		name = sprd.4.a
+		add_stability = -0.02
+	}
+}
+
+# Javier gives another speech
+country_event = {
+	id = sprd.8
+	title = sprd.8.t
+	desc = sprd.8.d
+	picture = GFX_report_event_SPA_javier
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			country_event = { id = sprd.9 days = 30 random_days = 150 }
+			country_event = { id = sprd.10 days = 30 random_days = 150 }
+			country_event = { id = sprd.11 days = 30 random_days = 150 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sprd.8 option sprd.8.a"
+		name = sprd.8.a #Time to ban his organisation
+		custom_effect_tooltip = SPA_ban_carlists
+		add_stability = -0.20
+		set_country_flag = SPA_javier_banned
+	}
+	option = {
+		log = "[GetLogInfo]: event sprd.8 option sprd.8.b"
+		name = sprd.8.b #Arrest Javier and his followers!
+		custom_effect_tooltip = SPA_arrest_javier
+		add_stability = -0.10
+		set_country_flag = SPA_javier_arrested
+		hidden_effect = {
+			POR = {
+				country_event = { id = sprf.3 days = 20 random_days = 80 }
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event sprd.8 option sprd.8.c"
+		name = sprd.8.c #Praise his efforts
+		custom_effect_tooltip = SPA_encourage_javier
+		add_political_power = -100
+	}
+	option = {
+		log = "[GetLogInfo]: event sprd.8 option sprd.8.e"
+		name = sprd.8.e #Ignore the pretender
+		add_political_power = -50
+		add_stability = -0.05
+		set_country_flag = SPA_javier_ignored
+	}
+}
+
+# Carlist bombing
+country_event = {
+	id = sprd.9
+	title = sprd.9.t
+	desc = sprd.9.d
+	picture = GFX_report_event_IRE_bombing
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_country_flag = SPA_javier_banned
+			has_country_flag = SPA_javier_arrested
+			has_country_flag = SPA_javier_ignored
+		}
+		NOT = {
+			country_exists = SPR
+			country_exists = SWF
+			has_country_flag = election_success
+			has_country_flag = aftermath_of_the_civil_war
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			country_event = { id = sprd.9 days = 30 random_days = 150 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sprd.9 option sprd.9.a"
+		name = sprd.9.a
+		add_stability = -0.02
+	}
+}
+
+# Carlist Demonstrations
+country_event = {
+	id = sprd.10
+	title = sprd.10.t
+	desc = sprd.10.d
+	picture = GFX_report_event_gathering_protest
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_country_flag = SPA_javier_banned
+			has_country_flag = SPA_javier_ignored
+		}
+		NOT = {
+			country_exists = SPR
+			country_exists = SWF
+			has_country_flag = election_success
+			has_country_flag = aftermath_of_the_civil_war
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			country_event = { id = sprd.10 days = 30 random_days = 150 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sprd.10 option sprd.10.a"
+		name = sprd.10.a
+		add_stability = -0.05
+	}
+}
+
+# Assassination of Miguel Ponte Manso de Zuniga
+country_event = {
+	id = sprd.11
+	title = sprd.11.t
+	desc = sprd.11.d
+	picture = GFX_report_event_generic_funeral
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_country_flag = SPA_javier_banned
+			has_country_flag = SPA_javier_arrested
+			has_country_flag = SPA_cntfai_disband
+			has_country_flag = SPA_cntfai_arrest
+		}
+		NOT = {
+			country_exists = SPR
+			country_exists = SWF
+			has_country_flag = election_success
+			has_country_flag = aftermath_of_the_civil_war
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sprd.11 option sprd.11.a"
+		name = sprd.11.a
+		add_stability = -0.05
+	}
+}
+
+### CNT-FAI event chains
+
+# The CNT-FAI speech
+country_event = {
+	id = sprd.13
+	title = sprd.13.t
+	desc = sprd.13.d
+	picture = GFX_report_event_SPA_CNT_FAI
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			country_event = { id = sprd.14 days = 20 random_days = 30 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sprd.13 option sprd.13.a"
+		name = sprd.13.a #Ban the organisation of workers
+		custom_effect_tooltip = SPA_ban_cntfai
+		add_political_power = -100
+		add_stability = -0.05
+		add_popularity = {
+			ideology = social_liberal
+			popularity = -0.03
+		}
+		hidden_effect = {
+			country_event = { id = sprd.15 days = 20 random_days = 30 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event sprd.13 option sprd.13.b"
+		name = sprd.13.b #Arrest the leaders of the movement
+		custom_effect_tooltip = SPA_arrest_cntfai
+		add_stability = -0.10
+		set_country_flag = SPA_cntfai_arrest
+		add_popularity = {
+			ideology = social_conservative
+			popularity = -0.03
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = -0.03
+		}
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = -0.03
+		}
+		add_popularity = {
+			ideology = syndicalist
+			popularity = -0.03
+		}
+		hidden_effect = {
+			country_event = { id = sprd.16 days = 20 random_days = 30 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event sprd.13 option sprd.13.c"
+		name = sprd.13.c #Forcefully disband the movement
+		custom_effect_tooltip = SPA_force_cntfai
+		add_stability = -0.20
+		set_country_flag = SPA_cntfai_disband
+		add_popularity = {
+			ideology = social_conservative
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = -0.03
+		}
+		add_popularity = {
+			ideology = syndicalist
+			popularity = -0.03
+		}
+		hidden_effect = {
+			country_event = { id = sprd.17 days = 20 random_days = 30 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event sprd.13 option sprd.13.e"
+		name = sprd.13.e #Allow this to happen
+		custom_effect_tooltip = SPA_allow_cntfai
+		add_political_power = -200
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.03
+		}
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = 0.03
+		}
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.03
+		}
+		hidden_effect = {
+			country_event = { id = sprd.18 days = 20 random_days = 80 }
+		}
+	}
+}
+
+# CNT-FAI Protests
+country_event = {
+	id = sprd.14
+	title = sprd.14.t
+	desc = sprd.14.d
+	picture = GFX_report_event_gathering_protest
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprd.14 option sprd.14.a"
+		name = sprd.14.a
+		add_stability = -0.05
+	}
+}
+
+# National CNT-FAI Protests
+country_event = {
+	id = sprd.15
+	title = sprd.15.t
+	desc = sprd.15.d
+	picture = GFX_report_event_gathering_protest
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprd.15 option sprd.15.a"
+		name = sprd.15.a #Send out the police!
+		add_stability = -0.10
+	}
+	option = {
+		log = "[GetLogInfo]: event sprd.15 option sprd.15.b"
+		name = sprd.15.b #Allow them to organise
+		custom_effect_tooltip = SPA_allow_cntfai
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.03
+		}
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = 0.03
+		}
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.03
+		}
+	}
+}
+
+# Arresting the CNT-FAI
+country_event = {
+	id = sprd.16
+	title = sprd.16.t
+	desc = sprd.16.d
+	picture = GFX_report_event_HOL_zwolle_riots
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprd.16 option sprd.16.a"
+		name = sprd.16.a #Find the rat and establish a secret police!
+		add_stability = 0.05
+		hidden_effect = {
+			random_other_country = {
+				limit = {
+					OR = {
+						tag = FRA
+						tag = ENG
+						tag = SRI
+					}
+				}
+				country_event = { id = sprf.5 days = 15 }
+			}
+		}
+	}
+}
+
+# Forcefully Disbanding the CNT-FAI
+country_event = {
+	id = sprd.17
+	title = sprd.17.t
+	desc = sprd.17.d
+	picture = GFX_report_event_HOL_zwolle_riots
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprd.17 option sprd.17.a"
+		name = sprd.17.a
+		add_stability = 0.05
+		hidden_effect = {
+			random_other_country = {
+				limit = {
+					OR = {
+						tag = FRA
+						tag = ENG
+						tag = SRI
+					}
+				}
+				country_event = { id = sprf.5 days = 15 }
+			}
+		}
+	}
+}
+
+# CNT-FAI organising the workers
+country_event = {
+	id = sprd.18
+	title = sprd.18.t
+	desc = sprd.18.d
+	picture = GFX_report_event_SPA_CNT_FAI
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprd.18 option sprd.18.a"
+		name = sprd.18.a
+		add_stability = 0.02
+		hidden_effect = {
+			country_event = { id = sprd.19 days = 20 random_days = 80 }
+		}
+	}
+}
+
+# CNT-FAI Plan South commenced
+country_event = {
+	id = sprd.19
+	title = sprd.19.t
+	desc = sprd.19.d
+	picture = GFX_report_event_generic_economic_policy
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprd.19 option sprd.19.a"
+		name = sprd.19.a
+		add_stability = 0.05
+		set_country_flag = SPA_cntfai_plan_south
+		hidden_effect = {
+			country_event = { id = sprd.20 days = 20 random_days = 80 }
+		}
+	}
+}
+
+# CNT-FAI Plan South completed
+country_event = {
+	id = sprd.20
+	title = sprd.20.t
+	desc = sprd.20.d
+	picture = GFX_report_event_generic_economic_policy
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprd.20 option sprd.20.a"
+		name = sprd.20.a
+		173 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_resource = {
+				type = steel
+				amount = 4
+			}
+		}
+		168 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+
+### Election event chains
+
+# King Alfonso has a stroke
+country_event = {
+	id = sprd.21
+	title = sprd.21.t
+	desc = sprd.21.d
+	picture = GFX_report_event_SPA_alfonso_xiii
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprd.21 option sprd.21.a"
+		name = sprd.21.a
+		add_political_power = -100
+		add_stability = -0.10
+		hidden_effect = {
+			country_event = { id = sprd.22 days = 10 }
+		}
+	}
+}
+
+# King Alfonso is in a coma
+country_event = {
+	id = sprd.22
+	title = sprd.22.t
+	desc = sprd.22.d
+	picture = GFX_report_event_SPA_alfonso_xiii
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprd.22 option sprd.22.a"
+		name = sprd.22.a #Call for open elections
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = SPA_civil_war option = DEFAULT }
+			}
+		}
+		custom_effect_tooltip = SPA_free_elections
+		hidden_effect = {
+			country_event = { id = sprd.23 days = 5 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event sprd.22 option sprd.22.b"
+		name = sprd.22.b #Call for elections, but with only selected parties
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SPA_civil_war option = SPA_CIVIL_WAR_AVOIDED_SPA }
+					has_game_rule = { rule = SPA_civil_war option = SPA_CIVIL_WAR_AVOIDED_SWF }
+					has_game_rule = { rule = SPA_civil_war option = SPA_CIVIL_WAR_AVOIDED_SPR }
+				}
+			}
+		}
+		custom_effect_tooltip = SPA_rig_elections
+		hidden_effect = {
+			country_event = { id = sprd.25 days = 5 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event sprd.22 option sprd.22.c"
+		name = sprd.22.c #The King is not dead! Do nothing!
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SPA_civil_war option = SPA_CIVIL_WAR_AVOIDED_SPA }
+					has_game_rule = { rule = SPA_civil_war option = SPA_CIVIL_WAR_AVOIDED_SWF }
+					has_game_rule = { rule = SPA_civil_war option = SPA_CIVIL_WAR_AVOIDED_SPR }
+				}
+			}
+		}
+		add_stability = -0.10
+		set_country_flag = SPA_civil_war_will_happen
+	}
+}
+
+# Free elections are held
+country_event = {
+	id = sprd.23
+	title = sprd.23.t
+	desc = sprd.23.d
+	picture = GFX_report_event_election_vote
+
+	trigger = {
+		has_civil_war = no
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprd.23 option sprd.23.a"
+		name = sprd.23.a
+		random_list = {
+			40 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_game_rule = { rule = SPA_civil_war option = SPA_CIVIL_WAR_AVOIDED_SWF }
+						has_game_rule = { rule = SPA_civil_war option = SPA_CIVIL_WAR_AVOIDED_SPR }
+					}
+				}
+				modifier = {
+					factor = 0
+					is_ai = yes
+					NOT = {
+						has_game_rule = { rule = SPA_civil_war option = SPA_CIVIL_WAR_AVOIDED_SPA }
+					}
+				}
+				custom_effect_tooltip = SPA_ruling_party_wins
+				hidden_effect = {
+					country_event = { id = sprd.34 hours = 5 }
+				}
+			}
+			30 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_game_rule = { rule = SPA_civil_war option = SPA_CIVIL_WAR_AVOIDED_SPA }
+						has_game_rule = { rule = SPA_civil_war option = SPA_CIVIL_WAR_AVOIDED_SPR }
+					}
+				}
+				custom_effect_tooltip = SPA_SWF_wins
+				hidden_effect = {
+					country_event = { id = sprd.35 hours = 5 }
+				}
+			}
+			30 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_game_rule = { rule = SPA_civil_war option = SPA_CIVIL_WAR_AVOIDED_SPA }
+						has_game_rule = { rule = SPA_civil_war option = SPA_CIVIL_WAR_AVOIDED_SWF }
+					}
+				}
+				custom_effect_tooltip = SPA_SPR_wins
+				hidden_effect = {
+					country_event = { id = sprd.36 hours = 5 }
+				}
+			}
+		}
+	}
+}
+
+# Election riots
+country_event = {
+	id = sprd.25
+	title = sprd.25.t
+	desc = sprd.25.d
+	picture = GFX_report_event_gathering_protest
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprd.25 option sprd.25.a"
+		name = sprd.25.a #Call off the election - Martial Law is declared
+		ai_chance = { base = 75 }
+		custom_effect_tooltip = SPA_cancel_election
+		add_political_power = -200
+		add_stability = 0.10
+		set_country_flag = SPA_civil_war_will_happen
+	}
+	option = {
+		log = "[GetLogInfo]: event sprd.25 option sprd.25.b"
+		name = sprd.25.b #Nothing will stop this election
+		ai_chance = { base = 25 }
+		add_stability = -0.10
+		hidden_effect = {
+			country_event = { id = sprd.26 days = 1 }
+		}
+	}
+}
+
+# Election day disaster
+country_event = {
+	id = sprd.26
+	title = sprd.26.t
+	desc = sprd.26.d
+	picture = GFX_report_event_generic_riot
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = {
+			has_war_with = SWF
+			has_war_with = SPR
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sprd.26 option sprd.26.a"
+		name = sprd.26.a
+		add_stability = -0.10
+		add_manpower = -10000
+		set_country_flag = SPA_civil_war_will_happen
+	}
+}
+
+### POST-WAR EVENTS
+
+# Replacing the king - Juan not assassinated
+country_event = {
+	id = sprd.27
+
+	title = {
+		text = sprd.27.t.juan
+		trigger = { has_character = SPA_juan_de_borbon }
+	}
+	title = {
+		text = sprd.27.t.jaime
+		trigger = { NOT = { has_character = SPA_juan_de_borbon } }
+	}
+	desc = {
+		text = sprd.27.d.juan
+		trigger = { has_character = SPA_juan_de_borbon }
+	}
+	desc = {
+		text = sprd.27.d.jaime
+		trigger = { NOT = { has_character = SPA_juan_de_borbon } }
+	}
+
+	picture = GFX_report_event_SPA_alfonso_xiii
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprd.27 option sprd.27.a"
+		name = sprd.27.a #Name him as Alfonso's successor
+		ai_chance = {
+			base = 80
+			modifier = {
+				add = -20
+				NOT = { has_character = SPA_juan_de_borbon }
+			}
+		}
+		add_political_power = 40
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.1
+		}
+		retire_character = SPA_alfonso_de_borbon
+		SPA_create_juan = yes
+	}
+	option = {
+		log = "[GetLogInfo]: event sprd.27 option sprd.27.b"
+		name = sprd.27.b #No, the time of the kingdom is over
+		ai_chance = {
+			base = 20
+			modifier = {
+				add = 20
+				NOT = { has_character = SPA_juan_de_borbon }
+			}
+		}
+		add_political_power = -100
+		drop_cosmetic_tag = yes
+		if = {
+			limit = { has_idea = SPA_memories_of_the_republic }
+			remove_ideas = SPA_memories_of_the_republic
+		}
+		effect_tooltip = { retire_character = SPA_alfonso_de_borbon }
+		hidden_effect = { SPA_remove_monarchy = yes }
+	}
+}
+
+# Spain asks to join a faction
+country_event = {
+	id = sprd.31
+	title = sprd.31.t
+	desc = sprd.31.d
+	picture = GFX_report_event_generic_diplomacy4
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprd.31 option sprd.31.a"
+		name = sprd.31.a #Absolutely, they are welcome
+		ai_chance = { base = 100 }
+		FROM = { country_event = { id = sprd.32 hours = 5 } }
+		effect_tooltip = { add_to_faction = FROM }
+	}
+	option = {
+		log = "[GetLogInfo]: event sprd.31 option sprd.31.b"
+		name = sprd.31.b #It's not a good idea
+		ai_chance = { base = 0 }
+		FROM = { country_event = { id = sprd.33 hours = 5 } }
+	}
+}
+
+# Spain admitted to faction
+country_event = {
+	id = sprd.32
+	title = sprd.32.t
+	desc = sprd.32.d
+	picture = GFX_report_event_generic_diplomacy3
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprd.32 option sprd.32.a"
+		name = sprd.32.a
+		FROM = { add_to_faction = ROOT }
+	}
+}
+
+# Spain is turned down
+country_event = {
+	id = sprd.33
+	title = sprd.33.t
+	desc = sprd.33.d
+	picture = GFX_report_event_worried_french
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprd.33 option sprd.33.a"
+		name = sprd.33.a
+		add_political_power = -20
+	}
+}
+
+# The ruling party wins the elections
+country_event = {
+	id = sprd.34
+	title = sprd.34.t
+	desc = sprd.34.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprd.34 option sprd.34.a"
+		name = sprd.34.a
+		add_stability = 0.10
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.2
+		}
+		set_country_flag = election_success
+		clr_country_flag = SPA_civil_war_will_happen
+		hidden_effect = {
+			news_event = worldnews.85
+		}
+	}
+}
+
+# The CNT-FAI wins the elections
+country_event = {
+	id = sprd.35
+	title = sprd.35.t
+	desc = sprd.35.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprd.35 option sprd.35.a"
+		name = sprd.35.a #We will abide by the result
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 1
+				has_game_rule = { rule = SPA_civil_war option = SPA_CIVIL_WAR_AVOIDED_SWF }
+			}
+		}
+		custom_effect_tooltip = SPA_become_SWF
+		hidden_effect = {
+			every_core_state = { add_core_of = SWF }
+			random_owned_controlled_state = { transfer_state_to = SWF }
+			SWF = {
+				inherit_technology = SPA
+				set_country_flag = election_success
+				add_stability = 0.10
+				set_cosmetic_tag = SPA_socialist
+				var:967.owner = { country_event = { id = sprc.503 hours = 12 } } #Rio de Oro
+				var:539.owner = { country_event = { id = sprc.501 days = 6 } } #Equatorial Guinea
+				if = {
+					limit = { MOR = { is_subject = yes } }
+					var:MOR.overlord = { country_event = { id = sprc.507 days = 11 } } #Rif
+				}
+				else = {
+					var:461.owner = { country_event = { id = sprc.507 days = 11 } } #Rif
+				}
+				change_tag_from = SPK
+			}
+			SWF = {
+				annex_country = {
+					target = SPK
+					transfer_troops = yes
+				}
+				set_capital = { state = 41 remember_old_capital = no }
+			}
+			news_event = worldnews.85
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event sprd.35 option sprd.35.b"
+		name = sprd.35.b #Never! Invalidate the elections!
+		ai_chance = {
+			base = 70
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = SPA_civil_war option = SPA_CIVIL_WAR_AVOIDED_SWF }
+			}
+		}
+		add_political_power = -200
+		add_stability = -0.10
+		set_country_flag = SPA_civil_war_will_happen
+	}
+}
+
+# The Carlists win the elections
+country_event = {
+	id = sprd.36
+	title = sprd.36.t
+	desc = sprd.36.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprd.36 option sprd.35.a"
+		name = sprd.35.a #We will abide by the result
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 1
+				has_game_rule = { rule = SPA_civil_war option = SPA_CIVIL_WAR_AVOIDED_SPR }
+			}
+		}
+		custom_effect_tooltip = SPA_become_SPR
+		hidden_effect = {
+			every_core_state = { add_core_of = SPR }
+			random_owned_controlled_state = { transfer_state_to = SPR }
+			SPR = {
+				inherit_technology = SPA
+				set_cosmetic_tag = SPA_carlists_kingdom
+				set_country_flag = election_success
+				add_stability = 0.10
+				change_tag_from = SPK
+			}
+			SPR = {
+				annex_country = {
+					target = SPK
+					transfer_troops = yes
+				}
+				set_capital = { state = 41 }
+			}
+			news_event = worldnews.85
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event sprd.36 option sprd.35.b"
+		name = sprd.35.b #Never! Invalidate the elections!
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = SPA_civil_war option = SPA_CIVIL_WAR_AVOIDED_SPR }
+			}
+		}
+		add_political_power = -200
+		add_stability = -0.10
+		set_country_flag = SPA_civil_war_will_happen
+	}
+}
+
+########################################
+#### Kingdom of Spain, Foreign Policy
+########################################
+
+# Carlists flee to Portugal
+country_event = {
+	id = sprf.3
+	title = sprf.3.t
+	desc = sprf.3.d
+	picture = GFX_report_event_SPA_javier
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprf.3 option sprf.3.a"
+		name = sprf.3.a #Allow them to continue operating from Portugal
+		ai_chance = { base = 85 }
+		add_political_power = 50
+		reverse_add_opinion_modifier = {
+			target = GER
+			modifier = KR_hates_govt
+		}
+		reverse_add_opinion_modifier = {
+			target = AUS
+			modifier = KR_hates_govt
+		}
+		reverse_add_opinion_modifier = {
+			target = SPA
+			modifier = KR_outraged
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event sprf.3 option sprf.3.b"
+		name = sprf.3.b #Break off diplomatic relations with Spain
+		ai_chance = { base = 10 }
+		reverse_add_opinion_modifier = {
+			target = SPA
+			modifier = KR_outraged
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event sprf.3 option sprf.3.c"
+		name = sprf.3.c #Wash our hands of the Carlists
+		ai_chance = { base = 5 }
+		add_political_power = -100
+	}
+}
+
+# CNT-FAI flees to FRA/SRI/ENG
+country_event = {
+	id = sprf.5
+	title = sprf.4.t
+	desc = sprf.4.d
+	picture = GFX_report_event_SPA_SWF_refugees
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_socialist_government = yes
+		NOT = {
+			country_exists = SWF
+			has_global_flag = spanish_civil_war
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sprf.5 option sprf.4.a"
+		name = sprf.4.a
+		ai_chance = {
+			base = 75
+			modifier = {
+				add = -40
+				tag = FRA
+				NOT = { has_country_flag = FRA_support_SWF }
+			}
+			modifier = {
+				add = 10
+				tag = FRA
+				has_country_flag = FRA_support_SWF
+			}
+			modifier = {
+				add = -70
+				tag = ENG
+				NOT = { has_country_flag = FRA_support_SWF }
+			}
+		}
+		set_variable = { SWF.SWF_foreign_support = ROOT }
+		add_political_power = 60
+		reverse_add_opinion_modifier = {
+			target = SPA
+			modifier = cntfai_supported
+		}
+		add_manpower = -20000
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = -500
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event sprf.5 option sprf.4.b"
+		name = sprf.4.b
+		ai_chance = {
+			base = 20
+			modifier = {
+				add = 25
+				tag = FRA
+				NOT = { has_country_flag = FRA_support_SWF }
+			}
+			modifier = {
+				add = -10
+				tag = FRA
+				has_country_flag = FRA_support_SWF
+			}
+		}
+		add_political_power = -20
+		reverse_add_opinion_modifier = {
+			target = SPA
+			modifier = cntfai_given_refuge
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event sprf.5 option sprf.4.c"
+		name = sprf.4.c
+		ai_chance = {
+			base = 5
+			modifier = {
+				add = 15
+				tag = FRA
+				NOT = { has_country_flag = FRA_support_SWF }
+			}
+			modifier = {
+				add = 70
+				tag = ENG
+				NOT = { has_country_flag = FRA_support_SWF }
+			}
+		}
+		add_political_power = -100
+		set_country_flag = SWF_kicked_out
+		reverse_add_opinion_modifier = {
+			target = SPA
+			modifier = cntfai_kicked_out
+		}
+		hidden_effect = {
+			random_other_country = {
+				limit = {
+					OR = {
+						tag = FRA
+						tag = ENG
+						tag = SRI
+					}
+					NOT = { has_country_flag = SWF_kicked_out }
+				}
+				country_event = { id = sprf.5 days = 15 }
+			}
+		}
+	}
+}
+
+# Latin Economic Union
+country_event = {
+	id = sprf.6
+	title = sprf.6.t
+	desc = sprf.6.d
+	picture = GFX_report_event_SPA_javier
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprf.6 option sprf.6.a"
+		name = sprf.6.a
+		add_ideas = SPR_economic_cooperation_idea
+		add_opinion_modifier = { target = ROOT modifier = mediterranean_economic_block }
+		reverse_add_opinion_modifier = { target = ROOT modifier = mediterranean_economic_block }
+	}
+}
+
+########################################
+#### Spanish Civil War
+########################################
+
+# Civil War begins
+country_event = {
+	id = sprc.1
+	title = sprc.1.t
+	desc = sprc.1.d
+	picture = GFX_report_event_SPA_civwar
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = SPA
+		has_country_flag = SPA_civil_war_will_happen
+		surrender_progress < 0.05
+		is_subject = no
+	}
+
+	mean_time_to_happen = {
+		days = 10
+	}
+
+	immediate = {
+		hidden_effect = { SWF = { set_cosmetic_tag = SPA_socialist_civil_war } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sprc.1 option sprc.1.a"
+		name = sprc.1.a #We shall fight them!
+		SPA_start_civil_war = yes
+		if = {
+			limit = {
+				is_ai = yes
+			}
+			SPA_spawn_AI_reinforcements = yes
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sprc.1 option sprc.1.b"
+		name = sprc.1.b #Viva la Revolución! (Play as the CNT-FAI)
+		ai_chance = { base = 0 }
+		SPA_start_civil_war = yes
+		SPA_spawn_AI_reinforcements = yes
+		SWF = { change_tag_from = ROOT }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sprc.1 option sprc.1.c"
+		name = sprc.1.c #Long live Javier I! (Play as the Carlists)
+		ai_chance = { base = 0 }
+		SPA_start_civil_war = yes
+		SPA_spawn_AI_reinforcements = yes
+		SPR = { change_tag_from = ROOT }
+	}
+}
+
+### KINGDOM OF SPAIN EVENTS ###
+
+# events 101-103 removed
+
+# Kingdom of Spain victory event (fired by focus)
+country_event = {
+	id = sprc.120
+	title = sprc.120.t
+	desc = sprc.120.d
+	picture = GFX_report_event_SPA_civwar
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprc.120 option sprc.120.a"
+		name = sprc.120.a
+		add_political_power = 200
+		clr_global_flag = spanish_civil_war
+		set_country_flag = aftermath_of_the_civil_war
+		if = {
+			limit = { has_idea = SPA_advisors_germany }
+			remove_ideas = SPA_advisors_germany
+		}
+		if = {
+			limit = { has_idea = SPA_advisors_russia }
+			remove_ideas = SPA_advisors_russia
+		}
+		if = {
+			limit = { has_idea = SPA_advisors_natfrance }
+			remove_ideas = SPA_advisors_natfrance
+		}
+		hidden_effect = {
+			news_event = { id = worldnews.86 days = 1 }
+			country_event = { id = sprc.322 days = 15 random_days = 15 }
+		}
+	}
+}
+
+# Terror event
+country_event = {
+	id = sprc.122
+	title = sprc.122.t
+	desc = sprc.122.d
+	picture = GFX_report_event_SPA_civwar3
+
+	is_triggered_only = yes
+
+	trigger = {
+		num_occupied_states > 0
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sprc.122 option sprc.122.a"
+		name = sprc.122.a
+		add_stability = -0.02
+	}
+}
+
+### CNT-FAI EVENTS ###
+
+# events 204-206 removed
+
+# Madrid is taken by CNT
+country_event = {
+	id = sprc.211
+	title = sprc.211.t
+	desc = sprc.211.d
+	picture = GFX_report_event_SPA_civwar3
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_global_flag = spanish_civil_war
+		NOT = { owns_state = 41 } #Madrid
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sprc.211 option sprc.211.a"
+		name = sprc.211.a #We must scavenge what we can!
+		ai_chance = { base = 65 }
+		add_political_power = -50
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 1000
+			producer = SPA
+		}
+		41 = {
+			damage_building = {
+				type = industrial_complex
+				damage = 1
+			}
+			damage_building = {
+				type = arms_factory
+				damage = 1
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event sprc.211 option sprc.211.b"
+		name = sprc.211.b #Leave the city as it stands
+		ai_chance = { base = 35 }
+		add_political_power = 50
+	}
+}
+
+# CNT victory event
+country_event = {
+	id = sprc.220
+	title = sprc.220.t
+	desc = sprc.220.d
+	picture = GFX_report_event_SPA_civwar
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprc.220 option sprc.220.a"
+		name = sprc.220.a
+		add_political_power = 200
+		set_cosmetic_tag = SPA_socialist
+		clr_global_flag = spanish_civil_war
+		set_country_flag = aftermath_of_the_civil_war
+		if = {
+			limit = { has_idea = SWF_advisors_france }
+			remove_ideas = SWF_advisors_france
+		}
+		if = {
+			limit = { has_idea = SWF_advisors_england }
+			remove_ideas = SWF_advisors_england
+		}
+		if = {
+			limit = { has_idea = SWF_advisors_italysoc }
+			remove_ideas = SWF_advisors_italysoc
+		}
+		hidden_effect = {
+			news_event = { id = worldnews.87 days = 1 }
+			country_event = { id = sprc.221 days = 5 }
+			country_event = { id = sprc.322 days = 15 random_days = 15 }
+		}
+	}
+}
+
+# CNT considers moving the capital to Madrid
+country_event = {
+	id = sprc.221
+	title = sprc.221.t
+	desc = sprc.221.d
+	picture = GFX_report_event_generic_diplomacy4
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprc.221 option sprc.221.a"
+		name = sprc.221.a
+		add_political_power = 20
+		set_capital = { state = 41 remember_old_capital = no }
+	}
+	option = {
+		log = "[GetLogInfo]: event sprc.221 option sprc.221.b"
+		name = sprc.221.b
+		ai_chance = { base = 0 }
+		add_political_power = 20
+	}
+}
+
+### ASSASSINATION EVENT CHAIN
+
+# Assassination plot begins
+country_event = {
+	id = sprc.306
+	title = sprc.306.t
+	desc = sprc.306.d
+	picture = GFX_report_event_SPA_civwar3
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_war_with = SPA
+		SPA = { has_country_leader = { character = SPA_alfonso_de_borbon } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sprc.306 option sprc.306.a"
+		name = sprc.306.a
+		random_list = {
+			75 = {
+				country_event = { id = sprc.309 days = 20 } #success
+			}
+			25 = {
+				country_event = { id = sprc.307 days = 20 } #fails
+			}
+		}
+	}
+}
+
+# Assassination plot fails
+country_event = {
+	id = sprc.307
+	title = sprc.307.t
+	desc = sprc.307.d
+	picture = GFX_report_event_SPA_civwar3
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_war_with = SPA
+		SPA = { has_country_leader = { character = SPA_alfonso_de_borbon } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sprc.307 option sprc.307.a"
+		name = sprc.307.a
+		add_political_power = -100
+		hidden_effect = {
+			SPA = {
+				country_event = sprc.308
+			}
+		}
+	}
+}
+
+# Inform Kingdom of Spain that plot failed
+country_event = {
+	id = sprc.308
+	title = sprc.308.t
+	desc = sprc.308.d
+	picture = GFX_report_event_SPA_civwar3
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprc.308 option sprc.308.a"
+		name = sprc.308.a
+		add_political_power = 50
+	}
+}
+
+# Assassination plot succeeds
+country_event = {
+	id = sprc.309
+	title = sprc.309.t
+	desc = sprc.309.d
+	picture = GFX_report_event_europe_funeral
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_war_with = SPA
+		SPA = { has_country_leader = { character = SPA_alfonso_de_borbon } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sprc.309 option sprc.309.a"
+		name = sprc.309.a
+		add_political_power = 100
+		hidden_effect = {
+			SPA = {
+				country_event = sprc.310
+			}
+		}
+	}
+}
+
+# Inform Kingdom of Spain that plot succeeded
+country_event = {
+	id = sprc.310
+	title = sprc.310.t
+	desc = sprc.310.d
+	picture = GFX_report_event_europe_funeral
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_war_with = SPR
+		has_country_leader = { character = SPA_alfonso_de_borbon }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sprc.310 option sprc.310.a"
+		name = sprc.310.a #Emilio Mola takes control
+		ai_chance = { base = 50 }
+		add_stability = -0.10
+		add_timed_idea = {
+			idea = SPA_regent_killed
+			days = 90
+		}
+		SPA_juan_de_borbon = { kill_character = yes }
+		set_politics = {
+			ruling_party = paternal_autocrat
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.1
+		}
+		hidden_effect = {
+			SWF = {
+				country_event = { id = sprc.311 days = 1 }
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event sprc.310 option sprc.310.b"
+		name = sprc.310.b #J.M. Gil-Robles Quiñones retains the government
+		ai_chance = { base = 50 }
+		add_stability = -0.10
+		add_timed_idea = {
+			idea = SPA_regent_killed
+			days = 90
+		}
+		SPA_juan_de_borbon = { kill_character = yes }
+		promote_character = SPA_gil_robles
+		hidden_effect = {
+			SWF = {
+				country_event = { id = sprc.311 days = 1 }
+			}
+		}
+	}
+}
+
+# CNT informed of the regent's assassination
+country_event = {
+	id = sprc.311
+	title = sprc.311.t
+	desc = sprc.311.d
+	picture = GFX_report_event_europe_funeral
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprc.311 option sprc.311.a"
+		name = sprc.311.a
+	}
+}
+
+# Carlist victory event (triggered by focus)
+country_event = {
+	id = sprc.320
+	title = sprc.320.t
+	desc = sprc.320.d
+	picture = GFX_report_event_SPA_civwar
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprc.320 option sprc.320.a"
+		name = sprc.320.a
+		add_political_power = 200
+		clr_global_flag = spanish_civil_war
+		set_country_flag = aftermath_of_the_civil_war
+		set_cosmetic_tag = SPA_carlists_kingdom
+		if = {
+			limit = { has_idea = SPR_advisors_italianfed }
+			remove_ideas = SPR_advisors_italianfed
+		}
+		if = {
+			limit = { has_idea = SPR_advisors_austria }
+			remove_ideas = SPR_advisors_austria
+		}
+		if = {
+			limit = { has_idea = SPR_advisors_portugal }
+			remove_ideas = SPR_advisors_portugal
+		}
+		if = {
+			limit = { has_idea = SPA_advisors_natfrance }
+			remove_ideas = SPA_advisors_natfrance
+		}
+		hidden_effect = {
+			country_event = { id = sprc.321 days = 5 }
+			country_event = { id = sprc.322 days = 15 random_days = 15 }
+			news_event = { id = worldnews.88 days = 1 }
+		}
+	}
+}
+
+# SPR considers moving the capital to Madrid
+country_event = {
+	id = sprc.321
+	title = sprc.321.t
+	desc = sprc.321.d
+	picture = GFX_report_event_generic_diplomacy4
+
+	trigger = {
+		41 = { is_owned_and_controlled_by = ROOT } #Madrid
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprc.321 option sprc.321.a"
+		name = sprc.321.a
+		ai_chance = { base = 100 }
+		add_political_power = 20
+		set_capital = { state = 41 remember_old_capital = no }
+	}
+	option = {
+		log = "[GetLogInfo]: event sprc.321 option sprc.321.b"
+		name = sprc.321.b
+		ai_chance = { base = 0 }
+		add_political_power = 20
+	}
+}
+
+# The Troubles Continue
+country_event = {
+	id = sprc.322
+	title = sprc.322.t
+	desc = sprc.322.d
+	picture = GFX_report_event_generic_ruins
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprc.322 option sprc.322.a"
+		name = sprc.322.a
+		add_stability = -0.20
+		hidden_effect = {
+			country_event = { id = sprc.323 days = 90 }
+		}
+	}
+}
+
+# Recovery event #1
+country_event = {
+	id = sprc.323
+	title = sprc.323.t
+	desc = sprc.323.d
+	picture = GFX_report_event_SPA_civwar
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprc.323 option sprc.322.a"
+		name = sprc.322.a
+		if = {
+			limit = {
+				has_political_power < -500
+			}
+			add_political_power = 200
+			add_stability = 0.10
+		}
+		if = {
+			limit = {
+				has_political_power > -501
+				has_political_power < -100
+			}
+			add_political_power = 100
+			add_stability = 0.05
+		}
+		if = {
+			limit = {
+				has_political_power > -101
+			}
+			add_political_power = 50
+		}
+		hidden_effect = {
+			country_event = { id = sprc.324 days = 90 }
+		}
+	}
+}
+
+# Recovery event #2
+country_event = {
+	id = sprc.324
+	title = sprc.323.t
+	desc = sprc.323.d
+	picture = GFX_report_event_SPA_civwar
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_political_power < 0
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sprc.324 option sprc.322.a"
+		name = sprc.322.a
+		if = {
+			limit = {
+				has_political_power < -500
+			}
+			add_political_power = 200
+			add_stability = 0.10
+		}
+		if = {
+			limit = {
+				has_political_power > -501
+				has_political_power < -100
+			}
+			add_political_power = 100
+			add_stability = 0.05
+		}
+		if = {
+			limit = {
+				has_political_power > -101
+			}
+			add_political_power = 50
+		}
+		hidden_effect = {
+			country_event = { id = sprc.324 days = 90 }
+		}
+	}
+}
+
+news_event = { #Spanish Civil War
+	id = sprc.400
+	immediate = { log = "[GetLogInfo]: event sprc.400" }
+	title = sprc.400.t
+	desc = sprc.400.d
+	picture = GFX_news_event_SPA_spanish_civil_war
+
+	major = yes
+	fire_for_sender = no
+	is_triggered_only = yes
+
+	trigger = {
+		wants_world_news = yes
+	}
+
+	show_major = {
+		NOT = {
+			tag = SWF
+			tag = SPA
+			tag = SPR
+		}
+	}
+
+	option = {
+		name = sprc.400.a
+		effect_tooltip = {
+			add_named_threat = {
+				threat = 5
+				name = SPA_civil_war_threat
+			}
+		}
+	}
+}
+
+# Collapse of the Spanish Colonial Empire
+country_event = { #Spanish Africa Switches Sides
+	id = sprc.500
+	title = sprc.500.t
+	desc = sprc.500.d
+	picture = GFX_report_event_generic_ruins
+
+	trigger = {
+		has_civil_war = yes
+		has_capitulated = no
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	immediate = {
+		hidden_effect = {
+			SPA = {
+				every_owned_state = {
+					limit = { NOT = { is_core_of = PREV } }
+					transfer_state_to = ROOT
+				}
+			}
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sprc.500 option sprc.500.a"
+		name = sprc.500.a
+		effect_tooltip = {
+			every_owned_state = {
+				limit = { NOT = { is_core_of = ROOT } }
+				transfer_state_to = ROOT
+			}
+		}
+	}
+}
+
+country_event = {
+	id = sprc.501
+	title = sprc.501.t
+	desc = sprc.501.d
+	picture = GFX_report_event_generic_ruins
+
+	trigger = {
+		OR = {
+			297 = { is_core_of = ROOT }
+			has_socialist_government = no
+		}
+		SWF = { owns_state = 297 }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprc.501 option sprc.501.a"
+		name = sprc.501.a
+		transfer_state = 297
+		SWF = { country_event = sprc.502 }
+	}
+	option = {
+		log = "[GetLogInfo]: event sprc.501 option sprc.501.b"
+		name = sprc.501.b
+		ai_chance = { base = 0 }
+		if = {
+			limit = { NOT = { owns_state = 927 } }
+			add_political_power = -10
+			var:927.owner = { country_event = sprc.501 }
+		}
+		else = {
+			add_political_power = -100
+		}
+	}
+}
+
+country_event = { #Conflict in Africa seized equatorial guinea
+	id = sprc.502
+	title = sprc.502.t
+	desc = sprc.502.d
+	picture = GFX_report_event_NFA_event_NFAGenericArmy
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprc.502 option sprc.502.a"
+		name = sprc.502.a #Let them take them
+		add_opinion_modifier = { target = FROM modifier = KR_hates_govt }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sprc.502 option sprc.502.c"
+		name = sprc.502.c #Offer what resistance we can.....
+		ai_chance = { base = 0 }
+		add_opinion_modifier = { target = FROM modifier = KR_hates_govt }
+		add_political_power = -40
+		297 = {
+			add_resistance = 20
+			add_resistance_target = {
+				amount = 20
+				days = 730
+				tooltip = SWF_colonial_resistance
+			}
+		}
+	}
+}
+
+country_event = { #SWF in Africa what to do with Rio de Oro
+	id = sprc.503
+	title = sprc.503.t
+
+	desc = {
+		text = sprc.503.d.mrt
+		trigger = { original_tag = MRT }
+	}
+	desc = {
+		text = sprc.503.d.not_mrt
+		trigger = { NOT = { original_tag = MRT } }
+	}
+
+	picture = GFX_report_event_NFA_event_ArmyReview
+
+	trigger = {
+		OR = {
+			tag = MRT
+			has_socialist_government = no
+		}
+		SWF = { owns_state = 699 }
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprc.503 option sprc.503.a"
+		name = sprc.503.a #Occupy those territories
+		trigger = { original_tag = MRT }
+		add_state_core = 699
+		transfer_state = 699
+		SWF = { country_event = sprc.506 }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sprc.503 option sprc.503.b"
+		name = sprc.503.b #Occupy those territories
+		trigger = { NOT = { original_tag = MRT } }
+		add_manpower = -1000
+		add_equipment_to_stockpile = { type = infantry_equipment amount = -500 }
+		add_state_claim = 699
+		transfer_state = 699
+		SWF = { country_event = sprc.505 }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sprc.503 option sprc.503.c"
+		name = sprc.503.c #Don't
+		trigger = { NOT = { original_tag = MRT } }
+		ai_chance = { base = 0 }
+		add_political_power = -100
+		if = {
+			limit = {
+				NOT = { tag = MOR }
+				country_exists = MOR
+				MOR = { has_capitulated = no }
+			}
+			add_political_power = -10
+			MOR = { country_event = sprc.503 }
+		}
+		else = {
+			add_political_power = -100
+		}
+	}
+}
+
+country_event = { #SWF - Conflict in Africa seized rio de oro
+	id = sprc.505
+	title = sprc.505.t
+	desc = sprc.505.d
+	picture = GFX_report_event_NFA_event_NFAGenericArmy
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprc.505 option sprc.505.a"
+		name = sprc.505.a #Let them take them
+		add_opinion_modifier = { target = FROM modifier = KR_hates_govt }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sprc.505 option sprc.505.b"
+		name = sprc.505.b #To war!
+		ai_chance = { base = 0 }
+		add_political_power = -100
+		create_wargoal = { target = FROM type = annex_everything }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sprc.505 option sprc.505.c"
+		name = sprc.505.c #Offer what resistance we can.....
+		ai_chance = { base = 0 }
+		add_opinion_modifier = { target = FROM modifier = KR_hates_govt }
+		add_political_power = -40
+		699 = {
+			add_resistance = 20
+			add_resistance_target = {
+				amount = 20
+				days = 699
+				tooltip = SWF_colonial_resistance
+			}
+		}
+	}
+}
+
+country_event = { #SWF - Conflict in Africa seized rio de oro (MRT)
+	id = sprc.506
+	title = sprc.506.t
+	desc = sprc.506.d
+	picture = GFX_report_event_NFA_event_NFAGenericArmy
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprc.506 option sprc.506.a"
+		name = sprc.506.a #Let them take them
+		add_opinion_modifier = { target = FROM modifier = KR_hates_govt }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sprc.506 option sprc.506.b"
+		name = sprc.506.b #To war!
+		ai_chance = { base = 0 }
+		add_political_power = -200
+		create_wargoal = { target = FROM type = annex_everything }
+	}
+}
+
+country_event = { #SWF in Africa what to do with the Rif
+	id = sprc.507
+	title = sprc.507.t
+	desc = {
+		text = sprc.507.d_ger
+		trigger = { has_subject = MOR }
+	}
+	desc = {
+		text = sprc.507.d_other
+		trigger = { NOT = { has_subject = MOR } }
+	}
+	picture = GFX_report_event_NFA_event_ArmyReview
+
+	trigger = {
+		OR = {
+			tag = MOR
+			has_socialist_government = no
+		}
+		SWF = { any_owned_state = { is_core_of = MOR } }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sprc.507 option sprc.507.a"
+		name = sprc.507.a #Occupy those territories
+		trigger = { has_subject = MOR }
+		add_manpower = -1000
+		add_equipment_to_stockpile = { type = infantry_equipment amount = -500 }
+		SWF = {
+			every_owned_state = {
+				limit = { is_core_of = MOR }
+				teleport_armies = { to_state = 169 } #Sevilla
+				transfer_state_to = MOR
+			}
+			country_event = sprc.508
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sprc.507 option sprc.507.b"
+		name = sprc.507.b #Occupy those territories
+		trigger = {
+			NOT = { tag = GER }
+		}
+		add_manpower = -1000
+		add_equipment_to_stockpile = { type = infantry_equipment amount = -500 }
+		SWF = {
+			every_owned_state = {
+				limit = { is_core_of = MOR }
+				teleport_armies = { to_state = 169 } #Sevilla
+				transfer_state_to = ROOT
+			}
+			country_event = sprc.508
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sprc.507 option sprc.507.c"
+		name = sprc.507.c #Don't
+		ai_chance = { base = 0 }
+		add_political_power = -100
+		if = {
+			limit = {
+				NOT = { tag = NFA }
+				country_exists = NFA
+				NFA = { has_capitulated = no }
+			}
+			add_political_power = -10
+			NFA = { country_event = sprc.507 }
+		}
+		else = {
+			add_political_power = -100
+		}
+	}
+}
+country_event = { # German Empire occupies Spanish Morocco
+	id = sprc.508
+	title = sprc.508.t
+	desc = sprc.508.d
+
+	is_triggered_only = yes
+
+	option = { # Nothing we can do
+		log = "[GetLogInfo]: event sprc.508 option sprc.508.a"
+		name = sprc.508.a
+		add_opinion_modifier = { target = FROM modifier = KR_hates_govt }
+	}
+
+	option = { # War
+		log = "[GetLogInfo]: event sprc.508 option sprc.508.b"
+		name = sprc.508.b
+		ai_chance = { base = 0 }
+		add_political_power = -200
+		create_wargoal = { target = FROM type = annex_everything }
+	}
+}

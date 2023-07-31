@@ -1,0 +1,127 @@
+﻿# For minor countries where advisors are not defined
+# Generate them from a generic template
+
+# Generic Theorists
+every_possible_country = {
+	limit = {
+		is_dynamic_country = no
+		NOT = { tag = ALO }
+		NOT = { tag = ARM }
+		NOT = { tag = AZR }
+		NOT = { tag = BAT }
+		NOT = { tag = BOS }
+		NOT = { tag = BHU }
+		NOT = { tag = BUK }
+		NOT = { tag = CEN } #formable tag
+		NOT = { tag = CYP }
+		NOT = { tag = FIN }
+		NOT = { tag = FOP } #receives theorists from ARG
+		NOT = { tag = GBR } #roster starts in CAN
+		NOT = { tag = HON }
+		NOT = { tag = KHI }
+		NOT = { tag = IRQ } #they really don't need naval theorist
+		NOT = { tag = KUM }
+		NOT = { tag = LIB }
+		NOT = { tag = LIT } #they don't need naval lads
+		NOT = { tag = MNT }
+		NOT = { tag = POL } #gets air theorist from GAL
+		NOT = { tag = ROM } #they don't need naval lads
+		NOT = { tag = SCA } #formable tag
+		NOT = { tag = SOV } #roster starts in RUS
+		NOT = { tag = SWF }
+		NOT = { tag = TIB }
+		NOT = { tag = TRK }
+		NOT = { tag = XXA } #system tag
+		is_american_tag = no #rosters start in USA
+		is_chinese_tag = no #unique theorists
+	}
+	# generic theorists
+	if = {
+		limit = {
+			NOT = {
+				any_character = {
+					has_advisor_role = theorist
+					OR = {
+						has_army_ledger = yes
+						has_trait = KR_council_of_theorists
+					}
+				}
+			}
+		}
+		generate_character = {
+			token_base = generic_military_theorist # token will be TAG_token_base
+			advisor = {
+				slot = theorist
+				traits = { KR_military_theorist }
+				ledger = army
+				cost = 100
+			}
+			portraits = {
+				army = { small = GFX_idea_generic_military_theorist }
+			}
+		}
+		generic_military_theorist = { set_character_flag = is_generic }
+	}
+	if = {
+		limit = {
+			NOT = {
+				any_character = {
+					has_advisor_role = theorist
+					OR = {
+						has_navy_ledger = yes
+						has_trait = KR_council_of_theorists
+					}
+				}
+			}
+			OR = {
+				capital_scope = {
+					is_coastal = yes
+					is_caspian_sea_bordering_state = no
+				}
+				any_core_state = {
+					is_coastal = yes
+					is_caspian_sea_bordering_state = no
+				}
+			}
+		}
+		generate_character = {
+			token_base = generic_naval_theorist # token will be TAG_token_base
+			advisor = {
+				slot = theorist
+				traits = { KR_naval_theorist }
+				ledger = navy
+				cost = 100
+			}
+			portraits = {
+				army = { small = GFX_idea_generic_naval_theorist }
+			}
+		}
+		generic_naval_theorist = { set_character_flag = is_generic }
+	}
+	if = {
+		limit = {
+			NOT = {
+				any_character = {
+					has_advisor_role = theorist
+					OR = {
+						has_air_ledger = yes
+						has_trait = KR_council_of_theorists
+					}
+				}
+			}
+		}
+		generate_character = {
+			token_base = generic_air_warfare_theorist # token will be TAG_token_base
+			advisor = {
+				slot = theorist
+				traits = { KR_air_warfare_theorist }
+				ledger = air
+				cost = 100
+			}
+			portraits = {
+				army = { small = GFX_idea_generic_air_warfare_theorist }
+			}
+		}
+		generic_air_warfare_theorist = { set_character_flag = is_generic }
+	}
+}

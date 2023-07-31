@@ -1,493 +1,244 @@
-﻿capital = 1262
+﻿capital = 47
+oob = "GRE"
+set_naval_oob = "GRE_naval"
+set_research_slots = 3
+starting_train_buffer = 1
 
-# Vacant
-# recruit_character = GRE_Generic_Vacant
+save_global_event_target_as = original_greece #used in civil war scripts
 
-###Playable
-set_country_flag = tno_playable_country
-
-oob = "GRE_1962"
-
-set_cosmetic_tag = GRE_collab
-
-set_stability = 0.5
-set_war_support = 0.0
-
-set_variable = {
-	var = GRE_ITA_Influence
-	value = 4
-}
-
-country_event = { id = gre.1 days = 730 }
-
-### Characters
-# recruit_character = GRE_Georgios_Themelis
-# recruit_character = GRE_Antonio_Gandin
-# recruit_character = GRE_Antonis_Livieratos
-# recruit_character = GRE_Ioannis_Voulpiotis
-# recruit_character = GRE_Phaedon_Gizikis
-# recruit_character = GRE_Dimitrios_Psarros
-# recruit_character = GRE_Komninos_Pyromaglou
-# recruit_character = GRE_Panagiotis_Kanellopoulos
-# recruit_character = GRE_Georgios_Papadopoulos
-# recruit_character = GRE_Aris_Velouchiotis
-# recruit_character = GRE_Ioannis_Ladas
-# recruit_character = GRE_Konstantinos_Karamanlis
-# recruit_character = GRE_Andreas_Papandreou
-# recruit_character = GRE_Charilaos_Florakis
-# recruit_character = GRE_Xenofon_Giosmas
-# recruit_character = GRE_Georgios_Zoitakis
-# recruit_character = GRE_Takis_Makedonas
-# recruit_character = GRE_Grigoris_Sourlas
-# recruit_character = GRE_Antonios_Dagoulas
-# recruit_character = GRE_Georgios_Poulos
-# recruit_character = GRE_Nikolaos_Bourantas
-# recruit_character = GRE_Panos_Katsareas
-# recruit_character = GRE_Dimitrios_Ioannidis
-# recruit_character = GRE_Stylianos_Pattakos
-# recruit_character = GRE_Adamantios_Androutsopoulos
-# recruit_character = GRE_Konstantinos_Kollias
-# recruit_character = GRE_An_Empty_Office
-# recruit_character = GRE_Kostas_Perrikos
-# recruit_character = GRE_Grigoris_Lambrakis
-# recruit_character = GRE_Konstantinos_Plevris
-# recruit_character = GRE_Leonidas_Kyrkos
-# recruit_character = GRE_Konstantinos_Maniadakis
-# recruit_character = GRE_Polydoros_Dakoglou
-# recruit_character = GRE_Georgios_Rallis
-# recruit_character = GRE_Michalis_Vardanis
-# recruit_character = GRE_Alexandros_Giotopoulos
-# recruit_character = GRE_Alexandros_Panagoulis
-# recruit_character = GRE_Georgios_Grivas
-# recruit_character = GRE_Konstantinos_Tsatsos
-# recruit_character = GRE_Theodoros_Makridis
-# recruit_character = GRE_Markos_Vafeiadis
-# recruit_character = GRE_Kostas_Karagiorgis
-# recruit_character = GRE_Dimitris_Holevas
-# recruit_character = GRE_Ilias_Tsirimokos
-# recruit_character = GRE_Petros_Rousos
-# recruit_character = GRE_Dimitris_Vlantas
-# recruit_character = GRE_Constantine_II
-# recruit_character = GRE_Nikolaos_Makarezos
-# recruit_character = GRE_Grigorios_Spandidakis
-# recruit_character = GRE_Eftychia_Printzou
-# recruit_character = GRE_Ioannis_Toumbas
-# recruit_character = GRE_Evangelos_Averoff
-# recruit_character = GRE_Georgios_Mavros
-# recruit_character = GRE_Georgios_Athanasiadis_Novas
-# recruit_character = GRE_Athanasios_Kanellopoulos
-# recruit_character = GRE_Ioannis_Zigdis
-# recruit_character = GRE_Petros_Garoufalias
-
-add_ideas = {
-	### Economic Laws ###
-	tno_trade_laws_limited_exports
-	tno_income_taxation_elite_tax_exemptions
-	tno_minimum_wage_no_minimum_wage
-	tno_max_workhours_unlimited_work_day
-	tno_child_labor_illegal
-	tno_pensions_no_pensions
-	tno_unemployment_no_subsidies
-	
-	### Social Laws ###
-	#tno_safety_minimal_regulations
-	tno_health_care_service_for_care
-	#tno_pollution_no_controls #for testing purposes
-	tno_education_public_education
-	tno_penal_system_politicized_penal_system
-	#tno_lgbt_rights_lgbt_outlawed
-	tno_gender_rights_traditional_roles
-	#tno_minorities_institutional_discrimination
-	tno_security_oppressive_police
-	tno_regulations_token_regulations
-	
-	### Political Laws ###
-	tno_political_parties_one_party_state
-	tno_religious_rights_state_religion
-	tno_trade_unions_illegal
-	tno_immigration_closed_borders
-	tno_slavery_outlawed
-	tno_public_meetings_outlawed
-	tno_press_rights_state_press_only
-	tno_vote_franchise_no_voting
-	tno_refugees_banned
-	
-	### Military Laws ###
-	tno_conscription_limited_conscription
-	tno_women_banned
-	tno_military_supervision_no_supervision
-	tno_training_minimal_training
-	tno_racial_integration_none
-	tno_draft_exemptions_none
-
-	### Societal Development###
-	tno_academic_base_primary_schooling
-	tno_research_facilities_outdated
-	tno_agriculture_basic_mechanized
-	tno_healthcare_nascent
-	tno_industrial_equipment_factory_complexes
-	tno_industrial_expertise_nascent
-	tno_army_professionalism_cronyism
-	tno_admin_efficiency_illegitimate_administration
-
-	### National Spirits ###
-	GRE_katochiko_kratos
-	GRE_scars_of_the_great_famine
-	GRE_elusive_opposition
-	
-	### Faction ###
-	TRI_Member
-	
-	### Ministers ###
-	GRE_Antonio_Gandin_hog
-	GRE_Phaedon_Gizikis_sec
-	GRE_Ioannis_Voulpiotis_eco
-	GRE_Antonis_Livieratos_for
-	GRE_Phaedon_Gizikis_high_command
-}
-
-### Policy Effectiveness
-
-set_country_flag = tno_defined_startup_effectiveness
-
-### Political
-set_variable = { tno_political_parties_effectiveness = 60 }
-set_variable = { tno_religious_rights_effectiveness = 70 }
-set_variable = { tno_trade_unions_effectiveness = 65 }
-set_variable = { tno_immigration_effectiveness = 40 }
-set_variable = { tno_slavery_effectiveness = 100 }
-set_variable = { tno_public_meetings_effectiveness = 10 }
-set_variable = { tno_press_rights_effectiveness = 15 }
-set_variable = { tno_vote_franchise_effectiveness = 50 }
-set_variable = { tno_refugees_effectiveness = 60 }
-
-### Economic
-set_variable = { tno_trade_laws_effectiveness = 30 }
-set_variable = { tno_income_taxation_effectiveness = 30 }
-set_variable = { tno_minimum_wage_effectiveness = 50 }
-set_variable = { tno_max_workhours_effectiveness = 50 }
-set_variable = { tno_child_labor_effectiveness = 50 }
-set_variable = { tno_pensions_effectiveness = 40 }
-set_variable = { tno_unemployment_effectiveness = 40 }
-
-### Social
-set_variable = { tno_safety_effectiveness = 30 }
-set_variable = { tno_health_care_effectiveness = 35 }
-set_variable = { tno_pollution_effectiveness = 100 }
-set_variable = { tno_education_effectiveness = 20 }
-set_variable = { tno_penal_system_effectiveness = 65 }
-set_variable = { tno_lgbt_rights_effectiveness = 80 }
-set_variable = { tno_gender_rights_effectiveness = 60 }
-set_variable = { tno_minorities_effectiveness = 60 }
-set_variable = { tno_security_effectiveness = 40 }
-set_variable = { tno_regulations_effectiveness = 60 }
-
-### Military
-set_variable = { tno_conscription_effectiveness = 45 }
-set_variable = { tno_women_effectiveness = 100 }
-set_variable = { tno_military_supervision_effectiveness = 25 }
-set_variable = { tno_training_effectiveness = 45 }
-set_variable = { tno_racial_integration_effectiveness = 60 }
-set_variable = { tno_draft_exemptions_effectiveness = 40 }
-
-### Starting tech ###
 set_technology = {
-	basic_train = 1
-
-
-	# Infantry
-	infantry_weapons_1 = 1
-	night_vision_1 = 1
-	
-	infantry_kit_1 = 1
-	infantry_weapons_2 = 1
-	night_vision_2 = 1
-	infantry_kit_2 = 1
-	infantry_weapons_improvements_mine_1 = 1
-	infantry_kit_3 = 1
-	infantry_weapons_improvements_ammo_1 = 1
-	infantry_weapons_improvements_grenade_1 = 1
-	#
-	infantry_weapons_3 = 1
-	night_vision_3 = 1
-	infantry_kit_4 = 1
-	marines = 1
-	#
-	tech_special_forces = 1
+	### Infantry ###
+	infantry_weapons = 1
 	tech_mountaineers = 1
-	#
-	tech_mountaineers2 = 1
-	basic_infantry_equipment = 1
-	support_weapons = 1
-	support_weapons_hmg_1 = 1
-	combat_support_equipment_1 = 1
-	
-	infantry_at = 1
-	infantry_at_upgrade_1 = 1
-	#
-	motorized_infantry = 1
-	motorized_infantry_1 = 1
 
-	# Support
+	### Support ###
 	tech_support = 1
 	tech_engineers = 1
-	assault_weapons_1 = 1
-	tech_engineers2 = 1
-	tech_engineers3 = 1
 	tech_recon = 1
-	tech_recon2 = 1
-	tech_recon3 = 1
-	tech_military_police = 1
-	tech_military_police2 = 1
-	tech_military_police3 = 1
-	tech_maintenance_company = 1
-	tech_field_hospital = 1
-	tech_field_hospital2 = 1
-	tech_logistics_company = 1
-	tech_logistics_company2 = 1
-	tech_signal_company = 1
 
-	# Armor
-	
+	### Artillery ###
+	gw_artillery = 1
 
-	# Artillery
-	
+	### Industry ###
+	fuel_silos = 1
+	synth_oil_experiments = 1
 
-	# Land Doctrine
-	strategic_theorem = 1
-
-	# Naval
-
-
-
-	# Naval Doctrine
-	#fleet_in_being = 1
-
-	# Helicopters
-	very_early_helicopter = 1
-
-	# Light Aircraft
-	early_fighter = 1
-	fighter_1945 = 1
-	cv_1945_fighter = 1
-	fighter_1950 = 1
-	cv_1950_fighter = 1
-	interceptor_1945 = 1
-	interceptor_1950 = 1
-	CAS_1945 = 1
-	cv_1945_CAS = 1
-	CAS_1950 = 1
-	cv_1950_CAS = 1
-
-	# Heavy Aircraft
-	strategic_bomber1 = 1
-	heavy_air_1945 = 1
-	tac_bomber1 = 1
-	tac_air_1945 = 1
-	tac_air_1950 = 1
-	transport_air1 = 1
-	transport_air_1945 = 10
-
-	# Electronics
-	electronic_mechanical_engineering = 1
-	radio = 1
-	helicopter_engines = 1
-	jet_engines = 1
-	jet_engines_bombers = 1
-
-	# Industry
-	ww2_line_production = 1
-	building_construction_1 = 1
-	resource_extraction_methods = 1
-	excavation0 = 1
-	excavation1 = 1
-	oil_processing = 1
-	rubber_processing = 1
-	energy_technology_1 = 1
-	social_construction_1 = 1
-	military_construction_1 = 1
-
-
-	# Engineering
-	electronic_mechanical_engineering = 1
-	radio = 1
-	radio_detection = 1
-	decimetric_radar = 1
-	centimetric_radar = 1
-	radar_1950 = 1
-	mechanical_computing = 1
-	computing_machine = 1
-	basic_encryption = 1
-	basic_decryption = 1
-	improved_computing_machine = 1
-	improved_encryption = 1
-	improved_decryption = 1
-	advanced_computing_machine = 1
-	advanced_encryption = 1
-
-	helicopter_engines = 1
-	jet_engines = 1
-	jet_engines_bombers = 1
-	improved_jet_engines_bombers_1 = 1
+	### Trains ###
+	basic_train = 1
 }
 
-# MtG tech #
-
+### Navy - MtG ###
 if = {
-	limit = {
-		has_dlc = "Man the Guns"
-	}
+	limit = { has_dlc_mtg = yes }
 	set_technology = {
-		early_ship_hull_very_light = 1
-		early_ship_hull_more_light = 1
-		basic_ship_hull_more_light = 1
+		### Hulls ###
+		early_ship_hull_submarine = 1
+		basic_ship_hull_submarine = 1
 		early_ship_hull_light = 1
 		basic_ship_hull_light = 1
-		basic_depth_charges = 1
-		sonar = 1
 		early_ship_hull_cruiser = 1
-		early_ship_hull_heavy = 1
-		early_ship_hull_carrier = 1
-		early_ship_hull_submarine = 1
-		smoke_generator = 1
-		basic_torpedo = 1
-		improved_ship_torpedo_launcher = 1
-		magnetic_detonator = 1
-		basic_battery = 1
-		basic_light_battery = 1
-		basic_secondary_battery = 1
-		improved_secondary_battery = 1
-		damage_control_1 = 1
-		mtg_transport = 1
+		coastal_defense_ships = 1
+		panzerschiffe = 1
+
+		### Modules ###
 		basic_naval_mines = 1
 		submarine_mine_laying = 1
+		basic_battery = 1
+		basic_cruiser_armor_scheme = 1
+		basic_torpedo = 1
+
+		### Transport ###
+		mtg_transport = 1
 	}
 }
 
+### Navy - Non MtG ###
 if = {
-	limit = {
-		NOT = { has_dlc = "Man the Guns" }
-	}
+	limit = { has_dlc_mtg = no }
 	set_technology = {
-		ww2_frigate = 1
-		basic_frigate = 1
-		ww2_submarine = 1
-		ww2_destroyer = 1
-		ww2_cruiser = 1
+		### Hulls ###
+		early_submarine = 1
+		basic_submarine = 1
+		early_destroyer = 1
+		basic_destroyer = 1
+		early_light_cruiser = 1
+		early_heavy_cruiser = 1
+
+		### Transport ###
 		transport = 1
-		landing_craft = 1
 	}
 }
 
-# NSB tech #
-
+### Air - BBA ###
 if = {
-	limit = {
-		NOT = { has_dlc = "No Step Back" }
-	}
+	limit = { has_dlc_bba = yes }
+	set_air_oob = "GRE_air_bba"
 	set_technology = {
-		advanced_light_tank = 1
-		advanced_medium_tank = 1
-		mechanised_infantry3 = 1
-
-		APC_1950 = 1
-		APC_1950_basic_turret = 1
-		#APC_1950_basic_engine = 1
-		APC_1950_basic_armor = 1
-		APC_1960 = 1
-
-		IFV_1950 = 1
-		IFV_1950_basic_turret = 1
-		IFV_1950_basic_armor = 1
-		#IFV_1950_basic_engine = 1
-		IFV_1960 = 1
-
-		MBT_1950 = 1
-		MBT_1950_basic_turret = 1
-		#MBT_1950_basic_engine = 1
-		MBT_1950_basic_armor = 1
-		MBT_1960 = 1
-
-		AC_1945 = 1
-		AC_1950 = 1
-		AC_1960 = 1
-
-		antiair5 = 1
-		antiair_1950 = 1
-		SPAA_1950 = 1
-		artillery4 = 1
-		artillery_1950 = 1
-		artillery_1950_soft_attack = 1
-		SPART_1950 = 1
-		SPART_1950_soft_attack = 1
-		#SPART_1950_speed = 1
+		### Air ###
+		aa_lmg = 1
+		engines_1 = 1
+		engines_2 = 1
+		early_bombs = 1
+		iw_small_airframe = 1
+		iw_medium_airframe = 1
 	}
 }
+
+### Air - Non BBA ###
 if = {
-	limit = {
-		has_dlc = "No Step Back"
-	}
+	limit = { has_dlc_bba = no }
+	set_air_oob = "GRE_air_legacy"
 	set_technology = {
-		NSB_APC_1945 = 1
-		NSB_APC_1950 = 1
-		#
-		#
-		NSB_APC_1960 = 1
-		NSB_IFV_1945 = 1
-		NSB_IFV_1945_modules_1 = 1
-		NSB_IFV_1945_modules_2 = 1
-		NSB_IFV_1950 = 1
-		NSB_IFV_1950_modules_1 = 1
-		NSB_IFV_1950_modules_2 = 1
-		NSB_IFV_1960 = 1
-		NSB_MBT_1945 = 1
-		NSB_MBT_1945_modules_1 = 1
-		NSB_MBT_1945_modules_2 = 1
-		NSB_MBT_1950 = 1
-		NSB_MBT_1950_modules_1 = 1
-		NSB_MBT_1950_modules_2 = 1
-		NSB_MBT_1960 = 1
-		NSB_AC_1945 = 1
-		NSB_AC_1950 = 1
-		NSB_AC_1960 = 1
-		NSB_Armour_1 = 1
-		NSB_Armour_2 = 1
-		NSB_Engine_1 = 1
-		NSB_Engine_2 = 1
-
-		NSB_Heavy_1945 = 1
-		NSB_Heavy_1950 = 1
-		NSB_Superheavy_1945 = 1
-		NSB_Superheavy_1950 = 1
-
-		NSB_artillery_1945 = 1
-		NSB_artillery_1950 = 1
-		NSB_artillery_MODULE = 1
-		NSB_artillery_1950_SA = 1
-
-		NSB_antiair_1945 = 1
-		NSB_antiair_1950 = 1
+		early_fighter = 1
+		early_bomber = 1
 	}
 }
 
-set_convoys = 50
+set_convoys = 40
+set_stability = 0.35
+set_war_support = 0.2
+
+add_ideas = {
+	GRE_foreign_industry_GER1
+	GRE_foreign_industry_AUS1
+	GRE_memories_of_king
+	GRE_legacy_of_alexander_idea
+}
+
+set_variable = { country_intro_page_count = 1 }
+country_event = { id = gre.3 days = 85 } #Independence Day
+country_event = { id = gre.24 days = 137 } #Death of Panagis Tsaldaris
+country_event = { id = gre.20 days = 763 random_days = 100 } #Death of Alexandros Papanastasiou
+country_event = { id = gre.21 days = 1553 random_days = 100 } #Kostas Gavrillides steps down
+country_event = { id = gre.19 days = 1855 } #Death of Ioannis Metaxas
+country_event = { id = gre.23 days = 4912 } #Death of Themistoklis Sofoulis
 
 set_politics = {
-	ruling_party = conservative
-	last_election = "1934.3.26"
-	election_frequency = 60
-	elections_allowed = no
+	ruling_party = social_liberal
+	last_election = "1934.1.26"
+	election_frequency = 48
+	elections_allowed = yes
 }
 
 set_popularities = {
-	vanguardist = 8
-	syndicalist = 20
-	socialist = 7
-	progressive =  6
-	ecologist = 7
-	liberal = 9
-	conservative = 8
-	anocrat = 26
-	paternalist =  9
-	national_populist = 0
+	totalist = 2
+	radical_socialist = 5
+	syndicalist = 0
+	social_democrat = 14
+	social_liberal = 36
+	market_liberal = 10
+	social_conservative = 21
+	authoritarian_democrat = 6
+	paternal_autocrat = 5
+	national_populist = 1
+}
+
+set_country_flag = { flag = gre_monarchist_sympathies value = 0 }
+
+### Integration ###
+ROOT = {
+	184 = { enable_state_integration_50_compliance = yes } #Western Thrace
+	766 = { enable_state_integration_50_compliance = yes } #Northern Epirus
+	769 = { enable_state_integration_50_compliance = yes } #Eastern Macedonia
+
+	341 = { enable_state_integration_80_compliance = yes } #Adrianople
+	773 = { enable_state_integration_80_compliance = yes } #Constantinople
+	1089 = { enable_state_integration_80_compliance = yes } #Kardzhali
+}
+
+### Country Leaders ###
+recruit_character = GRE_athanasios_klaras
+recruit_character = GRE_georgios_siantos
+recruit_character = GRE_nikos_zachariadis
+recruit_character = GRE_konstantinos_speras
+recruit_character = GRE_nikos_beloyannis
+recruit_character = GRE_kostas_gavriilides
+recruit_character = GRE_nikos_ploumpidis
+recruit_character = GRE_alexandros_papanastasiou
+recruit_character = GRE_nikolaos_plastiras
+recruit_character = GRE_georgios_papandreou
+recruit_character = GRE_panagiotis_kanellopoulos
+recruit_character = GRE_themistoklis_sofoulis
+recruit_character = GRE_konstantinos_tsatsos
+recruit_character = GRE_panagis_tsaldaris
+recruit_character = GRE_konstantinos_tsaldaris
+recruit_character = GRE_alexandros_papagos
+recruit_character = GRE_christodoulos_tsigantes
+recruit_character = GRE_ioannis_metaxas
+recruit_character = GRE_alexandros_koryzis
+recruit_character = GRE_georgios_mercouris
+
+recruit_character = GRE_alexandros_glyksbourg
+recruit_character = GRE_georgios_glyksbourg
+recruit_character = GRE_pavlos_glyksbourg
+
+### Advisors ###
+recruit_character = GRE_vouli_ton_ellinon
+activate_advisor = GRE_vouli_ton_ellinon_sic
+
+recruit_character = GRE_emmanouil_tsouderos
+recruit_character = GRE_georgios_tsolakoglou
+recruit_character = GRE_georgios_athanasiadis_novas
+recruit_character = GRE_agamemnon_schliemann
+recruit_character = GRE_sotirios_gotzamanis
+recruit_character = GRE_evangelos_averoff
+recruit_character = GRE_aristeidis_dimitratos
+recruit_character = GRE_stylianos_gonatas
+recruit_character = GRE_markos_vafeiadis
+recruit_character = GRE_charilaos_florakis
+recruit_character = GRE_angelos_evert
+
+### Generals ###
+recruit_character = GRE_napoleon_zervas
+recruit_character = GRE_manolis_mantakas
+recruit_character = GRE_konstantinos_bakopoulos
+recruit_character = GRE_georgios_grivas
+recruit_character = GRE_dimitrios_psarros
+recruit_character = GRE_vasileios_vrachnos
+recruit_character = GRE_konstantinos_davakis
+recruit_character = GRE_stefanos_sarafis
+
+### Admirals ###
+recruit_character = GRE_alexandros_sakellariou
+recruit_character = GRE_petros_voulgaris
+recruit_character = GRE_ioannis_toumbas
+recruit_character = GRE_antonis_mezeviris
+recruit_character = GRE_stylianos_lykoudis
+
+### Military Staff ###
+recruit_character = GRE_konstantinos_mazarakis_ainian
+recruit_character = GRE_aristeidis_chasapidis
+recruit_character = GRE_markos_drakos
+recruit_character = GRE_konstantinos_manetas
+recruit_character = GRE_sofoklis_dousmanis
+recruit_character = GRE_alexandros_hatzikyriakos
+recruit_character = GRE_spyridon_avgeris
+recruit_character = GRE_christos_adamidis
+recruit_character = GRE_michael_moutoussis
+recruit_character = GRE_kostas_perrikos
+
+### Character Setup ###
+GRE_alexandros_papagos = { set_character_flag = GRE_royalist }
+GRE_napoleon_zervas = { set_character_flag = GRE_royalist }
+GRE_georgios_grivas = { set_character_flag = GRE_royalist }
+
+GRE_athanasios_klaras = {
+	set_character_flag = GRE_socialist
+	retire = yes
+}
+GRE_stefanos_sarafis = {
+	set_character_flag = GRE_socialist
+	retire = yes
+}
+GRE_alexandros_glyksbourg = {
+	set_character_flag = is_monarch
+	retire = yes
+}
+GRE_georgios_glyksbourg = {
+	set_character_flag = is_monarch
+	retire = yes
+}
+GRE_pavlos_glyksbourg = {
+	set_character_flag = is_monarch
+	retire = yes
 }

@@ -1,0 +1,76 @@
+﻿instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_0
+		}
+		requested_factories = 2
+		progress = 0.82
+		efficiency = 50
+	}
+}
+
+division_template = {
+	name = "División de Infantería"
+	division_names_group = SPAN_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+}
+division_template = {
+	name = "División de Caballería"
+	division_names_group = SPAN_CAV_01
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}
+}
+division_template = {
+	name = "Infantería de Montaña"
+	division_names_group = SPAN_MTN_01
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+	}
+	priority = 2
+}
+
+units = {
+	division = {
+		location = 12997
+		division_template = "División de Infantería"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	division = {
+		name = "Guardia Montonera"
+		location = 2210
+		division_template = "Infantería de Montaña"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	division = {
+		location = 2156
+		division_template = "División de Infantería"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	division = {
+		location = 13539
+		division_template = "División de Infantería"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	division = {
+		location = 12997
+		division_template = "División de Caballería"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+}

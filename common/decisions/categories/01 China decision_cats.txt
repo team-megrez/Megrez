@@ -1,0 +1,54 @@
+chinese_unification = {
+	icon = jap_intervene_in_china
+	priority = 100
+	allowed = {
+		OR = {
+			is_chinese_tag = yes
+			original_tag = KUM
+		}
+		NOT = { original_tag = MAN }
+	}
+}
+
+china_army_decisions = {
+	icon = army_reform
+	picture = GFX_decision_cat_picture_chinese_troops
+	priority = 80
+	allowed = {
+		OR = {
+			is_chinese_tag = yes
+			original_tag = KUM
+		}
+		NOT = { original_tag = MAN }
+	}
+}
+
+china_league_collapse_decisions = {
+	icon = GFX_decision_the_league_war
+	#picture = GFX_decision_cat_picture_chinese_troops
+	priority = 200
+	allowed = {
+		OR = {
+			tag = ANQ
+			tag = CHI
+			tag = LEP
+			tag = SQI
+		}
+	}
+	visible = {
+		OR = {
+			has_idea = league_collapse_ANQ
+			has_idea = league_collapse_CHI
+			has_idea = league_collapse_LEP
+			has_idea = league_collapse_SQI
+		}
+	}
+	scripted_gui = china_league_war_gui
+}
+
+china_land_reform_decisions = {
+	icon = GFX_decision_category_generic_agriculture
+	picture = GFX_decision_cat_xsm_qinghai
+
+	allowed = { always = no } #activated by effect
+}

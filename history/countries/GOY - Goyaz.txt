@@ -1,0 +1,64 @@
+﻿capital = 505
+set_research_slots = 2
+set_stability = 0.35
+set_war_support = 0.3
+
+BRA_splinter_templates = yes
+
+set_politics = {
+	ruling_party = social_liberal
+	last_election = "1836.6.15"
+	election_frequency = 100
+	elections_allowed = no
+}
+
+set_popularities = {
+	totalist = 0
+	radical_socialist = 10
+	syndicalist = 5
+	social_democrat = 9
+	social_liberal = 45
+	market_liberal = 2
+	social_conservative = 9
+	authoritarian_democrat = 8
+	paternal_autocrat = 5
+	national_populist = 7
+}
+
+### Integration ###
+ROOT = {
+	BRA = { enable_coring_at_fifty_compliance = yes }
+	PIR = { enable_coring_at_fifty_compliance = yes }
+	SPO = { enable_coring_at_fifty_compliance = yes }
+	VCR = { enable_coring_at_fifty_compliance = yes }
+	BAH = { enable_coring_at_fifty_compliance = yes }
+	GRP = { enable_coring_at_fifty_compliance = yes }
+	AMA = { enable_coring_at_fifty_compliance = yes }
+}
+
+### Characters ###
+recruit_character = GOY_heitor_ferreira_lima
+recruit_character = GOY_joao_ponce_de_arruda
+recruit_character = GOY_dom_francisco_de_aquino_correia
+recruit_character = GOY_ramiro_noronha
+recruit_character = GOY_leonidas_de_antero_matos
+recruit_character = GOY_jari_gomes
+
+recruit_character = BRA_candido_mariano_da_silva_rondon
+recruit_character = BRA_apolonio_de_carvalho
+recruit_character = BRA_pedro_ludovico_teixeira
+recruit_character = BRA_antonio_ramos_caiado
+recruit_character = BRA_euclides_zenobio_da_costa
+
+### Character Setup ###
+BRA_candido_mariano_da_silva_rondon = {
+	set_character_flag = GOY_leader
+	set_nationality = BRA
+}
+BRA_apolonio_de_carvalho = { set_nationality = BRA }
+BRA_pedro_ludovico_teixeira = { set_nationality = BRA }
+BRA_antonio_ramos_caiado = { set_nationality = BRA }
+BRA_euclides_zenobio_da_costa = {
+	set_character_flag = GOY_leader
+	set_nationality = BRA
+}

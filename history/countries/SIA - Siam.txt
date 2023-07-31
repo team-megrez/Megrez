@@ -1,0 +1,305 @@
+﻿capital = 289
+oob = "SIA"
+set_naval_oob = "SIA_naval"
+set_stability = 0.55
+set_war_support = 0.60
+set_research_slots = 3
+set_convoys = 50
+starting_train_buffer = 3
+
+save_global_event_target_as = original_siam #used in scripts to get the original SIA tag
+
+# Kaiserreich Siam
+
+set_technology = {
+	### Infantry ###
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_support = 1
+	tech_recon = 1
+	tech_engineers = 1
+	motorised_infantry = 1
+	marines = 1
+	gw_artillery = 1
+	interwar_antiair = 1
+
+	### Trains ###
+	basic_train = 1
+}
+
+### Planes - BBA ###
+if = {
+	limit = { has_dlc_bba = yes }
+	set_air_oob = "SIA_air_bba"
+	set_technology = {
+		iw_small_airframe = 1
+		aa_lmg = 1
+		engines_1 = 1
+		early_bombs = 1
+		iw_medium_airframe = 1
+	}
+}
+
+### Planes - non BBA ###
+if = {
+	limit = { has_dlc_bba = no }
+	set_air_oob = "SIA_air_legacy"
+	set_technology = {
+		early_fighter = 1 #Prajadhipok
+		early_bomber = 1 #Boripatr
+		CAS1 = 1
+	}
+}
+
+### Tanks - NSB ###
+if = {
+	limit = { has_dlc_nsb = yes }
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+	}
+}
+
+### Tanks - non NSB ###
+if = {
+	limit = { has_dlc_nsb = no }
+	set_technology = {
+		gwtank = 1
+		basic_light_tank = 1
+	}
+}
+
+### Navy - MtG ###
+if = {
+	limit = { has_dlc_mtg = yes }
+	set_technology = {
+		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
+		early_ship_hull_cruiser = 1
+		basic_ship_hull_cruiser = 1
+		coastal_defense_ships = 1
+		early_ship_hull_submarine = 1
+		basic_ship_hull_submarine = 1
+
+		## Modules##
+		basic_torpedo = 1
+		basic_battery = 1
+		basic_light_battery = 1
+		basic_medium_battery = 1
+		smoke_generator = 1
+		basic_depth_charges = 1
+		basic_naval_mines = 1
+		basic_cruiser_armor_scheme = 1
+
+		### Transport ###
+		mtg_transport = 1
+	}
+}
+
+### Navy - non MtG ###
+if = {
+	limit = { has_dlc_mtg = no }
+	set_technology = {
+		early_destroyer = 1
+		basic_destroyer = 1
+		early_light_cruiser = 1
+		basic_light_cruiser = 1
+		early_heavy_cruiser = 1
+		early_submarine = 1
+		basic_submarine = 1
+
+		### Transport ###
+		transport = 1
+	}
+}
+
+BRM = { embargo_ROOT = yes }
+
+set_politics = {
+	ruling_party = authoritarian_democrat
+	last_election = "1868.10.1" # Rama V Coronation date here
+	election_frequency = 48
+	elections_allowed = no
+}
+
+set_popularities = {
+	totalist = 3
+	radical_socialist = 12
+	syndicalist = 6
+	social_democrat = 4
+	social_liberal = 5
+	market_liberal = 0
+	social_conservative = 3
+	authoritarian_democrat = 47
+	paternal_autocrat = 11
+	national_populist = 9
+}
+
+add_ideas = {
+	limited_conscription
+
+	SIA_bloated_bureaucracy
+}
+
+### Country events
+# Preexisting Content Trigger
+set_variable = { country_intro_page_count = 2 } #Intro screen
+country_event = { id = siam.9 days = 153 random_hours = 648 } # Khana Ratsadon Coup?
+country_event = { id = siam.12 days = 203 random_hours = 216 } # Pridi and his Yellow Cover Book
+country_event = { id = siam.61 days = 523 } # "Behind the Painting" Novel
+country_event = { id = siam.65 days = 1187 } # Sor Setthabut's New EN-TH Dict
+country_event = { id = siam.64 days = 5523 } # "Sunset over Chao Phraya" Novel
+country_event = { id = siam.52 days = 6884 } # Phibunsongkhram dead
+
+# Legacy Content Trigger
+country_event = { id = siam.6013 days = 1948 } # Death of Rama VII
+country_event = { id = siam.6014 days = 1993 } # Paribatra Sukhumbhand reacts
+country_event = { id = siam.6033 days = 3018 } # Death of Paribatra Sukhumbhand
+country_event = { id = siam.6015 days = 3798 } # Death of Rama VIII
+country_event = { id = siam.6034 days = 8649 } # Death of Chumbhotbongs Paribatra
+
+### Country Leaders ###
+recruit_character = SIA_prajadhipok
+recruit_character = SIA_ananda_mahidol
+recruit_character = SIA_bhumibol_adulyadej
+recruit_character = SIA_chula_chakrabongse
+recruit_character = SIA_paribatra_sukhumbhand
+recruit_character = SIA_chumbhotbongs_paribatra
+recruit_character = SIA_sukhumabhinanda
+
+recruit_character = SIA_supha_sirimanon
+recruit_character = SIA_pridi_phanomyong
+recruit_character = SIA_thawan_thamrongnawasawat
+recruit_character = SIA_pote_sarasin
+recruit_character = SIA_seni_pramoj
+recruit_character = SIA_plaek_phibunsongkhram
+recruit_character = SIA_phao_sriyanond
+recruit_character = SIA_sarit_thanarat
+
+### Field Marshals ###
+#SIA_plaek_phibunsongkhram defined above
+recruit_character = SIA_boworadet_kridakorn
+recruit_character = SIA_jarun_seriroengrit
+
+### Generals ###
+recruit_character = SIA_phot_phahonyothin
+recruit_character = SIA_din_tharab
+recruit_character = SIA_sala_emasiri
+recruit_character = SIA_wan_chuthin
+recruit_character = SIA_phin_choonhavan
+recruit_character = SIA_thep_panthumasaen
+recruit_character = SIA_adul_adulyadejchrat
+recruit_character = SIA_pichit_kriengsakpichit
+recruit_character = SIA_karj_karjsongkhram
+recruit_character = SIA_mangkorn_promyothee
+
+### Admirals ###
+#SIA_thawan_thamrongnawasawat defined above
+recruit_character = SIA_sindhu_kamolnawin
+recruit_character = SIA_thongdee_suwanprueng
+recruit_character = SIA_bunchai_sawathasuk
+recruit_character = SIA_mongkol_mongkolnawin
+recruit_character = SIA_prayoon_yutthasartkosol
+
+### Air Chiefs ###
+recruit_character = SIA_boonjeam_komolmit
+recruit_character = SIA_long_sinsuk
+recruit_character = SIA_munee_mahasantana
+recruit_character = SIA_sunee_suwanprateep
+recruit_character = SIA_thip_ketuthat
+
+### Second-In-Command ###
+recruit_character = SIA_kon_hutasingha
+recruit_character = SIA_pramarn_adireksarn
+recruit_character = SIA_sawaet_piampongsarn
+
+### Political ###
+recruit_character = SIA_tiang_sirikhanth
+recruit_character = SIA_wan_waithayakon
+recruit_character = SIA_wichit_wichitwathakan
+
+### Economic ###
+recruit_character = SIA_mangkorn_samsen
+recruit_character = SIA_sun_kijjumnong
+recruit_character = SIA_wichit_lulitanon
+recruit_character = SIA_wisuth_tonwanik
+
+### Research ###
+recruit_character = SIA_jira_wichitsongkhram
+recruit_character = SIA_pin_malakul
+recruit_character = SIA_tua_lapanukrom
+
+### Construction ###
+recruit_character = SIA_jerm_arwuth
+recruit_character = SIA_narisara_nuwattiwong
+recruit_character = SIA_purachatra_jayakara
+
+### Other ###
+recruit_character = SIA_bung_suphachalasai
+recruit_character = SIA_buntaeng_thongsawat
+recruit_character = SIA_kulap_saipradit
+recruit_character = SIA_pijarn_dullalampha
+recruit_character = SIA_tianthai_apichartbhut
+recruit_character = SIA_wart_sunthonjamorn
+
+### Character Setup ###
+SIA_prajadhipok = { set_character_flag = is_monarch }
+SIA_ananda_mahidol = { set_character_flag = is_monarch }
+SIA_bhumibol_adulyadej = { set_character_flag = is_monarch }
+SIA_chula_chakrabongse = { set_character_flag = is_monarch }
+SIA_paribatra_sukhumbhand = { set_character_flag = is_monarch }
+SIA_chumbhotbongs_paribatra = { set_character_flag = is_monarch }
+SIA_sukhumabhinanda = { set_character_flag = is_monarch }
+
+SIA_thawan_thamrongnawasawat = { set_character_flag = SIA_parliamentarian }
+SIA_thep_panthumasaen = { set_character_flag = SIA_parliamentarian }
+SIA_adul_adulyadejchrat = { set_character_flag = SIA_parliamentarian }
+SIA_karj_karjsongkhram = { set_character_flag = SIA_parliamentarian }
+SIA_wan_chuthin = { set_character_flag = SIA_parliamentarian }
+SIA_mongkol_mongkolnawin = { set_character_flag = SIA_parliamentarian }
+
+SIA_din_tharab = { set_character_flag = SIA_royalist }
+SIA_boworadet_kridakorn = { set_character_flag = SIA_royalist }
+SIA_sala_emasiri = { set_character_flag = SIA_royalist }
+SIA_thongdee_suwanprueng = { set_character_flag = SIA_royalist }
+SIA_bunchai_sawathasuk = { set_character_flag = SIA_royalist }
+
+### Operatives ###
+if = {
+	limit = { has_dlc_lar = yes }
+	create_operative_leader = {
+		name = "Jumkad Plangkoon"
+		GFX = GFX_portrait_kr_jumkad_plangkoon
+		traits = {
+			operative_well_groomed
+		}
+		bypass_recruitment = yes
+		available_to_spy_master = yes
+		nationalities = { SIA }
+	}
+	create_operative_leader = {
+		name = "Puey Ungphakorn"
+		GFX = GFX_portrait_kr_puey_ungphakorn
+		traits = {
+			operative_linguist
+		}
+		bypass_recruitment = yes
+		available_to_spy_master = yes
+		nationalities = { SIA }
+	}
+}
+
+### Imports ###
+create_import = {
+	resource = aluminium
+	amount = 8
+	exporter = DEI
+}
+create_import = {
+	resource = oil
+	amount = 8
+	exporter = DEI
+}
+
+### Starting Advisor List ###
+activate_advisor = SIA_paribatra_sukhumbhand_sic

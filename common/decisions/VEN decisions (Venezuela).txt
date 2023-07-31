@@ -1,0 +1,650 @@
+VEN_COL_intervention_decisions = {
+	VEN_COL_org_exiles = {
+		icon = generic_prepare_civil_war
+		allowed = { always = no }
+		fire_only_once = yes
+		days_remove = 14
+		cost = 100
+		ai_will_do = { factor = 50 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete VEN_COL_org_exiles target: [From.GetName]"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove VEN_COL_org_exiles target: [From.GetName]"
+			set_country_flag = VEN_exiles_arrive
+			hidden_effect = {
+				### Delete templates if existed before - no cheating
+				if = {
+					limit = { has_template = "Brigada Libre de Colombia" }
+					delete_unit_template_and_units = { division_template = "Brigada Libre de Colombia" disband = yes }
+				}
+				### Create template
+				division_template = {
+					name = "Brigada Libre de Colombia"
+					division_names_group = SPAN_MIL_01
+					is_locked = yes
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+					}
+					template_counter = 68
+				}
+				### Create divisions
+				random_owned_controlled_state = {
+					limit = { valid_state_for_spawning_friendly_unit = yes }
+					create_unit = {
+						division = "division_template = \"Brigada Libre de Colombia\" start_experience_factor = 0.1"
+						owner = ROOT
+					}
+					create_unit = {
+						division = "division_template = \"Brigada Libre de Colombia\" start_experience_factor = 0.1"
+						owner = ROOT
+					}
+				}
+			}
+			custom_effect_tooltip = VEN_colombianexiles_tt
+			activate_targeted_decision = { target = COL decision = VEN_COL_intervene }
+			FROM = {
+				country_event = { id = ven.22 days = 3 }
+			}
+		}
+	}
+	VEN_COL_intervene = {
+		icon = decision_generic_ignite_civil_war
+		allowed = { always = no }
+		visible = {
+			NOT = { has_war_with = FROM }
+		}
+
+		fire_only_once = yes
+		cost = 0
+		days_remove = 30
+		cancel_if_not_visible = yes
+		war_with_target_on_remove = yes
+
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				OR = {
+					AND = {
+						is_in_faction = yes
+						is_faction_leader = no
+					}
+					ROOT_is_threatened_cautious = yes
+					FROM = { dont_start_major_faction_wars = yes }
+					FROM = { default_attack_AI_trigger_FROM = yes }
+				}
+			}
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel VEN_COL_intervene target: [From.GetName]"
+			clear_decision_attack_AI = yes
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete VEN_COL_intervene target: [From.GetName]"
+			setup_decision_attack_AI = yes
+			FROM = { incoming_war_notification_effect = yes }
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove VEN_COL_intervene target: [From.GetName]"
+			clear_decision_attack_AI = yes
+			declare_war_on = {
+				target = FROM
+				type = annex_everything
+			}
+		}
+	}
+}
+VEN_essequibo_decisions = {
+	VEN_demand_essequibo = {
+		icon = eng_trade_unions_demand
+
+		allowed = {
+			original_tag = VEN
+		}
+
+		available = {
+			FROM = {
+				OR = {
+					has_war_with = ENG
+					has_war_with = IMP
+				}
+				controls_state = 1078
+			}
+		}
+
+		cost = 0
+		days_remove = 30
+		fire_only_once = yes
+		cancel_if_not_visible = yes
+		war_with_target_on_remove = yes
+
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				OR = {
+					ROOT_is_threatened_cautious = yes
+					FROM = { default_attack_AI_trigger_FROM = yes }
+					FROM = { dont_start_major_faction_wars = yes }
+				}
+			}
+		}
+
+		targets = { WIF }
+		target_trigger = {
+			can_declare_war_on = FROM
+			FROM = { owns_state = 1078 }
+		}
+
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel VEN_demand_essequibo target: [From.GetName]"
+			clear_decision_attack_AI = yes
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete VEN_demand_essequibo target: [From.GetName]"
+			setup_decision_attack_AI = yes
+			FROM = {
+				incoming_war_notification_effect = yes
+				country_event = { id = ven.24 days = 28 }
+			}
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove VEN_demand_essequibo target: [From.GetName]"
+			clear_decision_attack_AI = yes
+			declare_war_on = {
+				target = FROM
+				type = take_core_state
+				generator = { 1078 1079 }
+			}
+			hidden_effect = {
+				activate_targeted_decision = { target = FROM decision = VEN_peace_essequibo_start }
+			}
+		}
+	}
+	VEN_peace_essequibo_start = {
+		icon = shield
+
+		allowed = { always = no }
+
+		available = {
+			controls_state = 1078
+			OR = {
+				controls_state = 687
+				FROM = { surrender_progress > 0.2 }
+			}
+			surrender_progress < 0.2
+		}
+
+		visible = {
+			has_war_with = FROM
+			is_valid_peace_target = yes
+		}
+
+		cancel_trigger = {
+			OR = {
+				NOT = { controls_state = 1078 }
+				surrender_progress > 0.2
+				NOT = { has_war_with = FROM }
+				is_valid_peace_target = no
+			}
+		}
+
+		cost = 0
+		days_remove = 150
+
+		ai_will_do = { factor = 100 }
+
+		highlight_states = {
+			highlight_state_targets = { state = 1078 }
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove VEN_peace_essequibo_start target: [From.GetName]"
+			FROM = { country_event = ven.39 }
+		}
+
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel VEN_peace_essequibo_start target: [From.GetName]"
+			hidden_effect = {
+				if = {
+					limit = {
+						OR = {
+							NOT = { has_war_with = FROM }
+							is_valid_peace_target = no
+						}
+					}
+					remove_targeted_decision = { target = FROM decision = VEN_peace_essequibo_start }
+				}
+			}
+		}
+	}
+}
+VEN_GCL_decisions = {
+	VEN_secure_bogota = {
+		icon = oppression
+		allowed = { always = no }
+		available = {
+			FROM = { is_owned_and_controlled_by = ROOT }
+		}
+		fire_only_once = yes
+		state_target = yes
+		days_remove = 60
+		cost = 75
+		ai_will_do = { factor = 150 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete VEN_secure_bogota target: [From.GetName]"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove VEN_secure_bogota target: [From.GetName]"
+			set_country_flag = VEN_bogota_secured
+		}
+	}
+	VEN_secure_caribe = {
+		icon = oppression
+		allowed = { always = no }
+		available = {
+			FROM = { is_owned_and_controlled_by = ROOT }
+		}
+		fire_only_once = yes
+		state_target = yes
+		days_remove = 60
+		cost = 75
+		ai_will_do = { factor = 150 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete VEN_secure_caribe target: [From.GetName]"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove VEN_secure_caribe target: [From.GetName]"
+			set_country_flag = VEN_caribe_secured
+		}
+	}
+	VEN_secure_meta = {
+		icon = oppression
+		allowed = { always = no }
+		available = {
+			FROM = { is_owned_and_controlled_by = ROOT }
+		}
+		fire_only_once = yes
+		state_target = yes
+		days_remove = 60
+		cost = 75
+		ai_will_do = { factor = 150 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete VEN_secure_meta target: [From.GetName]"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove VEN_secure_meta target: [From.GetName]"
+			set_country_flag = VEN_meta_secured
+		}
+	}
+	VEN_secure_choco = {
+		icon = oppression
+		allowed = { always = no }
+		available = {
+			FROM = { is_owned_and_controlled_by = ROOT }
+		}
+		fire_only_once = yes
+		state_target = yes
+		days_remove = 60
+		cost = 75
+		ai_will_do = { factor = 150 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete VEN_secure_choco target: [From.GetName]"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove VEN_secure_choco target: [From.GetName]"
+			set_country_flag = VEN_choco_secured
+		}
+	}
+	VEN_secure_cauca = {
+		icon = oppression
+		allowed = { always = no }
+		available = {
+			FROM = { is_owned_and_controlled_by = ROOT }
+		}
+		fire_only_once = yes
+		state_target = yes
+		days_remove = 60
+		cost = 75
+		ai_will_do = { factor = 150 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete VEN_secure_cauca target: [From.GetName]"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove VEN_secure_cauca target: [From.GetName]"
+			set_country_flag = VEN_cauca_secured
+		}
+	}
+	VEN_secure_amazonia = {
+		icon = oppression
+		allowed = { always = no }
+		available = {
+			FROM = { is_owned_and_controlled_by = ROOT }
+		}
+		fire_only_once = yes
+		state_target = yes
+		days_remove = 60
+		cost = 75
+		ai_will_do = { factor = 150 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete VEN_secure_amazonia target: [From.GetName]"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove VEN_secure_amazonia target: [From.GetName]"
+			set_country_flag = VEN_amazonia_secured
+		}
+	}
+	VEN_proclaim_gran_columbia = {
+		icon = generic_nationalism
+		allowed = { always = no }
+		available = {
+			has_country_flag = VEN_bogota_secured
+			has_country_flag = VEN_caribe_secured
+			has_country_flag = VEN_meta_secured
+			has_country_flag = VEN_choco_secured
+			has_country_flag = VEN_cauca_secured
+			has_country_flag = VEN_amazonia_secured
+		}
+		fire_only_once = yes
+		days_remove = 60
+		cost = 50
+		ai_will_do = { factor = 100 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete VEN_proclaim_gran_columbia"
+			remove_ideas = VEN_integrating_COL
+			set_cosmetic_tag = GCL
+			add_political_power = 100
+			add_stability = 0.1
+			add_state_core = 306
+			add_state_core = 493
+			add_state_core = 486
+			add_state_core = 853
+			add_state_core = 852
+			add_state_core = 851
+			add_state_core = 305
+			add_state_core = 490
+			add_state_core = 304
+			add_state_core = 685
+			add_state_core = 649
+			add_state_core = 854
+		}
+	}
+}
+VEN_oil_decisions = {
+	VEN_oil_USA_buy = {
+		icon = give_cash
+		allowed = { always = no }		# Activated by VEN focuses
+		available = {
+			FROM = { exists = yes }
+		}
+		fire_only_once = yes
+		cost = 150
+		ai_will_do = { factor = 150 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete VEN_oil_USA_buy target: [From.GetName]"
+			set_country_flag = VEN_USA_oil_get
+			hidden_effect = {
+				remove_targeted_decision = { target = USA decision = VEN_oil_USA_buy }
+				remove_targeted_decision = { target = USA decision = VEN_oil_USA_seize }
+			}
+			if = {
+				limit = {
+					has_idea = VEN_foreign_oil_companies
+				}
+				swap_ideas = {
+					remove_idea = VEN_foreign_oil_companies
+					add_idea = VEN_foreign_oil_companies2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = VEN_foreign_oil_companies2
+					has_country_flag = VEN_HOL_oil_get
+				}
+				remove_ideas = VEN_foreign_oil_companies2
+			}
+			add_timed_idea = {
+				idea = VEN_paying_for_shares
+				days = 30
+			}
+			USA = {
+				country_event = { id = ven.27 days = 3 }
+			}
+		}
+	}
+	VEN_oil_USA_seize = {
+		icon = hand_grab
+		allowed = { always = no }
+		available = {
+			NOT = { is_in_faction_with = FROM }
+			FROM = {
+				OR = {
+					has_war = yes
+					exists = no
+				}
+			}
+		}
+		fire_only_once = yes
+		cost = 50
+		ai_will_do = { factor = 50 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete VEN_oil_USA_seize target: [From.GetName]"
+			set_country_flag = VEN_USA_oil_get
+			hidden_effect = {
+				remove_targeted_decision = { target = USA decision = VEN_oil_USA_buy }
+				remove_targeted_decision = { target = USA decision = VEN_oil_USA_seize }
+			}
+			if = {
+				limit = {
+					has_idea = VEN_foreign_oil_companies
+				}
+				swap_ideas = {
+					remove_idea = VEN_foreign_oil_companies
+					add_idea = VEN_foreign_oil_companies2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = VEN_foreign_oil_companies2
+					has_country_flag = VEN_HOL_oil_get
+				}
+				remove_ideas = VEN_foreign_oil_companies2
+			}
+			FROM = {
+				country_event = { id = ven.28 days = 3 }
+			}
+		}
+	}
+	VEN_oil_HOL_buy = {
+		icon = hol_attract_foreign_investors
+		allowed = { always = no }		# Activated by VEN focuses
+		available = {
+			FROM = { exists = yes }
+		}
+		fire_only_once = yes
+		cost = 150
+		ai_will_do = { factor = 150 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete VEN_oil_HOL_buy target: [From.GetName]"
+			set_country_flag = VEN_HOL_oil_get
+			hidden_effect = {
+				remove_targeted_decision = { target = HOL decision = VEN_oil_HOL_buy }
+				remove_targeted_decision = { target = HOL decision = VEN_oil_HOL_seize }
+			}
+			if = {
+				limit = {
+					has_idea = VEN_foreign_oil_companies
+				}
+				swap_ideas = {
+					remove_idea = VEN_foreign_oil_companies
+					add_idea = VEN_foreign_oil_companies2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = VEN_foreign_oil_companies2
+					has_country_flag = VEN_USA_oil_get
+				}
+				remove_ideas = VEN_foreign_oil_companies2
+			}
+			add_timed_idea = {
+				idea = VEN_paying_for_shares
+				days = 30
+			}
+			FROM = {
+				country_event = { id = ven.27 days = 3 }
+			}
+		}
+	}
+	VEN_oil_HOL_seize = {
+		icon = generic_break_treaty
+		allowed = { always = no }
+		fire_only_once = yes
+		ai_will_do = { factor = 50 }
+		cost = 50
+		available = {
+			FROM = {
+				OR = {
+					has_socialist_government = yes
+					exists = no
+				}
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete VEN_oil_HOL_seize target: [From.GetName]"
+			set_country_flag = VEN_HOL_oil_get
+			hidden_effect = {
+				remove_targeted_decision = { target = HOL decision = VEN_oil_HOL_buy }
+				remove_targeted_decision = { target = HOL decision = VEN_oil_HOL_seize }
+			}
+			if = {
+				limit = {
+					has_idea = VEN_foreign_oil_companies
+				}
+				swap_ideas = {
+					remove_idea = VEN_foreign_oil_companies
+					add_idea = VEN_foreign_oil_companies2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = VEN_foreign_oil_companies2
+					has_country_flag = VEN_USA_oil_get
+				}
+				remove_ideas = VEN_foreign_oil_companies2
+			}
+			DEI = {
+				country_event = { id = ven.28 days = 3 }
+			}
+		}
+	}
+}
+VEN_alliance_decisions = {
+	VEN_join_internationale = {
+		icon = generic_agreement
+		allowed = { always = no }
+		available = {
+			FROM = {
+				OR = {
+					has_war_with = GER
+					has_war_with = ENT
+				}
+			}
+			at_peace_or_same_enemies_as_FROM = yes
+		}
+		visible = {
+			has_socialist_government = yes
+			FROM = {
+				is_faction_leader = yes
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 150
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = FOP_path option = FOP_PATH_UGARTISTAS_SYNDIE }
+				has_game_rule = { rule = VEN_path option = VEN_PATH_SYNDIE }
+			}
+		}
+		cost = 35
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete VEN_join_internationale target: [From.GetName]"
+			FRA = {
+				country_event = { id = ven.33 days = 3 }
+			}
+		}
+	}
+	VEN_join_entente = {
+		icon = generic_agreement
+		allowed = { tag = VEN }
+		available = {
+			has_war_with = INT
+			ENT = { has_war_with = INT }
+		}
+		visible = {
+			FROM = {
+				is_faction_leader = yes
+				is_in_faction_with = WIF
+				NOT = { has_war_with = ROOT }
+			}
+		}
+
+		targets = { ENT }
+		target_trigger = {
+			FROM = {
+				is_faction_leader = yes
+				is_in_faction_with = WIF
+			}
+		}
+
+		target_root_trigger = {
+			has_war_with = INT
+		}
+
+		fire_only_once = yes
+		ai_will_do = { factor = 400 }
+		cost = 15
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete VEN_join_entente target: [From.GetName]"
+			FROM = {
+				country_event = { id = ven.36 days = 3 }
+			}
+		}
+	}
+	VEN_join_USA = {
+		icon = generic_agreement
+		allowed = { always = no }
+		available = {
+			at_peace_or_same_enemies_as_FROM = yes
+		}
+
+		visible = {
+			FROM = {
+				is_in_faction = yes
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		fire_only_once = yes
+		ai_will_do = { factor = 400 }
+		cost = 15
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete VEN_join_USA target: [From.GetName]"
+			FROM = {
+				country_event = { id = ven.42 days = 1 }
+			}
+		}
+	}
+}
+

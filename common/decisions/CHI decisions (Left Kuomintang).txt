@@ -1,0 +1,556 @@
+##############################
+#   Left KMT Decisions       #
+##############################
+# By DSFDarker and Spiderfist#
+##############################
+
+CHI_military_expeditions_category = {
+
+	###############################
+	#####      DECISIONS	 ######
+	###############################
+
+	CHI_dec_recall_Xue_and_Zhang = {
+		icon = generic_operation
+
+		allowed = { always = no }
+
+		cost = 15
+		fire_only_once = yes
+		days_remove = 7
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete CHI_dec_recall_Xue_and_Zhang"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHI_dec_recall_Xue_and_Zhang"
+			country_event = chi_for.15
+		}
+		ai_will_do = { factor = 1000 }
+	}
+
+	CHI_dec_hui_brigades = {
+		icon = GFX_decision_cavalry
+
+		allowed = { always = no }
+
+		visible = {
+			OR = {
+				owns_state = 283
+				owns_state = 617
+				is_neighbor_of = XSM
+				is_neighbor_of = SIK
+			}
+		}
+		available = {
+			OR = {
+				283 = { is_core_of = ROOT }
+				617 = { is_core_of = ROOT }
+				AND = {
+					XSM = { exists = yes }
+					is_ally_with = XSM
+				}
+				AND = {
+					SIK = { exists = yes }
+					is_ally_with = SIK
+				}
+			}
+		}
+
+		cost = 30
+		fire_only_once = yes
+		days_remove = 15
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete CHI_dec_hui_brigades"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHI_dec_hui_brigades"
+			add_manpower = 500
+			custom_effect_tooltip = CHI_NRA_hui_brigades_tt
+			add_to_variable = { CHI_NRA_cavalry_attack_factor = 0.05 }
+			add_to_variable = { CHI_NRA_cavalry_defence_factor = 0.05 }
+		}
+		ai_will_do = { factor = 10 }
+	}
+
+	CHI_dec_arsenal_of_party_state = {
+		icon = generic_ignite_civil_war
+
+		allowed = { always = no }
+
+		cost = 70
+		fire_only_once = yes
+		days_remove = 35
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete CHI_dec_arsenal_of_party_state"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHI_dec_arsenal_of_party_state"
+			add_war_support = 0.05
+			add_offsite_building = { type = arms_factory level = 1 }
+		}
+		ai_will_do = { factor = 10 }
+	}
+
+	###############################
+	#####      MISSIONS		 ######
+	###############################
+
+	CHI_mission_get_access_sea = {
+		icon = generic_naval
+
+		allowed = { always = no }
+
+		available = {
+			controls_state = 802
+		}
+		cancel_trigger = {
+			owns_state = 802
+		}
+
+		is_good = no
+		days_mission_timeout = 14
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete CHI_mission_get_access_sea"
+			transfer_state = 802
+			add_stability = 0.03
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 500
+				producer = LEP
+			}
+		}
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout CHI_mission_get_access_sea"
+			add_political_power = -25
+		}
+	}
+	CHI_mission_secure_fujian = {
+		icon = generic_civil_support
+
+		allowed = { always = no }
+
+		available = {
+			controls_state = 595
+			controls_state = 1066
+		}
+		cancel_trigger = {
+			owns_state = 595
+			owns_state = 1066
+		}
+
+		is_good = no
+		days_mission_timeout = 60
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete CHI_mission_secure_fujian"
+			transfer_state = 595
+			transfer_state = 1066
+			add_stability = 0.06
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 500
+				producer = LEP
+			}
+		}
+	}
+	CHI_mission_secure_gannan = {
+		icon = generic_civil_support
+
+		allowed = { always = no }
+
+		available = {
+			controls_state = 600
+		}
+		cancel_trigger = {
+			owns_state = 600
+		}
+
+		is_good = no
+		days_mission_timeout = 60
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete CHI_mission_secure_gannan"
+			transfer_state = 600
+			add_stability = 0.03
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 500
+				producer = LEP
+			}
+		}
+	}
+}
+
+CHI_warlord_diplomacy_category = {
+	CHI_dec_offer_eastern_shanxi = {
+		icon = generic_agreement
+
+		allowed = { always = no }
+
+		visible = {
+			has_global_flag = CHI_FNG_Post_Victory
+
+			CHI = {
+				has_war_with = FNG
+			}
+
+			country_exists = SHX
+			SHX = {
+				has_government = paternal_autocrat
+				is_neighbor_of = ROOT
+				is_subject = no
+				NOT = {
+					owns_state = 615
+				}
+			}
+		}
+
+		available = {
+			CHI = {
+				has_war_with = FNG
+			}
+		}
+
+		cost = 40
+		fire_only_once = yes
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete CHI_dec_offer_eastern_shanxi"
+			SHX = { country_event = { id = chi_fng_war.1 days = 3 } }
+		}
+
+		ai_will_do = { factor = 150 }
+	}
+}
+
+CHI_national_RC_category = {
+
+	CHI_dec_pop_industrialise = {
+		icon = generic_industry
+		allowed = { always = no }
+		visible = {
+			NOT = { has_idea = KR_CHI_popular_support_5 }
+		}
+
+		highlight_states = {
+			highlight_state_targets = { state = 613 }
+		}
+
+		cost = 75
+		fire_only_once = yes
+		cancel_if_not_visible = yes
+		days_remove = 50
+		ai_will_do = { base = 200 }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete CHI_dec_pop_industrialise"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHI_dec_pop_industrialise"
+			increase_CHI_popular_support = yes
+		}
+	}
+
+	CHI_dec_civ_industrialise = {
+		icon = GFX_decision_generic_factory
+		allowed = { always = no }
+
+		visible = {
+			FROM = { is_owned_and_controlled_by = ROOT }
+		}
+		available = {
+			has_manpower > 7500
+			NOT = { has_country_flag = CHI_Industrialising_State }
+		}
+
+		fire_only_once = yes
+		state_target = yes
+		cancel_if_not_visible = yes
+		cost = 100
+		days_remove = 60
+
+		ai_will_do = { base = 200 }
+
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel CHI_dec_civ_industrialise target: [From.GetName]"
+			add_manpower = 7500
+			clr_country_flag = CHI_Industrialising_State
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete CHI_dec_civ_industrialise target: [From.GetName]"
+			add_manpower = -7500
+			set_country_flag = CHI_Industrialising_State
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHI_dec_civ_industrialise target: [From.GetName]"
+			clr_country_flag = CHI_Industrialising_State
+			FROM = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_manpower = 5000
+		}
+	}
+
+	CHI_dec_dock_industrialise = {
+		icon = GFX_decision_generic_merge_plant_ship
+		allowed = { always = no }
+
+		visible = {
+			FROM = { is_owned_and_controlled_by = ROOT }
+		}
+		available = {
+			has_manpower > 7500
+			NOT = { has_country_flag = CHI_Industrialising_State }
+		}
+
+		fire_only_once = yes
+		state_target = yes
+		cancel_if_not_visible = yes
+		cost = 100
+		days_remove = 60
+
+		ai_will_do = { base = 200 }
+
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel CHI_dec_dock_industrialise target: [From.GetName]"
+			add_manpower = 7500
+			clr_country_flag = CHI_Industrialising_State
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete CHI_dec_dock_industrialise target: [From.GetName]"
+			add_manpower = -7500
+			set_country_flag = CHI_Industrialising_State
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHI_dec_dock_industrialise target: [From.GetName]"
+			clr_country_flag = CHI_Industrialising_State
+			FROM = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_manpower = 5000
+		}
+	}
+}
+
+#CHI_mingshu_category = {
+#
+#	CHI_KMT_crisis = {
+#		icon = generic_industry
+#		available = {
+#			OR = {
+#				has_country_flag = CHI_soong_control
+#				has_country_flag = CHI_mingshu_control
+#			}
+#		}
+#
+#		activation = {
+#			has_country_flag = CHI_mingshu_lkmt
+#		}
+#
+#		fire_only_once = yes
+#
+#		days_mission_timeout = 150
+#
+#		timeout_effect = {
+#			country_event = { id = chi_dom.46 days = 1 }
+#
+#		}
+#
+#		complete_effect = {
+#
+#
+#		}
+#	}
+#}
+
+CHI_east_asian_league_category = {
+	CHI_invite_countries_to_faction = {
+		icon = generic_agreement
+
+		allowed = { always = no }
+
+		available = {
+			has_war = no
+		}
+
+		visible = {
+			is_faction_leader = yes
+			FROM = {
+				exists = yes
+				is_subject = no
+				is_in_faction = no
+				has_socialist_government = yes
+				if = {
+					limit = { tag = INC }
+					has_country_flag = CHI_support_INC
+				}
+			}
+		}
+
+		cost = 10
+		days_remove = 7
+		fire_only_once = yes
+		ai_will_do = { base = 500 }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete CHI_invite_countries_to_faction target: [From.GetName]"
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHI_invite_countries_to_faction target: [From.GetName]"
+			FROM = {
+				country_event = chi_for.48
+			}
+		}
+	}
+}
+
+CHI_liberate_asia_category = {
+	CHI_liberate_asia = {
+		icon = generic_agreement
+
+		allowed = { always = no }
+		visible = {
+			can_declare_war_on = FROM
+		}
+
+		cancel_trigger = {
+			NOT = { can_declare_war_on = FROM }
+		}
+
+		cost = 10
+		days_remove = 30
+		fire_only_once = yes
+		war_with_target_on_remove = yes
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				ROOT_is_threatened = yes
+			}
+			modifier = {
+				factor = 0
+				FROM = { is_stronger_than_ROOT_and_not_vulnerable = yes }
+			}
+			modifier = {
+				factor = 0
+				FROM = { overlord_is_stronger_than_ROOT_and_not_vulnerable = yes }
+			}
+			modifier = {
+				factor = 0
+				FROM = { faction_leader_is_stronger_than_ROOT_and_not_vulnerable = yes }
+			}
+			modifier = {
+				factor = 0
+				FROM = { guarantor_is_stronger_than_ROOT_and_not_vulnerable = yes }
+			}
+		}
+
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel CHI_liberate_asia target: [From.GetName]"
+			clear_decision_attack_AI = yes
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete CHI_liberate_asia target: [From.GetName]"
+			FROM = { incoming_war_notification_effect = yes }
+			setup_decision_attack_AI = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHI_liberate_asia target: [From.GetName]"
+			clear_decision_attack_AI = yes
+			declare_war_on = {
+				type = annex_everything
+				target = FROM
+			}
+		}
+	}
+	CHI_liberate_asia_PHI = {
+		name = CHI_liberate_asia
+		icon = generic_agreement
+
+		allowed = { always = no }
+		visible = {
+			can_declare_war_on = FROM
+			FROM = {
+				is_subject = yes
+				has_socialist_government = no
+			}
+		}
+
+		cancel_trigger = {
+			OR = {
+				NOT = { can_declare_war_on = FROM }
+				FROM = { is_subject = no }
+				FROM = { has_socialist_government = yes }
+			}
+		}
+
+		cost = 10
+		days_remove = 30
+		fire_only_once = yes
+		war_with_target_on_remove = yes
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				ROOT_is_threatened = yes
+			}
+			modifier = {
+				factor = 0
+				FROM = { is_stronger_than_ROOT_and_not_vulnerable = yes }
+			}
+			modifier = {
+				factor = 0
+				FROM = { overlord_is_stronger_than_ROOT_and_not_vulnerable = yes }
+			}
+			modifier = {
+				factor = 0
+				FROM = { faction_leader_is_stronger_than_ROOT_and_not_vulnerable = yes }
+			}
+			modifier = {
+				factor = 0
+				FROM = { guarantor_is_stronger_than_ROOT_and_not_vulnerable = yes }
+			}
+		}
+
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel CHI_liberate_asia_PHI target: [From.GetName]"
+			clear_decision_attack_AI = yes
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete CHI_liberate_asia_PHI target: [From.GetName]"
+			FROM = { incoming_war_notification_effect = yes }
+			setup_decision_attack_AI = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHI_liberate_asia_PHI target: [From.GetName]"
+			clear_decision_attack_AI = yes
+			declare_war_on = {
+				type = annex_everything
+				target = FROM
+			}
+		}
+	}
+}

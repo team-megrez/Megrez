@@ -1,410 +1,361 @@
-load_focus_tree = ZZZ_national_focus #If you touch this the bookmark gets fucked
-capital = 1428 #Kiev
-
-# Vacant
-# recruit_character = UKR_Generic_Vacant
-# recruit_character = UKR_UNBEKANNT
-# recruit_character = UKR_Andriy_Melnyk
-
-# recruit_character = UKR_erich_koch
-# recruit_character = UKR_Georg_Leibbrandt
-# recruit_character = UKR_Hans_Otto_Brautigam
-# recruit_character = UKR_Otto_Ohlendorf
-# recruit_character = UKR_Theodor_Kretschmer
-# recruit_character = UKR_Paul_Reichelt
-# recruit_character = UKR_albert_brux
-# recruit_character = UKR_Albrecht_Mertz_von_Quirnheim
-# recruit_character = UKR_willy_riedel
-# recruit_character = UKR_Alfred_Frauenfeld
-# recruit_character = UKR_Volodymyr_Kubiyovych
-#Ministers
-# recruit_character = UKR_Alfred_Rosenberg
-# recruit_character = UKR_Ernst_Ludwig_Leyser
-# recruit_character = UKR_Gerhard_Schroder
-# recruit_character = UKR_Fritz_Freitag
-# recruit_character = UKR_Ivan_Teslya
-# recruit_character = UKR_Anatoliy_Kabayda
-# recruit_character = UKR_Boris_Levytsky
-# recruit_character = UKR_Yuryi_Tys
-# recruit_character = UKR_Waldemar_Magunia
-# recruit_character = UKR_Friedrich_Thielen
-# recruit_character = UKR_Otto_Brautigam
-# recruit_character = UKR_Mykhailo_Krat
-# recruit_character = UKR_Ivan_Maistrenko
-# recruit_character = UKR_Fritz_Sauckel
-# recruit_character = UKR_Hermann_Hocherl
-# recruit_character = UKR_Waldemar_Kraft
-# recruit_character = UKR_Roman_Mytsyk
-# recruit_character = UKR_Sava_Yaskevich
-# recruit_character = UKR_Vsevolod_Holubnychyi
-# recruit_character = UKR_Hans_Adolf_Prutzmann
-# recruit_character = UKR_Pavlo_Shandrukeco
-# recruit_character = UKR_Arkhip_Kmeta
-# recruit_character = UKR_Roman_Dashkevich
-# recruit_character = UKR_Richard_Wagner
-
-
-oob = "UKR_1962"
-
+﻿capital = 202
+oob = "UKR"
+set_naval_oob = "UKR_naval"
+set_convoys = 50
 set_research_slots = 3
-set_convoys = 120
+set_stability = 0.4
+set_war_support = 0.3
 
-add_ideas = {
-	##FACTION##
-	Pakt_Autonomous_Reichskommissariat
-	##SPIRITS##
-	UKR_breadbasket_of_the_reich
-	UKR_land_of_contrasts
-	UKR_paradise_undone
-	### MINISTERS ###
-	UKR_Georg_Leibrandt_hog
-	UKR_Hans_Otto_Brautigam_for
-	UKR_Richard_Wagner_eco
-	UKR_Otto_Ohlendorf_sec
-	##POLITICAL LAWS##
-	tno_political_parties_one_party_state
-	tno_religious_rights_supression_of_churches
-	tno_trade_unions_illegal
-	tno_immigration_quota_immigration
-	tno_slavery_institutionalized
-	tno_public_meetings_regulated
-	tno_press_rights_state_press_only
-	tno_vote_franchise_no_voting
-	##MILITARY LAWS###
-	tno_conscription_broadened_conscription
-	tno_military_supervision_kill_em_all
-	tno_training_basic_training
-	tno_draft_exemptions_none
-	##SOCIAL LAWS##
-	tno_health_care_low_income_protections
-	tno_education_stratified_education
-	tno_penal_system_overt_oppression
-	tno_gender_rights_traditional_roles
-	tno_security_oppressive_police
-	tno_regulations_token_regulations
-	##ECONOMIC LAWS##
-	tno_trade_laws_export_focus
-	tno_income_taxation_elite_tax_exemptions
-	tno_minimum_wage_trinket_minimum_wage
-	tno_max_workhours_14_hour_work_day
-	tno_pensions_low_pensions
-	tno_unemployment_no_subsidies
-	##MISC LAWS##
-	tno_refugees_skilled
-	tno_women_banned
-	tno_racial_integration_none
-	tno_safety_minimal_regulations
-	tno_pollution_no_controls
-	tno_lgbt_rights_lgbt_outlawed
-	tno_minorities_oppression
-	tno_child_labor_restricted
-	##SOCIETAL DEVELOPMENT##
-	tno_army_professionalism_professional
-	tno_industrial_expertise_experienced
-	tno_industrial_equipment_modern
-	tno_agriculture_mass_mechanized
-	tno_healthcare_nascent
-	tno_research_facilities_outdated
-	tno_academic_base_basic_literacy
-	tno_admin_efficiency_functional_administrative_systems
-}
-
-set_country_flag = tno_defined_startup_effectiveness
-
-# ECONOMIC LAWS
-set_variable = { tno_trade_laws_effectiveness = 88 }
-set_variable = { tno_income_taxation_effectiveness = 93 }
-set_variable = { tno_minimum_wage_effectiveness = 41 }
-set_variable = { tno_max_workhours_effectiveness = 67 }
-set_variable = { tno_pensions_effectiveness = 23 }
-set_variable = { tno_unemployment_effectiveness = 96 }
-set_variable = { tno_regulations_effectiveness = 75 }
-
-# SOCIAL LAWS
-set_variable = { tno_health_care_effectiveness = 11 }
-set_variable = { tno_education_effectiveness = 86 }
-set_variable = { tno_penal_system_effectiveness = 83 }
-set_variable = { tno_gender_rights_effectiveness = 78 }
-set_variable = { tno_security_effectiveness = 81 }
-
-# POLITICAL LAWS
-set_variable = { tno_political_parties_effectiveness = 63 }
-set_variable = { tno_religious_rights_effectiveness = 71 }
-set_variable = { tno_trade_unions_effectiveness = 68 }
-set_variable = { tno_immigration_effectiveness = 76 }
-set_variable = { tno_slavery_effectiveness = 85 }
-set_variable = { tno_public_meetings_effectiveness = 32 }
-set_variable = { tno_press_rights_effectiveness = 64 }
-set_variable = { tno_vote_franchise_effectiveness = 47 }
-
-# MILITARY LAWS
-set_variable = { tno_conscription_effectiveness = 81 }
-set_variable = { tno_military_supervision_effectiveness = 62 }
-set_variable = { tno_training_effectiveness = 79 }
-set_variable = { tno_draft_exemptions_effectiveness = 64 }
+save_global_event_target_as = original_ukraine
 
 set_technology = {
+	### Infantry ###
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	motorised_infantry = 1
+	armored_car1 = 1
+
+	### Support ###
+	tech_support = 1
+	tech_recon = 1
+	tech_engineers = 1
+
+	### Artillery ###
+	gw_artillery = 1
+
+	### Trains ###
 	basic_train = 1
 
-	# Infantry
-		infantry_weapons_1 = 1
-	night_vision_1 = 1
-	
-		infantry_kit_1 = 1
-		infantry_weapons_2 = 1
-	night_vision_2 = 1
-		infantry_kit_2 = 1
-		infantry_weapons_improvements_mine_1 = 1
-		infantry_kit_3 = 1
-		infantry_weapons_improvements_ammo_1 = 1
-		infantry_weapons_improvements_grenade_1 = 1
-		#
-		infantry_weapons_3 = 1
-	night_vision_3 = 1
-		infantry_kit_4 = 1
-		basic_infantry_equipment = 1
-		support_weapons = 1
-		support_weapons_hmg_1 = 1
-		combat_support_equipment_1 = 1
-	
-		support_weapons_arty_1 = 1
-		infantry_at = 1
-		infantry_at_upgrade_1 = 1
-		#
-		motorized_infantry = 1
-		motorized_rocket_unit = 1
-		motorized_infantry_1 = 1
-		marines = 1
-		#
-		tech_special_forces = 1
-		tech_mountaineers = 1
-	#
-		paratroopers = 1
-	# Support
-		tech_support = 1
-		tech_engineers = 1
-		assault_weapons_1 = 1
-		tech_engineers2 = 1
-		assault_weapons_2 = 1
-		tech_engineers3 = 1
-		tech_recon = 1
-		tech_recon2 = 1
-		tech_military_police = 1
-		tech_military_police2 = 1
-		tech_military_police3 = 1
-		tech_maintenance_company = 1
-		tech_maintenance_company2 = 1
-		tech_field_hospital = 1
-		tech_logistics_company = 1
-		tech_signal_company = 1
-	# Armor
-		advanced_light_tank = 1
-		advanced_medium_tank = 1
-		mechanised_infantry3 = 1
-		APC_1950 = 1
-		APC_1950_basic_turret = 1
-		IFV_1950 = 1
-		IFV_1950_basic_turret = 1
-		MBT_1950 = 1
-		MBT_1950_basic_turret = 1
-		AC_1945 = 1
-		AC_1950 = 1
-	# Artillery
-		antiair5 = 1
-		antiair_1950 = 1
-		SPAA_1950 = 1
-		artillery4 = 1
-		artillery4 = 1
-		artillery_1950 = 1
-		artillery_1950_soft_attack = 1
-		SPART_1950 = 1
-		SPART_1950_soft_attack = 1
-	# Land Doctrine
-		maneuver_warfare = 1
-	# Naval
-		#Non-MtG Naval Tech
-		ww2_frigate = 1
-		basic_frigate = 1
-		ww2_submarine = 1
-		basic_submarine = 1
-		improved_submarine = 1
-		ww2_destroyer = 1
-		basic_destroyer = 1
-		ww2_cruiser = 1
-		basic_cruiser = 1
-		ww2_battleship = 1
-		basic_battleship = 1
-		ww2_carrier = 1
-		early_carrier = 1
-		transport = 1
-		landing_craft = 1
+	### Industry ###
+	fuel_silos = 1
+}
 
-		#MtG Naval Tech
-		early_ship_hull_very_light = 1
-		basic_ship_hull_very_light = 1
-		early_ship_hull_more_light = 1
-		basic_ship_hull_more_light = 1
+### Tanks - NSB ###
+if = {
+	limit = { has_dlc_nsb = yes }
+	set_technology = { gwtank_chassis = 1 }
+}
+
+### Tanks - non NSB ###
+if = {
+	limit = { has_dlc_nsb = no }
+	set_technology = { gwtank = 1 }
+}
+
+### Planes - BBA ###
+if = {
+	limit = { has_dlc_bba = yes }
+	set_air_oob = "UKR_air_bba"
+	set_technology = {
+		aa_lmg = 1
+		engines_1 = 1
+		early_bombs = 1
+		aircraft_construction = 1
+		iw_small_airframe = 1
+		iw_medium_airframe = 1
+	}
+}
+
+### Planes - non BBA ###
+if = {
+	limit = { has_dlc_bba = no }
+	set_air_oob = "UKR_air_legacy"
+	set_technology = {
+		early_fighter = 1
+		fighter1 = 1
+		CAS1 = 1
+		early_bomber = 1
+		tactical_bomber1 = 1
+	}
+}
+
+### Navy - MtG ###
+if = {
+	limit = { has_dlc_mtg = yes }
+	set_technology = {
 		early_ship_hull_light = 1
+		basic_naval_mines = 1
 		basic_ship_hull_light = 1
-		smoke_generator = 1
-		basic_depth_charges = 1
-		improved_depth_charges = 1
-		sonar = 1
-		improved_sonar = 1
 		early_ship_hull_cruiser = 1
 		basic_ship_hull_cruiser = 1
-		early_ship_hull_heavy = 1
-		basic_ship_hull_heavy = 1
-		early_ship_hull_carrier = 1
-		basic_ship_hull_carrier = 1
-		improved_ship_hull_carrier = 1
 		early_ship_hull_submarine = 1
 		basic_ship_hull_submarine = 1
-		improved_ship_hull_submarine = 1
+		early_ship_hull_heavy = 1
+		basic_ship_hull_heavy = 1
+
+		## Modules##
+		basic_depth_charges = 1
 		basic_torpedo = 1
-		improved_ship_torpedo_launcher = 1
-		magnetic_detonator = 1
 		basic_battery = 1
 		basic_light_battery = 1
 		basic_medium_battery = 1
-		basic_heavy_battery = 1
-		basic_secondary_battery = 1
-		improved_secondary_battery = 1
-		damage_control_1 = 1
-		fire_control_methods_1 = 1
-		mtg_transport = 1
-		basic_naval_mines = 1
-		improved_naval_mines = 1
-		submarine_mine_laying = 1
-		improved_submarine_mine_laying = 1
-		continue_battleship_development = 1
-	# Naval Doctrine
-		#
-	# Helicopcter
-		very_early_helicopter = 1
-		early_helicopter = 1
-	# Light Air
-		early_fighter = 1
-		interceptor_1945 = 1
-		interceptor_1950 = 1
-		fighter_1945 = 1
-		fighter_1950 = 1
-		CAS_1945 = 1
-		CAS_1950 = 1
-	# Heavy Air
-		tac_bomber1 = 1
-		tac_air_1945 = 1
-		tac_air_1950 = 1
-		strategic_bomber1 = 1
-		heavy_air_1945 = 1
-		heavy_air_1950 = 1
-		transport_air1 = 1
-		transport_air_1945 = 1
-		transport_air_1950 = 1
-	# Engineering
-		electronic_mechanical_engineering = 1
-		radio = 1
-		radio_detection = 1
-		decimetric_radar = 1
-		centimetric_radar = 1
-		mechanical_computing = 1
-		computing_machine = 1
-		basic_encryption = 1
-		basic_decryption = 1
-		improved_computing_machine = 1
-		improved_encryption = 1
-		improved_decryption = 1
-		advanced_computing_machine = 1
-		advanced_encryption = 1
-		computing_machine_1950 = 1
-		helicopter_engines = 1
-		jet_engines = 1
-		jet_engines_bombers = 1
-		improved_jet_engines_bombers_1 = 1
-	# Industry
-		ww2_line_production = 1
-		mass_production_1 = 1
-		mass_production_2 = 1
-		building_construction_1 = 1
-		production_unit_gain_1 = 1
-		production_unit_gain_2 = 1
-		oil_processing = 1
-		energy_technology_1 = 1
-		social_construction_1 = 1
-		resource_extraction_methods = 1
-		excavation0 = 1
-		administration_construction_1 = 1
-		excavation1 = 1
-		education_construction_1 = 1
-		excavation2 = 1
-		military_construction_1 = 1
-		prison_construction_1 = 1
-		batch_production_1 = 1
-		batch_production_2 = 1
+		improved_ship_torpedo_launcher = 1
+		basic_cruiser_armor_scheme = 1
+	}
 }
+
+### Navy - Non MtG ###
 if = {
-	limit = { has_dlc = "La Resistance" }
+	limit = { has_dlc_mtg = no }
 	set_technology = {
-		scout_plane_1945 = 1
-		scout_plane_1950 = 1
+		early_destroyer = 1
+		basic_destroyer = 1
+		early_light_cruiser = 1
+		basic_light_cruiser = 1
+		early_submarine = 1
+		basic_submarine = 1
+		early_heavy_cruiser = 1
+		basic_heavy_cruiser = 1
+		early_battleship = 1
+		basic_battleship = 1
 	}
 }
 
-if = {
-	limit = { has_dlc = "Man the Guns" }
-	set_naval_oob = UKR_mtg_navy_1962
-	create_equipment_variant = {
-		name = "Leipzig-class"
-		type = ship_hull_very_light_2
-		name_group = GER_DD_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_light_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_2
-			fixed_ship_fire_control_system_slot = empty
-			fixed_ship_radar_slot = ship_sonar_1
-			fixed_ship_engine_slot = light_ship_engine_2
-			fixed_ship_torpedo_slot = ship_torpedo_1
-			mid_1_custom_slot = ship_depth_charge_1
-			rear_1_custom_slot = ship_anti_air_2
-		}
+GER = {
+	set_autonomy = {
+		target = UKR
+		autonomy_state = kr_oststaat_autonomous
 	}
 }
-
-if = {
-	limit = {
-		not = { has_dlc = "Man the Guns" }
-	}
-	set_naval_oob = UKR_navy_1962
-	create_equipment_variant = {
-		name = "Rostock-class"
-		type = destroyer_2
-		name_group = GER_DD_HISTORICAL
-	}
-}
-
 set_politics = {
-	ruling_party = conservative
-	last_election = "1941.4.17"
+	ruling_party = authoritarian_democrat
+	last_election = "1932.11.30"
 	election_frequency = 48
-	elections_allowed = no
+	elections_allowed = yes
 }
-
 set_popularities = {
-	vanguardist = 0
-	socialist = 0
-	progressive =  0
-	ecologist = 0
-
-	liberal = 0
-	conservative = 5
-	syndicalist = 15
-	anocrat = 10
-	paternalist =  70
-	national_populist = 0
-	
+	totalist = 1
+	syndicalist = 10
+	radical_socialist = 9
+	social_democrat = 18
+	social_liberal = 13
+	market_liberal = 4
+	social_conservative = 5
+	authoritarian_democrat = 28
+	paternal_autocrat = 7
+	national_populist = 5
 }
 
-#econ types
-set_variable = { TNO_economy_type = token:Econ_Type_Corporatism }
-set_variable = { TNO_economy_subtype = token:Econ_Subtype_Nazi_Corporatocracy }
+ ### Laws ###
+add_ideas = {
+	free_trade
+	limited_conscription
+
+	UKR_unfinished_revolution
+	UKR_halted_industrialization_plans
+	UKR_strong_agrarian_economy
+	UKR_land_reform_debacle
+	german-ukrainian_railways
+}
+
+country_event = { id = ukraine.2 days = 45 }
+country_event = { id = ukraine.4 days = 21 }
+country_event = { id = ukraine.6 days = 28 }
+country_event = { id = ukraine.8 days = 118 }
+country_event = { id = ukraine.11 days = 5 }
+country_event = { id = ukraine.36 days = 174 }
+country_event = { id = ukraine.61 days = 480 random_days = 15 }
+country_event = { id = ukraine.50 days = 555 random_days = 20 }
+country_event = { id = ukraine.51 days = 645 random_days = 20 }
+country_event = { id = ukraine.64 days = 700 random_days = 100 }
+country_event = { id = ukraine.53 days = 849 }
+country_event = { id = ukraine.65 days = 800 }
+country_event = { id = ukraine.55 days = 950 }
+country_event = { id = ukraine.59 days = 925 random_days = 20 }
+country_event = { id = ukraine.74 days = 974 random_days = 20 }
+country_event = { id = ukraine.63 days = 1000 random_days = 15 }
+country_event = { id = ukraine.54 days = 1150 }
+country_event = { id = ukraine.62 days = 1214 }
+country_event = { id = ukraine.71 days = 1308 random_days = 30 }
+country_event = { id = ukraine.75 days = 1408 }
+country_event = { id = ukraine.78 days = 1214 random_days = 20 }
+country_event = { id = ukraine.79 days = 1125 random_days = 60 }
+country_event = { id = ukraine.80 days = 765 random_days = 25 }
+country_event = { id = ukraine.81 days = 800 random_days = 50 }
+country_event = { id = ukraine.86 days = 600 random_days = 30 }
+
+country_event = { id = ukraine_lun.23 days = 730 } #LUN warning event 4
+country_event = { id = ukraine_lun.24 days = 850 } #LUN warning event 5
+country_event = { id = ukraine_lun.25 days = 1035 } #LUN warning event 6 - LUN coup decider
+
+### Country Leaders ###
+recruit_character = UKR_pavlo_skoropadskyi
+recruit_character = UKR_isaak_mazepa
+recruit_character = UKR_oleksandr_shulhyn
+recruit_character = UKR_symon_petliura #Petliura becomes leader + general later
+recruit_character = UKR_danylo_skoropadskyi
+recruit_character = UKR_vlas_chubar
+recruit_character = UKR_oleksandr_shumskyi
+recruit_character = UKR_volodymyr_vynnychenko
+recruit_character = UKR_dmytro_doroshenko
+activate_advisor = UKR_dmytro_doroshenko_sic
+recruit_character = UKR_borys_martos
+recruit_character = UKR_mykola_stsiborskyi
+recruit_character = UKR_wilhelm_franz_von_habsburg
+recruit_character = UKR_nykyfir_hryhoriiv
+
+### Field Marshals ###
+recruit_character = UKR_mykhailo_omelianovych_pavlenko
+
+### Generals ###
+recruit_character = UKR_kostiantyn_prisovskyi
+recruit_character = UKR_yevhen_konovalets
+recruit_character = UKR_andrii_melnyk
+recruit_character = UKR_mykola_kapustianskyi
+recruit_character = UKR_ivan_poltavets_ostrianytsia
+recruit_character = UKR_omelian_volokh #in exile
+recruit_character = UKR_yurii_tiutiunnyk #in exile
+recruit_character = UKR_vsevolod_petriv
+recruit_character = UKR_marko_bezruchko
+recruit_character = UKR_oleksandr_udovychenko #in exile with Petliura
+recruit_character = UKR_oleksandr_zahrodskyi
+recruit_character = UKR_leonid_stupnytskyi
+recruit_character = UKR_roman_dashkevych
+recruit_character = UKR_vasyl_fylonovych
+recruit_character = UKR_petro_diachenko
+recruit_character = UKR_oleksii_fedorov #young officer
+
+### Admirals ###
+recruit_character = UKR_andrii_pokrovskyi
+recruit_character = UKR_sviatoslav_shramchenko
+recruit_character = UKR_yurii_svirskyi
+
+### Second in Command ####
+recruit_character = UKR_borys_homzyn
+recruit_character = UKR_serhii_shemet
+recruit_character = UKR_mykola_mikhnovskyi
+recruit_character = UKR_ihor_kistiakovskyi
+recruit_character = UKR_volodymyr_korostovets
+recruit_character = UKR_oleksandr_shapoval
+recruit_character = UKR_viacheslav_prokopovych
+recruit_character = UKR_andrii_nikovskyi
+recruit_character = UKR_opanas_fedenko
+recruit_character = UKR_levko_kovaliv
+recruit_character = UKR_mykhailo_poloz
+recruit_character = UKR_pavlo_khrystiuk
+recruit_character = UKR_andrii_khvylia
+recruit_character = UKR_volodymyr_chekhivskyi
+recruit_character = UKR_oleksii_kozlovskyi
+recruit_character = UKR_the_soim
+
+### Advisors ###
+recruit_character = UKR_maik_yokhansen
+recruit_character = UKR_mykola_kochubei
+recruit_character = UKR_mykhailo_and_fedir_tereshchenko
+recruit_character = UKR_mykola_khvyliovyi
+recruit_character = UKR_mykhailo_volobuiev
+recruit_character = UKR_hryhorii_hrynko
+recruit_character = UKR_yurii_lypa
+recruit_character = UKR_oleksandr_dovzhenko
+recruit_character = UKR_mykhailo_hrushevskyi
+recruit_character = UKR_zinaida_mirna
+recruit_character = UKR_olena_stepaniv
+recruit_character = UKR_ivan_lytvynenko
+recruit_character = UKR_vasyl_kochubei
+recruit_character = UKR_metropolitan_vasyl
+recruit_character = UKR_mykola_kovalevskyi
+recruit_character = UKR_oleh_olzhych_and_olena_teliha
+recruit_character = UKR_andrii_livytskyi
+recruit_character = UKR_yakiv_moraleyvch
+recruit_character = UKR_anatolii_pisotskyi
+recruit_character = UKR_arnold_margolin
+recruit_character = UKR_asan_sabri_aivazov
+recruit_character = UKR_ahatanhel_krymskyi
+recruit_character = UKR_oleksandr_skoropys_yoltukhovskyi
+recruit_character = UKR_solomon_goldelman
+recruit_character = UKR_stepan_tymoshenko
+recruit_character = UKR_dmytro_dontsov
+
+### Army Staff ###
+recruit_character = UKR_oleksandr_hrekiv
+recruit_character = UKR_andrii_hulyi_hulenko
+recruit_character = UKR_petro_bolbochan
+recruit_character = UKR_fedosii_shchus
+recruit_character = UKR_pavlo_shandruk
+recruit_character = UKR_volodymyr_salskyi
+recruit_character = UKR_mykola_maksymov
+recruit_character = UKR_serhii_rudenko
+recruit_character = UKR_vsevolod_zmiienko
+recruit_character = UKR_vasyl_tiutiunnyk
+recruit_character = UKR_volodymyr_kedrovskyi
+recruit_character = UKR_dzhambulat_kanukov
+recruit_character = UKR_viktor_pavlenko
+recruit_character = UKR_vasyl_murashko
+recruit_character = UKR_borys_huber
+recruit_character = UKR_oleksandr_hadd
+recruit_character = UKR_volodymyr_savchenko_bilskyi
+recruit_character = UKR_mykhailo_bilynskyi
+recruit_character = UKR_yurii_otmarshtain
+recruit_character = UKR_ivan_cherniakhovskyi
+recruit_character = UKR_serhii_koroliov
+recruit_character = UKR_kyrylo_moskalenko
+recruit_character = UKR_rostyslav_bereziuk_voloshyn
+recruit_character = UKR_serhii_yefremov
+
+### Character Setup ###
+UKR_pavlo_skoropadskyi = { set_character_flag = is_monarch }
+UKR_danylo_skoropadskyi = { set_character_flag = is_monarch }
+
+UKR_symon_petliura = { retire = yes } #Petliura becomes leader + general later
+UKR_yurii_tiutiunnyk = { retire = yes }
+UKR_oleksandr_udovychenko = { retire = yes }
+UKR_oleksii_fedorov = { retire = yes }
+UKR_omelian_volokh = { retire = yes }
+
+### Land Reform and Industry ###
+set_variable = { UKR_landreform_time = 730 }
+set_variable = { UKR_industrialision_time = 730 }
+
+set_variable = { UKR_land_reform_score = 0 }
+set_variable = { UKR_remove_cost = 120 }
+set_variable = { UKR_landreform_cost = 75 }
+set_variable = { UKR_loan_counter = 0 }
+
+set_variable = { UKR_industrial_score = 0 }
+set_variable = { UKR_infra_cost = 25 }
+set_variable = { UKR_industry_cost = 50 }
+set_variable = { UKR_industry_cost_high = 80 }
+set_variable = { UKR_industry_remove_cost_1 = 60 }
+set_variable = { UKR_industry_remove_cost_2 = 70 }
+set_variable = { UKR_industry_remove_cost_3 = 90 }
+set_variable = { UKR_industry_remove_cost_4 = 120 }
+set_variable = { UKR_industry_remove_cost_5 = 250 }
+set_variable = { UKR_industry_remove_cost_6 = 350 }
+
+set_variable = { UKR_industrial_process = 36 }
+set_variable = { UKR_GER_loan = 80 }
+
+### Other ###
+137 = { add_dynamic_modifier = { modifier = UKR_crimean_autonomy } }
+
+### Integration ###
+ROOT = {
+	73 = { enable_state_integration_80_compliance = yes } #Transcarpathia
+	80 = { enable_state_integration_50_compliance = yes } #Cernauti
+	89 = { enable_state_integration_50_compliance = yes } #Stanislawow
+	91 = { enable_state_integration_50_compliance = yes } #Lviv
+	1088 = { enable_state_integration_80_compliance = yes } #Chelm
+	95 = { enable_state_integration_80_compliance = yes } #Pinsk
+	194 = { enable_state_integration_80_compliance = yes } #Mozyr
+}
+
+### Claims ###
+add_to_array = { UKR_claims_array = 73.id } #Transcarpathia
+add_to_array = { UKR_claims_array = 78.id } #Bessarabia
+add_to_array = { UKR_claims_array = 80.id } #Cernauti
+add_to_array = { UKR_claims_array = 89.id } #Stanislawow
+add_to_array = { UKR_claims_array = 91.id } #Lviv
+add_to_array = { UKR_claims_array = 95.id } #Pinsk
+add_to_array = { UKR_claims_array = 194.id } #Mozyr
+add_to_array = { UKR_claims_array = 218.id } #Rostov
+add_to_array = { UKR_claims_array = 220.id } #Kursk
+add_to_array = { UKR_claims_array = 234.id } #Ekaterinodar
+add_to_array = { UKR_claims_array = 240.id } #Belgorod
+add_to_array = { UKR_claims_array = 260.id } #Voronezh
+add_to_array = { UKR_claims_array = 1006.id } #Novorossyisk
+add_to_array = { UKR_claims_array = 1088.id } #Chelm
+
+for_each_scope_loop = {
+	array = UKR_claims_array
+	set_state_flag = UKR_claim_state
+}

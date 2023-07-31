@@ -1,0 +1,924 @@
+SPA_create_alfonso = {
+	if = {
+		limit = { event_target:original_spain = { SPA_alfonso_de_borbon = { is_dead = no } } }
+		set_cosmetic_tag = SPA_kingdom
+		event_target:original_spain = {
+			SPA_alfonso_de_borbon = {
+				character_becomes_leader_of_ruling_party_effect_tooltip = yes
+				hidden_effect = {
+					set_nationality = PREV.PREV
+					set_character_name = SPA_alfonso_de_borbon_regnal
+					remove_all_country_leader_roles = yes
+					add_country_leader_role = {
+						country_leader = {
+							desc = SPA_alfonso_de_borbon_leader_desc
+							ideology = social_democrat_subtype
+						}
+						promote_leader = yes
+					}
+					add_country_leader_role = {
+						country_leader = {
+							desc = SPA_alfonso_de_borbon_leader_desc
+							ideology = social_liberal_subtype
+						}
+						promote_leader = yes
+					}
+					add_country_leader_role = {
+						country_leader = {
+							desc = SPA_alfonso_de_borbon_leader_desc
+							ideology = market_liberal_subtype
+						}
+						promote_leader = yes
+					}
+					add_country_leader_role = {
+						country_leader = {
+							desc = SPA_alfonso_de_borbon_leader_desc
+							ideology = social_conservative_subtype
+						}
+						promote_leader = yes
+					}
+					add_country_leader_role = {
+						country_leader = {
+							desc = SPA_alfonso_de_borbon_leader_desc
+							ideology = authoritarian_democrat_subtype
+						}
+						promote_leader = yes
+					}
+					add_country_leader_role = {
+						country_leader = {
+							desc = SPA_alfonso_de_borbon_leader_desc
+							ideology = paternal_autocrat_subtype
+						}
+						promote_leader = yes
+					}
+					add_country_leader_role = {
+						country_leader = {
+							desc = SPA_alfonso_de_borbon_leader_desc
+							ideology = national_populist_subtype
+						}
+						promote_leader = yes
+					}
+				}
+			}
+		}
+	}
+	else = {
+		SPA_create_juan = yes
+	}
+}
+
+SPA_create_juan = {
+	if = {
+		limit = { event_target:original_spain = { SPA_juan_de_borbon = { is_dead = no } } }
+		set_cosmetic_tag = SPA_kingdom
+		event_target:original_spain = {
+			SPA_juan_de_borbon = {
+				character_becomes_leader_of_ruling_party_effect_tooltip = yes
+				hidden_effect = {
+					set_nationality = PREV.PREV
+					set_character_name = SPA_juan_de_borbon_regnal
+					remove_all_country_leader_roles = yes
+					add_country_leader_role = {
+						country_leader = {
+							desc = SPA_juan_de_borbon_leader_desc
+							ideology = social_democrat_subtype
+						}
+						promote_leader = yes
+					}
+					add_country_leader_role = {
+						country_leader = {
+							desc = SPA_juan_de_borbon_leader_desc
+							ideology = social_liberal_subtype
+						}
+						promote_leader = yes
+					}
+					add_country_leader_role = {
+						country_leader = {
+							desc = SPA_juan_de_borbon_leader_desc
+							ideology = market_liberal_subtype
+						}
+						promote_leader = yes
+					}
+					add_country_leader_role = {
+						country_leader = {
+							desc = SPA_juan_de_borbon_leader_desc
+							ideology = social_conservative_subtype
+						}
+						promote_leader = yes
+					}
+					add_country_leader_role = {
+						country_leader = {
+							desc = SPA_juan_de_borbon_leader_desc
+							ideology = authoritarian_democrat_subtype
+						}
+						promote_leader = yes
+					}
+					add_country_leader_role = {
+						country_leader = {
+							desc = SPA_juan_de_borbon_leader_desc
+							ideology = paternal_autocrat_subtype
+						}
+						promote_leader = yes
+					}
+					add_country_leader_role = {
+						country_leader = {
+							desc = SPA_juan_de_borbon_leader_desc
+							ideology = national_populist_subtype
+						}
+						promote_leader = yes
+					}
+				}
+			}
+		}
+	}
+	else = {
+		SPA_create_jaime = yes
+	}
+}
+
+SPA_create_jaime = {
+	set_cosmetic_tag = SPA_kingdom
+	event_target:original_spain = {
+		SPA_jaime_de_borbon = {
+			character_becomes_leader_of_ruling_party_effect_tooltip = yes
+			hidden_effect = {
+				set_nationality = PREV.PREV
+				set_character_name = SPA_jaime_de_borbon_regnal
+				add_country_leader_role = {
+					country_leader = {
+						desc = SPA_jaime_de_borbon_leader_desc
+						ideology = social_democrat_subtype
+					}
+					promote_leader = yes
+				}
+				add_country_leader_role = {
+					country_leader = {
+						desc = SPA_jaime_de_borbon_leader_desc
+						ideology = social_liberal_subtype
+					}
+					promote_leader = yes
+				}
+				add_country_leader_role = {
+					country_leader = {
+						desc = SPA_jaime_de_borbon_leader_desc
+						ideology = market_liberal_subtype
+					}
+					promote_leader = yes
+				}
+				add_country_leader_role = {
+					country_leader = {
+						desc = SPA_jaime_de_borbon_leader_desc
+						ideology = social_conservative_subtype
+					}
+					promote_leader = yes
+				}
+				add_country_leader_role = {
+					country_leader = {
+						desc = SPA_jaime_de_borbon_leader_desc
+						ideology = authoritarian_democrat_subtype
+					}
+					promote_leader = yes
+				}
+				add_country_leader_role = {
+					country_leader = {
+						desc = SPA_jaime_de_borbon_leader_desc
+						ideology = paternal_autocrat_subtype
+					}
+					promote_leader = yes
+				}
+				add_country_leader_role = {
+					country_leader = {
+						desc = SPA_jaime_de_borbon_leader_desc
+						ideology = national_populist_subtype
+					}
+					promote_leader = yes
+				}
+			}
+		}
+	}
+}
+
+SPA_remove_monarchy = {
+	if = {
+		limit = { has_cosmetic_tag = SPA_kingdom }
+		drop_cosmetic_tag = yes
+	}
+	if = {
+		limit = { has_character = SPA_alfonso_de_borbon }
+		SPA_alfonso_de_borbon = {
+			set_character_name = SPA_alfonso_de_borbon
+			hidden_effect = { remove_all_country_leader_roles = yes }
+			retire = yes
+		}
+	}
+	if = {
+		limit = { has_character = SPA_juan_de_borbon }
+		SPA_juan_de_borbon = {
+			set_character_name = SPA_juan_de_borbon
+			hidden_effect = { remove_all_country_leader_roles = yes }
+			retire = yes
+		}
+	}
+	if = {
+		limit = { has_character = SPA_jaime_de_borbon }
+		SPA_jaime_de_borbon = {
+			set_character_name = SPA_jaime_de_borbon
+			hidden_effect = { remove_all_country_leader_roles = yes }
+			retire = yes
+		}
+	}
+}
+
+SPA_naval_variants = {
+	create_equipment_variant = {
+		name = "D Class"							# purchased from Italy
+		type = ship_hull_submarine_2
+
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_1
+			fixed_ship_engine_slot = sub_ship_engine_2
+			rear_1_custom_slot = ship_torpedo_sub_1
+		}
+	}
+	create_equipment_variant = {
+		name = "C Class"
+		type = ship_hull_submarine_2
+
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_1
+			fixed_ship_engine_slot = sub_ship_engine_2
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "B Class"
+		type = ship_hull_submarine_1
+
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_1
+			fixed_ship_engine_slot = sub_ship_engine_1
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
+	}
+
+	create_equipment_variant = {
+		name = "Almirante Antequera Class"
+		type = ship_hull_light_2
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_2
+			fixed_ship_torpedo_slot = ship_torpedo_2
+			mid_1_custom_slot = ship_light_battery_2
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+	}
+
+	create_equipment_variant = {
+		name = "Churruca Class"
+		type = ship_hull_light_1
+
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_2
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = empty
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+	}
+	create_equipment_variant = {
+		name = "Alsedo Class"
+		type = ship_hull_light_1
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_mine_layer_1
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+		obsolete = yes
+	}
+
+	create_equipment_variant = {
+		name = "España Class"
+		type = ship_hull_heavy_1
+		modules = {
+			fixed_ship_battery_slot = ship_heavy_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = heavy_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			fixed_ship_armor_slot = ship_armor_bb_1
+			front_1_custom_slot = ship_heavy_battery_1
+			mid_1_custom_slot = ship_secondaries_1
+			mid_2_custom_slot = ship_secondaries_1
+			rear_1_custom_slot = empty
+		}
+	}
+
+	create_equipment_variant = {
+		name = "Reina Victoria Eugenia Class"
+		type = ship_hull_cruiser_1
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			mid_1_custom_slot = ship_torpedo_1
+			mid_2_custom_slot = ship_light_medium_battery_1
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Blas de Lezo Class"
+		type = ship_hull_cruiser_1
+
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			mid_1_custom_slot = ship_torpedo_1
+			mid_2_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Almirante Cervera Class"
+		type = ship_hull_cruiser_2
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_2
+			fixed_ship_armor_slot = ship_armor_cruiser_2
+			front_1_custom_slot = empty
+			mid_1_custom_slot = ship_torpedo_1
+			mid_2_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = ship_light_medium_battery_2
+		}
+	}
+}
+
+SPA_create_templates = {
+	division_template = {
+		name = "División de Infantería"
+		division_names_group = SPA_INF_01
+		regiments = {
+			infantry = { x = 0 y = 0 }
+			infantry = { x = 0 y = 1 }
+			infantry = { x = 0 y = 2 }
+			infantry = { x = 0 y = 3 }
+			infantry = { x = 1 y = 0 }
+			infantry = { x = 1 y = 1 }
+			infantry = { x = 1 y = 2 }
+			infantry = { x = 1 y = 3 }
+		}
+		support = {
+			artillery = { x = 0 y = 0 }
+			engineer = { x = 0 y = 1 }
+		}
+	}
+	division_template = {
+		name = "División de Caballería"
+		division_names_group = SPA_CAV_01
+		regiments = {
+			cavalry = { x = 0 y = 0 }
+			cavalry = { x = 0 y = 1 }
+			cavalry = { x = 0 y = 2 }
+			cavalry = { x = 0 y = 3 }
+			cavalry = { x = 1 y = 0 }
+			cavalry = { x = 1 y = 1 }
+			cavalry = { x = 1 y = 2 }
+			cavalry = { x = 1 y = 3 }
+			cavalry = { x = 2 y = 0 }
+			cavalry = { x = 2 y = 1 }
+			cavalry = { x = 2 y = 2 }
+			cavalry = { x = 2 y = 3 }
+		}
+		support = {
+			recon = { x = 0 y = 0 }
+		}
+	}
+	division_template = {
+		name = "División de Montaña"
+		division_names_group = SPA_MNT_01
+		regiments = {
+			mountaineers = { x = 0 y = 0 }
+			mountaineers = { x = 0 y = 1 }
+			mountaineers = { x = 1 y = 0 }
+			mountaineers = { x = 1 y = 1 }
+		}
+		support = {
+			artillery = { x = 0 y = 0 }
+		}
+		priority = 2
+	}
+	division_template = {
+		name = "División de Guarnición"
+		division_names_group = SPA_GAR_01
+		regiments = {
+			infantry = { x = 0 y = 0 }
+			infantry = { x = 0 y = 1 }
+			infantry = { x = 1 y = 0 }
+			infantry = { x = 1 y = 1 }
+		}
+		support = {
+			engineer = { x = 0 y = 0 }
+		}
+	}
+}
+
+SPA_create_infantry_template = {
+	if = {
+		limit = { NOT = { has_template = "División de Infantería" } }
+		division_template = {
+			name = "División de Infantería"
+			division_names_group = SPA_INF_01
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+				infantry = { x = 0 y = 3 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 1 y = 2 }
+				infantry = { x = 1 y = 3 }
+			}
+			support = {
+				artillery = { x = 0 y = 0 }
+				engineer = { x = 0 y = 1 }
+			}
+		}
+	}
+}
+
+SPA_create_cavalry_template = {
+	if = {
+		limit = { NOT = { has_template = "División de Caballería" } }
+		division_template = {
+			name = "División de Caballería"
+			division_names_group = SPA_CAV_01
+			regiments = {
+				cavalry = { x = 0 y = 0 }
+				cavalry = { x = 0 y = 1 }
+				cavalry = { x = 0 y = 2 }
+				cavalry = { x = 0 y = 3 }
+				cavalry = { x = 1 y = 0 }
+				cavalry = { x = 1 y = 1 }
+				cavalry = { x = 1 y = 2 }
+				cavalry = { x = 1 y = 3 }
+				cavalry = { x = 2 y = 0 }
+				cavalry = { x = 2 y = 1 }
+				cavalry = { x = 2 y = 2 }
+				cavalry = { x = 2 y = 3 }
+			}
+			support = {
+				recon = { x = 0 y = 0 }
+			}
+		}
+	}
+}
+
+SPA_create_mountaineer_template = {
+	if = {
+		limit = { NOT = { has_template = "División de Montaña" } }
+		division_template = {
+			name = "División de Montaña"
+			division_names_group = SPA_MNT_01
+			regiments = {
+				mountaineers = { x = 0 y = 0 }
+				mountaineers = { x = 0 y = 1 }
+				mountaineers = { x = 1 y = 0 }
+				mountaineers = { x = 1 y = 1 }
+			}
+			support = {
+				artillery = { x = 0 y = 0 }
+			}
+			priority = 2
+		}
+	}
+}
+
+SPA_create_garrison_template = {
+	if = {
+		limit = { NOT = { has_template = "División de Guarnición" } }
+		division_template = {
+			name = "División de Guarnición"
+			division_names_group = SPA_GAR_01
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+			}
+			support = {
+				engineer = { x = 0 y = 0 }
+			}
+		}
+	}
+}
+
+SPA_create_carlist_requete_template = {
+	if = {
+		limit = { NOT = { has_template = "Carlist Requeté" } }
+		division_template = {
+			name = "Carlist Requeté"
+			division_names_group = SPA_INF_02
+			regiments = {
+				militia = { x = 0 y = 0 }
+				militia = { x = 0 y = 1 }
+				militia = { x = 0 y = 2 }
+				militia = { x = 0 y = 3 }
+			}
+		}
+	}
+}
+
+SPA_create_anarchist_militia_template = {
+	if = {
+		limit = { NOT = { has_template = "Milicia Anarquista" } }
+		division_template = {
+			name = "Milicia Anarquista"
+			division_names_group = SPA_INF_03
+			regiments = {
+				militia = { x = 0 y = 0 }
+				militia = { x = 0 y = 1 }
+				militia = { x = 0 y = 2 }
+				militia = { x = 0 y = 3 }
+			}
+		}
+	}
+}
+
+SPA_create_anarchist_brigade_template = {
+	if = {
+		limit = { NOT = { has_template = "Brigada Anarquista" } }
+		division_template = {
+			name = "Brigada Anarquista"
+			division_names_group = SPA_INF_04
+			regiments = {
+				militia = { x = 0 y = 0 }
+				militia = { x = 0 y = 1 }
+				militia = { x = 0 y = 2 }
+				militia = { x = 0 y = 3 }
+				militia = { x = 1 y = 0 }
+				militia = { x = 1 y = 1 }
+				militia = { x = 1 y = 2 }
+				militia = { x = 1 y = 3 }
+			}
+			support = {
+				artillery = { x = 0 y = 0 }
+				engineer = { x = 0 y = 1 }
+			}
+		}
+	}
+}
+
+SPA_start_civil_war = {
+	log = "KR_Event_Logging;SCW STARTS;[GetDateText]"
+	set_global_flag = spanish_civil_war
+	add_named_threat = {
+		threat = 5
+		name = SPA_civil_war_threat
+	}
+	hidden_effect = {
+		every_core_state = {
+			add_core_of = SPR
+			add_core_of = SWF
+		}
+		every_owned_state = {
+			limit = { is_claimed_by = ROOT }
+			add_claim_by = SPR
+		}
+
+		add_to_temp_array = { SPA_kingdom_states = 41.id }
+		add_to_temp_array = { SPA_kingdom_states = 169.id }
+		add_to_temp_array = { SPA_kingdom_states = 170.id }
+		add_to_temp_array = { SPA_kingdom_states = 173.id }
+		add_to_temp_array = { SPA_kingdom_states = 175.id }
+		add_to_temp_array = { SPA_kingdom_states = 795.id }
+		add_to_temp_array = { SPA_kingdom_states = 951.id }
+		add_to_temp_array = { SPA_kingdom_states = 1082.id }
+
+		every_owned_state = {
+			teleport_armies = { to_state_array = SPA_kingdom_states }
+		}
+
+		every_owned_state = {
+			limit = {
+				is_controlled_by = ROOT
+				OR = {
+					state = 165 #Catalonia
+					state = 167 #Valencia
+					state = 166 #Upper Aragon
+					state = 168 #Murcia
+					state = 940 #Huesca
+				}
+			}
+			transfer_state_to = SWF
+		}
+
+		every_owned_state = {
+			limit = {
+				is_controlled_by = ROOT
+				OR = {
+					state = 176 #Castilla la Vieja
+					state = 172 #Navarre
+					state = 174 #León
+					state = 171 #Galicia
+					state = 793 #Asturias
+					state = 1070 #Basque Country
+					state = 1081 #Valladolid
+				}
+			}
+			transfer_state_to = SPR
+		}
+
+		SWF = {
+			inherit_technology = SPA
+
+			SPA_create_infantry_template = yes
+			SPA_create_cavalry_template = yes
+			SPA_create_garrison_template = yes
+			SPA_create_mountaineer_template = yes
+			SPA_create_anarchist_militia_template = yes
+			SPA_create_anarchist_brigade_template = yes
+
+			set_temp_variable = { SWF_militia = 13 }
+			set_temp_variable = { SWF_infantry = 8 }
+			if = {
+				limit = { SPA = { has_country_flag = SPA_cntfai_plan_south } }
+				add_to_temp_variable = { SWF_infantry = 3 }
+			}
+			if = {
+				limit = { SPA = { has_variable = SWF_foreign_support } }
+				add_to_temp_variable = { SWF_infantry = 1 }
+			}
+
+			for_loop_effect = {
+				start = 1
+				end = SWF_militia
+				compare = less_than_or_equals
+
+				random_owned_controlled_state = {
+					limit = { valid_state_for_spawning_friendly_unit = yes }
+					create_unit = {
+						division = "division_template = \"Milicia Anarquista\" start_experience_factor = 0.1"
+						owner = PREV
+					}
+				}
+			}
+			for_loop_effect = {
+				start = 1
+				end = SWF_infantry
+				compare = less_than_or_equals
+
+				random_owned_controlled_state = {
+					limit = { valid_state_for_spawning_friendly_unit = yes }
+					create_unit = {
+						division = "division_template = \"Brigada Anarquista\" start_experience_factor = 0.1"
+						owner = PREV
+					}
+				}
+			}
+
+			add_opinion_modifier = {
+				target = ITA
+				modifier = against_us_civil_war_2
+			}
+			reverse_add_opinion_modifier = {
+				target = ITA
+				modifier = against_cntfai_2
+			}
+			add_opinion_modifier = {
+				target = GER
+				modifier = against_us_civil_war_1
+			}
+			reverse_add_opinion_modifier = {
+				target = GER
+				modifier = against_cntfai_1
+			}
+			add_opinion_modifier = {
+				target = FRA
+				modifier = supports_us_civil_war_2
+			}
+			add_opinion_modifier = {
+				target = ENG
+				modifier = supports_us_civil_war_1
+			}
+			add_opinion_modifier = {
+				target = SRI
+				modifier = supports_us_civil_war_1
+			}
+			if = {
+				limit = { owns_state = 165 }
+				set_capital = { state = 165 }
+			}
+			SPA_calculate_fervor_effects = yes
+			add_ideas = SWF_civil_war_fervor
+			increase_mobilisation = yes
+			set_cosmetic_tag = SPA_socialist_civil_war
+		}
+
+		SPR = {
+			inherit_technology = SPA
+
+			SPA_create_infantry_template = yes
+			SPA_create_cavalry_template = yes
+			SPA_create_garrison_template = yes
+			SPA_create_mountaineer_template = yes
+			SPA_create_carlist_requete_template = yes
+
+			set_temp_variable = { SPR_militia = 7 }
+			set_temp_variable = { SPR_infantry = 14 }
+
+			for_loop_effect = {
+				start = 1
+				end = SPR_militia
+				compare = less_than_or_equals
+
+				random_owned_controlled_state = {
+					limit = { valid_state_for_spawning_friendly_unit = yes }
+					create_unit = {
+						division = "division_template = \"Carlist Requeté\" start_experience_factor = 0.1"
+						owner = PREV
+					}
+				}
+			}
+			for_loop_effect = {
+				start = 1
+				end = SPR_infantry
+				compare = less_than_or_equals
+
+				random_owned_controlled_state = {
+					limit = { valid_state_for_spawning_friendly_unit = yes }
+					create_unit = {
+						division = "division_template = \"División de Infantería\" start_experience_factor = 0.1"
+						owner = PREV
+					}
+				}
+			}
+
+			add_opinion_modifier = {
+				target = ITA
+				modifier = supports_us_civil_war_2
+			}
+			add_opinion_modifier = {
+				target = AUS
+				modifier = supports_us_civil_war_1
+			}
+			add_opinion_modifier = {
+				target = POR
+				modifier = supports_us_civil_war_1
+			}
+			add_opinion_modifier = {
+				target = GER
+				modifier = against_us_civil_war_1
+			}
+			reverse_add_opinion_modifier = {
+				target = GER
+				modifier = against_carlist_1
+			}
+			if = {
+				limit = { owns_state = 176 }
+				set_capital = { state = 176 }
+			}
+			declare_war_on = {
+				target = SWF
+				type = civil_war
+			}
+			add_civil_war_target = SWF
+			SPA_calculate_fervor_effects = yes
+			add_ideas = SPR_civil_war_fervor
+			increase_mobilisation = yes
+			set_cosmetic_tag = SPA_carlists
+		}
+
+		send_equipment_fraction = { target = SWF value = 0.33 }
+		send_equipment_fraction = { target = SPR value = 0.5 } #50% of the remaining 66% = 33%
+
+		declare_war_on = {
+			target = SWF
+			type = civil_war
+		}
+		add_civil_war_target = SWF
+
+		declare_war_on = {
+			target = SPR
+			type = civil_war
+		}
+		add_civil_war_target = SPR
+
+		SPA_calculate_fervor_effects = yes
+		add_ideas = SPA_civil_war_fervor
+		increase_mobilisation = yes
+
+		FRA = { country_event = { id = comfrance.22 days = 3 random_days = 3 } }
+		news_event = { id = sprc.400 days = 1 }
+	}
+	effect_tooltip = {
+		declare_war_on = {
+			target = SWF
+			type = civil_war
+		}
+		declare_war_on = {
+			target = SPR
+			type = civil_war
+		}
+	}
+}
+
+SPA_calculate_fervor_effects = {
+	# fervor level is 1 - surrender_progress (i.e. 1 at start of war - 0 when capitulated)
+	set_variable = { fervor_level = THIS.surrender_progress }
+	multiply_variable = { fervor_level = -1 }
+	add_to_variable = { fervor_level = 1 }
+
+	# org modifier lerp +20% to -20%
+	set_variable = { fervor_org_modifier = fervor_level }
+	multiply_variable = { fervor_org_modifier = 0.4 }
+	add_to_variable = { fervor_org_modifier = -0.2 }
+
+	# reinforce rate modifier lerp +3% to -3%
+	set_variable = { fervor_reinforce_modifier = fervor_org_modifier }
+	multiply_variable = { fervor_reinforce_modifier = 3 }
+	multiply_variable = { fervor_reinforce_modifier = 0.05 }
+
+	# terrain modifier lerp +40% to -40%
+	set_variable = { fervor_terrain_modifier = fervor_org_modifier }
+	multiply_variable = { fervor_terrain_modifier = 2 }
+
+	# att/def modifier lerp +10% to -10%
+	set_variable = { fervor_combat_modifier = fervor_org_modifier }
+	multiply_variable = { fervor_combat_modifier = 0.5 }
+
+	# movement and recovery speed modifier lerp +20% to -20%
+	set_variable = { fervor_fast_modifier = fervor_org_modifier }
+
+	# entrenchment modifier lerp 0 to -50%
+	set_variable = { fervor_dig_modifier = fervor_level }
+	multiply_variable = { fervor_dig_modifier = 0.5 }
+	add_to_variable = { fervor_dig_modifier = -0.5 }
+
+	log = "SCW FERVOR [THIS.GetName] LEVEL = [?fervor_level], org = [?fervor_org_modifier], def = [?fervor_combat_modifier]"
+	force_update_dynamic_modifier = yes
+}
+
+SPA_spawn_AI_reinforcements = {
+	hidden_effect = {
+		if = {
+			limit = { NOT = { has_template = "Guardias de Reserva" } }
+			division_template = {
+				name = "Guardias de Reserva"
+				division_names_group = SPA_INF_01
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					infantry = { x = 2 y = 2 }
+				}
+				support = {
+					artillery = { x = 0 y = 0 }
+				}
+			}
+		}
+		41 = {
+			create_unit = {
+				division = "name = \"Falange de Madrid\" division_template = \"Guardias de Reserva\" start_experience_factor = 0 start_equipment_factor = 1.0"
+				owner = SPA
+				prioritize_location = 3938
+			}
+		}
+		169 = {
+			create_unit = {
+				division = "name = \"Falange de Sevilla\" division_template = \"Guardias de Reserva\" start_experience_factor = 0 start_equipment_factor = 1.0"
+				owner = SPA
+				prioritize_location = 7183
+			}
+		}
+	}
+}

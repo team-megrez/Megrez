@@ -1,0 +1,760 @@
+#################
+### Diplomacy ###
+#################
+RUS_hates_reichspakt = {
+	reversed = yes
+
+	enable_reverse = {
+		RUS = { is_subject = no }
+	}
+	enable = {
+		is_in_faction_with = GER
+	}
+	abort_when_not_enabled = yes
+
+	target_array = GER.faction_members
+
+	ai_strategy = {
+		type = antagonize
+		id = RUS
+		value = 1000
+	}
+}
+SOV_hates_reichspakt = {
+	reversed = yes
+
+	enable_reverse = {
+		SOV = { is_subject = no }
+	}
+	enable = {
+		is_in_faction_with = GER
+	}
+	abort_when_not_enabled = yes
+
+	target_array = GER.faction_members
+
+	ai_strategy = {
+		type = antagonize
+		id = SOV
+		value = 1000
+	}
+}
+RUS_hates_transamur = {
+	allowed = {
+		OR = {
+			original_tag = RUS
+			original_tag = SOV
+		}
+	}
+	enable = {
+		is_subject = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = TRM
+		value = 1000
+	}
+}
+TRM_hates_russia = {
+	allowed = {
+		original_tag = TRM
+	}
+	enable = {
+		is_subject = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = RUS
+		value = 1000
+	}
+	ai_strategy = {
+		type = antagonize
+		id = SOV
+		value = 1000
+	}
+}
+
+################
+### Military ###
+################
+RUS_protect_petrograd = {
+	allowed = {
+		OR = {
+			original_tag = RUS
+			original_tag = SOV
+		}
+	}
+	enable = {
+		has_war_with = GER
+		NOT = { is_ally_with = 840.owner }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		states = { 195 146 } #Petrograd, Vyborg
+		ratio = 0.05
+		area = eastern_europe
+		area = scandinavia
+		subtract_fronts_from_need = yes
+	}
+}
+
+RUS_crush_alash = {
+	allowed = {
+		OR = {
+			original_tag = RUS
+			original_tag = SOV
+		}
+	}
+	enable = {
+		has_war_with = ALO
+		ALO = { has_capitulated = no }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = conquer
+		id = ALO
+		value = 400
+	}
+	ai_strategy = {
+		type = front_control
+		tag = ALO
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+	}
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 136 #Kazakh Steppes
+		value = 10000
+	}
+}
+
+RUS_crush_turkestan = {
+	allowed = {
+		OR = {
+			original_tag = RUS
+			original_tag = SOV
+		}
+	}
+	enable = {
+		has_war_with = TRK
+		TRK = { has_capitulated = no }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = conquer
+		id = TRK
+		value = 400
+	}
+	ai_strategy = {
+		type = front_control
+		tag = TRK
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+	}
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 255 #Ferghana Valley
+		value = 10000
+	}
+}
+
+RUS_crush_bukhara = {
+	allowed = {
+		OR = {
+			original_tag = RUS
+			original_tag = SOV
+		}
+	}
+	enable = {
+		has_war_with = BUK
+		BUK = { has_capitulated = no }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = conquer
+		id = BUK
+		value = 400
+	}
+	ai_strategy = {
+		type = front_control
+		tag = BUK
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+	}
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 254 #Transoxiana
+		value = 10000
+	}
+}
+
+RUS_crush_khiva = {
+	allowed = {
+		OR = {
+			original_tag = RUS
+			original_tag = SOV
+		}
+	}
+	enable = {
+		has_war_with = KHI
+		KHI = { has_capitulated = no }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = conquer
+		id = KHI
+		value = 400
+	}
+	ai_strategy = {
+		type = front_control
+		tag = KHI
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+	}
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 253 #Transcaspia
+		value = 10000
+	}
+}
+
+SOV_crush_whites = {
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		has_war_with = RUS
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = conquer
+		id = RUS
+		value = 1000
+	}
+	ai_strategy = {
+		type = front_control
+		tag = RUS
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+	}
+}
+
+RUS_careful_when_attacking_socialists = {
+	allowed = {
+		original_tag = RUS
+	}
+	enable = {
+		has_war_with = SOV
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		tag = RUS
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+	}
+}
+
+RUS_we_dont_need_garrisons = {
+	allowed = {
+		OR = {
+			original_tag = RUS
+			original_tag = SOV
+		}
+	}
+	enable = {
+		always = yes
+	}
+
+	ai_strategy = {
+		type = garrison
+		value = -60
+	}
+}
+
+RUS_crush_ukraine = {
+	allowed = {
+		OR = {
+			original_tag = RUS
+			original_tag = SOV
+		}
+	}
+	enable = {
+		is_faction_leader = yes
+		OR = {
+			has_war = no
+			has_war_with = UKR
+		}
+		UKR = {
+			exists = yes
+			has_capitulated = no
+			NOT = { is_ally_with = ROOT }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = conquer
+		id = UKR
+		value = 200
+	}
+	ai_strategy = {
+		type = front_armor_score
+		id = UKR
+		value = 100
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = UKR
+		value = 60
+	}
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 130 #Ukraine
+		value = 30000
+	}
+}
+
+RUS_mop_up_white_ruthenia = {
+	allowed = {
+		OR = {
+			original_tag = RUS
+			original_tag = SOV
+		}
+	}
+	enable = {
+		has_war_with = WHR
+		OR = {
+			NOT = { has_war_with = UKR }
+			UKR = { has_capitulated = yes }
+		}
+		WHR = { has_capitulated = no }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_armor_score
+		id = WHR
+		value = 100
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = WHR
+		value = 50
+	}
+	ai_strategy = {
+		type = conquer
+		id = WHR
+		value = 100
+	}
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 39 #Belarus
+		value = 30000
+	}
+}
+
+RUS_mop_up_lithuania = {
+	allowed = {
+		OR = {
+			original_tag = RUS
+			original_tag = SOV
+		}
+	}
+	enable = {
+		has_war_with = LIT
+		OR = {
+			NOT = { has_war_with = UKR }
+			UKR = { has_capitulated = yes }
+		}
+		LIT = { has_capitulated = no }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		tag = LIT
+		value = 25
+	}
+	ai_strategy = {
+		type = conquer
+		id = LIT
+		value = 100
+	}
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 37 #Baltic States
+		value = 10000
+	}
+}
+
+RUS_mop_up_baltic_duchy = {
+	allowed = {
+		OR = {
+			original_tag = RUS
+			original_tag = SOV
+		}
+	}
+	enable = {
+		has_war_with = BAT
+		OR = {
+			NOT = { has_war_with = UKR }
+			UKR = { has_capitulated = yes }
+		}
+		BAT = { has_capitulated = no }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		tag = BAT
+		value = 25
+	}
+	ai_strategy = {
+		type = conquer
+		id = BAT
+		value = 100
+	}
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 37 #Baltic States
+		value = 10000
+	}
+}
+
+RUS_mop_up_estonia = {
+	allowed = {
+		OR = {
+			original_tag = RUS
+			original_tag = SOV
+		}
+	}
+	enable = {
+		has_war_with = EST
+		OR = {
+			NOT = { has_war_with = UKR }
+			UKR = { has_capitulated = yes }
+		}
+		EST = { has_capitulated = no }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		tag = EST
+		value = 25
+	}
+
+	ai_strategy = {
+		type = conquer
+		id = EST
+		value = 100
+	}
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 37 #Baltic States
+		value = 10000
+	}
+}
+
+RUS_crush_poland = {
+	allowed = {
+		OR = {
+			original_tag = RUS
+			original_tag = SOV
+		}
+	}
+	enable = {
+		has_war_with = POL
+		OR = {
+			NOT = { has_war_with = UKR }
+			UKR = { has_capitulated = yes }
+		}
+		OR = {
+			NOT = { has_war_with = WHR }
+			WHR = { has_capitulated = yes }
+		}
+		OR = {
+			NOT = { has_war_with = BAT }
+			BAT = { has_capitulated = yes }
+		}
+		OR = {
+			NOT = { has_war_with = EST }
+			EST = { has_capitulated = yes }
+		}
+		OR = {
+			NOT = { has_war_with = LIT }
+			LIT = { has_capitulated = yes }
+		}
+		POL = { has_capitulated = no }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = conquer
+		id = POL
+		value = 200
+	}
+	ai_strategy = {
+		type = front_armor_score
+		id = POL
+		value = 100
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = POL
+		value = 60
+	}
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 38 #Poland
+		value = 30000
+	}
+}
+
+RUS_mop_up_georgia = {
+	allowed = {
+		OR = {
+			original_tag = RUS
+			original_tag = SOV
+		}
+	}
+	enable = {
+		has_war_with = GEO
+		GEO = { has_capitulated = no }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		tag = GEO
+		value = 25
+	}
+	ai_strategy = {
+		type = conquer
+		id = GEO
+		value = 100
+	}
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 134 #Transcaucasia
+		value = 10000
+	}
+}
+
+RUS_mop_up_azerbaijan = {
+	allowed = {
+		OR = {
+			original_tag = RUS
+			original_tag = SOV
+		}
+	}
+	enable = {
+		has_war_with = AZR
+		AZR = { has_capitulated = no }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		tag = AZR
+		value = 50
+	}
+	ai_strategy = {
+		type = conquer
+		id = AZR
+		value = 100
+	}
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 134 #Transcaucasia
+		value = 15000
+	}
+}
+
+RUS_crush_germany = {
+	allowed = {
+		OR = {
+			original_tag = RUS
+			original_tag = SOV
+		}
+	}
+	enable = {
+		has_war_with = GER
+		surrender_progress < 0.1
+		OR = {
+			NOT = { has_war_with = UKR }
+			UKR = { has_capitulated = yes }
+		}
+		OR = {
+			NOT = { has_war_with = WHR }
+			WHR = { has_capitulated = yes }
+		}
+		OR = {
+			NOT = { has_war_with = POL }
+			POL = { has_capitulated = yes }
+		}
+	}
+
+	ai_strategy = {
+		type = conquer
+		id = GER
+		value = 200
+	}
+	ai_strategy = {
+		type = front_armor_score
+		id = GER
+		value = 100
+	}
+}
+
+RUS_eyes_on_transamur = {
+	allowed = {
+		OR = {
+			original_tag = RUS
+			original_tag = SOV
+		}
+	}
+	enable = {
+		country_exists = TRM
+		TRM = { is_subject = no }
+	}
+
+	ai_strategy = {
+		type = conquer
+		id = TRM
+		value = 100
+	}
+}
+
+RUS_crush_transamur = {
+	allowed = {
+		OR = {
+			original_tag = RUS
+			original_tag = SOV
+		}
+	}
+	enable = {
+		has_war_with = TRM
+	}
+
+	ai_strategy = {
+		type = conquer
+		id = TRM
+		value = 400
+	}
+	ai_strategy = {
+		type = front_armor_score
+		id = TRM
+		value = 40
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = TRM
+		value = 50
+	}
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 148 #Primorye
+		value = 30000
+	}
+}
+
+################
+### Industry ###
+################
+RUS_civilian_buildup = {
+	allowed = {
+		OR = {
+			original_tag = RUS
+			original_tag = SOV
+		}
+	}
+	enable = {
+		date < 1939.1.1
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = industrial_complex
+		value = 85
+	}
+}
+
+RUS_dont_bother_naval_invading_before_germany_dies = {
+	allowed = {
+		OR = {
+			original_tag = RUS
+			original_tag = SOV
+		}
+	}
+	enable = {
+		has_war_with = GER
+		GER = { has_capitulated = no }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		area = globally
+		value = -500
+	}
+}
+
+RUS_less_focus_on_navy = {
+	allowed = {
+		OR = {
+			original_tag = RUS
+			original_tag = SOV
+		}
+	}
+	enable = {
+		GER = { is_faction_leader = yes }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = dockyard_to_military_factory_ratio
+		value = -40
+	}
+	ai_strategy = {
+		type = unit_ratio
+		id = capital_ship
+		value = -3
+	}
+	ai_strategy = {
+		type = unit_ratio
+		id = submarine
+		value = -3
+	}
+	ai_strategy = {
+		type = unit_ratio
+		id = screen_ship
+		value = -3
+	}
+	ai_strategy = {
+		type = unit_ratio
+		id = convoy
+		value = -3
+	}
+}

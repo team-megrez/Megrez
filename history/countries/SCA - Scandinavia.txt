@@ -1,0 +1,38 @@
+﻿capital = 140
+set_convoys = 150
+set_research_slots = 5
+set_stability = 0.4
+set_war_support = 0.4
+
+add_ideas = {
+	SCA_nordic_neutrality
+	SCA_conflicting_governmental_services_idea
+	SCA_Federal_Navy_idea
+}
+
+set_politics = {
+	ruling_party = authoritarian_democrat
+	last_election = "1934.4.10"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+set_popularities = {
+	totalist = 0
+	radical_socialist = 1
+	syndicalist = 4
+	social_democrat = 30
+	social_liberal = 14
+	market_liberal = 24
+	social_conservative = 6
+	authoritarian_democrat = 19
+	paternal_autocrat = 2
+	national_populist = 0
+}
+
+recruit_character = SCA_federal_council
+
+### Integration ###
+ROOT = {
+	782 = { enable_state_integration_50_compliance = yes } #Northern Schleswig
+}

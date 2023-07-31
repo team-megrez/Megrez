@@ -1,0 +1,214 @@
+﻿instant_effect = {
+	### Variants ###
+	if = {
+		limit = { has_dlc_nsb = yes }
+		create_equipment_variant = {
+			name = "R1"
+			type = light_tank_chassis_0
+			parent_version = 0
+			modules = {
+				main_armament_slot = tank_small_cannon
+				turret_type_slot = tank_light_two_man_tank_turret
+				suspension_type_slot = tank_christie_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_gasoline_engine
+			}
+		}
+	}
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+		}
+		requested_factories = 2
+		progress = 0.82
+		efficiency = 50
+	}
+	add_equipment_production = {
+		equipment = {
+			type = artillery_equipment_1
+		}
+		requested_factories = 2
+		progress = 0.24
+		efficiency = 50
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "ROM"
+		}
+		requested_factories = 1
+		progress = 0.19
+		efficiency = 50
+	}
+}
+
+### Templates ###
+division_template = {
+	name = "Divizia de Infanterie"
+	division_names_group = ROM_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 }
+	}
+}
+division_template = {
+	name = "Vanatori de Munte"
+	division_names_group = ROM_MTN_01
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+	}
+}
+division_template = {
+	name = "Divizia de Cavalerie"
+	division_names_group = ROM_CAV_01
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+	}
+}
+division_template = {
+	name = "Divizia Motomecanizat"
+	division_names_group = ROM_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+	}
+}
+division_template = {
+	name = "Divizia Blindata"
+	division_names_group = ROM_ARM_01
+	regiments = {
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+	}
+}
+
+### Divisions ###
+units = {
+	division = {
+		location = 9617
+		division_template = "Divizia de Infanterie"
+		start_experience_factor = 0.3
+	}
+
+	division = {
+		location = 6652
+		division_template = "Divizia de Infanterie"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+	}
+	division = {
+		location = 818
+		division_template = "Divizia de Infanterie"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+	}
+	division = {
+		location = 6677
+		division_template = "Divizia de Infanterie"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+	}
+	division = {
+		location = 9617
+		division_template = "Divizia de Infanterie"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+	}
+	division = {
+		location = 6706
+		division_template = "Divizia de Infanterie"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+	}
+	division = {
+		location = 6727
+		division_template = "Divizia de Infanterie"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+	}
+	division = {
+		location = 9716
+		division_template = "Divizia de Infanterie"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+	}
+	division = {
+		location = 3707
+		division_template = "Divizia de Infanterie"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+	}
+	division = {
+		location = 3663
+		division_template = "Divizia de Infanterie"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+	}
+	division = {
+		location = 6695
+		division_template = "Divizia de Infanterie"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+	}
+
+	division = {
+		location = 9617
+		division_template = "Divizia de Cavalerie"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+	}
+
+	division = {
+		location = 6667
+		division_template = "Vanatori de Munte"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.7
+	}
+	division = {
+		location = 11605
+		division_template = "Vanatori de Munte"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.7
+	}
+	division = {
+		location = 11619
+		division_template = "Vanatori de Munte"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.7
+	}
+	division = {
+		location = 11655
+		division_template = "Vanatori de Munte"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.7
+	}
+}
+

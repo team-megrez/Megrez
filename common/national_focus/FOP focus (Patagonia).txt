@@ -1,0 +1,5740 @@
+###########################
+# Patagonian Focus Tree
+###########################
+# By WordZero, P.A.S.C., Drozdovite, and Fort
+###########################
+
+focus_tree = {
+	id = Patagonia_Focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = FOP
+		}
+	}
+	default = no
+	continuous_focus_position = { x = 300 y = 1450 }
+##############
+# Pre - Unification tree
+##############
+
+	focus = {
+		id = FOP_the_revolutionary_fires
+		icon = GFX_goal_HOL_fires_of_revolution_faux
+		cost = 8
+		x = 0
+		y = 0
+		ai_will_do = { factor = 100 }
+		allow_branch = {
+			has_socialist_government = yes
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_the_revolutionary_fires"
+			add_war_support = 0.1
+			add_political_power = 50
+			add_ideas = FOP_war_preparations
+			custom_effect_tooltip = FOP_starting_ideas_will_be_removed_tt
+		}
+	}
+
+	focus = {
+		id = FOP_the_three_economic_issues
+		icon = GFX_goal_generic_production2
+		cost = 5
+		prerequisite = {
+			focus = FOP_the_revolutionary_fires
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+		}
+		x = -3
+		y = 1
+		relative_position_id = FOP_the_revolutionary_fires
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				NOT = { has_completed_focus = FOP_indiscriminate_conscription }		# Should prepare manpower and equipment first
+			}
+		}
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_the_three_economic_issues"
+			add_stability = 0.05
+			add_political_power = 25
+			FOP = {
+				country_event = fop.115
+			}
+		}
+	}
+	focus = {
+		id = FOP_arms_smuggling
+		icon = GFX_goal_generic_industry_reallocation
+		cost = 5
+		prerequisite = {
+			focus = FOP_the_three_economic_issues
+		}
+		x = 0
+		y = 1
+		relative_position_id = FOP_the_three_economic_issues
+		ai_will_do = { factor = 100 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_arms_smuggling"
+			add_offsite_building = { type = arms_factory level = 1 }
+		}
+	}
+
+	focus = {
+		id = FOP_exploiting_resources
+		icon = GFX_goal_construction_engineering
+		cost = 5
+		prerequisite = {
+			focus = FOP_the_three_economic_issues
+		}
+		x = 2
+		y = 1
+		relative_position_id = FOP_the_three_economic_issues
+		ai_will_do = { factor = 100 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+		}
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_exploiting_resources"
+			add_stability = 0.08
+			FOP = {
+				country_event = fop.116
+			}
+			activate_targeted_decision = { target = 512 decision = FOP_steel_extraction_1 }
+			activate_targeted_decision = { target = 1029 decision = FOP_oil_extraction_1 }
+			activate_targeted_decision = { target = THIS decision = FOP_combined_resource_exploitation }
+		}
+	}
+
+	focus = {
+		id = FOP_industrial_planning_scheme
+		icon = GFX_goal_social_reforms
+		cost = 5
+		prerequisite = {
+			focus = FOP_arms_smuggling
+		}
+		prerequisite = {
+			focus = FOP_exploiting_resources
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+		}
+		x = 1
+		y = 1
+		relative_position_id = FOP_arms_smuggling
+		ai_will_do = { factor = 100 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_industrial_planning_scheme"
+			activate_targeted_decision = { target = THIS decision = FOP_progreso_stage_1_supply }
+			activate_targeted_decision = { target = THIS decision = FOP_progreso_stage_1_railway }
+			add_one_random_civilian_factory = yes
+		}
+	}
+	focus = {
+		id = FOP_central_construction_agency
+		icon = GFX_goal_generic_construction
+		cost = 5
+		prerequisite = {
+			focus = FOP_industrial_planning_scheme
+		}
+		x = 0
+		y = 1
+		relative_position_id = FOP_industrial_planning_scheme
+		ai_will_do = { factor = 100 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_central_construction_agency"
+			512 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			1029 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_patagonias_industrial_revolution
+		icon = GFX_goal_uobritain
+		cost = 5
+		prerequisite = {
+			focus = FOP_central_construction_agency
+		}
+		x = -1
+		y = 1
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+			ENG = { exists = yes }
+			NOT = { has_war_with = ENG }
+		}
+		relative_position_id = FOP_central_construction_agency
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				NOT = { has_completed_focus = FOP_infiltrator_cells }		# Should prepare infiltarions before taking the focus
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_patagonias_industrial_revolution"
+			add_tech_bonus = {
+				name = FOP_patagonias_industrial_revolution
+				bonus = 0.5
+				uses = 1
+				category = construction_tech
+			}
+			512 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_military_autarky
+		icon = GFX_goal_comfrance
+		cost = 5
+		prerequisite = {
+			focus = FOP_central_construction_agency
+		}
+		x = 1
+		y = 1
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+			FRA = { exists = yes }
+			NOT = { has_war_with = FRA }
+		}
+		relative_position_id = FOP_central_construction_agency
+		ai_will_do = { factor = 100 }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_military_autarky"
+			add_tech_bonus = {
+				name = FOP_military_autarky
+				bonus = 0.5
+				uses = 1
+				category = cat_production
+			}
+			add_offsite_building = { type = arms_factory level = 1 }
+		}
+	}
+
+	focus = {
+		id = FOP_population_surveys
+		icon = GFX_goal_conspiracy
+		cost = 4
+		prerequisite = {
+			focus = FOP_the_revolutionary_fires
+		}
+		x = 5
+		y = 1
+		relative_position_id = FOP_the_revolutionary_fires
+		ai_will_do = { factor = 500 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_population_surveys"
+			add_timed_idea = {
+				idea = FOP_try_to_solve_pop_issue
+				days = 140
+			}
+			FOP = {
+				country_event = fop.100
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_rally_the_workers
+		icon = GFX_focus_YUG_pan_slavic_congress
+		cost = 4
+		prerequisite = {
+			focus = FOP_population_surveys
+		}
+		x = -3
+		y = 1
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+		}
+		relative_position_id = FOP_population_surveys
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				NOT = { has_completed_focus = FOP_military_autarky }
+			}
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_rally_the_workers"
+			add_manpower = 10000
+		}
+	}
+
+	focus = {
+		id = FOP_women_at_arms
+		icon = GFX_focus_generic_women_in_military
+		cost = 4
+		prerequisite = {
+			focus = FOP_rally_the_workers
+		}
+		x = 0
+		y = 1
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+		}
+		relative_position_id = FOP_rally_the_workers
+		ai_will_do = { factor = 100 }
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_women_at_arms"
+			add_ideas = FOP_women_at_arms_idea
+		}
+	}
+
+	focus = {
+		id = FOP_mass_recruitment_scheme
+		icon = GFX_goal_army_guy_2
+		cost = 4
+		prerequisite = {
+			focus = FOP_women_at_arms
+		}
+		mutually_exclusive = {
+			focus = FOP_international_force
+		}
+		x = 1
+		y = 1
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+		}
+		relative_position_id = FOP_women_at_arms
+		ai_will_do = { factor = 100 }
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_mass_recruitment_scheme"
+			add_ideas = FOP_mass_recruited_force
+		}
+	}
+
+	focus = {
+		id = FOP_improvised_weaponry
+		icon = GFX_goal_industry_air
+		cost = 4
+		prerequisite = {
+			focus = FOP_mass_recruitment_scheme
+		}
+		x = -1
+		y = 1
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+		}
+		relative_position_id = FOP_mass_recruitment_scheme
+		ai_will_do = { factor = 5 }
+		search_filters = { FOCUS_FILTER_PRODUCTION }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_improvised_weaponry"
+			add_ideas = FOP_mass_force2
+		}
+	}
+
+	focus = {
+		id = FOP_chilean_military_aid
+		icon = GFX_goal_Arms_Export
+		cost = 4
+		prerequisite = {
+			focus = FOP_population_surveys
+		}
+		x = -1
+		y = 1
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+			CHL = { has_socialist_government = yes }
+		}
+		relative_position_id = FOP_population_surveys
+		ai_will_do = {
+			factor = 500
+			modifier = {
+				factor = 0
+				CHL = { NOT = { has_tech = infantry_weapons1 } }
+			}
+		}
+		bypass = {
+			OR = {
+				CHL = {
+					OR = {
+						exists = no
+						has_socialist_government = no
+					}
+				}
+				has_socialist_government = no
+			}
+		}
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_chilean_military_aid"
+			CHL = { country_event = fop.13 }
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FOP_if_they_accept_apply_the_effect
+			effect_tooltip = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 1000
+					producer = CHL
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_internationale_guns
+		icon = GFX_goal_SWI_international_aid
+		cost = 4
+		prerequisite = {
+			focus = FOP_chilean_military_aid
+		}
+		x = 0
+		y = 1
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+			FRA = { exists = yes }
+			ENG = { exists = yes }
+			NOT = { has_war_with = INT }
+		}
+		relative_position_id = FOP_chilean_military_aid
+		ai_will_do = { factor = 500 }
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_internationale_guns"
+			FRA = { country_event = fop.14 }
+			ENG = { country_event = fop.15 }
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FOP_if_they_accept_apply_the_effect
+			effect_tooltip = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 1000
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_encourage_the_unwilling
+		icon = GFX_goal_army_guy
+		cost = 4
+		prerequisite = {
+			focus = FOP_population_surveys
+		}
+		x = 1
+		y = 1
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+		}
+		relative_position_id = FOP_population_surveys
+		ai_will_do = { factor = 500 }
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_encourage_the_unwilling"
+			add_timed_idea = {
+				idea = FOP_further_military_encouragement
+				days = 140
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_indiscriminate_conscription
+		icon = GFX_goal_army_guy_2
+		cost = 4
+		prerequisite = {
+			focus = FOP_encourage_the_unwilling
+		}
+		x = 0
+		y = 1
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+		}
+		relative_position_id = FOP_encourage_the_unwilling
+
+		ai_will_do = { factor = 500 }
+
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_indiscriminate_conscription"
+			add_timed_idea = {
+				idea = FOP_mass_force
+				days = 140
+			}
+			add_ideas = FOP_mass_force_drawbacks
+		}
+	}
+
+	focus = {
+		id = FOP_call_for_chilean_volunteers
+		icon = GFX_FOP_Argie_Chilean_friends
+		cost = 4
+		prerequisite = {
+			focus = FOP_population_surveys
+		}
+		x = 3
+		y = 1
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+			CHL = {
+				has_socialist_government = yes
+			}
+			has_socialist_government = yes
+		}
+		relative_position_id = FOP_population_surveys
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				NOT = { has_completed_focus = FOP_infiltrator_cells }		# Should prepare infiltrations first
+			}
+		}
+		bypass = {
+			CHL = {
+				OR = {
+					exists = no
+					has_socialist_government = no
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_call_for_chilean_volunteers"
+			CHL = { country_event = fop.2 }
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FOP_if_they_accept_apply_the_effect
+			effect_tooltip = {
+				add_manpower = 6000
+			}
+		}
+	}
+	focus = {
+		id = FOP_call_for_european_manpower
+		icon = GFX_goal_ideology_radical_socialist
+		cost = 4
+		prerequisite = {
+			focus = FOP_call_for_chilean_volunteers
+		}
+		x = 0
+		y = 1
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+		}
+		relative_position_id = FOP_call_for_chilean_volunteers
+		ai_will_do = { factor = 100 }
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_call_for_european_manpower"
+			every_country = {
+				limit = {
+					is_in_europe = yes
+					has_socialist_government = yes
+					is_subject = no
+					has_war = no
+				}
+				country_event = fop.5
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FOP_if_they_accept_apply_the_effect
+			effect_tooltip = {
+				add_manpower = 9000
+				custom_effect_tooltip = FOP_chance_to_get_infantry_equipment
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 900
+				}
+			}
+		}
+	}
+	focus = {
+		id = FOP_international_force
+		icon = GFX_focus_SOV_mobilization_plan
+		cost = 4
+		prerequisite = {
+			focus = FOP_call_for_european_manpower
+		}
+		mutually_exclusive = {
+			focus = FOP_mass_recruitment_scheme
+		}
+		x = -1
+		y = 1
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+			has_socialist_government = yes
+			INT = { exists = yes }
+			NOT = { has_war_with = INT }
+		}
+		relative_position_id = FOP_call_for_european_manpower
+		ai_will_do = { factor = 1 }
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_ARMY_BONUS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_international_force"
+			add_ideas = FOP_inter_force_idea
+		}
+	}
+
+	focus = {
+		id = FOP_international_air_volunteers
+		icon = GFX_focus_SOV_flying_clubs
+		cost = 4
+		prerequisite = {
+			focus = FOP_international_force
+		}
+		x = 1
+		y = 1
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+			INT = { exists = yes }
+			NOT = { has_war_with = INT }
+		}
+		relative_position_id = FOP_international_force
+
+		search_filters = { FOCUS_FILTER_AIRFORCE_BONUS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_international_air_volunteers"
+			512 = {
+				add_building_construction = {
+					type = air_base
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = { has_dlc_bba = yes }
+				add_equipment_to_stockpile = {
+					type = small_plane_airframe_0
+					amount = 50
+					producer = FRA
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = fighter_equipment_0
+					amount = 50
+					producer = FRA
+				}
+			}
+			if = {
+				limit = { has_dlc_bba = yes }
+				add_equipment_to_stockpile = {
+					type = medium_plane_airframe_0
+					amount = 20
+					producer = FRA
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = tac_bomber_equipment_1
+					amount = 20
+					producer = FRA
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_an_end_to_the_manpower_crisis
+		icon = GFX_goal_conscription
+		cost = 4
+		prerequisite = {
+			focus = FOP_mass_recruitment_scheme
+			focus = FOP_international_force
+		}
+		x = 2
+		y = 1
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+		}
+		relative_position_id = FOP_mass_recruitment_scheme
+		ai_will_do = { factor = 100 }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_an_end_to_the_manpower_crisis"
+			add_political_power = 50
+			add_stability = 0.1
+		}
+	}
+	focus = {
+		id = FOP_infiltrating_the_north
+		icon = GFX_SIA_Urban_Warfare_NF
+		cost = 4
+		prerequisite = {
+			focus = FOP_an_end_to_the_manpower_crisis
+		}
+		x = -2
+		y = 1
+		relative_position_id = FOP_an_end_to_the_manpower_crisis
+		ai_will_do = { factor = 100 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESISTANCE }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_infiltrating_the_north"
+			custom_effect_tooltip = FOP_infiltrate_north_tooltip
+			custom_effect_tooltip = tooltip_white_line
+			activate_targeted_decision = { target = 579 decision = FOP_infiltrate_state_decision }
+			activate_targeted_decision = { target = 449 decision = FOP_infiltrate_state_decision }
+			activate_targeted_decision = { target = 278 decision = FOP_infiltrate_state_decision }
+			activate_targeted_decision = { target = 511 decision = FOP_infiltrate_state_decision }
+			activate_targeted_decision = { target = 902 decision = FOP_infiltrate_state_decision }
+			activate_targeted_decision = { target = 904 decision = FOP_infiltrate_state_decision }
+			activate_targeted_decision = { target = 509 decision = FOP_infiltrate_state_decision }
+			activate_targeted_decision = { target = 508 decision = FOP_infiltrate_state_decision }
+			activate_targeted_decision = { target = 903 decision = FOP_infiltrate_state_decision }
+			activate_targeted_decision = { target = 510 decision = FOP_infiltrate_state_decision }
+		}
+	}
+	focus = {
+		id = FOP_strike_the_railroads
+		icon = GFX_goal_generic_seize_railway
+		cost = 4
+		prerequisite = {
+			focus = FOP_infiltrating_the_north
+		}
+		x = -1
+		y = 1
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+		}
+		bypass = {
+			has_war_with = ARG
+		}
+		relative_position_id = FOP_infiltrating_the_north
+		ai_will_do = { factor = 100 }
+		search_filters = { FOCUS_FILTER_RESISTANCE }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_strike_the_railroads"
+			custom_effect_tooltip = FOP_sabotage_trains_tooltip
+			custom_effect_tooltip = tooltip_white_line
+			activate_targeted_decision = { target = ARG decision = FOP_enact_railways_sabotage }
+		}
+	}
+	focus = {
+		id = FOP_infiltrator_cells
+		icon = GFX_goal_refugee_management
+		cost = 4
+		prerequisite = {
+			focus = FOP_infiltrating_the_north
+		}
+		x = 1
+		y = 1
+		relative_position_id = FOP_infiltrating_the_north
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				NOT = { has_completed_focus = FOP_strike_the_railroads }
+			}
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+		}
+		bypass = {
+			has_war_with = ARG
+		}
+		search_filters = { FOCUS_FILTER_RESISTANCE }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_infiltrator_cells"
+			custom_effect_tooltip = FOP_infiltrator_cells_tooltip
+			custom_effect_tooltip = tooltip_white_line
+			activate_targeted_decision = { target = ARG decision = FOP_enact_resistance_decision }
+		}
+	}
+	focus = {
+		id = FOP_fortify_the_border
+		icon = GFX_goal_generic_barricades
+		cost = 4
+		prerequisite = {
+			focus = FOP_an_end_to_the_manpower_crisis
+		}
+		x = 0
+		y = 1
+		relative_position_id = FOP_an_end_to_the_manpower_crisis
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				NOT = { has_completed_focus = FOP_infiltrator_cells }		# Should prepare infiltrations first
+			}
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+			512 = {
+				is_owned_and_controlled_by = FOP
+			}
+		}
+		bypass = {
+			NOT = {
+				owns_state = 512
+			}
+		}
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_fortify_the_border"
+			custom_effect_tooltip = FOP_border_fortifications_tooltip
+			hidden_effect = {
+				if = {
+					limit = {
+						owns_state = 512
+					}
+					512 = {
+						add_building_construction = {
+							type = bunker
+							level = 1
+							province = 10981
+							instant_build = yes
+						}
+						add_building_construction = {
+							type = bunker
+							level = 1
+							province = 13225
+							instant_build = yes
+						}
+						add_building_construction = {
+							type = bunker
+							level = 1
+							province = 13224
+							instant_build = yes
+						}
+						add_building_construction = {
+							type = bunker
+							level = 1
+							province = 13226
+							instant_build = yes
+						}
+						add_building_construction = {
+							type = bunker
+							level = 1
+							province = 13223
+							instant_build = yes
+						}
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = FOP_european_way_of_war
+		icon = GFX_goal_generic_red_guard
+		cost = 4
+		prerequisite = {
+			focus = FOP_an_end_to_the_manpower_crisis
+		}
+		x = 2
+		y = 1
+		relative_position_id = FOP_an_end_to_the_manpower_crisis
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 0
+				NOT = { has_completed_focus = FOP_infiltrator_cells }		# Should prepare infiltrations first
+			}
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+		}
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_european_way_of_war"
+			add_ideas = FOP_organise_the_troops_idea
+		}
+	}
+	focus = {
+		id = FOP_standardising_our_tactics
+		icon = GFX_goal_generic_army_doctrines
+		cost = 4
+		prerequisite = {
+			focus = FOP_european_way_of_war
+		}
+		x = -1
+		y = 1
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+		}
+		relative_position_id = FOP_european_way_of_war
+		ai_will_do = { factor = 20 }
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_standardising_our_tactics"
+			add_doctrine_cost_reduction = {
+				name = FOP_standardising_our_tactics
+				cost_reduction = 0.4
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_veteran_instructors
+		icon = GFX_goal_military_academy
+		cost = 4
+		prerequisite = {
+			focus = FOP_european_way_of_war
+		}
+		x = 1
+		y = 1
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+		}
+		relative_position_id = FOP_european_way_of_war
+		ai_will_do = { factor = 20 }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_veteran_instructors"
+			army_experience = 25
+		}
+	}
+
+	focus = {
+		id = FOP_mandatory_militia_training
+		icon = GFX_goal_agrarian_socialism
+		cost = 4
+		prerequisite = {
+			focus = FOP_veteran_instructors
+		}
+		prerequisite = {
+			focus = FOP_standardising_our_tactics
+		}
+		x = 0
+		y = 2
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+		}
+		relative_position_id = FOP_european_way_of_war
+		ai_will_do = { factor = 20 }
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_mandatory_militia_training"
+			add_ideas = FOP_training_idea
+		}
+	}
+
+	focus = {
+		id = FOP_foreign_doctrine_assistance
+		icon = GFX_goal_generic_army_high_command
+		cost = 4
+		prerequisite = {
+			focus = FOP_infiltrator_cells
+		}
+		prerequisite = {
+			focus = FOP_standardising_our_tactics
+		}
+		x = 0
+		y = 2
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+		}
+		relative_position_id = FOP_fortify_the_border
+		ai_will_do = { factor = 20 }
+		search_filters = { FOCUS_FILTER_ARMY_BONUS FOCUS_FILTER_AIRFORCE_BONUS FOCUS_FILTER_NAVY_BONUS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_foreign_doctrine_assistance"
+			add_doctrine_cost_reduction = {
+				name = FOP_foreign_doctrine_assistance
+				cost_reduction = 0.3
+				uses = 1
+				category = land_doctrine
+			}
+			add_doctrine_cost_reduction = {
+				name = FOP_foreign_doctrine_assistance
+				cost_reduction = 0.3
+				uses = 1
+				category = air_doctrine
+			}
+			add_doctrine_cost_reduction = {
+				name = FOP_foreign_doctrine_assistance
+				cost_reduction = 0.3
+				uses = 1
+				category = naval_doctrine
+			}
+		}
+	}
+	focus = {
+		id = FOP_unconventional_supply_networks
+		icon = GFX_goal_OTT_Railroad
+		cost = 4
+		prerequisite = {
+			focus = FOP_infiltrator_cells
+		}
+		prerequisite = {
+			focus = FOP_strike_the_railroads
+		}
+		x = 0
+		y = 2
+		relative_position_id = FOP_infiltrating_the_north
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+		}
+		ai_will_do = { factor = 20 }
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_unconventional_supply_networks"
+			add_ideas = FOP_new_training_idea
+		}
+	}
+	focus = {
+		id = FOP_a_militarised_society
+		icon = GFX_goal_generic_socialist_army
+		cost = 4
+		prerequisite = {
+			focus = FOP_unconventional_supply_networks
+		}
+		prerequisite = {
+			focus = FOP_foreign_doctrine_assistance
+		}
+		prerequisite = {
+			focus = FOP_mandatory_militia_training
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = FOP_foreign_doctrine_assistance
+		ai_will_do = { factor = 20 }
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_a_militarised_society"
+			add_ideas = FOP_defence_force_idea
+		}
+	}
+
+	focus = {
+		id = FOP_the_patagonian_fishing_industry
+		icon = GFX_goal_generic_occupy_states_coastal
+		cost = 4
+		prerequisite = {
+			focus = FOP_the_three_economic_issues
+		}
+		x = -2
+		y = 1
+		relative_position_id = FOP_the_three_economic_issues
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { has_completed_focus = FOP_infiltrator_cells }		# Should prepare infiltrations first
+			}
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_NAVY_BONUS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_the_patagonian_fishing_industry"
+			add_political_power = 25
+			add_equipment_to_stockpile = {
+				type = convoy_1
+				amount = 25
+				producer = FOP
+			}
+			1029 = {
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					instant_build = yes
+					province = 13808
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					instant_build = yes
+					province = 13219
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					instant_build = yes
+					province = 12952
+				}
+			}
+		}
+	}
+	focus = {
+		id = FOP_international_officer_training
+		icon = GFX_goal_officers
+		cost = 4
+		prerequisite = {
+			focus = FOP_the_patagonian_fishing_industry
+		}
+		x = -1
+		y = 1
+		relative_position_id = FOP_the_patagonian_fishing_industry
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+			has_socialist_government = yes
+			INT = { exists = yes }
+			NOT = { has_war_with = INT }
+		}
+		search_filters = { FOCUS_FILTER_NAVY_XP }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_international_officer_training"
+			navy_experience = 30
+		}
+	}
+	focus = {
+		id = FOP_request_new_submarines
+		icon = GFX_goal_generic_navy_submarine
+		cost = 4
+		prerequisite = {
+			focus = FOP_the_patagonian_fishing_industry
+		}
+		x = 1
+		y = 1
+		relative_position_id = FOP_the_patagonian_fishing_industry
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+			ENG = { exists = yes }
+			NOT = { has_war_with = ENG }
+		}
+		search_filters = { FOCUS_FILTER_NAVY_BONUS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_request_new_submarines"
+			if = {
+				limit = { has_dlc_mtg = yes }
+				add_tech_bonus = {
+					name = FOP_request_new_submarines
+					bonus = 0.75
+					uses = 2
+					category = ss_tech
+					category = cat_torpedoes
+				}
+			}
+			else = {
+				add_tech_bonus = {
+					name = FOP_request_new_submarines
+					bonus = 1
+					uses = 1
+					category = ss_tech
+				}
+			}
+		}
+	}
+	focus = {
+		id = FOP_chilean_naval_assistance
+		icon = GFX_goal_CHL_navy
+		cost = 4
+		prerequisite = {
+			focus = FOP_request_new_submarines
+			focus = FOP_international_officer_training
+		}
+		x = -1
+		y = 1
+		relative_position_id = FOP_request_new_submarines
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_has_won_war_against_ARG
+				NOT = { owns_state = 278 }
+			}
+			CHL = { has_socialist_government = yes }
+		}
+
+		bypass = {
+			CHL = {
+				OR = {
+					exists = no
+					has_socialist_government = no
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_chilean_naval_assistance"
+			add_offsite_building = { type = dockyard level = 1 }
+		}
+	}
+
+##############
+# Post - Unification tree
+##############
+
+	focus = {
+		id = FOP_the_revolution_successful
+		icon = GFX_goal_generic_war_with_comintern
+		cost = 4
+		x = 39
+		y = 0
+		ai_will_do = { factor = 10000 }
+		available = {
+			NOT = { country_exists = ARG }
+			has_war = no
+			owns_state = 278
+		}
+		allow_branch = {
+			OR = {
+				has_socialist_government = yes
+				has_government = market_liberal
+				has_government = social_liberal
+			}
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_the_revolution_successful"
+			custom_effect_tooltip = FOP_country_unified
+			custom_effect_tooltip = tooltip_white_line
+			if = {
+				limit = { is_subject = yes }
+				give_military_access = overlord
+				overlord = {
+					set_autonomy = {
+						target = ROOT
+						autonomy_state = autonomy_free
+					}
+				}
+			}
+			if = {
+				limit = { is_in_faction = yes }
+				leave_faction = yes
+			}
+			hidden_effect = {
+				set_rule = { can_not_declare_war = no }
+			}
+			every_enemy_country = {
+				limit = {
+					is_valid_peace_target = yes
+					NOT = { is_neighbor_of = ROOT }
+				}
+				white_peace_with_ROOT = yes
+			}
+			add_ideas = FOP_foreign_owned_factories
+			hidden_effect = {
+				URG = {
+					country_event = { id = urg.36 days = 10 random_days = 20 } #URG event fears about syndicalist victory in argentina (starts event chain that leads terra to dictatorship)
+				}
+				CHL = {
+					dismantle_faction = yes
+				}
+				activate_targeted_decision = { target = THIS decision = FOP_begin_population_swapping_dec }
+				remove_targeted_decision = { target = 579 decision = FOP_infiltrate_state_decision }
+				remove_targeted_decision = { target = 449 decision = FOP_infiltrate_state_decision }
+				remove_targeted_decision = { target = 278 decision = FOP_infiltrate_state_decision }
+				remove_targeted_decision = { target = 511 decision = FOP_infiltrate_state_decision }
+				remove_targeted_decision = { target = 902 decision = FOP_infiltrate_state_decision }
+				remove_targeted_decision = { target = 904 decision = FOP_infiltrate_state_decision }
+				remove_targeted_decision = { target = 509 decision = FOP_infiltrate_state_decision }
+				remove_targeted_decision = { target = 508 decision = FOP_infiltrate_state_decision }
+				remove_targeted_decision = { target = 903 decision = FOP_infiltrate_state_decision }
+				remove_targeted_decision = { target = 510 decision = FOP_infiltrate_state_decision }
+
+				remove_targeted_decision = { target = 579 decision = FOP_sabotage_railways_decision }
+				remove_targeted_decision = { target = 449 decision = FOP_sabotage_railways_decision }
+				remove_targeted_decision = { target = 278 decision = FOP_sabotage_railways_decision }
+				remove_targeted_decision = { target = 511 decision = FOP_sabotage_railways_decision }
+				remove_targeted_decision = { target = 902 decision = FOP_sabotage_railways_decision }
+				remove_targeted_decision = { target = 904 decision = FOP_sabotage_railways_decision }
+				remove_targeted_decision = { target = 509 decision = FOP_sabotage_railways_decision }
+				remove_targeted_decision = { target = 508 decision = FOP_sabotage_railways_decision }
+				remove_targeted_decision = { target = 903 decision = FOP_sabotage_railways_decision }
+				remove_targeted_decision = { target = 510 decision = FOP_sabotage_railways_decision }
+
+				remove_targeted_decision = { target = 579 decision = FOP_prepare_resistance_decision }
+				remove_targeted_decision = { target = 449 decision = FOP_prepare_resistance_decision }
+				remove_targeted_decision = { target = 278 decision = FOP_prepare_resistance_decision }
+				remove_targeted_decision = { target = 511 decision = FOP_prepare_resistance_decision }
+				remove_targeted_decision = { target = 902 decision = FOP_prepare_resistance_decision }
+				remove_targeted_decision = { target = 904 decision = FOP_prepare_resistance_decision }
+				remove_targeted_decision = { target = 509 decision = FOP_prepare_resistance_decision }
+				remove_targeted_decision = { target = 508 decision = FOP_prepare_resistance_decision }
+				remove_targeted_decision = { target = 903 decision = FOP_prepare_resistance_decision }
+				remove_targeted_decision = { target = 510 decision = FOP_prepare_resistance_decision }
+
+				remove_targeted_decision = { target = ARG decision = FOP_enact_railways_sabotage }
+				remove_targeted_decision = { target = ARG decision = FOP_enact_resistance_decision }
+			}
+		}
+	}
+	focus = {
+		id = FOP_the_first_national_trade_union_congress
+		icon = GFX_goal_commune_politics
+		cost = 8
+		relative_position_id = FOP_the_revolution_successful
+		x = -14
+		y = 1
+		prerequisite = {
+			focus = FOP_the_revolution_successful
+		}
+		ai_will_do = { factor = 200 }
+
+		select_effect = {
+			log = "[GetDateText]: [Root.GetName]: Select Focus FOP_the_first_national_trade_union_congress"
+			country_event = fop.205
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_the_first_national_trade_union_congress"
+			drop_cosmetic_tag = yes
+			custom_effect_tooltip = FOP_first_tuc
+			hidden_effect = {
+				country_event = fop.220
+				country_event = { id = fop.341 days = 200 }
+				country_event = { id = fop.344 days = 400 }
+				country_event = { id = fop.345 days = 300 }
+				country_event = { id = argbla.11 days = 140 random_days = 14 }  # La Viña dam construction start
+				country_event = { id = fop.29 days = 14 random_days = 14 }		# Reactionaries attack
+				country_event = { id = fop.230 days = 230 }					# Negotiations with old military and bureacracy
+				activate_targeted_decision = { target = THIS decision = FOP_anti_syndie_rebellion_1 }
+				activate_targeted_decision = { target = THIS decision = FOP_anti_syndie_rebellion_2 }
+				activate_targeted_decision = { target = THIS decision = FOP_anti_syndie_rebellion_3 }
+				activate_targeted_decision = { target = THIS decision = FOP_anti_syndie_rebellion_4 }
+				activate_targeted_decision = { target = THIS decision = FOP_economic_crisis_1 }
+				activate_targeted_decision = { target = THIS decision = FOP_economic_crisis_2 }
+				activate_targeted_decision = { target = THIS decision = FOP_economic_crisis_3 }
+				activate_targeted_decision = { target = THIS decision = FOP_economic_crisis_4 }
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_the_anarchist_radicals
+		icon = GFX_goal_ideology_syndicalist
+		cost = 1
+		relative_position_id = FOP_the_first_national_trade_union_congress
+		x = -13
+		y = 1
+		ai_will_do = { factor = 500 }
+		prerequisite = {
+			focus = FOP_the_first_national_trade_union_congress
+		}
+		mutually_exclusive = {
+			focus = FOP_the_Ugartistas
+			focus = FOP_the_socialist_party_moderates
+			focus = FOP_the_communist_supremacy
+			focus = FOP_the_anarchist_moderates
+		}
+		available = {
+			has_government = syndicalist
+			FOP_di_giovanni_leads_USA = yes
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_the_anarchist_radicals"
+			add_popularity = {
+				ideology = syndicalist
+				popularity = 0.10
+			}
+			hidden_effect = {
+				BRA = { country_event = urg.64 }
+				country_event = { id = fop.234 months = 15 }
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_female_rights_debate
+		icon = GFX_focus_generic_women_in_military
+		cost = 8
+		relative_position_id = FOP_the_anarchist_radicals
+		x = -1
+		y = 1
+		ai_will_do = { factor = 25 }
+		prerequisite = {
+			focus = FOP_the_anarchist_radicals
+		}
+		available = {
+			has_government = syndicalist
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_MANPOWER FOCUS_FILTER_PRODUCTION }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_female_rights_debate"
+			country_event = { id = fop.228 days = 1 }
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FOP_select_one_of_the_options
+			custom_effect_tooltip = FOP_option_one
+			custom_effect_tooltip = tooltip_white_line
+			effect_tooltip = {
+				add_ideas = FOP_equality_for_all
+				add_popularity = {
+					ideology = syndicalist
+					popularity = -0.05
+				}
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FOP_option_two
+			custom_effect_tooltip = tooltip_white_line
+			effect_tooltip = {
+				add_political_power = 75
+				add_popularity = {
+					ideology = syndicalist
+					popularity = 0.05
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_confront_the_church
+		icon = GFX_focus_mex_triumph_over_the_cristeros
+		cost = 8
+		relative_position_id = FOP_the_anarchist_radicals
+		x = 1
+		y = 1
+		ai_will_do = { factor = 25 }
+		prerequisite = {
+			focus = FOP_the_anarchist_radicals
+		}
+		available = {
+			has_government = syndicalist
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_confront_the_church"
+			country_event = { id = fop.227 days = 1 }
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FOP_select_one_of_the_options
+			custom_effect_tooltip = FOP_option_one
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FOP_what_could_go_wrong_tt
+			effect_tooltip = {
+				add_stability = -0.30
+				add_war_support = 0.10
+				add_political_power = 100
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FOP_option_two
+			custom_effect_tooltip = tooltip_white_line
+			effect_tooltip = {
+				add_stability = 0.10
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_build_a_new_society
+		icon = GFX_goal_DOM_The_Phoenix
+		cost = 8
+		relative_position_id = FOP_female_rights_debate
+		x = 1
+		y = 1
+		ai_will_do = { factor = 25 }
+		prerequisite = {
+			focus = FOP_confront_the_church
+		}
+		prerequisite = {
+			focus = FOP_female_rights_debate
+		}
+		available = {
+			has_government = syndicalist
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_build_a_new_society"
+			if = {
+				limit = { has_idea = FOP_equality_for_all }
+				swap_ideas = {
+					remove_idea = FOP_equality_for_all
+					add_idea = FOP_new_society_2
+				}
+			}
+			else = {
+				add_ideas = FOP_new_society
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_the_anarchist_moderates
+		icon = GFX_goal_autonomism
+		cost = 1
+		relative_position_id = FOP_the_first_national_trade_union_congress
+		x = -8
+		y = 1
+		ai_will_do = { factor = 500 }
+		prerequisite = {
+			focus = FOP_the_first_national_trade_union_congress
+		}
+		mutually_exclusive = {
+			focus = FOP_the_Ugartistas
+			focus = FOP_the_socialist_party_moderates
+			focus = FOP_the_communist_supremacy
+			focus = FOP_the_anarchist_radicals
+		}
+		available = {
+			has_government = syndicalist
+			FOP_soto_leads_USA = yes
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_the_anarchist_moderates"
+			add_popularity = {
+				ideology = syndicalist
+				popularity = 0.10
+			}
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.05
+			}
+			hidden_effect = {
+				BRA = { country_event = urg.64 }
+				country_event = { id = fop.239 days = 75 }
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_moderate_decentralization
+		icon = GFX_Socialist_Law
+		cost = 8
+		relative_position_id = FOP_the_anarchist_moderates
+		x = 0
+		y = 1
+		ai_will_do = { factor = 25 }
+		prerequisite = {
+			focus = FOP_the_anarchist_moderates
+		}
+		available = {
+			has_government = syndicalist
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_moderate_decentralization"
+			hidden_effect = {
+				country_event = { id = fop.231 days = 120 }
+			}
+			add_political_power = 50
+			add_stability = 0.10
+		}
+	}
+
+	focus = {
+		id = FOP_war_preparations_bill
+		icon = GFX_goal_agrarian_socialism
+		cost = 8
+		relative_position_id = FOP_the_anarchist_radicals
+		x = 3
+		y = 1
+		ai_will_do = { factor = 200 }
+		prerequisite = {
+			focus = FOP_the_anarchist_moderates
+			focus = FOP_the_anarchist_radicals
+		}
+		available = {
+			has_government = syndicalist
+			FOP_has_economic_fallout = no
+			FOP_has_resistance_to_socialism = no
+		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ARMY_BONUS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_war_preparations_bill"
+			add_ideas = FOP_war_preparations_bill_idea_1
+		}
+	}
+
+	focus = {
+		id = FOP_root_out_reactionaries
+		icon = GFX_focus_SOV_penal_battalions
+		cost = 8
+		relative_position_id = FOP_war_preparations_bill
+		x = -1
+		y = 1
+		ai_will_do = { factor = 5 }
+		prerequisite = {
+			focus = FOP_war_preparations_bill
+		}
+		available = {
+			has_government = syndicalist
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_root_out_reactionaries"
+			add_stability = -0.10
+			add_popularity = {
+				ideology = social_conservative
+				popularity = -0.10
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = -0.10
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.10
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.10
+			}
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.10
+			}
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.10
+			}
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = -0.10
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_aid_the_world_revolution
+		icon = GFX_goal_FRA_Internationale_Congress
+		cost = 3
+		relative_position_id = FOP_war_preparations_bill
+		x = 0
+		y = 2
+		ai_will_do = { factor = 200 }
+		prerequisite = {
+			focus = FOP_war_preparations_bill
+		}
+		available = {
+			has_government = syndicalist
+			INT = { exists = yes }
+			NOT = { has_war_with = INT }
+			is_subject = no
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_aid_the_world_revolution"
+			if = {
+				limit = {
+					INT = {
+						is_faction_leader = yes
+					}
+					is_subject = no
+				}
+				INT = {
+					country_event = { days = 1 id = fop.221 }
+				}
+			}
+			if = {
+				limit = { has_idea = FOP_war_preparations_bill_idea_3 }
+				swap_ideas = {
+					remove_idea = FOP_war_preparations_bill_idea_3
+					add_idea = FOP_war_preparations_bill_idea_4
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = FOP_war_preparations_bill_idea_1
+					add_idea = FOP_war_preparations_bill_idea_2
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_federal_militia_recruitment_drive
+		icon = GFX_goal_Workers_Paradise
+		cost = 8
+		relative_position_id = FOP_war_preparations_bill
+		x = 1
+		y = 1
+		ai_will_do = { factor = 25 }
+		prerequisite = {
+			focus = FOP_war_preparations_bill
+		}
+		available = {
+			has_government = syndicalist
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_federal_militia_recruitment_drive"
+			if = {
+				limit = { has_idea = FOP_war_preparations_bill_idea_2 }
+				swap_ideas = {
+					remove_idea = FOP_war_preparations_bill_idea_2
+					add_idea = FOP_war_preparations_bill_idea_4
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = FOP_war_preparations_bill_idea_1
+					add_idea = FOP_war_preparations_bill_idea_3
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_reconciliate_with_the_church
+		icon = GFX_BEL_Improve_Catholic_Relations
+		cost = 8
+		relative_position_id = FOP_the_anarchist_moderates
+		x = 2
+		y = 1
+		ai_will_do = { factor = 25 }
+		prerequisite = {
+			focus = FOP_the_anarchist_moderates
+			focus = FOP_the_socialist_party_moderates
+		}
+		available = {
+			OR = {
+				has_government = radical_socialist
+				has_government = syndicalist
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_reconciliate_with_the_church"
+			country_event = { id = fop.233 days = 1 }
+			add_stability = 0.1
+			add_political_power = 100
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.05
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_pass_revolutionary_laws
+		icon = GFX_socialist_constitution
+		cost = 8
+		relative_position_id = FOP_the_anarchist_moderates
+		x = 1
+		y = 2
+		ai_will_do = { factor = 25 }
+		prerequisite = {
+			focus = FOP_the_anarchist_moderates
+		}
+		available = {
+			has_government = syndicalist
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_pass_revolutionary_laws"
+			add_ideas = FOP_revolutionary_laws_idea
+		}
+	}
+
+	focus = {
+		id = FOP_the_socialist_party_moderates
+		icon = GFX_goal_red_star_dove
+		cost = 1
+		relative_position_id = FOP_the_first_national_trade_union_congress
+		x = -2
+		y = 1
+		ai_will_do = { factor = 500 }
+		prerequisite = {
+			focus = FOP_the_first_national_trade_union_congress
+		}
+		mutually_exclusive = {
+			focus = FOP_the_Ugartistas
+			focus = FOP_the_communist_supremacy
+			focus = FOP_the_anarchist_moderates
+			focus = FOP_the_anarchist_radicals
+		}
+		available = {
+			has_government = radical_socialist
+			FOP_palacios_leads_FORA = yes
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_the_socialist_party_moderates"
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = 0.10
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.05
+			}
+			hidden_effect = {
+				BRA = { country_event = urg.64 }
+				country_event = { id = fop.212 days = 125 }
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_cooperate_with_the_UC
+		icon = GFX_goal_ideology_radical_socialist
+		cost = 8
+		relative_position_id = FOP_the_socialist_party_moderates
+		x = -2
+		y = 1
+		ai_will_do = { factor = 25 }
+		prerequisite = {
+			focus = FOP_the_socialist_party_moderates
+		}
+		available = {
+			has_government = radical_socialist
+			FOP_has_economic_fallout = no
+			FOP_has_resistance_to_socialism = no
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_cooperate_with_the_UC"
+			country_event = { days = 1 id = fop.209 }
+			custom_effect_tooltip = FOP_UC_talks_tooltip
+		}
+	}
+
+	focus = {
+		id = FOP_reinstate_municipal_elections
+		icon = GFX_goal_big_news
+		cost = 8
+		relative_position_id = FOP_cooperate_with_the_UC
+		x = -1
+		y = 1
+		ai_will_do = { factor = 25 }
+		prerequisite = {
+			focus = FOP_cooperate_with_the_UC
+		}
+		available = {
+			has_government = radical_socialist
+			has_country_flag = FOP_union_civica_cooperation
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_reinstate_municipal_elections"
+			add_stability = 0.10
+			custom_effect_tooltip = FOP_reinstate_municipal_elections_tooltip
+			hidden_effect = {
+				country_event = { days = 70 random_days = 140 id = fop.210 }
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_hold_provincial_elections
+		icon = GFX_goal_DOM_End_Judicial_Corruption
+		cost = 8
+		relative_position_id = FOP_cooperate_with_the_UC
+		x = 1
+		y = 1
+		ai_will_do = { factor = 25 }
+		prerequisite = {
+			focus = FOP_cooperate_with_the_UC
+		}
+		available = {
+			has_government = radical_socialist
+			has_country_flag = FOP_union_civica_cooperation
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_hold_provincial_elections"
+			add_stability = 0.10
+			custom_effect_tooltip = FOP_reinstate_provincial_elections_tooltip
+			hidden_effect = {
+				country_event = { days = 70 random_days = 140 id = fop.211 }
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_restore_the_suspended_constitution
+		icon = GFX_goal_constitutional_guarantees
+		cost = 8
+		relative_position_id = FOP_reinstate_municipal_elections
+		x = 1
+		y = 1
+		ai_will_do = { factor = 25 }
+		prerequisite = {
+			focus = FOP_hold_provincial_elections
+		}
+		prerequisite = {
+			focus = FOP_reinstate_municipal_elections
+		}
+		mutually_exclusive = {
+			focus = FOP_maintain_revolutionary_democracy
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_INTERNAL_AFFAIRS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_restore_the_suspended_constitution"
+			custom_effect_tooltip = FOP_suspended_constitution_tooltip
+			add_ideas = FOP_suspended_constitution
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = 0.10
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.10
+			}
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.10
+			}
+			hidden_effect = {
+				news_event = {
+					id = worldnews.172
+					days = 4
+				}
+				set_cosmetic_tag = FOP_REP
+			}
+			country_event = fop.337
+		}
+	}
+
+	focus = {
+		id = FOP_expand_the_Hogar_Obrero
+		icon = GFX_collective_housing
+		cost = 8
+		relative_position_id = FOP_the_socialist_party_moderates
+		x = 1
+		y = 1
+		ai_will_do = { factor = 25 }
+		prerequisite = {
+			focus = FOP_the_socialist_party_moderates
+		}
+		available = {
+			has_government = radical_socialist
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_expand_the_Hogar_Obrero"
+			add_ideas = FOP_hogar_obrero_expansion_1
+			hidden_effect = {
+				country_event = { days = 60 id = fop.213 }
+				country_event = { days = 120 id = fop.214 }
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_establish_a_free_market
+		icon = GFX_goal_generic_market_socialism
+		cost = 8
+		relative_position_id = FOP_expand_the_Hogar_Obrero
+		x = 0
+		y = 1
+		ai_will_do = { factor = 25 }
+		prerequisite = {
+			focus = FOP_expand_the_Hogar_Obrero
+		}
+		available = {
+			has_government = radical_socialist
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_establish_a_free_market"
+			if = {
+				limit = { has_idea = FOP_hogar_obrero_expansion_3 }
+				swap_ideas = {
+					remove_idea = FOP_hogar_obrero_expansion_3
+					add_idea = FOP_hogar_obrero_expansion_4
+				}
+			}
+			else_if = {
+				limit = { has_idea = FOP_hogar_obrero_expansion_2 }
+				swap_ideas = {
+					remove_idea = FOP_hogar_obrero_expansion_2
+					add_idea = FOP_hogar_obrero_expansion_3
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = FOP_hogar_obrero_expansion_1
+					add_idea = FOP_hogar_obrero_expansion_2
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_maintain_revolutionary_democracy
+		icon = GFX_goal_KTG_Elections
+		cost = 8
+		relative_position_id = FOP_establish_a_free_market
+		x = 1
+		y = 1
+		ai_will_do = { factor = 25 }
+		prerequisite = {
+			focus = FOP_establish_a_free_market
+		}
+		prerequisite = {
+			focus = FOP_encourage_worker_cooperatives
+		}
+		mutually_exclusive = {
+			focus = FOP_restore_the_suspended_constitution
+		}
+		available = {
+			has_government = radical_socialist
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_INTERNAL_AFFAIRS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_maintain_revolutionary_democracy"
+			custom_effect_tooltip = FOP_revolutionary_democracy_tooltip
+			add_ideas = FOP_revolutionary_democracy
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = 0.10
+			}
+			hidden_effect = {
+				country_event = { id = fop.330 days = 14 }
+				country_event = { id = fop.334 days = 60 }
+			}
+			custom_effect_tooltip = TT_FOP_SOCIALIST_ELECTIONS
+		}
+	}
+
+	focus = {
+		id = FOP_the_Ugartistas
+		icon = GFX_goal_red_star_green_wreath
+		cost = 1
+		relative_position_id = FOP_the_first_national_trade_union_congress
+		x = 2
+		y = 1
+		ai_will_do = { factor = 500 }
+		prerequisite = {
+			focus = FOP_the_first_national_trade_union_congress
+		}
+		mutually_exclusive = {
+			focus = FOP_the_socialist_party_moderates
+			focus = FOP_the_communist_supremacy
+			focus = FOP_the_anarchist_moderates
+			focus = FOP_the_anarchist_radicals
+		}
+		available = {
+			has_government = radical_socialist
+			FOP_ugarte_leads_FORA = yes
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_the_Ugartistas"
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = 0.15
+			}
+			hidden_effect = {
+				BRA = { country_event = urg.64 }
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_introduction_of_worker_selfmanagement
+		icon = GFX_goal_production
+		cost = 8
+		relative_position_id = FOP_the_Ugartistas
+		x = -1
+		y = 1
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0
+				NOT = { has_completed_focus = FOP_socialist_development_scheme }
+			}
+			modifier = {
+				add = -80
+				NOT = { has_completed_focus = FOP_united_south_american_states }
+			}
+		}
+		prerequisite = {
+			focus = FOP_the_Ugartistas
+		}
+		available = {
+			has_government = radical_socialist
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_introduction_of_worker_selfmanagement"
+			if = {
+				limit = { has_idea = FOP_introduction_of_worker_selfmanagement_idea_3 }
+				swap_ideas = {
+					remove_idea = FOP_introduction_of_worker_selfmanagement_idea_3
+					add_idea = FOP_introduction_of_worker_selfmanagement_idea_4
+				}
+			}
+			else = {
+				add_ideas = FOP_introduction_of_worker_selfmanagement_idea_1
+			}
+			hidden_effect = {
+				country_event = { id = fop.343 days = 350 }
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_encourage_worker_cooperatives
+		icon = GFX_goal_syndicalist_workers
+		cost = 8
+		relative_position_id = FOP_introduction_of_worker_selfmanagement
+		x = 0
+		y = 1
+		ai_will_do = { factor = 100 }
+		prerequisite = {
+			focus = FOP_introduction_of_worker_selfmanagement
+			focus = FOP_expand_the_Hogar_Obrero
+		}
+		available = {
+			has_government = radical_socialist
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_encourage_worker_cooperatives"
+			if = {
+				limit = { has_completed_focus = FOP_the_socialist_party_moderates }
+				if = {
+					limit = { has_idea = FOP_hogar_obrero_expansion_2 }
+					swap_ideas = {
+						remove_idea = FOP_hogar_obrero_expansion_2
+						add_idea = FOP_hogar_obrero_expansion_4
+					}
+				}
+				else = {
+					swap_ideas = {
+						remove_idea = FOP_hogar_obrero_expansion_1
+						add_idea = FOP_hogar_obrero_expansion_3
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_completed_focus = FOP_the_Ugartistas
+					has_idea = FOP_introduction_of_worker_selfmanagement_idea_1
+				}
+				swap_ideas = {
+					remove_idea = FOP_introduction_of_worker_selfmanagement_idea_1
+					add_idea = FOP_introduction_of_worker_selfmanagement_idea_2
+				}
+			}
+			else_if = {
+				limit = {
+					has_completed_focus = FOP_the_Ugartistas
+					has_idea = FOP_introduction_of_worker_selfmanagement_idea_4
+				}
+				swap_ideas = {
+					remove_idea = FOP_introduction_of_worker_selfmanagement_idea_4
+					add_idea = FOP_introduction_of_worker_selfmanagement_idea_5
+				}
+			}
+			else = {
+				custom_effect_tooltip = FOP_encourage_worker_cooperatives_tooltip
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_collaborate_with_the_CGT
+		icon = GFX_goal_workers_rights
+		cost = 8
+		relative_position_id = FOP_the_Ugartistas
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 500
+			modifier = {
+				factor = 0
+				NOT = { has_completed_focus = FOP_expand_the_bureacracy_to_the_north }
+			}
+		}
+		prerequisite = {
+			focus = FOP_the_Ugartistas
+		}
+		available = {
+			has_government = radical_socialist
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_PRODUCTION FOCUS_FILTER_INTERNAL_AFFAIRS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_collaborate_with_the_CGT"
+			if = {
+				limit = {
+					has_idea = FOP_introduction_of_worker_selfmanagement_idea_1
+				}
+				swap_ideas = {
+					remove_idea = FOP_introduction_of_worker_selfmanagement_idea_1
+					add_idea = FOP_introduction_of_worker_selfmanagement_idea_4
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = FOP_introduction_of_worker_selfmanagement_idea_2
+				}
+				swap_ideas = {
+					remove_idea = FOP_introduction_of_worker_selfmanagement_idea_2
+					add_idea = FOP_introduction_of_worker_selfmanagement_idea_5
+				}
+			}
+			else = {
+				add_ideas = FOP_introduction_of_worker_selfmanagement_idea_3
+			}
+			add_popularity = {
+				ideology = radical_socialist
+				popularity = 0.075
+			}
+			hidden_effect = {
+				country_event = { id = fopcoup.038 days = 15 }
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_encourage_patriotism
+		icon = GFX_ARG_argentina_flag
+		cost = 8
+		relative_position_id = FOP_collaborate_with_the_CGT
+		x = 0
+		y = 1
+		ai_will_do = { factor = 500 }
+		prerequisite = {
+			focus = FOP_collaborate_with_the_CGT
+		}
+		available = {
+			has_government = radical_socialist
+		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_encourage_patriotism"
+			add_war_support = 0.15
+		}
+	}
+
+	focus = {
+		id = FOP_united_south_american_states
+		icon = GFX_focus_por_latin_american_communism
+		cost = 3
+		relative_position_id = FOP_encourage_patriotism
+		x = -1
+		y = 1
+		ai_will_do = { factor = 500 }
+		prerequisite = {
+			focus = FOP_encourage_patriotism
+			focus = FOP_encourage_worker_cooperatives
+		}
+		available = {
+			has_government = radical_socialist
+			FOP_has_economic_fallout = no
+			FOP_has_resistance_to_socialism = no
+			is_subject = no
+			has_completed_focus = FOP_collaborate_with_the_CGT
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_united_south_american_states"
+			create_faction = SA_socialist_states
+			custom_effect_tooltip = FOP_SASS_decisions_tooltip
+			hidden_effect = {
+				add_to_tech_sharing_group = FOP_SASS_research_group
+				activate_targeted_decision = { target = ROOT decision = FOP_SASS_create_OSAEC }
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_the_communist_supremacy
+		icon = GFX_goal_totalism
+		cost = 1
+		relative_position_id = FOP_the_first_national_trade_union_congress
+		x = 7
+		y = 1
+		ai_will_do = { factor = 500 }
+		prerequisite = {
+			focus = FOP_the_first_national_trade_union_congress
+		}
+		available = {
+			has_government = totalist
+		}
+		mutually_exclusive = {
+			focus = FOP_the_Ugartistas
+			focus = FOP_the_socialist_party_moderates
+			focus = FOP_the_anarchist_radicals
+			focus = FOP_the_anarchist_moderates
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_the_communist_supremacy"
+			add_popularity = {
+				ideology = totalist
+				popularity = 0.20
+			}
+			hidden_effect = {
+				country_event = { id = fop.239 days = 75 }		# Justo trial
+				country_event = { id = fop.499 days = 270 }		# A question of Andesia
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_permanent_conscription_brigades
+		icon = GFX_focus_SOV_builder_of_the_red_army
+		cost = 8
+		relative_position_id = FOP_the_communist_supremacy
+		x = -2
+		y = 1
+		ai_will_do = { factor = 200 }
+		prerequisite = {
+			focus = FOP_the_communist_supremacy
+		}
+		available = {
+			has_government = totalist
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_permanent_conscription_brigades"
+			add_stability = -0.05
+			if = {
+				limit = { has_idea = FOP_militarized_labour_1_2 }
+				swap_ideas = {
+					remove_idea = FOP_militarized_labour_1_2
+					add_idea = FOP_militarized_labour_1_4
+				}
+			}
+			else_if = {
+				limit = { has_idea = FOP_primitive_collectivization }
+				swap_ideas = {
+					remove_idea = FOP_primitive_collectivization
+					add_idea = FOP_militarized_labour_1_3
+				}
+			}
+			else_if = {
+				limit = { has_idea = FOP_militarized_labour_1 }
+				swap_ideas = {
+					remove_idea = FOP_militarized_labour_1
+					add_idea = FOP_militarized_labour_1_1
+				}
+			}
+			else = {
+				add_ideas = FOP_totalist_footsoldiers_of_the_revolution
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_begin_primitive_socialist_accumulation
+		icon = GFX_goal_Focus_Military_Mobilisation
+		cost = 8
+		relative_position_id = FOP_the_communist_supremacy
+		x = 0
+		y = 1
+		ai_will_do = { factor = 25 }
+		prerequisite = {
+			focus = FOP_the_communist_supremacy
+		}
+		available = {
+			has_government = totalist
+		}
+		search_filters = { FOCUS_FILTER_PRODUCTION }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_begin_primitive_socialist_accumulation"
+			add_stability = -0.05
+			if = {
+				limit = { has_idea = FOP_militarized_labour_1_1 }
+				swap_ideas = {
+					remove_idea = FOP_militarized_labour_1_1
+					add_idea = FOP_militarized_labour_1_4
+				}
+			}
+			else_if = {
+				limit = { has_idea = FOP_totalist_footsoldiers_of_the_revolution }
+				swap_ideas = {
+					remove_idea = FOP_totalist_footsoldiers_of_the_revolution
+					add_idea = FOP_militarized_labour_1_3
+				}
+			}
+			else_if = {
+				limit = { has_idea = FOP_militarized_labour_1 }
+				swap_ideas = {
+					remove_idea = FOP_militarized_labour_1
+					add_idea = FOP_militarized_labour_1_2
+				}
+			}
+			else = {
+				add_ideas = FOP_primitive_collectivization
+			}
+			hidden_effect = {
+				country_event = { id = fop.340 days = 45 }
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_join_the_Third_Internationale
+		icon = GFX_goal_HOL_military_union
+		cost = 3
+		relative_position_id = FOP_begin_primitive_socialist_accumulation
+		x = -1
+		y = 2
+		ai_will_do = { factor = 200 }
+		bypass = {
+			OR = {
+				INT = { exists = no }
+				INT = { is_faction_leader = no }
+			}
+		}
+		prerequisite = {
+			focus = FOP_permanent_conscription_brigades
+		}
+		available = {
+			has_government = totalist
+			FOP_has_economic_fallout = no
+			FOP_has_resistance_to_socialism = no
+			is_subject = no
+			INT = { exists = yes }
+			NOT = { has_war_with = INT }
+			custom_trigger_tooltip = {
+				tooltip = FOP_not_formed_andesia
+				NOT = { has_cosmetic_tag = FOP_AND }
+			}
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_join_the_Third_Internationale"
+			custom_effect_tooltip = FOP_AND_internationale_warning_tt
+			INT = { country_event = { days = 1 id = fop.221 } }
+		}
+	}
+
+	focus = {
+		id = FOP_militarization_of_labour
+		icon = GFX_goal_army_guy_2
+		cost = 8
+		relative_position_id = FOP_the_communist_supremacy
+		x = 2
+		y = 1
+		ai_will_do = { factor = 25 }
+		prerequisite = {
+			focus = FOP_the_communist_supremacy
+		}
+		available = {
+			has_government = totalist
+		}
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_militarization_of_labour"
+			add_stability = -0.05
+			if = {
+				limit = { has_idea = FOP_militarized_labour_1_3 }
+				swap_ideas = {
+					remove_idea = FOP_militarized_labour_1_3
+					add_idea = FOP_militarized_labour_1_4
+				}
+			}
+			else_if = {
+				limit = { has_idea = FOP_totalist_footsoldiers_of_the_revolution }
+				swap_ideas = {
+					remove_idea = FOP_totalist_footsoldiers_of_the_revolution
+					add_idea = FOP_militarized_labour_1_1
+				}
+			}
+			else_if = {
+				limit = { has_idea = FOP_primitive_collectivization }
+				swap_ideas = {
+					remove_idea = FOP_primitive_collectivization
+					add_idea = FOP_militarized_labour_1_2
+				}
+			}
+			else = {
+				add_ideas = FOP_militarized_labour_1
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_submit_unions_to_state_machinery
+		icon = GFX_GBR_fate_of_unions
+		cost = 8
+		relative_position_id = FOP_militarization_of_labour
+		x = -1
+		y = 2
+		ai_will_do = { factor = 25 }
+		prerequisite = {
+			focus = FOP_militarization_of_labour
+		}
+		prerequisite = {
+			focus = FOP_begin_primitive_socialist_accumulation
+		}
+		prerequisite = {
+			focus = FOP_permanent_conscription_brigades
+		}
+		available = {
+			has_government = totalist
+		}
+		search_filters = { FOCUS_FILTER_PRODUCTION }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_submit_unions_to_state_machinery"
+			add_stability = -0.05
+			swap_ideas = {
+				remove_idea = FOP_militarized_labour_1_4
+				add_idea = FOP_militarized_labour_2
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_five_year_plan
+		icon = GFX_goal_economic_control
+		cost = 8
+		relative_position_id = FOP_begin_primitive_socialist_accumulation
+		x = 0
+		y = 1
+		ai_will_do = { factor = 25 }
+		prerequisite = {
+			focus = FOP_militarization_of_labour
+		}
+		prerequisite = {
+			focus = FOP_begin_primitive_socialist_accumulation
+		}
+		prerequisite = {
+			focus = FOP_permanent_conscription_brigades
+		}
+		available = {
+			has_government = totalist
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_five_year_plan"
+			add_timed_idea = {
+				idea = FOP_five_year_plan_idea
+				days = 1827
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_expand_the_bureacracy_to_the_north
+		icon = GFX_goal_agency
+		cost = 3
+		x = 0
+		y = 1
+		ai_will_do = { factor = 500 }
+		relative_position_id = FOP_the_revolution_successful
+
+		prerequisite = {
+			focus = FOP_the_revolution_successful
+		}
+		available = {
+			has_completed_focus = FOP_the_first_national_trade_union_congress
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_expand_the_bureacracy_to_the_north"
+			activate_targeted_decision = { target = THIS decision = FOP_integrating_the_north1 }
+			activate_targeted_decision = { target = THIS decision = FOP_integrating_the_north2 }
+			activate_targeted_decision = { target = THIS decision = FOP_integrating_the_north3 }
+			activate_targeted_decision = { target = THIS decision = FOP_integrating_the_north4 }
+			hidden_effect = {
+				activate_targeted_decision = { target = 902 decision = FOP_Integration_Large }
+				activate_targeted_decision = { target = 510 decision = FOP_Integration_Medium }
+				activate_targeted_decision = { target = 903 decision = FOP_Integration_Medium }
+				activate_targeted_decision = { target = 508 decision = FOP_Integration_Medium }
+				activate_targeted_decision = { target = 509 decision = FOP_Integration_Medium }
+				activate_targeted_decision = { target = 511 decision = FOP_Integration_Medium }
+				activate_targeted_decision = { target = 1028 decision = FOP_Integration_Small }
+				activate_targeted_decision = { target = 901 decision = FOP_Integration_Small }
+				activate_targeted_decision = { target = 1074 decision = FOP_Integration_Small }
+				activate_targeted_decision = { target = 579 decision = FOP_Integration_Small }
+				activate_targeted_decision = { target = 904 decision = FOP_Integration_Small }
+				activate_targeted_decision = { target = 449 decision = FOP_Integration_Small }
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_expropriate_the_haute_bourgeoise
+		icon = GFX_goal_syndicalist_industry
+		cost = 5
+		x = -2
+		y = 2
+		ai_will_do = { factor = 500 }
+		relative_position_id = FOP_expand_the_bureacracy_to_the_north
+
+		prerequisite = {
+			focus = FOP_expand_the_bureacracy_to_the_north
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_expropriate_the_haute_bourgeoise"
+			remove_ideas = FOP_foreign_owned_factories
+			custom_effect_tooltip = tooltip_white_line
+			add_timed_idea = { idea = FOP_expropriate_foreign_owned_factories days = 150 }
+			custom_effect_tooltip = tooltip_white_line
+			if = {
+				limit = {
+					GER = { exists = yes }
+				}
+				GER = { add_opinion_modifier = { target = ROOT modifier = KR_outraged } }
+			}
+			if = {
+				limit = {
+					CAN = { exists = yes }
+				}
+				CAN = { add_opinion_modifier = { target = ROOT modifier = KR_outraged } }
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_breadbasket_of_the_revolution
+		icon = GFX_goal_agricultural_aid
+		cost = 5
+		x = 0
+		y = 2
+		ai_will_do = { factor = 100 }
+		relative_position_id = FOP_expand_the_bureacracy_to_the_north
+
+		prerequisite = {
+			focus = FOP_expand_the_bureacracy_to_the_north
+		}
+		prerequisite = {
+			focus = FOP_formalize_laws
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_breadbasket_of_the_revolution"
+			add_ideas = FOP_breadbasket
+		}
+	}
+
+	focus = {
+		id = FOP_formalize_laws
+		icon = GFX_focus_generic_treaty
+		cost = 5
+		prerequisite = {
+			focus = FOP_expand_the_bureacracy_to_the_north
+		}
+
+		ai_will_do = { factor = 200 }
+		x = -1
+		y = 1
+		relative_position_id = FOP_expand_the_bureacracy_to_the_north
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_formalize_laws"
+			add_stability = 0.075
+			add_political_power = 150
+		}
+	}
+
+	focus = {
+		id = FOP_integrate_old_bureaucracy
+		icon = GFX_goal_DOM_The_Trial
+		cost = 5
+		prerequisite = {
+			focus = FOP_expand_the_bureacracy_to_the_north
+		}
+		ai_will_do = { factor = 200 }
+
+		available = {
+			has_completed_focus = FOP_formalize_laws
+		}
+
+		x = 1
+		y = 1
+		relative_position_id = FOP_expand_the_bureacracy_to_the_north
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_integrate_old_bureaucracy"
+			custom_effect_tooltip = FOP_integrate_old_bureaucracy_tooltip
+			add_stability = 0.075
+			add_political_power = 150
+		}
+	}
+
+	focus = {
+		id = FOP_create_the_CSE
+		icon = GFX_goal_NOR_secret_police
+		cost = 5
+		prerequisite = {
+			focus = FOP_expand_the_bureacracy_to_the_north
+		}
+		ai_will_do = { factor = 200 }
+		x = 2
+		y = 2
+		relative_position_id = FOP_expand_the_bureacracy_to_the_north
+		search_filters = { FOCUS_FILTER_RESISTANCE }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_create_the_CSE"
+			if = {
+				limit = { has_dlc_lar = yes }
+				if = {
+					limit = { has_intelligence_agency = no }
+					create_intelligence_agency = yes
+					add_ideas = FOP_intelligence_agency_idea_lar
+				}
+				else = {
+					add_ideas = FOP_intelligence_agency_idea_lar
+				}
+			}
+			else = {
+				add_ideas = FOP_intelligence_agency_idea_non_lar
+			}
+			hidden_effect = {
+				country_event = { id = fop.347 days = 500 }
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_resource_exploitation_scheme
+		icon = GFX_goal_generic_coal_mining
+		cost = 8
+		prerequisite = {
+			focus = FOP_expropriate_the_haute_bourgeoise
+		}
+		prerequisite = {
+			focus = FOP_create_the_CSE
+		}
+		x = -1
+		y = 1
+		relative_position_id = FOP_expropriate_the_haute_bourgeoise
+		ai_will_do = { factor = 20 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_resource_exploitation_scheme"
+			custom_effect_tooltip = ARG_deisions_grant_steel_tooltip
+			custom_effect_tooltip = tooltip_white_line
+			activate_targeted_decision = { target = THIS decision = ARG_Ancidar_preliminary_excavation_studies }
+			activate_targeted_decision = { target = THIS decision = ARG_Patagonia_preliminary_excavation_studies }
+			activate_targeted_decision = { target = THIS decision = ARG_Santiago_del_Estero_preliminary_excavation_studies }
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = ARG_deisions_grant_oil_tooltip
+			custom_effect_tooltip = tooltip_white_line
+			activate_targeted_decision = { target = 512 decision = ARG_YPF_expansion_dec }
+			activate_targeted_decision = { target = 512 decision = ARG_expand_local_infrastructure_tier1 }
+			activate_targeted_decision = { target = 1029 decision = ARG_YPF_expansion_dec }
+			activate_targeted_decision = { target = 1029 decision = ARG_expand_local_infrastructure_tier1 }
+			activate_targeted_decision = { target = 510 decision = ARG_YPF_expansion_limited_dec }
+			activate_targeted_decision = { target = 579 decision = ARG_YPF_expansion_limited_dec }
+		}
+	}
+
+	focus = {
+		id = FOP_education_reform
+		icon = GFX_goal_KTG_Bookstack
+		cost = 8
+		ai_will_do = { factor = 200 }
+		prerequisite = {
+			focus = FOP_expropriate_the_haute_bourgeoise
+		}
+		prerequisite = {
+			focus = FOP_formalize_laws
+		}
+		prerequisite = {
+			focus = FOP_integrate_old_bureaucracy
+		}
+		prerequisite = {
+			focus = FOP_create_the_CSE
+		}
+		x = 1
+		y = 1
+		relative_position_id = FOP_expropriate_the_haute_bourgeoise
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_education_reform"
+			add_research_slot_until_five = yes
+		}
+	}
+
+	focus = {
+		id = FOP_further_the_social_revolution
+		icon = GFX_goal_generic_workers_democracy
+		cost = 8
+		ai_will_do = { factor = 200 }
+		prerequisite = {
+			focus = FOP_expropriate_the_haute_bourgeoise
+		}
+		prerequisite = {
+			focus = FOP_formalize_laws
+		}
+		prerequisite = {
+			focus = FOP_integrate_old_bureaucracy
+		}
+		prerequisite = {
+			focus = FOP_create_the_CSE
+		}
+		x = 3
+		y = 1
+		relative_position_id = FOP_expropriate_the_haute_bourgeoise
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_further_the_social_revolution"
+			add_stability = 0.10
+			add_war_support = 0.10
+			add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = FOP_economic_aid_for_the_internationale
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		cost = 3
+		relative_position_id = FOP_create_the_CSE
+		x = 1
+		y = 1
+		ai_will_do = { factor = 100 }
+		prerequisite = {
+			focus = FOP_expropriate_the_haute_bourgeoise
+		}
+		prerequisite = {
+			focus = FOP_create_the_CSE
+		}
+		bypass = {
+			AND = {
+				NOT = {
+					FRA = {
+						exists = yes
+						has_socialist_government = yes
+					}
+					ENG = {
+						exists = yes
+						has_socialist_government = yes
+					}
+				}
+			}
+		}
+		available = {
+			NOT = { has_war_with = INT }
+			FRA = { has_war_with = GER }
+			ENG = { has_war_with = GER }
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_economic_aid_for_the_internationale"
+			custom_effect_tooltip = FOP_economic_aid_for_the_internationale_effect_1_tt
+			custom_effect_tooltip = tooltip_white_line
+			effect_tooltip = {
+				add_ideas = FOP_economic_support_1
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FOP_economic_aid_for_the_internationale_effect_2_tt
+			custom_effect_tooltip = tooltip_white_line
+			effect_tooltip = {
+				add_ideas = FOP_economic_support_4
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FOP_economic_aid_for_the_internationale_effect_3_tt
+			hidden_effect = {
+				country_event = fop.400
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_national_land_reform
+		icon = GFX_focus_AUS_agriculture
+		cost = 8
+		prerequisite = {
+			focus = FOP_education_reform
+			focus = FOP_further_the_social_revolution
+		}
+		x = 1
+		y = 1
+		relative_position_id = FOP_education_reform
+		ai_will_do = { factor = 10 }
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_national_land_reform"
+			custom_effect_tooltip = ARG_decisions_grant_state_slots_tooltip
+			custom_effect_tooltip = tooltip_white_line
+			activate_targeted_decision = { decision = ARG_expand_animal_husbandry_dec target = 278 }
+			activate_targeted_decision = { decision = ARG_expand_animal_husbandry_dec target = 902 }
+			activate_targeted_decision = { decision = ARG_expand_animal_husbandry_dec target = 510 }
+			activate_targeted_decision = { decision = ARG_expand_animal_husbandry_dec target = 511 }
+			activate_targeted_decision = { decision = ARG_expand_animal_husbandry_dec target = 449 }
+			activate_targeted_decision = { decision = ARG_expand_animal_husbandry_dec target = 579 }
+			activate_targeted_decision = { decision = ARG_expand_animal_husbandry_dec target = 901 }
+			activate_targeted_decision = { decision = ARG_expand_animal_husbandry_dec target = 903 }
+			activate_targeted_decision = { decision = ARG_expand_animal_husbandry_dec target = 904 }
+			activate_targeted_decision = { decision = ARG_expand_animal_husbandry_dec target = 509 }
+		}
+	}
+
+	focus = {
+		id = FOP_rural_development
+		icon = GFX_goal_generic_railroad
+		cost = 3
+		prerequisite = {
+			focus = FOP_education_reform
+			focus = FOP_further_the_social_revolution
+		}
+		x = -1
+		y = 1
+		relative_position_id = FOP_education_reform
+		ai_will_do = { factor = 500 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_rural_development"
+			custom_effect_tooltip = ARG_deisions_grant_railways_tooltip
+			custom_effect_tooltip = tooltip_white_line
+			activate_targeted_decision = { target = THIS decision = FOP_nationalize_british_rails }
+			activate_targeted_decision = { target = THIS decision = FOP_nationalize_german_rails }
+			activate_targeted_decision = { target = THIS decision = ARG_La_Mesopotamia_Rail }
+			activate_targeted_decision = { target = THIS decision = ARG_Neuquen_Rail }
+			activate_targeted_decision = { target = THIS decision = ARG_jujuy_Rail }
+			activate_targeted_decision = { target = THIS decision = ARG_Mendoza_Rail }
+			custom_effect_tooltip = tooltip_white_line
+			build_railway = {
+				level = 1
+				start_province = 1639
+				target_province = 10953
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_urban_development
+		icon = GFX_goal_workers_for_business
+		cost = 3
+		prerequisite = {
+			focus = FOP_further_the_social_revolution
+			focus = FOP_education_reform
+		}
+		x = 1
+		y = 1
+		relative_position_id = FOP_further_the_social_revolution
+		ai_will_do = { factor = 500 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_urban_development"
+			custom_effect_tooltip = FOP_factories_tooltip
+			custom_effect_tooltip = tooltip_white_line
+			activate_targeted_decision = { target = 278 decision = FOP_civs_for_state }
+			activate_targeted_decision = { target = 511 decision = FOP_civs_for_state }
+			activate_targeted_decision = { target = 510 decision = FOP_civs_for_state }
+			activate_targeted_decision = { target = 902 decision = FOP_civs_for_state }
+		}
+	}
+
+	focus = {
+		id = FOP_moderate_anarchist_development_scheme
+		icon = GFX_goal_agrarian_socialism
+		cost = 2
+		prerequisite = {
+			focus = FOP_rural_development
+		}
+		mutually_exclusive = {
+			focus = FOP_radical_anarchist_development_scheme
+			focus = FOP_socialist_development_scheme
+			focus = FOP_communist_development_scheme
+		}
+		available = {
+			has_government = syndicalist
+			FOP_soto_leads_USA = yes
+		}
+		x = -1
+		y = 1
+		relative_position_id = FOP_rural_development
+		ai_will_do = { factor = 1000 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_moderate_anarchist_development_scheme"
+			custom_effect_tooltip = FOP_moderate_anarchist_industrialisation_tt
+			FOP_initialize_development_scheme_decisions = yes
+		}
+	}
+
+	focus = {
+		id = FOP_radical_anarchist_development_scheme
+		icon = GFX_goal_ideology_syndicalist
+		cost = 2
+		prerequisite = {
+			focus = FOP_rural_development
+		}
+		mutually_exclusive = {
+			focus = FOP_moderate_anarchist_development_scheme
+			focus = FOP_socialist_development_scheme
+			focus = FOP_communist_development_scheme
+		}
+		available = {
+			has_government = syndicalist
+			FOP_di_giovanni_leads_USA = yes
+		}
+		x = 1
+		y = 1
+		relative_position_id = FOP_rural_development
+		ai_will_do = { factor = 1000 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_radical_anarchist_development_scheme"
+			custom_effect_tooltip = FOP_radical_anarchist_industrialisation_tt
+			FOP_initialize_development_scheme_decisions = yes
+		}
+	}
+
+	focus = {
+		id = FOP_socialist_development_scheme
+		icon = GFX_ARG_argentina_flag
+		cost = 2
+		prerequisite = {
+			focus = FOP_urban_development
+		}
+		mutually_exclusive = {
+			focus = FOP_moderate_anarchist_development_scheme
+			focus = FOP_radical_anarchist_development_scheme
+			focus = FOP_communist_development_scheme
+		}
+		available = {
+			OR = {
+				has_government = radical_socialist
+				has_democratic_government = yes
+			}
+		}
+		x = -1
+		y = 1
+		relative_position_id = FOP_urban_development
+		ai_will_do = { factor = 1000 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_socialist_development_scheme"
+			custom_effect_tooltip = FOP_socialist_industrialisation_tt
+			FOP_initialize_development_scheme_decisions = yes
+		}
+	}
+
+	focus = {
+		id = FOP_communist_development_scheme
+		icon = GFX_goal_support_communism
+		cost = 2
+		prerequisite = {
+			focus = FOP_urban_development
+		}
+		mutually_exclusive = {
+			focus = FOP_moderate_anarchist_development_scheme
+			focus = FOP_radical_anarchist_development_scheme
+			focus = FOP_socialist_development_scheme
+		}
+		available = {
+			has_government = totalist
+		}
+		x = 1
+		y = 1
+		relative_position_id = FOP_urban_development
+		ai_will_do = { factor = 1000 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_communist_development_scheme"
+			custom_effect_tooltip = FOP_communist_industrialisation_tt
+			FOP_initialize_development_scheme_decisions = yes
+		}
+	}
+##############
+# Army tree
+##############
+	focus = {
+		id = FOP_the_revolutionary_army
+		icon = GFX_goal_FOP_focus_army
+		cost = 5
+		prerequisite = {
+			focus = FOP_the_revolution_successful
+		}
+		x = 9
+		y = 1
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 25
+				OR = {
+					has_completed_focus = FOP_moderate_anarchist_development_scheme
+					has_completed_focus = FOP_radical_anarchist_development_scheme
+					has_completed_focus = FOP_socialist_development_scheme
+					has_completed_focus = FOP_communist_development_scheme
+				}
+			}
+		}
+		relative_position_id = FOP_the_revolution_successful
+		available = {
+			has_completed_focus = FOP_the_first_national_trade_union_congress
+		}
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_the_revolutionary_army"
+			army_experience = 30
+		}
+	}
+
+	focus = {
+		id = FOP_keep_the_militias
+		icon = GFX_goal_integrate_the_militia
+		cost = 5
+		ai_will_do = {
+			factor = 25
+			modifier = {
+				factor = 0.1
+				has_government = totalist
+			}
+		}
+		prerequisite = {
+			focus = FOP_the_revolutionary_army
+		}
+		mutually_exclusive = {
+			focus = FOP_a_red_army
+		}
+		x = -2
+		y = 1
+		relative_position_id = FOP_the_revolutionary_army
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_keep_the_militias"
+			add_doctrine_cost_reduction = {
+				name = FOP_keep_the_militias
+				cost_reduction = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_focus_on_decentralization
+		icon = GFX_goal_checkmate
+		cost = 5
+		ai_will_do = { factor = 10 }
+		prerequisite = {
+			focus = FOP_keep_the_militias
+		}
+		x = -1
+		y = 1
+		relative_position_id = FOP_keep_the_militias
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_focus_on_decentralization"
+			add_ideas = FOP_decentralized_military_idea
+		}
+	}
+	focus = {
+		id = FOP_command_structure_reorganization
+		icon = GFX_goal_generic_army_command_power
+		cost = 5
+		ai_will_do = { factor = 10 }
+		prerequisite = {
+			focus = FOP_focus_on_decentralization
+		}
+		x = 0
+		y = 1
+		relative_position_id = FOP_focus_on_decentralization
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_command_structure_reorganization"
+			swap_ideas = {
+				remove_idea = FOP_decentralized_military_idea
+				add_idea = FOP_decentralized_military_idea2
+			}
+		}
+	}
+	focus = {
+		id = FOP_a_rifle_for_every_man
+		icon = GFX_focus_generic_military_equipment
+		cost = 5
+		ai_will_do = { factor = 10 }
+		prerequisite = {
+			focus = FOP_command_structure_reorganization
+		}
+		x = 0
+		y = 1
+		relative_position_id = FOP_command_structure_reorganization
+		search_filters = { FOCUS_FILTER_PRODUCTION }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_a_rifle_for_every_man"
+			swap_ideas = {
+				remove_idea = FOP_decentralized_military_idea2
+				add_idea = FOP_decentralized_military_idea3
+			}
+		}
+	}
+	focus = {
+		id = FOP_a_red_army
+		icon = GFX_goal_reform_socialist_army
+		cost = 5
+		ai_will_do = {
+			factor = 25
+			modifier = {
+				factor = 0.1
+				NOT = { has_government = totalist }
+			}
+		}
+		prerequisite = {
+			focus = FOP_the_revolutionary_army
+		}
+		mutually_exclusive = {
+			focus = FOP_keep_the_militias
+		}
+		x = 2
+		y = 1
+		relative_position_id = FOP_the_revolutionary_army
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_a_red_army"
+			add_doctrine_cost_reduction = {
+				name = FOP_a_red_army
+				cost_reduction = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+	focus = {
+		id = FOP_socialist_military_industry
+		icon = GFX_goal_factory_complex
+		cost = 5
+		ai_will_do = { factor = 25 }
+		prerequisite = {
+			focus = FOP_keep_the_militias
+			focus = FOP_a_red_army
+		}
+		x = 1
+		y = 2
+		relative_position_id = FOP_the_revolutionary_army
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_socialist_military_industry"
+			custom_effect_tooltip = ARG_will_unlock_more_arms_factories_tooltip
+			custom_effect_tooltip = tooltip_white_line
+			activate_targeted_decision = { target = 278 decision = ARG_arms_industry_investments }
+			activate_targeted_decision = { target = 510 decision = ARG_arms_industry_investments }
+			activate_targeted_decision = { target = 902 decision = ARG_arms_industry_investments }
+			activate_targeted_decision = { target = 511 decision = ARG_arms_industry_investments }
+		}
+	}
+	focus = {
+		id = FOP_establish_a_new_hierarchy
+		icon = GFX_focus_generic_military_mission
+		cost = 5
+		ai_will_do = { factor = 10 }
+		prerequisite = {
+			focus = FOP_a_red_army
+		}
+		x = 1
+		y = 1
+		relative_position_id = FOP_a_red_army
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_establish_a_new_hierarchy"
+			add_ideas = FOP_new_hierarchy
+		}
+	}
+	focus = {
+		id = FOP_an_army_of_professionals
+		icon = GFX_goal_generic_drafted_army
+		cost = 5
+		ai_will_do = { factor = 10 }
+		prerequisite = {
+			focus = FOP_establish_a_new_hierarchy
+		}
+		x = 0
+		y = 1
+		relative_position_id = FOP_establish_a_new_hierarchy
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_an_army_of_professionals"
+			swap_ideas = {
+				remove_idea = FOP_new_hierarchy
+				add_idea = FOP_new_hierarchy2
+			}
+		}
+	}
+	focus = {
+		id = FOP_no_quarter_for_counter_revolutionaries
+		icon = GFX_focus_generic_ban_right_wing
+		cost = 5
+		ai_will_do = { factor = 10 }
+		prerequisite = {
+			focus = FOP_an_army_of_professionals
+		}
+		x = 0
+		y = 1
+		relative_position_id = FOP_an_army_of_professionals
+		search_filters = { FOCUS_FILTER_RESISTANCE }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_no_quarter_for_counter_revolutionaries"
+			swap_ideas = {
+				remove_idea = FOP_new_hierarchy2
+				add_idea = FOP_new_hierarchy3
+			}
+		}
+	}
+	focus = {
+		id = FOP_colegio_militar_de_la_revolucion
+		icon = GFX_focus_generic_military_academy
+		cost = 5
+		ai_will_do = { factor = 10 }
+		prerequisite = {
+			focus = FOP_socialist_military_industry
+		}
+		x = 0
+		y = 1
+		relative_position_id = FOP_socialist_military_industry
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_colegio_militar_de_la_revolucion"
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = available_political_advisor
+			ARG = {
+				show_ideas_tooltip = ARG_manuel_savio
+				show_ideas_tooltip = ARG_enrique_mosconi_political_advisor
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = available_chief_of_army
+			ARG = {
+				show_ideas_tooltip = ARG_juan_pistarini
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = available_military_high_command
+			ARG = {
+				show_ideas_tooltip = ARG_enrique_mosconi_hc
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = available_theorist
+			ARG = {
+				show_ideas_tooltip = ARG_humberto_sosa_molina
+			}
+			hidden_effect = {
+				ARG = {
+					ARG_juan_pistarini = { set_nationality = ROOT }
+					ARG_humberto_sosa_molina = { set_nationality = ROOT }
+					ARG_manuel_savio = { set_nationality = ROOT }
+					ARG_enrique_mosconi = { set_nationality = ROOT }
+				}
+			}
+		}
+	}
+	focus = {
+		id = FOP_militarization_of_electronics
+		icon = GFX_goal_electronics
+		cost = 5
+		ai_will_do = { factor = 10 }
+		prerequisite = {
+			focus = FOP_colegio_militar_de_la_revolucion
+		}
+		x = 0
+		y = 1
+		relative_position_id = FOP_colegio_militar_de_la_revolucion
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_militarization_of_electronics"
+			add_tech_bonus = {
+				name = FOP_militarization_of_electronics
+				bonus = 0.75
+				uses = 2
+				category = electronics
+			}
+		}
+	}
+	focus = {
+		id = FOP_copy_foreign_models
+		icon = GFX_goal_generic_support_equipment
+		cost = 5
+		ai_will_do = { factor = 10 }
+		prerequisite = {
+			focus = FOP_keep_the_militias
+			focus = FOP_a_red_army
+		}
+		x = 1
+		y = 1
+		relative_position_id = FOP_keep_the_militias
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_copy_foreign_models"
+			add_tech_bonus = {
+				name = FOP_copy_foreign_models
+				bonus = 0.75
+				uses = 1
+				category = infantry_weapons
+			}
+			add_tech_bonus = {
+				name = FOP_copy_foreign_models
+				bonus = 0.75
+				uses = 1
+				category = support_tech
+			}
+		}
+	}
+	focus = {
+		id = FOP_no_forts_left_standing
+		icon = GFX_goal_national_artillery
+		cost = 5
+		ai_will_do = { factor = 10 }
+		prerequisite = {
+			focus = FOP_copy_foreign_models
+		}
+		x = 0
+		y = 1
+		relative_position_id = FOP_copy_foreign_models
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_no_forts_left_standing"
+			add_tech_bonus = {
+				name = FOP_no_forts_left_standing
+				bonus = 0.75
+				uses = 1
+				category = artillery
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = anti_fortification_artillery_effect
+			hidden_effect = {
+				set_technology = { anti_fortification_artillery = 1 popup = no }
+			}
+		}
+	}
+	focus = {
+		id = FOP_international_armour_specialists
+		icon = GFX_goal_generic_heavy_armour_french
+		cost = 5
+		prerequisite = {
+			focus = FOP_no_forts_left_standing
+		}
+		x = 0
+		y = 1
+		relative_position_id = FOP_no_forts_left_standing
+		available = {
+			INT = { exists = yes }
+			NOT = { has_war_with = INT }
+		}
+		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_international_armour_specialists"
+			add_tech_bonus = {
+				name = FOP_international_armour_specialists
+				bonus = 0.75
+				uses = 2
+				category = armor
+			}
+		}
+	}
+	focus = {
+		id = FOP_citera
+		icon = GFX_goal_military_research
+		cost = 8
+		ai_will_do = { factor = 10 }
+		prerequisite = {
+			focus = FOP_a_rifle_for_every_man
+			focus = FOP_no_quarter_for_counter_revolutionaries
+		}
+		prerequisite = {
+			focus = FOP_militarization_of_electronics
+			focus = FOP_international_armour_specialists
+		}
+		x = 1
+		y = 1
+		relative_position_id = FOP_international_armour_specialists
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_citera"
+			add_research_slot_until_five = yes
+		}
+	}
+
+	focus = {
+		id = FOP_defensive_measures
+		icon = GFX_goal_construction
+		cost = 5
+		prerequisite = {
+			focus = FOP_international_armour_specialists
+			focus = FOP_militarization_of_electronics
+		}
+		prerequisite = {
+			focus = FOP_a_rifle_for_every_man
+			focus = FOP_no_quarter_for_counter_revolutionaries
+		}
+		available = {
+			OR = {
+				has_idea = FOP_decentralized_military_idea3
+				has_idea = FOP_new_hierarchy3
+				hidden_trigger = { has_idea = FOP_decentralized_military_idea4 }
+				hidden_trigger = { has_idea = FOP_new_hierarchy4 }
+			}
+		}
+		x = 1
+		y = 1
+		relative_position_id = FOP_no_quarter_for_counter_revolutionaries
+		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_defensive_measures"
+			if = {
+				limit = { has_idea = FOP_decentralized_military_idea3 }
+				swap_ideas = {
+					remove_idea = FOP_decentralized_military_idea3
+					add_idea = FOP_decentralized_military_idea5
+				}
+			}
+			else_if = {
+				limit = { has_idea = FOP_new_hierarchy3 }
+				swap_ideas = {
+					remove_idea = FOP_new_hierarchy3
+					add_idea = FOP_new_hierarchy5
+				}
+			}
+			else_if = {
+				limit = { has_idea = FOP_decentralized_military_idea4 }
+				swap_ideas = {
+					remove_idea = FOP_decentralized_military_idea4
+					add_idea = FOP_decentralized_military_idea6
+				}
+			}
+			else_if = {
+				limit = { has_idea = FOP_new_hierarchy4 }
+				swap_ideas = {
+					remove_idea = FOP_new_hierarchy4
+					add_idea = FOP_new_hierarchy6
+				}
+			}
+			else = {
+				custom_effect_tooltip = FOP_apply_one_of_the_effects
+				effect_tooltip = {
+					swap_ideas = {
+						remove_idea = FOP_new_hierarchy4
+						add_idea = FOP_new_hierarchy6
+					}
+				}
+				effect_tooltip = {
+					swap_ideas = {
+						remove_idea = FOP_decentralized_military_idea4
+						add_idea = FOP_decentralized_military_idea6
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_knowledge_transfer_to_a_new_generation
+		icon = GFX_goal_generic_socialist_army
+		cost = 5
+		prerequisite = {
+			focus = FOP_international_armour_specialists
+			focus = FOP_militarization_of_electronics
+		}
+		prerequisite = {
+			focus = FOP_a_rifle_for_every_man
+			focus = FOP_no_quarter_for_counter_revolutionaries
+		}
+		available = {
+			OR = {
+				has_idea = FOP_decentralized_military_idea3
+				has_idea = FOP_new_hierarchy3
+				hidden_trigger = { has_idea = FOP_decentralized_military_idea5 }
+				hidden_trigger = { has_idea = FOP_new_hierarchy5 }
+			}
+		}
+		x = -1
+		y = 1
+		relative_position_id = FOP_a_rifle_for_every_man
+		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_knowledge_transfer_to_a_new_generation"
+			if = {
+				limit = { has_idea = FOP_decentralized_military_idea3 }
+				swap_ideas = {
+					remove_idea = FOP_decentralized_military_idea3
+					add_idea = FOP_decentralized_military_idea4
+				}
+			}
+			else_if = {
+				limit = { has_idea = FOP_decentralized_military_idea5 }
+				swap_ideas = {
+					remove_idea = FOP_decentralized_military_idea5
+					add_idea = FOP_decentralized_military_idea6
+				}
+			}
+			else_if = {
+				limit = { has_idea = FOP_new_hierarchy3 }
+				swap_ideas = {
+					remove_idea = FOP_new_hierarchy3
+					add_idea = FOP_new_hierarchy4
+				}
+			}
+			else_if = {
+				limit = { has_idea = FOP_new_hierarchy5 }
+				swap_ideas = {
+					remove_idea = FOP_new_hierarchy5
+					add_idea = FOP_new_hierarchy6
+				}
+			}
+			else = {
+				custom_effect_tooltip = FOP_apply_one_of_the_effects
+				effect_tooltip = {
+					swap_ideas = {
+						remove_idea = FOP_new_hierarchy5
+						add_idea = FOP_new_hierarchy6
+					}
+				}
+				effect_tooltip = {
+					swap_ideas = {
+						remove_idea = FOP_decentralized_military_idea5
+						add_idea = FOP_decentralized_military_idea6
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = FOP_expand_the_vanguard
+		icon = GFX_goal_SOV_army
+		cost = 5
+		prerequisite = {
+			focus = FOP_citera
+		}
+		x = 0
+		y = 1
+		relative_position_id = FOP_citera
+		available = {
+			has_completed_focus = FOP_knowledge_transfer_to_a_new_generation
+			has_completed_focus = FOP_defensive_measures
+		}
+		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_expand_the_vanguard"
+			if = {
+				limit = { has_idea = FOP_new_hierarchy6 }
+				swap_ideas = {
+					remove_idea = FOP_new_hierarchy6
+					add_idea = FOP_new_hierarchy7
+				}
+			}
+			else_if = {
+				limit = { has_idea = FOP_decentralized_military_idea6 }
+				swap_ideas = {
+					remove_idea = FOP_decentralized_military_idea6
+					add_idea = FOP_decentralized_military_idea7
+				}
+			}
+			else = {
+				custom_effect_tooltip = FOP_apply_one_of_the_effects
+				effect_tooltip = {
+					swap_ideas = {
+						remove_idea = FOP_new_hierarchy6
+						add_idea = FOP_new_hierarchy7
+					}
+				}
+				effect_tooltip = {
+					swap_ideas = {
+						remove_idea = FOP_decentralized_military_idea6
+						add_idea = FOP_decentralized_military_idea7
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = FOP_protecting_the_andes
+		icon = GFX_goal_generic_mountain_warfare2
+		cost = 5
+		ai_will_do = { factor = 10 }
+		prerequisite = {
+			focus = FOP_citera
+		}
+		x = -2
+		y = 1
+		relative_position_id = FOP_citera
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_protecting_the_andes"
+			add_tech_bonus = {
+				name = FOP_protecting_the_andes
+				bonus = 0.75
+				uses = 1
+				category = mountaineers_tech
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = mountain_training_tech_effect
+			hidden_effect = {
+				set_technology = { mountain_training_tech = 1 popup = no }
+			}
+		}
+	}
+	focus = {
+		id = FOP_crossing_the_rivers
+		icon = GFX_goal_generic_marines2
+		cost = 5
+		ai_will_do = { factor = 10 }
+		prerequisite = {
+			focus = FOP_citera
+		}
+		x = 2
+		y = 1
+		relative_position_id = FOP_citera
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_crossing_the_rivers"
+			add_tech_bonus = {
+				name = FOP_crossing_the_rivers
+				bonus = 0.75
+				uses = 1
+				category = marine_tech
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = jungle_warfare_effect
+			hidden_effect = {
+				set_technology = { jungle_warfare = 1 popup = no }
+			}
+		}
+	}
+##############
+# Navy tree
+##############
+	focus = {
+		id = FOP_armada_de_los_pueblos
+		icon = GFX_goal_FOP_focus_navy
+		cost = 5
+		prerequisite = {
+			focus = FOP_the_revolution_successful
+		}
+		x = 16
+		y = 1
+		relative_position_id = FOP_the_revolution_successful
+		ai_will_do = { factor = 1 }
+		available = {
+			has_completed_focus = FOP_the_first_national_trade_union_congress
+		}
+		search_filters = { FOCUS_FILTER_NAVY_XP }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_armada_de_los_pueblos"
+			navy_experience = 30
+		}
+	}
+	focus = {
+		id = FOP_esquela_naval_militar
+		icon = GFX_goal_generic_naval_command
+		cost = 5
+		prerequisite = {
+			focus = FOP_armada_de_los_pueblos
+		}
+		x = -1
+		y = 1
+		relative_position_id = FOP_armada_de_los_pueblos
+		ai_will_do = { factor = 1 }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_NAVY_BONUS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_esquela_naval_militar"
+			add_doctrine_cost_reduction = {
+				name = naval_doctrine
+				cost_reduction = 0.5
+				uses = 2
+				category = naval_doctrine
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = available_political_advisor
+			ARG = {
+				show_ideas_tooltip = ARG_segundo_storni
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = available_chief_of_navy
+			ARG = {
+				show_ideas_tooltip = ARG_eleazar_videla
+				show_ideas_tooltip = ARG_alberto_teisaire
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = available_military_high_command
+			ARG = {
+				show_ideas_tooltip = ARG_isaac_francisco_rojas_high_command
+				show_ideas_tooltip = ARG_carlos_daireaux
+				show_ideas_tooltip = ARG_hector_vernengo_lima
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = available_theorist
+			ARG = {
+				show_ideas_tooltip = ARG_isaac_francisco_rojas_theorist
+			}
+			hidden_effect = {
+				ARG = {
+					ARG_eleazar_videla = { set_nationality = ROOT }
+					ARG_isaac_francisco_rojas = { set_nationality = ROOT }
+					ARG_alberto_teisaire = { set_nationality = ROOT }
+					ARG_carlos_daireaux = { set_nationality = ROOT }
+					ARG_hector_vernengo_lima = { set_nationality = ROOT }
+					ARG_segundo_storni = { set_nationality = ROOT }
+				}
+			}
+		}
+	}
+	focus = {
+		id = FOP_rapid_coastal_guard_expansion
+		icon = GFX_goal_navy_decision
+		cost = 5
+		ai_will_do = { factor = 1 }
+		prerequisite = {
+			focus = FOP_esquela_naval_militar
+			focus = FOP_argentinian_navy_schematics
+		}
+		x = -1
+		y = 1
+		relative_position_id = FOP_esquela_naval_militar
+		search_filters = { FOCUS_FILTER_NAVY_BONUS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_rapid_coastal_guard_expansion"
+			add_ideas = FOP_coast_guard_expansion_idea
+		}
+	}
+	focus = {
+		id = FOP_argentinian_navy_schematics
+		icon = GFX_goal_generic_design_equipment_standards
+		cost = 5
+		ai_will_do = { factor = 1 }
+		prerequisite = {
+			focus = FOP_armada_de_los_pueblos
+		}
+		x = 1
+		y = 1
+		relative_position_id = FOP_armada_de_los_pueblos
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_argentinian_navy_schematics"
+			hidden_effect = {
+				ARG_start_naval_variant = yes
+			}
+			if = {
+				limit = { has_dlc_mtg = yes }
+				if = {
+					limit = { NOT = { has_tech = early_ship_hull_cruiser } }
+					set_technology = {
+						early_ship_hull_cruiser = 1
+						basic_ship_hull_cruiser = 1
+					}
+				}
+				else_if = {
+					limit = { NOT = { has_tech = basic_ship_hull_cruiser } }
+					set_technology = { basic_ship_hull_cruiser = 1 }
+				}
+				else = {
+					add_tech_bonus = {
+						name = FOP_argentinian_navy_schematics
+						bonus = 0.75
+						uses = 1
+						category = cl_tech
+					}
+				}
+				if = {
+					limit = { NOT = { has_tech = early_ship_hull_light } }
+					set_technology = {
+						early_ship_hull_light = 1
+						basic_ship_hull_light = 1
+					}
+				}
+				else_if = {
+					limit = { NOT = { has_tech = basic_ship_hull_light } }
+					set_technology = { basic_ship_hull_light = 1 }
+				}
+				else = {
+					add_tech_bonus = {
+						name = FOP_argentinian_navy_schematics
+						bonus = 0.75
+						uses = 1
+						category = dd_tech
+					}
+				}
+				if = {
+					limit = { NOT = { has_tech = early_ship_hull_submarine } }
+					set_technology = {
+						early_ship_hull_submarine = 1
+						basic_ship_hull_submarine = 1
+					}
+				}
+				else_if = {
+					limit = { NOT = { has_tech = basic_ship_hull_submarine } }
+					set_technology = { basic_ship_hull_submarine = 1 }
+				}
+				else = {
+					add_tech_bonus = {
+						name = FOP_argentinian_navy_schematics
+						bonus = 0.75
+						uses = 1
+						category = ss_tech
+					}
+				}
+				if = {
+					limit = { NOT = { has_tech = early_ship_hull_heavy } }
+					set_technology = { early_ship_hull_heavy = 1 }
+				}
+				else = {
+					add_tech_bonus = {
+						name = FOP_argentinian_navy_schematics
+						bonus = 0.75
+						uses = 1
+						category = bb_tech
+					}
+				}
+				custom_effect_tooltip = tooltip_white_line
+				set_technology = {
+					## Modules##
+					basic_light_battery = 1
+					basic_battery = 1
+					basic_depth_charges = 1
+					basic_torpedo = 1
+					basic_naval_mines = 1
+				}
+			}
+			else = {
+				if = {
+					limit = { NOT = { has_tech = early_light_cruiser } }
+					set_technology = {
+						early_light_cruiser = 1
+						basic_light_cruiser = 1
+					}
+				}
+				else_if = {
+					limit = { NOT = { has_tech = basic_light_cruiser } }
+					set_technology = { basic_light_cruiser = 1 }
+				}
+				else = {
+					add_tech_bonus = {
+						name = FOP_argentinian_navy_schematics
+						bonus = 1
+						uses = 1
+						category = cl_tech
+					}
+				}
+				if = {
+					limit = { NOT = { has_tech = early_destroyer } }
+					set_technology = {
+						early_destroyer = 1
+						basic_destroyer = 1
+					}
+				}
+				else_if = {
+					limit = { NOT = { has_tech = basic_destroyer } }
+					set_technology = { basic_destroyer = 1 }
+				}
+				else = {
+					add_tech_bonus = {
+						name = FOP_argentinian_navy_schematics
+						bonus = 1
+						uses = 1
+						category = dd_tech
+					}
+				}
+				if = {
+					limit = { NOT = { has_tech = early_submarine } }
+					set_technology = {
+						early_submarine = 1
+						basic_submarine = 1
+					}
+				}
+				else_if = {
+					limit = { NOT = { has_tech = basic_submarine } }
+					set_technology = { basic_submarine = 1 }
+				}
+				else = {
+					add_tech_bonus = {
+						name = FOP_argentinian_navy_schematics
+						bonus = 1
+						uses = 1
+						category = ss_tech
+					}
+				}
+				if = {
+					limit = { NOT = { has_tech = early_battleship } }
+					set_technology = { early_battleship = 1 }
+				}
+				else = {
+					add_tech_bonus = {
+						name = FOP_argentinian_navy_schematics
+						bonus = 0.75
+						uses = 1
+						category = bb_tech
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = FOP_revive_astarsa
+		icon = GFX_goal_generic_naval_fleet_in_being
+		cost = 5
+		prerequisite = {
+			focus = FOP_esquela_naval_militar
+			focus = FOP_argentinian_navy_schematics
+		}
+		x = 0
+		y = 2
+		relative_position_id = FOP_armada_de_los_pueblos
+		ai_will_do = { factor = 1 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_revive_astarsa"
+			custom_effect_tooltip = ARG_will_unlock_more_dockyards_tooltip
+			custom_effect_tooltip = tooltip_white_line
+			activate_targeted_decision = { target = 278 decision = ARG_dockyards_dec }
+			activate_targeted_decision = { target = 510 decision = ARG_dockyards_dec }
+		}
+	}
+	focus = {
+		id = FOP_british_naval_assistance
+		icon = GFX_goal_uobritain
+		cost = 5
+		prerequisite = {
+			focus = FOP_esquela_naval_militar
+			focus = FOP_argentinian_navy_schematics
+		}
+		x = 1
+		y = 1
+		relative_position_id = FOP_argentinian_navy_schematics
+		available = {
+			ENG = { exists = yes }
+			NOT = { has_war_with = ENG }
+		}
+		bypass_if_unavailable = yes
+		ai_will_do = { factor = 1 }
+		bypass = {
+			ENG = {
+				OR = {
+					exists = no
+					has_socialist_government = no
+				}
+			}
+			has_socialist_government = no
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_british_naval_assistance"
+			add_tech_bonus = {
+				name = FOP_british_naval_assistance
+				bonus = 0.75
+				uses = 3
+				category = ship_modules_tech
+			}
+		}
+	}
+	focus = {
+		id = FOP_the_second_dreadnought_race
+		icon = GFX_focus_generic_navy_battleship3alt
+		cost = 5
+		prerequisite = {
+			focus = FOP_revive_astarsa
+			focus = FOP_british_naval_assistance
+		}
+		prerequisite = {
+			focus = FOP_rapid_coastal_guard_expansion
+		}
+		x = 0
+		y = 2
+		relative_position_id = FOP_argentinian_navy_schematics
+		ai_will_do = { factor = 1 }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_PRODUCTION }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_the_second_dreadnought_race"
+			add_tech_bonus = {
+				name = FOP_the_second_dreadnought_race
+				bonus = 0.75
+				uses = 2
+				category = bb_tech
+			}
+			custom_effect_tooltip = tooltip_white_line
+			if = {
+				limit = { has_idea = FOP_coast_guard_expansion_idea2 }
+				swap_ideas = {
+					remove_idea = FOP_coast_guard_expansion_idea2
+					add_idea = FOP_coast_guard_expansion_idea4
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = FOP_coast_guard_expansion_idea
+					add_idea = FOP_coast_guard_expansion_idea3
+				}
+			}
+		}
+	}
+	focus = {
+		id = FOP_cut_the_arteries_of_capitalism
+		icon = GFX_goal_generic_navy_submarine
+		cost = 5
+		prerequisite = {
+			focus = FOP_revive_astarsa
+			focus = FOP_british_naval_assistance
+		}
+		prerequisite = {
+			focus = FOP_rapid_coastal_guard_expansion
+		}
+		x = 0
+		y = 2
+		relative_position_id = FOP_esquela_naval_militar
+		ai_will_do = { factor = 1 }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_PRODUCTION }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_cut_the_arteries_of_capitalism"
+			add_tech_bonus = {
+				name = FOP_cut_the_arteries_of_capitalism
+				bonus = 0.75
+				uses = 2
+				category = ss_tech
+			}
+			custom_effect_tooltip = tooltip_white_line
+			if = {
+				limit = { has_idea = FOP_coast_guard_expansion_idea3 }
+				swap_ideas = {
+					remove_idea = FOP_coast_guard_expansion_idea3
+					add_idea = FOP_coast_guard_expansion_idea4
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = FOP_coast_guard_expansion_idea
+					add_idea = FOP_coast_guard_expansion_idea2
+				}
+			}
+		}
+	}
+	focus = {
+		id = FOP_coastal_defences
+		icon = GFX_focus_generic_coastal_fort
+		cost = 5
+		prerequisite = {
+			focus = FOP_cut_the_arteries_of_capitalism
+			focus = FOP_the_second_dreadnought_race
+		}
+		x = 1
+		y = 1
+		relative_position_id = FOP_cut_the_arteries_of_capitalism
+
+		ai_will_do = { factor = 1 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_coastal_defences"
+			custom_effect_tooltip = ARG_coastal_fortifications_tooltip
+			hidden_effect = {
+				every_owned_state = {
+					limit = {
+						is_controlled_by = ROOT
+						is_core_of = ROOT
+						is_coastal = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						province = {
+							all_provinces = yes
+							limit_to_naval_base = yes
+						}
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						province = {
+							all_provinces = yes
+							limit_to_naval_base = yes
+						}
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+##############
+# Air tree
+##############
+	focus = {
+		id = FOP_fuerza_aerea_de_la_comuna_argentina
+		icon = GFX_goal_FOP_focus_air
+		cost = 5
+		prerequisite = {
+			focus = FOP_the_revolution_successful
+		}
+		x = 20
+		y = 1
+		relative_position_id = FOP_the_revolution_successful
+		ai_will_do = { factor = 1 }
+		available = {
+			has_completed_focus = FOP_the_first_national_trade_union_congress
+		}
+		search_filters = { FOCUS_FILTER_AIR_XP }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_fuerza_aerea_de_la_comuna_argentina"
+			air_experience = 30
+		}
+	}
+	focus = {
+		id = FOP_an_army_extension
+		icon = GFX_goal_generic_air_CAS_new
+		cost = 5
+		ai_will_do = { factor = 1 }
+		prerequisite = {
+			focus = FOP_fuerza_aerea_de_la_comuna_argentina
+		}
+		mutually_exclusive = {
+			focus = FOP_an_independent_air_force
+		}
+		x = -1
+		y = 1
+		relative_position_id = FOP_fuerza_aerea_de_la_comuna_argentina
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_an_army_extension"
+			add_doctrine_cost_reduction = {
+				name = FOP_an_army_extension
+				cost_reduction = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+			add_tech_bonus = {
+				name = FOP_an_army_extension
+				bonus = 0.50
+				uses = 1
+				category = cas_bomber
+			}
+		}
+	}
+	focus = {
+		id = FOP_an_independent_air_force
+		icon = GFX_goal_air_red
+		cost = 5
+		ai_will_do = { factor = 1 }
+		prerequisite = {
+			focus = FOP_fuerza_aerea_de_la_comuna_argentina
+		}
+		mutually_exclusive = {
+			focus = FOP_an_army_extension
+		}
+		x = 1
+		y = 1
+		relative_position_id = FOP_fuerza_aerea_de_la_comuna_argentina
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_an_independent_air_force"
+			add_doctrine_cost_reduction = {
+				name = FOP_an_independent_air_force
+				cost_reduction = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+			add_tech_bonus = {
+				name = FOP_an_independent_air_force
+				bonus = 0.50
+				uses = 1
+				category = tactical_bomber
+			}
+		}
+	}
+	focus = {
+		id = FOP_invite_pilots_from_britain
+		icon = GFX_goal_ENG_officer_corps
+		cost = 5
+		prerequisite = {
+			focus = FOP_an_army_extension
+			focus = FOP_an_independent_air_force
+		}
+		x = 0
+		y = 2
+		relative_position_id = FOP_fuerza_aerea_de_la_comuna_argentina
+		available = {
+			ENG = { exists = yes }
+			NOT = { has_war_with = ENG }
+		}
+		ai_will_do = { factor = 1 }
+		search_filters = { FOCUS_FILTER_AIRFORCE_BONUS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_invite_pilots_from_britain"
+			add_ideas = FOP_british_pilot_instructors_idea
+		}
+	}
+	focus = {
+		id = FOP_secure_the_skies
+		icon = GFX_goal_generic_air_heavy_fighter_new
+		cost = 5
+		prerequisite = {
+			focus = FOP_an_army_extension
+			focus = FOP_invite_pilots_from_britain
+		}
+		x = -1
+		y = 1
+		relative_position_id = FOP_invite_pilots_from_britain
+		ai_will_do = { factor = 1 }
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_secure_the_skies"
+			add_tech_bonus = {
+				name = FOP_secure_the_skies
+				bonus = 0.75
+				uses = 2
+				category = light_fighter
+				category = cat_heavy_fighter
+			}
+		}
+	}
+	focus = {
+		id = FOP_develop_new_bombers
+		icon = GFX_goal_generic_air_bomber_new
+		cost = 5
+		prerequisite = {
+			focus = FOP_an_independent_air_force
+			focus = FOP_invite_pilots_from_britain
+		}
+		x = 1
+		y = 1
+		relative_position_id = FOP_invite_pilots_from_britain
+		ai_will_do = { factor = 1 }
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_develop_new_bombers"
+			add_tech_bonus = {
+				name = FOP_develop_new_bombers
+				bonus = 0.75
+				uses = 2
+				category = tactical_bomber
+				category = cas_bomber
+			}
+		}
+	}
+	focus = {
+		id = FOP_sink_their_ships
+		icon = GFX_goal_generic_air_naval_bomber2_new
+		cost = 5
+		prerequisite = {
+			focus = FOP_secure_the_skies
+			focus = FOP_develop_new_bombers
+		}
+		x = 0
+		y = 2
+		relative_position_id = FOP_invite_pilots_from_britain
+		ai_will_do = { factor = 1 }
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_sink_their_ships"
+			add_tech_bonus = {
+				name = FOP_sink_their_ships
+				bonus = 0.75
+				uses = 2
+				category = naval_bomber
+			}
+		}
+	}
+	focus = {
+		id = FOP_expand_the_airforce_academy
+		icon = GFX_goal_PAN_Create_the_Universidad_de_Panama
+		cost = 5
+		prerequisite = {
+			focus = FOP_secure_the_skies
+			focus = FOP_develop_new_bombers
+		}
+		x = -1
+		y = 1
+		relative_position_id = FOP_secure_the_skies
+		ai_will_do = { factor = 1 }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_AIRFORCE_BONUS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_expand_the_airforce_academy"
+			add_doctrine_cost_reduction = {
+				name = FOP_expand_the_airforce_academy
+				cost_reduction = 0.5
+				uses = 2
+				category = air_doctrine
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = available_chief_of_airforce
+			ARG = {
+				show_ideas_tooltip = ARG_bartolome_de_la_colina_air_chief
+				show_ideas_tooltip = ARG_antonio_parodi
+			}
+
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = available_military_high_command
+			ARG = {
+				show_ideas_tooltip = ARG_pedro_castex_lainfor
+				show_ideas_tooltip = ARG_marcos_zar
+			}
+
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = available_theorist
+			ARG = {
+				show_ideas_tooltip = ARG_bartolome_de_la_colina_theorist
+			}
+			hidden_effect = {
+				ARG = {
+					ARG_bartolome_de_la_colina = { set_nationality = ROOT }
+					ARG_antonio_parodi = { set_nationality = ROOT }
+					ARG_pedro_castex_lainfor = { set_nationality = ROOT }
+					ARG_marcos_zar = { set_nationality = ROOT }
+				}
+			}
+		}
+	}
+	focus = {
+		id = FOP_radar_research
+		icon = GFX_focus_generic_radio_equipment
+		cost = 5
+		prerequisite = {
+			focus = FOP_secure_the_skies
+			focus = FOP_develop_new_bombers
+		}
+		x = 1
+		y = 1
+		relative_position_id = FOP_develop_new_bombers
+		ai_will_do = { factor = 1 }
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_radar_research"
+			add_tech_bonus = {
+				name = FOP_radar_research
+				bonus = 0.75
+				uses = 2
+				category = radar_tech
+			}
+		}
+	}
+	focus = {
+		id = FOP_strategic_bomber_development
+		icon = GFX_goal_Combined_Bomber_Offensive
+		cost = 5
+		prerequisite = {
+			focus = FOP_expand_the_airforce_academy
+		}
+		prerequisite = {
+			focus = FOP_sink_their_ships
+		}
+		prerequisite = {
+			focus = FOP_radar_research
+		}
+		x = 0
+		y = 1
+		relative_position_id = FOP_sink_their_ships
+		ai_will_do = { factor = 1 }
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_strategic_bomber_development"
+			add_tech_bonus = {
+				name = FOP_strategic_bomber_development
+				bonus = 0.75
+				uses = 2
+				category = cat_strategic_bomber
+			}
+		}
+	}
+
+##############
+# Natpop puppet tree
+##############
+
+	focus = {
+		id = FOP_natpop_the_revived_monarchy
+		icon = GFX_goal_FOP_araucania_monarchy
+		cost = 5
+		x = 6
+		y = 0
+		allow_branch = {
+			has_government = national_populist
+		}
+		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_the_revived_monarchy"
+			add_stability = 0.05
+			add_political_power = 25
+		}
+	}
+
+	focus = {
+		id = FOP_natpop_securing_legitimacy
+		icon = GFX_goal_DOM_The_Trial
+		cost = 10
+		prerequisite = {
+			focus = FOP_natpop_the_revived_monarchy
+		}
+		x = 0
+		y = 1
+		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_STABILITY }
+		relative_position_id = FOP_natpop_the_revived_monarchy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_securing_legitimacy"
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.1
+			}
+			add_stability = 0.02
+		}
+	}
+	focus = {
+		id = FOP_natpop_sociedad_caupolican
+		icon = GFX_goal_government_icon
+		cost = 10
+		prerequisite = {
+			focus = FOP_natpop_securing_legitimacy
+		}
+		x = -1
+		y = 1
+		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		relative_position_id = FOP_natpop_securing_legitimacy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_sociedad_caupolican"
+			add_manpower = 1500
+		}
+	}
+	focus = {
+		id = FOP_natpop_federacion_araucana
+		icon = GFX_goal_government_icon
+		cost = 10
+		prerequisite = {
+			focus = FOP_natpop_securing_legitimacy
+		}
+		x = 1
+		y = 1
+		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+		relative_position_id = FOP_natpop_securing_legitimacy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_federacion_araucana"
+			add_war_support = 0.10
+		}
+	}
+	focus = {
+		id = FOP_natpop_summon_a_native_congress
+		icon = GFX_goal_POR_burden_empire
+		cost = 10
+		prerequisite = {
+			focus = FOP_natpop_sociedad_caupolican
+		}
+		prerequisite = {
+			focus = FOP_natpop_federacion_araucana
+		}
+		x = 0
+		y = 2
+		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = FOP_natpop_securing_legitimacy
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_summon_a_native_congress"
+			add_ideas = FOP_native_support
+			add_political_power = 50
+		}
+	}
+	focus = {
+		id = FOP_natpop_restore_the_teaching_of_mapuche
+		icon = GFX_focus_generic_military_academy
+		cost = 10
+		prerequisite = {
+			focus = FOP_natpop_summon_a_native_congress
+		}
+		x = -2
+		y = 1
+		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_STABILITY }
+		relative_position_id = FOP_natpop_summon_a_native_congress
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_restore_the_teaching_of_mapuche"
+			add_ideas = FOP_code_talkers
+			add_stability = 0.015
+		}
+	}
+	focus = {
+		id = FOP_natpop_status_of_the_foreigners
+		icon = GFX_goal_conspiracy
+		cost = 10
+		prerequisite = {
+			focus = FOP_natpop_summon_a_native_congress
+		}
+		x = 0
+		y = 1
+		ai_will_do = { factor = 10 }
+		relative_position_id = FOP_natpop_summon_a_native_congress
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_status_of_the_foreigners"
+			FOP = {
+				country_event = fopking.01
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_natpop_economic_development
+		icon = GFX_goal_generic_price_controls
+		cost = 10
+		prerequisite = {
+			focus = FOP_natpop_status_of_the_foreigners
+		}
+		x = 0
+		y = 1
+		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		relative_position_id = FOP_natpop_status_of_the_foreigners
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_economic_development"
+			add_one_random_civilian_factory = yes
+		}
+	}
+	focus = {
+		id = FOP_natpop_the_old_ways
+		icon = GFX_focus_AUS_agriculture
+		cost = 10
+		prerequisite = {
+			focus = FOP_natpop_economic_development
+		}
+		mutually_exclusive = {
+			focus = FOP_natpop_a_brave_new_world
+		}
+		x = -1
+		y = 1
+		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_MANPOWER }
+		relative_position_id = FOP_natpop_economic_development
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_the_old_ways"
+			add_stability = 0.1
+			add_manpower = 2500
+		}
+	}
+
+	focus = {
+		id = FOP_natpop_agrarian_reforms
+		icon = GFX_goal_agricultural_aid
+		cost = 10
+		prerequisite = {
+			focus = FOP_natpop_the_old_ways
+		}
+		x = 0
+		y = 1
+		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_INDUSTRY }
+		relative_position_id = FOP_natpop_the_old_ways
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_agrarian_reforms"
+			add_ideas = FOP_natpop_agrarian_reforms_idea
+			512 = { increase_state_category_by_one_level = yes }
+		}
+	}
+
+	focus = {
+		id = FOP_natpop_a_brave_new_world
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10
+		prerequisite = {
+			focus = FOP_natpop_economic_development
+		}
+		mutually_exclusive = {
+			focus = FOP_natpop_the_old_ways
+		}
+		x = 1
+		y = 1
+		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		relative_position_id = FOP_natpop_economic_development
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_a_brave_new_world"
+			add_tech_bonus = {
+				name = FOP_natpop_a_brave_new_world
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
+		}
+	}
+	focus = {
+		id = FOP_natpop_industrialization
+		icon = GFX_focus_generic_the_giant_wakes
+		cost = 10
+		prerequisite = {
+			focus = FOP_natpop_a_brave_new_world
+		}
+		x = 0
+		y = 1
+		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		relative_position_id = FOP_natpop_a_brave_new_world
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_industrialization"
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = FOP_natpop_a_trading_tradition
+		icon = GFX_goal_AST_new_markets
+		cost = 10
+		prerequisite = {
+			focus = FOP_natpop_agrarian_reforms
+			focus = FOP_natpop_industrialization
+		}
+		x = 0
+		y = 3
+		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_PRODUCTION }
+		relative_position_id = FOP_natpop_economic_development
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_a_trading_tradition"
+			add_political_power = 25
+			add_equipment_to_stockpile = {
+				type = convoy_1
+				amount = 25
+				producer = FOP
+			}
+		}
+	}
+	focus = {
+		id = FOP_natpop_the_religious_issue
+		icon = GFX_BEL_Confederalism
+		cost = 10
+		prerequisite = {
+			focus = FOP_natpop_summon_a_native_congress
+		}
+		x = 2
+		y = 1
+		ai_will_do = { factor = 10 }
+		relative_position_id = FOP_natpop_summon_a_native_congress
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_the_religious_issue"
+			FOP = {
+				country_event = fopking.02
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_natpop_safeguarding_silversmithing
+		icon = GFX_goal_generic_defence
+		cost = 10
+		prerequisite = {
+			focus = FOP_natpop_the_religious_issue
+		}
+		x = 1
+		y = 1
+		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		relative_position_id = FOP_natpop_the_religious_issue
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_safeguarding_silversmithing"
+			add_political_power = 25
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = FOP_natpop_status_of_kindred_native_tribes
+		icon = GFX_goal_generic_national_unity
+		cost = 10
+		prerequisite = {
+			focus = FOP_natpop_safeguarding_silversmithing
+		}
+		x = 2
+		y = 1
+		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_MANPOWER }
+		relative_position_id = FOP_natpop_safeguarding_silversmithing
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_status_of_kindred_native_tribes"
+			add_political_power = 25
+			add_manpower = 1000
+		}
+	}
+	focus = {
+		id = FOP_natpop_diplomatic_connections
+		icon = GFX_goal_generic_intelligence_exchange
+		cost = 10
+		prerequisite = {
+			focus = FOP_natpop_status_of_kindred_native_tribes
+		}
+		x = 0
+		y = 1
+		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		relative_position_id = FOP_natpop_status_of_kindred_native_tribes
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_diplomatic_connections"
+			add_ideas = FOP_diplomatic_ties
+			add_political_power = 75
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = FOP_natpop_a_legacy_of_survival
+		icon = GFX_focus_generic_support_the_left_right
+		cost = 10
+		ai_will_do = { factor = 8 }
+		prerequisite = {
+			focus = FOP_natpop_restore_the_teaching_of_mapuche
+		}
+		x = -1
+		y = 1
+		relative_position_id = FOP_natpop_restore_the_teaching_of_mapuche
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ARMY_XP FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_a_legacy_of_survival"
+			add_war_support = 0.2
+			army_experience = 10
+			add_tech_bonus = {
+				name = FOP_natpop_a_legacy_of_survival
+				bonus = 1
+				uses = 1
+				technology = tech_mountaineers
+				technology = tech_mountaineers2
+				technology = tech_mountaineers3
+			}
+		}
+	}
+	focus = {
+		id = FOP_natpop_a_new_army
+		icon = GFX_focus_generic_little_entente
+		cost = 10
+		ai_will_do = { factor = 8 }
+		prerequisite = {
+			focus = FOP_natpop_a_legacy_of_survival
+		}
+		mutually_exclusive = {
+			focus = FOP_natpop_our_army_traditions
+		}
+		x = 0
+		y = 1
+		relative_position_id = FOP_natpop_a_legacy_of_survival
+		search_filters = { FOCUS_FILTER_ARMY_BONUS FOCUS_FILTER_ARMY_XP }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_a_new_army"
+			army_experience = 10
+			add_ideas = FOP_model_army
+		}
+	}
+	focus = {
+		id = FOP_natpop_our_army_traditions
+		icon = GFX_goal_FOP_native_army_traditions
+		cost = 10
+		ai_will_do = { factor = 8 }
+		prerequisite = {
+			focus = FOP_natpop_a_legacy_of_survival
+		}
+		mutually_exclusive = {
+			focus = FOP_natpop_a_new_army
+		}
+		x = -2
+		y = 1
+		relative_position_id = FOP_natpop_a_legacy_of_survival
+		search_filters = { FOCUS_FILTER_ARMY_BONUS FOCUS_FILTER_ARMY_XP }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_our_army_traditions"
+			army_experience = 10
+			add_ideas = FOP_mapuche_army
+		}
+	}
+	focus = {
+		id = FOP_natpop_restore_the_Kollellaullin_training
+		icon = GFX_focus_generic_military_academy
+		cost = 10
+		ai_will_do = { factor = 8 }
+		prerequisite = {
+			focus = FOP_natpop_our_army_traditions
+		}
+		x = 0
+		y = 1
+		relative_position_id = FOP_natpop_our_army_traditions
+		search_filters = { FOCUS_FILTER_ARMY_BONUS FOCUS_FILTER_ARMY_XP }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_restore_the_Kollellaullin_training"
+			army_experience = 10
+			every_army_leader = {
+				add_attack = 1
+			}
+		}
+	}
+	focus = {
+		id = FOP_natpop_request_french_military_mission
+		icon = GFX_focus_chi_reach_out_to_france
+		cost = 10
+		ai_will_do = { factor = 8 }
+		prerequisite = {
+			focus = FOP_natpop_a_new_army
+		}
+		x = 0
+		y = 1
+		relative_position_id = FOP_natpop_a_new_army
+		search_filters = { FOCUS_FILTER_ARMY_BONUS FOCUS_FILTER_ARMY_XP }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_request_french_military_mission"
+			army_experience = 10
+			add_doctrine_cost_reduction = {
+				name = FOP_natpop_request_french_military_mission
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+			every_army_leader = {
+				add_defense = 1
+			}
+		}
+	}
+	focus = {
+		id = FOP_natpop_a_new_cavalry
+		icon = GFX_goal_generic_cavalry
+		cost = 10
+		ai_will_do = { factor = 8 }
+		prerequisite = {
+			focus = FOP_natpop_restore_the_Kollellaullin_training
+			focus = FOP_natpop_request_french_military_mission
+		}
+		x = 0
+		y = 1
+		relative_position_id = FOP_natpop_request_french_military_mission
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_a_new_cavalry"
+			add_tech_bonus = {
+				name = FOP_natpop_a_new_cavalry
+				bonus = 1
+				uses = 1
+				category = motorized_equipment
+				category = cat_mechanized_equipment
+			}
+		}
+	}
+	focus = {
+		id = FOP_natpop_the_status_of_mapuche_culture
+		icon = GFX_focus_generic_diplomatic_treaty
+		cost = 10
+		ai_will_do = { factor = 8 }
+		prerequisite = {
+			focus = FOP_natpop_safeguarding_silversmithing
+		}
+		x = 0
+		y = 1
+		relative_position_id = FOP_natpop_safeguarding_silversmithing
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_the_status_of_mapuche_culture"
+			add_war_support = 0.1
+			add_political_power = 50
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.025
+			}
+		}
+	}
+
+	focus = {
+		id = FOP_natpop_demand_repatriation_of_Mapuche_artifacts
+		icon = GFX_goal_generic_secret_weapon
+		cost = 10
+		ai_will_do = { factor = 8 }
+		prerequisite = {
+			focus = FOP_natpop_the_status_of_mapuche_culture
+		}
+		x = 0
+		y = 1
+		relative_position_id = FOP_natpop_the_status_of_mapuche_culture
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_demand_repatriation_of_Mapuche_artifacts"
+			add_stability = 0.1
+			add_political_power = 100
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.05
+			}
+		}
+	}
+	focus = {
+		id = FOP_natpop_port_expansion_for_natives
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 10
+		ai_will_do = { factor = 8 }
+		prerequisite = {
+			focus = FOP_natpop_a_trading_tradition
+		}
+		x = 0
+		y = 1
+		relative_position_id = FOP_natpop_a_trading_tradition
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_port_expansion_for_natives"
+			512 = {
+				add_building_construction = {
+					type = naval_base
+					level = 3
+					instant_build = yes
+					province = 10953
+				}
+			}
+		}
+	}
+	focus = {
+		id = FOP_natpop_royal_personality_cult
+		icon = GFX_focus_rom_royal_dictatorship
+		cost = 10
+		ai_will_do = { factor = 8 }
+		prerequisite = {
+			focus = FOP_natpop_demand_repatriation_of_Mapuche_artifacts
+		}
+		prerequisite = {
+			focus = FOP_natpop_diplomatic_connections
+		}
+		x = 0
+		y = 1
+		relative_position_id = FOP_natpop_demand_repatriation_of_Mapuche_artifacts
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_royal_personality_cult"
+			add_ideas = FOP_native_figurehead
+		}
+	}
+	focus = {
+		id = FOP_natpop_basic_military_production
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10
+		ai_will_do = { factor = 8 }
+		prerequisite = {
+			focus = FOP_natpop_a_new_cavalry
+		}
+		x = 1
+		y = 1
+		relative_position_id = FOP_natpop_a_new_cavalry
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_basic_military_production"
+			add_one_random_military_factory = yes
+		}
+	}
+	focus = {
+		id = FOP_natpop_proclaim_the_king_as_permanent_toqui
+		icon = GFX_goal_POR_royal_edicts
+		cost = 10
+		ai_will_do = { factor = 8 }
+		prerequisite = {
+			focus = FOP_natpop_royal_personality_cult
+		}
+		x = -1
+		y = 1
+		relative_position_id = FOP_natpop_royal_personality_cult
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_proclaim_the_king_as_permanent_toqui"
+			swap_ideas = {
+				remove_idea = FOP_native_figurehead
+				add_idea = FOP_native_idol
+			}
+		}
+	}
+	focus = {
+		id = FOP_natpop_legacy_of_Toki_Leftraru
+		icon = GFX_goal_generic_propaganda
+		cost = 10
+		ai_will_do = { factor = 8 }
+		prerequisite = {
+			focus = FOP_natpop_basic_military_production
+		}
+		prerequisite = {
+			focus = FOP_natpop_port_expansion_for_natives
+		}
+		prerequisite = {
+			focus = FOP_natpop_proclaim_the_king_as_permanent_toqui
+		}
+		x = 0
+		y = 1
+		relative_position_id = FOP_natpop_port_expansion_for_natives
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_ARMY_BONUS FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_natpop_legacy_of_Toki_Leftraru"
+			add_ideas = FOP_united_kingdom
+			add_political_power = 150
+		}
+	}
+##############
+# Who would ever play as Andesia?
+#############
+	focus = {
+		id = FOP_AND_andesia_declared
+		icon = GFX_focus_por_latin_american_communism
+		cost = 6
+		relative_position_id = FOP_communist_development_scheme
+		x = 0
+		y = 2
+		allow_branch = {
+			has_cosmetic_tag = FOP_AND
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_AND_andesia_declared"
+			custom_effect_tooltip = tooltip_focus_unlocked_by_event
+		}
+	}
+	focus = {
+		id = FOP_AND_first_south_american_congress
+		icon = GFX_socialist_constitution
+		cost = 6
+		relative_position_id = FOP_AND_andesia_declared
+		x = 3
+		y = 1
+		prerequisite = {
+			focus = FOP_AND_andesia_declared
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		select_effect = {
+			log = "[GetDateText]: [Root.GetName]: Select Focus FOP_AND_first_south_american_congress"
+			hidden_effect = {
+				country_event = { id = fop.501 days = 21 }
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_AND_first_south_american_congress"
+			swap_ideas = {
+				remove_idea = FOP_resistance_to_andesia_political
+				add_idea = FOP_resistance_to_andesia_political_1
+			}
+		}
+	}
+	focus = {
+		id = FOP_AND_establish_local_governments
+		icon = GFX_goal_generic_revolutionary_government
+		cost = 6
+		relative_position_id = FOP_AND_first_south_american_congress
+		x = -1
+		y = 1
+		dynamic = yes
+		prerequisite = {
+			focus = FOP_AND_first_south_american_congress
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_AND_establish_local_governments"
+			if = {
+				limit = { has_idea = FOP_resistance_to_andesia_political_1 }
+				swap_ideas = {
+					remove_idea = FOP_resistance_to_andesia_political_1
+					add_idea = FOP_resistance_to_andesia_political_2
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = FOP_resistance_to_andesia_political_3
+					add_idea = FOP_resistance_to_andesia_political_4
+				}
+			}
+		}
+	}
+	focus = {
+		id = FOP_AND_spread_marxism_ideas
+		icon = GFX_focus_spr_unify_the_london_bureau
+		cost = 6
+		relative_position_id = FOP_AND_first_south_american_congress
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FOP_AND_first_south_american_congress
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESISTANCE }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_AND_spread_marxism_ideas"
+			if = {
+				limit = { has_dlc_lar = yes }
+				if = {
+					limit = { has_intelligence_agency = yes }
+					if = {
+						limit = { NOT = { has_done_agency_upgrade = upgrade_psycho_warfare } }
+						upgrade_intelligence_agency = upgrade_psycho_warfare
+					}
+				}
+				else_if = {
+					limit = { has_intelligence_agency = no }
+					create_intelligence_agency = yes
+					upgrade_intelligence_agency = upgrade_psycho_warfare
+				}
+			}
+			custom_effect_tooltip = tooltip_white_line
+			if = {
+				limit = { has_idea = FOP_resistance_to_andesia_political_1 }
+				swap_ideas = {
+					remove_idea = FOP_resistance_to_andesia_political_1
+					add_idea = FOP_resistance_to_andesia_political_3
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = FOP_resistance_to_andesia_political_2
+					add_idea = FOP_resistance_to_andesia_political_4
+				}
+			}
+		}
+	}
+	focus = {
+		id = FOP_AND_suppress_resistance
+		icon = GFX_focus_SOV_penal_battalions
+		cost = 6
+		relative_position_id = FOP_AND_establish_local_governments
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FOP_AND_establish_local_governments
+		}
+		prerequisite = {
+			focus = FOP_AND_spread_marxism_ideas
+		}
+		available = {
+			has_completed_focus = FOP_create_the_CSE
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESISTANCE }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_AND_suppress_resistance"
+			if = {
+				limit = { has_dlc_lar = yes }
+				if = {
+					limit = { has_idea = FOP_intelligence_agency_idea_lar }
+					swap_ideas = {
+						remove_idea = FOP_intelligence_agency_idea_lar
+						add_idea = FOP_AND_expanded_intelligence_agency
+					}
+				}
+				else = {
+					add_ideas = FOP_AND_expanded_intelligence_agency
+				}
+				if = {
+					limit = { has_intelligence_agency = yes }
+					if = {
+						limit = { NOT = { has_done_agency_upgrade = upgrade_anti_partisan } }
+						upgrade_intelligence_agency = upgrade_anti_partisan
+					}
+				}
+				else_if = {
+					limit = { has_intelligence_agency = no }
+					create_intelligence_agency = yes
+					upgrade_intelligence_agency = upgrade_anti_partisan
+				}
+			}
+			else = {
+				add_political_power = 50
+				add_stability = 0.05
+			}
+			custom_effect_tooltip = tooltip_white_line
+			swap_ideas = {
+				remove_idea = FOP_resistance_to_andesia_political_4
+				add_idea = FOP_resistance_to_andesia_political_5
+			}
+		}
+	}
+	focus = {
+		id = FOP_AND_embrace_andesia
+		icon = GFX_goal_SOV_army
+		cost = 6
+		relative_position_id = FOP_AND_establish_local_governments
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FOP_AND_establish_local_governments
+		}
+		prerequisite = {
+			focus = FOP_AND_spread_marxism_ideas
+		}
+		available = {
+			has_idea = FOP_resistance_to_andesia_political_5
+			custom_trigger_tooltip = {
+				tooltip = FOP_AND_no_economical_chaos_tt
+				NOT = {
+					has_idea = FOP_resistance_to_andesia_economical
+					has_idea = FOP_resistance_to_andesia_economical_1
+					has_idea = FOP_resistance_to_andesia_economical_2
+					has_idea = FOP_resistance_to_andesia_economical_3
+					has_idea = FOP_resistance_to_andesia_economical_4
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESISTANCE }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_AND_embrace_andesia"
+			remove_ideas = FOP_resistance_to_andesia_political_5
+			add_timed_idea = {
+				idea = FOP_resistance_to_andesia_political_6
+				days = 1440
+			}
+		}
+	}
+	focus = {
+		id = FOP_AND_south_american_unification
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		cost = 6
+		relative_position_id = FOP_AND_establish_local_governments
+		x = 3
+		y = 1
+		prerequisite = {
+			focus = FOP_AND_establish_local_governments
+		}
+		prerequisite = {
+			focus = FOP_AND_spread_marxism_ideas
+		}
+		available = {
+			FOP_AND_no_resistance_against_andesia = yes
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_AND_south_american_unification"
+			every_owned_state = {
+				limit = {
+					is_controlled_by = ROOT
+					has_state_flag = FOP_andesian_claim
+					has_resistance = yes
+				}
+				ROOT = { activate_targeted_decision = { target = PREV decision = FOP_AND_integrate_new_state }}
+			}
+		}
+	}
+	focus = {
+		id = FOP_AND_create_central_planning_committee
+		icon = GFX_Socialist_Law
+		cost = 6
+		relative_position_id = FOP_AND_andesia_declared
+		x = -3
+		y = 1
+		prerequisite = {
+			focus = FOP_AND_andesia_declared
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_AND_create_central_planning_committee"
+			swap_ideas = {
+				remove_idea = FOP_resistance_to_andesia_economical
+				add_idea = FOP_resistance_to_andesia_economical_1
+			}
+		}
+	}
+	focus = {
+		id = FOP_AND_economical_integration_program
+		icon = GFX_focus_SOV_merge_plants
+		cost = 6
+		relative_position_id = FOP_AND_create_central_planning_committee
+		x = -3
+		y = 1
+		prerequisite = {
+			focus = FOP_AND_create_central_planning_committee
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_AND_economical_integration_program"
+			if = {
+				limit = { has_idea = FOP_resistance_to_andesia_economical_1 }
+				swap_ideas = {
+					remove_idea = FOP_resistance_to_andesia_economical_1
+					add_idea = FOP_resistance_to_andesia_economical_2
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = FOP_resistance_to_andesia_economical_3
+					add_idea = FOP_resistance_to_andesia_economical_4
+				}
+			}
+		}
+	}
+	focus = {
+		id = FOP_AND_agricultiral_economy_reforms
+		icon = GFX_goal_Workers_Paradise
+		cost = 6
+		relative_position_id = FOP_AND_create_central_planning_committee
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FOP_AND_create_central_planning_committee
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_AND_agricultiral_economy_reforms"
+			if = {
+				limit = { has_idea = FOP_resistance_to_andesia_economical_1 }
+				swap_ideas = {
+					remove_idea = FOP_resistance_to_andesia_economical_1
+					add_idea = FOP_resistance_to_andesia_economical_3
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = FOP_resistance_to_andesia_economical_2
+					add_idea = FOP_resistance_to_andesia_economical_4
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					has_state_flag = FOP_andesian_claim
+					OR = {
+						has_state_category = two
+						has_state_category = three
+					}
+				}
+				increase_state_category_by_one_level = yes
+			}
+			random_owned_controlled_state = {
+				limit = {
+					has_state_flag = FOP_andesian_claim
+					OR = {
+						has_state_category = two
+						has_state_category = three
+					}
+				}
+				increase_state_category_by_one_level = yes
+			}
+			random_owned_controlled_state = {
+				limit = {
+					has_state_flag = FOP_andesian_claim
+					OR = {
+						has_state_category = two
+						has_state_category = three
+					}
+				}
+				increase_state_category_by_one_level = yes
+			}
+			random_owned_controlled_state = {
+				limit = {
+					has_state_flag = FOP_andesian_claim
+					OR = {
+						has_state_category = two
+						has_state_category = three
+					}
+				}
+				increase_state_category_by_one_level = yes
+			}
+			random_owned_controlled_state = {
+				limit = {
+					has_state_flag = FOP_andesian_claim
+					OR = {
+						has_state_category = two
+						has_state_category = three
+					}
+				}
+				increase_state_category_by_one_level = yes
+			}
+		}
+	}
+	focus = {
+		id = FOP_AND_industrialise_andesia
+		icon = GFX_goal_manage_industries
+		cost = 6
+		relative_position_id = FOP_AND_create_central_planning_committee
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FOP_AND_create_central_planning_committee
+		}
+		available = {
+			has_tech = construction3
+			has_tech = advanced_machine_tools
+			has_completed_focus = FOP_AND_economical_integration_program
+			has_completed_focus = FOP_AND_agricultiral_economy_reforms
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_PRODUCTION }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_AND_industrialise_andesia"
+			add_tech_bonus = {
+				name = FOP_AND_industrialise_andesia
+				category = industry
+				bonus = 0.75
+				uses = 2
+			}
+			remove_ideas = FOP_resistance_to_andesia_economical_4
+			add_timed_idea = {
+				idea = FOP_resistance_to_andesia_economical_5
+				days = 1440
+			}
+			random_owned_controlled_state = {
+				limit = {
+					has_state_flag = FOP_andesian_claim
+					has_state_category = six
+					prefer_home_area_states_unless_filled = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					has_state_flag = FOP_andesian_claim
+					has_state_category = five
+					prefer_home_area_states_unless_filled = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					has_state_flag = FOP_andesian_claim
+					has_state_category = four
+					prefer_home_area_states_unless_filled = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					has_state_flag = FOP_andesian_claim
+					has_state_category = five
+					prefer_home_area_states_unless_filled = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = FOP_AND_defence_against_imperialism
+		icon = GFX_focus_SOV_builder_of_the_red_army
+		cost = 6
+		relative_position_id = FOP_AND_andesia_declared
+		x = -1
+		y = 3
+		prerequisite = {
+			focus = FOP_AND_andesia_declared
+		}
+		available = {
+			FOP_AND_no_resistance_against_andesia = yes
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_AND_defence_against_imperialism"
+			leave_faction = yes
+			FRA_remove_from_phalanstere = yes
+			create_faction = FOP_AND_faction
+			add_ideas = FOP_andesian_red_army
+		}
+	}
+	focus = {
+		id = FOP_AND_liberate_central_america
+		icon = GFX_focus_mex_redeem_aztlan
+		cost = 3
+		relative_position_id = FOP_AND_defence_against_imperialism
+		x = -3
+		y = 1
+		prerequisite = {
+			focus = FOP_AND_defence_against_imperialism
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_AND_liberate_central_america"
+			custom_effect_tooltip = FOP_AND_liberate_central_america_tt
+		}
+	}
+	focus = {
+		id = FOP_AND_liberate_south_america
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_communism
+		cost = 3
+		relative_position_id = FOP_AND_defence_against_imperialism
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FOP_AND_defence_against_imperialism
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_AND_liberate_south_america"
+			custom_effect_tooltip = FOP_AND_liberate_south_america_tt
+		}
+	}
+	focus = {
+		id = FOP_AND_liberate_north_america
+		icon = GFX_focus_spa_the_war_of_vengeance
+		cost = 3
+		relative_position_id = FOP_AND_defence_against_imperialism
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FOP_AND_defence_against_imperialism
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_AND_liberate_north_america"
+			custom_effect_tooltip = FOP_AND_liberate_north_america_tt
+		}
+	}
+	focus = {
+		id = FOP_AND_free_america
+		icon = GFX_focus_SOV_proclaim_soviet_hegemony
+		cost = 6
+		relative_position_id = FOP_AND_liberate_south_america
+		x = 0
+		y = 1
+		prerequisite = { focus = FOP_AND_liberate_central_america }
+		prerequisite = { focus = FOP_AND_liberate_south_america }
+		prerequisite = { focus = FOP_AND_liberate_north_america }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOP_AND_all_countries_socialist_tt
+				all_of_scopes = {
+					array = global.american_tags_array
+					OR = {
+						exists = no
+						has_socialist_government = yes
+					}
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FOP_AND_free_america"
+			add_political_power = 150
+			add_stability = 0.1
+			add_war_support = -0.15
+			every_owned_state = {
+				limit = {
+					is_controlled_by = ROOT
+					has_state_flag = FOP_andesian_claim
+					NOT = { is_core_of = ROOT }
+				}
+				add_compliance = 20
+			}
+			add_to_tech_sharing_group = FOP_AND_research_group
+			every_subject_country = {
+				limit = { is_in_americas = yes }
+				add_to_tech_sharing_group = FOP_AND_research_group
+			}
+			hidden_effect = {
+				every_subject_country = {
+					limit = { is_in_americas = yes }
+					set_cosmetic_tag = FOP_AND_subject
+				}
+			}
+		}
+	}
+}

@@ -1,319 +1,239 @@
-capital = 751
+﻿capital = 336
+oob = "GEA"
+set_naval_oob = "GEA_naval"
+set_research_slots = 3
+set_convoys = 150
+set_stability = 0.6
+set_war_support = 0.3
+starting_train_buffer = 1
 
-# Vacant
-# recruit_character = SHO_Generic_Vacant
-add_manpower = 100000
+add_manpower = 300000 #starting manpower from Germany
 
+### Starting Technologies ###
+set_technology = {
+	### Infantry ###
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	motorised_infantry = 1
+	tech_mountaineers = 1
+	marines = 1
 
-# Leaders
-# recruit_character = SHO_Yamamoto_Moichiro
-# recruit_character = SHO_Sugita_Ichiji
-# recruit_character = SHO_Takashina_Takehiko
-# recruit_character = SHO_Kinugasa_Hayao
-# recruit_character = SHO_Yoshie_Seiichi
-# recruit_character = SHO_Muta_Hirokuni
-# recruit_character = SHO_Syed_Jaafar_Albar
-# recruit_character = SHO_Takeo_Kurosawa
-# recruit_character = SHO_Burnahuddin_Al_Helmy
-# recruit_character = SHO_Dato_Onn_Jaafar
+	### Support ###
+	tech_support = 1
+	tech_recon = 1
+	tech_engineers = 1
+	tech_military_police = 1
 
-# Ministers
-# recruit_character = SHO_Omar_Ali_Saifuddien_III
-# recruit_character = SHO_Tun_Dr_Ismailn
-# recruit_character = SHO_Khir_Johari
-# recruit_character = SHO_Tun_Abdul_Razak
+	### Artillery ###
+	gw_artillery = 1
+	interwar_antiair = 1
 
+	### Industry ###
+	fuel_silos = 1
+	fuel_refining = 1
 
-set_convoys = 50
+	### Trains ###
+	basic_train = 1
+}
 
-oob = "SHO_1962"
+### Planes - BBA ###
+if = {
+	limit = { has_dlc_bba = yes }
+	set_air_oob = "GEA_air_bba"
+	set_technology = {
+		aa_lmg = 1
+		engines_1 = 1
+		engines_2 = 1
+		early_bombs = 1
+		aircraft_construction = 1
+		basic_small_airframe = 1
+		iw_small_airframe = 1
+		iw_medium_airframe = 1
+		basic_medium_airframe = 1
+		iw_large_airframe = 1
+	}
+}
+
+### Planes - non BBA ###
+if = {
+	limit = { has_dlc_bba = no }
+	set_air_oob = "GEA_air_legacy"
+	set_technology = {
+		early_fighter = 1
+		naval_bomber1 = 1
+		early_bomber = 1
+		cv_early_fighter = 1
+		cv_CAS1 = 1
+		cv_naval_bomber1 = 1
+		fighter1 = 1
+		tactical_bomber1 = 1
+		# strategic_bomber1 = 1
+		CAS1 = 1
+	}
+}
+
+### Tanks - NSB ###
+if = {
+	limit = { has_dlc_nsb = yes }
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+		basic_heavy_tank_chassis = 1
+		armor_tech_1 = 1
+		engine_tech_1 = 1
+	}
+}
+
+### Tanks - non NSB ###
+if = {
+	limit = { has_dlc_nsb = no }
+	set_technology = {
+		gwtank = 1
+		basic_light_tank = 1
+		basic_heavy_tank = 1
+	}
+}
+
+### Navy - MtG ###
+if = {
+	limit = { has_dlc_mtg = yes }
+	set_technology = {
+		early_ship_hull_submarine = 1
+		basic_ship_hull_submarine = 1
+		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
+		early_ship_hull_cruiser = 1
+		basic_ship_hull_cruiser = 1
+		early_ship_hull_heavy = 1
+		basic_ship_hull_heavy = 1
+		ship_hull_super_heavy = 1
+		early_ship_hull_carrier = 1
+		basic_ship_hull_carrier = 1
+		panzerschiffe = 1
+
+		## Modules##
+		basic_naval_mines = 1
+		submarine_mine_laying = 1
+		basic_torpedo = 1
+		improved_ship_torpedo_launcher = 1
+		basic_battery = 1
+		basic_light_battery = 1
+		basic_medium_battery = 1
+		basic_heavy_battery = 1
+		basic_depth_charges = 1
+		smoke_generator = 1
+		basic_cruiser_armor_scheme = 1
+		basic_heavy_armor_scheme = 1
+
+		### Transport ###
+		mtg_transport = 1
+	}
+}
+
+### Navy - Non MtG ###
+if = {
+	limit = { has_dlc_mtg = no }
+	set_technology = {
+		early_submarine = 1
+		basic_submarine = 1
+		early_destroyer = 1
+		basic_destroyer = 1
+		early_light_cruiser = 1
+		basic_light_cruiser = 1
+		early_heavy_cruiser = 1
+		basic_heavy_cruiser = 1
+		early_battleship = 1
+		basic_battleship = 1
+		early_battlecruiser = 1
+		early_carrier = 1
+		basic_carrier = 1
+
+		### Transport ###
+		transport = 1
+	}
+}
+
+add_offsite_building = { type = dockyard level = 7 }
+
+set_variable = { country_intro_page_count = 1 } #Intro screen
+country_event = { id = Ostasien.6 days = 160 }
+country_event = { id = Ostasien.12 days = 184 }
+
+GER = {
+	set_autonomy = {
+		target = GEA
+		autonomy_state = kr_colonial_government
+	}
+	add_opinion_modifier = { target = MAF modifier = colonial_master }
+}
 
 set_politics = {
-	ruling_party = conservative
-	last_election = "1960.11.11"
-	election_frequency = 36
+	ruling_party = paternal_autocrat
+	last_election = "1930.11.9"
+	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	vanguardist = 12
-	socialist = 7
-	progressive =  5
-	liberal = 22
-	conservative = 17
-	syndicalist = 22
-	anocrat = 0
-	paternalist =  0
-	national_populist = 15
+	totalist = 0
+	radical_socialist = 0
+	syndicalist = 0
+	social_democrat = 5
+	social_liberal = 5
+	market_liberal = 5
+	social_conservative = 10
+	authoritarian_democrat = 10
+	paternal_autocrat = 60
+	national_populist = 5
 }
-
-set_technology = {
-	basic_train = 1
-
-
-	##INFANTRY##
-	# infantry_equipment_0 = 1
-	infantry_weapons_1 = 1
-	night_vision_1 = 1
-	
-	infantry_kit_1 = 1
-	infantry_weapons_2 = 1
-	night_vision_2 = 1
-	infantry_kit_2 = 1
-	infantry_weapons_improvements_mine_1 = 1
-	infantry_kit_3 = 1
-	infantry_weapons_improvements_ammo_1 = 1
-	infantry_weapons_improvements_grenade_1 = 1
-	#
-	infantry_weapons_3 = 1
-	night_vision_3 = 1
-	infantry_kit_4 = 1
-	basic_infantry_equipment = 1
-	support_weapons = 1
-	support_weapons_hmg_1 = 1
-	combat_support_equipment_1 = 1
-	
-	support_weapons_arty_1 = 1
-	infantry_at = 1
-	infantry_at_upgrade_1 = 1
-	#
-	
-	
-	motorized_infantry = 1
-	motorized_rocket_unit = 1
-	motorized_infantry_1 = 1
-	marines = 1
-	#
-	tech_special_forces = 1
-
-
-	artillery4 = 1
-
-	##SUPPORT##
-	tech_support = 1
-	tech_engineers = 1
-	assault_weapons_1 = 1
-	tech_engineers2 = 1
-	assault_weapons_2 = 1
-	tech_engineers3 = 1
-	assault_weapons_3 = 1
-	tech_recon = 1
-	tech_recon2 = 1
-	tech_military_police = 1
-	tech_military_police2 = 1
-	tech_military_police3 = 1
-	tech_maintenance_company = 1
-	tech_maintenance_company2 = 1
-	tech_field_hospital = 1
-	tech_field_hospital2 = 1
-	tech_logistics_company = 1
-	tech_signal_company = 1
-	tech_signal_company2 = 1
-
-	##ARMOR##
-	mechanised_infantry3 = 1
-	APC_1950 = 1
-	APC_1960 = 1
-	advanced_light_tank = 1
-	IFV_1950 = 1
-	advanced_medium_tank = 1
-
-	##HELICOPTERS##
-	helicopter_engines = 1
-	very_early_helicopter = 1
-	early_helicopter = 1
-
-	##LIGHT AIR##
-	early_fighter = 1
-	interceptor_1945 = 1
-	fighter_1945 = 1
-	CAS_1945 = 1
-	
-##HEAVY AIR##
-	tac_bomber1 = 1
-	tac_air_1945 = 1
-	strategic_bomber1 = 1
-	heavy_air_1945 = 1
-	transport_air1 = 1
-	transport_air_1945 = 1
-
-##NAVAL##
-	ww2_destroyer = 1
-	#basic_destroyer = 1
-	ww2_cruiser = 1
-	#basic_cruiser = 1
-	ww2_battleship = 1
-	ww2_submarine = 1
-	#ww2_carrier = 1
-	#early_carrier = 1
-	transport = 1
-	#basic_frigate = 1
-	
-##ENGINEERING##
-	electronic_mechanical_engineering = 1
-	radio = 1
-	radio_detection = 1
-	decimetric_radar = 1
-	centimetric_radar = 1
-	mechanical_computing = 1
-	computing_machine = 1
-	basic_encryption = 1
-	basic_decryption = 1
-	improved_computing_machine = 1
-	improved_encryption = 1
-	improved_decryption = 1
-	advanced_computing_machine = 1
-	advanced_encryption = 1
-
-	##INDUSTRY##
-	ww2_line_production = 1
-	mass_production_1 = 1
-	building_construction_1 = 1
-	consumer_goods_reduction_1 = 1
-	
-	energy_technology_1 = 1
-	social_construction_1 = 1
-	resource_extraction_methods = 1
-	excavation0 = 1
-	military_construction_1 = 1
-}
-
-
 
 add_ideas = {
-	#Country#
-	SHO_Dai-nijyugo
-	SHO_minority
-	SHO_Zaibatsu
-	SHO_Marai_Giyugun_Auxiliaries
-
-	#Ministers#
-	SHO_Omar_Ali_Saifuddien_III_hog
-	SHO_Tun_Dr_Ismailn_for
-	SHO_Khir_Johari_eco
-	SHO_Tun_Abdul_Razak_sec
-
-	#Political
-	tno_political_parties_one_party_state
-	tno_religious_rights_secularism
-	tno_trade_unions_state_controlled
-	tno_immigration_open_immigration
-	tno_slavery_corvee
-	tno_public_meetings_regulated
-	tno_press_rights_censored_press
-	tno_vote_franchise_no_voting
-	
-	#Military#
-	tno_conscription_extensive_conscription
-	tno_military_supervision_no_supervision
-	tno_training_basic_training
-	tno_draft_exemptions_educational_deferment
-	
-	#Economic#
-	tno_trade_laws_limited_exports
-	tno_income_taxation_low_income_weighted
-	tno_minimum_wage_trinket_minimum_wage
-	tno_max_workhours_12_hour_work_day
-	tno_pensions_low_pensions
-	tno_unemployment_no_subsidies
-	
-	#Social#
-	tno_health_care_no_government_support
-	tno_education_public_education
-	tno_penal_system_politicized_penal_system
-	tno_gender_rights_traditional_roles
-	tno_security_oppressive_police
-	tno_regulations_moderate_regulations
-
-	#Misc#
-	tno_refugees_skilled
-	tno_women_banned
-	tno_racial_integration_none
-	tno_child_labor_illegal
-	tno_safety_limited_regulations
-	tno_pollution_few_regulations
-	tno_lgbt_rights_lgbt_outlawed
-	tno_minorities_oppression
-
-	##SOCIETAL DEVELOPMENT##
-	tno_army_professionalism_political_interference
-	tno_industrial_expertise_nascent
-	tno_industrial_equipment_power_tools
-	tno_agriculture_basic_mechanized
-	tno_healthcare_nascent
-	tno_research_facilities_basic
-	tno_academic_base_basic_literacy
-	tno_admin_efficiency_deficient_administrative_systems
+	GEA_colonial_question
+	free_trade
+	GEA_AOG_bonus_idea
+	GEA_arm_of_the_german_empire
 }
 
-set_research_slots = 2
+add_dynamic_modifier = { modifier = GEA_AOG_BONUS }
+set_variable = { GEA_AOG_CITIES = -0.12 }
+set_variable = { GEA_AOG_CITIES_NUMBER = 4 }
 
-set_country_flag = tno_defined_startup_effectiveness
+### Country Leaders ###
+recruit_character = GEA_hellmuth_von_muecke
+recruit_character = GEA_felix_von_luckner
 
-# ECONOMIC LAWS
-set_variable = { tno_trade_laws_effectiveness = 50 }
-set_variable = { tno_income_taxation_effectiveness = 50 }
-set_variable = { tno_minimum_wage_effectiveness = 50 }
-set_variable = { tno_max_workhours_effectiveness = 50 }
-set_variable = { tno_pensions_effectiveness = 50 }
-set_variable = { tno_unemployment_effectiveness = 50 }
-set_variable = { tno_regulations_effectiveness = 50 }
+### Generals ###
+recruit_character = GEA_prinz_josias_zu_waldeck_und_pyrmont
+recruit_character = GEA_friedrich_von_kessinger
+recruit_character = GEA_hermann_voigt_ruscheweyh
+recruit_character = GEA_erwin_rommel
+recruit_character = GEA_alexander_von_falkenhausen
+recruit_character = GEA_dietrich_von_saucken
+recruit_character = GEA_fritz_sachsse
+recruit_character = GEA_fritz_bayerlein
 
-# SOCIAL LAWS
-set_variable = { tno_health_care_effectiveness = 0 }
-set_variable = { tno_education_effectiveness = 50 }
-set_variable = { tno_penal_system_effectiveness = 50 }
-set_variable = { tno_gender_rights_effectiveness = 50 }
-set_variable = { tno_security_effectiveness = 50 }
+### Admirals ###
+recruit_character = GEA_otto_ciliax
+recruit_character = GEA_rudolph_firle
+recruit_character = GEA_gunther_plueschow
 
-# POLITICAL LAWS
-set_variable = { tno_political_parties_effectiveness = 50 }
-set_variable = { tno_religious_rights_effectiveness = 50 }
-set_variable = { tno_trade_unions_effectiveness = 50 }
-set_variable = { tno_immigration_effectiveness = 50 }
-set_variable = { tno_slavery_effectiveness = 50 }
-set_variable = { tno_public_meetings_effectiveness = 50 }
-set_variable = { tno_press_rights_effectiveness = 50 }
-set_variable = { tno_vote_franchise_effectiveness = 50 }
+### Advisors ###
+recruit_character = GEA_augustin_henninghaus
+recruit_character = GEA_dietrich_bonhoeffer
+recruit_character = GEA_paul_schneider
+recruit_character = GEA_ernst_boerschmann
+recruit_character = GEA_rudolph_kaulla
+recruit_character = GEA_julius_dorpmuller
+recruit_character = GEA_wilhelm_henningsen
+recruit_character = GEA_arno_spindler
+recruit_character = GEA_adolf_ahrens
+recruit_character = GEA_thilo_von_seebach
+recruit_character = GEA_theodor_wendorff
 
-# MILITARY LAWS
-set_variable = { tno_conscription_effectiveness = 50 }
-set_variable = { tno_military_supervision_effectiveness = 50 }
-set_variable = { tno_training_effectiveness = 50 }
-set_variable = { tno_draft_exemptions_effectiveness = 50 }
+recruit_character = GEA_colonial_government
+activate_advisor = GEA_colonial_government_sic
 
-add_equipment_to_stockpile = {
-	type = infantry_equipment_2
-	amount = 2000
-	producer = JAP
-}
-
-add_equipment_to_stockpile = {
-	type = anti_tank_equipment_1
-	amount = 300
-	producer = JAP
-}
-
-add_equipment_to_stockpile = {
-	type = motorized_equipment_2
-	amount = 30
-	producer = JAP
-}
-
-add_equipment_to_stockpile = {
-	type = support_equipment_1
-	amount = 110
-	producer = JAP
-}
-
-add_equipment_to_stockpile = {
-	type = artillery_equipment_3
-	amount = 80
-	producer = JAP
-}
-
-diplomatic_relation = {
-	country = THA
-	relation = military_access
-	active = yes
-}
+### Character Setup ###
+GEA_hellmuth_von_muecke = { set_character_flag = is_regent }
+GEA_felix_von_luckner = { set_character_flag = is_regent }
+GEA_alexander_von_falkenhausen = { set_character_flag = is_regent }

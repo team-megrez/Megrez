@@ -1,92 +1,101 @@
-capital = 324
+﻿capital = 324
+oob = "BHU"
+set_research_slots = 1
+set_technology = {
+	### Infantry ###
+	infantry_weapons = 1
+}
 
-# Vacant
-# recruit_character = BHU_Generic_Vacant
-
-# recruit_character = BHU_kanwal_singh
-# recruit_character = BHU_ian_cardozo
-# recruit_character = BHU_piru_singh
-# recruit_character = BHU_hussain_muhammad_ershad
-# recruit_character = BHU_dasho_kesang
-# recruit_character = BHU_lhendup_dorji
-# recruit_character = BHU_jigme_dorji_wangchuck
-# recruit_character = BHU_khaled_mosharraf
-
-
-oob = "BHU_1962"
+set_stability = 0.30
+set_war_support = 0.10
 
 set_politics = {
-	ruling_party = conservative
-	last_election = "1962.1.1"
+	ruling_party = paternal_autocrat
+	last_election = "1888.1.1"
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	conservative = 30
-	syndicalist = 70
+	totalist = 0
+	syndicalist = 0
+	radical_socialist = 6
+	social_democrat = 6
+	social_liberal = 5
+	market_liberal = 6
+	social_conservative = 3
+	authoritarian_democrat = 32
+	paternal_autocrat = 22
+	national_populist = 20
 }
-
-set_cosmetic_tag = BHU_AZH
-
-
-set_country_flag = TNO_eliminate_military_spending
 
 add_ideas = {
-	#DIPLO
-	Sphere_Coequal
-	#STARTING
-	BHU_Transitional_Military_Occupation
-	BHU_Bhotamuzh_Resistance
-	#MINISTERS
-	BHU_Kanwal_Singh_hog
-	BHU_Ian_Cardozo_eco
-	BHU_Piru_Singh_for
-	BHU_Hussain_Muhammad_Ershad_sec
-	#POLITICAL
-	tno_political_parties_one_party_state
-	tno_religious_rights_state_atheism
-	tno_trade_unions_illegal
-	tno_immigration_quota_immigration
-	tno_slavery_penal_labor
-	tno_public_meetings_outlawed
-	tno_press_rights_state_press_only
-	tno_vote_franchise_no_voting
-	#MILITARY
-	tno_conscription_extensive_conscription
-	tno_military_supervision_rules_of_engagement
-	tno_training_advanced_training_methods
-	tno_draft_exemptions_none
-	#SOCIAL
-	tno_health_care_low_income_protections
-	tno_education_public_education
-	tno_penal_system_harsh_penal_code
-	tno_gender_rights_gender_equality
-	tno_security_oppressive_police
-	tno_regulations_moderate_regulations
-	#ECONOMIC
-	tno_trade_laws_export_focus
-	tno_income_taxation_high_income_weighted
-	tno_minimum_wage_low_minimum_wage
-	tno_max_workhours_12_hour_work_day
-	tno_pensions_acceptable_pensions
-	tno_unemployment_trinket_subsidies
-	#MISC
-	tno_refugees_skilled
-	tno_women_total_equality
-	tno_racial_integration_segregated_regiments
-	tno_safety_limited_regulations
-	tno_pollution_few_regulations
-	tno_lgbt_rights_lgbt_outlawed
-	tno_minorities_segregation
-	tno_child_labor_illegal
-	#DEVELOPMENT#
-	tno_industrial_expertise_experienced
-	tno_industrial_equipment_factory_complexes
-	tno_healthcare_rudimentary
-	tno_agriculture_subsistence
-	tno_research_facilities_outdated
-	tno_academic_base_mass_illiteracy
-	tno_army_professionalism_professional
-	tno_admin_efficiency_deficient_administrative_systems
+	BHU_hermit_kingdom
+	BHU_Monastic_Control
+	BHU_feudal_4
+
+	closed_economy
+	limited_conscription
+	isolation
 }
+
+country_event = { id = bhutan.78 days = 4 }
+country_event = { id = bhutan.67 days = 990 }
+country_event = { id = bhutan.68 days = 990 }
+country_event = { id = bhutan.71 days = 1065 }
+country_event = { id = bhutan.74 days = 740 }
+country_event = { id = bhutan.75 days = 870 }
+country_event = { id = bhutan.76 days = 585 }
+country_event = { id = bhutan.77 days = 1680 }
+
+set_country_flag = { flag = bhu_feudal_unity value = 11 }
+set_country_flag = { flag = bhu_econ_dev value = 8 }
+set_country_flag = { flag = bhu_mil_invest value = 8 }
+
+recruit_character = BHU_db_gurung
+recruit_character = BHU_mahasur_chhetri
+recruit_character = BHU_bal_bahadur_basnet
+
+recruit_character = BHU_jigme_wangchuck
+
+recruit_character = BHU_interregnum
+recruit_character = BHU_tshering_penjor
+
+recruit_character = BHU_choekyi_wangchuck
+recruit_character = BHU_zhabdrung
+
+recruit_character = BHU_sonam_topgye_dorji
+recruit_character = BHU_jigme_dorji_wangchuck
+
+recruit_character = BHU_namgyal_bahadur
+recruit_character = BHU_zamadar_chencho
+
+### sic ###
+
+recruit_character = BHU_chhoki_gyeltshen
+activate_advisor = BHU_sonam_topgye_dorji_sic
+
+### advisors ###
+
+recruit_character = BHU_chimi_dorji_rabden
+recruit_character = BHU_chogley_jigme_tenzin
+recruit_character = BHU_jhulendra_bahadur_pradhan
+recruit_character = BHU_phuntsho_choden
+recruit_character = BHU_samten_jamtsho
+recruit_character = BHU_tashi_namgyal
+recruit_character = BHU_thinley_namgyel
+recruit_character = BHU_royal_army_council
+
+### Character Setup ###
+BHU_jigme_wangchuck = { set_character_flag = is_monarch }
+BHU_interregnum = { set_character_flag = is_monarch }
+BHU_tshering_penjor = {
+	set_character_flag = is_monarch
+	set_character_flag = show_unit_leader_role
+}
+BHU_zhabdrung = { set_character_flag = is_monarch }
+BHU_sonam_topgye_dorji = {
+	set_character_flag = is_monarch
+	set_character_flag = show_unit_leader_role
+}
+BHU_jigme_dorji_wangchuck = { set_character_flag = is_monarch }

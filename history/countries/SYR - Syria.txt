@@ -1,246 +1,180 @@
-capital = 554
+﻿capital = 554
 
-# Vacant
-# recruit_character = SYR_Generic_Vacant
-fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
+set_research_slots = 2
+set_technology = {
+	### MOD ###
+	### INF ###
+	infantry_weapons = 1
+	tech_mountaineers = 1
+	camelry = 1
+}
+### Navy - MtG ###
 
+if = {
+	limit = { has_dlc_mtg = yes }
+	set_technology = {
+		basic_naval_mines = 1
+		basic_ship_hull_light = 1
+		early_ship_hull_cruiser = 1
+		basic_ship_hull_cruiser = 1
 
-
-oob = "SYR_1962"
-
-add_ideas = {
-### POLITICAL LAWS ###
-	tno_political_parties_one_party_state
-	tno_religious_rights_state_religion
-	tno_trade_unions_illegal
-	tno_immigration_open_immigration
-	tno_slavery_penal_labor
-	tno_public_meetings_regulated
-	tno_press_rights_censored_press
-	tno_vote_franchise_no_voting
-
-	### MILITARY LAWS ###
-	tno_conscription_broadened_conscription
-	tno_military_supervision_no_supervision
-	tno_training_basic_training
-	tno_draft_exemptions_none
-
-	### SOCIAL LAWS ###
-	tno_health_care_support_for_emergencies
-	tno_education_stratified_education
-	tno_penal_system_harsh_penal_code
-	tno_gender_rights_traditional_roles
-	tno_security_regulated_police
-	tno_regulations_token_regulations
-
-	### ECONOMIC LAWS ###
-	tno_trade_laws_limited_exports
-	tno_income_taxation_tax_havens
-	tno_minimum_wage_trinket_minimum_wage
-	tno_max_workhours_12_hour_work_day
-	tno_pensions_trinket_pensions
-	tno_unemployment_trinket_subsidies
-
-	### MISC LAWS ###
-	tno_pollution_few_regulations
-	tno_safety_minimal_regulations
-	tno_child_labor_illegal
-	tno_refugees_vetted_entry
-	tno_racial_integration_segregated_regiments
-	tno_women_banned
-	tno_minorities_segregation
-	tno_lgbt_rights_lgbt_outlawed
-
-	### SOCIETAL DEVELOPMENT ###
-	tno_army_professionalism_disgruntled_veterans
-	tno_industrial_expertise_nascent
-	tno_industrial_equipment_power_tools
-	tno_healthcare_nascent
-	tno_agriculture_basic_mechanized
-	tno_research_facilities_outdated
-	tno_academic_base_basic_literacy
-	tno_admin_efficiency_deficient_administrative_systems
+		## Modules##
+		basic_battery = 1
+		basic_light_battery = 1
+	}
 }
 
-set_stability = 0.65
-set_war_support = 0.25
-set_research_slots = 2
+### Navy - Non MtG ###
 
-set_technology = {
-	basic_train = 1
-
-	# shipbuild_basics = 1
-	electronic_mechanical_engineering = 1
-	
-	transport = 1
-	motorized_infantry = 1
-	support_weapons = 1
-	tech_engineers = 1
-	tech_recon = 1
-	early_fighter = 1
-
-	artillery4 = 1
-	electronic_mechanical_engineering = 1
-	radio = 1
-	building_construction_1 = 1
-	administration_construction_1 = 1
-	ww2_destroyer = 1
-	ww2_cruiser = 1
-	ww2_battleship = 1
-	ww2_submarine = 1
-	ww2_carrier = 1
-	
-	##INFANTRY##
-	# infantry_equipment_0 = 1
-	infantry_weapons_1 = 1
-	night_vision_1 = 1
-	
-	infantry_kit_1 = 1
-	infantry_weapons_2 = 1
-	night_vision_2 = 1
-	infantry_kit_2 = 1
-	infantry_weapons_improvements_mine_1 = 1
-	infantry_kit_3 = 1
-	infantry_weapons_improvements_ammo_1 = 1
-	basic_infantry_equipment = 1
-	support_weapons = 1
-	infantry_at = 1
-	motorized_infantry = 1
-	marines = 1
-	#
-	tech_special_forces = 1
-	tech_mountaineers = 1
-	#
-	paratroopers = 1
-	
-	##SUPPORT##
-	tech_support = 1
-	tech_engineers = 1
-	assault_weapons_1 = 1
-	tech_military_police = 1
-	tech_maintenance_company = 1
-	tech_maintenance_company2 = 1
-	tech_field_hospital = 1
-	tech_field_hospital2 = 1
-	tech_logistics_company = 1
-	
-	##ARMOR##
-	advanced_light_tank = 1
-	advanced_medium_tank = 1
-	mechanised_infantry3 = 1
-
-	APC_1950 = 1
-	APC_1950_basic_turret = 1
-	#APC_1950_basic_engine = 1
-	APC_1950_basic_armor = 1
-	APC_1960 = 1
-
-	IFV_1950 = 1
-	IFV_1950_basic_turret = 1
-	IFV_1950_basic_armor = 1
-	#IFV_1950_basic_engine = 1
-	
-	MBT_1950 = 1
-	MBT_1950_basic_turret = 1
-	#MBT_1950_basic_engine = 1
-
-	AC_1945 = 1
-	AC_1950 = 1
-	
-	##ARTY##
-	antiair5 = 1
-	antiair_1950 = 1
-	SPAA_1950 = 1
-	artillery4 = 1
-	artillery_1950 = 1
-	artillery_1950_soft_attack = 1
-	SPART_1950 = 1
-	SPART_1950_soft_attack = 1
-	#SPART_1950_speed = 1
-	
-	##LAND DOCTRINE##
-	strategic_theorem = 1
-	
-	##NAVAL##
-	ww2_destroyer = 1
-	ww2_cruiser = 1
-	ww2_battleship = 1
-	ww2_submarine = 1
-	basic_submarine = 1
-	improved_submarine = 1
-	transport = 1
-	
-	##NAVAL DOCTRINE##
-	
-	##HELICOPTERS##
-	very_early_helicopter = 1
-	early_helicopter = 1
-	
-	##LIGHT AIR##
-	early_fighter = 1
-	interceptor_1945 = 1
-	interceptor_1950 = 1
-	fighter_1945 = 1
-	fighter_1950 = 1
-	CAS_1945 = 1
-	CAS_1950 = 1
-	
-	##HEAVY AIR##
-	tac_bomber1 = 1
-	tac_air_1945 = 1
-	tac_air_1950 = 1
-	strategic_bomber1 = 1
-	heavy_air_1945 = 1
-	heavy_air_1950 = 1
-	transport_air1 = 1
-	transport_air_1945 = 1
-	transport_air_1950 = 1
-	
-	##ENGINEERING##
-	electronic_mechanical_engineering = 1
-	radio = 1
-	radio_detection = 1
-	mechanical_computing = 1
-	computing_machine = 1
-	basic_encryption = 1
-	basic_decryption = 1
-	computing_machine_1950 = 1
-	helicopter_engines = 1
-	jet_engines = 1
-	jet_engines_bombers = 1
-	
-	##INDUSTRY##
-	##INDUSTRY TECHS ARE WIP##
+if = {
+	limit = { has_dlc_mtg = no }
+	set_technology = {
+		early_destroyer = 1
+		basic_destroyer = 1
+		early_light_cruiser = 1
+		basic_light_cruiser = 1
+	}
 }
 
 set_politics = {
-	ruling_party = conservative
-	last_election = "1958.1.8"
+	ruling_party = social_conservative
+	last_election = "1935.12.31"
 	election_frequency = 48
 	elections_allowed = no
-
 }
 
 set_popularities = {
-	vanguardist = 25
-	socialist = 25
-	progressive =  0
-	ecologist = 0
-	liberal = 0
-	conservative = 25
-	syndicalist = 25
-	anocrat = 0
-	paternalist =  0
-	national_populist = 0
-	
+	totalist = 0
+	syndicalist = 3
+	radical_socialist = 4
+	social_democrat = 1
+	social_liberal = 15
+	market_liberal = 0
+	social_conservative = 39
+	authoritarian_democrat = 17
+	paternal_autocrat = 19
+	national_populist = 2
 }
 
-#Country Leaders
-# recruit_character = SYR_Adib_al_Shishakli
-# recruit_character = SYR_Hafez_al_Assad
-# recruit_character = SYR_Salah_Jadid
-# recruit_character = SYR_Michel_Aflaq
-# recruit_character = SYR_Ziad_al_Hariri
-# recruit_character = SYR_Italo_Balbo_Ruler_Of_Arabia
+add_ideas = {
+	#medium_economy
+	syr_sunni_elite_control
+	syr_lebanese_unrest
+	syr_alawite_unrest
+	syr_mudafaa_hukuk
+	syr_ottoman_military
+	partial_economic_mobilisation
+}
 
-TNO_startup_nation = yes
+### State Resistance ###
+680 = { force_enable_resistance = SYR } #Latakia
+
+### Country Leaders ###
+recruit_character = SYR_akram_al_hourani
+recruit_character = SYR_khalid_bakdash
+recruit_character = SYR_said_al_jazairi
+recruit_character = SYR_rushdi_al_kikhiya
+recruit_character = SYR_hashim_al_atassi
+recruit_character = SYR_shukri_al_quwatli
+recruit_character = SYR_sultan_al_atrash
+recruit_character = SYR_husni_al_zaim
+recruit_character = SYR_antun_saadeh
+
+### Seconds in Command ###
+recruit_character = SYR_abd_al_rahman_shahbandar
+recruit_character = SYR_jamil_mardam_bey
+recruit_character = SYR_muhsen_barazi
+
+### Advisors ###
+recruit_character = SYR_maarouf_al_dawalibi
+recruit_character = SYR_nazim_kudsi
+recruit_character = SYR_rashad_barmada
+recruit_character = SYR_raghib_nashashibi
+recruit_character = SYR_fakhri_nashashibi
+recruit_character = SYR_edmond_homsi
+recruit_character = SYR_saadallah_jabiri
+recruit_character = SYR_fares_khoury
+recruit_character = SYR_abdulrahman_kayali
+recruit_character = SYR_lutfi_haffar
+recruit_character = SYR_abdullah_atfeh
+recruit_character = SYR_fawzi_selu
+recruit_character = SYR_sati_husri
+recruit_character = SYR_ahmad_sharbati
+recruit_character = SYR_george_abd_messih
+recruit_character = SYR_said_taqiyaddin
+recruit_character = SYR_salah_al_shishakli
+
+### Generals ###
+recruit_character = SYR_sami_al_hinawi
+recruit_character = SYR_adib_bin_hassan
+recruit_character = SYR_aziz_ali_al_misri
+recruit_character = SYR_yusuf_al_azma
+
+### Military advisors ###
+recruit_character = SYR_fawzi_al_qawuqji
+recruit_character = SYR_anwar_bannud
+recruit_character = SYR_army_subservient_air_command
+recruit_character = SYR_army_naval_arm
+recruit_character = SYR_interbranch_cooperation
+
+### activate SiC
+activate_advisor = SYR_abd_al_rahman_shahbandar_sic
+
+#move nashashibi to MoJ on start
+SYR_raghib_nashashibi = { set_nationality = PAL }
+
+#retire him since he is gotten later
+SYR_yusuf_al_azma = { retire = yes }
+
+### Templates ###
+division_template = {
+	name = "Infantry Division"
+	division_names_group = SYR_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+}
+division_template = {
+	name = "Independent Mechanized Brigade"
+	division_names_group = SYR_ARM_01
+	regiments = {
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		mot_artillery_brigade = { x = 2 y = 0 }
+		mot_artillery_brigade = { x = 2 y = 1 }
+	}
+}
+division_template = {
+	name = "Cavalry Division"
+	division_names_group = SYR_CAV_01
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+	}
+}
+division_template = {
+	name = "Camel Corps"
+	division_names_group = SYR_CAV_01
+	regiments = {
+		camelry = { x = 0 y = 0 }
+		camelry = { x = 0 y = 1 }
+		camelry = { x = 0 y = 2 }
+		camelry = { x = 1 y = 0 }
+		camelry = { x = 1 y = 1 }
+		camelry = { x = 1 y = 2 }
+	}
+}
