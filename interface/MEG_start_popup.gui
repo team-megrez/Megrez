@@ -1,0 +1,84 @@
+guiTypes = {
+	containerWindowType = {
+		name = "MEG_start_popup_window"
+        position = { x = 100 y =150 }
+        size = { width = 950 height = 500 }
+		clipping = yes
+		moveable = yes
+
+        background = {
+            name = "Background"
+            quadTextureSprite ="GFX_tiled_window2_1b_border"
+        }
+		buttonType ={
+			name = "MEG_logo_button"
+			spriteType = "GFX_party_modify_button"
+			position = { x = 20 y = 15 }
+			clicksound = click_scroll
+		}
+		instantTextBoxType = {
+			name = "MEG_LOGO_TITLE"
+			position = { x = -400 y = 25 }
+			maxWidth = 982
+			maxHeight = 92
+			format = center
+			orientation = upper_left
+			font = "hoi_16mbs"
+			text = "MOD Logo"
+			alwaystransparent = yes
+		}
+		buttonType ={
+			name = "MEG_history_start_button"
+			spriteType = "GFX_party_modify_button"
+			position = { x = 20 y = 55 }
+			clicksound = click_scroll
+		}
+		instantTextBoxType = {
+			name = "MEG_HISTORY_START_TITLE"
+			position = { x = -400 y = 65 }
+			maxWidth = 982
+			maxHeight = 92
+			format = center
+			orientation = upper_left
+			font = "hoi_16mbs"
+			text = "History of MEGREZ"
+			alwaystransparent = yes
+		}
+		buttonType ={
+			name = "MEG_history_dev_note_button"
+			spriteType = "GFX_party_modify_button"
+			position = { x = 20 y = 335 }
+			clicksound = click_scroll
+		}
+		instantTextBoxType = {
+			name = "MEG_HISTORY_DEV_NOTE_TITLE"
+			position = { x = -400 y = 345 }
+			maxWidth = 982
+			maxHeight = 92
+			format = center
+			orientation = upper_left
+			font = "hoi_16mbs"
+			text = "Dev note"
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "MEG_START_POPUP_DESC_TITLE"
+			position = { x = 180 y = 15 }
+			maxWidth = 100000
+			maxHeight = 1000
+			format = left
+			orientation = upper_left
+			font = "aldrich_18_outline"
+			text = "start_popup_desc"
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "close"
+			spriteType = "GFX_closebutton"
+			position = { x = 890 y = 15 }
+			clicksound = click_close
+			pdx_tooltip = "닫기"
+			shortcut = "ESCAPE"
+		}
+	}
+}

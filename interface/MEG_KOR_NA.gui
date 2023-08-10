@@ -1,0 +1,123 @@
+guiTypes = {
+	
+
+	containerWindowType = {
+		name = "countrypoliticsview_KORNA_open_button_window"
+		position = { x = 416 y = 7 }
+
+		buttonType ={
+			name = "politicsview_KORNA_button"
+			spriteType = "GFX_button_123x34"
+			position = { x = -200 y = 289 }
+			clicksound = click_scroll
+			scale = 0.85
+		}
+		instantTextboxType = {
+			name = "show_HOS_political_tab"
+			position = { x = -189 y = 290 }
+			textureFile = ""
+			font = "aldrich_24_outline"
+			borderSize = { x = 0 y = 0 }
+			text = "NA"
+			format = centre
+			orientation = CENTER
+			pdx_tooltip = "hos_desc_2_tt"
+			maxWidth = 80
+			maxHeight = 20
+			fixedsize = yes
+		}
+	}
+	containerWindowType = {
+		name = "countrypoliticsview_KORNA_main"
+        position = { x = 540 y = -1 }
+        size = { width = 700 height = 500 }
+		clipping = yes
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
+		animation_time = 300
+		show_sound = menu_open_window
+
+        background = {
+            name = "Background"
+            quadTextureSprite ="GFX_tiled_window2_1b_border"
+        }
+		instantTextboxType = {
+			name = "title"
+			position = { x = -190 y = -230 }
+			orientation = CENTER
+			textureFile = ""
+			font = "aldrich_30_outline"
+			borderSize = { x = 0 y = 0 }
+			text = "Central Advisory Council"
+			maxWidth = 400
+			maxHeight = 20
+			format = center
+			vertical_alignment = center
+		}
+		instantTextboxType = {
+			name = "final_agenda"
+			position = { x = -230 y = -200 }
+			orientation = CENTER
+			textureFile = ""
+			font = "aldrich_30_outline"
+			borderSize = { x = 0 y = 0 }
+			text = "Final Agenda : Independence from Japan"
+			maxWidth = 500
+			maxHeight = 20
+			format = center
+			vertical_alignment = center
+		}
+		instantTextboxType = {
+			name = "final_agenda_support"
+			position = { x = -230 y = -170 }
+			orientation = CENTER
+			textureFile = ""
+			font = "aldrich_30_outline"
+			borderSize = { x = 0 y = 0 }
+			text = "Agree : [get_inde_support_number] - Disagree : [get_inde_not_support_number]"
+			maxWidth = 500
+			maxHeight = 20
+			format = center
+			vertical_alignment = center
+		}
+		instantTextboxType = {
+			name = "current_agenda"
+			position = { x = -335 y = 90 }
+			orientation = CENTER
+			textureFile = ""
+			font = "aldrich_30_outline"
+			borderSize = { x = 0 y = 0 }
+			text = "Current Agenda : [get_current_agenda]"
+			maxWidth = 500
+			maxHeight = 20
+			format = left
+			vertical_alignment = center
+		}
+		instantTextboxType = {
+			name = "agree_support"
+			position = { x = -335 y = 150 }
+			orientation = CENTER
+			textureFile = ""
+			font = "aldrich_30_outline"
+			borderSize = { x = 0 y = 0 }
+			text = "Approve : [get_support_number]"
+			maxWidth = 400
+			maxHeight = 20
+			format = left
+			vertical_alignment = center
+		}	
+		instantTextboxType = {
+			name = "disagree_support"
+			position = { x = -335 y = 200 }
+			orientation = CENTER
+			textureFile = ""
+			font = "aldrich_30_outline"
+			borderSize = { x = 0 y = 0 }
+			text = "Reject : [get_not_support_number]"
+			maxWidth = 400
+			maxHeight = 20
+			format = left
+			vertical_alignment = center
+		}		
+	}
+}

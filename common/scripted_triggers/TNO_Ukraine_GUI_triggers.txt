@@ -1,0 +1,190 @@
+
+# Trig equations for breadbasket
+
+UKR_BB_run_sin = {
+	if = {
+		limit = {
+			check_variable = { angle > 180 }
+		}
+		subtract_from_temp_variable = { angle = 180 }
+		set_temp_variable = { decreased = 1 }
+	}
+	
+	set_temp_variable = { up_s = angle }
+	multiply_temp_variable = { up_s = 4 }
+	set_temp_variable = { up_s_2 = 180 }
+	subtract_from_temp_variable = { up_s_2 = angle }
+	multiply_temp_variable = { up_s = up_s_2 }
+	
+	set_temp_variable = { down_s = 40500 }
+	set_temp_variable = { down_s_2 = 180 }
+	subtract_from_temp_variable = { down_s_2 = angle }
+	multiply_temp_variable = { down_s_2 = angle }
+	subtract_from_temp_variable = { down_s = down_s_2 }
+	
+	set_temp_variable = { result_s = up_s }
+	divide_temp_variable = { result_s = down_s }
+	
+	if = {
+		limit = {
+			check_variable = { decreased = 1 }
+		}
+		multiply_temp_variable = { result_s = -1 }
+		add_to_temp_variable = { angle = 180 }
+		set_temp_variable = { decreased = 0 }
+	}
+}
+
+UKR_BB_run_cos = {
+	if = {
+		limit = {
+			check_variable = { angle > 180 }
+		}
+		subtract_from_temp_variable = { angle = 180 }
+		set_temp_variable = { decreased = 1 }
+	}
+
+	set_temp_variable = { up_c = angle }
+	multiply_temp_variable = { up_c = up_c }
+	multiply_temp_variable = { up_c = -5 }
+	
+	set_temp_variable = { down_c = 32400 }
+	set_temp_variable = { down_c_2 = angle }
+	multiply_temp_variable = { down_c_2 = down_c_2 }
+	add_to_temp_variable = { down_c = down_c_2 }
+	
+	set_temp_variable = { result_c = up_c }
+	divide_temp_variable = { result_c = down_c }
+	add_to_temp_variable = { result_c = 1 }
+	
+	if = {
+		limit = {
+			check_variable = { decreased = 1 }
+		}
+		multiply_temp_variable = { result_c = -1 }
+		add_to_temp_variable = { angle = 180 }
+		set_temp_variable = { decreased = 0 }
+	}
+}
+
+# Regional divisions for Breadbasket
+
+UKR_BB_Kiev_Region = {
+	OR = {
+		state = 202
+		state = 201
+		state = 1430
+		state = 773
+	}
+}
+
+UKR_BB_Mykolaiv_Region = {
+	OR = {
+		state = 197
+		state = 203
+		state = 226
+		state = 225
+	}
+}
+
+UKR_BB_Chernihiv_Region = {
+	OR = {
+		state = 1427
+		state = 1429
+		state = 193
+		state = 225
+	}
+}
+
+UKR_BB_Kharkiv_Region = {
+	OR = {
+		state = 221
+		state = 259
+		state = 1426
+	}
+}
+
+UKR_BB_Volyn_Region = {
+	OR = {
+		state = 93
+		state = 1431
+		state = 199
+	}
+}
+
+UKR_BB_Luhansk_Region = {
+	OR = {
+		state = 228
+		state = 227
+		state = 218
+	}
+}
+
+# Supply raiding
+
+is_ukraine_civil_war_state = {
+	OR = {
+		state = 1431
+		state = 93
+		state = 201
+		state = 199
+		state = 1429
+		state = 1430
+		state = 773
+		state = 203
+		state = 197
+		state = 226
+		state = 202
+		state = 1428
+		state = 193
+		state = 1427
+		state = 225
+		state = 259
+		state = 221
+		state = 1426
+		state = 228
+		state = 227
+		state = 218
+	}
+}
+
+is_west_ukraine = {
+	OR = {
+		state = 1431
+		state = 93
+		state = 201
+		state = 199
+		state = 1429
+		state = 1430
+	}
+}
+
+is_south_ukraine = {
+	OR = {
+		state = 773
+		state = 203
+		state = 197
+		state = 226
+	}
+}
+
+is_north_ukraine = {
+	OR = {
+		state = 202
+		state = 1428
+		state = 193
+		state = 1427
+		state = 225
+	}
+}
+
+is_east_ukraine = {
+	OR = {
+		state = 259
+		state = 221
+		state = 1426
+		state = 228
+		state = 227
+		state = 218
+	}
+}

@@ -11,6 +11,7 @@ operation_rescue_operative = { ### 0 1/35
 	priority = 0
 	prevent_captured_operative_to_die = yes
 
+
 	days = 35
 	network_strength = 30
 	operatives = 1
@@ -30,6 +31,7 @@ operation_rescue_operative = { ### 0 1/35
 			has_captured_operative = ROOT
 		}
 	}
+
 
 	equipment = {
 
@@ -78,13 +80,17 @@ operation_rescue_operative = { ### 0 1/35
 		infiltration_diplomatic = {
 			base = 25
 			modifier = {
-				factor = 0
-				FROM = { has_war_with = ROOT }
-			}
-			modifier = {
 				factor = 20
 				ROOT = { has_war = no }
-				FROM = { has_war = no }
+				FROM = {
+					has_war = no
+				}
+			}
+			modifier = {
+				FROM = {
+					has_war_with = ROOT
+				}
+				factor = 0
 			}
 		}
 	}
@@ -310,7 +316,6 @@ operation_fake_intel = { ### 2 1/40
 	required_tokens = {
 
 	}
-
 	risk_chance = 0 #there shouldn't be any risk
 	experience = 0.5
 	outcome_execute = { # SCOPE_OPERATION
@@ -319,7 +324,7 @@ operation_fake_intel = { ### 2 1/40
 				if = {
 					# create template if not exist
 					limit = {
-						NOT = {
+						not = {
 							has_country_flag = fake_intel_template_created
 						}
 					}
@@ -404,7 +409,6 @@ operation_capture_cipher = { ### 3 1/55
 	days = 75
 	network_strength = 40
 	operatives = 2
-	is_captured_cipher = yes
 
 	visible = {
 		network_strength = {
@@ -412,7 +416,7 @@ operation_capture_cipher = { ### 3 1/55
 			value > 25
 		}
 		has_tech = mechanical_computing
-		has_done_agency_upgrade = upgrade_form_department
+		has_done_agency_upgrade = upgrade_modernize_department
 		NOT = {
 			ROOT = { is_fully_decrypted = FROM }
 		}
@@ -1002,7 +1006,6 @@ operation_infiltrate_armed_forces_airforce = { ### 6 1/55
 	}
 }
 
-## operation_coup_government removed
 
 operation_boost_resistance = { ### 8 2/40
 	icon = GFX_operations_boost_resistance
@@ -1091,6 +1094,7 @@ operation_boost_resistance = { ### 8 2/40
 			}
 		}
 	}
+
 
 	target_weight = {
 		base = 100
@@ -1311,227 +1315,6 @@ operation_make_resistance_contacts = { ### 9 2/40
 	}
 }
 
-operation_collaboration_government = { ### 10 2/55
-	icon = GFX_operations_collaboration_government
-	map_icon = GFX_operations_collaboration_government_map
-	name = operation_collaboration_government
-	desc = operation_collaboration_government_desc
-	priority = 10
-
-	days = 90
-	network_strength = 50
-	operatives = 2
-
-	cost_multiplier = 0.25
-
-	visible = {
-		network_strength = {
-			target = FROM
-			value > 25
-		}
-	}
-
-	equipment = {
-		support_equipment = 200
-		infantry_equipment = 1000
-		civilian_factories = {
-			amount = 10
-			days = 60
-		}
-	}
-
-	allowed = {
-		has_rule = can_create_collaboration_government
-	}
-
-	available = {
-		has_collaboration = {
-			target = FROM
-			value < 1.0
-		}
-	}
-	risk_chance = 0.1
-	experience = 1.5
-	outcome_extra_chance = 0.33
-	outcome_execute = { # SCOPE_OPERATION
-		ROOT = {
-			add_collaboration = {
-				target = FROM
-				value = 0.3
-			}
-		}
-	}
-	outcome_extra_execute = { # SCOPE_OPERATION
-		ROOT = {
-			add_collaboration = {
-				target = FROM
-				value = 0.45
-			}
-		}
-	}
-
-	outcome_potential = {
-		ROOT = {
-			add_collaboration = {
-				target = FROM
-				value = 0.3
-			}
-		}
-	}
-
-	phases = { #infiltration
-		infiltration_border = { base = 25 }
-		infiltration_submarine = { base = 25 }
-		infiltration_paradrop = {
-			base = 25
-			modifier = {
-				ROOT = {
-					has_equipment = {
-						transport_plane_equipment < 1
-					}
-				}
-				factor = 0
-			}
-		}
-		infiltration_diplomatic = {
-			base = 25
-			modifier = {
-				factor = 20
-				ROOT = { has_war = no }
-				FROM = {
-					has_war = no
-				}
-			}
-		}
-	}
-	phases = {
-		collaboration_government_set_up_planning_committees = { base = 33 }
-		collaboration_government_train_paramilitary_forces = { base = 33 }
-		collaboration_government_contact_military_officers = { base = 33 }
-	}
-	phases = { #exfiltration
-		exfiltration_air_pickup = {
-			base = 15
-			modifier = {
-				ROOT = {
-					has_equipment = {
-						transport_plane_equipment < 1
-					}
-				}
-				factor = 0
-			}
-		}
-		exfiltration_border = { base = 30 }
-		exfiltration_go_to_ground = { base = 30 }
-		exfiltration_submarine_pickup = { base = 25 }
-	}
-}
-
-operation_coordinated_strike = { ### 11 2/70
-	icon = GFX_operations_coordinated_strike
-	map_icon = GFX_operations_coordinated_strike_map
-	name = operation_coordinated_strike
-	desc = operation_coordinated_strike_desc
-	priority = 11
-
-	days = 3
-	network_strength = 70
-	operatives = 2
-
-	visible = {
-		network_strength = {
-			target = FROM
-			value > 35
-		}
-		NOT = {
-			has_war_with = FROM
-		}
-	}
-
-	equipment = {
-		civilian_factories = {
-			amount = 15
-			days = 5
-		}
-	}
-
-	available = {
-		NOT = {
-			has_war_with = FROM
-		}
-		has_wargoal_against = FROM
-		can_declare_war_on = FROM
-	}
-
-	target_type = strategic_region
-
-	selection_target = {
-		targets = { FROM }
-	}
-
-	# Coordinated Strike will lead to a war with the target
-	will_lead_to_war_with = yes
-	risk_chance = 0.3
-	experience = 2
-	outcome_execute = { # SCOPE_OPERATION
-		ROOT = {
-			declare_war_on = { target = FROM type = annex_everything }
-		}
-
-		execute_operation_coordinated_strike = {
-			# Amount determines how often the mission simulation is run
-			amount = 12 #1 attack per 6 hours --> 12 attacks = 3 days
-		}
-	}
-
-	outcome_potential = {
-		custom_effect_tooltip = coordinated_strike_tt
-	}
-
-	phases = { #infiltration
-		infiltration_border = { base = 25 }
-		infiltration_submarine = { base = 25 }
-		infiltration_paradrop = {
-			base = 25
-			modifier = {
-				ROOT = {
-					has_equipment = {
-						transport_plane_equipment < 1
-					}
-				}
-				factor = 0
-			}
-		}
-		infiltration_diplomatic = {
-			base = 25
-			modifier = {
-				factor = 20
-				ROOT = { has_war = no }
-				FROM = {
-					has_war = no
-				}
-			}
-		}
-	}
-	phases = { #preparing
-		coordinated_strike_scout_target = { base = 50 }
-		coordinate_strike_mark_targets = { base = 50 }
-	}
-
-	phases = { #execution
-		coordinated_strike_sabotage_communications = { base = 34 }
-		coordinated_strike_direct_units = { base = 34 }
-		coordinated_strike_occupy_bridges = {
-			base = 34
-			modifier = {
-				factor = 0
-				NOT = {
-					ROOT = { is_neighbor_of = FROM } #no land connection between FROM and ROOT
-				}
-			}
-		}
-	}
-}
 
 operation_steal_tech_civilian = { ### 12 3/35
 	icon = GFX_operations_steal_blueprints
@@ -1660,13 +1443,17 @@ operation_steal_tech_civilian = { ### 12 3/35
 		infiltration_diplomatic = {
 			base = 25
 			modifier = {
-				factor = 0
-				FROM = { has_war_with = ROOT }
-			}
-			modifier = {
 				factor = 20
 				ROOT = { has_war = no }
-				FROM = { has_war = no }
+				FROM = {
+					has_war = no
+				}
+			}
+			modifier = {
+				FROM = {
+					has_war_with = ROOT
+				}
+				factor = 0
 			}
 		}
 	}
@@ -1710,6 +1497,7 @@ operation_targeted_sabotage_industry = { ### 13 3/35
 			target = FROM
 			value > 0
 		}
+
 
 		has_operation_token = {
 			tag = FROM
@@ -1758,6 +1546,7 @@ operation_targeted_sabotage_industry = { ### 13 3/35
 		}
 	}
 	outcome_extra_execute = { # SCOPE_OPERATION
+
 		FROM.FROM = {
 			add_to_variable = {
 				var = targeted_sabotage_industry
@@ -1789,13 +1578,17 @@ operation_targeted_sabotage_industry = { ### 13 3/35
 		infiltration_diplomatic = {
 			base = 25
 			modifier = {
-				factor = 0
-				FROM = { has_war_with = ROOT }
-			}
-			modifier = {
 				factor = 20
 				ROOT = { has_war = no }
-				FROM = { has_war = no }
+				FROM = {
+					has_war = no
+				}
+			}
+			modifier = {
+				FROM = {
+					has_war_with = ROOT
+				}
+				factor = 0
 			}
 		}
 	}
@@ -1914,13 +1707,17 @@ operation_targeted_sabotage_infrastructure = { ### 14 3/35
 		infiltration_diplomatic = {
 			base = 25
 			modifier = {
-				factor = 0
-				FROM = { has_war_with = ROOT }
-			}
-			modifier = {
 				factor = 20
 				ROOT = { has_war = no }
-				FROM = { has_war = no }
+				FROM = {
+					has_war = no
+				}
+			}
+			modifier = {
+				FROM = {
+					has_war_with = ROOT
+				}
+				factor = 0
 			}
 		}
 	}
@@ -1965,6 +1762,7 @@ operation_targeted_sabotage_resources = { ### 15 3/35
 			target = FROM
 			value > 0
 		}
+
 
 		has_operation_token = {
 			tag = FROM
@@ -2011,6 +1809,7 @@ operation_targeted_sabotage_resources = { ### 15 3/35
 		}
 	}
 	outcome_extra_execute = { # SCOPE_OPERATION
+
 		FROM.FROM = {
 			add_to_variable = {
 				var = targeted_sabotage_resources
@@ -2040,13 +1839,17 @@ operation_targeted_sabotage_resources = { ### 15 3/35
 		infiltration_diplomatic = {
 			base = 25
 			modifier = {
-				factor = 0
-				FROM = { has_war_with = ROOT }
-			}
-			modifier = {
 				factor = 20
 				ROOT = { has_war = no }
-				FROM = { has_war = no }
+				FROM = {
+					has_war = no
+				}
+			}
+			modifier = {
+				FROM = {
+					has_war_with = ROOT
+				}
+				factor = 0
 			}
 		}
 	}
@@ -2112,7 +1915,11 @@ operation_steal_tech_army = { ### 16 3/55
 	cost_modifiers = { operation_cost }
 	outcome_execute = {
 		if = {
-			limit = { has_dlc_nsb = no }
+			limit = {
+				NOT = {
+					has_dlc = "No Step Back"
+				}
+			}
 			ROOT = {
 				steal_random_tech_bonus = {
 					folder = armour_folder
@@ -2157,7 +1964,11 @@ operation_steal_tech_army = { ### 16 3/55
 		random_list = {
 			33 = {
 				if = {
-					limit = { has_dlc_nsb = no }
+					limit = {
+						NOT = {
+							has_dlc = "No Step Back"
+						}
+					}
 					ROOT = {
 						steal_random_tech_bonus = {
 							folder = armour_folder
@@ -2196,7 +2007,9 @@ operation_steal_tech_army = { ### 16 3/55
 			}
 			67 = {
 				if = {
-					limit = { has_dlc_nsb = no }
+					limit = {
+						NOT = { has_dlc = "No Step Back" }
+					}
 					ROOT = {
 						steal_random_tech_bonus = {
 							folder = armour_folder
@@ -2238,7 +2051,7 @@ operation_steal_tech_army = { ### 16 3/55
 
 	outcome_potential = {
 		if = {
-			limit = { has_dlc_nsb = no }
+			limit = { NOT = { has_dlc = "No Step Back" } }
 			ROOT = {
 				steal_random_tech_bonus = {
 					folder = armour_folder
@@ -2269,6 +2082,7 @@ operation_steal_tech_army = { ### 16 3/55
 					uses = 1
 				}
 			}
+
 		}
 		custom_effect_tooltip = operation_outcome_consumes_token_tt
 	}
@@ -2290,13 +2104,17 @@ operation_steal_tech_army = { ### 16 3/55
 		infiltration_diplomatic = {
 			base = 25
 			modifier = {
-				factor = 0
-				FROM = { has_war_with = ROOT }
-			}
-			modifier = {
 				factor = 20
 				ROOT = { has_war = no }
-				FROM = { has_war = no }
+				FROM = {
+					has_war = no
+				}
+			}
+			modifier = {
+				FROM = {
+					has_war_with = ROOT
+				}
+				factor = 0
 			}
 		}
 	}
@@ -2361,8 +2179,9 @@ operation_steal_tech_navy = { ### 17 3/55
 	outcome_modifiers = { operation_steal_tech_outcome operation_outcome }
 	cost_modifiers = { operation_cost }
 	outcome_execute = {
+
 		if = {
-			limit = { has_dlc_mtg = yes }
+			limit = { has_dlc = "Man the Guns"}
 			ROOT = {
 				steal_random_tech_bonus = {
 					folder = mtgnavalfolder
@@ -2399,12 +2218,13 @@ operation_steal_tech_navy = { ### 17 3/55
 			}
 		}
 	}
+
 	outcome_extra_execute = { # SCOPE_OPERATION
 
 		random_list = {
 			33 = {
 				if = {
-					limit = { has_dlc_mtg = yes }
+					limit = { has_dlc = "Man the Guns"}
 
 					ROOT = {
 						steal_random_tech_bonus = {
@@ -2438,7 +2258,7 @@ operation_steal_tech_navy = { ### 17 3/55
 			}
 			67 = {
 				if = {
-					limit = { has_dlc_mtg = yes }
+					limit = { has_dlc = "Man the Guns"}
 
 					ROOT = {
 						steal_random_tech_bonus = {
@@ -2505,13 +2325,17 @@ operation_steal_tech_navy = { ### 17 3/55
 		infiltration_diplomatic = {
 			base = 25
 			modifier = {
-				factor = 0
-				FROM = { has_war_with = ROOT }
-			}
-			modifier = {
 				factor = 20
 				ROOT = { has_war = no }
-				FROM = { has_war = no }
+				FROM = {
+					has_war = no
+				}
+			}
+			modifier = {
+				FROM = {
+					has_war_with = ROOT
+				}
+				factor = 0
 			}
 		}
 	}
@@ -2658,13 +2482,17 @@ operation_steal_tech_airforce = { ### 18 3/55
 		infiltration_diplomatic = {
 			base = 25
 			modifier = {
-				factor = 0
-				FROM = { has_war_with = ROOT }
-			}
-			modifier = {
 				factor = 20
 				ROOT = { has_war = no }
-				FROM = { has_war = no }
+				FROM = {
+					has_war = no
+				}
+			}
+			modifier = {
+				FROM = {
+					has_war_with = ROOT
+				}
+				factor = 0
 			}
 		}
 	}

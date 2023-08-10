@@ -9,6 +9,7 @@ ability = {
 
 		allowed = {
 			is_leading_army_group = no
+			is_border_war = no
 		}
 
 		ai_will_do = {
@@ -56,6 +57,7 @@ ability = {
 
 		allowed = {
 			is_leading_army_group = no
+			is_border_war = no
 		}
 
 		cost = 0.22
@@ -101,12 +103,17 @@ ability = {
 
 		type = army_leader
 
+		allowed = {
+			is_border_war = no
+		}
+
 		cost = 0.12
 		duration = 168
 
 		unit_modifiers = {
 			planning_speed = 4.0
 		}
+
 
 		ai_will_do = {
 			factor = -1
@@ -123,6 +130,7 @@ ability = {
 		}
 	}
 
+
 	siege_artillery = {
 		name = ABILITY_SIEGE_ARTILLERY
 		desc = ABILITY_SIEGE_ARTILLERY_DESC
@@ -131,6 +139,7 @@ ability = {
 
 		allowed = {
 			has_ability = siege_artillery
+			is_border_war = no
 		}
 
 		unit_modifiers = {
@@ -142,6 +151,7 @@ ability = {
 		}
 		cost = 0.1
 		duration = 168
+
 
 		ai_will_do = {
 			factor = -1
@@ -169,12 +179,13 @@ ability = {
 
 		allowed = {
 			has_ability = glider_planes
+			is_border_war = no
 		}
 
 		unit_modifiers = {
-			paratrooper_count_per_plane = 1.0
-			paradrop_organization_factor = 2.0
-			paratrooper_aa_defense = 0.5
+			modifier_army_sub_unit_air_assault_attack_factor = 0.05
+			modifier_army_sub_unit_air_assault_defence_factor = 0.1
+			special_forces_no_supply_grace = 24
 		}
 
 		cost = 0.1
@@ -188,6 +199,7 @@ ability = {
 
 		allowed = {
 			has_ability = faster_naval_invasion_planning
+			is_border_war = no
 		}
 
 		unit_modifiers = {
@@ -206,6 +218,7 @@ ability = {
 
 		allowed = {
 			has_ability = probing_attack
+			is_border_war = no
 		}
 
 		unit_modifiers = {
@@ -226,7 +239,9 @@ ability = {
 
 		allowed = {
 			has_ability = makeshift_bridges
+			is_border_war = no
 		}
+
 
 		unit_modifiers = {
 			river_crossing_factor = -0.4
@@ -259,6 +274,7 @@ ability = {
 
 		allowed = {
 			has_ability = extra_suplies
+			is_border_war = no
 		}
 
 		unit_modifiers = {
@@ -282,6 +298,7 @@ ability = {
 
 		allowed = {
 			has_ability = requisition_winter_gear
+			is_border_war = no
 		}
 
 		unit_modifiers = {
@@ -290,6 +307,7 @@ ability = {
 
 		cost = 0.1
 		duration = 168
+
 
 		ai_will_do = {
 			factor = -1
@@ -307,4 +325,3 @@ ability = {
 		}
 	}
 }
-

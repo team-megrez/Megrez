@@ -1,0 +1,4647 @@
+guiTypes = {
+
+	extendedScrollbarType = {
+		name = "right_vertical_slider_tno_Japandiplogui"
+		position = { x =-8 y = 0 }
+		size = { width = 18 height = 18 }
+		startValue = 0
+		orientation = upper_right
+		origo = upper_right
+		smooth_scrolling = 0.25
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_scrollbar_vertical_bg"
+		}
+
+		slider = {
+			name = "Slider"
+			quadTextureSprite = "yearslider_slider2"
+			position = { x = -2 y = -2 }
+		}
+
+		track = {
+			name = "Track"
+			quadTextureSprite = "GFX_blank"
+			position = { x = 3 y = 0 }
+			alwaystransparent = yes
+		}
+
+		decreaseButton = {
+			name = "Decrease"
+			quadTextureSprite = "GFX_scroll_up"
+			position = { x = 2 y = 4 }
+			scale = 0.9
+		}
+
+		increaseButton = {
+			name = "Increase"
+			quadTextureSprite = "GFX_scroll_down"
+			position = { x=-16 y = -18}
+			scale = 0.9
+		}
+	}
+
+	containerWindowType = {
+		name = "TNO_Japan_diplomacy_window_open"
+		size = { width = 220 height = 128 }
+		position = { x = 0 y = 289 }
+
+		buttonType = {
+			name = "jap_diplomacy_menu_open"
+			spriteType = "GFX_jap_sphere_open_button"
+			position = { x = 135 y = 41 }
+			pdx_tooltip = "scripted_gui_open_tt_jap_sph"
+			scale = 0.65
+		}
+	}
+
+	containerWindowType = {
+		name = "TNO_Japan_diplomacy_window_main"
+		size = { width = 675 height = 500 }
+		position = { x = 541 y = 79 }
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_tiled_bg"
+		}
+
+		iconType = {
+			name = "JapanDiploGuide"
+			spriteType = "GFX_JapanDiploGuide"
+			position = { x = 0 y = 0 }
+			alwaystransparent = yes
+			orientation = center
+			centerposition = yes
+		}
+
+		iconType = {
+			name = "JapanDiploJapan_button"
+			spriteType = "GFX_JapanDiploJapan"
+			position = { x = -63 y = -182 }
+			orientation = center
+			pdx_tooltip = JapanDiploJapan_button_tt
+		}
+
+		buttonType = {
+			name = "JapanDiploSEA_button"
+			spriteType = "GFX_JapanDiploSEA"
+			position = { x = -171 y = -17 }
+			orientation = center
+			pdx_tooltip = JapanDiploSEA_button_tt
+		}
+
+		buttonType = {
+			name = "JapanDiploChinaProper_button"
+			spriteType = "GFX_JapanDiploChinaProper"
+			position = { x = -189 y = -143 }
+			orientation = center
+			pdx_tooltip = JapanDiploChinaProper_button_tt
+		}
+
+		buttonType = {
+			name = "JapanDiploIndia_button"
+			spriteType = "GFX_JapanDiploIndiaRegion"
+			position = { x = -295 y = -60 }
+			orientation = center
+			pdx_tooltip = JapanDiploIndia_button_tt
+		}
+
+		#buttonType = {
+		#	name = "JapanDiploOuterChina_button"
+		#	spriteType = "GFX_JapanDiploOuterChina"
+		#	position = { x = -159 y = -110 }
+		#	orientation = center
+		#	pdx_tooltip = JapanDiploOuterChina_button_tt
+		#}
+
+		buttonType = {
+			name = "JapanDiploRussia_button"
+			spriteType = "GFX_JapanDiploRussiaRegion"
+			position = { x = -145 y = -194 }
+			orientation = center
+			pdx_tooltip = JapanDiploRussia_button_tt
+		}
+
+		iconType = {
+			name = "JapanDiploItaly_button"
+			spriteType = "GFX_JapanDiploItaly"
+			position = { x = -470 y = -162 }
+			orientation = center
+		}
+
+		iconType = {
+			name = "JapanDiploRussiaUnified_button"
+			spriteType = "GFX_JapanDiploRussiaUnified"
+			position = { x = -482 y = -225 }
+			orientation = center
+		}
+
+		iconType = {
+			name = "JapanDiploIran_button"
+			spriteType = "GFX_JapanDiploIran"
+			position = { x = -478 y = 93 }
+			orientation = center
+		}
+
+		iconType = {
+			name = "JapanDiploSA_button"
+			spriteType = "GFX_JapanDiploSA"
+			position = { x = -479 y = -42 }
+			orientation = center
+		}
+
+		buttonType = {
+			name = "close_button"
+			position = { x = -31 y = 16 }
+			quadTextureSprite = "GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = "UPPER_RIGHT"
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+
+		instantTextBoxType = {
+			name = "JapanDiploTitle"
+			position = { x = 0 y = 11 }
+			font = "aldrich_36_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploTitleText"
+			maxWidth = 700
+			maxHeight = 24
+			format = center
+		}
+
+		instantTextBoxType = {
+			name = "JapanDiploDesc"
+			position = { x = 420 y = 75 }
+			font = "aldrich_22_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploDescText"
+			maxWidth = 220
+			maxHeight = 24
+			format = center
+		}
+	}
+
+	## CHINA DIPLO
+
+	containerWindowType = {
+		name = "TNO_JapanDiploChinaProper_ROC_diplobox"
+		size = {width = 600 height = 300}
+		position = { x = 700 y = 275}
+		verticalScrollbar = "right_vertical_slider_tno_Japandiplogui"
+		margin = {top = 9 bottom = 9}
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "SandboxFloaterBackground"
+		}
+
+		buttonType = {
+			name = "ChinaProper_ROC_close_button"
+			position = { x = 8 y = 0 }
+			quadTextureSprite = "GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = upper_left
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+		
+		containerWindowType = {
+			name = "ChinaProper_ROC_details_1"
+			position = { x = 210 y = 30 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Stability Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+		
+		containerWindowType = {
+			name = "ChinaProper_ROC_details_2"
+			position = { x = 210 y = 100 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Population Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+		
+		containerWindowType = {
+			name = "ChinaProper_ROC_details_3"
+			position = { x = 210 y = 170 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Modernity Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+
+		containerWindowType = {
+			name = "ChinaProper_ROC_interaction_1"
+			position = { x = 15 y = 30 }
+			size = { width = 190 height = 76 }
+			
+			background = {
+				name = "ChinaProper_ROC_interaction_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = ChinaProper_ROC_interaction_1_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+			}
+		}
+		
+		iconType = {
+			name = "interaction_1_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 34 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_1_pp_text"
+			position = { x = 44 y = 32 }
+			font = "aldrich_24_outline"
+			text = "150"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_1_text"
+			position = { x = 20 y = 67 }
+			font = "aldrich_24_outline"
+			text = "a"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		containerWindowType = {
+			name = "ChinaProper_ROC_interaction_2"
+			position = { x = 15 y = 100 }
+			size = { width = 190 height = 76 }
+			
+			background = {
+				name = "ChinaProper_ROC_interaction_2_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = ChinaProper_ROC_interaction_2_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+			}
+		}
+		
+		iconType ={
+			name = "interaction_2_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 104 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_2_pp_text"
+			position = { x = 44 y = 102 }
+			font = "aldrich_24_outline"
+			text = "150"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_2_text"
+			position = { x = 20 y = 137 }
+			font = "aldrich_24_outline"
+			text = "b"
+			alwaystransparent = yes
+			maxHeight = 26
+			maxWidth = 300
+		}
+
+		containerWindowType = {
+			name = "ChinaProper_ROC_interaction_3"
+			position = { x = 15 y = 170 }
+			size = { width = 190 height = 76 }
+			
+			background = {
+				name = "ChinaProper_ROC_interaction_3_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = ChinaProper_ROC_interaction_3_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = "TEST"
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+
+		iconType ={
+			name = "interaction_3_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 174 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_3_pp_text"
+			position = { x = 44 y = 172 }
+			font = "aldrich_24_outline"
+			text = "200"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_3_text"
+			position = { x = 20 y = 207 }
+			font = "aldrich_24_outline"
+			text = "c"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		containerWindowType = {
+			name = "ChinaProper_ROC_interaction_4"
+			position = { x = 15 y = 240 }
+			size = { width = 190 height = 76 }
+			
+			background = {
+				name = "ChinaProper_ROC_interaction_4_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = ChinaProper_ROC_interaction_4_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+			}
+		}
+		
+		iconType ={
+			name = "interaction_4_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 244 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_4_pp_text"
+			position = { x = 44 y = 242 }
+			font = "aldrich_24_outline"
+			text = "300"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_4_text"
+			position = { x = 20 y = 277 }
+			font = "aldrich_24_outline"
+			text = "d"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		instantTextBoxType = {
+			name = TNO_JapanDiploChinaProper_ROC_header
+			position = { x = 30 y = -6 }
+			font = "aldrich_36_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploChinaProper_ROC_headertext"
+			maxWidth = 300
+			maxHeight = 30
+			format = left
+		}
+	}
+	
+	containerWindowType = {
+		name = "TNO_JapanDiploChinaProper_Manchuria_diplobox"
+		size = {width = 600 height = 300}
+		position = { x = 700 y = 275}
+		verticalScrollbar = "right_vertical_slider_tno_Japandiplogui"
+		margin = {top = 9 bottom = 9 }
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "SandboxFloaterBackground"
+		}
+
+		buttonType = {
+			name = "ChinaProper_Manchuria_close_button"
+			position = { x = 8 y = 0 }
+			quadTextureSprite = "GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = upper_left
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+		
+		containerWindowType = {
+			name = "ChinaProper_Manchuria_details_1"
+			position = { x = 210 y = 30 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Stability Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+		
+		containerWindowType = {
+			name = "ChinaProper_Manchuria_details_2"
+			position = { x = 210 y = 100 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Population Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+
+		containerWindowType = {
+			name = "ChinaProper_Manchuria_interaction_1"
+			position = { x = 15 y = 30 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "ChinaProper_Manchuria_interaction_1_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = ChinaProper_Manchuria_interaction_1_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = ""
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_1_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 34 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_1_pp_text"
+			position = { x = 44 y = 32 }
+			font = "aldrich_24_outline"
+			text = "200"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_1_text"
+			position = { x = 20 y = 67 }
+			font = "aldrich_24_outline"
+			text = "Address the Army"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		containerWindowType = {
+			name = "ChinaProper_Manchuria_interaction_2"
+			position = { x = 15 y = 170 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "ChinaProper_Manchuria_interaction_2_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = ChinaProper_Manchuria_interaction_2_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = "TEST"
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_2_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 174 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_2_pp_text"
+			position = { x = 44 y = 172 }
+			font = "aldrich_24_outline"
+			text = "300"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_2_text"
+			position = { x = 20 y = 207 }
+			font = "aldrich_24_outline"
+			text = "Increase Output"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		instantTextBoxType = {
+			name = TNO_JapanDiploChinaProper_Manchuria_header
+			position = { x = 30 y = -6 }
+			font = "aldrich_36_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploChinaProper_Manchuria_headertext"
+			maxWidth = 300
+			maxHeight = 30
+			format = left
+		}
+	}
+	
+	containerWindowType = {
+		name = "TNO_JapanDiploChinaProper_Mengjiang_diplobox"
+		size = {width = 600 height = 300}
+		position = { x = 700 y = 275}
+		verticalScrollbar = "right_vertical_slider_tno_Japandiplogui"
+		margin = {top = 9 bottom = 9 }
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "SandboxFloaterBackground"
+		}
+
+		buttonType = {
+			name = "ChinaProper_Mengjiang_close_button"
+			position = { x = 8 y = 0 }
+			quadTextureSprite = "GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = upper_left
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+		
+		containerWindowType = {
+			name = "ChinaProper_Mengjiang_details_1"
+			position = { x = 210 y = 30 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Stability Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+		
+		containerWindowType = {
+			name = "ChinaProper_Mengjiang_details_2"
+			position = { x = 210 y = 100 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Population Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+
+		containerWindowType = {
+			name = "ChinaProper_Mengjiang_interaction_1"
+			position = { x = 15 y = 30 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "ChinaProper_Mengjiang_interaction_1_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = ChinaProper_Mengjiang_interaction_1_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = ""
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_1_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 34 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_1_pp_text"
+			position = { x = 44 y = 32 }
+			font = "aldrich_24_outline"
+			text = "200"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_1_text"
+			position = { x = 20 y = 67 }
+			font = "aldrich_24_outline"
+			text = "Address the Army"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		containerWindowType = {
+			name = "ChinaProper_Mengjiang_interaction_2"
+			position = { x = 15 y = 170 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "ChinaProper_Mengjiang_interaction_2_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = ChinaProper_Mengjiang_interaction_2_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = "TEST"
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_2_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 174 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_2_pp_text"
+			position = { x = 44 y = 172 }
+			font = "aldrich_24_outline"
+			text = "300"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_2_text"
+			position = { x = 20 y = 207 }
+			font = "aldrich_24_outline"
+			text = "Increase Output"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		instantTextBoxType = {
+			name = TNO_JapanDiploChinaProper_Mengjiang_header
+			position = { x = 30 y = -6 }
+			font = "aldrich_36_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploChinaProper_Mengjiang_headertext"
+			maxWidth = 300
+			maxHeight = 30
+			format = left
+		}
+	}
+	
+	## Shaanxi
+	
+	containerWindowType = {
+		name = "TNO_JapanDiploChinaProper_Shaanxi_diplobox"
+		size = {width = 600 height = 300}
+		position = { x = 700 y = 275}
+		verticalScrollbar = "right_vertical_slider_tno_Japandiplogui"
+		margin = {top = 9 bottom = 9 }
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "SandboxFloaterBackground"
+		}
+
+		buttonType = {
+			name = "ChinaProper_Shaanxi_close_button"
+			position = { x = 8 y = 0 }
+			quadTextureSprite = "GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = upper_left
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+		
+		containerWindowType = {
+			name = "ChinaProper_Shaanxi_details_1"
+			position = { x = 210 y = 30 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Stability Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+		
+		containerWindowType = {
+			name = "ChinaProper_Shaanxi_details_2"
+			position = { x = 210 y = 100 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Population Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+
+		containerWindowType = {
+			name = "ChinaProper_Shaanxi_interaction_1"
+			position = { x = 15 y = 30 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "ChinaProper_Shaanxi_interaction_1_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = ChinaProper_Shaanxi_interaction_1_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = ""
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_1_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 34 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_1_pp_text"
+			position = { x = 44 y = 32 }
+			font = "aldrich_24_outline"
+			text = "200"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_1_text"
+			position = { x = 20 y = 67 }
+			font = "aldrich_24_outline"
+			text = "Address the Army"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		containerWindowType = {
+			name = "ChinaProper_Shaanxi_interaction_2"
+			position = { x = 15 y = 170 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "ChinaProper_Shaanxi_interaction_2_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = ChinaProper_Shaanxi_interaction_2_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = "TEST"
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_2_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 174 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_2_pp_text"
+			position = { x = 44 y = 172 }
+			font = "aldrich_24_outline"
+			text = "300"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_2_text"
+			position = { x = 20 y = 207 }
+			font = "aldrich_24_outline"
+			text = "Increase Output"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		instantTextBoxType = {
+			name = TNO_JapanDiploChinaProper_Shaanxi_header
+			position = { x = 30 y = -6 }
+			font = "aldrich_36_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploChinaProper_Shaanxi_headertext"
+			maxWidth = 300
+			maxHeight = 30
+			format = left
+		}
+	}
+	
+	## Sichuan
+	
+	containerWindowType = {
+		name = "TNO_JapanDiploChinaProper_Sichuan_diplobox"
+		size = {width = 600 height = 300}
+		position = { x = 700 y = 275}
+		verticalScrollbar = "right_vertical_slider_tno_Japandiplogui"
+		margin = {top = 9 bottom = 9 }
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "SandboxFloaterBackground"
+		}
+
+		buttonType = {
+			name = "ChinaProper_Sichuan_close_button"
+			position = { x = 8 y = 0 }
+			quadTextureSprite = "GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = upper_left
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+		
+		containerWindowType = {
+			name = "ChinaProper_Sichuan_details_1"
+			position = { x = 210 y = 30 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Stability Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+		
+		containerWindowType = {
+			name = "ChinaProper_Sichuan_details_2"
+			position = { x = 210 y = 100 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Population Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+
+		containerWindowType = {
+			name = "ChinaProper_Sichuan_interaction_1"
+			position = { x = 15 y = 30 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "ChinaProper_Sichuan_interaction_1_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = ChinaProper_Sichuan_interaction_1_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = ""
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_1_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 34 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_1_pp_text"
+			position = { x = 44 y = 32 }
+			font = "aldrich_24_outline"
+			text = "200"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_1_text"
+			position = { x = 20 y = 67 }
+			font = "aldrich_24_outline"
+			text = "Address the Army"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		containerWindowType = {
+			name = "ChinaProper_Sichuan_interaction_2"
+			position = { x = 15 y = 170 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "ChinaProper_Sichuan_interaction_2_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = ChinaProper_Sichuan_interaction_2_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = "TEST"
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_2_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 174 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_2_pp_text"
+			position = { x = 44 y = 172 }
+			font = "aldrich_24_outline"
+			text = "300"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_2_text"
+			position = { x = 20 y = 207 }
+			font = "aldrich_24_outline"
+			text = "Increase Output"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		instantTextBoxType = {
+			name = TNO_JapanDiploChinaProper_Sichuan_header
+			position = { x = 30 y = -6 }
+			font = "aldrich_36_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploChinaProper_Sichuan_headertext"
+			maxWidth = 300
+			maxHeight = 30
+			format = left
+		}
+	}
+	
+	## Guizhou
+	
+	containerWindowType = {
+		name = "TNO_JapanDiploChinaProper_Guizhou_diplobox"
+		size = {width = 600 height = 300}
+		position = { x = 700 y = 275}
+		verticalScrollbar = "right_vertical_slider_tno_Japandiplogui"
+		margin = {top = 9 bottom = 9 }
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "SandboxFloaterBackground"
+		}
+
+		buttonType = {
+			name = "ChinaProper_Guizhou_close_button"
+			position = { x = 8 y = 0 }
+			quadTextureSprite = "GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = upper_left
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+		
+		containerWindowType = {
+			name = "ChinaProper_Guizhou_details_1"
+			position = { x = 210 y = 30 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Stability Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+		
+		containerWindowType = {
+			name = "ChinaProper_Guizhou_details_2"
+			position = { x = 210 y = 100 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Population Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+
+		containerWindowType = {
+			name = "ChinaProper_Guizhou_interaction_1"
+			position = { x = 15 y = 30 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "ChinaProper_Guizhou_interaction_1_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = ChinaProper_Guizhou_interaction_1_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = ""
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_1_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 34 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_1_pp_text"
+			position = { x = 44 y = 32 }
+			font = "aldrich_24_outline"
+			text = "200"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_1_text"
+			position = { x = 20 y = 67 }
+			font = "aldrich_24_outline"
+			text = "Address the Army"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		containerWindowType = {
+			name = "ChinaProper_Guizhou_interaction_2"
+			position = { x = 15 y = 170 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "ChinaProper_Guizhou_interaction_2_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = ChinaProper_Guizhou_interaction_2_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = "TEST"
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_2_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 174 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_2_pp_text"
+			position = { x = 44 y = 172 }
+			font = "aldrich_24_outline"
+			text = "300"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_2_text"
+			position = { x = 20 y = 207 }
+			font = "aldrich_24_outline"
+			text = "Increase Output"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		instantTextBoxType = {
+			name = TNO_JapanDiploChinaProper_Guizhou_header
+			position = { x = 30 y = -6 }
+			font = "aldrich_36_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploChinaProper_Guizhou_headertext"
+			maxWidth = 300
+			maxHeight = 30
+			format = left
+		}
+	}
+	
+	## Guangxi
+	
+	containerWindowType = {
+		name = "TNO_JapanDiploChinaProper_Guangxi_diplobox"
+		size = {width = 600 height = 300}
+		position = { x = 700 y = 275}
+		verticalScrollbar = "right_vertical_slider_tno_Japandiplogui"
+		margin = {top = 9 bottom = 9 }
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "SandboxFloaterBackground"
+		}
+
+		buttonType = {
+			name = "ChinaProper_Guangxi_close_button"
+			position = { x = 8 y = 0 }
+			quadTextureSprite = "GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = upper_left
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+		
+		containerWindowType = {
+			name = "ChinaProper_Guangxi_details_1"
+			position = { x = 210 y = 30 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Stability Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+		
+		containerWindowType = {
+			name = "ChinaProper_Guangxi_details_2"
+			position = { x = 210 y = 100 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Population Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+
+		containerWindowType = {
+			name = "ChinaProper_Guangxi_interaction_1"
+			position = { x = 15 y = 30 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "ChinaProper_Guangxi_interaction_1_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = ChinaProper_Guangxi_interaction_1_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = ""
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_1_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 34 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_1_pp_text"
+			position = { x = 44 y = 32 }
+			font = "aldrich_24_outline"
+			text = "200"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_1_text"
+			position = { x = 20 y = 67 }
+			font = "aldrich_24_outline"
+			text = "Address the Army"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		containerWindowType = {
+			name = "ChinaProper_Guangxi_interaction_2"
+			position = { x = 15 y = 170 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "ChinaProper_Guangxi_interaction_2_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = ChinaProper_Guangxi_interaction_2_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = "TEST"
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_2_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 174 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_2_pp_text"
+			position = { x = 44 y = 172 }
+			font = "aldrich_24_outline"
+			text = "300"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_2_text"
+			position = { x = 20 y = 207 }
+			font = "aldrich_24_outline"
+			text = "Increase Output"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		instantTextBoxType = {
+			name = TNO_JapanDiploChinaProper_Guangxi_header
+			position = { x = 30 y = -6 }
+			font = "aldrich_36_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploChinaProper_Guangxi_headertext"
+			maxWidth = 300
+			maxHeight = 30
+			format = left
+		}
+	}
+	
+	## Guangdong
+	
+	containerWindowType = {
+		name = "TNO_JapanDiploChinaProper_Guangdong_diplobox"
+		size = {width = 600 height = 300}
+		position = { x = 700 y = 275}
+		verticalScrollbar = "right_vertical_slider_tno_Japandiplogui"
+		margin = {top = 9 bottom = 9 }
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "SandboxFloaterBackground"
+		}
+
+		buttonType = {
+			name = "ChinaProper_Guangdong_close_button"
+			position = { x = 8 y = 0 }
+			quadTextureSprite = "GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = upper_left
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+		
+		containerWindowType = {
+			name = "ChinaProper_Guangdong_details_1"
+			position = { x = 210 y = 30 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Stability Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+		
+		containerWindowType = {
+			name = "ChinaProper_Guangdong_details_2"
+			position = { x = 210 y = 100 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Population Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+
+		containerWindowType = {
+			name = "ChinaProper_Guangdong_interaction_1"
+			position = { x = 15 y = 30 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "ChinaProper_Guangdong_interaction_1_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = ChinaProper_Guangdong_interaction_1_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = ""
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_1_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 34 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_1_pp_text"
+			position = { x = 44 y = 32 }
+			font = "aldrich_24_outline"
+			text = "200"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_1_text"
+			position = { x = 20 y = 67 }
+			font = "aldrich_24_outline"
+			text = "Industrial Cooperation"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		containerWindowType = {
+			name = "ChinaProper_Guangdong_interaction_2"
+			position = { x = 15 y = 170 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "ChinaProper_Guangdong_interaction_2_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = ChinaProper_Guangdong_interaction_2_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = "TEST"
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_2_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 174 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_2_pp_text"
+			position = { x = 44 y = 172 }
+			font = "aldrich_24_outline"
+			text = "300"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_2_text"
+			position = { x = 20 y = 207 }
+			font = "aldrich_24_outline"
+			text = "Population Exchange"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		instantTextBoxType = {
+			name = TNO_JapanDiploChinaProper_Guangdong_header
+			position = { x = 30 y = -6 }
+			font = "aldrich_36_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploChinaProper_Guangdong_headertext"
+			maxWidth = 300
+			maxHeight = 30
+			format = left
+		}
+	}
+	
+	## SEA DIPLO
+	
+	containerWindowType = {
+		name = "TNO_JapanDiploSEA_Philippines_diplobox"
+		size = {width = 600 height = 300}
+		position = { x = 700 y = 275}
+		verticalScrollbar = "right_vertical_slider_tno_Japandiplogui"
+		margin = {top = 9 bottom = 9}
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "SandboxFloaterBackground"
+		}
+
+		buttonType = {
+			name = "SEA_Philippines_close_button"
+			position = { x = 8 y = 0 }
+			quadTextureSprite = "GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = upper_left
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+
+		containerWindowType = {
+			name = "SEA_Philippines_details_1"
+			position = { x = 210 y = 30 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Stability Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+		
+		containerWindowType = {
+			name = "SEA_Philippines_details_2"
+			position = { x = 210 y = 100 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Population Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+
+		containerWindowType = {
+			name = "SEA_Philippines_interaction_1"
+			position = { x = 15 y = 30 }
+			size = { width = 190 height = 76 }
+			
+			background = {
+				name = "SEA_Philippines_interaction_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = SEA_Philippines_interaction_1_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+			}
+		}
+		
+		iconType = {
+			name = "interaction_1_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 34 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_1_pp_text"
+			position = { x = 44 y = 32 }
+			font = "aldrich_24_outline"
+			text = "150"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_1_text"
+			position = { x = 20 y = 67 }
+			font = "aldrich_24_outline"
+			text = "Edit Work Shifts"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		containerWindowType = {
+			name = "SEA_Philippines_interaction_2"
+			position = { x = 15 y = 100 }
+			size = { width = 190 height = 76 }
+			
+			background = {
+				name = "SEA_Philippines_interaction_2_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = SEA_Philippines_interaction_2_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+			}
+		}
+		
+		iconType ={
+			name = "interaction_2_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 104 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_2_pp_text"
+			position = { x = 44 y = 102 }
+			font = "aldrich_24_outline"
+			text = "150"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_2_text"
+			position = { x = 20 y = 137 }
+			font = "aldrich_24_outline"
+			text = "Disrupt Rebels"
+			alwaystransparent = yes
+			maxHeight = 26
+			maxWidth = 300
+		}
+
+		containerWindowType = {
+			name = "SEA_Philippines_interaction_3"
+			position = { x = 15 y = 170 }
+			size = { width = 190 height = 76 }
+			
+			background = {
+				name = "SEA_Philippines_interaction_3_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = SEA_Philippines_interaction_3_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = "TEST"
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+
+		iconType ={
+			name = "interaction_3_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 174 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_3_pp_text"
+			position = { x = 44 y = 172 }
+			font = "aldrich_24_outline"
+			text = "200"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_3_text"
+			position = { x = 20 y = 207 }
+			font = "aldrich_24_outline"
+			text = "Increase Output"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		containerWindowType = {
+			name = "SEA_Philippines_interaction_4"
+			position = { x = 15 y = 240 }
+			size = { width = 190 height = 76 }
+			
+			background = {
+				name = "SEA_Philippines_interaction_4_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = SEA_Philippines_interaction_4_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+			}
+		}
+		
+		iconType ={
+			name = "interaction_4_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 244 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_4_pp_text"
+			position = { x = 44 y = 242 }
+			font = "aldrich_24_outline"
+			text = "300"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_4_text"
+			position = { x = 20 y = 277 }
+			font = "aldrich_24_outline"
+			text = "Address the Army"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		instantTextBoxType = {
+			name = TNO_JapanDiploSEA_Philippines_header
+			position = { x = 30 y = -6 }
+			font = "aldrich_36_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploSEA_Philippines_headertext"
+			maxWidth = 400
+			maxHeight = 30
+			format = left
+		}
+	}
+	
+	## INDONESIA
+	
+	containerWindowType = {
+		name = "TNO_JapanDiploSEA_Indonesia_diplobox"
+		size = {width = 600 height = 300}
+		position = { x = 700 y = 275}
+		verticalScrollbar = "right_vertical_slider_tno_Japandiplogui"
+		margin = {top = 9 bottom = 9}
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "SandboxFloaterBackground"
+		}
+
+		buttonType = {
+			name = "SEA_Indonesia_close_button"
+			position = { x = 8 y = 0 }
+			quadTextureSprite = "GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = upper_left
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+		
+		containerWindowType = {
+			name = "SEA_Indonesia_details_1"
+			position = { x = 210 y = 30 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Stability Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+		
+		containerWindowType = {
+			name = "SEA_Indonesia_details_2"
+			position = { x = 210 y = 100 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Population Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+
+		containerWindowType = {
+			name = "SEA_Indonesia_interaction_1"
+			position = { x = 15 y = 30 }
+			size = { width = 190 height = 76 }
+			
+			background = {
+				name = "SEA_Indonesia_interaction_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = SEA_Indonesia_interaction_1_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+			}
+		}
+		
+		iconType = {
+			name = "interaction_1_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 34 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_1_pp_text"
+			position = { x = 44 y = 32 }
+			font = "aldrich_24_outline"
+			text = "150"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_1_text"
+			position = { x = 20 y = 67 }
+			font = "aldrich_24_outline"
+			text = "Aid the Romusha"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		containerWindowType = {
+			name = "SEA_Indonesia_interaction_2"
+			position = { x = 15 y = 100 }
+			size = { width = 190 height = 76 }
+			
+			background = {
+				name = "SEA_Indonesia_interaction_2_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = SEA_Indonesia_interaction_2_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+			}
+		}
+		
+		iconType ={
+			name = "interaction_2_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 104 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_2_pp_text"
+			position = { x = 44 y = 102 }
+			font = "aldrich_24_outline"
+			text = "150"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_2_text"
+			position = { x = 20 y = 137 }
+			font = "aldrich_24_outline"
+			text = "Edit the New Deal"
+			alwaystransparent = yes
+			maxHeight = 26
+			maxWidth = 300
+		}
+
+		containerWindowType = {
+			name = "SEA_Indonesia_interaction_3"
+			position = { x = 15 y = 170 }
+			size = { width = 190 height = 76 }
+			
+			background = {
+				name = "SEA_Indonesia_interaction_3_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = SEA_Indonesia_interaction_3_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = "TEST"
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+
+		iconType ={
+			name = "interaction_3_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 174 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_3_pp_text"
+			position = { x = 44 y = 172 }
+			font = "aldrich_24_outline"
+			text = "200"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_3_text"
+			position = { x = 20 y = 207 }
+			font = "aldrich_24_outline"
+			text = "Increase Output"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		containerWindowType = {
+			name = "SEA_Indonesia_interaction_4"
+			position = { x = 15 y = 240 }
+			size = { width = 190 height = 76 }
+			
+			background = {
+				name = "SEA_Indonesia_interaction_4_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = SEA_Indonesia_interaction_4_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+			}
+		}
+		
+		iconType ={
+			name = "interaction_4_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 244 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_4_pp_text"
+			position = { x = 44 y = 242 }
+			font = "aldrich_24_outline"
+			text = "300"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_4_text"
+			position = { x = 20 y = 277 }
+			font = "aldrich_24_outline"
+			text = "Address the Army"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		instantTextBoxType = {
+			name = TNO_JapanDiploSEA_Indonesia_header
+			position = { x = 30 y = -6 }
+			font = "aldrich_36_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploSEA_Indonesia_headertext"
+			maxWidth = 400
+			maxHeight = 30
+			format = left
+		}
+	}
+	
+	## BURMA
+	
+	containerWindowType = {
+		name = "TNO_JapanDiploSEA_Burma_diplobox"
+		size = {width = 600 height = 300}
+		position = { x = 700 y = 275}
+		verticalScrollbar = "right_vertical_slider_tno_Japandiplogui"
+		margin = {top = 9 bottom = 9}
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "SandboxFloaterBackground"
+		}
+
+		buttonType = {
+			name = "SEA_Burma_close_button"
+			position = { x = 8 y = 0 }
+			quadTextureSprite = "GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = upper_left
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+		
+		containerWindowType = {
+			name = "SEA_Burma_details_1"
+			position = { x = 210 y = 30 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Stability Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+		
+		containerWindowType = {
+			name = "SEA_Burma_details_2"
+			position = { x = 210 y = 100 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Population Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+
+		containerWindowType = {
+			name = "SEA_Burma_interaction_1"
+			position = { x = 15 y = 30 }
+			size = { width = 190 height = 76 }
+			
+			background = {
+				name = "SEA_Burma_interaction_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = SEA_Burma_interaction_1_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+			}
+		}
+		
+		iconType = {
+			name = "interaction_1_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 34 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_1_pp_text"
+			position = { x = 44 y = 32 }
+			font = "aldrich_24_outline"
+			text = "150"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_1_text"
+			position = { x = 20 y = 67 }
+			font = "aldrich_24_outline"
+			text = "Arm the Regime"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		containerWindowType = {
+			name = "SEA_Burma_interaction_2"
+			position = { x = 15 y = 100 }
+			size = { width = 190 height = 76 }
+			
+			background = {
+				name = "SEA_Burma_interaction_2_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = SEA_Burma_interaction_2_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+			}
+		}
+		
+		iconType ={
+			name = "interaction_2_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 104 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_2_pp_text"
+			position = { x = 44 y = 102 }
+			font = "aldrich_24_outline"
+			text = "150"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_2_text"
+			position = { x = 20 y = 137 }
+			font = "aldrich_24_outline"
+			text = "Increase Output"
+			alwaystransparent = yes
+			maxHeight = 26
+			maxWidth = 300
+		}
+
+		containerWindowType = {
+			name = "SEA_Burma_interaction_3"
+			position = { x = 15 y = 170 }
+			size = { width = 190 height = 76 }
+			
+			background = {
+				name = "SEA_Burma_interaction_3_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = SEA_Burma_interaction_3_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = "TEST"
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+
+		iconType ={
+			name = "interaction_3_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 174 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_3_pp_text"
+			position = { x = 44 y = 172 }
+			font = "aldrich_24_outline"
+			text = "200"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_3_text"
+			position = { x = 20 y = 207 }
+			font = "aldrich_24_outline"
+			text = "Address the Army"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		instantTextBoxType = {
+			name = TNO_JapanDiploSEA_Burma_header
+			position = { x = 30 y = -6 }
+			font = "aldrich_36_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploSEA_Burma_headertext"
+			maxWidth = 400
+			maxHeight = 30
+			format = left
+		}
+	}
+	
+	## THAILAND
+	
+	containerWindowType = {
+		name = "TNO_JapanDiploSEA_Thailand_diplobox"
+		size = {width = 600 height = 300}
+		position = { x = 700 y = 275}
+		verticalScrollbar = "right_vertical_slider_tno_Japandiplogui"
+		margin = {top = 9 bottom = 9}
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "SandboxFloaterBackground"
+		}
+
+		buttonType = {
+			name = "SEA_Thailand_close_button"
+			position = { x = 8 y = 0 }
+			quadTextureSprite = "GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = upper_left
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+		
+		containerWindowType = {
+			name = "SEA_Thailand_details_1"
+			position = { x = 210 y = 30 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Stability Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+		
+		containerWindowType = {
+			name = "SEA_Thailand_details_2"
+			position = { x = 210 y = 100 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Population Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+
+		containerWindowType = {
+			name = "SEA_Thailand_interaction_1"
+			position = { x = 15 y = 30 }
+			size = { width = 190 height = 76 }
+			
+			background = {
+				name = "SEA_Thailand_interaction_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = SEA_Thailand_interaction_1_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+			}
+		}
+		
+		iconType = {
+			name = "interaction_1_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 34 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_1_pp_text"
+			position = { x = 44 y = 32 }
+			font = "aldrich_24_outline"
+			text = "150"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_1_text"
+			position = { x = 20 y = 67 }
+			font = "aldrich_24_outline"
+			text = "Royal Summit"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		containerWindowType = {
+			name = "SEA_Thailand_interaction_2"
+			position = { x = 15 y = 100 }
+			size = { width = 190 height = 76 }
+			
+			background = {
+				name = "SEA_Thailand_interaction_2_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = SEA_Thailand_interaction_2_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+			}
+		}
+		
+		iconType ={
+			name = "interaction_2_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 104 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_2_pp_text"
+			position = { x = 44 y = 102 }
+			font = "aldrich_24_outline"
+			text = "150"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_2_text"
+			position = { x = 20 y = 137 }
+			font = "aldrich_24_outline"
+			text = "Government Summit"
+			alwaystransparent = yes
+			maxHeight = 26
+			maxWidth = 300
+		}
+
+		containerWindowType = {
+			name = "SEA_Thailand_interaction_3"
+			position = { x = 15 y = 170 }
+			size = { width = 190 height = 76 }
+			
+			background = {
+				name = "SEA_Thailand_interaction_3_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = SEA_Thailand_interaction_3_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = "TEST"
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+
+		iconType ={
+			name = "interaction_3_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 174 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_3_pp_text"
+			position = { x = 44 y = 172 }
+			font = "aldrich_24_outline"
+			text = "200"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_3_text"
+			position = { x = 20 y = 192 }
+			font = "aldrich_24_outline"
+			text = "Military Cooperation Talks"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		instantTextBoxType = {
+			name = TNO_JapanDiploSEA_Thailand_header
+			position = { x = 30 y = -6 }
+			font = "aldrich_36_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploSEA_Thailand_headertext"
+			maxWidth = 400
+			maxHeight = 30
+			format = left
+		}
+	}
+	
+	## Yunnan
+	
+	containerWindowType = {
+		name = "TNO_JapanDiploSEA_Yunnan_diplobox"
+		size = {width = 600 height = 300}
+		position = { x = 700 y = 275}
+		verticalScrollbar = "right_vertical_slider_tno_Japandiplogui"
+		margin = {top = 9 bottom = 9 }
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "SandboxFloaterBackground"
+		}
+
+		buttonType = {
+			name = "SEA_Yunnan_close_button"
+			position = { x = 8 y = 0 }
+			quadTextureSprite = "GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = upper_left
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+		
+		containerWindowType = {
+			name = "SEA_Yunnan_details_1"
+			position = { x = 210 y = 30 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Stability Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+		
+		containerWindowType = {
+			name = "SEA_Yunnan_details_2"
+			position = { x = 210 y = 100 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Population Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+
+		containerWindowType = {
+			name = "SEA_Yunnan_interaction_1"
+			position = { x = 15 y = 30 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "SEA_Yunnan_interaction_1_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = SEA_Yunnan_interaction_1_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = ""
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_1_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 34 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_1_pp_text"
+			position = { x = 44 y = 32 }
+			font = "aldrich_24_outline"
+			text = "200"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_1_text"
+			position = { x = 20 y = 67 }
+			font = "aldrich_24_outline"
+			text = "Address the Army"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		containerWindowType = {
+			name = "SEA_Yunnan_interaction_2"
+			position = { x = 15 y = 170 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "SEA_Yunnan_interaction_2_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = SEA_Yunnan_interaction_2_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = "TEST"
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_2_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 174 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_2_pp_text"
+			position = { x = 44 y = 172 }
+			font = "aldrich_24_outline"
+			text = "300"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_2_text"
+			position = { x = 20 y = 207 }
+			font = "aldrich_24_outline"
+			text = "Increase Output"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		instantTextBoxType = {
+			name = TNO_JapanDiploSEA_Yunnan_header
+			position = { x = 30 y = -6 }
+			font = "aldrich_36_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploSEA_Yunnan_headertext"
+			maxWidth = 300
+			maxHeight = 30
+			format = left
+		}
+	}
+	
+	## Shounan
+	
+	containerWindowType = {
+		name = "TNO_JapanDiploSEA_Shounan_diplobox"
+		size = {width = 600 height = 300}
+		position = { x = 700 y = 275}
+		verticalScrollbar = "right_vertical_slider_tno_Japandiplogui"
+		margin = {top = 9 bottom = 9 }
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "SandboxFloaterBackground"
+		}
+
+		buttonType = {
+			name = "SEA_Shounan_close_button"
+			position = { x = 8 y = 0 }
+			quadTextureSprite = "GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = upper_left
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+		
+		containerWindowType = {
+			name = "SEA_Shounan_details_1"
+			position = { x = 210 y = 30 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Stability Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+		
+		containerWindowType = {
+			name = "SEA_Shounan_details_2"
+			position = { x = 210 y = 100 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Population Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+
+		containerWindowType = {
+			name = "SEA_Shounan_interaction_1"
+			position = { x = 15 y = 30 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "SEA_Shounan_interaction_1_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = SEA_Shounan_interaction_1_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = ""
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_1_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 34 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_1_pp_text"
+			position = { x = 44 y = 32 }
+			font = "aldrich_24_outline"
+			text = "200"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_1_text"
+			position = { x = 20 y = 67 }
+			font = "aldrich_24_outline"
+			text = "Address the Army"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		containerWindowType = {
+			name = "SEA_Shounan_interaction_2"
+			position = { x = 15 y = 170 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "SEA_Shounan_interaction_2_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = SEA_Shounan_interaction_2_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = "TEST"
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_2_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 174 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_2_pp_text"
+			position = { x = 44 y = 172 }
+			font = "aldrich_24_outline"
+			text = "300"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_2_text"
+			position = { x = 20 y = 207 }
+			font = "aldrich_24_outline"
+			text = "Increase Output"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		instantTextBoxType = {
+			name = TNO_JapanDiploSEA_Shounan_header
+			position = { x = 30 y = -6 }
+			font = "aldrich_36_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploSEA_Shounan_headertext"
+			maxWidth = 300
+			maxHeight = 30
+			format = left
+		}
+	}
+	
+	## Vietnam
+	
+	containerWindowType = {
+		name = "TNO_JapanDiploSEA_Vietnam_diplobox"
+		size = {width = 600 height = 300}
+		position = { x = 700 y = 275}
+		verticalScrollbar = "right_vertical_slider_tno_Japandiplogui"
+		margin = {top = 9 bottom = 9 }
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "SandboxFloaterBackground"
+		}
+
+		buttonType = {
+			name = "SEA_Vietnam_close_button"
+			position = { x = 8 y = 0 }
+			quadTextureSprite = "GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = upper_left
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+		
+		containerWindowType = {
+			name = "SEA_Vietnam_details_1"
+			position = { x = 210 y = 30 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Stability Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+		
+		containerWindowType = {
+			name = "SEA_Vietnam_details_2"
+			position = { x = 210 y = 100 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Population Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+
+		containerWindowType = {
+			name = "SEA_Vietnam_interaction_1"
+			position = { x = 15 y = 30 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "SEA_Vietnam_interaction_1_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = SEA_Vietnam_interaction_1_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = ""
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_1_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 34 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_1_pp_text"
+			position = { x = 44 y = 32 }
+			font = "aldrich_24_outline"
+			text = "200"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_1_text"
+			position = { x = 20 y = 67 }
+			font = "aldrich_24_outline"
+			text = "Address the Army"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		containerWindowType = {
+			name = "SEA_Vietnam_interaction_2"
+			position = { x = 15 y = 170 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "SEA_Vietnam_interaction_2_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = SEA_Vietnam_interaction_2_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = "TEST"
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_2_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 174 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_2_pp_text"
+			position = { x = 44 y = 172 }
+			font = "aldrich_24_outline"
+			text = "300"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_2_text"
+			position = { x = 20 y = 207 }
+			font = "aldrich_24_outline"
+			text = "Increase Output"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		instantTextBoxType = {
+			name = TNO_JapanDiploSEA_Vietnam_header
+			position = { x = 30 y = -6 }
+			font = "aldrich_36_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploSEA_Vietnam_headertext"
+			maxWidth = 300
+			maxHeight = 30
+			format = left
+		}
+	}
+	
+	## Laos
+	
+	containerWindowType = {
+		name = "TNO_JapanDiploSEA_Laos_diplobox"
+		size = {width = 600 height = 300}
+		position = { x = 700 y = 275}
+		verticalScrollbar = "right_vertical_slider_tno_Japandiplogui"
+		margin = {top = 9 bottom = 9 }
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "SandboxFloaterBackground"
+		}
+
+		buttonType = {
+			name = "SEA_Laos_close_button"
+			position = { x = 8 y = 0 }
+			quadTextureSprite = "GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = upper_left
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+		
+		containerWindowType = {
+			name = "SEA_Laos_details_1"
+			position = { x = 210 y = 30 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Stability Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+		
+		containerWindowType = {
+			name = "SEA_Laos_details_2"
+			position = { x = 210 y = 100 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Population Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+
+		containerWindowType = {
+			name = "SEA_Laos_interaction_1"
+			position = { x = 15 y = 30 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "SEA_Laos_interaction_1_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = SEA_Laos_interaction_1_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = ""
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_1_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 34 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_1_pp_text"
+			position = { x = 44 y = 32 }
+			font = "aldrich_24_outline"
+			text = "200"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_1_text"
+			position = { x = 20 y = 67 }
+			font = "aldrich_24_outline"
+			text = "Address the Army"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		containerWindowType = {
+			name = "SEA_Laos_interaction_2"
+			position = { x = 15 y = 170 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "SEA_Laos_interaction_2_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = SEA_Laos_interaction_2_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = "TEST"
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_2_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 174 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_2_pp_text"
+			position = { x = 44 y = 172 }
+			font = "aldrich_24_outline"
+			text = "300"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_2_text"
+			position = { x = 20 y = 207 }
+			font = "aldrich_24_outline"
+			text = "Increase Output"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		instantTextBoxType = {
+			name = TNO_JapanDiploSEA_Laos_header
+			position = { x = 30 y = -6 }
+			font = "aldrich_36_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploSEA_Laos_headertext"
+			maxWidth = 300
+			maxHeight = 30
+			format = left
+		}
+	}
+	
+	## Cambodia
+	
+	containerWindowType = {
+		name = "TNO_JapanDiploSEA_Cambodia_diplobox"
+		size = {width = 600 height = 300}
+		position = { x = 700 y = 275}
+		verticalScrollbar = "right_vertical_slider_tno_Japandiplogui"
+		margin = {top = 9 bottom = 9 }
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "SandboxFloaterBackground"
+		}
+
+		buttonType = {
+			name = "SEA_Cambodia_close_button"
+			position = { x = 8 y = 0 }
+			quadTextureSprite = "GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = upper_left
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+		
+		containerWindowType = {
+			name = "SEA_Cambodia_details_1"
+			position = { x = 210 y = 30 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Stability Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+		
+		containerWindowType = {
+			name = "SEA_Cambodia_details_2"
+			position = { x = 210 y = 100 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Population Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+
+		containerWindowType = {
+			name = "SEA_Cambodia_interaction_1"
+			position = { x = 15 y = 30 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "SEA_Cambodia_interaction_1_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = SEA_Cambodia_interaction_1_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = ""
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_1_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 34 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_1_pp_text"
+			position = { x = 44 y = 32 }
+			font = "aldrich_24_outline"
+			text = "200"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_1_text"
+			position = { x = 20 y = 67 }
+			font = "aldrich_24_outline"
+			text = "Address the Army"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		containerWindowType = {
+			name = "SEA_Cambodia_interaction_2"
+			position = { x = 15 y = 170 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "SEA_Cambodia_interaction_2_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = SEA_Cambodia_interaction_2_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = "TEST"
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_2_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 174 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_2_pp_text"
+			position = { x = 44 y = 172 }
+			font = "aldrich_24_outline"
+			text = "300"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_2_text"
+			position = { x = 20 y = 207 }
+			font = "aldrich_24_outline"
+			text = "Increase Output"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		instantTextBoxType = {
+			name = TNO_JapanDiploSEA_Cambodia_header
+			position = { x = 30 y = -6 }
+			font = "aldrich_36_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploSEA_Cambodia_headertext"
+			maxWidth = 300
+			maxHeight = 30
+			format = left
+		}
+	}
+	
+	## AZH
+	
+	containerWindowType = {
+		name = "TNO_JapanDiploIndia_Benghal_diplobox"
+		size = {width = 600 height = 300}
+		position = { x = 700 y = 275}
+		verticalScrollbar = "right_vertical_slider_tno_Japandiplogui"
+		margin = {top = 9 bottom = 9 }
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "SandboxFloaterBackground"
+		}
+
+		buttonType = {
+			name = "India_Benghal_close_button"
+			position = { x = 8 y = 0 }
+			quadTextureSprite = "GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = upper_left
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+		
+		containerWindowType = {
+			name = "India_Benghal_details_1"
+			position = { x = 210 y = 30 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Stability Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+		
+		containerWindowType = {
+			name = "India_Benghal_details_2"
+			position = { x = 210 y = 100 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Population Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+
+		containerWindowType = {
+			name = "India_Benghal_interaction_1"
+			position = { x = 15 y = 30 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "India_Benghal_interaction_1_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = India_Benghal_interaction_1_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = ""
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_1_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 34 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_1_pp_text"
+			position = { x = 44 y = 32 }
+			font = "aldrich_24_outline"
+			text = "200"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_1_text"
+			position = { x = 20 y = 67 }
+			font = "aldrich_24_outline"
+			text = "[Get.JAP_AZH_1]"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		containerWindowType = {
+			name = "India_Benghal_interaction_2"
+			position = { x = 15 y = 170 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "India_Benghal_interaction_2_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = India_Benghal_interaction_2_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = "TEST"
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_2_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 174 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_2_pp_text"
+			position = { x = 44 y = 172 }
+			font = "aldrich_24_outline"
+			text = "300"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_2_text"
+			position = { x = 20 y = 207 }
+			font = "aldrich_24_outline"
+			text = "[Get.JAP_AZH_2]"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		instantTextBoxType = {
+			name = TNO_JapanDiploIndia_Benghal_header
+			position = { x = 30 y = -6 }
+			font = "aldrich_36_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploIndia_Bengal_headertext"
+			maxWidth = 400
+			maxHeight = 30
+			format = left
+		}
+	}
+	
+	## ROI
+	
+	containerWindowType = {
+		name = "TNO_JapanDiploIndia_India_diplobox"
+		size = {width = 600 height = 300}
+		position = { x = 700 y = 275}
+		verticalScrollbar = "right_vertical_slider_tno_Japandiplogui"
+		margin = {top = 9 bottom = 9 }
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "SandboxFloaterBackground"
+		}
+
+		buttonType = {
+			name = "India_India_close_button"
+			position = { x = 8 y = 0 }
+			quadTextureSprite = "GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = upper_left
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+		
+		containerWindowType = {
+			name = "India_India_details_1"
+			position = { x = 210 y = 30 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Stability Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+		
+		containerWindowType = {
+			name = "India_India_details_2"
+			position = { x = 210 y = 100 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Population Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+
+		containerWindowType = {
+			name = "India_India_interaction_1"
+			position = { x = 15 y = 30 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "India_India_interaction_1_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = India_India_interaction_1_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = ""
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_1_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 34 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_1_pp_text"
+			position = { x = 44 y = 32 }
+			font = "aldrich_24_outline"
+			text = "200"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_1_text"
+			position = { x = 20 y = 67 }
+			font = "aldrich_24_outline"
+			text = "Engage in Business"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		containerWindowType = {
+			name = "India_India_interaction_2"
+			position = { x = 15 y = 170 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "India_India_interaction_2_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = India_India_interaction_2_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = "TEST"
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_2_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 174 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_2_pp_text"
+			position = { x = 44 y = 172 }
+			font = "aldrich_24_outline"
+			text = "300"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_2_text"
+			position = { x = 20 y = 207 }
+			font = "aldrich_24_outline"
+			text = "Cooperative Industry"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		instantTextBoxType = {
+			name = TNO_JapanDiploIndia_India_header
+			position = { x = 30 y = -6 }
+			font = "aldrich_36_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploIndia_India_headertext"
+			maxWidth = 400
+			maxHeight = 30
+			format = left
+		}
+	}
+	
+	## Bhutan
+	
+	containerWindowType = {
+		name = "TNO_JapanDiploIndia_Bhutan_diplobox"
+		size = {width = 600 height = 300}
+		position = { x = 700 y = 275}
+		verticalScrollbar = "right_vertical_slider_tno_Japandiplogui"
+		margin = {top = 9 bottom = 9 }
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "SandboxFloaterBackground"
+		}
+
+		buttonType = {
+			name = "India_Bhutan_close_button"
+			position = { x = 8 y = 0 }
+			quadTextureSprite = "GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = upper_left
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+		
+		containerWindowType = {
+			name = "India_Bhutan_details_1"
+			position = { x = 210 y = 30 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Stability Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+		
+		containerWindowType = {
+			name = "India_Bhutan_details_2"
+			position = { x = 210 y = 100 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Population Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+
+		containerWindowType = {
+			name = "India_Bhutan_interaction_1"
+			position = { x = 15 y = 30 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "India_Bhutan_interaction_1_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = India_Bhutan_interaction_1_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = ""
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_1_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 34 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_1_pp_text"
+			position = { x = 44 y = 32 }
+			font = "aldrich_24_outline"
+			text = "200"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_1_text"
+			position = { x = 20 y = 67 }
+			font = "aldrich_24_outline"
+			text = "Industrial Cooperation"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		containerWindowType = {
+			name = "India_Bhutan_interaction_2"
+			position = { x = 15 y = 170 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "India_Bhutan_interaction_2_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = India_Bhutan_interaction_2_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = "TEST"
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_2_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 174 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_2_pp_text"
+			position = { x = 44 y = 172 }
+			font = "aldrich_24_outline"
+			text = "300"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_2_text"
+			position = { x = 20 y = 207 }
+			font = "aldrich_24_outline"
+			text = "Population Exchange"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		instantTextBoxType = {
+			name = TNO_JapanDiploIndia_Bhutan_header
+			position = { x = 30 y = -6 }
+			font = "aldrich_36_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploIndia_Bhutan_headertext"
+			maxWidth = 400
+			maxHeight = 30
+			format = left
+		}
+	}
+	
+	## Nepal
+	
+	containerWindowType = {
+		name = "TNO_JapanDiploIndia_Nepal_diplobox"
+		size = {width = 600 height = 300}
+		position = { x = 700 y = 275}
+		verticalScrollbar = "right_vertical_slider_tno_Japandiplogui"
+		margin = {top = 9 bottom = 9 }
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "SandboxFloaterBackground"
+		}
+
+		buttonType = {
+			name = "India_Nepal_close_button"
+			position = { x = 8 y = 0 }
+			quadTextureSprite = "GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = upper_left
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+		
+		containerWindowType = {
+			name = "India_Nepal_details_1"
+			position = { x = 210 y = 30 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Stability Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+		
+		containerWindowType = {
+			name = "India_Nepal_details_2"
+			position = { x = 210 y = 100 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Population Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+
+		containerWindowType = {
+			name = "India_Nepal_interaction_1"
+			position = { x = 15 y = 30 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "India_Nepal_interaction_1_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = India_Nepal_interaction_1_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = ""
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_1_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 34 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_1_pp_text"
+			position = { x = 44 y = 32 }
+			font = "aldrich_24_outline"
+			text = "200"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_1_text"
+			position = { x = 20 y = 67 }
+			font = "aldrich_24_outline"
+			text = "Industrial Cooperation"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		containerWindowType = {
+			name = "India_Nepal_interaction_2"
+			position = { x = 15 y = 170 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "India_Nepal_interaction_2_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = India_Nepal_interaction_2_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = "TEST"
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_2_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 174 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_2_pp_text"
+			position = { x = 44 y = 172 }
+			font = "aldrich_24_outline"
+			text = "300"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_2_text"
+			position = { x = 20 y = 207 }
+			font = "aldrich_24_outline"
+			text = "Population Exchange"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		instantTextBoxType = {
+			name = TNO_JapanDiploIndia_Nepal_header
+			position = { x = 30 y = -6 }
+			font = "aldrich_36_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploIndia_Nepal_headertext"
+			maxWidth = 400
+			maxHeight = 30
+			format = left
+		}
+	}
+	
+	## Afghan
+	
+	containerWindowType = {
+		name = "TNO_JapanDiploIndia_Afghan_diplobox"
+		size = {width = 600 height = 300}
+		position = { x = 700 y = 275}
+		verticalScrollbar = "right_vertical_slider_tno_Japandiplogui"
+		margin = {top = 9 bottom = 9 }
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "SandboxFloaterBackground"
+		}
+
+		buttonType = {
+			name = "India_Afghan_close_button"
+			position = { x = 8 y = 0 }
+			quadTextureSprite = "GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = upper_left
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+		
+		containerWindowType = {
+			name = "India_Afghan_details_1"
+			position = { x = 210 y = 30 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Stability Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+		
+		containerWindowType = {
+			name = "India_Afghan_details_2"
+			position = { x = 210 y = 100 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 0 }
+				font = "aldrich_32_outline"
+				text = "Population Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+
+		containerWindowType = {
+			name = "India_Afghan_interaction_1"
+			position = { x = 15 y = 30 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "India_Afghan_interaction_1_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = India_Afghan_interaction_1_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = ""
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_1_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 34 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_1_pp_text"
+			position = { x = 44 y = 32 }
+			font = "aldrich_24_outline"
+			text = "200"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_1_text"
+			position = { x = 20 y = 67 }
+			font = "aldrich_24_outline"
+			text = "Industrial Cooperation"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		containerWindowType = {
+			name = "India_Afghan_interaction_2"
+			position = { x = 15 y = 170 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "India_Afghan_interaction_2_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = India_Afghan_interaction_2_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = "TEST"
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_2_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 174 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_2_pp_text"
+			position = { x = 44 y = 172 }
+			font = "aldrich_24_outline"
+			text = "300"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_2_text"
+			position = { x = 20 y = 207 }
+			font = "aldrich_24_outline"
+			text = "Population Exchange"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		instantTextBoxType = {
+			name = TNO_JapanDiploIndia_Afghan_header
+			position = { x = 30 y = -6 }
+			font = "aldrich_36_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploIndia_Afghan_headertext"
+			maxWidth = 400
+			maxHeight = 30
+			format = left
+		}
+	}
+	
+	## Russian Warlords
+	
+	containerWindowType = {
+		name = "TNO_JapanDiploRussia_Russia_diplobox"
+		size = {width = 600 height = 300}
+		position = { x = 700 y = 275}
+		verticalScrollbar = "right_vertical_slider_tno_Japandiplogui"
+		margin = {top = 9 bottom = 9 }
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "SandboxFloaterBackground"
+		}
+
+		buttonType = {
+			name = "Russia_Russia_close_button"
+			position = { x = 8 y = 0 }
+			quadTextureSprite = "GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = upper_left
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+		
+		containerWindowType = {
+			name = "Russia_details_1"
+			position = { x = 210 y = 30 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 4 }
+				font = "aldrich_32_outline"
+				text = "Stability Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+		
+		containerWindowType = {
+			name = "Russia_details_2"
+			position = { x = 210 y = 100 }
+			size = { width = 360 height = 76 }
+			
+			background = {
+				name = "details_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 4 }
+				font = "aldrich_32_outline"
+				text = "Population Placeholder"
+				format = center
+				maxHeight = 24
+				maxWidth = 320
+			}
+		}
+
+		containerWindowType = {
+			name = "Russia_Russia_interaction_1"
+			position = { x = 15 y = 30 }
+			size = { width = 190 height = 146 }
+			
+			background = {
+				name = "Russia_Russia_interaction_1_bg"
+				quadTextureSprite = "SandboxFloaterBackground"
+			}
+
+			buttonType = {
+				name = Russia_Russia_interaction_1_button
+				quadTextureSprite = "GFX_tiled_window_transparent"
+				position = {x = 0 y = 0}
+				buttonText = ""
+				buttonFont = "aldrich_36_outline"
+			}
+		}
+		
+		iconType ={
+			name = "interaction_1_political_power"
+			quadTextureSprite = "GFX_pol_power_icon"
+			position = { x = 19 y = 34 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "interaction_1_pp_text"
+			position = { x = 44 y = 32 }
+			font = "aldrich_24_outline"
+			text = "200"
+			alwaystransparent = yes
+			maxHeight = 24
+		}
+		instantTextBoxType = {
+			name = "interaction_1_text"
+			position = { x = 20 y = 67 }
+			font = "aldrich_24_outline"
+			text = "Supply Weaponry"
+			alwaystransparent = yes
+			maxHeight = 26
+		}
+
+		instantTextBoxType = {
+			name = TNO_JapanDiploRussia_Russia_header
+			position = { x = 30 y = -4 }
+			font = "aldrich_36_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploRussia_Russia_headertext"
+			maxWidth = 400
+			maxHeight = 30
+			format = left
+		}
+	}
+	
+	####
+
+	containerWindowType = {
+		name = "TNO_JapanDiploChinaProper_countryview"
+		size = { width = 440 height = 364 }
+		position = { x = 850 y = 225 }
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "SandboxFloaterBackground"
+		}
+
+		instantTextBoxType = {
+			name = "JapanDiploChinaTitle"
+			position = { x = 230 y = 300 }
+			font = "aldrich_36_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploChinaTitleText"
+			maxWidth = 220
+			maxHeight = 24
+			format = centre
+		}
+
+		iconType = {
+			name = "JapanDiploChinaProperGuide"
+			spriteType = "GFX_JapanDiploChinaProperGuide"
+			position = { x = 0 y = 0 }
+			alwaystransparent = yes
+			orientation = center
+			centerposition = yes
+		}
+
+		buttonType = {
+			name = "JapanDiploChina"
+			spriteType = "GFX_JapanDiploChina"
+			position = { x = -58 y = -30 }
+			orientation = center
+			pdx_tooltip = "JapanDiploChinaTooltip"
+		}
+
+		buttonType = {
+			name = "JapanDiploGuangdong"
+			spriteType = "GFX_JapanDiploGuangdong"
+			position = { x = -32 y = 110 }
+			orientation = center
+			pdx_tooltip = "JapanDiploGuangdongTooltip"
+		}
+
+		buttonType = {
+			name = "JapanDiploGuangxi"
+			spriteType = "GFX_JapanDiploGuangxi"
+			position = { x = -76 y = 104 }
+			orientation = center
+			pdx_tooltip = "JapanDiploGuangxiTooltip"
+		}
+
+		buttonType = {
+			name = "JapanDiploGuizhou"
+			spriteType = "GFX_JapanDiploGuizhou"
+			position = { x = -92 y = 74 }
+			orientation = center
+			pdx_tooltip = "JapanDiploGuizhouTooltip"
+		}
+
+		buttonType = {
+			name = "JapanDiploManchuria"
+			spriteType = "GFX_JapanDiploManchuria"
+			position = { x = 6 y = -174 }
+			orientation = center
+			pdx_tooltip = "JapanDiploManchuriaTooltip"
+		}
+
+		buttonType = {
+			name = "JapanDiploMengjiang"
+			spriteType = "GFX_JapanDiploMengjiang"
+			position = { x = -212 y = -158 }
+			orientation = center
+			pdx_tooltip = "JapanDiploMengjiangTooltip"
+		}
+
+		buttonType = {
+			name = "JapanDiploShaanxi"
+			spriteType = "GFX_JapanDiploShaanxi"
+			position = { x = -70 y = -16 }
+			orientation = center
+			pdx_tooltip = "JapanDiploShaanxiTooltip"
+		}
+
+		buttonType = {
+			name = "JapanDiploSichuan"
+			spriteType = "GFX_JapanDiploSichuan"
+			position = { x = -88 y = 42 }
+			orientation = center
+			pdx_tooltip = "JapanDiploSichuanTooltip"
+		}
+
+		buttonType = {
+			name = "ChinaProper_close_button"
+			position = { x = 8 y = 8 }
+			quadTextureSprite = "GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = upper_left
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+	}
+
+	containerWindowType = {
+		name = "TNO_JapanDiploIndia_countryview"
+		size = { width = 308 height = 352 }
+		position = { x = 650 y = 325 }
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "SandboxFloaterBackground"
+		}
+
+		instantTextBoxType = {
+			name = "JapanDiploIndiaTitle"
+			position = { x = 115 y = 280 }
+			font = "aldrich_36_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploIndiaTitleText"
+			maxWidth = 220
+			maxHeight = 24
+			format = centre
+		}
+
+		buttonType = {
+			name = "JapanDiploIndiaGuide"
+			spriteType = "GFX_JapanDiploIndiaGuide"
+			position = { x = 0 y = 0 }
+			alwaystransparent = yes
+			orientation = center
+			centerposition = yes
+		}
+
+		buttonType = {
+			name = "JapanDiploIndia"
+			spriteType = "GFX_JapanDiploIndia"
+			position = { x = -136 y = -154 }
+			orientation = center
+			pdx_tooltip = "JapanDiploIndiaTooltip"
+		}
+
+		buttonType = {
+			name = "JapanDiploBengal"
+			spriteType = "GFX_JapanDiploBengal"
+			position = { x = 12 y = -84 }
+			orientation = center
+			pdx_tooltip = "JapanDiploBengalTooltip"
+		}
+
+		buttonType = {
+			name = "JapanDiploBhutan"
+			spriteType = "GFX_JapanDiploBhutan"
+			position = { x = 76 y = -76 }
+			orientation = center
+			pdx_tooltip = "JapanDiploBhutanTooltip"
+		}
+
+		buttonType = {
+			name = "JapanDiploNepal"
+			spriteType = "GFX_JapanDiploNepal"
+			position = { x = 10 y = -94 }
+			orientation = center
+			pdx_tooltip = "JapanDiploNepalTooltip"
+		}
+
+		buttonType = {
+			name = "JapanDiploAfghan"
+			spriteType = "GFX_JapanDiploAfghan"
+			position = { x = -146 y = -168 }
+			orientation = center
+			pdx_tooltip = "JapanDiploAfghanistanTooltip"
+		}
+
+		buttonType = {
+			name = "India_close_button"
+			position = { x = 8 y = 8 }
+			quadTextureSprite = "GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = upper_left
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+	}
+
+	containerWindowType = {
+		name = "TNO_JapanDiploOuterChina_countryview"
+		size = { width = 284 height = 232 }
+		position = { x = 700 y = 275 }
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "SandboxFloaterBackground"
+		}
+
+		instantTextBoxType = {
+			name = "JapanDiploOuterChinaTitle"
+			position = { x = 103 y = 5 }
+			font = "aldrich_36_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploOuterChinaTitleText"
+			maxWidth = 220
+			maxHeight = 24
+			format = centre
+		}
+
+		iconType = {
+			name = "JapanDiploOuterChinaGuide"
+			spriteType = "GFX_JapanDiploOuterChinaGuide"
+			position = { x = 0 y = 0 }
+			alwaystransparent = yes
+			orientation = center
+			centerposition = yes
+		}
+
+		buttonType = {
+			name = "JapanDiploXikang"
+			spriteType = "GFX_JapanDiploXikang"
+			position = { x = 46 y = 32 }
+			orientation = center
+			pdx_tooltip = JapanDiploXikangTooltip
+		}
+
+		buttonType = {
+			name = "JapanDiploXinjiang"
+			spriteType = "GFX_JapanDiploXinjiang"
+			position = { x = -134 y = -108 }
+			orientation = center
+			pdx_tooltip = JapanDiploXinjiangTooltip
+		}
+
+		buttonType = {
+			name = "JapanDiploHui"
+			spriteType = "GFX_JapanDiploHui"
+			position = { x = 22 y = -48 }
+			orientation = center
+			pdx_tooltip = JapanDiploHuiTooltip
+		}
+
+		buttonType = {
+			name = "JapanDiploTibet"
+			spriteType = "GFX_JapanDiploTibet"
+			position = { x = -96 y = 6 }
+			orientation = center
+			pdx_tooltip = JapanDiploTibetTooltip
+		}
+
+		buttonType = {
+			name = "JapanDiploMa"
+			spriteType = "GFX_JapanDiploMa"
+			position = { x = 0 y = -22 }
+			orientation = center
+			pdx_tooltip = JapanDiploMaTooltip
+		}
+
+		buttonType = {
+			name = "OuterChina_close_button"
+			position = { x = 8 y = 8 }
+			quadTextureSprite = "GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = upper_left
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+
+	}
+
+	containerWindowType = {
+		name = "TNO_JapanDiploRussia_countryview"
+		size = { width = 464 height = 178 }
+		position = { x = 900 y = 150 }
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "SandboxFloaterBackground"
+		}
+
+		instantTextBoxType = {
+			name = "JapanDiploRussiaWarlordsTitle_1"
+			position = { x = -40 y = 26 }
+			font = "aldrich_30_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploRussiaWarlordsTitleText_1"
+			maxWidth = 220
+			maxHeight = 24
+			format = centre
+		}
+
+		instantTextBoxType = {
+			name = "JapanDiploRussiaWarlordsTitle_2"
+			position = { x = 250 y = 118 }
+			font = "aldrich_30_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploRussiaWarlordsTitleText_2"
+			maxWidth = 220
+			maxHeight = 24
+			format = centre
+		}
+
+		buttonType = {
+			name = "JapanDiploRussiaGuide"
+			spriteType = "GFX_JapanDiploRussia"
+			position = { x = 0 y = 0 }
+			orientation = center
+			centerposition = yes
+			pdx_tooltip = JapanDiploRussiaTooltip
+		}
+
+		buttonType = {
+			name = "Russia_close_button"
+			position = { x = 8 y = 8 }
+			quadTextureSprite = "GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = upper_left
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+	}
+
+	containerWindowType = {
+		name = "TNO_JapanDiploSEA_countryview"
+		size = { width = 474 height = 340 }
+		position = { x = 800 y = 400 }
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "SandboxFloaterBackground"
+		}
+
+		instantTextBoxType = {
+			name = "JapanDiploSEATitle"
+			position = { x = 230 y = 35 }
+			font = "aldrich_36_outline"
+			borderSize = {x = 0 y = 0}
+			text = "JapanDiploSEATitleText"
+			maxWidth = 220
+			maxHeight = 24
+			format = centre
+		}
+
+		iconType = {
+			name = "JapanDiploSEAGuide"
+			spriteType = "GFX_JapanDiploSEAGuide"
+			position = { x = 0 y = 0 }
+			alwaystransparent = yes
+			orientation = center
+			centerposition = yes
+		}
+
+		buttonType = {
+			name = "JapanDiploBurma"
+			spriteType = "GFX_JapanDiploBurma"
+			position = { x = -230 y = -158 }
+			orientation = center
+			pdx_tooltip = JapanDiploBurmaTooltip
+		}
+
+		buttonType = {
+			name = "JapanDiploYunnan"
+			spriteType = "GFX_JapanDiploYunnan"
+			position = { x = -189 y = -164 }
+			orientation = center
+			pdx_tooltip = JapanDiploYunnanTooltip
+		}
+
+		buttonType = {
+			name = "JapanDiploThailand"
+			spriteType = "GFX_JapanDiploThailand"
+			position = { x = -191 y = -110 }
+			orientation = center
+			pdx_tooltip = JapanDiploThailandTooltip
+		}
+
+		buttonType = {
+			name = "JapanDiploPhil"
+			spriteType = "GFX_JapanDiploPhil"
+			position = { x = -35 y = -76 }
+			orientation = center
+			pdx_tooltip = JapanDiploPhilTooltip
+		}
+
+		buttonType = {
+			name = "JapanDiploIndonesia"
+			spriteType = "GFX_JapanDiploIndonesia"
+			position = { x = -209 y = 28 }
+			orientation = center
+			pdx_tooltip = JapanDiploIndonesiaTooltip
+		}
+
+		buttonType = {
+			name = "JapanDiploShounan"
+			spriteType = "GFX_JapanDiploShounan"
+			position = { x = -166 y = 20 }
+			orientation = center
+			pdx_tooltip = JapanDiploShounanTooltip
+		}
+
+		buttonType = {
+			name = "JapanDiploVietnam"
+			spriteType = "GFX_JapanDiploVietnam"
+			position = { x = -153 y = -116 }
+			orientation = center
+			pdx_tooltip = JapanDiploVietnamTooltip
+		}
+
+		buttonType = {
+			name = "JapanDiploLaos"
+			spriteType = "GFX_JapanDiploLaos"
+			position = { x = -169 y = -106 }
+			orientation = center
+			pdx_tooltip = JapanDiploLaosTooltip
+		}
+
+		buttonType = {
+			name = "JapanDiploCambodia"
+			spriteType = "GFX_JapanDiploCambodia"
+			position = { x = -149 y = -42 }
+			orientation = center
+			pdx_tooltip = JapanDiploCambodiaTooltip
+		}
+
+		buttonType = {
+			name = "SEA_close_button"
+			position = { x = 8 y = 8 }
+			quadTextureSprite = "GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = upper_left
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+	}
+}

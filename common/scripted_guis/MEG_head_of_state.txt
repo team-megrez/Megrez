@@ -1,0 +1,74 @@
+scripted_gui = {
+    hos_open_button = {
+        context_type = player_context
+        parent_window_token = politics_tab
+        window_name = "countrypoliticsview_hos_open_button_window"
+		dirty = hosscreen_open
+
+        visible = {
+            has_country_flag = has_symbolic_figurehead
+        }
+
+        effects = {
+            politicsview_hos_button_click = {
+                if = {
+					limit = { has_variable = hosscreen_open }
+					clear_variable = hosscreen_open
+				}
+				else = {
+					set_variable = { hosscreen_open = 1 }
+				}
+            }
+        }
+    }
+
+    countrypoliticsview_hos_main = {
+        context_type = player_context
+        parent_window_token = politics_tab
+        window_name = "countrypoliticsview_hos_main"
+		dirty = hosscreen_open
+
+        visible = {
+			has_country_flag = has_symbolic_figurehead
+			check_variable = { hosscreen_open > 0 }
+        }
+    }
+
+    countrypoliticsview_hos = {
+        context_type = player_context
+        parent_window_token = politics_tab
+        window_name = "countrypoliticsview_hos"
+		dirty = hosscreen_open
+
+        visible = {
+			has_country_flag = has_symbolic_figurehead
+			check_variable = { hosscreen_open > 0 }
+        }
+
+		properties = {
+			countrypoliticsview_hos = {
+				image = "[get_hos_pic]"
+			}
+		}
+    }
+    diplo_hos_info = {
+        context_type = selected_country_context
+        parent_window_token = selected_country_view_diplomacy
+        window_name = "diplosview_hos_info_window"
+
+        visible = {
+            THIS = {
+				has_country_flag = has_symbolic_figurehead
+            }
+        }
+    }
+    diplo_subideo_info = {
+        context_type = selected_country_context
+        parent_window_token = selected_country_view_diplomacy
+        window_name = "diplo_subideo_info"
+
+        visible = {
+        always = yes
+        }
+    }
+}

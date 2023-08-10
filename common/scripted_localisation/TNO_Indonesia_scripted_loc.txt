@@ -1,0 +1,1278 @@
+# Indonesian Civil War
+defined_text = {
+	name = Get_ICWPhase
+	text = {
+		trigger = { check_variable = { global.ICW_phase = 1 } }
+		localization_key = ICW_insurgency
+	}
+	text = {
+		trigger = { check_variable = { global.ICW_phase = 2 } }
+		localization_key = ICW_escalation
+	}
+	text = {
+		trigger = { check_variable = { global.ICW_phase = 3 } }
+		localization_key = ICW_open_warfare
+	}
+	text = {
+		trigger = { check_variable = { global.ICW_phase = 4 } }
+		localization_key = ICW_duumvirate
+	}
+	
+}
+
+
+
+#Government Support
+defined_text = {
+	name = GetJapaneseSupportLevel
+	text = {
+		trigger = {
+			check_variable = { JAP_support < 7 }
+		}
+		localization_key = INS_Japanese_SupA1
+	}
+	text = {
+		trigger = {
+			check_variable = { JAP_support < 14 }
+		}
+		localization_key = INS_Japanese_SupA2
+	}
+	text = {
+		trigger = {
+			check_variable = { JAP_support < 20 }
+		}
+		localization_key = INS_Japanese_SupA3
+	}
+	text = {
+		trigger = {
+			check_variable = { JAP_support < 27 }
+		}
+		localization_key = INS_Japanese_SupB1
+	}
+	text = {
+		trigger = {
+			check_variable = { JAP_support < 34 }
+		}
+		localization_key = INS_Japanese_SupB2
+	}
+	text = {
+		trigger = {
+			check_variable = { JAP_support < 40 }
+		}
+		localization_key = INS_Japanese_SupB3
+	}
+	text = {
+		trigger = {
+			check_variable = { JAP_support < 47 }
+		}
+		localization_key = INS_Japanese_SupC1
+	}
+	text = {
+		trigger = {
+			check_variable = { JAP_support < 54 }
+		}
+		localization_key = INS_Japanese_SupC2
+	}
+	text = {
+		trigger = {
+			check_variable = { JAP_support < 60 }
+		}
+		localization_key = INS_Japanese_SupC3
+	}
+	text = {
+		trigger = {
+			check_variable = { JAP_support < 67 }
+		}
+		localization_key = INS_Japanese_SupD1
+	}
+	text = {
+		trigger = {
+			check_variable = { JAP_support < 74 }
+		}
+		localization_key = INS_Japanese_SupD2
+	}
+	text = {
+		trigger = {
+			check_variable = { JAP_support < 80 }
+		}
+		localization_key = INS_Japanese_SupD3
+	}
+	text = {
+		trigger = {
+			check_variable = { JAP_support < 87 }
+		}
+		localization_key = INS_Japanese_SupE1
+	}
+	text = {
+		trigger = {
+			check_variable = { JAP_support < 94 }
+		}
+		localization_key = INS_Japanese_SupE2
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				var = JAP_support
+				value = 94
+				compare = greater_than_or_equals
+			}
+		}
+		localization_key = INS_Japanese_SupE3
+	}
+}
+
+defined_text = {
+	name = GetArmySupportLevel
+	text = {
+		trigger = {
+			check_variable = { ARMY_support < 7 }
+		}
+		localization_key = INS_Army_SupA1
+	}
+	text = {
+		trigger = {
+			check_variable = { ARMY_support < 14 }
+		}
+		localization_key = INS_Army_SupA2
+	}
+	text = {
+		trigger = {
+			check_variable = { ARMY_support < 20 }
+		}
+		localization_key = INS_Army_SupA3
+	}
+	text = {
+		trigger = {
+			check_variable = { ARMY_support < 27 }
+		}
+		localization_key = INS_Army_SupB1
+	}
+	text = {
+		trigger = {
+			check_variable = { ARMY_support < 34 }
+		}
+		localization_key = INS_Army_SupB2
+	}
+	text = {
+		trigger = {
+			check_variable = { ARMY_support < 40 }
+		}
+		localization_key = INS_Army_SupB3
+	}
+	text = {
+		trigger = {
+			check_variable = { ARMY_support < 47 }
+		}
+		localization_key = INS_Army_SupC1
+	}
+	text = {
+		trigger = {
+			check_variable = { ARMY_support < 54 }
+		}
+		localization_key = INS_Army_SupC2
+	}
+	text = {
+		trigger = {
+			check_variable = { ARMY_support < 60 }
+		}
+		localization_key = INS_Army_SupC3
+	}
+	text = {
+		trigger = {
+			check_variable = { ARMY_support < 67 }
+		}
+		localization_key = INS_Army_SupD1
+	}
+	text = {
+		trigger = {
+			check_variable = { ARMY_support < 74 }
+		}
+		localization_key = INS_Army_SupD2
+	}
+	text = {
+		trigger = {
+			check_variable = { ARMY_support < 80 }
+		}
+		localization_key = INS_Army_SupD3
+	}
+	text = {
+		trigger = {
+			check_variable = { ARMY_support < 87 }
+		}
+		localization_key = INS_Army_SupE1
+	}
+	text = {
+		trigger = {
+			check_variable = { ARMY_support < 94 }
+		}
+		localization_key = INS_Army_SupE2
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				var = ARMY_supports
+				value = 94
+				compare = greater_than_or_equals
+			}
+		}
+		localization_key = INS_Army_SupE3
+	}
+}
+
+defined_text = {
+	name = GetNUSupportLevel
+	text = {
+		trigger = {
+			check_variable = { NU_support < 7 }
+		}
+		localization_key = INS_NU_SupA1
+	}
+	text = {
+		trigger = {
+			check_variable = { NU_support < 14 }
+		}
+		localization_key = INS_NU_SupA2
+	}
+	text = {
+		trigger = {
+			check_variable = { NU_support < 20 }
+		}
+		localization_key = INS_NU_SupA3
+	}
+	text = {
+		trigger = {
+			check_variable = { NU_support < 27 }
+		}
+		localization_key = INS_NU_SupB1
+	}
+	text = {
+		trigger = {
+			check_variable = { NU_support < 34 }
+		}
+		localization_key = INS_NU_SupB2
+	}
+	text = {
+		trigger = {
+			check_variable = { NU_support < 40 }
+		}
+		localization_key = INS_NU_SupB3
+	}
+	text = {
+		trigger = {
+			check_variable = { NU_support < 47 }
+		}
+		localization_key = INS_NU_SupC1
+	}
+	text = {
+		trigger = {
+			check_variable = { NU_support < 54 }
+		}
+		localization_key = INS_NU_SupC2
+	}
+	text = {
+		trigger = {
+			check_variable = { NU_support < 60 }
+		}
+		localization_key = INS_NU_SupC3
+	}
+	text = {
+		trigger = {
+			check_variable = { NU_support < 67 }
+		}
+		localization_key = INS_NU_SupD1
+	}
+	text = {
+		trigger = {
+			check_variable = { NU_support < 74 }
+		}
+		localization_key = INS_NU_SupD2
+	}
+	text = {
+		trigger = {
+			check_variable = { NU_support < 80 }
+		}
+		localization_key = INS_NU_SupD3
+	}
+	text = {
+		trigger = {
+			check_variable = { NU_support < 87 }
+		}
+		localization_key = INS_NU_SupE1
+	}
+	text = {
+		trigger = {
+			check_variable = { NU_support < 94 }
+		}
+		localization_key = INS_NU_SupE2
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				var = NU_support
+				value = 94
+				compare = greater_than_or_equals
+			}
+		}
+		localization_key = INS_NU_SupE3
+	}
+}
+
+#National Popularity
+
+defined_text = {
+	name = GetSukarnoPopularityLevel
+	text = {
+		trigger = {
+			check_variable = { SUKARNO_popularity < 7 }
+		}
+		localization_key = INS_Sukarno_PopA1
+	}
+	text = {
+		trigger = {
+			check_variable = { SUKARNO_popularity < 14 }
+		}
+		localization_key = INS_Sukarno_PopA2
+	}
+	text = {
+		trigger = {
+			check_variable = { SUKARNO_popularity < 20 }
+		}
+		localization_key = INS_Sukarno_PopA3
+	}
+	text = {
+		trigger = {
+			check_variable = { SUKARNO_popularity < 27 }
+		}
+		localization_key = INS_Sukarno_PopB1
+	}
+	text = {
+		trigger = {
+			check_variable = { SUKARNO_popularity < 34 }
+		}
+		localization_key = INS_Sukarno_PopB2
+	}
+	text = {
+		trigger = {
+			check_variable = { SUKARNO_popularity < 40 }
+		}
+		localization_key = INS_Sukarno_PopB3
+	}
+	text = {
+		trigger = {
+			check_variable = { SUKARNO_popularity < 47 }
+		}
+		localization_key = INS_Sukarno_PopC1
+	}
+	text = {
+		trigger = {
+			check_variable = { SUKARNO_popularity < 54 }
+		}
+		localization_key = INS_Sukarno_PopC2
+	}
+	text = {
+		trigger = {
+			check_variable = { SUKARNO_popularity < 60 }
+		}
+		localization_key = INS_Sukarno_PopC3
+	}
+	text = {
+		trigger = {
+			check_variable = { SUKARNO_popularity < 67 }
+		}
+		localization_key = INS_Sukarno_PopD1
+	}
+	text = {
+		trigger = {
+			check_variable = { SUKARNO_popularity < 74 }
+		}
+		localization_key = INS_Sukarno_PopD2
+	}
+	text = {
+		trigger = {
+			check_variable = { SUKARNO_popularity < 80 }
+		}
+		localization_key = INS_Sukarno_PopD3
+	}
+	text = {
+		trigger = {
+			check_variable = { SUKARNO_popularity < 87 }
+		}
+		localization_key = INS_Sukarno_PopE1
+	}
+	text = {
+		trigger = {
+			check_variable = { SUKARNO_popularity < 94 }
+		}
+		localization_key = INS_Sukarno_PopE2
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				var = SUKARNO_popularity
+				value = 94
+				compare = greater_than_or_equals
+			}
+		}
+		localization_key = INS_Sukarno_PopE3
+	}
+}
+
+defined_text = {
+	name = GetOppositionPopularityLevel
+	text = {
+		trigger = {
+			check_variable = { OPPOSITION_popularity < 7 }
+		}
+		localization_key = hA1
+	}
+	text = {
+		trigger = {
+			check_variable = { OPPOSITION_popularity < 14 }
+		}
+		localization_key = INS_Opposition_PopA2
+	}
+	text = {
+		trigger = {
+			check_variable = { OPPOSITION_popularity < 20 }
+		}
+		localization_key = INS_Opposition_PopA3
+	}
+	text = {
+		trigger = {
+			check_variable = { OPPOSITION_popularity < 27 }
+		}
+		localization_key = INS_Opposition_PopB1
+	}
+	text = {
+		trigger = {
+			check_variable = { OPPOSITION_popularity < 34 }
+		}
+		localization_key = INS_Opposition_PopB2
+	}
+	text = {
+		trigger = {
+			check_variable = { OPPOSITION_popularity < 40 }
+		}
+		localization_key = INS_Opposition_PopB3
+	}
+	text = {
+		trigger = {
+			check_variable = { OPPOSITION_popularity < 47 }
+		}
+		localization_key = INS_Opposition_PopC1
+	}
+	text = {
+		trigger = {
+			check_variable = { OPPOSITION_popularity < 54 }
+		}
+		localization_key = INS_Opposition_PopC2
+	}
+	text = {
+		trigger = {
+			check_variable = { OPPOSITION_popularity < 60 }
+		}
+		localization_key = INS_Opposition_PopC3
+	}
+	text = {
+		trigger = {
+			check_variable = { OPPOSITION_popularity < 67 }
+		}
+		localization_key = INS_Opposition_PopD1
+	}
+	text = {
+		trigger = {
+			check_variable = { OPPOSITION_popularity < 74 }
+		}
+		localization_key = INS_Opposition_PopD2
+	}
+	text = {
+		trigger = {
+			check_variable = { OPPOSITION_popularity < 80 }
+		}
+		localization_key = INS_Opposition_PopD3
+	}
+	text = {
+		trigger = {
+			check_variable = { OPPOSITION_popularity < 87 }
+		}
+		localization_key = INS_Opposition_PopE1
+	}
+	text = {
+		trigger = {
+			check_variable = { OPPOSITION_popularity < 94 }
+		}
+		localization_key = INS_Opposition_PopE2
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				var = OPPOSITION_popularity
+				value = 94
+				compare = greater_than_or_equals
+			}
+		}
+		localization_key = INS_Opposition_PopE3
+	}
+}
+
+defined_text = {
+	name = GetPKIPopularityLevel
+	text = {
+		trigger = {
+			check_variable = { PKI_popularity < 7 }
+		}
+		localization_key = INS_PKI_PopA1
+	}
+	text = {
+		trigger = {
+			check_variable = { PKI_popularity < 14 }
+		}
+		localization_key = INS_PKI_PopA2
+	}
+	text = {
+		trigger = {
+			check_variable = { PKI_popularity < 20 }
+		}
+		localization_key = INS_PKI_PopA3
+	}
+	text = {
+		trigger = {
+			check_variable = { PKI_popularity < 27 }
+		}
+		localization_key = INS_PKI_PopB1
+	}
+	text = {
+		trigger = {
+			check_variable = { PKI_popularity < 34 }
+		}
+		localization_key = INS_PKI_PopB2
+	}
+	text = {
+		trigger = {
+			check_variable = { PKI_popularity < 40 }
+		}
+		localization_key = INS_PKI_PopB3
+	}
+	text = {
+		trigger = {
+			check_variable = { PKI_popularity < 47 }
+		}
+		localization_key = INS_PKI_PopC1
+	}
+	text = {
+		trigger = {
+			check_variable = { PKI_popularity < 54 }
+		}
+		localization_key = INS_PKI_PopC2
+	}
+	text = {
+		trigger = {
+			check_variable = { PKI_popularity < 60 }
+		}
+		localization_key = INS_PKI_PopC3
+	}
+	text = {
+		trigger = {
+			check_variable = { PKI_popularity < 67 }
+		}
+		localization_key = INS_PKI_PopD1
+	}
+	text = {
+		trigger = {
+			check_variable = { PKI_popularity < 74 }
+		}
+		localization_key = INS_PKI_PopD2
+	}
+	text = {
+		trigger = {
+			check_variable = { PKI_popularity < 80 }
+		}
+		localization_key = INS_PKI_PopD3
+	}
+	text = {
+		trigger = {
+			check_variable = { PKI_popularity < 87 }
+		}
+		localization_key = INS_PKI_PopE1
+	}
+	text = {
+		trigger = {
+			check_variable = { PKI_popularity < 94 }
+		}
+		localization_key = INS_PKI_PopE2
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				var = PKI_popularity
+				value = 94
+				compare = greater_than_or_equals
+			}
+		}
+		localization_key = INS_PKI_PopE3
+	}
+}
+
+defined_text = {
+	name = GetAcOpinionJava
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Java value = 90 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_full_support_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Java value = 80 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_full_support_2
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Java value = 75 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_support_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Java value = 65 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_support_2
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Java value = 60 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_support_3
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Java value = 55 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_neutral_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Java value = 45 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_neutral_2
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Java value = 40 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_neutral_3
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Java value = 35 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_uncoop_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Java value = 25 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_uncoop_2
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Java value = 20 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_uncoop_3
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Java value = 10 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_opposed_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Java value = 0 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_opposed_2
+	}
+}
+
+defined_text = {
+	name = GetAcOpinionSumatra
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Sumatra value = 90 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_full_support_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Sumatra value = 80 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_full_support_2
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Sumatra value = 75 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_support_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Sumatra value = 65 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_support_2
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Sumatra value = 60 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_support_3
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Sumatra value = 55 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_neutral_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Sumatra value = 45 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_neutral_2
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Sumatra value = 40 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_neutral_3
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Sumatra value = 35 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_uncoop_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Sumatra value = 25 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_uncoop_2
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Sumatra value = 20 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_uncoop_3
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Sumatra value = 10 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_opposed_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Sumatra value = 0 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_opposed_2
+	}
+}
+
+defined_text = {
+	name = GetAcOpinionKalimantan
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Kalimantan value = 90 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_full_support_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Kalimantan value = 80 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_full_support_2
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Kalimantan value = 75 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_support_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Kalimantan value = 65 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_support_2
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Kalimantan value = 60 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_support_3
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Kalimantan value = 55 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_neutral_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Kalimantan value = 45 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_neutral_2
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Kalimantan value = 40 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_neutral_3
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Kalimantan value = 35 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_uncoop_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Kalimantan value = 25 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_uncoop_2
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Kalimantan value = 20 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_uncoop_3
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Kalimantan value = 10 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_opposed_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Kalimantan value = 0 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_opposed_2
+	}
+}
+
+defined_text = {
+	name = GetAcOpinionSulawesi
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Sulawesi value = 90 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_full_support_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Sulawesi value = 80 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_full_support_2
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Sulawesi value = 75 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_support_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Sulawesi value = 65 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_support_2
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Sulawesi value = 60 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_support_3
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Sulawesi value = 55 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_neutral_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Sulawesi value = 45 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_neutral_2
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Sulawesi value = 40 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_neutral_3
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Sulawesi value = 35 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_uncoop_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Sulawesi value = 25 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_uncoop_2
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Sulawesi value = 20 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_uncoop_3
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Sulawesi value = 10 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_opposed_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Sulawesi value = 0 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_opposed_2
+	}
+}
+
+defined_text = {
+	name = GetAcOpinionPapua
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Papua value = 90 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_full_support_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Papua value = 80 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_full_support_2
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Papua value = 75 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_support_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Papua value = 65 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_support_2
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Papua value = 60 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_support_3
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Papua value = 55 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_neutral_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Papua value = 45 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_neutral_2
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Papua value = 40 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_neutral_3
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Papua value = 35 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_uncoop_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Papua value = 25 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_uncoop_2
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Papua value = 20 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_uncoop_3
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Papua value = 10 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_opposed_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Papua value = 0 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_opposed_2
+	}
+}
+
+defined_text = {
+	name = GetAcOpinionMoluccas
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Moluccas value = 90 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_full_support_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Moluccas value = 80 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_full_support_2
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Moluccas value = 75 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_support_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Moluccas value = 65 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_support_2
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Moluccas value = 60 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_support_3
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Moluccas value = 55 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_neutral_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Moluccas value = 45 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_neutral_2
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Moluccas value = 40 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_neutral_3
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Moluccas value = 35 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_uncoop_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Moluccas value = 25 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_uncoop_2
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Moluccas value = 20 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_uncoop_3
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Moluccas value = 10 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_opposed_1
+	}
+	text = {
+		trigger = {
+			check_variable = {var = INS_ac_Moluccas value = 0 compare = greater_than_or_equals}
+		}
+		localization_key = INS_ac_opposed_2
+	}
+}
+
+defined_text = {
+	name = FRI_GetCSNorthSumatra
+	text = {
+		trigger = {
+			FRI_has_majority_control_North_Sumatra = yes
+		}
+		localization_key = FRI_CSStateControlled
+	}
+	text = {
+		localization_key = FRI_CSNorthSumatra
+	}
+}
+
+defined_text = {
+	name = FRI_GetCSSouthSumatra
+	text = {
+		trigger = {
+			FRI_has_majority_control_South_Sumatra = yes
+		}
+		localization_key = FRI_CSStateControlled
+	}
+	text = {
+		localization_key = FRI_CSSouthSumatra
+	}
+}
+
+defined_text = {
+	name = FRI_GetCSWestJava
+	text = {
+		trigger = {
+			FRI_has_majority_control_West_Java = yes
+		}
+		localization_key = FRI_CSStateControlled
+	}
+	text = {
+		localization_key = FRI_CSWestJava
+	}
+}
+
+defined_text = {
+	name = FRI_GetCSEastJava
+	text = {
+		trigger = {
+			FRI_has_majority_control_East_Java = yes
+		}
+		localization_key = FRI_CSStateControlled
+	}
+	text = {
+		localization_key = FRI_CSEastJava
+	}
+}
+
+defined_text = {
+	name = FRI_GetCSKalimantan
+	text = {
+		trigger = {
+			FRI_has_majority_control_Kalimantan = yes
+		}
+		localization_key = FRI_CSStateControlled
+	}
+	text = {
+		localization_key = FRI_CSKalimantan
+	}
+}
+
+defined_text = {
+	name = FRI_GetCSSulawesi
+	text = {
+		trigger = {
+			FRI_has_majority_control_Sulawesi = yes
+		}
+		localization_key = FRI_CSStateControlled
+	}
+	text = {
+		localization_key = FRI_CSSulawesi
+	}
+}
+
+defined_text = {
+	name = FRI_GetCSPapua
+	text = {
+		trigger = {
+			FRI_has_majority_control_Papua = yes
+		}
+		localization_key = FRI_CSStateControlled
+	}
+	text = {
+		localization_key = FRI_CSPapua
+	}
+}
+
+defined_text = {
+	name = FRI_GetCSMoluccas
+	text = {
+		trigger = {
+			FRI_has_majority_control_Moluccas = yes
+		}
+		localization_key = FRI_CSStateControlled
+	}
+	text = {
+		localization_key = FRI_CSMoluccas
+	}
+}
+
+#Scripted GUI Stuff
+
+defined_text = {
+	name = GetLock1
+	text = {
+		trigger = {
+			has_country_flag = INS_Military_Status_Ended_flag
+		}
+		localization_key = "GFX_Indonesia_GUI_Lock_Broken"
+	}
+	text = {
+		trigger = {
+			has_country_flag = INS_Military_Status_Confirmed_flag
+		}
+		localization_key = "GFX_Indonesia_GUI_Lock_Unlocked"
+	}
+	text = {
+		trigger = {
+			always = yes
+		}
+		localization_key = "GFX_Indonesia_GUI_Lock_Locked"
+	}
+}
+
+defined_text = {
+	name = GetLock2
+	text = {
+		trigger = {
+			has_country_flag = INS_SKN_Status_Ended_flag
+		}
+		localization_key = "GFX_Indonesia_GUI_Lock_Broken"
+	}
+	text = {
+		trigger = {
+			has_country_flag = INS_SKN_Status_Confirmed_flag
+		}
+		localization_key = "GFX_Indonesia_GUI_Lock_Unlocked"
+	}
+	text = {
+		trigger = {
+			always = yes
+		}
+		localization_key = "GFX_Indonesia_GUI_Lock_Locked"
+	}
+}
+
+defined_text = {
+	name = GetLock3
+	text = {
+		trigger = {
+			has_country_flag = INS_Political_Status_Ended_flag
+		}
+		localization_key = "GFX_Indonesia_GUI_Lock_Broken"
+	}
+	text = {
+		trigger = {
+			has_country_flag = INS_Political_Status_Confirmed_flag
+		}
+		localization_key = "GFX_Indonesia_GUI_Lock_Unlocked"
+	}
+	text = {
+		trigger = {
+			always = yes
+		}
+		localization_key = "GFX_Indonesia_GUI_Lock_Locked"
+	}
+}

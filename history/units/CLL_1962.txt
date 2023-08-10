@@ -1,0 +1,223 @@
+﻿division_template = {
+	name = "Milicia Revolucionaria"
+	regiments = {
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 }
+		light_infantry = { x = 1 y = 0 }
+		light_infantry = { x = 1 y = 1 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+	}
+	priority = 0
+}
+
+division_template = {
+	name = "Elite"
+	regiments = {
+		elite_infantry = { x = 0 y = 0 }
+		elite_infantry = { x = 0 y = 1 }
+		elite_infantry = { x = 1 y = 0 }
+		elite_infantry = { x = 1 y = 1 }
+	}
+	priority = 0
+}
+
+division_template = {
+	name = "Assault"
+	regiments = {
+		APC = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+	}
+	priority = 1
+}
+
+division_template = {
+	name = "Guardia Rural Comunista"
+	regiments = {
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 }
+		light_infantry = { x = 1 y = 0 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+	}
+	priority = 0
+}
+
+division_template = {
+	name = "Unidad de Autodefensa Cristiana Revolucionaria"
+	regiments = {
+		light_infantry = { x = 0 y = 1 }
+		light_infantry = { x = 1 y = 0 }
+		light_infantry = { x = 0 y = 0 }
+	}
+	support = {
+		field_hospital = { x = 0 y = 0 }
+	}
+	priority = 0
+}
+
+division_template = {
+	name = "Guardia Territorial Judía"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		light_infantry = { x = 1 y = 0 }
+		light_infantry = { x = 1 y = 1 }
+	}
+	support = {
+	}
+	priority = 0
+}
+
+division_template = {
+	name = "Brigada Disidente del Ejército"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		artillery_brigade = { x = 1 y = 2 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+	}
+	priority = 1
+}
+
+division_template = {
+	name = "Caballería Revolucionaria"
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+	}
+	priority = 1
+}
+
+units = {
+	division = {
+		name = "I. Caballería Revolucionaria"
+		location = "15312"
+		division_template = "Caballería Revolucionaria"
+		start_experience_factor = 0.4
+		start_equipment_factor = 1
+	}
+	division = {
+		name = "II. Caballería Revolucionaria"
+		location = "15312"
+		division_template = "Caballería Revolucionaria"
+		start_experience_factor = 0.4
+		start_equipment_factor = 1
+	}
+	division = {
+		name = "III. Caballería Revolucionaria"
+		location = "15326"
+		division_template = "Caballería Revolucionaria"
+		start_experience_factor = 0.4
+		start_equipment_factor = 1
+	}
+	division = {
+		name = "IV. Caballería Revolucionaria"
+		location = "8056"
+		division_template = "Caballería Revolucionaria"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.8
+	}
+	division = {
+		name = "V. Caballería Revolucionaria"
+		location = "5026"
+		division_template = "Caballería Revolucionaria"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.8
+	}
+	division = {
+		name = "VI. Caballería Revolucionaria"
+		location = "1887"
+		division_template = "Caballería Revolucionaria"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.7
+	}
+
+	division = {
+		name = "I. Milicia Revolucionaria"
+		location = "8056"
+		division_template = "Milicia Revolucionaria"
+		start_experience_factor = 0.4
+		start_equipment_factor = 1
+	}
+	division = {
+		name = "II. Milicia Revolucionaria"
+		location = "8056"
+		division_template = "Milicia Revolucionaria"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.8
+	}
+
+	division = {
+		name = "I. Brigada Disidente del Ejército"
+		location = "15326"
+		division_template = "Brigada Disidente del Ejército"
+		start_experience_factor = 0.5
+		start_equipment_factor = 1
+	}
+	division = {
+		name = "II. Brigada Disidente del Ejército"
+		location = "8056"
+		division_template = "Brigada Disidente del Ejército"
+		start_experience_factor = 0.5
+		start_equipment_factor = 1
+	}
+
+	division = {
+		name = "I. Guardia Rural Comunista"
+		location = "8056"
+		division_template = "Guardia Rural Comunista"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.8
+	}
+
+	division = {
+		name = "I. Unidad de Autodefensa Cristiana Revolucionaria"
+		location = "15326"
+		division_template = "Unidad de Autodefensa Cristiana Revolucionaria"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.9
+	}
+
+	division = {
+		name = "I. Guardia Territorial Judía"
+		location = "1887"
+		division_template = "Guardia Territorial Judía"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.7
+	}
+	division = {
+		name = "II. Guardia Territorial Judía"
+		location = "8056"
+		division_template = "Guardia Territorial Judía"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.8
+	}
+	division = {
+		name = "II. Guardia Territorial Judía"
+		location = "5026"
+		division_template = "Guardia Territorial Judía"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.6
+	}
+}

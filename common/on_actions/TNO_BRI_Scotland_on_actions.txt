@@ -1,0 +1,42 @@
+on_actions = {
+	#EVENTS
+	on_weekly_SCO = {
+		effect = {
+			if = { #coup event, but coded better (hopefully), thanks
+				limit = {
+					NOT = {
+						has_country_flag = SCO_Coup_Disabled
+						has_country_flag = SCO_Paranoia_Removed
+					}
+					check_variable = {	SCOparanoia > 7	}
+					check_variable = {	SCOhappiness < 7 }
+				}
+				country_event = { id = SCO.1000 days = 1 }
+
+				# Paranoia changes
+				if = {
+					limit = {
+						NOT = { has_idea = SCO_Weapons_Free }
+						check_variable = { SCOparanoia > 6 }
+					}
+					country_event = { id = SCO.60 days = 1 }
+				}
+				if = {
+					limit = {
+						NOT = { has_idea = SCO_Itchy_Trigger }
+						check_variable = { SCOparanoia > 2 }
+						check_variable = { SCOparanoia < 7 }
+					}
+					country_event = { id = SCO.63 days = 1 }
+				}
+				if = {
+					limit = {
+						NOT = { has_idea = SCO_Hands_Off }
+						check_variable = { SCOparanoia < 3 }
+					}
+					country_event = { id = SCO.61 days = 1 }
+				}
+			}
+		}
+	}
+}
