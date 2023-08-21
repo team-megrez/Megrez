@@ -20,6 +20,8 @@ guiTypes = {
 			iconType = {
 				name = "TNO_Cold_War_GUI_DEFCON_Meter"
 				position = { x = 13 y = 13 }
+				pdx_tooltip = DEFCON_tt
+				pdx_tooltip_delayed = DEFCON_tt_delayed
 			}
 
 			iconType = {
@@ -81,14 +83,14 @@ guiTypes = {
 			}
 			iconType = {
 				name = "Cold_War_GUI_Sea_Zone_North_Atlantic"
-				position = { x = 130 y = 8 }
+				position = { x = 129 y = 8 }
 				spriteType = "GFX_Cold_War_GUI_Sea_Zone_North_Atlantic"
 				frame = 1
 				alwaystransparent = yes
 			}
 			iconType = {
 				name = "Cold_War_GUI_Sea_Zone_North_Sea"
-				position = { x = 260 y = 8 }
+				position = { x = 259 y = 8 }
 				spriteType = "GFX_Cold_War_GUI_Sea_Zone_North_Sea"
 				frame = 1
 				alwaystransparent = yes
@@ -102,14 +104,14 @@ guiTypes = {
 			}
 			iconType = {
 				name = "Cold_War_GUI_Sea_Zone_Med"
-				position = { x = 293 y = 80 }
+				position = { x = 255 y = 72 }
 				spriteType = "GFX_Cold_War_GUI_Sea_Zone_Med"
 				frame = 1
 				alwaystransparent = yes
 			}
 			iconType = {
 				name = "Cold_War_GUI_Sea_Zone_South_Atlantic"
-				position = { x = 165 y = 108 }
+				position = { x = 164 y = 108 }
 				spriteType = "GFX_Cold_War_GUI_Sea_Zone_South_Atlantic"
 				frame = 1
 				alwaystransparent = yes
@@ -1270,8 +1272,8 @@ guiTypes = {
 				gridboxtype = {
 					name = "Cold_War_GUI_Tension_Tab_Incidents"
 					position = { x = 4 y = 0 }
-					size = { width = 498 height = 63 }
-					slotsize = { width = 498 height = 68 }
+					size = { width = 498 height = 83 }
+					slotsize = { width = 498 height = 88 }
 					max_slots_horizontal = 1
 					add_horizontal = no
 				}
@@ -1281,7 +1283,7 @@ guiTypes = {
 
 	containerWindowType = {
 		name = "Cold_War_GUI_Tension_Tab_Incidents_Entry"
-		size = { width = 498 height = 63 }
+		size = { width = 498 height = 83 }
 		position = { x = 0 y = 0 }
 
 		iconType = {
@@ -1303,12 +1305,13 @@ guiTypes = {
 
 		instantTextboxType = {
 			name = "Cold_War_GUI_Tension_Tab_Incidents_Entry_TensionChange_Text"
-			position = { x = 391 y = 14 }
+			position = { x = 391 y = 0 }
 			font = "aldrich_36_outline"
 			text = CWGUIIncidents_TensionChange
 			maxWidth = 100
-			maxHeight = 61
+			maxHeight = 83
 			format = center
+			vertical_alignment = center
 			alwaystransparent = yes
 		}
 	}

@@ -95,7 +95,7 @@ guiTypes = {
 			fixedsize = yes
 			alwaystransparent = yes
 		}
-		
+
 		# Putting this in the economy window because I am lazy
 		iconType = {
 			name = "intel_button_dummy"
@@ -105,7 +105,7 @@ guiTypes = {
 			pdx_tooltip = "TOPBAR_INTELLIGENCE_DESC_NO_LAR"
 		}
 	}
-	
+
 	containerWindowType = {
 		name = "topbar_economy_power"
 		position = { x =124 y=38 }
@@ -227,10 +227,10 @@ guiTypes = {
 			position = { x = 0 y = 42 }
 
 			### Inactive ###
-				iconType = { 
+				iconType = {
 					name = "EconBase_InactiveTabs"
 					spriteType = "GFX_EconBase_Tabs"
-					position = { x = 0 y = 0 }    
+					position = { x = 0 y = 0 }
 				}
 
 				## Text ##
@@ -243,7 +243,7 @@ guiTypes = {
 						text = EconBase_Macro_text_tt
 					}
 
-					instantTextBoxType = { 
+					instantTextBoxType = {
 						name = "EconBase_Inactive_Social"
 						position = { x = 192 y = 11 }
 						maxWidth = 185
@@ -306,7 +306,7 @@ guiTypes = {
 			### Active ###
 
 			## Buttons ##
-				buttonType = { 
+				buttonType = {
 					name = "EconBase_Button_Macro"
 					spriteType = "GFX_EconBase_TabsButton"
 					position = { x = 5 y = -2 }
@@ -355,7 +355,7 @@ guiTypes = {
 					maxHeight = 20
 					format = center
 				}
-	
+
 				instantTextboxType = {
 					name = "credit_rating_desc"
 					position = { x = 0 y = 68 }
@@ -365,7 +365,7 @@ guiTypes = {
 					maxHeight = 20
 					format = center
 				}
-	
+
 				buttonType = {
 					name = "Credit_Rating_Icon"
 					quadTextureSprite = "GFX_econ_credit_ratings"
@@ -373,7 +373,7 @@ guiTypes = {
 					pdx_tooltip = "credit_rating_tt"
 					pdx_tooltip_delayed = "credit_rating_delayed_tt"
 				}
-			
+
 				# buttonType = {
 				# 	name = "Credit_Rating_Overlay"
 				# 	position = { x = 27 y = 26 }
@@ -418,7 +418,7 @@ guiTypes = {
 					pdx_tooltip = econ_sphere_button_tt
 					pdx_tooltip_delayed = econ_sphere_button_tt_delayed
 				}
-			
+
 				# buttonType = {
 				# 	name = "Econ_Sphere_Flag_Overlay"
 				# 	position = { x = 23 y = 26 }
@@ -466,12 +466,13 @@ guiTypes = {
 
 			instantTextBoxType = {
 				name = "econ_help_text"
-				orientation = upper_left 
-				position = { x = -56 y = 11 }   
+				orientation = upper_left
+				position = { x = -56 y = 11 }
 
-				format = center 
+				format = center
 				font = "aldrich_30_outline"
 				text = econ_help_text_tt
+				alwaysTransparent = yes
 			}
 		}
 
@@ -515,76 +516,76 @@ guiTypes = {
 		position = { x = 827 y = 0 }
 
 		clipping = yes
+	}
 
-		containerWindowType = {
-			name = "credit_ladder_tab_inner"
-			size = { width = 320 height = 660 }
+	containerWindowType = {
+		name = "credit_ladder_tab_inner"
+		size = { width = 320 height = 660 }
 
-			position = { x = -600 y = 0 }
-			show_position = { x = 0 y = 0 }
-			show_animation_type = decelerated
-			hide_animation_type = accelerated
-			animation_time = 300
+		position = { x = -600 y = 0 }
+		show_position = { x = 0 y = 0 }
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
+		animation_time = 300
 
-			background = {
-				name = "credit_ladder_tab_bg"
-				quadTextureSprite = "GFX_tiled_window_thin_border2"
-			}
-			
-			instantTextboxType = {
-				name = "credit_ladder_tab_title"
-				alwaystransparent = yes
-				position = { x = 0 y = 12 }
-				font = "aldrich_30_outline"
-				text = credit_ladder_tab_title_tt
-				maxWidth = 320
-				format = center
-			}
-			
-			buttonType = {
-				name = "credit_ladder_tab_close_button"
-				position = { x = -30 y = 10 }
-				quadTextureSprite ="GFX_crt_closebutton"
-				shortcut = "ESCAPE"
-				Orientation = upper_right
-				clicksound = click_close
-			}
-
-			iconType = {
-				name = "econ_credit_rating_bar_bg"
-				spriteType = "GFX_econ_credit_rating_bg"
-				position = { x = 43 y = 62 }
-			}
-
-			iconType = {
-				name = "econ_credit_rating_bar"
-				spriteType = "GFX_credit_rating_progressbar"
-				position = { x = 45 y = 63 }
-				pdx_tooltip = credit_rating_progress_bar_tt
-			}
-
-			instantTextboxType = {
-				name = "credit_ratingupdown_desc"
-				position = { x = 45 y = 43 }
-				textureFile = ""
-				font = "aldrich_18_outline"
-				text = credit_rating_progress_title
-				maxWidth = 242
-				maxHeight = 20
-				format = center
-				pdx_tooltip = credit_ratingupdown_desc_tt
-			}
-
-			gridboxtype = {
-				name = "credit_rating_ladder"
-				position = { x = 4 y = 85 }
-				size = { width = 275 height = 500 }
-				slotsize = { width = 225 height = 56 }
-				max_slots_horizontal = 1
-				add_horizontal = no
-			}
-			
+		background = {
+			name = "credit_ladder_tab_bg"
+			quadTextureSprite = "GFX_tiled_window_thin_border2"
 		}
+
+		instantTextboxType = {
+			name = "credit_ladder_tab_title"
+			alwaystransparent = yes
+			position = { x = 0 y = 12 }
+			font = "aldrich_30_outline"
+			text = credit_ladder_tab_title_tt
+			maxWidth = 320
+			format = center
+		}
+
+		buttonType = {
+			name = "credit_ladder_tab_close_button"
+			position = { x = -30 y = 10 }
+			quadTextureSprite ="GFX_crt_closebutton"
+			shortcut = "ESCAPE"
+			Orientation = upper_right
+			clicksound = click_close
+		}
+
+		iconType = {
+			name = "econ_credit_rating_bar_bg"
+			spriteType = "GFX_econ_credit_rating_bg"
+			position = { x = 43 y = 62 }
+		}
+
+		iconType = {
+			name = "econ_credit_rating_bar"
+			spriteType = "GFX_credit_rating_progressbar"
+			position = { x = 45 y = 63 }
+			pdx_tooltip = credit_rating_progress_bar_tt
+		}
+
+		instantTextboxType = {
+			name = "credit_ratingupdown_desc"
+			position = { x = 45 y = 43 }
+			textureFile = ""
+			font = "aldrich_18_outline"
+			text = credit_rating_progress_title
+			maxWidth = 242
+			maxHeight = 20
+			format = center
+			pdx_tooltip = credit_ratingupdown_desc_tt
+		}
+
+		gridboxtype = {
+			name = "credit_rating_ladder"
+			position = { x = 4 y = 85 }
+			size = { width = 275 height = 500 }
+			slotsize = { width = 225 height = 56 }
+			max_slots_horizontal = 1
+			add_horizontal = no
+		}
+
 	}
 
 	# # Credit Rating Entry
@@ -625,25 +626,28 @@ guiTypes = {
 	# # Econ Sphere Menu
 	containerWindowType = {
 		name = "economic_sphere_info_tab"
+		position = { x = 827 y = -78 }
+		size = { width = 5000 height = 100%% }
+		clipping = yes
+	}
+
+	containerWindowType = {
+		name = "economic_sphere_info_tab_inner"
 		size = { width = 330 height = 719 }
 
 		clipping = yes
-
-		fade_type = linear
-		fade_time = 300
-		position = { x = 823 y = 78 }
-		#position = { x = -600 y = 133 }
-		#show_position = { x = 823 y = 133 }
-		#show_animation_type = decelerated
-		#hide_animation_type = accelerated
+		position = { x = -600 y = 78 }
+		show_position = { x = 0 y = 78 }
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
 		moveable = yes
-		#animation_time = 300
+		animation_time = 300
 
 		background = {
 			name = "econ_sphere_tab_bg"
 			quadTextureSprite = "GFX_tiled_window_thin_border2"
 		}
-		
+
 		instantTextboxType = {
 			name = "econ_sphere_tab_title"
 			# alwaystransparent = yes
@@ -654,7 +658,7 @@ guiTypes = {
 			format = center
 			pdx_tooltip = econ_sphere_leader_text
 		}
-		
+
 		iconType = {
 			name = "econ_sphere_tab_symbol"
 			alwaystransparent = yes
@@ -662,7 +666,7 @@ guiTypes = {
 			spriteType = "GFX_traded_factories_icon"
 			scale = 0.5
 		}
-		
+
 		buttonType = {
 			name = "econ_sphere_tab_close_button"
 			position = { x = -30 y = 10 }
@@ -671,7 +675,7 @@ guiTypes = {
 			Orientation = upper_right
 			clicksound = click_close
 		}
-		
+
 		containerWindowType = {
 			name = "econ_sphere_members_container"
 			size = { width = 319 height = 249 }
@@ -695,7 +699,7 @@ guiTypes = {
 				add_horizontal = no
 			}
 		}
-		
+
 		instantTextboxType = {
 			name = "econ_sphere_tab_total_GDP"
 			position = { x = 15 y = 300 }
@@ -713,7 +717,7 @@ guiTypes = {
 			maxWidth = 300
 			format = left
 		}
-		
+
 		instantTextboxType = {
 			name = "econ_sphere_tab_total_GDP_number"
 			position = { x = 15 y = 300 }
@@ -733,14 +737,14 @@ guiTypes = {
 		}
 
 
-		
+
 		iconType = {
 			name = "econ_sphere_tab_divider"
 			alwaystransparent = yes
 			spriteType = "GFX_econ_tab_crt_divider"
 			position = { x = 7 y = 339 }
 		}
-		
+
 		instantTextboxType = {
 			name = "econ_sphere_tab_lower_title"
 			alwaystransparent = yes
@@ -750,7 +754,7 @@ guiTypes = {
 			maxWidth = 330
 			format = center
 		}
-		
+
 		containerWindowType = {
 			name = "econ_sphere_top_10_container"
 			size = { width = 319 height = 332 }
@@ -758,13 +762,13 @@ guiTypes = {
 			clipping = yes
 			verticalScrollbar = "right_vertical_slider"
 			margin = { top = 0 left = 0 bottom = 0 right = 0 }
-			
+
 			background = {
 				name = "econ_sphere_top_10_container_bg"
 				quadTextureSprite = "GFX_tiled_window_transparent"
 				alwaystransparent = yes
 			}
-			
+
 			gridboxtype = {
 				name = "econ_sphere_top_10"
 				position = { x = 0 y = 0 }
@@ -775,7 +779,7 @@ guiTypes = {
 				add_horizontal = no
 			}
 		}
-		
+
 		instantTextboxType = {
 			name = "econ_sphere_tab_total_world_GDP"
 			position = { x = 15 y = 669 }
@@ -784,7 +788,7 @@ guiTypes = {
 			maxWidth = 300
 			format = left
 		}
-		
+
 		instantTextboxType = {
 			name = "econ_sphere_tab_total_world_GDP_number"
 			position = { x = 15 y = 669 }
@@ -794,7 +798,7 @@ guiTypes = {
 			format = right
 		}
 	}
-	
+
 	#Econ sphere window for those without a sphere
 	containerWindowType = {
 		name = "economic_sphere_sphereless_info_tab"
@@ -816,7 +820,7 @@ guiTypes = {
 			name = "econ_sphere_tab_bg"
 			quadTextureSprite = "GFX_tiled_window_thin_border2"
 		}
-		
+
 		instantTextboxType = {
 			name = "econ_sphere_tab_title"
 			# alwaystransparent = yes
@@ -827,7 +831,7 @@ guiTypes = {
 			format = center
 			pdx_tooltip = econ_sphere_leader_text
 		}
-		
+
 		iconType = {
 			name = "econ_sphere_tab_symbol"
 			alwaystransparent = yes
@@ -835,7 +839,7 @@ guiTypes = {
 			spriteType = "GFX_traded_factories_icon"
 			scale = 0.5
 		}
-		
+
 		buttonType = {
 			name = "econ_sphere_tab_close_button"
 			position = { x = -30 y = 10 }
@@ -844,7 +848,7 @@ guiTypes = {
 			Orientation = upper_right
 			clicksound = click_close
 		}
-		
+
 		instantTextboxType = {
 			name = "econ_sphere_tab_lower_title"
 			alwaystransparent = yes
@@ -854,7 +858,7 @@ guiTypes = {
 			maxWidth = 330
 			format = center
 		}
-		
+
 		containerWindowType = {
 			name = "econ_sphere_top_10_container"
 			size = { width = 319 height = 332 }
@@ -862,13 +866,13 @@ guiTypes = {
 			clipping = yes
 			verticalScrollbar = "right_vertical_slider"
 			margin = { top = 0 left = 0 bottom = 0 right = 0 }
-			
+
 			background = {
 				name = "econ_sphere_top_10_container_bg"
 				quadTextureSprite = "GFX_tiled_window_transparent"
 				alwaystransparent = yes
 			}
-			
+
 			gridboxtype = {
 				name = "econ_sphere_top_10"
 				position = { x = 0 y = 0 }
@@ -879,7 +883,7 @@ guiTypes = {
 				add_horizontal = no
 			}
 		}
-		
+
 		instantTextboxType = {
 			name = "econ_sphere_tab_total_world_GDP"
 			position = { x = 15 y = 369 }
@@ -888,7 +892,7 @@ guiTypes = {
 			maxWidth = 300
 			format = left
 		}
-		
+
 		instantTextboxType = {
 			name = "econ_sphere_tab_total_world_GDP_number"
 			position = { x = 15 y = 369 }
@@ -898,19 +902,19 @@ guiTypes = {
 			format = right
 		}
 	}
-	
+
 	# # Econ Sphere Entry
 	containerWindowType = {
 		name = "econ_sphere_members_entry"
 		size = { width = 287 height = 24 }
 		position = { x = 0 y = 0 }
-		
+
 		iconType = {
 			name = "econ_sphere_entry_bg"
 			spriteType = "GFX_econ_sphere_entry_bg"
 			position = { x = 0 y = 0 }
 		}
-		
+
 		iconType = {
 			name = "econ_sphere_entry_flag"
 			quadTextureSprite ="GFX_flag_small"
@@ -923,7 +927,7 @@ guiTypes = {
 			position = { x = 3 y = 3 }
 			alwaystransparent = yes
 		}
-		
+
 		instantTextboxType = {
 			name = "econ_sphere_member_name"
 			position = { x = 26 y = 4 }
@@ -934,7 +938,7 @@ guiTypes = {
 			fixedsize = yes
 			format = left
 		}
-		
+
 		instantTextboxType = {
 			name = "econ_sphere_member_GDP"
 			position = { x = 7 y = 4 }
@@ -1008,34 +1012,34 @@ guiTypes = {
 
 				instantTextBoxType = {
 					name = "econ_ideology_text"
-					position = { x = 61 y = 4 }
+					position = { x = 56 y = 4 }
 					fixedSize = yes
 					font = "aldrich_22_outline"
 					text = "econ_type_title_tt"
 					pdx_tooltip = "econ_type_base_bonus"
 					pdx_tooltip_delayed = "econ_type_tt"
 					format = center
-					maxWidth = 283
+					maxWidth = 293
 					maxheight = 50
 				}
-				
+
 				containerWindowType = {
 					name = "econ_freedom_container"
 					position = { x = 63 y = 0 }
-					
+
 					iconType = {
 						name = "econ_freedom_bg"
 						spriteType = "GFX_econ_freedom_bg"
 						position = { x = 0 y = 32 }
 					}
-					
+
 					containerWindowType = {
 						name = "econ_freedom_index_container"
 						#position = { x = 2 y = 34 }
 						position = { x = 0 y = 34 }
 						size = { width = 279 height = 9 }
 						clipping = yes
-						
+
 						iconType = {
 							name = "econ_freedom_index_bar"
 							spriteType = "GFX_econ_freedom_index"
@@ -1172,7 +1176,7 @@ guiTypes = {
 			margin = { top = 0 bottom = 6 }
 			#verticalScrollbar = "TNO_economy_scrollbar"
 			clipping = no
-			
+
 			background = {
 				name = "econ_background"
 				quadTextureSprite = "GFX_tiled_window_transparent"
@@ -1190,7 +1194,7 @@ guiTypes = {
 					name = "TOP_Inflation"
 					position = { x = 1 y = 0 }
 					#position = { x = 1 y = 30 }
-					
+
 					size = { width = 272 height = @TOP_InternalHeigh }
 					clipping = no
 
@@ -1397,7 +1401,7 @@ guiTypes = {
 				containerWindowType = {
 					name = "TOP_GDP"
 					position = { x = 272 y = 0 }
-					
+
 					size = { width = 272 height = @TOP_InternalHeigh }
 					clipping = no
 
@@ -1425,7 +1429,7 @@ guiTypes = {
 							max_slots_horizontal = 16
 							add_horizontal = yes
 						}
-		
+
 						gridboxtype = {
 							name = "gdp_value_labels"
 							position = { x = 35 y = 38 }
@@ -1444,7 +1448,7 @@ guiTypes = {
 							format = center
 						}
 					}
-	
+
 					# Title
 					instantTextboxType = {
 						name = "gdp_title"
@@ -1455,7 +1459,7 @@ guiTypes = {
 						maxHeight = 20
 						format = center
 					}
-					
+
 					# Text
 					containerWindowType = {
 						name = "gdp_text"
@@ -1512,9 +1516,9 @@ guiTypes = {
 							name = "gdp_calcDivider"
 							position = { x = -5 y = 36 }
 							spriteType = "GFX_GDP_calcDivider"
-							
+
 						}
-						
+
 						# Real Growth
 						instantTextboxType = {
 							name = "real_gdp_gowth"
@@ -1552,7 +1556,7 @@ guiTypes = {
 				containerWindowType = {
 					name = "TOP_Debt"
 					position = { x = 544 y = 0 }
-					
+
 					size = { width = 272 height = @TOP_InternalHeigh }
 					clipping = no
 
@@ -1565,7 +1569,7 @@ guiTypes = {
 					containerWindowType = {
 						name = "debt_graph"
 						position = { x = 48 y = -1 }
-					
+
 						iconType = {
 							name = "debt_line_bg"
 							spriteType = "GFX_econ_line_graph_bg"
@@ -1596,7 +1600,7 @@ guiTypes = {
 							format = center
 						}
 					}
-		
+
 					# Title - Debt-to-GDP
 					instantTextboxType = {
 						name = "debt_title"
@@ -1607,12 +1611,12 @@ guiTypes = {
 						maxHeight = 20
 						format = center
 					}
-	
+
 					# Text
 					containerWindowType = {
 						name = "debt_text"
 						position = { x = 20 y = 198 }
-			
+
 						# Debt Ceiling
 						instantTextboxType = {
 							name = "debt_ceiling"
@@ -1683,7 +1687,7 @@ guiTypes = {
 					}
 				}
 			}
-			
+
 			# # BOTTOM - Surplus/Expenditures
 			containerWindowType = {
 				name = "deficit_container"
@@ -1738,7 +1742,7 @@ guiTypes = {
 					size = { width = 226 height = 272 }
 					clipping = no
 					background = { name = "econ_background" quadTextureSprite = "GFX_crt_1b_tile" }
-					
+
 					# Top Line
 					iconType = {
 						name = "expenditures_topline"
@@ -1890,7 +1894,7 @@ guiTypes = {
 							format = right
 						}
 					}
-					
+
 					# # Buttons - Civ Austerity / Mil Austerity
 					containerWindowType = {
 						name = "expenditures_buttons"
@@ -1917,6 +1921,14 @@ guiTypes = {
 						position = { x = 55 y = 30 }
 						size = { width = 250 height = 250 }
 
+						buttonType = {
+							position = { x = 139 y = 92 }
+							name = "econ_pie_num_exp_toggle"
+							spriteType = "GFX_econ_pie_num_toggle"
+							pdx_tooltip = econ_pct_toggle_tt
+							clicksound = click_ok
+						}
+
 						iconType = {
 							name = "economic_misc_expenditures_pie"
 							quadTextureSprite = "GFX_pie_chart_misc_expenditures"
@@ -1934,7 +1946,7 @@ guiTypes = {
 							quadTextureSprite = "GFX_pie_chart_civilian_expenditures"
 							position = { x = 7 y = 7 }
 						}
-				
+
 						iconType = {
 							name = "economic_military_expenditures_pie"
 							quadTextureSprite = "GFX_pie_chart_military_expenditures"
@@ -1944,10 +1956,58 @@ guiTypes = {
 
 						iconType = {
 							name = "economic_expenditures_pie_overlay"
-							quadTextureSprite = "GFX_pol_piechart_overlay_63x63"
-							position = { x = 0 y = 0 }
-							scale = 0.71
+							quadTextureSprite = "GFX_econ_pie_chart_overlay"
+							position = { x = 0 y = 1 }
 							pdx_tooltip = econ_total_spending_pie_tt
+						}
+
+						instantTextBoxType = {
+							name = "economic_misc_expenditures_txt"
+							maxwidth = 50
+							maxheight = 50
+							format = center
+							vertical_alignment = center
+							font = "aldrich_24_outline"
+							text = "[?misc_expenditures_percent|%%0]"
+							text_color_code = l
+							#text_color_code = W
+							alwaysTransparent = yes
+						}
+						instantTextBoxType = {
+							name = "economic_debt_expenditures_txt"
+							maxwidth = 50
+							maxheight = 50
+							format = center
+							vertical_alignment = center
+							font = "aldrich_24_outline"
+							text = "[?debt_servicing_expenditures_percent|%%0]"
+							text_color_code = Y
+							#text_color_code = W
+							alwaysTransparent = yes
+						}
+						instantTextBoxType = {
+							name = "economic_civilian_expenditures_txt"
+							maxwidth = 50
+							maxheight = 50
+							format = center
+							vertical_alignment = center
+							font = "aldrich_24_outline"
+							text = "[?civilian_expenditures_percent|%%0]"
+							text_color_code = W
+							#text_color_code = W
+							alwaysTransparent = yes
+						}
+						instantTextBoxType = {
+							name = "economic_military_expenditures_txt"
+							maxwidth = 50
+							maxheight = 50
+							format = center
+							vertical_alignment = center
+							font = "aldrich_24_outline"
+							text = "[?military_expenditures_percent|%%0]"
+							text_color_code = C
+							#text_color_code = W
+							alwaysTransparent = yes
 						}
 					}
 
@@ -1975,7 +2035,7 @@ guiTypes = {
 					size = { width = 226 height = 272 }
 					clipping = no
 					background = { name = "econ_background" quadTextureSprite = "GFX_crt_1b_tile" }
-					
+
 					# Top Line
 					iconType = {
 						name = "expenditures_topline"
@@ -2031,7 +2091,7 @@ guiTypes = {
 							pdx_tooltip = econ_income_revenue_txt_number_tt
 						}
 					}
-					
+
 					# # Business Tax
 					containerWindowType = {
 						name = "business_tax_container"
@@ -2067,7 +2127,7 @@ guiTypes = {
 							pdx_tooltip = econ_business_revenue_txt_number_tt
 						}
 					}
-					
+
 					# # Excise Revenue
 					containerWindowType = {
 						name = "excise_revenue_container"
@@ -2090,7 +2150,7 @@ guiTypes = {
 							format = left
 							pdx_tooltip = econ_excise_revenue_txt_number_tt
 						}
-						
+
 						instantTextboxType = {
 							name = "excise_revenue_value"
 							position = { x = 18 y = 0 }
@@ -2102,7 +2162,7 @@ guiTypes = {
 							pdx_tooltip = econ_excise_revenue_txt_number_tt
 						}
 					}
-					
+
 					# # Other Revenue
 					containerWindowType = {
 						name = "other_revenue_container"
@@ -2155,13 +2215,21 @@ guiTypes = {
 							pdx_tooltip = tax_hike_button_tt
 						}
 					}
-					
+
 					# # Pie Chart
 					containerWindowType = {
 						name = "economic_revenue_pie_container"
 						position = { x = 55 y = 30 }
 						size = { width = 250 height = 250 }
-						
+
+						buttonType = {
+							position = { x = 139 y = 92 }
+							name = "econ_pie_num_rev_toggle"
+							spriteType = "GFX_econ_pie_num_toggle"
+							clicksound = click_ok
+							pdx_tooltip = econ_pct_toggle_tt
+						}
+
 						iconType = {
 							name = "economic_other_revenue_pie"
 							quadTextureSprite = "GFX_pie_chart_other_revenue"
@@ -2186,10 +2254,58 @@ guiTypes = {
 
 						iconType = {
 							name = "economic_revenue_pie_overlay"
-							quadTextureSprite = "GFX_pol_piechart_overlay_63x63"
-							position = { x = 0 y = 0 }
-							scale = 0.71
+							quadTextureSprite = "GFX_econ_pie_chart_overlay"
+							position = { x = 0 y = 1 }
 							pdx_tooltip = econ_total_revenue_pie_tt
+						}
+
+						instantTextBoxType = {
+							name = "economic_other_revenue_percent_txt"
+							maxwidth = 50
+							maxheight = 50
+							format = center
+							vertical_alignment = center
+							font = "aldrich_24_outline"
+							text = "[?other_revenue_percent|%%0]"
+							#text_color_code = W
+							text_color_code = l
+							alwaysTransparent = yes
+						}
+						instantTextBoxType = {
+							name = "economic_excise_revenue_txt"
+							maxwidth = 50
+							maxheight = 50
+							format = center
+							vertical_alignment = center
+							font = "aldrich_24_outline"
+							text = "[?excise_revenue_percent|%%0]"
+							#text_color_code = W
+							text_color_code = m
+							alwaysTransparent = yes
+						}
+						instantTextBoxType = {
+							name = "economic_business_revenue_txt"
+							maxwidth = 50
+							maxheight = 50
+							format = center
+							vertical_alignment = center
+							font = "aldrich_24_outline"
+							text = "[?business_revenue_percent|%%0]"
+							#text_color_code = W
+							text_color_code = G
+							alwaysTransparent = yes
+						}
+						instantTextBoxType = {
+							name = "economic_income_revenue_txt"
+							maxwidth = 50
+							maxheight = 50
+							format = center
+							vertical_alignment = center
+							font = "aldrich_24_outline"
+							text = "[?income_revenue_percent|%%0]"
+							#text_color_code = W
+							text_color_code = D
+							alwaysTransparent = yes
 						}
 					}
 				}
@@ -2224,7 +2340,7 @@ guiTypes = {
 						maxHeight = 20
 						format = left
 					}
-					
+
 					##################
 					# OTHER SPENDING #
 					##################
@@ -2277,7 +2393,7 @@ guiTypes = {
 						max_slots_vertical = 1
 					}
 				}
-				
+
 				# # BOTTOM - Reserves
 				containerWindowType = {
 					name = "econ_view_bottom_reserves"
@@ -2290,7 +2406,7 @@ guiTypes = {
 						size = { width = 257 height = 112 }
 						clipping = no
 						pdx_tooltip = reserves_explanation_tt
-						
+
 						background = {
 							name = "background"
 							quadTextureSprite = "GFX_crt_1b_tile"
@@ -2302,7 +2418,7 @@ guiTypes = {
 							size = { x = 257 y = 28 }
 							alwaystransparent = yes
 						}
-						
+
 						instantTextboxType = {
 							name = "reserves_title"
 							position = { x = 3 y = 3 }
@@ -2372,7 +2488,7 @@ guiTypes = {
 								name = "reserves_actions_buttonPlus"
 								spriteType = "GFX_reserves_button_plus"
 								position = { x = 217 y = 0 }
-								pdx_tooltip = reserves_increase_tt 
+								pdx_tooltip = reserves_increase_tt
 							}
 
 							# buttonType = {
@@ -2413,7 +2529,7 @@ guiTypes = {
 								maxheight = 18
 								pdx_tooltip = autopay_explanation_tt
 							}
-			
+
 							buttonType = {
 								name = "debt_autopayment_checkmark"
 								position = { x = 60 y = 54 }
@@ -2423,7 +2539,7 @@ guiTypes = {
 						}
 					}
 				}
-				
+
 				# # BOTTOM - War Taxes
 				containerWindowType = {
 					name = "econ_view_bottom_wt"
@@ -2435,20 +2551,20 @@ guiTypes = {
 						position = { x = 4 y = 4 }
 						#size = { width = 257 height = 112 }
 						clipping = no
-						
+
 						iconType = {
 							name = "background"
 							quadTextureSprite = "GFX_wt_entrycontainer"
 							pdx_tooltip = TNO_Econ_WarTaxesInfo_tt
 						}
-						
+
 						iconType = {
 							name = "wt_icon"
 							position = { x = 136 y = 6 }
 							spriteType = "GFX_wt_icon"
 							alwaysTransparent = yes
 						}
-						
+
 						instantTextboxType = {
 							name = "wt_status"
 							position = { x = 157 y = 3 }
@@ -2459,7 +2575,7 @@ guiTypes = {
 							orientation = TOP_RIGHT
 							alwaysTransparent = yes
 						}
-						containerWindowType = { 
+						containerWindowType = {
 							name = "wt_actions"
 							position = { x = 4 y = 30 }
 							## First Row
@@ -2469,7 +2585,7 @@ guiTypes = {
 								font = "aldrich_24_outline"
 								text = TNO_Econ_GetWarTaxesStatusBtn
 								spriteType = "GFX_wt_activate"
-								pdx_tooltip = TNO_Econ_WarTaxesInfo_tt 
+								pdx_tooltip = TNO_Econ_WarTaxesInfo_tt
 							}
 						}
 					}
@@ -2810,7 +2926,7 @@ guiTypes = {
 			containerWindowType = {
 				name = "divider_topbottom"
 				position = { x = 0 y = 265 }
-				
+
 				iconType = {
 					name = "divider"
 					position = { x = 6 y = 1 }
@@ -2848,7 +2964,7 @@ guiTypes = {
 		position = { x = 8 y = 404 }
 		size = { width = 260 height = 1000 }
 		clipping = yes
-		
+
 		containerWindowType = {
 			name = "central_bank_policies"
 			position = { x = 10 y = -400 }
@@ -2904,7 +3020,7 @@ guiTypes = {
 			position = { x = 189 y = 1 }
 			alwaysTransparent = yes
 		}
-		
+
 		buttonType = {
 			name = "central_bank_policy_divider"
 			position = { x = 185 y = 2 }
@@ -2920,7 +3036,7 @@ guiTypes = {
 		position = { x = 0 y = 28 }
 		size = { width = 830 height = -1 }
 		clipping = no
-		
+
 		iconType = {
 			name = "BRG_econ_window_overlay"
 			spriteType = "GFX_BRG_econ_window_overlay"
@@ -3059,7 +3175,7 @@ guiTypes = {
 				format = right
 				pdx_tooltip = "econ_mil_spending_tt"
 			}
-			
+
 			## ARMY EXPENDITURE ##
 			containerWindowType = {
 				name = "Econ_army_expenditure_container"
@@ -3093,7 +3209,7 @@ guiTypes = {
 					#scale = 0.75
 					position = { x = 17 y = 0 }
 				}
-				
+
 				containerWindowType = {
 					name = "Econ_army_expenditure_slider_container"
 					position = { x = -12 y = 3 }
@@ -3150,7 +3266,7 @@ guiTypes = {
 					}
 				}
 			}
-			
+
 			## NAVAL EXPENDITURE ##
 			containerWindowType = {
 				name = "Econ_naval_expenditure_container"
@@ -3176,7 +3292,7 @@ guiTypes = {
 					format = right
 					pdx_tooltip = econ_naval_expenditures_slider_tt
 				}
-				
+
 				containerWindowType = {
 					name = "Econ_naval_expenditure_slider_container"
 					position = { x = -12 y = 3 }
@@ -3259,7 +3375,7 @@ guiTypes = {
 					format = right
 					pdx_tooltip = econ_nuclear_expenditures_slider_tt
 				}
-				
+
 				containerWindowType = {
 					name = "Econ_nuclear_expenditure_slider_container"
 					position = { x = -12 y = 3 }
@@ -3372,7 +3488,7 @@ guiTypes = {
 					pdx_tooltip = econ_social_expenditures_slider_tt
 				}
 
-				
+
 				iconType = {
 					name = "Econ_social_expenditures_details_button"
 					quadTextureSprite = "GFX_econ_deficit_spending_details_button"
@@ -3435,7 +3551,7 @@ guiTypes = {
 					}
 				}
 			}
-			
+
 			## ADMIN EXPENDITURE ##
 			containerWindowType = {
 				name = "Econ_admin_expenditure_container"
@@ -3467,7 +3583,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_econ_deficit_spending_details_button"
 					position = { x = 17 y = 0 }
 				}
-				
+
 				containerWindowType = {
 					name = "Econ_admin_expenditure_slider_container"
 					position = { x = -12 y = 3 }
@@ -3556,7 +3672,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_econ_deficit_spending_details_button"
 					position = { x = 17 y = 0 }
 				}
-				
+
 				containerWindowType = {
 					name = "Econ_research_expenditure_slider_container"
 					position = { x = -12 y = 3 }
@@ -3634,7 +3750,7 @@ guiTypes = {
 			quadTextureSprite ="GFX_crt_closebutton"
 			clicksound = click_close
 		}
-		
+
 		## ARMY EXPENDITURE ##
 		containerWindowType = {
 			name = "Econ_army_expenditure_container"
@@ -3660,7 +3776,7 @@ guiTypes = {
 				format = right
 				pdx_tooltip = econ_army_expenditures_slider_tt
 			}
-			
+
 			containerWindowType = {
 				name = "Econ_army_expenditure_slider_container"
 				position = { x = -12 y = 3 }
@@ -3742,7 +3858,7 @@ guiTypes = {
 				format = right
 				pdx_tooltip = econ_army_maintenance_slider_tt
 			}
-			
+
 			containerWindowType = {
 				name = "Econ_army_maintenance_slider_container"
 				position = { x = -12 y = 3 }
@@ -3824,7 +3940,7 @@ guiTypes = {
 				format = right
 				pdx_tooltip = econ_army_R_D_slider_tt
 			}
-			
+
 			containerWindowType = {
 				name = "Econ_army_R_D_slider_container"
 				position = { x = -12 y = 3 }
@@ -3906,7 +4022,7 @@ guiTypes = {
 				format = right
 				pdx_tooltip = econ_army_logistics_slider_tt
 			}
-			
+
 			containerWindowType = {
 				name = "econ_army_logistics_slider_container"
 				position = { x = -12 y = 3 }
@@ -3988,7 +4104,7 @@ guiTypes = {
 				format = right
 				pdx_tooltip = econ_army_procurement_slider_tt
 			}
-			
+
 			containerWindowType = {
 				name = "econ_army_procurement_slider_container"
 				position = { x = -12 y = 3 }
@@ -4173,7 +4289,7 @@ guiTypes = {
 				format = right
 				pdx_tooltip = econ_social_healthcare_slider_tt
 			}
-			
+
 			containerWindowType = {
 				name = "Econ_social_healthcare_slider_container"
 				position = { x = -12 y = 3 }
@@ -4255,7 +4371,7 @@ guiTypes = {
 				format = right
 				pdx_tooltip = econ_social_pensions_slider_tt
 			}
-			
+
 			containerWindowType = {
 				name = "Econ_social_pensions_slider_container"
 				position = { x = -12 y = 3 }
@@ -4337,7 +4453,7 @@ guiTypes = {
 				format = right
 				pdx_tooltip = econ_social_education_slider_tt
 			}
-			
+
 			containerWindowType = {
 				name = "Econ_social_education_slider_container"
 				position = { x = -12 y = 3 }
@@ -4419,7 +4535,7 @@ guiTypes = {
 				format = right
 				pdx_tooltip = econ_social_unemployment_slider_tt
 			}
-			
+
 			containerWindowType = {
 				name = "Econ_social_unemployment_slider_container"
 				position = { x = -12 y = 3 }
@@ -4496,7 +4612,7 @@ guiTypes = {
 			quadTextureSprite ="GFX_crt_closebutton"
 			clicksound = click_close
 		}
-		
+
 		## ADMIN EXPENDITURE ##
 		containerWindowType = {
 			name = "Econ_admin_expenditure_container"
@@ -4522,7 +4638,7 @@ guiTypes = {
 				format = right
 				pdx_tooltip = econ_admin_expenditures_slider_tt
 			}
-			
+
 			containerWindowType = {
 				name = "Econ_admin_expenditure_slider_container"
 				position = { x = -12 y = 3 }
@@ -4605,7 +4721,7 @@ guiTypes = {
 				format = right
 				pdx_tooltip = econ_admin_security_slider_tt
 			}
-			
+
 			containerWindowType = {
 				name = "Econ_admin_security_slider_container"
 				position = { x = -12 y = 3 }
@@ -4663,164 +4779,81 @@ guiTypes = {
 			}
 		}
 
-		## ADMIN SAFETY EXPENDITURE ##
+		## ADMIN REGULATIONS EXPENDITURE ##
 		containerWindowType = {
-			name = "Econ_admin_safety_container"
+			name = "Econ_admin_regulations_container"
 			position = { x = 250 y = 55 }
 
 			instantTextboxType = {
-				name = "Econ_admin_safety"
+				name = "Econ_admin_regulations"
 				position = { x = 29 y = 0 }
 				font = "aldrich_18_outline"
-				text = econ_admin_safety_slider_txt
+				text = econ_admin_regulations_slider_txt
 				maxWidth = 265
 				maxHeight = 20
 				format = left
-				pdx_tooltip = econ_admin_safety_slider_tt
+				pdx_tooltip = econ_admin_regulations_slider_tt
 			}
 			instantTextboxType = {
-				name = "Econ_admin_safety_Value"
+				name = "Econ_admin_regulations_Value"
 				position = { x = -12 y = 0 }
 				font = "aldrich_18_outline"
-				text = econ_admin_safety_slider_txt_number
+				text = econ_admin_regulations_slider_txt_number
 				maxWidth = 265
 				maxHeight = 20
 				format = right
-				pdx_tooltip = econ_admin_safety_slider_tt
+				pdx_tooltip = econ_admin_regulations_slider_tt
 			}
-			
+
 			containerWindowType = {
-				name = "Econ_admin_safety_slider_container"
+				name = "Econ_admin_regulations_slider_container"
 				position = { x = -12 y = 3 }
 
 				iconType = {
-					name = "Econ_admin_safety_slider_bg"
+					name = "Econ_admin_regulations_slider_bg"
 					quadTextureSprite = "GFX_econ_crt_slider_bg"
 					position = { x = 17 y = 18 }
 					alwaystransparent = yes
-					pdx_tooltip = econ_admin_safety_slider_tt
+					pdx_tooltip = econ_admin_regulations_slider_tt
 				}
 				buttonType = {
-					name = "Econ_admin_safety_slider_left"
+					name = "Econ_admin_regulations_slider_left"
 					quadTextureSprite = "GFX_econ_crt_slider_left"
 					position = { x = 30 y = 18 }
-					pdx_tooltip = econ_admin_safety_slider_button_left_tt
-					pdx_tooltip_delayed = econ_admin_safety_slider_tt
+					pdx_tooltip = econ_admin_regulations_slider_button_left_tt
+					pdx_tooltip_delayed = econ_admin_regulations_slider_tt
 				}
 				buttonType = {
-					name = "Econ_admin_safety_slider_right"
+					name = "Econ_admin_regulations_slider_right"
 					quadTextureSprite = "GFX_econ_crt_slider_right"
 					position = { x = 251 y = 18 }
-					pdx_tooltip = econ_admin_safety_slider_button_right_tt
-					pdx_tooltip_delayed = econ_admin_safety_slider_tt
+					pdx_tooltip = econ_admin_regulations_slider_button_right_tt
+					pdx_tooltip_delayed = econ_admin_regulations_slider_tt
 				}
 				iconType = {
-					name = "Econ_admin_safety_slider_dot"
+					name = "Econ_admin_regulations_slider_dot"
 					quadTextureSprite = "GFX_econ_crt_slider_dot"
 					position = { x = 50 y = 15 }
 					alwaystransparent = yes
-					pdx_tooltip = econ_admin_safety_slider_tt
+					pdx_tooltip = econ_admin_regulations_slider_tt
 				}
 				iconType = {
-					name = "Econ_admin_safety_slider_limit_left"
+					name = "Econ_admin_regulations_slider_limit_left"
 					quadTextureSprite = "GFX_econ_crt_slider_limit_left"
 					position = { x = 50 y = 21 }
 					alwaystransparent = yes
-					pdx_tooltip = econ_admin_safety_slider_tt
+					pdx_tooltip = econ_admin_regulations_slider_tt
 				}
 				iconType = {
-					name = "Econ_admin_safety_slider_limit_right"
+					name = "Econ_admin_regulations_slider_limit_right"
 					quadTextureSprite = "GFX_econ_crt_slider_limit_right"
 					position = { x = 50 y = 21 }
 					alwaystransparent = yes
-					pdx_tooltip = econ_admin_safety_slider_tt
+					pdx_tooltip = econ_admin_regulations_slider_tt
 				}
 
 				gridboxtype = {
-					name = "Econ_admin_safety_set_buttons"
-					position = { x = -37 y = 18 }
-					size = { width = 189 height = 14 }
-					slotsize = { width = 3 height = 14 }
-					add_horizontal = yes
-				}
-			}
-		}
-
-		## ADMIN POLLUTION EXPENDITURE ##
-		containerWindowType = {
-			name = "Econ_admin_pollution_container"
-			position = { x = -10 y = 100 }
-
-			instantTextboxType = {
-				name = "Econ_admin_pollution"
-				position = { x = 29 y = 0 }
-				font = "aldrich_18_outline"
-				text = econ_admin_pollution_slider_txt
-				maxWidth = 265
-				maxHeight = 20
-				format = left
-				pdx_tooltip = econ_admin_pollution_slider_tt
-			}
-			instantTextboxType = {
-				name = "Econ_admin_pollution_Value"
-				position = { x = -12 y = 0 }
-				font = "aldrich_18_outline"
-				text = econ_admin_pollution_slider_txt_number
-				maxWidth = 265
-				maxHeight = 20
-				format = right
-				pdx_tooltip = econ_admin_pollution_slider_tt
-			}
-			
-			containerWindowType = {
-				name = "Econ_admin_pollution_slider_container"
-				position = { x = -12 y = 3 }
-
-				iconType = {
-					name = "Econ_admin_pollution_slider_bg"
-					quadTextureSprite = "GFX_econ_crt_slider_bg"
-					position = { x = 17 y = 18 }
-					alwaystransparent = yes
-					pdx_tooltip = econ_admin_pollution_slider_tt
-				}
-				buttonType = {
-					name = "Econ_admin_pollution_slider_left"
-					quadTextureSprite = "GFX_econ_crt_slider_left"
-					position = { x = 30 y = 18 }
-					pdx_tooltip = econ_admin_pollution_slider_button_left_tt
-					pdx_tooltip_delayed = econ_admin_pollution_slider_tt
-				}
-				buttonType = {
-					name = "Econ_admin_pollution_slider_right"
-					quadTextureSprite = "GFX_econ_crt_slider_right"
-					position = { x = 251 y = 18 }
-					pdx_tooltip = econ_admin_pollution_slider_button_right_tt
-					pdx_tooltip_delayed = econ_admin_pollution_slider_tt
-				}
-				iconType = {
-					name = "Econ_admin_pollution_slider_dot"
-					quadTextureSprite = "GFX_econ_crt_slider_dot"
-					position = { x = 50 y = 15 }
-					alwaystransparent = yes
-					pdx_tooltip = econ_admin_pollution_slider_tt
-				}
-				iconType = {
-					name = "Econ_admin_pollution_slider_limit_left"
-					quadTextureSprite = "GFX_econ_crt_slider_limit_left"
-					position = { x = 50 y = 21 }
-					alwaystransparent = yes
-					pdx_tooltip = econ_admin_pollution_slider_tt
-				}
-				iconType = {
-					name = "Econ_admin_pollution_slider_limit_right"
-					quadTextureSprite = "GFX_econ_crt_slider_limit_right"
-					position = { x = 50 y = 21 }
-					alwaystransparent = yes
-					pdx_tooltip = econ_admin_pollution_slider_tt
-				}
-
-				gridboxtype = {
-					name = "Econ_admin_pollution_set_buttons"
+					name = "Econ_admin_regulations_set_buttons"
 					position = { x = -37 y = 18 }
 					size = { width = 189 height = 14 }
 					slotsize = { width = 3 height = 14 }
@@ -4832,7 +4865,7 @@ guiTypes = {
 		## ADMIN BUREACRACY EXPENDITURE ##
 		containerWindowType = {
 			name = "Econ_admin_bureaucracy_container"
-			position = { x = 250 y = 100 }
+			position = { x = 120 y = 100 }
 
 			instantTextboxType = {
 				name = "Econ_admin_bureaucracy"
@@ -4854,7 +4887,7 @@ guiTypes = {
 				format = right
 				pdx_tooltip = econ_admin_bureaucracy_slider_tt
 			}
-			
+
 			containerWindowType = {
 				name = "Econ_admin_bureaucracy_slider_container"
 				position = { x = -12 y = 3 }
@@ -4958,7 +4991,7 @@ guiTypes = {
 				format = right
 				pdx_tooltip = econ_research_expenditures_slider_tt
 			}
-			
+
 			containerWindowType = {
 				name = "Econ_research_expenditure_slider_container"
 				position = { x = -12 y = 3 }
@@ -5041,7 +5074,7 @@ guiTypes = {
 				format = right
 				pdx_tooltip = econ_research_science_slider_tt
 			}
-			
+
 			containerWindowType = {
 				name = "Econ_research_science_slider_container"
 				position = { x = -12 y = 3 }
@@ -5124,7 +5157,7 @@ guiTypes = {
 				format = right
 				pdx_tooltip = econ_research_facilities_slider_tt
 			}
-			
+
 			containerWindowType = {
 				name = "Econ_research_facilities_slider_container"
 				position = { x = -12 y = 3 }
@@ -5433,30 +5466,15 @@ guiTypes = {
 
 	# # Admin Safety - Set Button
 	containerWindowType = {
-		name = "admin_safety_set_button"
+		name = "admin_regulations_set_button"
 		size = { width = 3 height = 10 }
 		position = { x = 0 y = 0 }
 
 		buttonType = {
-			name = "Econ_admin_safety_set_button_real"
+			name = "Econ_admin_regulations_set_button_real"
 			position = { x = 0 y = 0 }
 			spriteType = "GFX_econ_crt_slider_set_transparent"
-			pdx_tooltip = "econ_admin_safety_set_button_tt"
-			clicksound = "click_scroll"
-		}
-	}
-
-	# # Admin Pollution - Set Button
-	containerWindowType = {
-		name = "admin_pollution_set_button"
-		size = { width = 3 height = 10 }
-		position = { x = 0 y = 0 }
-
-		buttonType = {
-			name = "Econ_admin_pollution_set_button_real"
-			position = { x = 0 y = 0 }
-			spriteType = "GFX_econ_crt_slider_set_transparent"
-			pdx_tooltip = "econ_admin_pollution_set_button_tt"
+			pdx_tooltip = "econ_admin_regulations_set_button_tt"
 			clicksound = "click_scroll"
 		}
 	}
@@ -5568,7 +5586,7 @@ guiTypes = {
 					pdx_tooltip = building_satisfaction_schools_prog_tt
 				}
 			}
-			
+
 			containerWindowType = {
 				name = "hospitals"
 				position = { x = 84 y = 0 }
@@ -5593,7 +5611,7 @@ guiTypes = {
 					pdx_tooltip = building_satisfaction_hospitals_prog_tt
 				}
 			}
-			
+
 			containerWindowType = {
 				name = "prisons"
 				position = { x = 168 y = 0 }
@@ -5618,7 +5636,7 @@ guiTypes = {
 					pdx_tooltip = building_satisfaction_prisons_prog_tt
 				}
 			}
-			
+
 			containerWindowType = {
 				name = "bases"
 				position = { x = 252 y = 0 }
@@ -5680,7 +5698,7 @@ guiTypes = {
 		size = { width = 30 height = 24 }
 		position = { x = 0 y = 0 }
 
-		
+
 		iconType = {
 			name = "box_pus"
 			position = { x = 1 y = -1 }
@@ -5727,7 +5745,7 @@ guiTypes = {
 			format = center
 		}
 
-		
+
 		gridboxtype = {
 			name = "production_squares"
 			position = { x = 69 y = 8 }
@@ -5819,554 +5837,554 @@ guiTypes = {
 	}
 
 	containerWindowType = {
-		name = "production_units_info_tab"
-		size = { width = 400 height = 362 }
+		name = "production_units_info_tab_parent"
+		size = { width = 400 height = 470 }
 		position = { x = 554 y = 51 }
 		clipping = yes
+	}
+
+	containerWindowType = {
+		name = "production_units_info_tab"
+		size = { width = 339 height = 362 }
+		clipping = no
+
+		position = { x = -600 y = 0 }
+		show_position = { x = -9 y = 0 }
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
+		animation_time = 350
+
+		background = {
+			name = "econ_sphere_tab_bg"
+			quadTextureSprite = "GFX_tiled_window_thin_border2"
+		}
+
+		buttonType = {
+			name = "production_units_close_btn"
+			position = { x = 11 y = 10 }
+			spriteType = "GFX_production_units_close"
+			clicksound = click_close
+			shortcut = "ESCAPE"
+		}
+		iconType = {
+			name = "production_units_info_btn"
+			position = { x = 298 y = 10 }
+			spriteType = "GFX_production_units_info"
+			pdx_tooltip = "production_units_info_tt"
+		}
 
 		containerWindowType = {
-			name = "production_units_info_tab_inner"
-			size = { width = 339 height = 362 }
-			clipping = no
+			name = "production_units_box"
+			position = { x = 45 y = 11}
 
-			position = { x = -600 y = 0 }
-			show_position = { x = -9 y = 0 }
-			show_animation_type = decelerated
-			hide_animation_type = accelerated
-			animation_time = 300
 
-			background = {
-				name = "econ_sphere_tab_bg"
-				quadTextureSprite = "GFX_tiled_window_thin_border2"
+
+			instantTextboxType = {
+				name = "production_units"
+				alwaystransparent = yes
+				position = { x = 0 y = 5 }
+				font = "aldrich_18_outline"
+				text = production_units_name_tt
+				maxWidth = 150
+				format = center
 			}
 
-			buttonType = {
-				name = "production_units_close_btn"
-				position = { x = 11 y = 10 }
-				spriteType = "GFX_production_units_close"
-				clicksound = click_close
-				shortcut = "ESCAPE"
-			}
 			iconType = {
-				name = "production_units_info_btn"
-				position = { x = 298 y = 10 }
-				spriteType = "GFX_production_units_info"
-				pdx_tooltip = "production_units_info_tt"
+				name = "production_units_icon"
+				position = { x = 62 y = 23 }
+				spriteType = "GFX_production_units_icon"
 			}
 
-			containerWindowType = {
-				name = "production_units_box"
-				position = { x = 45 y = 11}
-
-				
-
-				instantTextboxType = {
-					name = "production_units"
-					alwaystransparent = yes
-					position = { x = 0 y = 5 }
-					font = "aldrich_18_outline"
-					text = production_units_name_tt
-					maxWidth = 150
-					format = center
-				}
-
-				iconType = {
-					name = "production_units_icon"
-					position = { x = 62 y = 23 }
-					spriteType = "GFX_production_units_icon"
-				}
-
-				instantTextboxType = {
-					name = "num_allocated"
-					alwaystransparent = yes
-					position = { x = 0 y = 50 }
-					font = "aldrich_22_outline"
-					text = "production_unit_assignment_numbers"
-					maxWidth = 150
-					format = center
-				}
-
-				iconType = {
-					name = "production_units_box_outline"
-					position = { x = -1 y = -1 }
-					spriteType = "GFX_production_units_box"
-					pdx_tooltip = "production_units_allocation_tt"
-					pdx_tooltip_delayed = "economy_topbar_production_units_long_tt"
-				}
-
-				instantTextboxType = {
-					name = "grid_power"
-					alwaystransparent = yes
-					position = { x = 151 y = 5 }
-					font = "aldrich_18_outline"
-					text = grid_power_name_tt
-					maxWidth = 100
-					format = center
-				}
-
-				iconType = {
-					name = "power_icon"
-					position = { x = 195 y = 25 }
-					spriteType = "GFX_power_icon"
-				}
-
-				instantTextboxType = {
-					name = "grid_power_amnt"
-					alwaystransparent = yes
-					position = { x = 151 y = 50 }
-					font = "aldrich_22_outline"
-					text = "grid_power_display"
-					maxWidth = 100
-					format = center
-				}
-				
-
-				iconType = {
-					name = "grid_power_box_outline"
-					position = { x = 151 y = -1 }
-					spriteType = "GFX_grid_power_box"
-					pdx_tooltip = "production_units_allocation_power_tt"
-					pdx_tooltip_delayed = "economy_topbar_power_long_tt"
-				}
+			instantTextboxType = {
+				name = "num_allocated"
+				alwaystransparent = yes
+				position = { x = 0 y = 50 }
+				font = "aldrich_22_outline"
+				text = "production_unit_assignment_numbers"
+				maxWidth = 150
+				format = center
 			}
 
-			gridboxtype = {
-				name = "allocation_boxes"
-				position = { x = 12 y = 88 }
-				size = { width = 319 height = 267 }
-				slotsize = { width = 319 height = 89 }
-				max_slots_horizontal = 1
-				add_horizontal = no
+			iconType = {
+				name = "production_units_box_outline"
+				position = { x = -1 y = -1 }
+				spriteType = "GFX_production_units_box"
+				pdx_tooltip = "production_units_allocation_tt"
+				pdx_tooltip_delayed = "economy_topbar_production_units_long_tt"
 			}
-			containerWindowType = { # VERY good code to make the thing look good
-				name = "tokenizer_clip_2"
-				position = { x = 336 y = 178 }
-				size = { width = 100 height = 120 }
-				clipping = yes
-				containerWindowType = {
-					name = "tokenizer_btn_bg"
-					position = { x = -9 y = 0 }
-					size = { width = 60 height = 85 }
-					background = {
-						name = "tokenizer_bg"
-						quadTextureSprite = "GFX_tiled_decisions_bg_crt_small"
-					}
-					iconType = {
-						name = "mini_workshop_icon"
-						position = { x = 14 y = 10 }
-						spriteType = "GFX_production_units_mini_workshop_2"
-						scale = 0.83
-					}
-					buttonType = {
-						name = "tokenizer_btn"
-						position = { x = 14 y = 43 }
-						quadTextureSprite = "GFX_generic_checkbox"
-						clicksound = click_checkbox
-						pdx_tooltip = mils_mult_tt
-					}
-				}
+
+			instantTextboxType = {
+				name = "grid_power"
+				alwaystransparent = yes
+				position = { x = 151 y = 5 }
+				font = "aldrich_18_outline"
+				text = grid_power_name_tt
+				maxWidth = 100
+				format = center
 			}
-			
+
+			iconType = {
+				name = "power_icon"
+				position = { x = 195 y = 25 }
+				spriteType = "GFX_power_icon"
+			}
+
+			instantTextboxType = {
+				name = "grid_power_amnt"
+				alwaystransparent = yes
+				position = { x = 151 y = 50 }
+				font = "aldrich_22_outline"
+				text = "grid_power_display"
+				maxWidth = 100
+				format = center
+			}
+
+
+			iconType = {
+				name = "grid_power_box_outline"
+				position = { x = 151 y = -1 }
+				spriteType = "GFX_grid_power_box"
+				pdx_tooltip = "production_units_allocation_power_tt"
+				pdx_tooltip_delayed = "economy_topbar_power_long_tt"
+			}
 		}
+
+		gridboxtype = {
+			name = "allocation_boxes"
+			position = { x = 12 y = 88 }
+			size = { width = 319 height = 267 }
+			slotsize = { width = 319 height = 89 }
+			max_slots_horizontal = 1
+			add_horizontal = no
+		}
+		containerWindowType = { # VERY good code to make the thing look good
+			name = "tokenizer_clip_2"
+			position = { x = 336 y = 178 }
+			size = { width = 100 height = 120 }
+			clipping = yes
+			containerWindowType = {
+				name = "tokenizer_btn_bg"
+				position = { x = -9 y = 0 }
+				size = { width = 60 height = 85 }
+				background = {
+					name = "tokenizer_bg"
+					quadTextureSprite = "GFX_tiled_decisions_bg_crt_small"
+				}
+				iconType = {
+					name = "mini_workshop_icon"
+					position = { x = 14 y = 10 }
+					spriteType = "GFX_production_units_mini_workshop_2"
+					scale = 0.83
+				}
+				buttonType = {
+					name = "tokenizer_btn"
+					position = { x = 14 y = 43 }
+					quadTextureSprite = "GFX_generic_checkbox"
+					clicksound = click_checkbox
+					pdx_tooltip = mils_mult_tt
+				}
+			}
+		}
+
+	}
+
+	containerWindowType = {
+		name = "production_units_info_tab_2_parent"
+		size = { width = 400 height = 470 }
+		position = { x = 827 y = 42 }
+		clipping = yes
 	}
 
 	containerWindowType = {
 		name = "production_units_info_tab_2"
-		size = { width = 400 height = 470 }
-		position = { x = 827 y = 42 }
-		clipping = yes
+
+		size = { width = 338 height = 470 }
+		clipping = no
+
+		position = { x = -1000 y = 0 }
+		show_position = { x = -10 y = 0 }
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
+		animation_time = 350
+
+		background = {
+			name = "econ_sphere_tab_bg"
+			quadTextureSprite = "GFX_tiled_window_thin_border2"
+		}
+
+		buttonType = {
+			name = "production_units_close_btn"
+			position = { x = 11 y = 10 }
+			spriteType = "GFX_production_units_close"
+			clicksound = click_close
+			shortcut = "ESCAPE"
+		}
+		iconType = {
+			name = "production_units_info_btn"
+			position = { x = 298 y = 10 }
+			spriteType = "GFX_production_units_info"
+			pdx_tooltip = "production_units_info_tt"
+		}
 
 		containerWindowType = {
-			name = "production_units_info_tab_inner"
-			size = { width = 338 height = 470 }
+			name = "production_units_box"
+			position = { x = 45 y = 11}
 			clipping = no
 
-			position = { x = -1000 y = 0 }
-			show_position = { x = -10 y = 0 }
-			show_animation_type = decelerated
-			hide_animation_type = accelerated
-			animation_time = 300
+			instantTextboxType = {
+				name = "production_units"
+				alwaystransparent = yes
+				position = { x = 0 y = 5 }
+				font = "aldrich_18_outline"
+				text = production_units_name_tt
+				maxWidth = 150
+				format = center
+			}
 
-			background = {
-				name = "econ_sphere_tab_bg"
-				quadTextureSprite = "GFX_tiled_window_thin_border2"
-			}
-			
-			buttonType = {
-				name = "production_units_close_btn"
-				position = { x = 11 y = 10 }
-				spriteType = "GFX_production_units_close"
-				clicksound = click_close
-				shortcut = "ESCAPE"
-			}
 			iconType = {
-				name = "production_units_info_btn"
-				position = { x = 298 y = 10 }
-				spriteType = "GFX_production_units_info"
-				pdx_tooltip = "production_units_info_tt"
+				name = "production_units_icon"
+				position = { x = 62 y = 23 }
+				spriteType = "GFX_production_units_icon"
 			}
 
+			instantTextboxType = {
+				name = "num_allocated"
+				alwaystransparent = yes
+				position = { x = 0 y = 50 }
+				font = "aldrich_22_outline"
+				text = "production_unit_assignment_numbers"
+				maxWidth = 150
+				format = center
+			}
+
+			iconType = {
+				name = "production_units_box_outline"
+				position = { x = -1 y = -1 }
+				spriteType = "GFX_production_units_box"
+				pdx_tooltip = "production_units_allocation_tt"
+				pdx_tooltip_delayed = "economy_topbar_production_units_long_tt"
+			}
+
+			instantTextboxType = {
+				name = "grid_power"
+				alwaystransparent = yes
+				position = { x = 151 y = 5 }
+				font = "aldrich_18_outline"
+				text = grid_power_name_tt
+				maxWidth = 100
+				format = center
+			}
+
+			iconType = {
+				name = "power_icon"
+				position = { x = 195 y = 25 }
+				spriteType = "GFX_power_icon"
+			}
+
+			instantTextboxType = {
+				name = "grid_power_amnt"
+				alwaystransparent = yes
+				position = { x = 151 y = 50 }
+				font = "aldrich_22_outline"
+				text = "grid_power_display"
+				maxWidth = 100
+				format = center
+			}
+
+
+			iconType = {
+				name = "grid_power_box_outline"
+				position = { x = 151 y = -1 }
+				spriteType = "GFX_grid_power_box"
+				pdx_tooltip = "production_units_allocation_power_tt"
+				pdx_tooltip_delayed = "economy_topbar_power_long_tt"
+			}
+		}
+
+		gridboxtype = {
+			name = "allocation_boxes"
+			position = { x = 12 y = 88 }
+			size = { width = 319 height = 267 }
+			slotsize = { width = 319 height = 89 }
+			max_slots_horizontal = 1
+			add_horizontal = no
+		}
+		containerWindowType = { # VERY good code to make the thing look good
+			name = "tokenizer_clip_2"
+			position = { x = 335 y = 178 }
+			size = { width = 100 height = 120 }
+			clipping = yes
 			containerWindowType = {
-				name = "production_units_box"
-				position = { x = 45 y = 11}
-				clipping = no
-
-				instantTextboxType = {
-					name = "production_units"
-					alwaystransparent = yes
-					position = { x = 0 y = 5 }
-					font = "aldrich_18_outline"
-					text = production_units_name_tt
-					maxWidth = 150
-					format = center
+				name = "tokenizer_btn_bg_2"
+				position = { x = -9 y = 0 }
+				size = { width = 60 height = 85 }
+				background = {
+					name = "tokenizer_bg_2"
+					quadTextureSprite = "GFX_tiled_decisions_bg_crt_small"
 				}
-
 				iconType = {
-					name = "production_units_icon"
-					position = { x = 62 y = 23 }
-					spriteType = "GFX_production_units_icon"
+					name = "mini_workshop_icon_2"
+					position = { x = 14 y = 10 }
+					spriteType = "GFX_production_units_mini_workshop_2"
+					scale = 0.83
 				}
-
-				instantTextboxType = {
-					name = "num_allocated"
-					alwaystransparent = yes
-					position = { x = 0 y = 50 }
-					font = "aldrich_22_outline"
-					text = "production_unit_assignment_numbers"
-					maxWidth = 150
-					format = center
-				}
-
-				iconType = {
-					name = "production_units_box_outline"
-					position = { x = -1 y = -1 }
-					spriteType = "GFX_production_units_box"
-					pdx_tooltip = "production_units_allocation_tt"
-					pdx_tooltip_delayed = "economy_topbar_production_units_long_tt"
-				}
-
-				instantTextboxType = {
-					name = "grid_power"
-					alwaystransparent = yes
-					position = { x = 151 y = 5 }
-					font = "aldrich_18_outline"
-					text = grid_power_name_tt
-					maxWidth = 100
-					format = center
-				}
-
-				iconType = {
-					name = "power_icon"
-					position = { x = 195 y = 25 }
-					spriteType = "GFX_power_icon"
-				}
-
-				instantTextboxType = {
-					name = "grid_power_amnt"
-					alwaystransparent = yes
-					position = { x = 151 y = 50 }
-					font = "aldrich_22_outline"
-					text = "grid_power_display"
-					maxWidth = 100
-					format = center
-				}
-				
-
-				iconType = {
-					name = "grid_power_box_outline"
-					position = { x = 151 y = -1 }
-					spriteType = "GFX_grid_power_box"
-					pdx_tooltip = "production_units_allocation_power_tt"
-					pdx_tooltip_delayed = "economy_topbar_power_long_tt"
-				}
-			}
-
-			gridboxtype = {
-				name = "allocation_boxes"
-				position = { x = 12 y = 88 }
-				size = { width = 319 height = 267 }
-				slotsize = { width = 319 height = 89 }
-				max_slots_horizontal = 1
-				add_horizontal = no
-			}
-			containerWindowType = { # VERY good code to make the thing look good
-				name = "tokenizer_clip_2"
-				position = { x = 335 y = 178 }
-				size = { width = 100 height = 120 }
-				clipping = yes
-				containerWindowType = {
-					name = "tokenizer_btn_bg_2"
-					position = { x = -9 y = 0 }
-					size = { width = 60 height = 85 }
-					background = {
-						name = "tokenizer_bg_2"
-						quadTextureSprite = "GFX_tiled_decisions_bg_crt_small"
-					}
-					iconType = {
-						name = "mini_workshop_icon_2"
-						position = { x = 14 y = 10 }
-						spriteType = "GFX_production_units_mini_workshop_2"
-						scale = 0.83
-					}
-					buttonType = {
-						name = "tokenizer_btn_2"
-						position = { x = 14 y = 43 }
-						quadTextureSprite = "GFX_generic_checkbox"
-						clicksound = click_checkbox
-						pdx_tooltip = mils_mult_tt
-					}
-				}
-			}
-			
-
-			#Walker GUI stuff - Beware bad code lies here
-			containerWindowType = {
-				name = "Econ_consumer_goods_container"
-				position = { x = 25 y = 360 }
-
-				instantTextboxType = {
-					name = "Econ_consumer_goods"
-					position = { x = -5 y = 0 }
-					font = "aldrich_20_outline"
-					text = econ_consumer_goods_txt
-					maxWidth = 280
-					maxHeight = 20
-					format = left
-					pdx_tooltip = econ_consumer_goods_slider_tt
-					pdx_tooltip_delayed = econ_consumer_goods_slider_delayed_tt
-				}
-
-				## CONSUMER GOODS CONSUMPTION ##
-				containerWindowType = {
-					name = "Econ_consumer_goods_container"
-					position = { x = 0 y = 5 }
-
-					containerWindowType = {
-						name = "Econ_consumer_goods_slider_container"
-						position = { x = -12 y = 3 }
-
-						iconType = {
-							name = "Econ_consumer_goods_slider_bg"
-							quadTextureSprite = "GFX_econ_crt_slider_bg"
-							position = { x = 17 y = 23 }
-							alwaystransparent = yes
-							pdx_tooltip = econ_consumer_goods_slider_tt
-							pdx_tooltip_delayed = econ_consumer_goods_slider_delayed_tt
-						}
-						buttonType = {
-							name = "Econ_consumer_goods_slider_left"
-							quadTextureSprite = "GFX_econ_crt_slider_left"
-							position = { x = 30 y = 23 }
-							pdx_tooltip = econ_consumer_goods_slider_button_left_tt
-							pdx_tooltip_delayed = econ_consumer_goods_slider_tt
-							pdx_tooltip_delayed = econ_consumer_goods_slider_delayed_tt
-						}
-						buttonType = {
-							name = "Econ_consumer_goods_slider_right"
-							quadTextureSprite = "GFX_econ_crt_slider_right"
-							position = { x = 251 y = 23 }
-							pdx_tooltip = econ_consumer_goods_slider_button_right_tt
-							pdx_tooltip_delayed = econ_consumer_goods_slider_tt
-							pdx_tooltip_delayed = econ_consumer_goods_slider_delayed_tt
-						}
-						iconType = {
-							name = "Econ_consumer_goods_slider_dot"
-							quadTextureSprite = "GFX_econ_crt_slider_dot"
-							position = { x = 50 y = 21 }
-							alwaystransparent = yes
-							pdx_tooltip = econ_consumer_goods_slider_tt
-							pdx_tooltip_delayed = econ_consumer_goods_slider_delayed_tt
-						}
-						iconType = {
-							name = "Econ_consumer_goods_slider_limit_left"
-							quadTextureSprite = "GFX_econ_crt_slider_limit_left"
-							position = { x = 50 y = 26 }
-							alwaystransparent = yes
-							pdx_tooltip = econ_consumer_goods_slider_tt
-							pdx_tooltip_delayed = econ_consumer_goods_slider_delayed_tt
-						}
-						iconType = {
-							name = "Econ_consumer_goods_slider_limit_right"
-							quadTextureSprite = "GFX_econ_crt_slider_limit_right"
-							position = { x = 50 y = 26 }
-							alwaystransparent = yes
-							pdx_tooltip = econ_consumer_goods_slider_tt
-							pdx_tooltip_delayed = econ_consumer_goods_slider_delayed_tt
-						}
-
-						gridboxtype = {
-							name = "Econ_consumer_goods_set_buttons"
-							position = { x = -37 y = 23 }
-							size = { width = 189 height = 14 }
-							slotsize = { width = 9 height = 14 }
-							add_horizontal = yes
-						}
-					}
-				}
-				## CONSUMER GOODS MODIFIERS
-				instantTextboxType = {
-					name = "Econ_consumer_goods_per_pu"
-					position = { x = -5 y = 55 }
-					font = "aldrich_20_outline"
-					text = econ_consumer_goods_per_pu_txt
-					maxWidth = 280
-					maxHeight = 20
-					format = left
-					pdx_tooltip = econ_consumer_goods_per_pu_tt
+				buttonType = {
+					name = "tokenizer_btn_2"
+					position = { x = 14 y = 43 }
+					quadTextureSprite = "GFX_generic_checkbox"
+					clicksound = click_checkbox
+					pdx_tooltip = mils_mult_tt
 				}
 			}
 		}
-	}
-	
-	containerWindowType = {
-		name = "production_units_info_tab_3"
-		size = { width = 400 height = 362 }
-		position = { x = 547 y = 57 }
 
-		clipping = yes
 
+		#Walker GUI stuff - Beware bad code lies here
 		containerWindowType = {
-			name = "production_units_info_tab_inner"
-			size = { width = 339 height = 362 }
-			clipping = no
+			name = "Econ_consumer_goods_container"
+			position = { x = 25 y = 360 }
 
-			position = { x = -600 y = 0 }
-			show_position = { x = -9 y = 0 }
-			show_animation_type = decelerated
-			hide_animation_type = accelerated
-			animation_time = 300
-
-			background = {
-				name = "econ_sphere_tab_bg"
-				quadTextureSprite = "GFX_tiled_window_thin_border2"
+			instantTextboxType = {
+				name = "Econ_consumer_goods"
+				position = { x = -5 y = 0 }
+				font = "aldrich_20_outline"
+				text = econ_consumer_goods_txt
+				maxWidth = 280
+				maxHeight = 20
+				format = left
+				pdx_tooltip = econ_consumer_goods_slider_tt
+				pdx_tooltip_delayed = econ_consumer_goods_slider_delayed_tt
 			}
 
-			buttonType = {
-				name = "production_units_close_btn"
-				position = { x = 11 y = 10 }
-				spriteType = "GFX_production_units_close"
-				clicksound = click_close
-				shortcut = "ESCAPE"
-			}
-			iconType = {
-				name = "production_units_info_btn"
-				position = { x = 298 y = 10 }
-				spriteType = "GFX_production_units_info"
-				pdx_tooltip = "production_units_info_tt"
-			}
-
+			## CONSUMER GOODS CONSUMPTION ##
 			containerWindowType = {
-				name = "production_units_box"
-				position = { x = 45 y = 11}
+				name = "Econ_consumer_goods_container"
+				position = { x = 0 y = 5 }
 
-				
-
-				instantTextboxType = {
-					name = "production_units"
-					alwaystransparent = yes
-					position = { x = 0 y = 5 }
-					font = "aldrich_18_outline"
-					text = production_units_name_tt
-					maxWidth = 150
-					format = center
-				}
-
-				iconType = {
-					name = "production_units_icon"
-					position = { x = 62 y = 23 }
-					spriteType = "GFX_production_units_icon"
-				}
-
-				instantTextboxType = {
-					name = "num_allocated"
-					alwaystransparent = yes
-					position = { x = 0 y = 50 }
-					font = "aldrich_22_outline"
-					text = "production_unit_assignment_numbers"
-					maxWidth = 150
-					format = center
-				}
-
-				iconType = {
-					name = "production_units_box_outline"
-					position = { x = -1 y = -1 }
-					spriteType = "GFX_production_units_box"
-					pdx_tooltip = "production_units_allocation_tt"
-					pdx_tooltip_delayed = "economy_topbar_production_units_long_tt"
-				}
-
-				instantTextboxType = {
-					name = "grid_power"
-					alwaystransparent = yes
-					position = { x = 151 y = 5 }
-					font = "aldrich_18_outline"
-					text = grid_power_name_tt
-					maxWidth = 100
-					format = center
-				}
-
-				iconType = {
-					name = "power_icon"
-					position = { x = 195 y = 25 }
-					spriteType = "GFX_power_icon"
-				}
-
-				instantTextboxType = {
-					name = "grid_power_amnt"
-					alwaystransparent = yes
-					position = { x = 151 y = 50 }
-					font = "aldrich_22_outline"
-					text = "grid_power_display"
-					maxWidth = 100
-					format = center
-				}
-				
-
-				iconType = {
-					name = "grid_power_box_outline"
-					position = { x = 151 y = -1 }
-					spriteType = "GFX_grid_power_box"
-					pdx_tooltip = "production_units_allocation_power_tt"
-					pdx_tooltip_delayed = "economy_topbar_power_long_tt"
-				}
-				
-			}
-
-			gridboxtype = {
-				name = "allocation_boxes"
-				position = { x = 12 y = 88 }
-				size = { width = 319 height = 267 }
-				slotsize = { width = 319 height = 89 }
-				max_slots_horizontal = 1
-				add_horizontal = no
-			}
-			
-			containerWindowType = { # VERY good code to make the thing look good
-				name = "tokenizer_clip_3"
-				position = { x = 336 y = 178 }
-				size = { width = 100 height = 120 }
-				clipping = yes
 				containerWindowType = {
-					name = "tokenizer_btn_bg_3"
-					position = { x = -9 y = 0 }
-					size = { width = 60 height = 85 }
-					background = {
-						name = "tokenizer_bg_3"
-						quadTextureSprite = "GFX_tiled_decisions_bg_crt_small"
-					}
+					name = "Econ_consumer_goods_slider_container"
+					position = { x = -12 y = 3 }
+
 					iconType = {
-						name = "mini_workshop_icon_3"
-						position = { x = 14 y = 10 }
-						spriteType = "GFX_production_units_mini_workshop_2"
-						scale = 0.83
+						name = "Econ_consumer_goods_slider_bg"
+						quadTextureSprite = "GFX_econ_crt_slider_bg"
+						position = { x = 17 y = 23 }
+						alwaystransparent = yes
+						pdx_tooltip = econ_consumer_goods_slider_tt
+						pdx_tooltip_delayed = econ_consumer_goods_slider_delayed_tt
 					}
 					buttonType = {
-						name = "tokenizer_btn_3"
-						position = { x = 14 y = 43 }
-						quadTextureSprite = "GFX_generic_checkbox"
-						clicksound = click_checkbox
-						pdx_tooltip = mils_mult_tt
+						name = "Econ_consumer_goods_slider_left"
+						quadTextureSprite = "GFX_econ_crt_slider_left"
+						position = { x = 30 y = 23 }
+						pdx_tooltip = econ_consumer_goods_slider_button_left_tt
+						pdx_tooltip_delayed = econ_consumer_goods_slider_tt
+						pdx_tooltip_delayed = econ_consumer_goods_slider_delayed_tt
 					}
+					buttonType = {
+						name = "Econ_consumer_goods_slider_right"
+						quadTextureSprite = "GFX_econ_crt_slider_right"
+						position = { x = 251 y = 23 }
+						pdx_tooltip = econ_consumer_goods_slider_button_right_tt
+						pdx_tooltip_delayed = econ_consumer_goods_slider_tt
+						pdx_tooltip_delayed = econ_consumer_goods_slider_delayed_tt
+					}
+					iconType = {
+						name = "Econ_consumer_goods_slider_dot"
+						quadTextureSprite = "GFX_econ_crt_slider_dot"
+						position = { x = 50 y = 21 }
+						alwaystransparent = yes
+						pdx_tooltip = econ_consumer_goods_slider_tt
+						pdx_tooltip_delayed = econ_consumer_goods_slider_delayed_tt
+					}
+					iconType = {
+						name = "Econ_consumer_goods_slider_limit_left"
+						quadTextureSprite = "GFX_econ_crt_slider_limit_left"
+						position = { x = 50 y = 26 }
+						alwaystransparent = yes
+						pdx_tooltip = econ_consumer_goods_slider_tt
+						pdx_tooltip_delayed = econ_consumer_goods_slider_delayed_tt
+					}
+					iconType = {
+						name = "Econ_consumer_goods_slider_limit_right"
+						quadTextureSprite = "GFX_econ_crt_slider_limit_right"
+						position = { x = 50 y = 26 }
+						alwaystransparent = yes
+						pdx_tooltip = econ_consumer_goods_slider_tt
+						pdx_tooltip_delayed = econ_consumer_goods_slider_delayed_tt
+					}
+
+					gridboxtype = {
+						name = "Econ_consumer_goods_set_buttons"
+						position = { x = -37 y = 23 }
+						size = { width = 189 height = 14 }
+						slotsize = { width = 9 height = 14 }
+						add_horizontal = yes
+					}
+				}
+			}
+			## CONSUMER GOODS MODIFIERS
+			instantTextboxType = {
+				name = "Econ_consumer_goods_per_pu"
+				position = { x = -5 y = 55 }
+				font = "aldrich_20_outline"
+				text = econ_consumer_goods_per_pu_txt
+				maxWidth = 280
+				maxHeight = 20
+				format = left
+				pdx_tooltip = econ_consumer_goods_per_pu_tt
+			}
+		}
+	}
+
+	containerWindowType = {
+		name = "production_units_info_tab_3_parent"
+		size = { width = 400 height = 470 }
+		position = { x = 547 y = 57 }
+		clipping = yes
+	}
+
+	containerWindowType = {
+		name = "production_units_info_tab_3"
+		size = { width = 339 height = 362 }
+		clipping = no
+
+		position = { x = -600 y = 0 }
+		show_position = { x = -9 y = 0 }
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
+		animation_time = 350
+
+		background = {
+			name = "econ_sphere_tab_bg"
+			quadTextureSprite = "GFX_tiled_window_thin_border2"
+		}
+
+		buttonType = {
+			name = "production_units_close_btn"
+			position = { x = 11 y = 10 }
+			spriteType = "GFX_production_units_close"
+			clicksound = click_close
+			shortcut = "ESCAPE"
+		}
+		iconType = {
+			name = "production_units_info_btn"
+			position = { x = 298 y = 10 }
+			spriteType = "GFX_production_units_info"
+			pdx_tooltip = "production_units_info_tt"
+		}
+
+		containerWindowType = {
+			name = "production_units_box"
+			position = { x = 45 y = 11}
+
+
+
+			instantTextboxType = {
+				name = "production_units"
+				alwaystransparent = yes
+				position = { x = 0 y = 5 }
+				font = "aldrich_18_outline"
+				text = production_units_name_tt
+				maxWidth = 150
+				format = center
+			}
+
+			iconType = {
+				name = "production_units_icon"
+				position = { x = 62 y = 23 }
+				spriteType = "GFX_production_units_icon"
+			}
+
+			instantTextboxType = {
+				name = "num_allocated"
+				alwaystransparent = yes
+				position = { x = 0 y = 50 }
+				font = "aldrich_22_outline"
+				text = "production_unit_assignment_numbers"
+				maxWidth = 150
+				format = center
+			}
+
+			iconType = {
+				name = "production_units_box_outline"
+				position = { x = -1 y = -1 }
+				spriteType = "GFX_production_units_box"
+				pdx_tooltip = "production_units_allocation_tt"
+				pdx_tooltip_delayed = "economy_topbar_production_units_long_tt"
+			}
+
+			instantTextboxType = {
+				name = "grid_power"
+				alwaystransparent = yes
+				position = { x = 151 y = 5 }
+				font = "aldrich_18_outline"
+				text = grid_power_name_tt
+				maxWidth = 100
+				format = center
+			}
+
+			iconType = {
+				name = "power_icon"
+				position = { x = 195 y = 25 }
+				spriteType = "GFX_power_icon"
+			}
+
+			instantTextboxType = {
+				name = "grid_power_amnt"
+				alwaystransparent = yes
+				position = { x = 151 y = 50 }
+				font = "aldrich_22_outline"
+				text = "grid_power_display"
+				maxWidth = 100
+				format = center
+			}
+
+
+			iconType = {
+				name = "grid_power_box_outline"
+				position = { x = 151 y = -1 }
+				spriteType = "GFX_grid_power_box"
+				pdx_tooltip = "production_units_allocation_power_tt"
+				pdx_tooltip_delayed = "economy_topbar_power_long_tt"
+			}
+
+		}
+
+		gridboxtype = {
+			name = "allocation_boxes"
+			position = { x = 12 y = 88 }
+			size = { width = 319 height = 267 }
+			slotsize = { width = 319 height = 89 }
+			max_slots_horizontal = 1
+			add_horizontal = no
+		}
+
+		containerWindowType = { # VERY good code to make the thing look good
+			name = "tokenizer_clip_3"
+			position = { x = 336 y = 178 }
+			size = { width = 100 height = 120 }
+			clipping = yes
+			containerWindowType = {
+				name = "tokenizer_btn_bg_3"
+				position = { x = -9 y = 0 }
+				size = { width = 60 height = 85 }
+				background = {
+					name = "tokenizer_bg_3"
+					quadTextureSprite = "GFX_tiled_decisions_bg_crt_small"
+				}
+				iconType = {
+					name = "mini_workshop_icon_3"
+					position = { x = 14 y = 10 }
+					spriteType = "GFX_production_units_mini_workshop_2"
+					scale = 0.83
+				}
+				buttonType = {
+					name = "tokenizer_btn_3"
+					position = { x = 14 y = 43 }
+					quadTextureSprite = "GFX_generic_checkbox"
+					clicksound = click_checkbox
+					pdx_tooltip = mils_mult_tt
 				}
 			}
 		}
@@ -6595,7 +6613,7 @@ guiTypes = {
 				position = { x = 0 y = 0 }
 				size = { width = 558 height = 56 }
 
-				
+
 				instantTextboxType = {
 					name = "social_year_range_text"
 					alwaystransparent = yes
@@ -6690,7 +6708,7 @@ guiTypes = {
 						text = social_trade_good_title
 						maxWidth = 200
 						format = center
-					}					
+					}
 
 					iconType = {
 						name = "trade_resource_icon"
@@ -6712,7 +6730,7 @@ guiTypes = {
 						text = social_trade_partner_title
 						maxWidth = 200
 						format = center
-					}					
+					}
 
 					iconType = {
 						name = "social_largest_trade_partner_flag"
@@ -6994,7 +7012,7 @@ guiTypes = {
 			spriteType = "GFX_social_gdpc_graphs_vbar_Light"
 			position = { x = 0 y = 0 }
 		}
-		
+
 		containerWindowType = {
 			name = "label_container"
 			position = { x = 0 y = -7 }
@@ -7023,7 +7041,7 @@ guiTypes = {
 			spriteType = "GFX_social_gdpc_graphs_vbar_Light"
 			position = { x = 0 y = 0 }
 		}
-		
+
 		containerWindowType = {
 			name = "label_container"
 			position = { x = 0 y = -7 }
@@ -7052,7 +7070,7 @@ guiTypes = {
 			spriteType = "GFX_social_gdpc_graphs_vbar_Light"
 			position = { x = 0 y = 0 }
 		}
-		
+
 		containerWindowType = {
 			name = "label_container"
 			position = { x = 0 y = -7 }
@@ -7081,7 +7099,7 @@ guiTypes = {
 			spriteType = "GFX_social_gdpc_graphs_hbar_Light"
 			position = { x = 0 y = 0 }
 		}
-		
+
 
 		instantTextBoxType = {
 			name = "hbar_label"
@@ -7163,34 +7181,34 @@ guiTypes = {
 
 				instantTextBoxType = {
 					name = "econ_ideology_text"
-					position = { x = 61 y = 4 }
+					position = { x = 56 y = 4 }
 					fixedSize = yes
 					font = "aldrich_22_outline"
 					text = "econ_type_title_tt"
 					pdx_tooltip = "econ_type_base_bonus"
 					pdx_tooltip_delayed = "econ_type_tt"
 					format = center
-					maxWidth = 283
+					maxWidth = 293
 					maxheight = 50
 				}
-				
+
 				containerWindowType = {
 					name = "econ_freedom_container"
 					position = { x = 63 y = 0 }
-					
+
 					iconType = {
 						name = "econ_freedom_bg"
 						spriteType = "GFX_econ_freedom_bg"
 						position = { x = 0 y = 32 }
 					}
-					
+
 					containerWindowType = {
 						name = "econ_freedom_index_container"
 						#position = { x = 2 y = 34 }
 						position = { x = 0 y = 34 }
 						size = { width = 279 height = 9 }
 						clipping = yes
-						
+
 						iconType = {
 							name = "econ_freedom_index_bar"
 							spriteType = "GFX_econ_freedom_index"
@@ -7398,7 +7416,7 @@ guiTypes = {
 			# 	alwaystransparent = yes
 			# 	position = { x = 0 y = 7 }
 			# 	font = "aldrich_30_outline"
-			# 	text = "TRADE BALANCE"
+			# 	text = "무역 수지"
 			# 	maxWidth = 529
 			# 	format = center
 			# }
@@ -7705,7 +7723,7 @@ guiTypes = {
 			margin = { top = 0 bottom = 8 }
 			verticalScrollbar = "TNO_economy_scrollbar"
 			clipping = no
-			
+
 			# background = {
 			# 	name = "econ_background"
 			# 	#quadTextureSprite = "GFX_tiled_window_transparent"
@@ -7725,7 +7743,7 @@ guiTypes = {
 			#	buttonText = view_trade_partners
 			#}
 		}
-		
+
 		# New Trade Partners
 		containerWindowType = {
 			name = "trade_partners"
@@ -7769,7 +7787,7 @@ guiTypes = {
 				pdx_tooltip_delayed = trade_partner_influence_delayed_tt
 				clicksound = click_default
 			}
-					
+
 			buttonType = {
 				name = "trade_partners_title_header_trade"
 				quadTextureSprite = "GFX_tt_overlay_100_40"
@@ -7859,7 +7877,7 @@ guiTypes = {
 				position = { x = 0 y = 175 }
 				size = { width = 808 height = 11 }
 				clipping = no
-				
+
 				background = {
 					name = "divider"
 					position = { x = 6 y = 1 }
@@ -7879,7 +7897,7 @@ guiTypes = {
 					spriteType = "GFX_dividerConnector"
 					frame = 1
 				}
-				
+
 				iconType = {
 					name = "connector_middle"
 					position = { x = 533 y = -3 }
@@ -7887,26 +7905,26 @@ guiTypes = {
 					frame = 3
 				}
 			}
-			
+
 			containerWindowType = {
 				name = "divider_market_partners"
 				position = { x = 402 y = 183 }
 				size = { width = 11 height = -3 }
 				clipping = no
-				
+
 				background = {
 					name = "divider"
 					position = { x = 6 y = 1 }
 					quadTextureSprite = "GFX_divider_vertical_tile"
 				}
-				
+
 				iconType = {
 					name = "connector_top"
 					position = { x = 5 y = -4 }
 					spriteType = "GFX_dividerConnector"
 					frame = 4
 				}
-				
+
 				iconType = {
 					name = "connector_bottom"
 					position = { x = 5 y = -6 }
@@ -7942,7 +7960,7 @@ guiTypes = {
 			position = { x = 8 y = 5 }
 			alwaystransparent = yes
 		}
-		
+
 		instantTextboxType = {
 			name = "country_name"
 			position = { x = 57 y = 1 }
@@ -7954,7 +7972,7 @@ guiTypes = {
 			fixedSize = yes
 			vertical_alignment = center
 		}
-		
+
 		instantTextboxType = {
 			name = "country_trade_amount"
 			position = { x = 305 y = 11 }
@@ -7963,7 +7981,7 @@ guiTypes = {
 			format = center
 			maxWidth = 70
 		}
-		
+
 		instantTextboxType = {
 			name = "country_trade_influence"
 			position = { x = 207 y = 0 }
@@ -7980,7 +7998,7 @@ guiTypes = {
 
 	containerWindowType = {
 		name = "TNO_trade_market_tab"
-		position = { x = 0 y = 0 }		
+		position = { x = 0 y = 0 }
 
 		iconType = {
 			name = "resource_icon"
@@ -8072,8 +8090,8 @@ guiTypes = {
 		name = "TNO_trade_sell_entry"
 		position = { x = 0 y = 0 }
 
-		
-		
+
+
 		iconType = {
 			name = "selected_resource_icon_5"
 			spriteType = "GFX_resources_strip"
@@ -8104,7 +8122,7 @@ guiTypes = {
 			spriteType = "GFX_resources_strip"
 			position = { x = 12 y = 18 }
 		}
-		
+
 		instantTextboxType = {
 			name = "amount_you_sell"
 			alwaystransparent = yes
@@ -8262,12 +8280,12 @@ guiTypes = {
 		hide_animation_type = accelerated
 		animation_time = 300
 		moveable = yes
-		
+
 		background = {
 			name = "econ_tab_bg"
 			quadTextureSprite = "GFX_tiled_window_thin_border2"
 		}
-		
+
 		instantTextboxType = {
 			name = "econ_tab_GDP_title"
 			position = { x = 0 y = 12 }
@@ -8276,7 +8294,7 @@ guiTypes = {
 			maxWidth = 330
 			format = center
 		}
-		
+
 		instantTextboxType = {
 			name = "econ_tab_Debt_title"
 			position = { x = 0 y = 188 }
@@ -8285,12 +8303,12 @@ guiTypes = {
 			maxWidth = 330
 			format = center
 		}
-		
+
 		containerWindowType = {
 			name = "econ_tab_debt_graph"
 			size = { width = 0 height = 0 }
 			position = { x = -15 y = 150 }
-			
+
 			# Chart background
 			iconType = {
 				name = "chart"
@@ -8388,20 +8406,20 @@ guiTypes = {
 				format = center
 			}
 		}
-		
+
 		iconType = {
 			name = "econ_tab_divider"
 			spriteType = "GFX_econ_tab_crt_divider"
 			position = { x = 7 y = 366 }
 		}
-		
+
 		iconType = {
 			name = "econ_tab_action_box"
 			spriteType = "GFX_econ_tab_action_box"
 			position = { x = 165 y = 627 }
 			centerPosition = yes
 		}
-		
+
 		instantTextboxType = {
 			name = "econ_tab_actions_title"
 			position = { x = 0 y = 369 }
@@ -8410,12 +8428,12 @@ guiTypes = {
 			maxWidth = 330
 			format = center
 		}
-		
+
 		containerWindowType = {
 			name = "econ_tab_actions_emergency_actions"
 			size = { width = 0 height = 0 }
 			position = { x = 0 y = 292 }
-			
+
 			instantTextboxType = {
 				name = "econ_tab_actions_emergency_actions_title"
 				position = { x = 0 y = 346 }
@@ -8424,7 +8442,7 @@ guiTypes = {
 				maxWidth = 330
 				format = center
 			}
-			
+
 			buttonType = {
 				name = "econ_tab_actions_emergency_actions_civ_aust_bg"
 				position = { x = 25 y = 381 }
@@ -8441,7 +8459,7 @@ guiTypes = {
 				text = econ_tab_emergency_action_civ_aust
 				pdx_tooltip = econ_tab_actions_emergency_actions_civ_aust_tt
 			}
-			
+
 			buttonType = {
 				name = "econ_tab_actions_emergency_actions_mil_aust_bg"
 				position = { x = 168 y = 381 }
@@ -8458,7 +8476,7 @@ guiTypes = {
 				text = econ_tab_emergency_action_mil_aust
 				pdx_tooltip = econ_tab_actions_emergency_actions_mil_aust_tt
 			}
-			
+
 			buttonType = {
 				name = "econ_tab_actions_emergency_actions_tax_increase_bg"
 				position = { x = 25 y = 431 }
@@ -8475,7 +8493,7 @@ guiTypes = {
 				text = econ_tab_emergency_action_tax_increase
 				pdx_tooltip = econ_tab_actions_emergency_actions_tax_increase_tt
 			}
-			
+
 			buttonType = {
 				name = "econ_tab_actions_emergency_actions_debase_currency_bg"
 				position = { x = 168 y = 431 }
@@ -8498,7 +8516,7 @@ guiTypes = {
 			name = "econ_tab_actions_interest_rates"
 			size = { width = 0 height = 0 }
 			position = { x = 0 y = 397 }
-			
+
 			instantTextboxType = {
 				name = "econ_tab_actions_interest_rates_title"
 				position = { x = 0 y = 381 }
@@ -8518,7 +8536,7 @@ guiTypes = {
 				maxWidth = 330
 				format = center
 			}
-			
+
 			buttonType = {
 				name = "econ_tab_actions_interest_rates_raise"
 				position = { x = 25 y = 416 }
@@ -8538,7 +8556,7 @@ guiTypes = {
 				pdx_tooltip = econ_tab_actions_emergency_actions_civ_aust_tt
 			}
 		}
-		
+
 		buttonType = {
 			name = "econ_tab_close_button"
 			position = { x = -30 y = 10 }
@@ -8616,7 +8634,11 @@ guiTypes = {
 	containerWindowType = {
 		name = "TNO_economy_help"
 		size = { width = 400 height = 270 }
-		position = { x = 50 y = 50 }
+		position = { x = -1000 y = 43 }
+		show_position = { x = 0 y = 43 }
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
+		animation_time = 300
 		moveable = yes
 
 		background = {
@@ -8637,46 +8659,41 @@ guiTypes = {
 			orientation = upper_left
 			position = { x = 8 y = 8 }
 		}
-		
+
 		buttonType = {
 			name = "next_help_page"
 			spriteType = "GFX_econ_help_page_next"
 			orientation = upper_left
-			position = { x = 43 y = 8 } 
+			position = { x = 43 y = 8 }
 		}
 
 		instantTextBoxType = {
 			name = "help_title"
-			orientation = upper_left 
-			position = { x = 25 y = 50 }   
+			orientation = upper_left
+			position = { x = 25 y = 50 }
 			maxWidth = 350
-			format = center 
+			format = center
 			font = "aldrich_24_outline"
-			text = "econ_help_x_t" 
+			text = "econ_help_x_t"
 		}
 
 		instantTextBoxType = {
 			name = "help_text"
-			orientation = upper_left 
-			position = { x = 20 y = 100 }   
+			orientation = upper_left
+			position = { x = 20 y = 100 }
 			maxHeight = 34
 			maxWidth = 350
-			format = left 
+			format = left
 			font = "aldrich_18_outline"
-			text = "econ_help_x_d" 
+			text = "econ_help_x_d"
 		}
 	}
 
-	# # Arrows 
+	# # Arrows
 
 	containerWindowType = {
 		name = "TNO_SG_econ_help_arrows"
 		position = { x = 573 y = 0 }
-		
-		buttonType = {
-			name = "transparent_block"
-			spritetype = "GFX_tno_return_to_diplo_ui_block"
-		}
 		iconType = {
 			name = "arrows"
 			spritetype = "GFX_gui_alert"

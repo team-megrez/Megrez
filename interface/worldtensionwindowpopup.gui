@@ -1,13 +1,16 @@
 guiTypes = {
 	containerWindowType = {
 		name = "world_tension_popup"
-		position = { x = -650 y = -400 }
-		size = { width = 1197 height = 805 }
-		orientation = center
+		size = { width = 638 height = 805 }
+		position = { x = 600 y = 82 }
+		show_position = { x = -638 y = 82 }
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
+		animation_time = 400
+		orientation = upper_right
 		moveable = yes
-		fade_time = 200
-		fade_type = linear
 		click_to_front = yes
+		clipping = no
 
 		background = {
 			name = "Background"
@@ -16,6 +19,7 @@ guiTypes = {
 		
 		iconType = {
 			name = "Background_actual"
+			position = { x = 0 y = -55 }
 			spriteType = "GFX_world_tension_background"
 			alwaystransparent = yes
 		}
@@ -24,7 +28,7 @@ guiTypes = {
 		#	name = "window_name"
 		#	position = {x=20 y=28}
 		#	font = "aldrich_32_outline"
-		#	text = "World Tension History"
+		#	text = "세계 긴장도 역사"
 		#	maxWidth = 500
 		#	maxHeight = 23
 		#	format = center
@@ -76,20 +80,21 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "tension_entries_wnd"
-			position = {x = 13 y = 302}
+			position = {x = 13 y = 300 }
 			orientation = upper_left
-			size = {width = 1171 height = 490 }
+			size = {width = 620 height = 495 }
 			margin = {top=6 left=0 bottom=7 right=14}
 			verticalScrollbar = "right_vertical_slider"
+			clipping = yes
 
 			background = {
 				name = "Background"
-				quadTextureSprite ="GFX_tiled_paper_bg2"
+				quadTextureSprite ="GFX_tiled_window_transparent"
 			}
 
 			gridBoxType = {
 				name = "list"
-				position = { x = 14 y = 4 }
+				position = { x = 6 y = 0 }
 				size = { width = 447 height = 100%% }
 				max_slots_horizontal = 1
 				slotsize = { width = 465 height = 87 }
@@ -108,12 +113,10 @@ guiTypes = {
 
 		buttonType = {
 			name = "close_button"
-			position = { x = 1160 y = 7 }
-			quadTextureSprite ="GFX_tno_close_button"
-			buttonFont = "aldrich_24_outline"
+			position = { x = 608 y = 11 }
+			quadTextureSprite ="GFX_crt_closebutton"
 			shortcut = "ESCAPE"
 			Orientation = "UPPER_LEFT"
-			#buttonText = "DIPLOMACY_CLOSE"
 			pdx_tooltip = "CLOSE"
 			clicksound = click_close
 		}
@@ -123,22 +126,32 @@ guiTypes = {
 			spriteType = "GFX_ongoingconflicts_button"
 			buttonFont = "aldrich_18_outline"
 			clicksound = click_default
-			position = { x = 428 y = 450 }
+			position = { x = 10 y = 299 }
 			#text = WORLD_TENSION_WARS
-			pdx_tooltip = SHOW_WARS
 		}
 	}
 
 	containerWindowType = {
 		name = "world_tension_war_entry"
 		position = { x=3 y=0 }
-		size = { width = 1171 height = 88 }
+		size = { width = 597 height = 88 }
 		orientation = upper_left
 
 		background = {
 			name = "Background"
-			quadTextureSprite ="GFX_world_tension_entry_bg"
+			quadTextureSprite ="GFX_tiled_paper_bg2"
 			clicksound = "click_default"
+		}
+
+		instantTextboxType = {
+			name = "war_name"
+			position = { x = 0 y = 11 }
+			font = "aldrich_30_outline"
+			maxWidth = 597
+			maxHeight = 40
+			fixedsize = yes
+			format = center
+			alwaystransparent = yes
 		}
 
 		iconType = {
@@ -148,50 +161,39 @@ guiTypes = {
 			pdx_tooltip = WAR_HAS_MAJOR
 		}
 
-		instantTextboxType = {
-			name = "war_name"
-			position = { x = 67 y = 11 }
-			font = "aldrich_32_outline"
-			maxWidth = 1000
-			maxHeight = 40
-			fixedsize = yes
-			format = center
-		}
-
 		iconType = {
 			name = "warscore_progressbar"
 			spriteType = "GFX_warscore_progressbar_small"
-			position = { x = 307 y = 47 }
+			position = { x = 177 y = 47 }
 		}
 
 		iconType = {
 			name = "attacker_country_flag"
-			quadTextureSprite ="GFX_flag_medium_plain"
-			position = { x = 49 y = 39 }
+			quadTextureSprite ="GFX_player_flag"
+			position = { x = 10 y = 17 }
 			Orientation = "UPPER_LEFT"
 		}
 
 		iconType = {
 			name ="attacker_flag_border"
-			quadTextureSprite = "GFX_flag_frame_warscreen"
-			position = { x = 0 y = 4 }
+			quadTextureSprite = "GFX_flag_overlay_stateview_large"
+			position = { x = 8 y = 16 }
 			alwaystransparent = yes
-			scale = 2.0
 		}
 
 		iconType = {
 			name = "defender_country_flag"
-			quadTextureSprite = "GFX_flag_medium_plain"
-			position = { x = 1085 y = 39 }
-			Orientation = "UPPER_LEFT"
+			quadTextureSprite = "GFX_player_flag"
+			position = { x = -92 y = 17 }
+			Orientation = "upper_right"
 		}
 
 		iconType = {
 			name = "defender_flag_border"
-			position = { x = 1036 y = 4 }
-			spriteType = "GFX_flag_frame_warscreen"
+			position = { x = -94 y = 16 }
+			spriteType = "GFX_flag_overlay_stateview_large"
+			Orientation = "upper_right"
 			alwaystransparent = yes
-			scale = 2.0
 		}
 	}
 
