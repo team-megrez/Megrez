@@ -13,7 +13,7 @@ guiTypes = {
 			clicksound = click_default
 			oversound = ui_menu_over
 		}
-		
+
 		iconType = {
 			name = "gui_alert"
 			spriteType = "GFX_gui_alert"
@@ -35,7 +35,7 @@ guiTypes = {
 			format = center
 			alwaystransparent = yes
 			multiline = yes
-			
+
 			maxHeight = 40
 			vertical_alignment = center
 		}
@@ -76,17 +76,17 @@ guiTypes = {
 
 		instantTextboxType = {
 			name = "legco_title"
-			position = { x = 0 y = 35 }    
+			position = { x = 0 y = 35 }
 			font = "aldrich_48_outline"
 			text = GNG_legco_title
 			maxWidth = 920
 			format = center
 			alwaystransparent = yes
 		}
-		 
-		instantTextboxType = {    
+
+		instantTextboxType = {
 			name = "legco_session_status"
-			position = { x = 0 y = 75 } 
+			position = { x = 0 y = 75 }
 			font = "aldrich_36_outline"
 			text = GNG_legco_session_status
 			maxWidth = 920
@@ -98,7 +98,7 @@ guiTypes = {
 			name = "legco_diagram_container"
 			position = { x = 58 y = 120 }
 
-			
+
 			iconType = {
 				name = "legco_hitachibar"
 				quadTextureSprite = "GFX_GNG_HitachiBar"
@@ -136,7 +136,7 @@ guiTypes = {
 				quadTextureSprite = "GFX_GNG_CheungKongBar"
 				position = { x = -8 y = -389 }
 				alwaystransparent = yes
-			} 
+			}
 
 
 			iconType = {
@@ -180,12 +180,12 @@ guiTypes = {
 			name = "TNO_GNG_LegCo_Ordinance_History"
 			size = { width = 263 height = 350 }
 			position = { x = 918 y = 455 }
-	
+
 			background = {
 				name = "Background"
 				spriteType = "GFX_tiled_window_1b_no_border"
 			}
-	
+
 			instantTextboxType = {
 				name = "past_ordinance_header"
 				position = { x = 0 y = 26 }
@@ -195,41 +195,41 @@ guiTypes = {
 				format = center
 				alwaystransparent = yes
 			}
-	
+
 			containerWindowType = {
 				name = "past_ordinance_list_container"
 				size = { width = 260 height = 240 }
-				
+
 				verticalScrollbar = "right_vertical_slider"
 				position = { x = -2 y = 91 }
-	
+
 				background = {
 					name = "Background"
-					quadTextureSprite ="GFX_blank"
+					quadTextureSprite ="GFX_tiled_window_transparent"
 				}
-	
+
 				gridboxtype = {
 					name = "past_ordinance_list"
 					position = { x = 18 y = 0 }
 					size = { width = 216 height = 240 }
 					slotsize = { width = 216 height = 62 }
-					max_slots_horizontal = 1 
+					max_slots_horizontal = 1
 					add_horizontal = no
 				}
 			}
 		}
-	
+
 		containerWindowType = {
 			name = "TNO_GNG_LegCo_Current_Ordinance"
 			size = { width = 263 height = 452 }
 			position = { x = 918 y = 10 }
-	
+
 			background = {
 				name = "Background"
 				spriteType = "GFX_tiled_window_1b_no_border"
 			}
-	
-			instantTextboxType = { 
+
+			instantTextboxType = {
 				name = "current_ordinance_header"
 				position = { x = 0 y = 26 }
 				font = "aldrich_28_outline"
@@ -238,8 +238,8 @@ guiTypes = {
 				format = center
 				alwaystransparent = yes
 			}
-	
-			instantTextboxType = {  
+
+			instantTextboxType = {
 				name = "current_ordinance_support"
 				position = { x = 0 y = 388 }
 				font = "aldrich_24_outline"
@@ -249,24 +249,24 @@ guiTypes = {
 				alwaystransparent = yes
 				pdx_tooltip = GNG_current_ordinance_support_tt
 			}
-	
+
 			containerWindowType = {
 				name = "ordinance"
 				position = { x = 15 y = 90 }
-				
-				
+
+
 				iconType = {
 					name = "letterhead"
 					quadTextureSprite = "GFX_GNG_LegCo_Ordinance_Letterhead"
 					position = { x = 0 y = 0}
 				}
-	
+
 				iconType = {
 					name = "symbol"
 					quadTextureSprite = "GFX_GNG_LegCo_Ordinance_Symbol"
 					position = { x = 104 y = 2 }
 				}
-	
+
 				instantTextboxType = {
 					name = "current_ordinance_name"
 					position = { x = 20 y = 30 }
@@ -276,8 +276,8 @@ guiTypes = {
 					format = center
 					alwaystransparent = yes
 				}
-	
-				instantTextboxType = {  
+
+				instantTextboxType = {
 					name = "amendments_title"
 					position = { x = 24 y = 92 }
 					font = "aldrich_18_outline"
@@ -286,8 +286,8 @@ guiTypes = {
 					format = center
 					alwaystransparent = yes
 				}
-	
-				instantTextboxType = {  
+
+				instantTextboxType = {
 					name = "amendments_info"
 					position = { x = 24 y = 110 }
 					font = "aldrich_16_outline"
@@ -295,9 +295,9 @@ guiTypes = {
 					maxWidth = 186
 					format = left
 					alwaystransparent = yes
-				} 
-	
-				instantTextboxType = {   
+				}
+
+				instantTextboxType = {
 					name = "effects_title"
 					position = { x = 24 y = 195 }
 					font = "aldrich_18_outline"
@@ -306,8 +306,8 @@ guiTypes = {
 					format = center
 					alwaystransparent = yes
 				}
-	 
-				instantTextboxType = {  
+
+				instantTextboxType = {
 					name = "effects_info"
 					position = { x = 24 y = 215 }
 					font = "aldrich_16_outline"
@@ -316,12 +316,12 @@ guiTypes = {
 					format = left
 					alwaystransparent = yes
 				}
-	
+
 				iconType = {
 					name = "background"
 					quadTextureSprite = "GFX_GNG_LegCo_Ordinance_Background"
 					position = { x = 0 y = 0}
-					pdx_tooltip = GNG_legco_current_ordinance_tt 
+					pdx_tooltip = GNG_legco_current_ordinance_tt
 				}
 
 				iconType = {
@@ -356,7 +356,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_Kartenhaus_CloseButton"
 			Orientation = "UPPER_RIGHT"
 			clicksound = click_close
-			shortcut = "ESCAPE" 
+			shortcut = "ESCAPE"
 		}
 
 		iconType = {
@@ -380,7 +380,7 @@ guiTypes = {
 		name = "GNG_legco_seat"
 		position = { x = 0 y = 0 }
 
-		iconType = { 
+		iconType = {
 			name = "parliament_dot_icon"
 			quadTextureSprite = "GFX_GNG_LegCo_Seat"
 			pdx_tooltip = "GNG_legco_seat_tt"
@@ -407,7 +407,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_GNG_LegCo_Sony_Small"
 		}
 
-		instantTextboxType = { 
+		instantTextboxType = {
 			name = "seats"
 			position = { x = 0 y = 163 }
 			font = "aldrich_24_outline"
@@ -420,7 +420,7 @@ guiTypes = {
 		iconType = {
 			name = "legco_box"
 			spriteType = "GFX_GNG_LegCo_Box"
-			position = { x = 0 y = 0 } 
+			position = { x = 0 y = 0 }
 			pdx_tooltip = "GNG_legco_faction_tt"
 		}
 
@@ -437,6 +437,6 @@ guiTypes = {
 			position = { x = 126 y = 165 }
 			scale = 1
 			pdx_tooltip = GNG_legco_debug_add_seat_tt
-		}	
+		}
 	}
 }

@@ -493,13 +493,21 @@ spriteTypes = {
 		size = { x = 100 y = 100 }
 		effectFile = "gfx/FX/progress_radial.lua"
 	}
-
 	progressbartype = {
 		name = "GFX_pie_chart_debt_expenditures"
 		textureFile1 = "gfx/interface/economy_gui/pie_chart/debt_expenditures.dds"
 		textureFile2 = "gfx/interface/economy_gui/pie_chart/empty_pie.dds"
 		size = { x = 100 y = 100 }
 		effectFile = "gfx/FX/progress_radial.lua"
+	}
+	spriteType = {
+		name = "GFX_econ_pie_chart_overlay"
+		textureFile = "gfx/interface/economy_gui/pie_chart/pie_overlay.dds"
+	}
+	spriteType = {
+		name = "GFX_econ_pie_num_toggle"
+		textureFile = "gfx/interface/economy_gui/pie_chart/pie_num_toggle.dds"
+		noofframes = 2
 	}
 	
 	spriteType = {
@@ -1180,81 +1188,76 @@ spriteTypes = {
 		name = "GFX_econ_command_economy_icon"
 		textureFile = "gfx/interface/economy_gui/econ_panel/command_economy.dds"
 	}
+	
+	# Econ Types and Subtypes
 
+	spriteType = {
+		name = "GFX_econ_type_capitalism"
+		textureFile = "gfx/interface/economy_gui/econ_types/econ_type_capitalism.dds"
+	}
+	spriteType = {
+		name = "GFX_econ_type_planned"
+		textureFile = "gfx/interface/economy_gui/econ_types/econ_type_planned.dds"
+	}
+	spriteType = {
+		name = "GFX_econ_type_corporatism"
+		textureFile = "gfx/interface/economy_gui/econ_types/econ_type_corporatism.dds"
+	}
 
 	spriteType = {
 		name = "GFX_econ_type_american_capitalism"
-		textureFile = "gfx/interface/economy_gui/econ_types/american_capitalism.dds"
+		textureFile = "gfx/interface/economy_gui/econ_types/econ_subtype_american_capitalism.dds"
 	}
-	
 	spriteType = {
-		name = "GFX_econ_type_workerdirected"
-		textureFile = "gfx/interface/economy_gui/econ_types/econ_subtype_workerdirected.dds"
+		name = "GFX_econ_type_worker_directed"
+		textureFile = "gfx/interface/economy_gui/econ_types/econ_subtype_worker_directed.dds"
 	}
-	
 	spriteType = {
 		name = "GFX_econ_type_crown_corporatism"
-		textureFile = "gfx/interface/economy_gui/econ_types/crown_corporatism.dds"
+		textureFile = "gfx/interface/economy_gui/econ_types/econ_subtype_crown_corporatism.dds"
 	}
-	
 	spriteType = {
-		name = "GFX_econ_type_planned"
-		textureFile = "gfx/interface/economy_gui/econ_types/econ_subtype_commandeconomy.dds"
+		name = "GFX_econ_type_fascist_corporatism"
+		textureFile = "gfx/interface/economy_gui/econ_types/econ_subtype_fascist_corporatism.dds"
 	}
-	
 	spriteType = {
-		name = "GFX_econ_type_fascistcorporatism"
-		textureFile = "gfx/interface/economy_gui/econ_types/econ_subtype_fascistcorporatism.dds"
+		name = "GFX_econ_type_military_directed"
+		textureFile = "gfx/interface/economy_gui/econ_types/econ_subtype_military_directed.dds"
 	}
-	
-	spriteType = {
-		name = "GFX_econ_type_militarydirected"
-		textureFile = "gfx/interface/economy_gui/econ_types/econ_subtype_militarydirected.dds"
-	}
-	
 	spriteType = {
 		name = "GFX_econ_type_burgsys"
 		textureFile = "gfx/interface/economy_gui/econ_types/econ_subtype_burgsys.dds"
 	}
-	
 	spriteType = {
-		name = "GFX_econ_type_capitalism"
-		textureFile = "gfx/interface/economy_gui/econ_types/econ_subtype_capitalism.dds"
-	}
-	spriteType = {
-		name = "GFX_econ_type_anarchism"
-		textureFile = "gfx/interface/economy_gui/econ_types/econ_subtype_anarchy.dds"
-	}
-	spriteType = {
-		name = "GFX_econ_type_corporatism"
-		textureFile = "gfx/interface/economy_gui/econ_types/corporatism.dds"
+		name = "GFX_econ_type_anarchic"
+		textureFile = "gfx/interface/economy_gui/econ_types/econ_subtype_anarchic.dds"
 	}
 	spriteType = {
 		name = "GFX_econ_type_banditry"
-		textureFile = "gfx/interface/economy_gui/econ_types/bandit.dds"
+		textureFile = "gfx/interface/economy_gui/econ_types/econ_subtype_banditry.dds"
 	}
 	spriteType = {
 		name = "GFX_econ_type_corporate_oligopoly"
-		textureFile = "gfx/interface/economy_gui/econ_types/oligarchy.dds"
+		textureFile = "gfx/interface/economy_gui/econ_types/econ_subtype_oligarchy.dds"
 	}
 	spriteType = {
 		name = "GFX_econ_type_dirigisme"
-		textureFile = "gfx/interface/economy_gui/econ_types/dirigisme.dds"
+		textureFile = "gfx/interface/economy_gui/econ_types/econ_subtype_dirigisme.dds"
 	}
 	spriteType = {
 		name = "GFX_econ_type_anarcho_communism"
-		textureFile = "gfx/interface/economy_gui/econ_types/anarcho_communism.dds"
+		textureFile = "gfx/interface/economy_gui/econ_types/econ_subtype_anarcho_communism.dds"
 	}
 	spriteType = {
 		name = "GFX_econ_type_deystch_economics"
-		textureFile = "gfx/interface/economy_gui/econ_types/deytch_econ.dds"
+		textureFile = "gfx/interface/economy_gui/econ_types/econ_subtype_deystch_economics.dds"
 	}
 	spriteType = {
-		name = "GFX_econ_type_warcom"
-		textureFile = "gfx/interface/economy_gui/econ_types/warcom.dds"
+		name = "GFX_econ_type_war_communism"
+		textureFile = "gfx/interface/economy_gui/econ_types/econ_subtype_war_communism.dds"
 	}
 	spriteType = {
-		name = "GFX_econ_type_nazicorporatocracy"
+		name = "GFX_econ_type_nazi_corporatocracy"
 		textureFile = "gfx/interface/economy_gui/econ_types/econ_subtype_nazi_corporotracy.dds"
 	}
 	spriteType = {
@@ -1271,27 +1274,27 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_econ_type_agrarian_spartanism"
-		textureFile = "gfx/interface/economy_gui/econ_types/econ_subtype_spartan_agrarian.dds"
+		textureFile = "gfx/interface/economy_gui/econ_types/econ_subtype_agrarian_spartanism.dds"
 	}
 	spriteType = {
-		name = "GFX_econ_type_futurist_corporatism"
-		textureFile = "gfx/interface/economy_gui/econ_types/econ_subtype_futurist_corporatism.dds"
+		name = "GFX_econ_type_socialized_economy"
+		textureFile = "gfx/interface/economy_gui/econ_types/econ_subtype_socialized_economy.dds"
 	}
 	spriteType = {
 		name = "GFX_econ_type_yagoda"
 		textureFile = "gfx/interface/economy_gui/econ_types/econ_subtype_yagoda.dds"
 	}
 	spriteType = {
-		name = "GFX_econ_type_free_market_colonial_economy"
+		name = "GFX_econ_type_colonial_economy_free_market"
 		textureFile = "gfx/interface/economy_gui/econ_types/econ_subtype_colonial_economy_free_market.dds"
 	}
 	spriteType = {
-		name = "GFX_econ_type_corporatism_colonial_economy"
+		name = "GFX_econ_type_colonial_economy_corporatism"
 		textureFile = "gfx/interface/economy_gui/econ_types/econ_subtype_colonial_economy_corporatism.dds"
 	}
 	spriteType = {
-		name = "GFX_econ_type_state_planned_colonial_economy"
-		textureFile = "gfx/interface/economy_gui/econ_types/econ_subtype_colonial_economy_state_planned.dds"
+		name = "GFX_econ_type_colonial_economy_planned"
+		textureFile = "gfx/interface/economy_gui/econ_types/econ_subtype_colonial_economy_planned.dds"
 	}
 
 	spriteType = {

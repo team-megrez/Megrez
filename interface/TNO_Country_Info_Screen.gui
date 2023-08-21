@@ -21,6 +21,9 @@ guiTypes = {
 		moveable = yes
 		click_to_front = yes
 		clipping = no
+		fade_time = 15000
+		fade_type = linear
+		
 		background = {
 			name = "bg"
 			quadtexturesprite = "GFX_tiled_window_transparent"
@@ -155,6 +158,43 @@ guiTypes = {
 	}
 	
 	containerWindowType = {
+		name = "TNO_Country_Info_Screen_Signal_Lost"
+		position = { x = 8 y = 8 }
+		
+		# "My goals are beyond your understanding"
+		# - That one reverse flash meme
+		iconType = {
+			name = "block"
+			spriteType = "GFX_CountryInfo_block_signal_lost"
+		}
+		iconType = {
+			name = "block_1"
+			spriteType = "GFX_CountryInfo_block_signal_lost"
+		}
+		iconType = {
+			name = "block_2"
+			spriteType = "GFX_CountryInfo_block_signal_lost"
+		}
+		iconType = {
+			name = "block_3"
+			spriteType = "GFX_CountryInfo_block_signal_lost"
+		}
+		iconType = {
+			name = "block_4"
+			spriteType = "GFX_CountryInfo_block_signal_lost"
+		}
+		iconType = {
+			name = "block_5"
+			spriteType = "GFX_CountryInfo_block_signal_lost"
+		}
+		iconType = {
+			name = "signal_lost"
+			position = { x = 129 y = 183 }
+			spriteType = "GFX_CountryInfo_animated_signal_lost"
+		}
+	}
+	
+	containerWindowType = {
 		name = "TNO_Country_Info_Screen_Opening_Logo"
 		position = { x = 195 y = 90 }
 		size = { width = 545 height = 246 }
@@ -163,21 +203,21 @@ guiTypes = {
 		containerWindowType = {
 			name = "cursed_1"
 			size = { width = 545 height = 246 }
-			position = { x = -1000 y = 0 }
+			position = { x = -545 y = 0 }
 			show_position = { x = 0 y = 0 }
-			show_animation_type = decelerated
-			hide_animation_type = accelerated
-			animation_time = 3000
+			show_animation_type = linear
+			hide_animation_type = linear
+			animation_time = 2000
 			clipping = yes
 
 			containerWindowType = {
 				name = "cursed_2"
 				size = { width = 545 height = 246 }
-				position = { x = 1000 y = 0 }
+				position = { x = 545 y = 0 }
 				show_position = { x = 0 y = 0 }
-				show_animation_type = decelerated
-				hide_animation_type = accelerated
-				animation_time = 3000
+				show_animation_type = linear
+				hide_animation_type = linear
+				animation_time = 2000
 				iconType = {
 					name = "animated_logo"
 					position = { x = 16 y = 0 }

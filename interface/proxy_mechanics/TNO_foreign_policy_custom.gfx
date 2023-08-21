@@ -369,11 +369,6 @@ spriteTypes = {
 	}
 	
 	spriteType = {
-		name = "GFX_Reconstruction_Status"
-		texturefile = "gfx/interface/proxy_wars/fopo_gui/reconstruction_status.dds"
-	}
-	
-	spriteType = {
 		name = "GFX_Reconstruction_Complete_Button"
 		texturefile = "gfx/interface/proxy_wars/philippines/reconstruction_complete_button.dds"
 	}
@@ -455,11 +450,6 @@ spriteTypes = {
 	}
 	
 	spriteType = {
-		name = "GFX_Withdrawal_Status"
-		texturefile = "gfx/interface/proxy_wars/fopo_gui/withdrawal_status.dds"
-	}
-	
-	spriteType = {
 		name = "GFX_Withdrawal_Complete_Button"
 		texturefile = "gfx/interface/proxy_wars/saw_withdrawal/withdrawal_complete_button.dds"
 	}
@@ -497,7 +487,7 @@ spriteTypes = {
 		name = "GFX_USA_FoPo_animated_bar"
 		texturefile = "gfx/interface/proxy_wars/pp_invasion/supply_bar_animation.dds"
 		noOfFrames = 5
-		animation_rate_fps = 30
+		animation_rate_fps = 5
 		looping = yes
 		play_on_show = yes
 		pause_on_loop = 0.0
@@ -506,17 +496,25 @@ spriteTypes = {
 		name = "GFX_USA_FoPo_animated_bar_out_of_supply"
 		texturefile = "gfx/interface/proxy_wars/pp_invasion/supply_bar_animation_oos.dds"
 		noOfFrames = 5
-		animation_rate_fps = 30
+		animation_rate_fps = 5
 		looping = yes
 		play_on_show = yes
 		pause_on_loop = 0.0
 	}
-
+	frameAnimatedSpriteType = {
+		name = "GFX_USA_FoPo_animated_preparation_bar"
+		texturefile = "gfx/interface/proxy_wars/pp_invasion/preparation_bar_animation.dds"
+		noOfFrames = 5
+		animation_rate_fps = 5
+		looping = yes
+		play_on_show = yes
+		pause_on_loop = 0.0
+	}
 	frameAnimatedSpriteType = {
 		name = "GFX_USA_FoPo_animated_arrow"
 		texturefile = "gfx/interface/proxy_wars/pp_invasion/arrow_animated.dds"
 		noOfFrames = 10
-		animation_rate_fps = 15
+		animation_rate_fps = 5
 		looping = yes
 		play_on_show = yes
 		pause_on_loop = 0.0
@@ -542,6 +540,14 @@ spriteTypes = {
 		horizontal = yes
 	}
 
+	progressbartype = {
+		name = "GFX_PP_brandenburger_meter"
+		textureFile1 = "gfx/interface/proxy_wars/pp_invasion/manpower_bar_ger_fill.dds"
+		textureFile2 = "gfx/interface/proxy_wars/pp_invasion/manpower_bar_ger_empty.dds"
+		size = { x = 368 y = 37 }
+		effectFile = "gfx/FX/progress.lua"
+		horizontal = yes
+	}
 	# French Reclamation
 	spriteType = {
 		name = "GFX_FrenchReclamation_Button_Stored"
@@ -600,5 +606,477 @@ spriteTypes = {
 		size = { x = 364 y = 42 }
 		effectFile = "gfx/FX/progress.lua"
 		horizontal = yes
+	}
+	
+	## Iceland
+	
+	spriteType = {
+		name = "GFX_iceland_banner_side_iceland"
+		texturefile = "gfx/interface/proxy_wars/iceland_congress/GFX_iceland_banner_side_iceland.dds"
+	}
+	spriteType = {
+		name = "GFX_iceland_grid"
+		texturefile = "gfx/interface/proxy_wars/iceland_congress/GFX_iceland_grid.dds"
+	}
+	spriteType = {
+		name = "GFX_Iceland_INFO_box"
+		texturefile = "gfx/interface/proxy_wars/iceland_congress/GFX_Iceland_INFO_box.dds"
+	}
+	spriteType = {
+		name = "GFX_icelandproxy_divider"
+		texturefile = "gfx/interface/proxy_wars/iceland_congress/GFX_icelandproxy_divider.dds"
+	}
+	spriteType = {
+		name = "GFX_ICELANDPROXY_headerdivider"
+		texturefile = "gfx/interface/proxy_wars/iceland_congress/GFX_ICELANDPROXY_headerdivider.dds"
+	}
+	
+	progressbartype = {
+		name = "GFX_anti_ofn_bargraph"
+		color = { 0.0 0.0 0.0 }
+		colortwo = { 0.0 0.0 0.0 }
+		textureFile1 = "gfx/interface/proxy_wars/iceland_congress/GFX_iceland_antiofn_bar.dds"
+		textureFile2 = "gfx/interface/proxy_wars/iceland_congress/GFX_iceland_thick_bar_notxt.dds"
+		size = { x = 121 y = 289 }
+		effectFile = "gfx/FX/progress.lua"
+		horizontal = no
+	}
+	progressbartype = {
+		name = "GFX_pro_ofn_bargraph"
+		color = { 0.0 0.0 0.0 }
+		colortwo = { 0.0 0.0 0.0 }
+		textureFile1 = "gfx/interface/proxy_wars/iceland_congress/GFX_iceland_ofn_bar.dds"
+		textureFile2 = "gfx/interface/proxy_wars/iceland_congress/GFX_iceland_thick_bar_notxt.dds"
+		size = { x = 121 y = 289 }
+		effectFile = "gfx/FX/progress.lua"
+		horizontal = no
+	}
+	
+	progressbartype = {
+		name = "GFX_2faction_bgbar"
+		color = { 0.0 0.0 0.0 }
+		colortwo = { 0.0 0.0 0.0 }
+		textureFile1 = "gfx/interface/proxy_wars/iceland_congress/GFX_iceland_big_girth.dds"
+		textureFile2 = "gfx/interface/proxy_wars/iceland_congress/GFX_iceland_big_girth_notxt.dds"
+		size = { x = 123 y = 289 }
+		effectFile = "gfx/FX/progress.lua"
+		horizontal = no
+	}
+	
+	progressbartype = {
+		name = "GFX_indepen_bargraph"
+		color = { 0.0 0.0 0.0 }
+		colortwo = { 0.0 0.0 0.0 }
+		textureFile1 = "gfx/interface/proxy_wars/iceland_congress/GFX_iceland_ind_bar.dds"
+		textureFile2 = "gfx/interface/proxy_wars/iceland_congress/GFX_iceland_ind_bar_notxt.dds"
+		size = { x = 106 y = 289 }
+		effectFile = "gfx/FX/progress.lua"
+		horizontal = no
+	}
+	
+	progressbartype = {
+		name = "GFX_ind_bgbar"
+		color = { 0.0 0.0 0.0 }
+		colortwo = { 0.0 0.0 0.0 }
+		textureFile1 = "gfx/interface/proxy_wars/iceland_congress/GFX_iceland_thin_girth.dds"
+		textureFile2 = "gfx/interface/proxy_wars/iceland_congress/GFX_iceland_tinydick.dds"
+		size = { x = 108 y = 289 }
+		effectFile = "gfx/FX/progress.lua"
+		horizontal = no
+	}
+	
+	## Haiti
+	
+	spriteType = {
+		name = "GFX_haiti_map_frame"
+		texturefile = "gfx/interface/proxy_wars/haitian_civilwar/GFX_haiti_map_frame.dds"
+	}
+	spriteType = {
+		name = "GFX_haitianwar_state_selected_1728"
+		textureFile = "gfx/interface/proxy_wars/haitian_civilwar/GFX_haiti_state_selected_Artibonite_et_Nord.dds"
+		transparencecheck = yes
+		noofframes = 2
+	}
+	spriteType = {
+		name = "GFX_haitianwar_state_selected_1881"
+		textureFile = "gfx/interface/proxy_wars/haitian_civilwar/GFX_haiti_state_selected_Grand_Ouest.dds"
+		transparencecheck = yes
+		noofframes = 2
+	}
+	spriteType = {
+		name = "GFX_haitianwar_state_selected_1880"
+		textureFile = "gfx/interface/proxy_wars/haitian_civilwar/GFX_haiti_state_selected_Nord_Est.dds"
+		transparencecheck = yes
+		noofframes = 2
+	}
+	spriteType = {
+		name = "GFX_haitianwar_state_selected_1882"
+		textureFile = "gfx/interface/proxy_wars/haitian_civilwar/GFX_haiti_state_selected_Tiburon.dds"
+		transparencecheck = yes
+		noofframes = 2
+	}
+	spriteType = {
+		name = "GFX_haitianwar_state_selected_1706"
+		textureFile = "gfx/interface/proxy_wars/haitian_civilwar/GFX_haiti_state_selected_Trujillo.dds"
+		transparencecheck = yes
+		noofframes = 2
+	}
+	progressbartype = {
+		name = "GFX_haitianwar_state_1728"
+		textureFile1 = "gfx/interface/proxy_wars/haitian_civilwar/GFX_haiti_state_Artibonite_et_Nord.dds"
+		textureFile2 = "gfx/interface/proxy_wars/haitian_civilwar/colors.dds"
+		color = { 0.010 0.0 0.0 0.10 }
+		colortwo = { 0.177 0.183 1 1 }
+		size = {
+			x = 177
+			y = 183
+		}
+		effectFile = "gfx/FX/gng_map_fill.lua"
+		steps = 10000
+	}
+	progressbartype = {
+		name = "GFX_haitianwar_state_1881"
+		textureFile1 = "gfx/interface/proxy_wars/haitian_civilwar/GFX_haiti_state_Grand_Ouest.dds"
+		textureFile2 = "gfx/interface/proxy_wars/haitian_civilwar/colors.dds"
+		color = { 0.010 0.0 0.0 0.10 }
+		colortwo = { 0.193 0.116 1 1 }
+		size = { 
+			x = 193
+			y = 116
+		}
+		effectFile = "gfx/FX/gng_map_fill.lua"
+		steps = 10000
+	}
+	progressbartype = {
+		name = "GFX_haitianwar_state_1880"
+		textureFile1 = "gfx/interface/proxy_wars/haitian_civilwar/GFX_haiti_state_Nord_Est.dds"
+		textureFile2 = "gfx/interface/proxy_wars/haitian_civilwar/colors.dds"
+		color = { 0.010 0.0 0.0 0.10 }
+		colortwo = { 0.118 0.065 1 1 }
+		size = { 
+			x = 118
+			y = 65
+		}
+		effectFile = "gfx/FX/gng_map_fill.lua"
+		steps = 10000
+	}
+	progressbartype = {
+		name = "GFX_haitianwar_state_1882"
+		textureFile1 = "gfx/interface/proxy_wars/haitian_civilwar/GFX_haiti_state_Tiburon.dds"
+		textureFile2 = "gfx/interface/proxy_wars/haitian_civilwar/colors.dds"
+		color = { 0.010 0.0 0.0 0.10 }
+		colortwo = { 0.179 0.079 1 1 }
+		size = { 
+			x = 176
+			y = 79
+		}
+		effectFile = "gfx/FX/gng_map_fill.lua"
+		steps = 10000
+	}
+	spriteType = {
+		name = "GFX_haitianwar_state_trujillo"
+		textureFile = "gfx/interface/proxy_wars/haitian_civilwar/GFX_haiti_state_Trujillo.dds"
+		noofframes = 4
+	}
+	progressbartype = {
+		name = "GFX_haitianwar_trujillo_tension"
+		textureFile1 = "gfx/interface/proxy_wars/haitian_civilwar/Trujillo_full.dds"
+		textureFile2 = "gfx/interface/proxy_wars/haitian_civilwar/Trujillo_empty.dds"
+		size = { 
+			x = 96
+			y = 103
+		}
+		effectFile = "gfx/FX/progress_radial.lua"
+	}
+	frameAnimatedSpriteType = {
+		name = "GFX_haitianwar_trujillo_warning"
+		texturefile = "gfx/interface/proxy_wars/haitian_civilwar/Trujillo_warning.dds"
+		noofframes = 2
+		animation_rate_fps = 1
+		looping = yes
+		play_on_show = yes
+		effectFile = "gfx/FX/buttonstate_blendframes.lua"
+	}
+	
+	spriteType = {
+		name = "GFX_haiti_pie_overlay"
+		textureFile = "gfx/interface/proxy_wars/haitian_civilwar/pie_overlay.dds"
+	}
+	progressbartype = {
+		name = "GFX_haiti_pie_government"
+		textureFile1 = "gfx/interface/proxy_wars/haitian_civilwar/pie_government.dds"
+		textureFile2 = "gfx/interface/proxy_wars/haitian_civilwar/pie_government_image.dds"
+		size = { x = 120 y = 120 }
+		effectFile = "gfx/FX/progress_radial_img.lua"
+		steps = 100000
+	}
+	progressbartype = {
+		name = "GFX_haiti_pie_communism"
+		textureFile1 = "gfx/interface/proxy_wars/haitian_civilwar/pie_communism.dds"
+		textureFile2 = "gfx/interface/proxy_wars/haitian_civilwar/pie_communism_image.dds"
+		size = { x = 120 y = 120 }
+		effectFile = "gfx/FX/progress_radial_img.lua"
+		steps = 100000
+	}
+	progressbartype = {
+		name = "GFX_haiti_pie_divided"
+		textureFile1 = "gfx/interface/proxy_wars/haitian_civilwar/pie_divided.dds"
+		textureFile2 = "gfx/interface/proxy_wars/haitian_civilwar/pie_divided_image.dds"
+		size = { x = 120 y = 120 }
+		effectFile = "gfx/FX/progress_radial_img.lua"
+		steps = 100000
+	}
+	spriteType = {
+		name = "GFX_haiti_pie_signal_lost"
+		textureFile = "gfx/interface/proxy_wars/haitian_civilwar/pie_signal_lost.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_haiti_bar_frame"
+		textureFile = "gfx/interface/proxy_wars/haitian_civilwar/bar_frame.dds"
+	}
+	spriteType = {
+		name = "GFX_haiti_bar_frame_mini"
+		textureFile = "gfx/interface/proxy_wars/haitian_civilwar/bar_frame_mini.dds"
+	}
+	progressbartype = {
+		name = "GFX_haiti_legitimacy_bar"
+		textureFile1 = "gfx/interface/proxy_wars/haitian_civilwar/legitimacy_bar.dds"
+		textureFile2 = "gfx/interface/blank.dds"
+		size = { x = 322 y = 23 }
+		effectFile = "gfx/FX/progress_centered.lua"
+	}
+	progressbartype = {
+		name = "GFX_haiti_violence_bar"
+		textureFile1 = "gfx/interface/proxy_wars/haitian_civilwar/violence_bar.dds"
+		textureFile2 = "gfx/interface/blank.dds"
+		size = { x = 147 y = 23 }
+		effectFile = "gfx/FX/progress.lua"
+	}
+	progressbartype = {
+		name = "GFX_haiti_weariness_bar"
+		textureFile1 = "gfx/interface/proxy_wars/haitian_civilwar/weariness_bar.dds"
+		textureFile2 = "gfx/interface/blank.dds"
+		size = { x = 147 y = 23 }
+		effectFile = "gfx/FX/progress_reverse.lua"
+	}
+	frameAnimatedSpriteType = {
+		name = "GFX_haiti_animated_bar"
+		texturefile = "gfx/interface/proxy_wars/haitian_civilwar/involvement_bar_animation.dds"
+		noOfFrames = 5
+		animation_rate_fps = 1
+		looping = yes
+		play_on_show = yes
+		pause_on_loop = 0.0
+	}
+	frameAnimatedSpriteType = {
+		name = "GFX_haiti_animated_bar"
+		texturefile = "gfx/interface/proxy_wars/haitian_civilwar/involvement_bar_animation.dds"
+		noOfFrames = 4
+		animation_rate_fps = 1
+		looping = yes
+		play_on_show = yes
+		pause_on_loop = 0.0
+	}
+	frameAnimatedSpriteType = {
+		name = "GFX_haiti_animated_bar_red"
+		texturefile = "gfx/interface/proxy_wars/haitian_civilwar/involvement_bar_animation_red.dds"
+		noOfFrames = 4
+		animation_rate_fps = 1
+		looping = yes
+		play_on_show = yes
+		pause_on_loop = 0.0
+	}
+	progressbartype = {
+		name = "GFX_haiti_overlay_bar"
+		textureFile1 = "gfx/interface/proxy_wars/haitian_civilwar/involvement_bar_overlay.dds"
+		textureFile2 = "gfx/interface/proxy_wars/haitian_civilwar/involvement_bar_overlay_empty.dds"
+		size = {
+			x = 474
+			y = 40
+		}
+		effectFile = "gfx/FX/progress_reverse_retreating.lua"
+	}
+	progressbartype = {
+		name = "GFX_haiti_overlay_bar_inverted"
+		textureFile1 = "gfx/interface/proxy_wars/haitian_civilwar/involvement_bar_overlay_inverted.dds"
+		textureFile2 = "gfx/interface/proxy_wars/haitian_civilwar/involvement_bar_overlay_empty.dds"
+		size = {
+			x = 474
+			y = 40
+		}
+		effectFile = "gfx/FX/progress_reverse_retreating.lua"
+	}
+	
+	## Madagascar
+	
+	spriteType = {
+		name = "GFX_madagascar_image"
+		textureFile = "gfx/interface/proxy_wars/madagascar/image.dds"
+	}
+	spriteType = {
+		name = "GFX_madagascar_map"
+		texturefile = "gfx/interface/proxy_wars/madagascar/map.dds"
+	}
+
+	spriteType = {
+		name = "GFX_madagascar_city_main"
+		texturefile = "gfx/interface/proxy_wars/madagascar/city_main.dds"
+		noofframes = 3
+	}
+	frameAnimatedSpriteType = {
+		name = "GFX_madagascar_selected_node"
+		texturefile = "gfx/interface/proxy_wars/madagascar/selected_node.dds"
+		noofframes = 2
+		animation_rate_fps = 1
+		looping = yes
+		play_on_show = yes
+		effectFile = "gfx/FX/buttonstate_blendframes.lua"
+	}
+
+	spriteType = {
+		name = "GFX_madagascar_city_mini"
+		texturefile = "gfx/interface/proxy_wars/madagascar/city_mini.dds"
+		noofframes = 3
+	}
+	frameAnimatedSpriteType = {
+		name = "GFX_madagascar_selected_node_small"
+		texturefile = "gfx/interface/proxy_wars/madagascar/selected_node_small.dds"
+		noofframes = 2
+		animation_rate_fps = 1
+		looping = yes
+		play_on_show = yes
+		effectFile = "gfx/FX/buttonstate_blendframes.lua"
+	}
+
+	spriteType = {
+		name = "GFX_madagascar_trail_1859"
+		texturefile = "gfx/interface/proxy_wars/madagascar/trail_1859.dds"
+		noofframes = 3
+	}
+	spriteType = {
+		name = "GFX_madagascar_trail_1861"
+		texturefile = "gfx/interface/proxy_wars/madagascar/trail_1861.dds"
+		noofframes = 3
+	}
+	spriteType = {
+		name = "GFX_madagascar_trail_1864"
+		texturefile = "gfx/interface/proxy_wars/madagascar/trail_1864.dds"
+		noofframes = 3
+	}
+	spriteType = {
+		name = "GFX_madagascar_trail_1971"
+		texturefile = "gfx/interface/proxy_wars/madagascar/trail_1971.dds"
+		noofframes = 3
+	}
+	spriteType = {
+		name = "GFX_madagascar_trail_1972"
+		texturefile = "gfx/interface/proxy_wars/madagascar/trail_1972.dds"
+		noofframes = 3
+	}
+	
+	spriteType = {
+		name = "GFX_madagascar_line_1857"
+		texturefile = "gfx/interface/proxy_wars/madagascar/line_1857.dds"
+	}
+	spriteType = {
+		name = "GFX_madagascar_line_1969"
+		texturefile = "gfx/interface/proxy_wars/madagascar/line_1969.dds"
+	}
+	spriteType = {
+		name = "GFX_madagascar_line_944"
+		texturefile = "gfx/interface/proxy_wars/madagascar/line_944.dds"
+	}
+	spriteType = {
+		name = "GFX_madagascar_line_945"
+		texturefile = "gfx/interface/proxy_wars/madagascar/line_945.dds"
+	}
+	spriteType = {
+		name = "GFX_madagascar_line_1970"
+		texturefile = "gfx/interface/proxy_wars/madagascar/line_1970.dds"
+	}
+	spriteType = {
+		name = "GFX_madagascar_line_1974"
+		texturefile = "gfx/interface/proxy_wars/madagascar/line_1974.dds"
+	}
+	spriteType = {
+		name = "GFX_madagascar_line_1975"
+		texturefile = "gfx/interface/proxy_wars/madagascar/line_1975.dds"
+	}
+	spriteType = {
+		name = "GFX_madagascar_line_1860"
+		texturefile = "gfx/interface/proxy_wars/madagascar/line_1860.dds"
+	}
+	spriteType = {
+		name = "GFX_madagascar_line_946"
+		texturefile = "gfx/interface/proxy_wars/madagascar/line_946.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_madagascar_button_toggle"
+		textureFile = "gfx/interface/proxy_wars/madagascar/button_toggle.dds"
+		noofframes = 2
+	}
+	
+	spriteType = {
+		name = "GFX_madagascar_strength"
+		textureFile = "gfx/interface/proxy_wars/madagascar/strength.dds"
+		noOfFrames = 4
+	}
+	spriteType = {
+		name = "GFX_madagascar_bar_frame"
+		textureFile = "gfx/interface/proxy_wars/madagascar/bar_frame.dds"
+	}
+	progressbartype = {
+		name = "GFX_madagascar_bar"
+		textureFile1 = "gfx/interface/proxy_wars/madagascar/bar_content.dds"
+		textureFile2 = "gfx/interface/blank.dds"
+		size = { x = 215 y = 38 }
+		effectFile = "gfx/FX/progress.lua"
+	}
+	
+	progressbartype = {
+		name = "GFX_madagascar_pie_france"
+		textureFile1 = "gfx/interface/proxy_wars/madagascar/pie_france.dds"
+		textureFile2 = "gfx/interface/proxy_wars/madagascar/pie_france_image.dds"
+		size = { x = 120 y = 120 }
+		effectFile = "gfx/FX/progress_radial_img.lua"
+		steps = 100000
+	}
+	progressbartype = {
+		name = "GFX_madagascar_pie_germany"
+		textureFile1 = "gfx/interface/proxy_wars/madagascar/pie_germany.dds"
+		textureFile2 = "gfx/interface/proxy_wars/madagascar/pie_germany_image.dds"
+		size = { x = 120 y = 120 }
+		effectFile = "gfx/FX/progress_radial_img.lua"
+		steps = 100000
+	}
+	progressbartype = {
+		name = "GFX_madagascar_pie_japan"
+		textureFile1 = "gfx/interface/proxy_wars/madagascar/pie_japan.dds"
+		textureFile2 = "gfx/interface/proxy_wars/madagascar/pie_japan_image.dds"
+		size = { x = 120 y = 120 }
+		effectFile = "gfx/FX/progress_radial_img.lua"
+		steps = 100000
+	}
+	progressbartype = {
+		name = "GFX_madagascar_pie_usa"
+		textureFile1 = "gfx/interface/proxy_wars/madagascar/pie_usa.dds"
+		textureFile2 = "gfx/interface/proxy_wars/madagascar/pie_usa_image.dds"
+		size = { x = 120 y = 120 }
+		effectFile = "gfx/FX/progress_radial_img.lua"
+		steps = 100000
+	}
+	spriteType = {
+		name = "GFX_madagascar_pie_overlay"
+		textureFile = "gfx/interface/proxy_wars/madagascar/pie_overlay.dds"
+	}
+	spriteType = {
+		name = "GFX_madagascar_investment"
+		textureFile = "gfx/interface/proxy_wars/madagascar/investment.dds"
+	}
+	spriteType = {
+		name = "GFX_madagascar_contribution"
+		textureFile = "gfx/interface/proxy_wars/madagascar/contribution.dds"
 	}
 }

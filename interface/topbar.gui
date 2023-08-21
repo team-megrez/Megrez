@@ -171,7 +171,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name ="pol_power"
 			position = { x = 129 y = 8 }
-			font = "aldrich_22_outline"
+			font = "invisiblefont"
 			text = "999"
 			format = center
 			maxWidth = 52
@@ -217,7 +217,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name ="stability"
 			position = { x = 192 y = 10 }
-			font = "aldrich_18_outline"
+			font = "invisiblefont"
 			text = "100%"
 			format = right
 			maxWidth = 57
@@ -240,7 +240,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name ="war_support"
 			position = { x = 264 y = 10 }
-			font = "aldrich_18_outline"
+			font = "invisiblefont"
 			text = "100%"
 			format = right
 			maxWidth = 57
@@ -506,14 +506,13 @@ guiTypes = {
 			position = { x =-96 y=20 }
 			Orientation = "UPPER_RIGHT"
 			clicksound = click_default
-			pdx_tooltip = "threat_button_tt"
 		}
 
-		###This is the explosion that appears on top of the world tension icon in the top right. It doesn't fit the aesthetic and has been moved away
+		### Functionality moved to a scripted gui
 		iconType = {
 			name = "threat_icon_glow"
 			spriteType = "GFX_WT_anim_strip"
-			###position = { x =-111 y=5 }
+			#position = { x =-99 y=17 }
 			position = { x =2000 y=0 }
 			Orientation = "UPPER_RIGHT"
 			alwaystransparent = yes
@@ -522,7 +521,7 @@ guiTypes = {
 		buttonType = {
 			name = "threat_value_button"
 			spriteType = "GFX_world_tension_icon_big_strip"
-			#position = { x =-98 y=74 }
+			#position = { x =-96 y=20 }
 			position = { x =-6000 y=74 }
 			Orientation = "UPPER_RIGHT"
 			clicksound = click_default
@@ -930,6 +929,75 @@ guiTypes = {
 				clicksound = click_close
 				oversound = ui_menu_over
 			}
+		}
+	}
+	containerWindowType = { # Big when they're positive, small when they're negative.
+		name = "topbar_stability_warsupport"
+		instantTextBoxType = {
+			name ="pol_power_positive"
+			position = { x = 129 y = 8 }
+			font = "aldrich_22_outline"
+			text = "[?political_power|0]"
+			format = center
+			maxWidth = 52
+			maxHeight = 24
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name ="pol_power_negative"
+			position = { x = 129 y = 8 }
+			font = "aldrich_22_outline"
+			text = "[?political_power|0R]"
+			format = center
+			maxWidth = 52
+			maxHeight = 24
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name ="stability_positive"
+			position = { x = 192 y = 8 }
+			font = "aldrich_20_outline"
+			text = "[?stability|0%]"
+			format = right
+			maxWidth = 57
+			maxHeight = 24
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name ="stability_negative"
+			position = { x = 192 y = 10 }
+			font = "aldrich_18_outline"
+			text = "[?stability|R0%]"
+			format = right
+			maxWidth = 57
+			maxHeight = 24
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name ="war_support_positive"
+			position = { x = 264 y = 8 }
+			font = "aldrich_20_outline"
+			text = "[?has_war_support|0%]"
+			format = right
+			maxWidth = 57
+			maxHeight = 24
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name ="war_support_negative"
+			position = { x = 264 y = 10 }
+			font = "aldrich_18_outline"
+			text = "[?has_war_support|R0%]"
+			format = right
+			maxWidth = 57
+			maxHeight = 24
+			fixedsize = yes
+			alwaystransparent = yes
 		}
 	}
 	containerWindowType = {

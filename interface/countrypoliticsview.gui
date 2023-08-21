@@ -275,18 +275,27 @@ guiTypes = {
 			# Putting this here because it's throwing errors
 			containerWindowType = {
 				name = "power_balance_button"
-				position = { x = 9000 y = 9000 }
+				position = { x = 347 y = 103 }
 				clipping = no
+
+				iconType = {
+					name = "show_power_balance_button_underlay"
+					position = { x = 0 y = 0 }
+					spriteType = "GFX_tno_button_148x34_underlay"
+				}
 
 				buttonType = {
 					name = "show_power_balance"
 					position = { x = 0 y = 0 }
-					quadTextureSprite = "GFX_show_power_balance_button"
+					quadTextureSprite = "GFX_tno_button_148x34"
+					buttonFont = "Bomb_16"
+					Orientation = "UPPER_LEFT"
+					text = "BOP_BUTTON"
 				}
 				
 				iconType = {
 					name = "show_power_balance_glow"
-					position = { x = 0 y = 0 }
+					position = { x = 9000 y = 9000 }
 					quadTextureSprite = "GFX_bop_glow_effect"
 					alwaystransparent = yes
 				}
@@ -294,7 +303,7 @@ guiTypes = {
 				instantTextboxType = {
 					name = "power_balance_percentage"
 					format = center
-					position = { x = 40 y = 10 }
+					position = { x = 9000 y = 9000 }
 					font = "hoi_16mbs"
 					text = "90%"
 					fixedsize = yes
@@ -306,7 +315,7 @@ guiTypes = {
 				instantTextboxType = {
 					name = "power_balance_levels"
 					format = center
-					position = { x = 40 y = 25 }
+					position = { x = 9000 y = 9000 }
 					font = "hoi_16mbs"
 					text = "3/5"
 					fixedsize = yes
@@ -317,7 +326,7 @@ guiTypes = {
 				
 				iconType = {
 					name = "power_balance_ICON"
-					position = { x = 12 y = 4 }
+					position = { x = 9000 y = 9000 }
 					quadTextureSprite = "GFX_placeholder_bordered"
 					alwaystransparent = yes				
 					scale = 0.55
@@ -654,7 +663,8 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "subjects_button_container"
-			position = { x = 0 y = 483 }
+			# position = { x = 0 y = 483 }
+			position = { x = -165 y = 483 }
 			
 			iconType = {
 				name = "show_subjects_button_underlay"
@@ -692,13 +702,15 @@ guiTypes = {
 		
 		iconType = {
 			name = "show_exiles_collaborations_button_underlay"
-			position = { x = 202 y = 483 }
+			position = { x = 9000 y = 9000 }
+			# position = { x = 202 y = 483 }
 			spriteType = "GFX_tno_button_148x34_underlay"
 		}
 
 		buttonType = {
 			name = "show_exiles_collaborations_button_no_dlc"
-			position = { x = 202 y = 483 }
+			position = { x = 9000 y = 9000 }
+			# position = { x = 202 y = 483 }
 			quadTextureSprite = "GFX_tno_button_148x34"
 			buttonFont = "Bomb_16"
 			buttonText = MANAGE_EXILED_GOVERNMENTS
@@ -708,7 +720,8 @@ guiTypes = {
 		
 		buttonType = {
 			name = "show_exiles_collaborations_button"
-			position = { x = 202 y = 483 }
+			position = { x = 9000 y = 9000 }
+			# position = { x = 202 y = 483 }
 			quadTextureSprite = "GFX_tno_button_148x34"
 			buttonFont = "Bomb_16"
 			Orientation = "UPPER_LEFT"
@@ -717,7 +730,8 @@ guiTypes = {
 
 		instantTextboxType = {
 			name = "manage_exiled_collaborations_governments"
-			position = { x = 211 y = 493 }
+			position = { x = 9000 y = 9000 }
+			# position = { x = 211 y = 493 }
 			font = "Bomb_16"
 			maxWidth = 130
 			maxHeight = 20
@@ -970,9 +984,9 @@ guiTypes = {
 		}
 		
 		containerWindowType = {
-		    name = "traits_container"
-		    position = { x = 76 y = 0 }	
-		    show_position = { x = 0 y = 0 }
+			name = "traits_container"
+			position = { x = 76 y = 0 }	
+			show_position = { x = 0 y = 0 }
 			size = { width=170 height=100%% }
 			
 			instantTextboxType = {
@@ -1052,9 +1066,9 @@ guiTypes = {
 		}
 		
 		containerWindowType = {
-		    name = "traits_container"
-		    position = { x = 84 y = 0 }	
-		    show_position = { x = 0 y = 0 }
+			name = "traits_container"
+			position = { x = 84 y = 0 }	
+			show_position = { x = 0 y = 0 }
 			size = { width=170 height=100%% }
 			
 			instantTextboxType = {

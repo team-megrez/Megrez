@@ -3,16 +3,18 @@
 guiTypes = {
 	containerWindowType = {
 		name = "economics_expenses_ledger"
-		position = { x = -5 y = 154 }
+		position = { x = -1000 y = 121 }
+		show_position = { x = -5 y = 121 }
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
+		animation_time = 300
 		size = { width = 640 height =  396 }
-		fade_type = linear
-		fade_time = 300
 		margin = { top = 8 bottom = 8 }
 		moveable = yes
 			
 		background = {
 			name = "econ_background"
-			quadTextureSprite ="GFX_tiled_bg"
+			quadTextureSprite ="GFX_tiled_window_thin_border2"
 		}
 
 		iconType = {
@@ -35,7 +37,7 @@ guiTypes = {
 
 		instantTextboxType = {
 			name = "Econ_expenses_title"
-			position = { x = 18 y = 10 }
+			position = { x = 18 y = 6 }
 			font = "aldrich_30_outline"
 			text = econ_spending_title
 			text_color_code = W
@@ -558,40 +560,20 @@ guiTypes = {
 			format = right
 		}
 		instantTextboxType = {
-			name = "Econ_admin_safety_spending"
+			name = "Econ_admin_regulations_spending"
 			position = { x = 350 y = 246 }
 			font = "aldrich_18_outline"
-			text = econ_admin_sf_spending_txt
+			text = econ_admin_rg_spending_txt
 			text_color_code = w
 			maxWidth = 265
 			maxHeight = 20
 			format = left
 		}
 		instantTextboxType = {
-			name = "Econ_admin_safety_spending_Value"
+			name = "Econ_admin_regulations_spending_Value"
 			position = { x = 358 y = 246 }
 			font = "aldrich_18_outline"
-			text = econ_admin_sf_spending_txt_number
-			text_color_code = w
-			maxWidth = 265
-			maxHeight = 20
-			format = right
-		}
-		instantTextboxType = {
-			name = "Econ_admin_pollution_spending"
-			position = { x = 350 y = 267 }
-			font = "aldrich_18_outline"
-			text = econ_admin_pl_spending_txt
-			text_color_code = w
-			maxWidth = 265
-			maxHeight = 20
-			format = left
-		}
-		instantTextboxType = {
-			name = "Econ_admin_pollution_spending_Value"
-			position = { x = 358 y = 267 }
-			font = "aldrich_18_outline"
-			text = econ_admin_pl_spending_txt_number
+			text = econ_admin_rg_spending_txt_number
 			text_color_code = w
 			maxWidth = 265
 			maxHeight = 20
@@ -599,7 +581,7 @@ guiTypes = {
 		}
 		instantTextboxType = {
 			name = "Econ_admin_bureaucracy_spending"
-			position = { x = 350 y = 288 }
+			position = { x = 350 y = 267 }
 			font = "aldrich_18_outline"
 			text = econ_admin_bc_spending_txt
 			text_color_code = w
@@ -609,9 +591,28 @@ guiTypes = {
 		}
 		instantTextboxType = {
 			name = "Econ_admin_bureaucracy_spending_Value"
-			position = { x = 358 y = 288 }
+			position = { x = 358 y = 267 }
 			font = "aldrich_18_outline"
 			text = econ_admin_bc_spending_txt_number
+			maxWidth = 265
+			maxHeight = 20
+			format = right
+		}
+		instantTextboxType = {
+			name = "Econ_admin_misc_spending"
+			position = { x = 350 y = 288 }
+			font = "aldrich_18_outline"
+			text = econ_admin_ot_spending_txt
+			text_color_code = w
+			maxWidth = 265
+			maxHeight = 20
+			format = left
+		}
+		instantTextboxType = {
+			name = "Econ_admin_misc_spending_Value"
+			position = { x = 358 y = 288 }
+			font = "aldrich_18_outline"
+			text = econ_admin_ot_spending_txt_number
 			maxWidth = 265
 			maxHeight = 20
 			format = right

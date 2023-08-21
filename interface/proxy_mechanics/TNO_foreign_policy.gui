@@ -1,6 +1,4 @@
-
 guiTypes = {
-
 	extendedScrollbarType = {
 		name = "top_horizontal_slider"
 		position = { x = 0 y = -6 }
@@ -47,24 +45,48 @@ guiTypes = {
 
 	containerWindowType = {
 		name = "TNO_fopo_container"
-		position = { x = 18 y = 200 }
-        size = { height = 618 width = 500 }
-        
-		#iconType = {
-		#	name = "dummy_bg"
-		#	spriteType = "GFX_fopo_dummy_bg"
-		#	position = { x = -18 y = -87 }
-		#}
+		position = { x = 25 y = 19 }
+		size = { height = 618 width = 500 }
 
-		#instantTextBoxType = {
-        #	name = "conflict_text"
-		#	position = { x = 0 y = 3 }
-        #	text = fopo_ongoing_title
-        #	font = "aldrich_36_outline"
-		#	maxWidth = 500
-		#	format = right
-        #}
+		### Top Bar ###
+		containerWindowType = {
+			name = "TNO_GlobalConflicts_GUI_TopBar"
+			position = { x = 41 y = -24 }
+			
+			# Title
+			instantTextBoxType = {
+				name = "GlobalConflicts_GUI_Title"
+				position = { x = 0 y = 0 }
+				font = "vt323_72_WT_outline"
+				text = TNO_GlobalConflicts_GUI_Title
+				maxWidth = 857
+				maxHeight = 58
+				format = center
+				fixedsize = yes
+				alwaystransparent = yes
+			}
 
+			# Info Button
+			iconType = {
+				name = "GlobalConflicts_GUI_InfoBtn"
+				spriteType = "GFX_ParliamentMechanic_InfoButton"
+				position = { x = 901 y = 29 }
+				pdx_tooltip = "TNO_fopo_into_icon_tt"
+				pdx_tooltip_delayed = "TNO_fopo_into_icon_tt_delayed"
+			}
+		}
+		# Vertical Divider
+		iconType = {
+			name = "GlobalConflicts_GUI_VerticalDivider"
+			position = { x = 513 y = 67 }
+			spriteType = "GFX_BoP_Base_Vertical_Divider_Full"
+		}
+		# Decisions Divider
+		iconType = {
+			name = "GlobalConflicts_GUI_DecisionDivider"
+			position = { x = 529 y = 154 }
+			spriteType = "GFX_BoP_Decision_Divider"
+		}
 
 		iconType = {
 			name = "tabs"
@@ -76,14 +98,13 @@ guiTypes = {
 			name = "tabs_container"
 			horizontalScrollbar = "top_horizontal_slider"
 			size = { width = 500 height = 90 }
-			position = { x = 2 y = -12  }
+			position = { x = 520 y = 70 }
 			margin = { top = 0 left = 0 bottom = 0 right = 0 }
 
 			background = {
 				name = "Background"
 				quadTextureSprite ="GFX_tiled_window_transparent"
 			}
-
 	
 			gridboxtype = {
 				name = "conflict_tabs"
@@ -93,7 +114,6 @@ guiTypes = {
 				add_horizontal = yes
 			}
 		}
-       
 
 		buttonType = {
 			name = "frontlines_btn"
@@ -112,20 +132,30 @@ guiTypes = {
 			spriteType = "GFX_fopo_conflict_status"
 			position = { x = 12 y = 82 }
 		}
+		instantTextBoxType = {
+			name = "conflict_title"
+			text = fopo_name_tab_title
+			position = { x = 12 y = 83 }
+			maxwidth = 480
+			maxheight = 30
+			format = center
+			vertical_alignment = center
+			font = "aldrich_22_outline"
+		}
 		containerWindowType = {
 			name = "conflict_guis_container"
 			position = { x = 4 y = 112 }
 		}
-        gridboxtype = {
-		    name = "conflict_guis"
+		gridboxtype = {
+			name = "conflict_guis"
 			position = { x = -176 y = 112 }
 			size = { width = 480 height = 45 }
 			slotsize = { width = 120 height = 45 }
 			add_horizontal = yes
 		}
 	}
-    
-    containerWindowType = {
+	
+	containerWindowType = {
 		name = "TNO_fopo_conflict_tab"
 		position = { x = -40 y = 0 }
 
@@ -148,8 +178,56 @@ guiTypes = {
 			pdx_tooltip = fopo_name_tab
 		}
 	}
-    
-    containerWindowType = {
+	
+	containerWindowType = {
+		name = "TNO_fopo_no_conflict"
+		position = { x = 0 y = 0 }
+		
+		iconType = {
+			name = "globe_animation"
+			position = { x = 69 y = 23 }
+			spriteType = "GFX_fopo_globe_animation"
+		}
+		
+		instantTextBoxType = {
+			name = "no_conflicts_active_text"
+			text = GC_no_current_involvement
+			maxwidth = 359
+			maxheight = 30
+			position = { x = 69 y = 398 }
+			font = "aldrich_48_outline"
+			format = center
+			text_color_code = G
+		}
+		
+		instantTextBoxType = {
+			name = "no_conflicts_active_poem_title"
+			position = { x = 530 y = -32 }
+			text = GC_no_current_involvement_poem_title
+			font = "aldrich_32_outline"
+			maxwidth = 500
+			maxheight = 64
+			vertical_alignment = center
+			text_color_code = D
+		}
+		
+		iconType = {
+			name = "empty_fopo_block"
+			spriteType = "GFX_fopo_empty_fopo_block"
+			position = { x = 525 y = 44 }
+		}
+		
+		instantTextBoxType = {
+			name = "no_conflicts_active_poem"
+			position = { x = 530 y = 58 }
+			text = GC_no_current_involvement_poem
+			font = "aldrich_22_outline"
+			maxwidth = 500
+			text_color_code = L
+		}
+	}
+	
+	containerWindowType = {
 		name = "TNO_fopo_generic_conflict"
 		position = { x = 0 y = 0 }
 		size = { width = 496 height = 506 }
@@ -166,14 +244,14 @@ guiTypes = {
 			spriteType = "GFX_fopo_dept_of_state_seal"
 		}
 
-        instantTextBoxType = {
-            name = "fopo_desc"
+		instantTextBoxType = {
+			name = "fopo_desc"
 			position = { x = 118 y = 10 }
-            text = fopo_desc_text
-            font = "aldrich_18_outline"
+			text = fopo_desc_text
+			font = "aldrich_18_outline"
 			maxWidth = 370
 			maxHeight = 500
-        }
+		}
 	}
 
 	containerWindowType = {
@@ -193,14 +271,14 @@ guiTypes = {
 			spriteType = "GFX_fopo_dept_of_state_seal"
 		}
 
-        instantTextBoxType = {
-            name = "fopo_desc"
+		instantTextBoxType = {
+			name = "fopo_desc"
 			position = { x = 11 y = 160 }
-            text = fopo_desc_text
-            font = "aldrich_18_outline"
+			text = fopo_desc_text
+			font = "aldrich_18_outline"
 			maxWidth = 475
 			maxHeight = 500
-        }
+		}
 		
 		iconType = {
 			name = "info_tab"
@@ -220,22 +298,22 @@ guiTypes = {
 			position = { x = 98 y = 75 }
 		}
 
-        instantTextBoxType = {
-            name = "fopo_desc"
+		instantTextBoxType = {
+			name = "fopo_desc"
 			position = { x = 8 y = 10 }
-            text = fopo_desc_text
-            font = "aldrich_18_outline"
+			text = fopo_desc_text
+			font = "aldrich_18_outline"
 			maxWidth = 480
 			maxHeight = 500
-        }
+		}
 	}
 
-    
-    containerWindowType = {
+	
+	containerWindowType = {
 		name = "TNO_fopo_USA_saw_conflict"
 		position = { x = 0 y = 0 }
 
-        iconType = {
+		iconType = {
 			position = { x = 10 y = 55 }
 			name = "fopo_header"
 			spriteType = "GFX_SAF_decision_category_war"
@@ -261,14 +339,14 @@ guiTypes = {
 			pdx_tooltip = TNO_fopo_USA_saw_home_btn_tt
 		}
 
-        instantTextBoxType = {
-            name = "fopo_desc"
+		instantTextBoxType = {
+			name = "fopo_desc"
 			position = { x = 100 y = 170 }
-            text = fopo_saw_desc_text
-            font = "aldrich_18_outline"
+			text = fopo_saw_desc_text
+			font = "aldrich_18_outline"
 			maxWidth = 390
 			maxHeight = 500
-        }
+		}
 	}
 
 }
