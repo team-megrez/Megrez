@@ -1,169 +1,173 @@
 ### Generic human unit to clone
 entity = {
-		name = "TNO_AprilFools_infantry_rifle_entity"
-		pdxmesh = "generic_western_european_rifle_infantry_mesh"
+	name = "TNO_AprilFools_infantry_rifle_entity"
+	pdxmesh = "generic_western_european_rifle_infantry_mesh"
 
-		scale = 0.8
+	default_state = "idle"
+	state = { name = "attack"			animation = "charge_rifle"			animation_blend_time = 0.0 animation_speed = 1.0 looping = no next_state = "attack" chance = 2 propagate_state = { rifle2 = "idle" } }
+	state = { name = "attack"			animation = "charge_rifle_shoot"	animation_blend_time = 0.0 animation_speed = 1.0 looping = no next_state = "attack" chance = 1 }
+	state = { name = "defend"			animation = "attack"				animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "support_attack"	animation = "support_attack"		animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "move"				animation = "move"					animation_blend_time = 0.0 animation_speed = 1.0 chance = 1
+		event = { trigger_once = yes sound = { soundeffect = "infantry_move_animation" } }
+	}
+	state = { name = "move"				animation = "march_move"			animation_blend_time = 0.0 animation_speed = 1.0 chance = 1
+		event = { trigger_once = yes sound = { soundeffect = "infantry_move_animation" } }
+	}
+	state = { name = "retreat"			animation = "retreat"			animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "death"			animation = "death"				animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "idle"				animation = "idle"				animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 looping = no }
+	state = { name = "idle"				animation = "long_idle02"		animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
+	state = { name = "idle"				animation = "long_idle03"		animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no propagate_state = { lighter = "smoke" }
+		event = { time = 0 node = "head" particle = "cigarette_smoke_particle" keep_particle = yes }
+	}
+	state = { name = "idle"				animation = "long_idle04"		animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
+	state = { name = "idle"				animation = "long_idle05"		animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
+	state = { name = "training"			animation = "training"			animation_blend_time = 0.3 animation_speed = 1.0 chance = 2 looping = no }
+	state = { name = "training"			animation = "jumping_jacks"		animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
+	state = { name = "training"			animation = "pushup"			animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
+	state = { name = "training"			animation = "guard_rifle"		animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
+	state = { name = "training"			animation = "aim_exercise"		animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
 
-		default_state = "idle"
-		state = { name = "attack"			animation = "charge_rifle" 					animation_blend_time = 0.0  animation_speed = 1.0 looping = no next_state = "attack" chance = 2 propagate_state = { rifle2 = "idle" } }
-		state = { name = "attack"			animation = "charge_rifle_shoot" 			animation_blend_time = 0.0  animation_speed = 1.0 looping = no next_state = "attack" chance = 1 }
-		state = { name = "defend"			animation = "attack" 			animation_blend_time = 0.3  animation_speed = 1.0 }
-		state = { name = "support_attack"	animation = "support_attack" 	animation_blend_time = 0.3 animation_speed = 1.0 }
-		state = { name = "move"				animation = "move" 		 		animation_blend_time = 0.0 animation_speed = 1.0 chance = 1
-		event = { trigger_once = yes sound = { soundeffect = "infantry_move_animation" } }
-		}
-		state = { name = "move"				animation = "march_move" 		 		animation_blend_time = 0.0 animation_speed = 1.0 chance = 1
-		event = { trigger_once = yes sound = { soundeffect = "infantry_move_animation" } }
-		}
-		state = { name = "retreat"			animation = "retreat" 	 		animation_blend_time = 0.3 animation_speed = 1.0 }
-		state = { name = "death"			animation = "death" 			animation_blend_time = 0.3 animation_speed = 1.0 }
-		state = { name = "idle"				animation = "idle"       		animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 looping = no }
-		state = { name = "idle"				animation = "long_idle02" 		animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
-		state = { name = "idle"				animation = "long_idle03" 		animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no propagate_state = { lighter = "smoke" }
-		event = { time = 0 node="head" particle = "cigarette_smoke_particle"  keep_particle = yes }
-		}
-		state = { name = "idle"				animation = "long_idle04" 		animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
-		state = { name = "idle"				animation = "long_idle05" 		animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
-		state = { name = "training"				animation = "training" 			animation_blend_time = 0.3 animation_speed = 1.0 chance = 2 looping = no }
-		state = { name = "training"				animation = "jumping_jacks" 	animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
-		state = { name = "training"				animation = "pushup" 			animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
-		state = { name = "training"				animation = "guard_rifle" 		animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
-		state = { name = "training"				animation = "aim_exercise" 		animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
-		attach = { 	name = "rifle1"	Right_Hand_node = "FRA_infantry_weapon_rifle_right_entity" }
-		attach = { 	name = "rifle2"	Left_Hand_node = "FRA_infantry_weapon_rifle_left_entity" }
-		attach = { 	name = "rifle4"	Root_node_2 = "FRA_infantry_weapon_rifle_right_entity" }
-		attach = { 	name = "rifle3"	mid_back_node = "FRA_infantry_weapon_rifle_long_idle_entity" }
-		attach = { 	name = "lighter"			Right_Hand_node_4 = "lighter_entity" }
-		attach = { 	name = "cigarette1"			Right_Hand_node_2 = "cigarette_entity" }
-		attach = { 	name = "cigarette_package1"	Right_Hand_node_3 = "cigarette_package_entity" }
-		attach = { 	name = "cigarette_package2"	Left_Hand_node_2 = "cigarette_package_entity" }
-		attach = { 	name = "cigarette2"			Root_node_1 = "cigarette_entity" }
+	attach = { name = "rifle1"				Right_Hand_node = "FRA_infantry_weapon_rifle_right_entity" }
+	attach = { name = "rifle2"				Left_Hand_node = "FRA_infantry_weapon_rifle_left_entity" }
+	attach = { name = "rifle4"				Root_node_2 = "FRA_infantry_weapon_rifle_right_entity" }
+	attach = { name = "rifle3"				mid_back_node = "FRA_infantry_weapon_rifle_long_idle_entity" }
+
+	attach = { name = "lighter"				Right_Hand_node_4 = "lighter_entity" }
+	attach = { name = "cigarette1"			Right_Hand_node_2 = "cigarette_entity" }
+	attach = { name = "cigarette_package1"	Right_Hand_node_3 = "cigarette_package_entity" }
+	attach = { name = "cigarette_package2"	Left_Hand_node_2 = "cigarette_package_entity" }
+	attach = { name = "cigarette2"			Root_node_1 = "cigarette_entity" }
+
+	scale = 0.8
 }
 
 entity = {
-		name = "TNO_AprilFools_infantry_2_entity"
-		pdxmesh = "generic_western_european_mg_infantry_mesh"
+	name = "TNO_AprilFools_infantry_2_entity"
+	pdxmesh = "generic_western_european_mg_infantry_mesh"
 
-		scale = 0.8
+	default_state = "idle"
+	state = { name = "attack"			animation = "charge_mg"			animation_blend_time = 0.0 animation_speed = 1.0 looping = no next_state = "attack" chance = 2 propagate_state = { rifle1 = "idle" } }
+	state = { name = "attack"			animation = "charge_mg_shoot"	animation_blend_time = 0.0 animation_speed = 1.0 looping = no next_state = "attack" chance = 1 }
+	state = { name = "defend"			animation = "attack"			animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "support_attack"	animation = "support_attack"	animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "move"				animation = "move"				animation_blend_time = 0.0 animation_speed = 1.0 chance = 1
+		event = { trigger_once = yes sound = { soundeffect = "infantry_move_animation" } }
+	}
+	state = { name = "move"				animation = "march_move"		animation_blend_time = 0.0 animation_speed = 1.0 chance = 1
+		event = { trigger_once = yes sound = { soundeffect = "infantry_move_animation" } }
+	}
+	state = { name = "retreat"			animation = "retreat"			animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "death"			animation = "death"				animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "idle"				animation = "idle"				animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 looping = no }
+	state = { name = "idle"				animation = "long_idle02"		animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
+	state = { name = "idle"				animation = "long_idle03"		animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no propagate_state = { lighter = "smoke" }
+		event = { time = 0 node = "head" particle = "cigarette_smoke_particle" keep_particle = yes }
+	}
+	state = { name = "idle"				animation = "long_idle04"		animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
+	state = { name = "idle"				animation = "long_idle05"		animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
+	state = { name = "training"			animation = "training"			animation_blend_time = 0.3 animation_speed = 1.0 chance = 2 looping = no }
+	state = { name = "training"			animation = "jumping_jacks"		animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
+	state = { name = "training"			animation = "pushup"			animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
+	state = { name = "training"			animation = "aim_exercise"		animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
 
-		default_state = "idle"
-		state = { name = "attack"			animation = "charge_mg" 					animation_blend_time = 0.0  animation_speed = 1.0 looping = no next_state = "attack" chance = 2 propagate_state = { rifle1 = "idle" } }
-		state = { name = "attack"			animation = "charge_mg_shoot" 			animation_blend_time = 0.0  animation_speed = 1.0 looping = no next_state = "attack" chance = 1 }
-		state = { name = "defend"			animation = "attack" 			animation_blend_time = 0.3  animation_speed = 1.0 }
-		state = { name = "support_attack"	animation = "support_attack" 	animation_blend_time = 0.3 animation_speed = 1.0 }
-		state = { name = "move"				animation = "move" 				animation_blend_time = 0.0 animation_speed = 1.0 chance = 1
-		event = { trigger_once = yes sound = { soundeffect = "infantry_move_animation" } }
-		}
-		state = { name = "move"				animation = "march_move" 				animation_blend_time = 0.0 animation_speed = 1.0 chance = 1
-		event = { trigger_once = yes sound = { soundeffect = "infantry_move_animation" } }
-		}
-		state = { name = "retreat"			animation = "retreat" 			animation_blend_time = 0.3 animation_speed = 1.0 }
-		state = { name = "death"			animation = "death" 			animation_blend_time = 0.3 animation_speed = 1.0 }
-		state = { name = "idle"				animation = "idle"       		animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 looping = no }
-		state = { name = "idle"				animation = "long_idle02"		animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
-		state = { name = "idle"				animation = "long_idle03"		animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no propagate_state = { lighter = "smoke" }
-		event = { time = 0 node="head" particle = "cigarette_smoke_particle"  keep_particle = yes }
-		}
-		state = { name = "idle"				animation = "long_idle04"		animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
-		state = { name = "idle"				animation = "long_idle05"		animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
-		state = { name = "training"				animation = "training" 			animation_blend_time = 0.3 animation_speed = 1.0 chance = 2 looping = no }
-		state = { name = "training"				animation = "jumping_jacks" 	animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
-		state = { name = "training"				animation = "pushup" 			animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
-		state = { name = "training"				animation = "aim_exercise" 		animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
-		attach = { 	name = "rifle1"	Right_Hand_node = "western_european_infantry_weapon_mg_right_entity" }
-		attach = { 	name = "rifle2"	Left_Hand_node = "western_european_infantry_weapon_mg_left_entity" }
-		attach = { 	name = "rifle4"	Root_node_2 = "FRA_infantry_weapon_rifle_right_entity" }
-		attach = { 	name = "rifle3"	mid_back_node = "western_european_infantry_weapon_mg_long_idle_entity" }
-		attach = { 	name = "lighter"			Right_Hand_node_4 = "lighter_entity" }
-		attach = { 	name = "cigarette1"			Right_Hand_node_2 = "cigarette_entity" }
-		attach = { 	name = "cigarette_package1"	Right_Hand_node_3 = "cigarette_package_entity" }
-		attach = { 	name = "cigarette_package2"	Left_Hand_node_2 = "cigarette_package_entity" }
-		attach = { 	name = "cigarette2"			Root_node_1 = "cigarette_entity" }
+	attach = { name = "rifle1"				Right_Hand_node = "western_european_infantry_weapon_mg_right_entity" }
+	attach = { name = "rifle2"				Left_Hand_node = "western_european_infantry_weapon_mg_left_entity" }
+	attach = { name = "rifle4"				Root_node_2 = "FRA_infantry_weapon_rifle_right_entity" }
+	attach = { name = "rifle3"				mid_back_node = "western_european_infantry_weapon_mg_long_idle_entity" }
+
+	attach = { name = "lighter"				Right_Hand_node_4 = "lighter_entity" }
+	attach = { name = "cigarette1"			Right_Hand_node_2 = "cigarette_entity" }
+	attach = { name = "cigarette_package1"	Right_Hand_node_3 = "cigarette_package_entity" }
+	attach = { name = "cigarette_package2"	Left_Hand_node_2 = "cigarette_package_entity" }
+	attach = { name = "cigarette2"			Root_node_1 = "cigarette_entity" }
+
+	scale = 0.8
 }
 
 ### Generic pony units to clone.
 # Special thanks to the Equestria at War team for this!
 entity = {
 	name = "TNO_AprilFools_infantry_onhooves_entity"
-	pdxmesh = "EQS_infantry_rifle_mesh"	
-	
-	default_state = "idle"
-	state = { name = "attack"			animation = "attack" 		animation_blend_time = 0.0 animation_speed = 1.0 looping = no next_state = "attack" chance = 2 propagate_state = { gun = "idle" } }
-	state = { name = "attack"			animation = "attack" 		animation_blend_time = 0.0 animation_speed = 1.0 looping = no next_state = "attack" chance = 1 }
-	state = { name = "defend"			animation = "idle" 			animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "defend" chance = 1 propagate_state = { gun = "idle" } }
-	state = { name = "defend"			animation = "idle01" 		animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "defend" chance = 1 propagate_state = { gun = "idle" } }
-	state = { name = "defend"			animation = "idle02" 		animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "defend" chance = 1 }
-	state = { name = "support_attack"	animation = "idle" 			animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "support_attack" chance = 1 propagate_state = { gun = "idle" } }
-	state = { name = "support_attack"	animation = "idle01" 		animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "support_attack" chance = 1 propagate_state = { gun = "idle" } }
-	state = { name = "support_attack"	animation = "idle02" 		animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "support_attack" chance = 1 }
-	state = { name = "move"				animation = "move" 			animation_blend_time = 0.0 animation_speed = 1.0 event = { trigger_once = yes sound = { soundeffect = "horse_walking" } } }
-	state = { name = "retreat"			animation = "limp"			animation_blend_time = 0.0 animation_speed = 1.0 }
-	state = { name = "death"			animation = "retreat" 		animation_blend_time = 0.3 animation_speed = 1.0 }
-	state = { name = "idle"				animation = "idle"       	animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 	looping = no next_state = "idle" }
-	state = { name = "idle"				animation = "idle01"		animation_blend_time = 0.3 animation_speed = 1.0 chance = 6 	looping = no next_state = "idle" }
-	state = { name = "idle"				animation = "idle02"		animation_blend_time = 0.3 animation_speed = 1.0 chance = 6 	looping = no next_state = "idle" }
-	state = { name = "idle"				animation = "idle"			animation_blend_time = 0.3 animation_speed = 1.5 chance = 5 	looping = no next_state = "idle" }
-	state = { name = "idle"				animation = "idle"			animation_blend_time = 0.3 animation_speed = 0.7 chance = 4 	looping = no next_state = "idle" }
-	state = { name = "training"			animation = "training" 		animation_blend_time = 0.0 animation_speed = 1.0 }
+	pdxmesh = "EQS_infantry_rifle_mesh"
 
-	attach = { 	name = "gun"	Root_003 = "ENG_infantry_weapon_rifle_left_entity" }
-	
+	default_state = "idle"
+	state = { name = "attack"			animation = "attack"			animation_blend_time = 0.0 animation_speed = 1.0 looping = no next_state = "attack" chance = 2 propagate_state = { gun = "idle" } }
+	state = { name = "attack"			animation = "attack"			animation_blend_time = 0.0 animation_speed = 1.0 looping = no next_state = "attack" chance = 1 }
+	state = { name = "defend"			animation = "idle"				animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "defend" chance = 1 propagate_state = { gun = "idle" } }
+	state = { name = "defend"			animation = "idle01"			animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "defend" chance = 1 propagate_state = { gun = "idle" } }
+	state = { name = "defend"			animation = "idle02"			animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "defend" chance = 1 }
+	state = { name = "support_attack"	animation = "idle"				animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "support_attack" chance = 1 propagate_state = { gun = "idle" } }
+	state = { name = "support_attack"	animation = "idle01"			animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "support_attack" chance = 1 propagate_state = { gun = "idle" } }
+	state = { name = "support_attack"	animation = "idle02"			animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "support_attack" chance = 1 }
+	state = { name = "move"				animation = "move"				animation_blend_time = 0.0 animation_speed = 1.0 event = { trigger_once = yes sound = { soundeffect = "horse_walking" } } }
+	state = { name = "retreat"			animation = "limp"				animation_blend_time = 0.0 animation_speed = 1.0 }
+	state = { name = "death"			animation = "retreat"			animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "idle"				animation = "idle"				animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 looping = no next_state = "idle" }
+	state = { name = "idle"				animation = "idle01"			animation_blend_time = 0.3 animation_speed = 1.0 chance = 6 looping = no next_state = "idle" }
+	state = { name = "idle"				animation = "idle02"			animation_blend_time = 0.3 animation_speed = 1.0 chance = 6 looping = no next_state = "idle" }
+	state = { name = "idle"				animation = "idle"				animation_blend_time = 0.3 animation_speed = 1.5 chance = 5 looping = no next_state = "idle" }
+	state = { name = "idle"				animation = "idle"				animation_blend_time = 0.3 animation_speed = 0.7 chance = 4 looping = no next_state = "idle" }
+	state = { name = "training"			animation = "training"			animation_blend_time = 0.0 animation_speed = 1.0 }
+
+	attach = { name = "gun"	Root_003 = "ENG_infantry_weapon_rifle_left_entity" }
+
 	scale = 0.8
 }
 entity = {
 	name = "TNO_AprilFools_infantry_onhooves_mg_entity"
-	pdxmesh = "EQS_infantry_rifle_mesh"	
-	
-	default_state = "idle"
-	state = { name = "attack"			animation = "attack" 		animation_blend_time = 0.0 animation_speed = 1.0 looping = no next_state = "attack" chance = 2 propagate_state = { gun = "idle" } }
-	state = { name = "attack"			animation = "attack_shoot_mg" 		animation_blend_time = 0.0 animation_speed = 1.0 looping = no next_state = "attack" chance = 1 }
-	state = { name = "defend"			animation = "idle" 			animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "defend" chance = 1 propagate_state = { gun = "idle" } }
-	state = { name = "defend"			animation = "idle01" 		animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "defend" chance = 1 propagate_state = { gun = "idle" } }
-	state = { name = "defend"			animation = "idle02" 		animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "defend" chance = 1 }
-	state = { name = "support_attack"	animation = "idle" 			animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "support_attack" chance = 1 propagate_state = { gun = "idle" } }
-	state = { name = "support_attack"	animation = "idle01" 		animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "support_attack" chance = 1 propagate_state = { gun = "idle" } }
-	state = { name = "support_attack"	animation = "idle02" 		animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "support_attack" chance = 1 }
-	state = { name = "move"				animation = "move" 			animation_blend_time = 0.0 animation_speed = 1.0 event = { trigger_once = yes sound = { soundeffect = "horse_walking" } } }
-	state = { name = "retreat"			animation = "limp"			animation_blend_time = 0.0 animation_speed = 1.0 }
-	state = { name = "death"			animation = "retreat" 		animation_blend_time = 0.3 animation_speed = 1.0 }
-	state = { name = "idle"				animation = "idle"       	animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 	looping = no next_state = "idle" }
-	state = { name = "idle"				animation = "idle01"		animation_blend_time = 0.3 animation_speed = 1.0 chance = 6 	looping = no next_state = "idle" }
-	state = { name = "idle"				animation = "idle02"		animation_blend_time = 0.3 animation_speed = 1.0 chance = 6 	looping = no next_state = "idle" }
-	state = { name = "idle"				animation = "idle"			animation_blend_time = 0.3 animation_speed = 1.5 chance = 5 	looping = no next_state = "idle" }
-	state = { name = "idle"				animation = "idle"			animation_blend_time = 0.3 animation_speed = 0.7 chance = 4 	looping = no next_state = "idle" }
-	state = { name = "training"			animation = "training" 		animation_blend_time = 0.0 animation_speed = 1.0 }
+	pdxmesh = "EQS_infantry_rifle_mesh"
 
-	attach = { 	name = "gun"	Root_003 = "SOV_infantry_weapon_mg_pony_entity" }
-	
+	default_state = "idle"
+	state = { name = "attack"			animation = "attack"			animation_blend_time = 0.0 animation_speed = 1.0 looping = no next_state = "attack" chance = 2 propagate_state = { gun = "idle" } }
+	state = { name = "attack"			animation = "attack_shoot_mg"	animation_blend_time = 0.0 animation_speed = 1.0 looping = no next_state = "attack" chance = 1 }
+	state = { name = "defend"			animation = "idle"				animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "defend" chance = 1 propagate_state = { gun = "idle" } }
+	state = { name = "defend"			animation = "idle01"			animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "defend" chance = 1 propagate_state = { gun = "idle" } }
+	state = { name = "defend"			animation = "idle02"			animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "defend" chance = 1 }
+	state = { name = "support_attack"	animation = "idle"				animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "support_attack" chance = 1 propagate_state = { gun = "idle" } }
+	state = { name = "support_attack"	animation = "idle01"			animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "support_attack" chance = 1 propagate_state = { gun = "idle" } }
+	state = { name = "support_attack"	animation = "idle02"			animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "support_attack" chance = 1 }
+	state = { name = "move"				animation = "move"				animation_blend_time = 0.0 animation_speed = 1.0 event = { trigger_once = yes sound = { soundeffect = "horse_walking" } } }
+	state = { name = "retreat"			animation = "limp"				animation_blend_time = 0.0 animation_speed = 1.0 }
+	state = { name = "death"			animation = "retreat"			animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "idle"				animation = "idle"				animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 looping = no next_state = "idle" }
+	state = { name = "idle"				animation = "idle01"			animation_blend_time = 0.3 animation_speed = 1.0 chance = 6 looping = no next_state = "idle" }
+	state = { name = "idle"				animation = "idle02"			animation_blend_time = 0.3 animation_speed = 1.0 chance = 6 looping = no next_state = "idle" }
+	state = { name = "idle"				animation = "idle"				animation_blend_time = 0.3 animation_speed = 1.5 chance = 5 looping = no next_state = "idle" }
+	state = { name = "idle"				animation = "idle"				animation_blend_time = 0.3 animation_speed = 0.7 chance = 4 looping = no next_state = "idle" }
+	state = { name = "training"			animation = "training"			animation_blend_time = 0.0 animation_speed = 1.0 }
+
+	attach = { name = "gun"	Root_003 = "SOV_infantry_weapon_mg_pony_entity" }
+
 	scale = 0.8
 }
 
 entity = {
 	name = "TNO_AprilFools_infantry_onhooves_semi_entity"
-	pdxmesh = "EQS_infantry_rifle_mesh"	
-	
-	default_state = "idle"
-	state = { name = "attack"			animation = "attack" 		animation_blend_time = 0.0 animation_speed = 1.0 looping = no next_state = "attack" chance = 2 propagate_state = { gun = "idle" } }
-	state = { name = "attack"			animation = "attack_shoot_semi" 		animation_blend_time = 0.0 animation_speed = 1.0 looping = no next_state = "attack" chance = 1 }
-	state = { name = "defend"			animation = "idle" 			animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "defend" chance = 1 propagate_state = { gun = "idle" } }
-	state = { name = "defend"			animation = "idle01" 		animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "defend" chance = 1 propagate_state = { gun = "idle" } }
-	state = { name = "defend"			animation = "idle02" 		animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "defend" chance = 1 }
-	state = { name = "support_attack"	animation = "idle" 			animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "support_attack" chance = 1 propagate_state = { gun = "idle" } }
-	state = { name = "support_attack"	animation = "idle01" 		animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "support_attack" chance = 1 propagate_state = { gun = "idle" } }
-	state = { name = "support_attack"	animation = "idle02" 		animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "support_attack" chance = 1 }
-	state = { name = "move"				animation = "move" 			animation_blend_time = 0.0 animation_speed = 1.0 event = { trigger_once = yes sound = { soundeffect = "horse_walking" } } }
-	state = { name = "retreat"			animation = "limp"			animation_blend_time = 0.0 animation_speed = 1.0 }
-	state = { name = "death"			animation = "retreat" 		animation_blend_time = 0.3 animation_speed = 1.0 }
-	state = { name = "idle"				animation = "idle"       	animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 	looping = no next_state = "idle" }
-	state = { name = "idle"				animation = "idle01"		animation_blend_time = 0.3 animation_speed = 1.0 chance = 6 	looping = no next_state = "idle" }
-	state = { name = "idle"				animation = "idle02"		animation_blend_time = 0.3 animation_speed = 1.0 chance = 6 	looping = no next_state = "idle" }
-	state = { name = "idle"				animation = "idle"			animation_blend_time = 0.3 animation_speed = 1.5 chance = 5 	looping = no next_state = "idle" }
-	state = { name = "idle"				animation = "idle"			animation_blend_time = 0.3 animation_speed = 0.7 chance = 4 	looping = no next_state = "idle" }
-	state = { name = "training"			animation = "training" 		animation_blend_time = 0.0 animation_speed = 1.0 }
+	pdxmesh = "EQS_infantry_rifle_mesh"
 
-	attach = { 	name = "gun"	Root_003 = "SOV_infantry_weapon_mg_pony_entity" }
-	
+	default_state = "idle"
+	state = { name = "attack"			animation = "attack"			animation_blend_time = 0.0 animation_speed = 1.0 looping = no next_state = "attack" chance = 2 propagate_state = { gun = "idle" } }
+	state = { name = "attack"			animation = "attack_shoot_semi"	animation_blend_time = 0.0 animation_speed = 1.0 looping = no next_state = "attack" chance = 1 }
+	state = { name = "defend"			animation = "idle"				animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "defend" chance = 1 propagate_state = { gun = "idle" } }
+	state = { name = "defend"			animation = "idle01"			animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "defend" chance = 1 propagate_state = { gun = "idle" } }
+	state = { name = "defend"			animation = "idle02"			animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "defend" chance = 1 }
+	state = { name = "support_attack"	animation = "idle"				animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "support_attack" chance = 1 propagate_state = { gun = "idle" } }
+	state = { name = "support_attack"	animation = "idle01"			animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "support_attack" chance = 1 propagate_state = { gun = "idle" } }
+	state = { name = "support_attack"	animation = "idle02"			animation_blend_time = 0.3 animation_speed = 1.0 looping = no next_state = "support_attack" chance = 1 }
+	state = { name = "move"				animation = "move"				animation_blend_time = 0.0 animation_speed = 1.0 event = { trigger_once = yes sound = { soundeffect = "horse_walking" } } }
+	state = { name = "retreat"			animation = "limp"				animation_blend_time = 0.0 animation_speed = 1.0 }
+	state = { name = "death"			animation = "retreat"			animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "idle"				animation = "idle"				animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 looping = no next_state = "idle" }
+	state = { name = "idle"				animation = "idle01"			animation_blend_time = 0.3 animation_speed = 1.0 chance = 6 looping = no next_state = "idle" }
+	state = { name = "idle"				animation = "idle02"			animation_blend_time = 0.3 animation_speed = 1.0 chance = 6 looping = no next_state = "idle" }
+	state = { name = "idle"				animation = "idle"				animation_blend_time = 0.3 animation_speed = 1.5 chance = 5 looping = no next_state = "idle" }
+	state = { name = "idle"				animation = "idle"				animation_blend_time = 0.3 animation_speed = 0.7 chance = 4 looping = no next_state = "idle" }
+	state = { name = "training"			animation = "training"			animation_blend_time = 0.0 animation_speed = 1.0 }
+
+	attach = { name = "gun"	Root_003 = "SOV_infantry_weapon_mg_pony_entity" }
+
 	scale = 0.8
 }
 
@@ -171,19 +175,19 @@ entity = {
 entity = {
 		name = "TNO_AprilFools_motorized_frame_entity"
 		pdxmesh = "motorized_frame_mesh"
-		
-		state = { name = "idle"				animation = "idle" 					animation_blend_time = 0.3 animation_speed = 1.0 }
-		state = { name = "retreat"			animation = "move" 	 				animation_blend_time = 0.3 animation_speed = 1.0 }
-		state = { name = "training"			animation = "idle" 					animation_blend_time = 0.3 animation_speed = 1.0 }
-		state = { name = "death"			animation = "idle" 					animation_blend_time = 0.3 animation_speed = 1.0 }#
-		state = { name = "support_attack"	animation = "attack" 					animation_blend_time = 0.3 animation_speed = 1.0 }
-		state = { name = "attack"			animation = "attack" 					animation_blend_time = 0.3 animation_speed = 1.0 }
-		state = { name = "defend"			animation = "attack" 					animation_blend_time = 0.3 animation_speed = 1.0 }
-		state = { name = "move"				animation = "move" 					animation_blend_time = 0.3 animation_speed = 1.0 }
+
+		state = { name = "idle"				animation = "idle"			animation_blend_time = 0.3 animation_speed = 1.0 }
+		state = { name = "retreat"			animation = "move"			animation_blend_time = 0.3 animation_speed = 1.0 }
+		state = { name = "training"			animation = "idle"			animation_blend_time = 0.3 animation_speed = 1.0 }
+		state = { name = "death"			animation = "idle"			animation_blend_time = 0.3 animation_speed = 1.0 }
+		state = { name = "support_attack"	animation = "attack"		animation_blend_time = 0.3 animation_speed = 1.0 }
+		state = { name = "attack"			animation = "attack"		animation_blend_time = 0.3 animation_speed = 1.0 }
+		state = { name = "defend"			animation = "attack"		animation_blend_time = 0.3 animation_speed = 1.0 }
+		state = { name = "move"				animation = "move"			animation_blend_time = 0.3 animation_speed = 1.0 }
 		scale = 1.0
-		
-		attach = { 	name = "vehicle"			vehicle = "generic_motorized_vehicle_entity" }
-		attach = { 	name = "infantry"			infantry = "generic_western_vehicle_infantry_entity" }
+
+		attach = { name = "vehicle"			vehicle = "generic_motorized_vehicle_entity" }
+		attach = { name = "infantry"		infantry = "generic_western_vehicle_infantry_entity" }
 }
 
 ###Weapons.
@@ -198,30 +202,29 @@ entity = {
 	name = "AR53P_weapon_right_entity"
 	pdxmesh = "AR53P_weapon_mesh"
 	scale = 1.0
-	
+
 	get_state_from_parent = yes
 	default_state = "idle"
 	state = { name = "idle" }
-	
+
 	state = { name = "move"	}
-	
-	state = { name = "attack" animation = "attack"
-		event = { time = 0.5 node="muzzle" particle = "TNO_AprilFools_mg_muzzle_particle"  keep_particle = yes   light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 0.5 node="muzzle" light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 0.5 node="cartridge" particle = "mg_cartridge_particle"  keep_particle = yes  } 
+
+	state = { name = "attack"				animation = "attack"
+		event = { time = 0.5 node = "muzzle" particle = "TNO_AprilFools_mg_muzzle_particle" keep_particle = yes light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0.5 node = "muzzle" light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0.5 node = "cartridge" particle = "mg_cartridge_particle" keep_particle = yes }
 	}
-	
+
 	state = { name = "defend"
-		event = { time = 0 node="muzzle" particle = "TNO_AprilFools_mg_muzzle_particle"  keep_particle = yes   light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 0 node="muzzle" light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 0 node="cartridge" particle = "mg_cartridge_particle"  keep_particle = yes } 
+		event = { time = 0 node = "muzzle" particle = "TNO_AprilFools_mg_muzzle_particle" keep_particle = yes light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "muzzle" light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "cartridge" particle = "mg_cartridge_particle" keep_particle = yes }
 	}
-	
-	state = { 
-	name = "support_attack" animation = "support_attack"
-	event = { time = 0 node="muzzle" particle = "TNO_AprilFools_mg_muzzle_particle"  keep_particle = yes light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-	event = { time = 0 node="muzzle" light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-	event = { time = 0 node="cartridge" particle = "mg_cartridge_particle"  keep_particle = yes }
+
+	state = { name = "support_attack"		animation = "support_attack"
+		event = { time = 0 node = "muzzle" particle = "TNO_AprilFools_mg_muzzle_particle" keep_particle = yes light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "muzzle" light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "cartridge" particle = "mg_cartridge_particle" keep_particle = yes }
 	}
 }
 
@@ -235,30 +238,29 @@ entity = {
 	name = "AR53P_weapon_pony_entity"
 	pdxmesh = "AR53P_weapon_mesh"
 	scale = 1.0
-	
+
 	get_state_from_parent = yes
 	default_state = "idle"
 
 	state = { name = "idle" }
 	state = { name = "move"	}
 
-	state = { name = "attack" animation = "attack"
-		event = { time = 1.0 node="muzzle" particle = "TNO_AprilFools_mg_muzzle_particle"  keep_particle = yes   light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 1.0 node="muzzle" light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 1.0 node="cartridge" particle = "mg_cartridge_particle"  keep_particle = yes  } 
+	state = { name = "attack"				animation = "attack"
+		event = { time = 1.0 node = "muzzle" particle = "TNO_AprilFools_mg_muzzle_particle" keep_particle = yes light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 1.0 node = "muzzle" light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 1.0 node = "cartridge" particle = "mg_cartridge_particle" keep_particle = yes }
 	}
-	
+
 	state = { name = "defend"
-		event = { time = 0 node="muzzle" particle = "TNO_AprilFools_mg_muzzle_particle"  keep_particle = yes   light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 0 node="muzzle" light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 0 node="cartridge" particle = "mg_cartridge_particle"  keep_particle = yes } 
+		event = { time = 0 node = "muzzle" particle = "TNO_AprilFools_mg_muzzle_particle" keep_particle = yes light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "muzzle" light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "cartridge" particle = "mg_cartridge_particle" keep_particle = yes }
 	}
-	
-	state = { name = "support_attack" 
-		animation = "support_attack"
-		event = { time = 0 node="muzzle" particle = "TNO_AprilFools_mg_muzzle_particle"  keep_particle = yes light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 0 node="muzzle" light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 0 node="cartridge" particle = "mg_cartridge_particle"  keep_particle = yes }
+
+	state = { name = "support_attack"		animation = "support_attack"
+		event = { time = 0 node = "muzzle" particle = "TNO_AprilFools_mg_muzzle_particle" keep_particle = yes light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "muzzle" light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "cartridge" particle = "mg_cartridge_particle" keep_particle = yes }
 	}
 }
 ##ARMP
@@ -272,30 +274,29 @@ entity = {
 	name = "ARMP_weapon_right_entity"
 	pdxmesh = "ARMP_weapon_mesh"
 	scale = 1.0
-	
+
 	get_state_from_parent = yes
 	default_state = "idle"
 	state = { name = "idle" }
-	
+
 	state = { name = "move"	}
-	
-	state = { name = "attack" animation = "attack"
-		event = { time = 0.5 node="muzzle" particle = "TNO_AprilFools_mg_muzzle_particle"  keep_particle = yes   light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 0.5 node="muzzle" light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 0.5 node="cartridge" particle = "mg_cartridge_particle"  keep_particle = yes  } 
+
+	state = { name = "attack"				animation = "attack"
+		event = { time = 0.5 node = "muzzle" particle = "TNO_AprilFools_mg_muzzle_particle" keep_particle = yes light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0.5 node = "muzzle" light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0.5 node = "cartridge" particle = "mg_cartridge_particle" keep_particle = yes }
 	}
-	
+
 	state = { name = "defend"
-		event = { time = 0 node="muzzle" particle = "TNO_AprilFools_mg_muzzle_particle"  keep_particle = yes   light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 0 node="muzzle" light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 0 node="cartridge" particle = "mg_cartridge_particle"  keep_particle = yes } 
+		event = { time = 0 node = "muzzle" particle = "TNO_AprilFools_mg_muzzle_particle" keep_particle = yes light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "muzzle" light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "cartridge" particle = "mg_cartridge_particle" keep_particle = yes }
 	}
-	
-	state = { 
-	name = "support_attack" animation = "support_attack"
-	event = { time = 0 node="muzzle" particle = "TNO_AprilFools_mg_muzzle_particle"  keep_particle = yes light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-	event = { time = 0 node="muzzle" light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-	event = { time = 0 node="cartridge" particle = "mg_cartridge_particle"  keep_particle = yes }
+
+	state = { name = "support_attack"		animation = "support_attack"
+		event = { time = 0 node = "muzzle" particle = "TNO_AprilFools_mg_muzzle_particle" keep_particle = yes light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "muzzle" light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "cartridge" particle = "mg_cartridge_particle" keep_particle = yes }
 	}
 }
 
@@ -309,30 +310,29 @@ entity = {
 	name = "ARMP_weapon_pony_entity"
 	pdxmesh = "ARMP_weapon_mesh"
 	scale = 1.0
-	
+
 	get_state_from_parent = yes
 	default_state = "idle"
 
 	state = { name = "idle" }
 	state = { name = "move"	}
 
-	state = { name = "attack" animation = "attack"
-		event = { time = 1.0 node="muzzle" particle = "TNO_AprilFools_mg_muzzle_particle"  keep_particle = yes   light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 1.0 node="muzzle" light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 1.0 node="cartridge" particle = "mg_cartridge_particle"  keep_particle = yes  } 
+	state = { name = "attack"				animation = "attack"
+		event = { time = 1.0 node = "muzzle" particle = "TNO_AprilFools_mg_muzzle_particle" keep_particle = yes light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 1.0 node = "muzzle" light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 1.0 node = "cartridge" particle = "mg_cartridge_particle" keep_particle = yes }
 	}
-	
+
 	state = { name = "defend"
-		event = { time = 0 node="muzzle" particle = "TNO_AprilFools_mg_muzzle_particle"  keep_particle = yes   light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 0 node="muzzle" light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 0 node="cartridge" particle = "mg_cartridge_particle"  keep_particle = yes } 
+		event = { time = 0 node = "muzzle" particle = "TNO_AprilFools_mg_muzzle_particle" keep_particle = yes light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "muzzle" light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "cartridge" particle = "mg_cartridge_particle" keep_particle = yes }
 	}
-	
-	state = { name = "support_attack" 
-		animation = "support_attack"
-		event = { time = 0 node="muzzle" particle = "TNO_AprilFools_mg_muzzle_particle"  keep_particle = yes light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 0 node="muzzle" light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 0 node="cartridge" particle = "mg_cartridge_particle"  keep_particle = yes }
+
+	state = { name = "support_attack"		animation = "support_attack"
+		event = { time = 0 node = "muzzle" particle = "TNO_AprilFools_mg_muzzle_particle" keep_particle = yes light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "muzzle" light = "TNO_AprilFools_mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "cartridge" particle = "mg_cartridge_particle" keep_particle = yes }
 	}
 }
 ## AK-47 (Pony variant)
@@ -340,29 +340,28 @@ entity = {
 	name = "AK_weapon_pony_entity"
 	pdxmesh = "AK_weapon_mesh"
 	scale = 1.0
-	
+
 	get_state_from_parent = yes
 	default_state = "idle"
 	state = { name = "idle" }
 	state = { name = "move"	}
-	
-	state = { name = "attack" animation = "attack"
-		event = { time = 1.0 node="muzzle" particle = "mg_muzzle_particle"  keep_particle = yes   light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 1.0 node="muzzle" light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 1.0 node="cartridge" particle = "mg_cartridge_particle"  keep_particle = yes  } 
+
+	state = { name = "attack"				animation = "attack"
+		event = { time = 1.0 node = "muzzle" particle = "mg_muzzle_particle" keep_particle = yes light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 1.0 node = "muzzle" light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 1.0 node = "cartridge" particle = "mg_cartridge_particle" keep_particle = yes }
 	}
-	
+
 	state = { name = "defend"
-		event = { time = 0 node="muzzle" particle = "mg_muzzle_particle"  keep_particle = yes   light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 0 node="muzzle" light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 0 node="cartridge" particle = "mg_cartridge_particle"  keep_particle = yes } 
+		event = { time = 0 node = "muzzle" particle = "mg_muzzle_particle" keep_particle = yes light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "muzzle" light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "cartridge" particle = "mg_cartridge_particle" keep_particle = yes }
 	}
-	
-	state = { 
-	name = "support_attack" animation = "support_attack"
-	event = { time = 0 node="muzzle" particle = "mg_muzzle_particle"  keep_particle = yes light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-	event = { time = 0 node="muzzle" light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-	event = { time = 0 node="cartridge" particle = "mg_cartridge_particle"  keep_particle = yes }
+
+	state = { name = "support_attack"		animation = "support_attack"
+		event = { time = 0 node = "muzzle" particle = "mg_muzzle_particle" keep_particle = yes light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "muzzle" light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "cartridge" particle = "mg_cartridge_particle" keep_particle = yes }
 	}
 }
 ## AKM (Pony variant)
@@ -370,29 +369,28 @@ entity = {
 	name = "AKM_weapon_pony_entity"
 	pdxmesh = "AKM_weapon_mesh"
 	scale = 1.0
-	
+
 	get_state_from_parent = yes
 	default_state = "idle"
 	state = { name = "idle" }
 	state = { name = "move"	}
-	
-	state = { name = "attack" animation = "attack"
-		event = { time = 1.0 node="muzzle" particle = "mg_muzzle_particle"  keep_particle = yes   light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 1.0 node="muzzle" light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 1.0 node="cartridge" particle = "mg_cartridge_particle"  keep_particle = yes  } 
+
+	state = { name = "attack"				animation = "attack"
+		event = { time = 1.0 node = "muzzle" particle = "mg_muzzle_particle" keep_particle = yes light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 1.0 node = "muzzle" light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 1.0 node = "cartridge" particle = "mg_cartridge_particle" keep_particle = yes }
 	}
-	
+
 	state = { name = "defend"
-		event = { time = 0 node="muzzle" particle = "mg_muzzle_particle"  keep_particle = yes   light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 0 node="muzzle" light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 0 node="cartridge" particle = "mg_cartridge_particle"  keep_particle = yes } 
+		event = { time = 0 node = "muzzle" particle = "mg_muzzle_particle" keep_particle = yes light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "muzzle" light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "cartridge" particle = "mg_cartridge_particle" keep_particle = yes }
 	}
-	
-	state = { 
-	name = "support_attack" animation = "support_attack"
-	event = { time = 0 node="muzzle" particle = "mg_muzzle_particle"  keep_particle = yes light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-	event = { time = 0 node="muzzle" light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-	event = { time = 0 node="cartridge" particle = "mg_cartridge_particle"  keep_particle = yes }
+
+	state = { name = "support_attack"		animation = "support_attack"
+		event = { time = 0 node = "muzzle" particle = "mg_muzzle_particle" keep_particle = yes light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "muzzle" light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "cartridge" particle = "mg_cartridge_particle" keep_particle = yes }
 	}
 }
 
@@ -401,29 +399,28 @@ entity = {
 	name = "AK74_weapon_pony_entity"
 	pdxmesh = "AK74_weapon_mesh"
 	scale = 1.0
-	
+
 	get_state_from_parent = yes
 	default_state = "idle"
 	state = { name = "idle" }
 	state = { name = "move"	}
-	
-	state = { name = "attack" animation = "attack"
-		event = { time = 1.0 node="muzzle" particle = "mg_muzzle_particle"  keep_particle = yes   light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 1.0 node="muzzle" light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 1.0 node="cartridge" particle = "mg_cartridge_particle"  keep_particle = yes  } 
+
+	state = { name = "attack"				animation = "attack"
+		event = { time = 1.0 node = "muzzle" particle = "mg_muzzle_particle" keep_particle = yes light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 1.0 node = "muzzle" light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 1.0 node = "cartridge" particle = "mg_cartridge_particle" keep_particle = yes }
 	}
-	
+
 	state = { name = "defend"
-		event = { time = 0 node="muzzle" particle = "mg_muzzle_particle"  keep_particle = yes   light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 0 node="muzzle" light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-		event = { time = 0 node="cartridge" particle = "mg_cartridge_particle"  keep_particle = yes } 
+		event = { time = 0 node = "muzzle" particle = "mg_muzzle_particle" keep_particle = yes light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "muzzle" light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "cartridge" particle = "mg_cartridge_particle" keep_particle = yes }
 	}
-	
-	state = { 
-	name = "support_attack" animation = "support_attack"
-	event = { time = 0 node="muzzle" particle = "mg_muzzle_particle"  keep_particle = yes light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-	event = { time = 0 node="muzzle" light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } } 
-	event = { time = 0 node="cartridge" particle = "mg_cartridge_particle"  keep_particle = yes }
+
+	state = { name = "support_attack"		animation = "support_attack"
+		event = { time = 0 node = "muzzle" particle = "mg_muzzle_particle" keep_particle = yes light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "muzzle" light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "cartridge" particle = "mg_cartridge_particle" keep_particle = yes }
 	}
 }
 
@@ -438,23 +435,22 @@ entity = {
 	state = { name = "idle" }
 	state = { name = "move"	}
 
-	state = { name = "attack"	animation = "attack"
-		event = { time = 1.0 node="muzzle" particle = "mg_muzzle_particle"  keep_particle = yes   light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
-		event = { time = 1.0 node="muzzle" particle = "mg_muzzle_smoke_particle"  keep_particle = yes   light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
-		event = { time = 1.0 node="cartridge" particle = "mg_cartridge_particle"  keep_particle = yes }
+	state = { name = "attack"				animation = "attack"
+		event = { time = 1.0 node = "muzzle" particle = "mg_muzzle_particle" keep_particle = yes light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 1.0 node = "muzzle" particle = "mg_muzzle_smoke_particle" keep_particle = yes light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 1.0 node = "cartridge" particle = "mg_cartridge_particle" keep_particle = yes }
 	}
 
 	state = { name = "defend"
-		event = { time = 0 node="muzzle" particle = "mg_muzzle_particle"  keep_particle = yes   light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
-		event = { time = 0 node="muzzle" particle = "mg_muzzle_smoke_particle"  keep_particle = yes   light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
-		event = { time = 0 node="cartridge" particle = "mg_cartridge_particle"  keep_particle = yes }
+		event = { time = 0 node = "muzzle" particle = "mg_muzzle_particle" keep_particle = yes light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "muzzle" particle = "mg_muzzle_smoke_particle" keep_particle = yes light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "cartridge" particle = "mg_cartridge_particle" keep_particle = yes }
 	}
 
-	state = {
-	name = "support_attack"	animation = "support_attack"
-	event = { time = 0 node="muzzle" particle = "mg_muzzle_particle"  keep_particle = yes light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
-	event = { time = 0 node="muzzle" particle = "mg_muzzle_smoke_particle"  keep_particle = yes light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
-	event = { time = 0 node="cartridge" particle = "mg_cartridge_particle"  keep_particle = yes }
+	state = { name = "support_attack"		animation = "support_attack"
+		event = { time = 0 node = "muzzle" particle = "mg_muzzle_particle" keep_particle = yes light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "muzzle" particle = "mg_muzzle_smoke_particle" keep_particle = yes light = "mg_muzzle_flash" sound = { soundeffect = infantry_mg_attack } }
+		event = { time = 0 node = "cartridge" particle = "mg_cartridge_particle" keep_particle = yes }
 	}
 }
 
@@ -463,80 +459,70 @@ entity = {
 	name = "M14_weapon_pony_entity"
 	pdxmesh = "M14_weapon_mesh"
 	scale = 1
-	
+
 	get_state_from_parent = yes
 	default_state = "idle"
 	state = { name = "idle" }
 	state = { name = "move"	}
-	
-	
-	state = { 
-	name = "attack"	
-	event = { time = 1 node="muzzle" particle = "rifle_muzzle_particle"  keep_particle = yes light = "muzzle_flash" sound = { soundeffect = infantry_rifle_attack } }  
-	event = { time = 1 node="cartridge" particle = "rifle_cartridge_particle"  keep_particle = yes sound = { soundeffect = infantry_rifle_cartridge } }
-	event = { time = 2.015 node="muzzle" particle = "rifle_muzzle_particle"  keep_particle = yes light = "muzzle_flash" }
-	event = { time = 2.015 node="cartridge" particle = "rifle_cartridge_particle"  keep_particle = yes }
+
+	state = { name = "attack"
+		event = { time = 1 node = "muzzle" particle = "rifle_muzzle_particle" keep_particle = yes light = "muzzle_flash" sound = { soundeffect = infantry_rifle_attack } }
+		event = { time = 1 node = "cartridge" particle = "rifle_cartridge_particle" keep_particle = yes sound = { soundeffect = infantry_rifle_cartridge } }
+		event = { time = 2.015 node = "muzzle" particle = "rifle_muzzle_particle" keep_particle = yes light = "muzzle_flash" }
+		event = { time = 2.015 node = "cartridge" particle = "rifle_cartridge_particle" keep_particle = yes }
 	}
-	
-	state = { 
-	name = "defend"
-	event = { time = 0 node="muzzle" particle = "rifle_muzzle_particle"  keep_particle = yes light = "muzzle_flash" sound = { soundeffect = infantry_rifle_attack } } 
-	event = { time = 0 node="cartridge" particle = "rifle_cartridge_particle"  keep_particle = yes sound = { soundeffect = infantry_rifle_cartridge } }
-	event = { time = 1.015 node="muzzle" particle = "rifle_muzzle_particle"  keep_particle = yes light = "muzzle_flash" } 
-	event = { time = 1.015 node="cartridge" particle = "rifle_cartridge_particle"  keep_particle = yes }
+
+	state = { name = "defend"
+		event = { time = 0 node = "muzzle" particle = "rifle_muzzle_particle" keep_particle = yes light = "muzzle_flash" sound = { soundeffect = infantry_rifle_attack } }
+		event = { time = 0 node = "cartridge" particle = "rifle_cartridge_particle" keep_particle = yes sound = { soundeffect = infantry_rifle_cartridge } }
+		event = { time = 1.015 node = "muzzle" particle = "rifle_muzzle_particle" keep_particle = yes light = "muzzle_flash" }
+		event = { time = 1.015 node = "cartridge" particle = "rifle_cartridge_particle" keep_particle = yes }
 	}
-	
-	state = { 
-	name = "support_attack"	animation = "support_attack" 
-	event = { time = 0 node="muzzle" particle = "rifle_muzzle_particle"  keep_particle = yes light = "muzzle_flash" sound = { soundeffect = infantry_rifle_attack } }  
-	event = { time = 0 node="cartridge" particle = "rifle_cartridge_particle"  keep_particle = yes sound = { soundeffect = infantry_rifle_cartridge } }
-	event = { time = 1.015 node="muzzle" particle = "rifle_muzzle_particle"  keep_particle = yes light = "muzzle_flash" }
-	event = { time = 1.015 node="cartridge" particle = "rifle_cartridge_particle"  keep_particle = yes }
+
+	state = { name = "support_attack"		animation = "support_attack"
+		event = { time = 0 node = "muzzle" particle = "rifle_muzzle_particle" keep_particle = yes light = "muzzle_flash" sound = { soundeffect = infantry_rifle_attack } }
+		event = { time = 0 node = "cartridge" particle = "rifle_cartridge_particle" keep_particle = yes sound = { soundeffect = infantry_rifle_cartridge } }
+		event = { time = 1.015 node = "muzzle" particle = "rifle_muzzle_particle" keep_particle = yes light = "muzzle_flash" }
+		event = { time = 1.015 node = "cartridge" particle = "rifle_cartridge_particle" keep_particle = yes }
 	}
-}	
+}
 
 ### Vehicles.
 entity = {
 	name = "LT55A_MBT_entity"
 	pdxmesh = "LT55A_tank_mesh"
-	
-	state = { name = "idle"				animation = "idle"   animation_blend_time = 0.3 }
-	state = { name = "move"				animation = "move"   animation_blend_time = 0.3 
-		event = { time = 0 node="left_exhaust" particle = "tank_exhaust_particle"  keep_particle = no trigger_once = yes } 
-		event = { time = 0 node="left_tracks" particle = "tank_moving_tracks_particle"  keep_particle = no trigger_once = yes}
-		event = { time = 0 node="right_tracks" particle = "tank_moving_tracks_particle"  keep_particle = no trigger_once = yes}
+
+	state = { name = "idle"					animation = "idle"			animation_blend_time = 0.3 }
+	state = { name = "move"					animation = "move"			animation_blend_time = 0.3
+		event = { time = 0 node = "left_exhaust" particle = "tank_exhaust_particle" keep_particle = no trigger_once = yes }
+		event = { time = 0 node = "left_tracks" particle = "tank_moving_tracks_particle" keep_particle = no trigger_once = yes }
+		event = { time = 0 node = "right_tracks" particle = "tank_moving_tracks_particle" keep_particle = no trigger_once = yes }
 		event = { trigger_once = yes sound = { soundeffect = "tank_engine_medium_move" } }
 	}
-	state = { name = "retreat"				animation = "move"   animation_blend_time = 0.3 
-		event = { time = 0 node="left_exhaust" particle = "tank_exhaust_particle"  keep_particle = no trigger_once = yes } 
-		event = { time = 0 node="left_tracks" particle = "tank_moving_tracks_particle"  keep_particle = no trigger_once = yes}
-		event = { time = 0 node="right_tracks" particle = "tank_moving_tracks_particle"  keep_particle = no trigger_once = yes}
+	state = { name = "retreat"			animation = "move"			animation_blend_time = 0.3
+		event = { time = 0 node = "left_exhaust" particle = "tank_exhaust_particle" keep_particle = no trigger_once = yes }
+		event = { time = 0 node = "left_tracks" particle = "tank_moving_tracks_particle" keep_particle = no trigger_once = yes }
+		event = { time = 0 node = "right_tracks" particle = "tank_moving_tracks_particle" keep_particle = no trigger_once = yes }
 		event = { trigger_once = yes sound = { soundeffect = "tank_engine_medium_move" } }
 	}
-	state = { name = "attack"			animation = "attack" animation_blend_time = 0.0 
-		animation_speed = 1.0
-		event = { time = 0.0 node="barrel" light = "LT55A_light" 
-		}
+	state = { name = "attack"				animation = "attack"		animation_blend_time = 0.0 animation_speed = 1.0
+		event = { time = 0.0 node = "barrel" light = "LT55A_light" }
 	}
-	state = { name = "defend"			animation = "attack" animation_blend_time = 0.0 
-		animation_speed = 1.0
-		event = { time = 0.0 node="barrel" light = "LT55A_light" 
-		}
+	state = { name = "defend"				animation = "attack"		animation_blend_time = 0.0 animation_speed = 1.0
+		event = { time = 0.0 node = "barrel" light = "LT55A_light" }
 	}
-	state = { name = "support_attack"	animation = "attack" animation_blend_time = 0.0 
-		animation_speed = 1.0
-		event = { time = 0.0 node="barrel" light = "LT55A_light" 
-		}
+	state = { name = "support_attack"		animation = "attack"		animation_blend_time = 0.0 animation_speed = 1.0
+		event = { time = 0.0 node = "barrel" light = "LT55A_light" }
 	}
-	state = { name = "training"				animation = "idle" 			animation_blend_time = 0.3 animation_speed = 1.0
-		event = { time = 0 node="right_exhaust" particle = "tank_exhaust_particle"  keep_particle = no trigger_once = yes }
-		event = { time = 0 node="left_exhaust" particle = "tank_exhaust_particle"  keep_particle = no trigger_once = yes }
+	state = { name = "training"				animation = "idle"			animation_blend_time = 0.3 animation_speed = 1.0
+		event = { time = 0 node = "right_exhaust" particle = "tank_exhaust_particle" keep_particle = no trigger_once = yes }
+		event = { time = 0 node = "left_exhaust" particle = "tank_exhaust_particle" keep_particle = no trigger_once = yes }
 	}
-	
+
 	scale = 1.1
-	
-    version = 2
-	
+
+	version = 2
+
 	game_data = {
 		texture_anim_speed = 0.5
 	}
@@ -549,29 +535,29 @@ entity = {
 entity = {
 	name = "onhooves_entity"
 	clone = "TNO_AprilFools_infantry_onhooves_entity"
-	
-	attach = { 	name = "gun"	Root_003 = "LAGG1_weapon_left_entity" }
+
+	attach = { name = "gun"	Root_003 = "LAGG1_weapon_left_entity" }
 }
 # Asian
-entity = { 
+entity = {
 	name = "asian_gfx_onhooves_entity"
 	clone = "TNO_AprilFools_infantry_onhooves_entity"
 
-	attach = { 	name = "gun"	Root_003 = "ArisakaType15_weapon_right_entity" }
+	attach = { name = "gun"	Root_003 = "ArisakaType15_weapon_right_entity" }
 }
 # Eastern European
-entity = { 
+entity = {
 	name = "eastern_european_gfx_onhooves_entity"
 	clone = "TNO_AprilFools_infantry_onhooves_entity"
 
-	attach = { 	name = "gun"	Root_003 = "AK_weapon_right_entity" }
+	attach = { name = "gun"	Root_003 = "AK_weapon_right_entity" }
 }
 # South American
-entity = { 
+entity = {
 	name = "southamerican_gfx_onhooves_entity"
 	clone = "TNO_AprilFools_infantry_onhooves_entity"
 
-	attach = { 	name = "gun"	Root_003 = "M14_weapon_left_entity" }
+	attach = { name = "gun"	Root_003 = "M14_weapon_left_entity" }
 }
 
 ## Omolon (main tag)
@@ -581,32 +567,32 @@ entity = {
 	clone = "TNO_AprilFools_infantry_onhooves_mg_entity"
 
 	pdxmesh = "OMO_pony_mesh"
-	
-	attach = { 	name = "gun"	Root_003 = "AR53P_weapon_pony_entity" }
+
+	attach = { name = "gun"	Root_003 = "AR53P_weapon_pony_entity" }
 }
 entity = {
 	name = "OMO_onhooves_0_entity"
 	clone = "OMO_onhooves_entity"
-	
-	attach = { 	name = "gun"	Root_003 = "AR53P_weapon_pony_entity" }
+
+	attach = { name = "gun"	Root_003 = "AR53P_weapon_pony_entity" }
 }
 entity = {
 	name = "OMO_onhooves_1_entity"
 	clone = "OMO_onhooves_entity"
-	
-	attach = { 	name = "gun"	Root_003 = "ARMP_weapon_pony_entity" }
+
+	attach = { name = "gun"	Root_003 = "ARMP_weapon_pony_entity" }
 }
 entity = {
 	name = "OMO_onhooves_2_entity"
 	clone = "OMO_onhooves_entity"
-	
-	attach = { 	name = "gun"	Root_003 = "ARMP_weapon_pony_entity" }
+
+	attach = { name = "gun"	Root_003 = "ARMP_weapon_pony_entity" }
 }
 entity = {
 	name = "OMO_onhooves_3_entity"
 	clone = "OMO_onhooves_entity"
-	
-	attach = { 	name = "gun"	Root_003 = "ARMP_weapon_pony_entity" }
+
+	attach = { name = "gun"	Root_003 = "ARMP_weapon_pony_entity" }
 }
 # Armor
 entity = {
@@ -620,10 +606,10 @@ entity = {
 		pdxmesh = "SOV_infantry_mg_mesh"
 		clone = "TNO_AprilFools_infantry_2_entity"
 
-		attach = { 	name = "rifle1"	Right_Hand_node = "SOV_infantry_weapon_mg_right_entity" }
-		attach = { 	name = "rifle2"	Left_Hand_node = "SOV_infantry_weapon_mg_left_entity" }
-		attach = { 	name = "rifle3"	mid_back_node = "SOV_infantry_weapon_mg_long_idle_entity" }
-		attach = { 	name = "rifle4"	Root_node_2 = "SOV_infantry_weapon_rifle_right_entity" }
+		attach = { name = "rifle1"	Right_Hand_node = "SOV_infantry_weapon_mg_right_entity" }
+		attach = { name = "rifle2"	Left_Hand_node = "SOV_infantry_weapon_mg_left_entity" }
+		attach = { name = "rifle3"	mid_back_node = "SOV_infantry_weapon_mg_long_idle_entity" }
+		attach = { name = "rifle4"	Root_node_2 = "SOV_infantry_weapon_rifle_right_entity" }
 }
 entity = {
 	name = "OMO_Harmonious_State_light_infantry_entity"
@@ -647,10 +633,10 @@ entity = {
 		pdxmesh = "SOV_infantry_mg_mesh"
 		clone = "TNO_AprilFools_infantry_2_entity"
 
-		attach = { 	name = "rifle1"	Right_Hand_node = "SOV_infantry_weapon_mg_right_entity" }
-		attach = { 	name = "rifle2"	Left_Hand_node = "SOV_infantry_weapon_mg_left_entity" }
-		attach = { 	name = "rifle3"	mid_back_node = "SOV_infantry_weapon_mg_long_idle_entity" }
-		attach = { 	name = "rifle4"	Root_node_2 = "SOV_infantry_weapon_rifle_right_entity" }
+		attach = { name = "rifle1"	Right_Hand_node = "SOV_infantry_weapon_mg_right_entity" }
+		attach = { name = "rifle2"	Left_Hand_node = "SOV_infantry_weapon_mg_left_entity" }
+		attach = { name = "rifle3"	mid_back_node = "SOV_infantry_weapon_mg_long_idle_entity" }
+		attach = { name = "rifle4"	Root_node_2 = "SOV_infantry_weapon_rifle_right_entity" }
 }
 entity = {
 	name = "OMO_Harmonious_State_light_infantry_0_entity"
@@ -674,10 +660,10 @@ entity = {
 		pdxmesh = "SOV_infantry_mg_mesh"
 		clone = "TNO_AprilFools_infantry_2_entity"
 
-		attach = { 	name = "rifle1"	Right_Hand_node = "SOV_infantry_weapon_mg_right_entity" }
-		attach = { 	name = "rifle2"	Left_Hand_node = "SOV_infantry_weapon_mg_left_entity" }
-		attach = { 	name = "rifle3"	mid_back_node = "SOV_infantry_weapon_mg_long_idle_entity" }
-		attach = { 	name = "rifle4"	Root_node_2 = "SOV_infantry_weapon_rifle_right_entity" }
+		attach = { name = "rifle1"	Right_Hand_node = "SOV_infantry_weapon_mg_right_entity" }
+		attach = { name = "rifle2"	Left_Hand_node = "SOV_infantry_weapon_mg_left_entity" }
+		attach = { name = "rifle3"	mid_back_node = "SOV_infantry_weapon_mg_long_idle_entity" }
+		attach = { name = "rifle4"	Root_node_2 = "SOV_infantry_weapon_rifle_right_entity" }
 }
 entity = {
 	name = "OMO_Harmonious_State_light_infantry_1_entity"
@@ -701,10 +687,10 @@ entity = {
 		pdxmesh = "SOV_infantry_mg_mesh"
 		clone = "TNO_AprilFools_infantry_2_entity"
 
-		attach = { 	name = "rifle1"	Right_Hand_node = "AK_weapon_right_entity" }
-		attach = { 	name = "rifle2"	Left_Hand_node = "AK_weapon_left_entity" }
-		attach = { 	name = "rifle3"	mid_back_node = "AK_weapon_long_idle_entity" }
-		attach = { 	name = "rifle4"	Root_node_2 = "SOV_infantry_weapon_rifle_right_entity" }
+		attach = { name = "rifle1"	Right_Hand_node = "AK_weapon_right_entity" }
+		attach = { name = "rifle2"	Left_Hand_node = "AK_weapon_left_entity" }
+		attach = { name = "rifle3"	mid_back_node = "AK_weapon_long_idle_entity" }
+		attach = { name = "rifle4"	Root_node_2 = "SOV_infantry_weapon_rifle_right_entity" }
 }
 entity = {
 	name = "OMO_Harmonious_State_light_infantry_2_entity"
@@ -728,10 +714,10 @@ entity = {
 		pdxmesh = "SOV_infantry_mg_mesh"
 		clone = "TNO_AprilFools_infantry_2_entity"
 
-		attach = { 	name = "rifle1"	Right_Hand_node = "AKM_weapon_right_entity" }
-		attach = { 	name = "rifle2"	Left_Hand_node = "AKM_weapon_left_entity" }
-		attach = { 	name = "rifle3"	mid_back_node = "AKM_weapon_long_idle_entity" }
-		attach = { 	name = "rifle4"	Root_node_2 = "SOV_infantry_weapon_rifle_right_entity" }
+		attach = { name = "rifle1"	Right_Hand_node = "AKM_weapon_right_entity" }
+		attach = { name = "rifle2"	Left_Hand_node = "AKM_weapon_left_entity" }
+		attach = { name = "rifle3"	mid_back_node = "AKM_weapon_long_idle_entity" }
+		attach = { name = "rifle4"	Root_node_2 = "SOV_infantry_weapon_rifle_right_entity" }
 }
 entity = {
 	name = "OMO_Harmonious_State_light_infantry_3_entity"
@@ -755,10 +741,10 @@ entity = {
 		pdxmesh = "SOV_infantry_mg_mesh"
 		clone = "TNO_AprilFools_infantry_2_entity"
 
-		attach = { 	name = "rifle1"	Right_Hand_node = "AK74_weapon_right_entity" }
-		attach = {	name = "rifle2"	Left_Hand_node = "AK74_weapon_left_entity" }
-		attach = { 	name = "rifle3"	mid_back_node = "AK74_weapon_long_idle_entity" }
-		attach = { 	name = "rifle4"	Root_node_2 = "SOV_infantry_weapon_rifle_right_entity" }
+		attach = { name = "rifle1"	Right_Hand_node = "AK74_weapon_right_entity" }
+		attach = { name = "rifle2"	Left_Hand_node = "AK74_weapon_left_entity" }
+		attach = { name = "rifle3"	mid_back_node = "AK74_weapon_long_idle_entity" }
+		attach = { name = "rifle4"	Root_node_2 = "SOV_infantry_weapon_rifle_right_entity" }
 }
 entity = {
 	name = "OMO_Harmonious_State_light_infantry_4_entity"
@@ -782,10 +768,10 @@ entity = {
 		pdxmesh = "SOV_infantry_mg_mesh"
 		clone = "TNO_AprilFools_infantry_2_entity"
 
-		attach = { 	name = "rifle1"	Right_Hand_node = "AK74_weapon_right_entity" }
-		attach = {	name = "rifle2"	Left_Hand_node = "AK74_weapon_left_entity" }
-		attach = { 	name = "rifle3"	mid_back_node = "AK74_weapon_long_idle_entity" }
-		attach = { 	name = "rifle4"	Root_node_2 = "SOV_infantry_weapon_rifle_right_entity" }
+		attach = { name = "rifle1"	Right_Hand_node = "AK74_weapon_right_entity" }
+		attach = { name = "rifle2"	Left_Hand_node = "AK74_weapon_left_entity" }
+		attach = { name = "rifle3"	mid_back_node = "AK74_weapon_long_idle_entity" }
+		attach = { name = "rifle4"	Root_node_2 = "SOV_infantry_weapon_rifle_right_entity" }
 }
 entity = {
 	name = "OMO_Harmonious_State_light_infantry_5_entity"
@@ -808,23 +794,23 @@ entity = {
 entity = {
 		name = "OMO_Harmonious_State_APC_entity"
 		clone = "TNO_AprilFools_motorized_frame_entity"
-		
-		attach = { 	name = "vehicle"			vehicle = "RUSSIA_APC_vehicle_entity" }
-		attach = { 	name = "infantry"			infantry = "OMO_Harmonious_State_vehicle_infantry_entity" }
+
+		attach = { name = "vehicle"			vehicle = "RUSSIA_APC_vehicle_entity" }
+		attach = { name = "infantry"		infantry = "OMO_Harmonious_State_vehicle_infantry_entity" }
 }
 entity = {
 		name = "OMO_Harmonious_State_APC_2_entity"
 		clone = "TNO_AprilFools_motorized_frame_entity"
-		
-		attach = { 	name = "vehicle"			vehicle = "RUSSIA_APC_vehicle_entity" }
-		attach = { 	name = "infantry"			infantry = "OMO_Harmonious_State_vehicle_infantry_2_entity" }
+
+		attach = { name = "vehicle"			vehicle = "RUSSIA_APC_vehicle_entity" }
+		attach = { name = "infantry"		infantry = "OMO_Harmonious_State_vehicle_infantry_2_entity" }
 }
 entity = {
-        name = "OMO_Harmonious_State_APC_0_entity"
-        clone = "TNO_AprilFools_motorized_frame_entity"
-		
-		attach = { 	name = "vehicle"			vehicle = "RUSSIA_APC_vehicle_0_entity" }
-		attach = { 	name = "infantry"			infantry = "OMO_Harmonious_State_vehicle_infantry_entity" }
+		name = "OMO_Harmonious_State_APC_0_entity"
+		clone = "TNO_AprilFools_motorized_frame_entity"
+
+		attach = { name = "vehicle"			vehicle = "RUSSIA_APC_vehicle_0_entity" }
+		attach = { name = "infantry"		infantry = "OMO_Harmonious_State_vehicle_infantry_entity" }
 }
 entity = {
 		name = "OMO_Harmonious_State_vehicle_infantry_entity"
@@ -839,133 +825,133 @@ entity = {
 entity = {
 		name = "OMO_Harmonious_State_motorized_entity"
 		clone = "TNO_AprilFools_motorized_frame_entity"
-		
-		attach = { 	name = "vehicle"			vehicle = "SOV_motorized_vehicle_entity" }
-		attach = { 	name = "infantry"			infantry = "OMO_Harmonious_State_vehicle_infantry_entity" }
+
+		attach = { name = "vehicle"			vehicle = "SOV_motorized_vehicle_entity" }
+		attach = { name = "infantry"		infantry = "OMO_Harmonious_State_vehicle_infantry_entity" }
 }
 entity = {
 		name = "OMO_Harmonious_State_motorized_2_entity"
 		clone = "TNO_AprilFools_motorized_frame_entity"
-		
-		attach = { 	name = "vehicle"			vehicle = "SOV_motorized_vehicle_entity" }
-		attach = { 	name = "infantry"			infantry = "OMO_Harmonious_State_vehicle_infantry_2_entity" }
+
+		attach = { name = "vehicle"			vehicle = "SOV_motorized_vehicle_entity" }
+		attach = { name = "infantry"		infantry = "OMO_Harmonious_State_vehicle_infantry_2_entity" }
 }
 
 entity = {
-		name = "OMO_Harmonious_State_infantry_mg_rider_entity"
-		pdxmesh = "SOV_infantry_mg_mesh"
-		
-		default_state = "idle"
-		state = { name = "attack"			animation = "attack" 			animation_blend_time = 0.3 animation_speed = 1.0 propagate_state = { rifle1 = "defend" } }
-		state = { name = "defend"			animation = "attack" 			animation_blend_time = 0.3 animation_speed = 1.0 }
-		state = { name = "support_attack"	animation = "support_attack" 	animation_blend_time = 0.3 animation_speed = 1.0 }
-		state = { name = "retreat"			animation = "cavalry_move" 			animation_blend_time = 0.3 animation_speed = 1.0 }
-		state = { name = "idle"				animation = "cavalry_idle"		animation_blend_time = 0.3 animation_speed = 1.0 }
-		state = { name = "move"				animation = "cavalry_move"		animation_blend_time = 0.3 animation_speed = 1.0
-			event = { sound = { soundeffect = "horse_walking" } }
-		}
-		state = { name = "training"				animation = "training" 			animation_blend_time = 0.3 animation_speed = 1.0 chance = 2 looping = no }
-		state = { name = "training"				animation = "jumping_jacks" 	animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
-		state = { name = "training"				animation = "pushup" 			animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
-		#state = { name = "training"				animation = "guard_rifle" 		animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
-		state = { name = "training"				animation = "aim_exercise" 		animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
-		
-		attach = { 	name = "rifle1"	Right_Hand_node = "SOV_infantry_weapon_mg_right_entity" }	
-		attach = { 	name = "rifle2"	Left_Hand_node = "SOV_infantry_weapon_mg_left_entity" }
-		attach = { 	name = "rifle4"	Root_node_2 = "SOV_infantry_weapon_rifle_right_entity" }	
-		
-		scale = 0.8			
+	name = "OMO_Harmonious_State_infantry_mg_rider_entity"
+	pdxmesh = "SOV_infantry_mg_mesh"
+
+	default_state = "idle"
+	state = { name = "attack"				animation = "attack"			animation_blend_time = 0.3 animation_speed = 1.0 propagate_state = { rifle1 = "defend" } }
+	state = { name = "defend"				animation = "attack"			animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "support_attack"		animation = "support_attack"	animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "retreat"				animation = "cavalry_move"		animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "idle"					animation = "cavalry_idle"		animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "move"					animation = "cavalry_move"		animation_blend_time = 0.3 animation_speed = 1.0
+		event = { sound = { soundeffect = "horse_walking" } }
+	}
+	state = { name = "training"				animation = "training"			animation_blend_time = 0.3 animation_speed = 1.0 chance = 2 looping = no }
+	state = { name = "training"				animation = "jumping_jacks"		animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
+	state = { name = "training"				animation = "pushup"			animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
+	#state = { name = "training"			animation = "guard_rifle"		animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
+	state = { name = "training"				animation = "aim_exercise"		animation_blend_time = 0.3 animation_speed = 1.0 chance = 1 looping = no }
+
+	attach = { name = "rifle1"				Right_Hand_node = "SOV_infantry_weapon_mg_right_entity" }
+	attach = { name = "rifle2"				Left_Hand_node = "SOV_infantry_weapon_mg_left_entity" }
+	attach = { name = "rifle4"				Root_node_2 = "SOV_infantry_weapon_rifle_right_entity" }
+
+	scale = 0.8
 }
 entity = {
-		name = "OMO_Harmonious_State_infantry_ar_rider_entity"
-		clone = "OMO_Harmonious_State_infantry_mg_rider_entity"
-		
-		attach = { 	name = "rifle1"	Right_Hand_node = "AK_weapon_right_entity" }	
-		attach = { 	name = "rifle2"	Left_Hand_node = "AK_weapon_left_entity" }
-		attach = { 	name = "rifle4"	Root_node_2 = "AK_weapon_right_entity" }	
-		
-		scale = 0.8			
+	name = "OMO_Harmonious_State_infantry_ar_rider_entity"
+	clone = "OMO_Harmonious_State_infantry_mg_rider_entity"
+
+	attach = { name = "rifle1"	Right_Hand_node = "AK_weapon_right_entity" }
+	attach = { name = "rifle2"	Left_Hand_node = "AK_weapon_left_entity" }
+	attach = { name = "rifle4"	Root_node_2 = "AK_weapon_right_entity" }
+
+	scale = 0.8
 }
 entity = {
-		name = "OMO_Harmonious_State_cavalry_entity"
-		pdxmesh = "infantry_cavalry_horse_frame_mesh"
-		
-		default_state = "idle"
-		state = { name = "idle"				animation = "idle" 		animation_blend_time = 0.0 }
-		state = { name = "move"				animation = "move" 		animation_blend_time = 0.0 }
-		state = { name = "attack"					animation = "attack" 	animation_blend_time = 0.0 }
-		state = { name = "defend"					animation = "attack" 	animation_blend_time = 0.0 }
-		state = { name = "support_attack"			animation = "attack" 	animation_blend_time = 0.0 }
-		state = { name = "retreat"					animation = "move" 		animation_blend_time = 0.0 }
-		state = { name = "training"					animation = "attack" 		animation_blend_time = 0.0 }
-		
-		attach = { 	name = "infantry"			infantry = "OMO_Harmonious_State_infantry_mg_rider_entity" }
-		attach = { 	name = "cavalry"			cavalry = "OMO_Harmonious_State_cavalry_rifle_combined_entity" }
-		attach = { 	name = "horse"				horse = "infantry_cavalry_horse_entity" }
-		
-		scale = 1.0
+	name = "OMO_Harmonious_State_cavalry_entity"
+	pdxmesh = "infantry_cavalry_horse_frame_mesh"
+
+	default_state = "idle"
+	state = { name = "idle"					animation = "idle"				animation_blend_time = 0.0 }
+	state = { name = "move"					animation = "move"				animation_blend_time = 0.0 }
+	state = { name = "attack"				animation = "attack"			animation_blend_time = 0.0 }
+	state = { name = "defend"				animation = "attack"			animation_blend_time = 0.0 }
+	state = { name = "support_attack"		animation = "attack"			animation_blend_time = 0.0 }
+	state = { name = "retreat"				animation = "move"				animation_blend_time = 0.0 }
+	state = { name = "training"				animation = "attack"			animation_blend_time = 0.0 }
+
+	attach = { name = "infantry"			infantry = "OMO_Harmonious_State_infantry_mg_rider_entity" }
+	attach = { name = "cavalry"				cavalry = "OMO_Harmonious_State_cavalry_rifle_combined_entity" }
+	attach = { name = "horse"				horse = "infantry_cavalry_horse_entity" }
+
+	scale = 1.0
 }
 entity = {
-		name = "OMO_Harmonious_State_cavalry_2_entity"
-		clone = "OMO_Harmonious_State_cavalry_entity"
-		
-		attach = { 	name = "infantry"			infantry = "OMO_Harmonious_State_infantry_ar_rider_entity" }
-		attach = { 	name = "cavalry"			cavalry = "OMO_Harmonious_State_cavalry_ar_combined_entity" }
-		attach = { 	name = "horse"				horse = "infantry_cavalry_horse_entity" }
-		
-		scale = 1.0
+	name = "OMO_Harmonious_State_cavalry_2_entity"
+	clone = "OMO_Harmonious_State_cavalry_entity"
+
+	attach = { name = "infantry"			infantry = "OMO_Harmonious_State_infantry_ar_rider_entity" }
+	attach = { name = "cavalry"				cavalry = "OMO_Harmonious_State_cavalry_ar_combined_entity" }
+	attach = { name = "horse"				horse = "infantry_cavalry_horse_entity" }
+
+	scale = 1.0
 }
 entity = {
-		name = "OMO_Harmonious_State_cavalry_rifle_combined_entity"
-		pdxmesh = "infantry_cavalry_horse_mesh"
-		
-		default_state = "idle"
-		state = { name = "idle"						animation = "cavalry_idle" 		animation_blend_time = 0.0 }
-		state = { name = "move"						animation = "cavalry_move" 		animation_blend_time = 0.0 }
-		state = { name = "retreat"					animation = "cavalry_move" 		animation_blend_time = 0.0 }
-		state = { name = "training"					animation = "cavalry_idle" 		animation_blend_time = 0.0 }
-		
-		
-		attach = { 	name = "infantry_unit"			Saddle_Node = "OMO_Harmonious_State_infantry_mg_rider_entity" }
-		
-		scale = 0.65
+	name = "OMO_Harmonious_State_cavalry_rifle_combined_entity"
+	pdxmesh = "infantry_cavalry_horse_mesh"
+
+	default_state = "idle"
+	state = { name = "idle"					animation = "cavalry_idle"		animation_blend_time = 0.0 }
+	state = { name = "move"					animation = "cavalry_move"		animation_blend_time = 0.0 }
+	state = { name = "retreat"				animation = "cavalry_move"		animation_blend_time = 0.0 }
+	state = { name = "training"				animation = "cavalry_idle"		animation_blend_time = 0.0 }
+
+
+	attach = { name = "infantry_unit"			Saddle_Node = "OMO_Harmonious_State_infantry_mg_rider_entity" }
+
+	scale = 0.65
 }
 entity = {
-		name = "OMO_Harmonious_State_cavalry_ar_combined_entity"
-		pdxmesh = "infantry_cavalry_horse_mesh"
-		
-		default_state = "idle"
-		state = { name = "idle"						animation = "cavalry_idle" 		animation_blend_time = 0.0 }
-		state = { name = "move"						animation = "cavalry_move" 		animation_blend_time = 0.0 }
-		state = { name = "retreat"					animation = "cavalry_move" 		animation_blend_time = 0.0 }
-		state = { name = "training"					animation = "cavalry_idle" 		animation_blend_time = 0.0 }
-		state = { name = "attack"					animation = "cavalry_idle" 		animation_blend_time = 0.0 }
-		state = { name = "defend"					animation = "cavalry_idle" 		animation_blend_time = 0.0 }
-		state = { name = "support_attack"			animation = "cavalry_idle" 		animation_blend_time = 0.0 }
-		
-		attach = { 	name = "infantry_unit"			Saddle_Node = "OMO_Harmonious_State_infantry_ar_rider_entity" }
-		
-		scale = 0.65
+	name = "OMO_Harmonious_State_cavalry_ar_combined_entity"
+	pdxmesh = "infantry_cavalry_horse_mesh"
+
+	default_state = "idle"
+	state = { name = "idle"					animation = "cavalry_idle"		animation_blend_time = 0.0 }
+	state = { name = "move"					animation = "cavalry_move"		animation_blend_time = 0.0 }
+	state = { name = "retreat"				animation = "cavalry_move"		animation_blend_time = 0.0 }
+	state = { name = "training"				animation = "cavalry_idle"		animation_blend_time = 0.0 }
+	state = { name = "attack"				animation = "cavalry_idle"		animation_blend_time = 0.0 }
+	state = { name = "defend"				animation = "cavalry_idle"		animation_blend_time = 0.0 }
+	state = { name = "support_attack"		animation = "cavalry_idle"		animation_blend_time = 0.0 }
+
+	attach = { name = "infantry_unit"		Saddle_Node = "OMO_Harmonious_State_infantry_ar_rider_entity" }
+
+	scale = 0.65
 }
 entity = {
 	name = "OMO_Harmonious_State_artillery_entity"
 	pdxmesh = "frame_artillery_mesh"
-	
+
 	default_state = "idle"
-	state = { name = "idle"				animation = "idle" 					animation_blend_time = 0.3 animation_speed = 1.0 }
-	state = { name = "retreat"			animation = "idle" 	 				animation_blend_time = 0.3 animation_speed = 1.0 }
-	state = { name = "training"			animation = "idle" 					animation_blend_time = 0.3 animation_speed = 1.0 }
-	state = { name = "death"			animation = "idle" 					animation_blend_time = 0.3 animation_speed = 1.0 }#
-	state = { name = "support_attack"	animation = "attack" 					animation_blend_time = 0.0 animation_speed = 1.0 propagate_state = { infantry = "idle" } }
-	state = { name = "attack"			animation = "attack" 					animation_blend_time = 0.0 animation_speed = 1.0 propagate_state = { infantry = "idle" } }
-	state = { name = "defend"			animation = "attack" 					animation_blend_time = 0.0 animation_speed = 1.0 propagate_state = { infantry = "idle" } }
-	state = { name = "move"				animation = "move" 					animation_blend_time = 0.3 animation_speed = 1.0 }
-	state = { name = "retreat"			animation = "move" 					animation_blend_time = 0.3 animation_speed = 1.0 }
-	
+	state = { name = "idle"					animation = "idle"				animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "retreat"				animation = "idle"				animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "training"				animation = "idle"				animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "death"				animation = "idle"				animation_blend_time = 0.3 animation_speed = 1.0 }#
+	state = { name = "support_attack"		animation = "attack"			animation_blend_time = 0.0 animation_speed = 1.0 propagate_state = { infantry = "idle" } }
+	state = { name = "attack"				animation = "attack"			animation_blend_time = 0.0 animation_speed = 1.0 propagate_state = { infantry = "idle" } }
+	state = { name = "defend"				animation = "attack"			animation_blend_time = 0.0 animation_speed = 1.0 propagate_state = { infantry = "idle" } }
+	state = { name = "move"					animation = "move"				animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "retreat"				animation = "move"				animation_blend_time = 0.3 animation_speed = 1.0 }
+
+	attach = { name = artillery				artillery = "artillery_gun_entity" }
+	attach = { name = infantry				infantry = "OMO_Harmonious_State_infantry_entity" }
+
 	scale = 1
-	
-	attach = { name = artillery			artillery = "artillery_gun_entity" }
-	attach = { name = infantry			infantry = "OMO_Harmonious_State_infantry_entity" }
 }
 
 #Second cosmetic tag
@@ -1304,19 +1290,19 @@ entity = {
 	name = "OMO_debug_af_infantry_entity"
 	clone = "TNO_AprilFools_infantry_onhooves_semi_entity"
 
-	attach = { 	name = "gun"	Root_003 = "M14_weapon_pony_entity" }
+	attach = { name = "gun"	Root_003 = "M14_weapon_pony_entity" }
 }
 entity = {
 	name = "OMO_debug_af_infantry_2_entity"
 	clone = "OMO_onhooves_entity"
 
-	attach = { 	name = "gun"	Root_003 = "AR53P_weapon_right_entity" }
+	attach = { name = "gun"	Root_003 = "AR53P_weapon_right_entity" }
 }
 entity = {
 	name = "OMO_debug_af_onhooves_entity"
 	clone = "OMO_onhooves_entity"
 
-	attach = { 	name = "gun"	Root_003 = "AR53P_weapon_pony_entity" }
+	attach = { name = "gun"	Root_003 = "AR53P_weapon_pony_entity" }
 }
 entity = {
 	name = "OMO_debug_af_MBT_entity"
@@ -1339,9 +1325,9 @@ entity = {
 }
 
 entity = {
-	name = "TNO_AprilFools_nuke_entity"	
+	name = "TNO_AprilFools_nuke_entity"
 	pdxmesh = "nuke_mesh"
-	
+
 	default_state = "idle"
 	state = { name = "idle" animation = "attack" }
 	state = { name = "attack" animation = "attack" looping = no next_state = "idle"
@@ -1353,17 +1339,17 @@ entity = {
 ### Misc stuff, lights etc.
 light = {
 	name = "LT55A_light"
-	
-	color = { 
+
+	color = {
 		r = { 1.0 }
 		g = { 0.0 }
 		b = { 1.0 }
 	}
-	
+
 	intensity = 2.5, fade
 	radius = 5.7
 	falloff = 5
-	
+
 	position = { x = 0 y = 0 z = 0 }
 
 	animation = {
@@ -1374,29 +1360,29 @@ light = {
 		op = "MUL" # "MUL"/"ADD"/"ABS"
 		minValue = 0
 		maxValue = 1
-		curve = { 
-			0	0
-			0.05    0.7	
-			0.1    1.0
-			0.7    1.0
-			0.75    0.0
-			1	0
+		curve = {
+			0		0
+			0.05	0.7
+			0.1		1.0
+			0.7		1.0
+			0.75	0.0
+			1		0
 		}
-	}	
+	}
 }
 light = {
 	name = "TNO_AprilFools_nuke_light"
-	
-	color = { 
+
+	color = {
 		r = { 1.0 }
 		g = { 0.1 }
 		b = { 0.3 }
 	}
-	
+
 	intensity = 30,fade #10 for snow
 	radius = 50
 	falloff = 40
-	
+
 	position = { x = 0 y = 0 z = 0 }
 
 	animation = {
@@ -1407,10 +1393,10 @@ light = {
 		op = "MUL" # "MUL"/"ADD"/"ABS"
 		minValue = 0
 		maxValue = 1
-		curve = { 
+		curve = {
 			0	0
 			0.1	1
 			1	0
 		}
-	}	
+	}
 }

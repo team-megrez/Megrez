@@ -2,20 +2,20 @@
 entity = {
 	name = "generic_clone_artillery_entity"
 	pdxmesh = "frame_artillery_mesh"
-	
+
 	default_state = "idle"
-	state = { name = "idle"				animation = "idle" 					animation_blend_time = 0.3 animation_speed = 1.0 }
-	state = { name = "retreat"			animation = "idle" 	 				animation_blend_time = 0.3 animation_speed = 1.0 }
-	state = { name = "training"			animation = "idle" 					animation_blend_time = 0.3 animation_speed = 1.0 }
-	state = { name = "death"			animation = "idle" 					animation_blend_time = 0.3 animation_speed = 1.0 }#
-	state = { name = "support_attack"	animation = "attack" 					animation_blend_time = 0.0 animation_speed = 1.0 propagate_state = { infantry = "idle" } }
-	state = { name = "attack"			animation = "attack" 					animation_blend_time = 0.0 animation_speed = 1.0 propagate_state = { infantry = "idle" } }
-	state = { name = "defend"			animation = "attack" 					animation_blend_time = 0.0 animation_speed = 1.0 propagate_state = { infantry = "idle" } }
-	state = { name = "move"				animation = "move" 					animation_blend_time = 0.3 animation_speed = 1.0 }
-	state = { name = "retreat"			animation = "move" 					animation_blend_time = 0.3 animation_speed = 1.0 }
-	
+	state = { name = "idle"				animation = "idle"					animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "retreat"			animation = "idle"					animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "training"			animation = "idle"					animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "death"			animation = "idle"					animation_blend_time = 0.3 animation_speed = 1.0 }#
+	state = { name = "support_attack"	animation = "attack"					animation_blend_time = 0.0 animation_speed = 1.0 propagate_state = { infantry = "idle" } }
+	state = { name = "attack"			animation = "attack"					animation_blend_time = 0.0 animation_speed = 1.0 propagate_state = { infantry = "idle" } }
+	state = { name = "defend"			animation = "attack"					animation_blend_time = 0.0 animation_speed = 1.0 propagate_state = { infantry = "idle" } }
+	state = { name = "move"				animation = "move"					animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "retreat"			animation = "move"					animation_blend_time = 0.3 animation_speed = 1.0 }
+
 	scale = 1
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "infantry_entity" }
 }
@@ -23,7 +23,7 @@ entity = {
 entity = {
 	name = "BRY_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "BRY_infantry_entity" }
 }
@@ -31,7 +31,7 @@ entity = {
 entity = {
 	name = "IRK_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "IRK_infantry_entity" }
 }
@@ -39,7 +39,7 @@ entity = {
 entity = {
 	name = "OMS_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "OMS_infantry_entity" }
 }
@@ -47,7 +47,7 @@ entity = {
 entity = {
 	name = "DRL_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "DRL_infantry_entity" }
 }
@@ -55,7 +55,7 @@ entity = {
 entity = {
 	name = "TOM_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "TOM_infantry_entity" }
 }
@@ -63,7 +63,7 @@ entity = {
 entity = {
 	name = "OMO_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "OMO_infantry_entity" }
 }
@@ -71,36 +71,15 @@ entity = {
 entity = {
 	name = "BRG_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "BRG_infantry_entity" }
 }
-# ######SAF NOT HERE GO TO TFV ARTY FILE
-# entity = {
-# 	name = "SAF_artillery_entity"
-# 	pdxmesh = "frame_artillery_mesh"
-	
-# 	default_state = "idle"
-# 	state = { name = "idle"				animation = "idle" 					animation_blend_time = 0.3 animation_speed = 1.0 }
-# 	state = { name = "retreat"			animation = "idle" 	 				animation_blend_time = 0.3 animation_speed = 1.0 }
-# 	state = { name = "training"			animation = "idle" 					animation_blend_time = 0.3 animation_speed = 1.0 }
-# 	state = { name = "death"			animation = "idle" 					animation_blend_time = 0.3 animation_speed = 1.0 }
-# 	state = { name = "support_attack"	animation = "attack" 					animation_blend_time = 0.0 animation_speed = 1.0 propagate_state = { infantry = "idle" } }
-# 	state = { name = "attack"			animation = "attack" 					animation_blend_time = 0.0 animation_speed = 1.0 propagate_state = { infantry = "idle" } }
-# 	state = { name = "defend"			animation = "attack" 					animation_blend_time = 0.0 animation_speed = 1.0 propagate_state = { infantry = "idle" } }
-# 	state = { name = "move"				animation = "move" 					animation_blend_time = 0.3 animation_speed = 1.0 }
-# 	state = { name = "retreat"			animation = "move" 					animation_blend_time = 0.3 animation_speed = 1.0 }
-	
-# 	scale = 1
-	
-# 	attach = { name = artillery			artillery = "artillery_gun_entity" }
-# 	attach = { name = infantry			infantry = "SAF_infantry_entity" }
-# }
 ######FEN
 entity = {
 	name = "FEN_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "FEN_infantry_entity" }
 }
@@ -108,7 +87,7 @@ entity = {
 entity = {
 	name = "PRM_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "PRM_infantry_entity" }
 }
@@ -116,11 +95,11 @@ entity = {
 entity = {
 	name = "PRM_hyperborea_regional_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "PRM_hyperborea_regional_infantry_entity" }
 }
-entity = { 
+entity = {
 	clone = "PRM_hyperborea_regional_artillery_entity"
 	name = "PRM_hyperborea_RUS_artillery_entity"
 }
@@ -128,7 +107,7 @@ entity = {
 entity = {
 	name = "SAM_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "SAM_infantry_entity" }
 }
@@ -136,7 +115,7 @@ entity = {
 entity = {
 	name = "WRS_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "WRS_infantry_entity" }
 }
@@ -144,14 +123,14 @@ entity = {
 entity = {
 	name = "KOM_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "KOM_infantry_entity" }
 }
 entity = {
 	name = "KOM_WARLORD_LEFT_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "KOM_WARLORD_LEFT_infantry_entity" }
 }
@@ -166,7 +145,7 @@ entity = {
 entity = {
 	name = "KOM_REGIONAL_ZHDANOV_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "KOM_REGIONAL_ZHDANOV_infantry_entity" }
 }
@@ -181,7 +160,7 @@ entity = {
 entity = {
 	name = "KOM_RUSSIA_ZHDANOV_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "KOM_RUSSIA_ZHDANOV_infantry_entity" }
 }
@@ -189,7 +168,7 @@ entity = {
 entity = {
 	name = "TYM_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "TYM_infantry_entity" }
 }
@@ -197,7 +176,7 @@ entity = {
 entity = {
 	name = "SBA_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "SBA_infantry_entity" }
 }
@@ -205,7 +184,7 @@ entity = {
 entity = {
 	name = "MAG_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "MAG_infantry_entity" }
 }
@@ -213,7 +192,7 @@ entity = {
 entity = {
 	name = "AMR_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "AMR_infantry_entity" }
 }
@@ -221,7 +200,7 @@ entity = {
 entity = {
 	name = "CHT_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "CHT_infantry_entity" }
 }
@@ -229,7 +208,7 @@ entity = {
 entity = {
 	name = "KEM_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "KEM_infantry_entity" }
 }
@@ -237,7 +216,7 @@ entity = {
 entity = {
 	name = "VYT_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "VYT_infantry_entity" }
 }
@@ -245,7 +224,7 @@ entity = {
 entity = {
 	name = "IRE_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "IRE_infantry_entity" }
 }
@@ -253,7 +232,7 @@ entity = {
 entity = {
 	name = "BGR_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "BGR_infantry_entity" }
 }
@@ -261,7 +240,7 @@ entity = {
 entity = {
 	name = "SGR_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "SGR_infantry_entity" }
 }
@@ -269,7 +248,7 @@ entity = {
 entity = {
 	name = "HGR_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "HGR_infantry_entity" }
 }
@@ -277,7 +256,7 @@ entity = {
 entity = {
 	name = "GGR_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "GGR_infantry_entity" }
 }
@@ -285,7 +264,7 @@ entity = {
 entity = {
 	name = "SVR_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "SVR_infantry_entity" }
 }
@@ -293,7 +272,7 @@ entity = {
 entity = {
 	name = "BRT_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "BRT_infantry_entity" }
 }
@@ -301,7 +280,7 @@ entity = {
 entity = {
 	name = "ZLT_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "ZLT_infantry_entity" }
 }
@@ -309,7 +288,7 @@ entity = {
 entity = {
 	name = "NOV_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "NOV_infantry_entity" }
 }
@@ -317,7 +296,7 @@ entity = {
 entity = {
 	name = "AST_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "AST_infantry_entity" }
 }
@@ -325,7 +304,7 @@ entity = {
 entity = {
 	name = "SAF_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "SAF_infantry_entity" }
 }
@@ -333,7 +312,7 @@ entity = {
 entity = {
 	name = "IME_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "IME_infantry_entity" }
 }
@@ -341,7 +320,7 @@ entity = {
 entity = {
 	name = "ILG_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "ILG_infantry_entity" }
 }
@@ -349,7 +328,7 @@ entity = {
 entity = {
 	name = "TUR_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "TUR_infantry_entity" }
 }
@@ -357,7 +336,7 @@ entity = {
 entity = {
 	name = "MGN_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "MGN_infantry_entity" }
 }
@@ -365,7 +344,7 @@ entity = {
 entity = {
 	name = "KMC_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "KMC_infantry_entity" }
 }
@@ -373,7 +352,7 @@ entity = {
 entity = {
 	name = "KAL_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "KAL_infantry_entity" }
 }
@@ -381,7 +360,7 @@ entity = {
 entity = {
 	name = "GOR_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "GOR_infantry_entity" }
 }
@@ -389,7 +368,7 @@ entity = {
 entity = {
 	name = "ORE_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "ORE_infantry_entity" }
 }
@@ -397,7 +376,7 @@ entity = {
 entity = {
 	name = "VOR_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "VOR_infantry_entity" }
 }
@@ -405,7 +384,7 @@ entity = {
 entity = {
 	name = "URL_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "URL_infantry_entity" }
 }
@@ -413,7 +392,7 @@ entity = {
 entity = {
 	name = "GER_africa_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "GER_africa_infantry_entity" }
 }
@@ -421,7 +400,7 @@ entity = {
 entity = {
 	name = "ANG_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "ANG_infantry_entity" }
 }
@@ -429,7 +408,7 @@ entity = {
 entity = {
 	name = "COG_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "COG_infantry_entity" }
 }
@@ -437,15 +416,31 @@ entity = {
 entity = {
 	name = "GRO_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "GRO_infantry_entity" }
+}
+######MDG_GERMAN
+entity = {
+	name = "MDG_GERMAN_artillery_entity"
+	clone = "generic_clone_artillery_entity"
+
+	attach = { name = artillery			artillery = "artillery_gun_entity" }
+	attach = { name = infantry			infantry = "MDG_GERMAN_infantry_entity" }
+}
+######MAD_GERMAN
+entity = {
+	name = "MAD_GERMAN_artillery_entity"
+	clone = "generic_clone_artillery_entity"
+
+	attach = { name = artillery			artillery = "artillery_gun_entity" }
+	attach = { name = infantry			infantry = "MAD_GERMAN_infantry_entity" }
 }
 ######ANC
 entity = {
 	name = "ANC_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "ANC_infantry_entity" }
 }
@@ -453,7 +448,7 @@ entity = {
 entity = {
 	name = "BOR_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "BOR_infantry_entity" }
 }
@@ -461,7 +456,7 @@ entity = {
 entity = {
 	name = "INS_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "INS_infantry_entity" }
 }
@@ -469,7 +464,7 @@ entity = {
 entity = {
 	name = "FRI_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "FRI_infantry_entity" }
 }
@@ -477,7 +472,7 @@ entity = {
 entity = {
 	name = "eastern_european_gfx_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "eastern_european_gfx_infantry_entity" }
 }
@@ -485,7 +480,7 @@ entity = {
 entity = {
 	name = "WAL_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "WAL_infantry_entity" }
 }
@@ -493,7 +488,7 @@ entity = {
 entity = {
 	name = "SCO_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "SCO_infantry_entity" }
 }
@@ -501,7 +496,7 @@ entity = {
 entity = {
 	name = "CRN_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "CRN_infantry_entity" }
 }
@@ -509,7 +504,7 @@ entity = {
 entity = {
 	name = "GRO_REICHSSTAAT_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "GRO_REICHSSTAAT_infantry_entity" }
 }
@@ -517,7 +512,7 @@ entity = {
 entity = {
 	name = "GRO_REICHSSTAAT_2_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "GRO_REICHSSTAAT_2_infantry_entity" }
 }
@@ -525,7 +520,7 @@ entity = {
 entity = {
 	name = "GRO_REICHSSTAAT_3_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "GRO_REICHSSTAAT_3_infantry_entity" }
 }
@@ -533,11 +528,11 @@ entity = {
 entity = {
 	name = "KOM_REGIONAL_TABORITSKY_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "KOM_REGIONAL_TABORITSKY_infantry_entity" }
 }
-entity = { 
+entity = {
 	clone = "KOM_REGIONAL_TABORITSKY_artillery_entity"
 	name = "KOM_RUSSIA_TABORITSKY_artillery_entity"
 }
@@ -546,7 +541,7 @@ entity = {
 entity = {
 	name = "CHI_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "CHI_infantry_entity" }
 }
@@ -555,14 +550,14 @@ entity = {
 entity = {
 	name = "YUN_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "CHI_infantry_entity" }
 }
 entity = {
 	name = "YUN_NPA_Long_Yun_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "YUN_NPA_Long_Yun_infantry_entity" }
 }
@@ -570,7 +565,7 @@ entity = {
 entity = {
 	name = "PRC_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "PRC_infantry_entity" }
 }
@@ -578,7 +573,7 @@ entity = {
 entity = {
 	name = "SWI_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "SWI_infantry_entity" }
 }
@@ -586,7 +581,7 @@ entity = {
 entity = {
 	name = "african_gfx_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "african_gfx_infantry_entity" }
 }
@@ -598,43 +593,19 @@ entity = {
 entity = {
 	name = "MZB_USA_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "MZB_USA_infantry_entity" }
 }
-entity = { 
+entity = {
 	clone = "MZB_USA_artillery_entity"
 	name = "COG_USA_artillery_entity"
 }
-entity = { 
+entity = {
 	clone = "MZB_USA_artillery_entity"
 	name = "ANG_USA_artillery_entity"
 }
-entity = { 
-	clone = "MZB_USA_artillery_entity"
-	name = "MAD_USA_artillery_entity"
-}
-entity = { 
-	clone = "MZB_USA_artillery_entity"
-	name = "ICE_USA_artillery_entity"
-}
-entity = { 
-	clone = "MZB_USA_artillery_entity"
-	name = "UPH_OFN_mandate_artillery_entity"
-}
-entity = { 
-	clone = "MZB_USA_artillery_entity"
-	name = "MAD_OFN_artillery_entity"
-}
-entity = { 
-	clone = "MZB_USA_artillery_entity"
-	name = "MAD_OFN_REPUBLIC_artillery_entity"
-}
-entity = { 
-	clone = "MZB_USA_artillery_entity"
-	name = "MAD_OFN_MILITARY_artillery_entity"
-}
-entity = { 
+entity = {
 	clone = "MZB_USA_artillery_entity"
 	name = "USC_artillery_entity"
 }
@@ -642,7 +613,7 @@ entity = {
 entity = {
 	name = "WAL_FWA_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "WAL_FWA_infantry_entity" }
 }
@@ -650,7 +621,7 @@ entity = {
 entity = {
 	name = "IRE_Twomey_Takeover_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "IRE_Twomey_Takeover_infantry_entity" }
 }
@@ -658,12 +629,12 @@ entity = {
 entity = {
 	name = "ULS_volunteer_army_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "ULS_volunteer_army_infantry_entity" }
 }
 ######ULS_IRA_Takeover
-entity = { 
+entity = {
 	clone = "IRE_Twomey_Takeover_artillery_entity"
 	name = "ULS_IRA_Takeover_artillery_entity"
 }
@@ -671,7 +642,7 @@ entity = {
 entity = {
 	name = "CAO_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "CAO_infantry_entity" }
 }
@@ -679,7 +650,7 @@ entity = {
 entity = {
 	name = "FFR_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "FFR_infantry_entity" }
 }
@@ -687,7 +658,7 @@ entity = {
 entity = {
 	name = "FIN_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "FIN_infantry_entity" }
 }
@@ -695,7 +666,7 @@ entity = {
 entity = {
 	name = "SLG_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "SLG_infantry_entity" }
 }
@@ -703,7 +674,7 @@ entity = {
 entity = {
 	name = "BRA_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "BRA_infantry_2_entity" }
 }
@@ -711,7 +682,7 @@ entity = {
 entity = {
 	name = "TRK_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "TRK_infantry_entity" }
 }
@@ -719,7 +690,7 @@ entity = {
 entity = {
 	name = "UTL_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "UTL_infantry_entity" }
 }
@@ -727,7 +698,7 @@ entity = {
 entity = {
 	name = "CA_communist_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "CA_communist_infantry_entity" }
 }
@@ -755,7 +726,7 @@ entity = {
 entity = {
 	name = "CA_islamist_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "CA_islamist_infantry_entity" }
 }
@@ -771,31 +742,31 @@ entity = {
 entity = {
 	name = "middle_eastern_gfx_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "middle_eastern_gfx_infantry_entity" }
 }
-######MOS
+######TVR
 entity = {
-	name = "MOS_artillery_entity"
+	name = "TVR_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
-	attach = { name = infantry			infantry = "MOS_infantry_entity" }
+	attach = { name = infantry			infantry = "TVR_infantry_entity" }
 }
-######RDC
+######ORL
 entity = {
-	name = "RDC_artillery_entity"
+	name = "ORL_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
-	attach = { name = infantry			infantry = "RDC_infantry_entity" }
+	attach = { name = infantry			infantry = "ORL_infantry_entity" }
 }
 ######CAN
 entity = {
 	name = "CAN_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "CAN_infantry_entity" }
 }
@@ -803,7 +774,7 @@ entity = {
 entity = {
 	name = "TUN_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "TUN_infantry_entity" }
 }
@@ -811,7 +782,7 @@ entity = {
 entity = {
 	name = "SAU_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "SAU_infantry_entity" }
 }
@@ -819,7 +790,7 @@ entity = {
 entity = {
 	name = "IRQ_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "IRQ_infantry_entity" }
 }
@@ -827,7 +798,7 @@ entity = {
 entity = {
 	name = "EGY_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "EGY_infantry_entity" }
 }
@@ -835,7 +806,7 @@ entity = {
 entity = {
 	name = "BUL_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "BUL_infantry_entity" }
 }
@@ -843,7 +814,7 @@ entity = {
 entity = {
 	name = "PER_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "PER_infantry_entity" }
 }
@@ -851,7 +822,7 @@ entity = {
 entity = {
 	name = "PAL_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "PAL_infantry_entity" }
 }
@@ -859,7 +830,7 @@ entity = {
 entity = {
 	name = "PAL_communism_bad_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "PAL_communism_bad_infantry_entity" }
 }
@@ -867,7 +838,7 @@ entity = {
 entity = {
 	name = "ISR_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "ISR_infantry_entity" }
 }
@@ -875,7 +846,7 @@ entity = {
 entity = {
 	name = "ARG_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "ARG_infantry_entity" }
 }
@@ -883,14 +854,14 @@ entity = {
 entity = {
 	name = "CHL_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "CHL_infantry_entity" }
 }
 entity = {
 	name = "CHL_1965_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "CHL_1965_infantry_entity" }
 }
@@ -898,7 +869,7 @@ entity = {
 entity = {
 	name = "UPH_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "UPH_infantry_entity" }
 }
@@ -906,7 +877,7 @@ entity = {
 entity = {
 	name = "CZE_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "CZE_infantry_entity" }
 }
@@ -914,7 +885,7 @@ entity = {
 entity = {
 	name = "HOL_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "HOL_infantry_entity" }
 }
@@ -922,7 +893,7 @@ entity = {
 entity = {
 	name = "OST_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "OST_infantry_entity" }
 }
@@ -930,7 +901,7 @@ entity = {
 entity = {
 	name = "MCW_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "MCW_infantry_entity" }
 }
@@ -938,7 +909,7 @@ entity = {
 entity = {
 	name = "western_european_gfx_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "western_european_gfx_infantry_entity" }
 }
@@ -946,7 +917,7 @@ entity = {
 entity = {
 	name = "SPH_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "SPH_infantry_entity" }
 }
@@ -954,7 +925,7 @@ entity = {
 entity = {
 	name = "COL_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "COL_infantry_entity" }
 }
@@ -962,7 +933,7 @@ entity = {
 entity = {
 	name = "CLC_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "CLC_infantry_entity" }
 }
@@ -970,7 +941,7 @@ entity = {
 entity = {
 	name = "CLL_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "CLL_infantry_entity" }
 }
@@ -979,7 +950,7 @@ entity = {
 entity = {
 	name = "CAL_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "CAL_infantry_entity" }
 }
@@ -988,7 +959,7 @@ entity = {
 entity = {
 	name = "CUB_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "CUB_infantry_entity" }
 }
@@ -996,7 +967,7 @@ entity = {
 entity = {
 	name = "DOM_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "DOM_infantry_entity" }
 }
@@ -1004,7 +975,7 @@ entity = {
 entity = {
 	name = "GRE_artillery_entity"
 	clone = "generic_clone_artillery_entity"
-	
+
 	attach = { name = artillery			artillery = "artillery_gun_entity" }
 	attach = { name = infantry			infantry = "GRE_infantry_entity" }
 }
