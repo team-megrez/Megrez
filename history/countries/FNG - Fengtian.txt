@@ -92,23 +92,26 @@ set_country_flag = china_is_potential_government
 set_country_flag = { flag = study_manufacturing_level value = 0 }
 
 set_politics = {
-	ruling_party = authoritarian_democrat
+	ruling_party = social_conservatism
 	last_election = "1930.11.9"
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	totalist = 0
+	bolshevism = 0
 	radical_socialist = 0
-	syndicalist = 0
-	social_democrat = 0
-	social_liberal = 0
-	market_liberal = 14
-	social_conservative = 18
-	authoritarian_democrat = 40
-	paternal_autocrat = 28
-	national_populist = 0
+	revolutionary_socialism = 0
+	moderate_socialism = 0
+	progressivism = 0
+	liberalism = 14
+	liberal_conservatism = 18
+	social_conservatism = 40
+	anocracy = 28
+	autocracy = 0
+	reformed_voynism = 0
+	voynism = 0
+	radical_voynism = 0
 }
 
 add_ideas = {
@@ -122,7 +125,7 @@ add_ideas = {
 }
 china_add_poor_army = yes
 
-set_variable = { political_power_ideology = token:paternal_autocrat }
+set_variable = { political_power_ideology = token:anocracy }
 
 ### Mantetsu ###
 328 = { add_dynamic_modifier = { modifier = FNG_mantetsu_monopoly } } #Andong

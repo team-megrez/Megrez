@@ -107,23 +107,26 @@ set_variable = { SPA_strength = 0 }
 
 ### Politics
 set_politics = {
-	ruling_party = market_liberal
+	ruling_party = liberalism
 	last_election = "1932.11.08"
 	election_frequency = 48
 	elections_allowed = yes
 }
 
 set_popularities = {
-	totalist = 2
-	syndicalist = 18
+	bolshevism = 2
+	revolutionary_socialism = 18
 	radical_socialist = 5
-	social_democrat = 8
-	social_liberal = 11
-	market_liberal = 18
-	social_conservative = 13
-	authoritarian_democrat = 20
-	paternal_autocrat = 2
-	national_populist = 3
+	moderate_socialism = 8
+	progressivism = 11
+	liberalism = 18
+	liberal_conservatism = 13
+	social_conservatism = 20
+	anocracy = 2
+	autocracy = 3
+	reformed_voynism = 0
+	voynism = 0
+	radical_voynism = 0
 }
 
 add_ideas = {
@@ -162,12 +165,12 @@ add_ai_strategy = {
 create_country_leader = {
 	name = CSA_earl_browder
 	picture = "gfx/leaders/CSA/Portrait_CSA_Earl_Bowder.png"
-	ideology = totalist_subtype
+	ideology = bolshevism_subtype
 }
 create_country_leader = {
 	name = CSA_elizabeth_gurley_flynn
 	picture = "gfx/leaders/CSA/Portrait_CSA_Elizabeth_Gurley_Flynn.png"
-	ideology = syndicalist_subtype
+	ideology = revolutionary_socialism_subtype
 	female = yes
 }
 create_country_leader = {
@@ -179,21 +182,21 @@ create_country_leader = {
 	name = PSA_henry_wallace
 	desc = PSA_henry_wallace_leader_desc
 	picture = "gfx/leaders/PSA/Portrait_PSA_Henry_Wallace.png"
-	ideology = social_democrat_subtype
+	ideology = moderate_socialism_subtype
 	traits = { PSA_world_planner }
 }
 create_country_leader = {
 	name = TEX_charles_lindbergh
 	picture = "gfx/leaders/TEX/Portrait_TEX_charles_lindbergh.png"
 	desc = TEX_charles_lindbergh_leader_desc
-	ideology = authoritarian_democrat_subtype
+	ideology = social_conservatism_subtype
 	traits = { TEX_head_in_the_clouds }
 }
 create_country_leader = {
 	name = TEX_gerald_lyman_kenneth_smith
 	desc = TEX_gerald_lyman_kenneth_smith_leader_desc
 	picture = "gfx/leaders/TEX/Portrait_TEX_gearld_k_smith.png"
-	ideology = national_populist_subtype
+	ideology = autocracy_subtype
 	traits = { TEX_rule_of_the_klan }
 }
 

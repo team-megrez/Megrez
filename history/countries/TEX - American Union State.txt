@@ -14,23 +14,26 @@ USA_starting_naval_variants = yes
 USA_starting_plane_variants = yes
 
 set_politics = {
-	ruling_party = authoritarian_democrat
+	ruling_party = social_conservatism
 	last_election = "1936.11.08"
 	election_frequency = 48
 	elections_allowed = yes
 }
 
 set_popularities = {
-	totalist = 0
+	bolshevism = 0
 	radical_socialist = 0
-	syndicalist = 0
-	social_democrat = 0
-	social_liberal = 0
-	market_liberal = 0
-	social_conservative = 5
-	authoritarian_democrat = 60
-	paternal_autocrat = 15
-	national_populist = 20
+	revolutionary_socialism = 0
+	moderate_socialism = 0
+	progressivism = 0
+	liberalism = 0
+	liberal_conservatism = 5
+	social_conservatism = 60
+	anocracy = 15
+	autocracy = 20
+	reformed_voynism = 0
+	voynism = 0
+	radical_voynism = 0
 }
 
 add_ai_strategy = {
@@ -58,12 +61,12 @@ add_ai_strategy = {
 create_country_leader = {
 	name = CSA_earl_browder
 	picture = "gfx/leaders/CSA/Portrait_CSA_Earl_Bowder.png"
-	ideology = totalist_subtype
+	ideology = bolshevism_subtype
 }
 create_country_leader = {
 	name = CSA_jack_reed
 	picture = "gfx/leaders/CSA/Portrait_CSA_Jack_Reed.png"
-	ideology = syndicalist_subtype
+	ideology = revolutionary_socialism_subtype
 }
 create_country_leader = {
 	name = NEE_arnold_petersen
@@ -73,32 +76,32 @@ create_country_leader = {
 create_country_leader = {
 	name = USA_floyd_olson
 	picture = "gfx/leaders/USA/Portrait_USA_Floyd_Olson.png"
-	ideology = social_democrat_subtype
+	ideology = moderate_socialism_subtype
 }
 create_country_leader = {
 	name = PSA_henry_wallace
 	picture = "gfx/leaders/PSA/Portrait_PSA_Henry_Wallace.png"
-	ideology = social_democrat_subtype
+	ideology = moderate_socialism_subtype
 }
 create_country_leader = {
 	name = USA_al_smith
 	picture = "gfx/leaders/USA/Portrait_USA_Al_Smith.png"
-	ideology = social_liberal_subtype
+	ideology = progressivism_subtype
 }
 create_country_leader = {
 	name = USA_alben_barley
 	picture = "gfx/leaders/USA/Portrait_USA_Alben_Barkley.png"
-	ideology = social_liberal_subtype
+	ideology = progressivism_subtype
 }
 create_country_leader = {
 	name = USA_alf_landon
 	picture = "gfx/leaders/USA/Portrait_USA_Alf_Landon_KR.png"
-	ideology = market_liberal_subtype
+	ideology = liberalism_subtype
 }
 create_country_leader = {
 	name = USA_john_nance_garner
 	picture = "gfx/leaders/USA/Portrait_USA_John_Nance_Garner.png"
-	ideology = social_conservative_subtype
+	ideology = liberal_conservatism_subtype
 }
 
 ### Country Leaders ###
