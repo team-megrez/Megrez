@@ -27,7 +27,7 @@ if = {
 	set_technology = { early_fighter = 1 }
 }
 
-
+QIE = { #changed to LEP via on_startup
 	set_autonomy = {
 		target = ROOT
 		autonomy_state = kr_associated_governorate
@@ -35,26 +35,23 @@ if = {
 }
 
 set_politics = {
-	ruling_party = social_conservatism
+	ruling_party = social_conservative
 	last_election = "1930.11.9"
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	bolshevism = 0
-	communism = 0
-	revolutionary_socialism = 1
-	moderate_socialism = 0
-	progressivism = 25
-	liberalism = 16
-	liberal_conservatism = 3
-	social_conservatism = 42
-	anocracy = 11
-	autocracy = 0
-	reformed_voynism = 2
-	voynism = 0
-	radical_voynism = 0
+	totalist = 0
+	radical_socialist = 1
+	syndicalist = 0
+	social_democrat = 25
+	social_liberal = 16
+	market_liberal = 3
+	social_conservative = 42
+	authoritarian_democrat = 11
+	paternal_autocrat = 0
+	national_populist = 2
 }
 
 add_ideas = {
@@ -65,36 +62,36 @@ add_ideas = {
 china_add_poor_army = yes
 
 ### Country Leaders ###
-
-
-
+recruit_character = HNN_tang_shengzhi
+recruit_character = HNN_zhao_hengti
+recruit_character = HNN_cheng_qian #starts in CHI
 
 ### Generals ###
-
-
-
-
-
-
-
+recruit_character = HNN_tang_shengming
+recruit_character = HNN_he_yaozu
+recruit_character = HNN_peng_dehuai
+recruit_character = HNN_he_jian
+recruit_character = HNN_song_xilian
+recruit_character = HNN_he_long
+recruit_character = HNN_teng_daiyuan
 
 ### Advisors ###
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+recruit_character = HNN_hu_shuhua
+recruit_character = HNN_luo_shujia
+recruit_character = HNN_zhang_renmin
+recruit_character = HNN_cao_bowen
+recruit_character = HNN_yi_peiji
+recruit_character = HNN_tao_guang
+recruit_character = HNN_zhang_huizan
+recruit_character = HNN_wang_zhi
+recruit_character = HNN_tang_duo
+recruit_character = HNN_liu_zhesheng
+recruit_character = HNN_zhang_zhen
+recruit_character = HNN_tang_xing
+recruit_character = HNN_liao_yaoxiang
+recruit_character = HNN_tan_daoyuan
+recruit_character = HNN_men_bingyue
+recruit_character = HNN_chen_mingren
 
 ### Character Setup ###
 HNN_zhao_hengti = {

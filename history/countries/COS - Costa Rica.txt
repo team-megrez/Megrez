@@ -13,33 +13,30 @@ set_technology = {
 }
 
 set_politics = {
-	ruling_party = social_conservatism
+	ruling_party = social_conservative
 	last_election = "1932.02.02"
 	election_frequency = 48
 	elections_allowed = yes
 }
 
 set_popularities = {
-	bolshevism = 0
-	communism = 0
-	moderate_socialism = 5
-	revolutionary_socialism = 0
-	progressivism = 4
-	liberalism = 21
-	liberal_conservatism = 12
-	social_conservatism = 53
-	anocracy = 5
-	autocracy = 0
-	reformed_voynism = 0
-	voynism = 0
-	radical_voynism = 0
+	totalist = 0
+	syndicalist = 5
+	radical_socialist = 0
+	social_democrat = 4
+	social_liberal = 21
+	market_liberal = 12
+	social_conservative = 53
+	authoritarian_democrat = 5
+	paternal_autocrat = 0
+	national_populist = 0
 }
 
-
-
-
-
-
+country_event = { id = cos.2 days = 17 } #Nomination of the Republican Candidate
+country_event = { id = cos.5 days = 52 } #Black Monday hits the ZKG
+country_event = { id = cos.16 days = 283 } #German Cruiser Schleswig docks in Costa Rica
+country_event = { id = cos.123 days = 1159 } #"Mamita Yunai"
+country_event = { id = cafla.18 days = 258 }
 
 add_ideas = {
 	disarmed_nation
@@ -52,23 +49,23 @@ add_ideas = {
 activate_targeted_decision = { decision = CEN_unite_central_america target = THIS }
 
 ### Country Leaders ###
-
-
-
-
-
-
+recruit_character = COS_manuel_mora_valverde
+recruit_character = COS_rafael_angel_calderon_guardia
+recruit_character = COS_teodoro_picado_michalski
+recruit_character = COS_ricardo_jimenez_oreamuno
+recruit_character = COS_leon_cortes_castro
+recruit_character = COS_consejo_de_seguridad_nacional
 
 ### Generals ###
+recruit_character = COS_jose_figueres_ferrer
+recruit_character = COS_fernando_figuls_quiros
 
-
-
-
-
-
-
-
-
-
-
-
+recruit_character = COS_julio_acosta_garcia
+recruit_character = COS_ricardo_castro_beeche
+recruit_character = COS_rafael_calderon_mumoz
+recruit_character = COS_jose_albertazzi_avendano
+recruit_character = COS_juan_rafael_arias_bonilla
+recruit_character = COS_cleto_gonzalez_viquez
+recruit_character = COS_santos_leon_herrera
+recruit_character = COS_jorge_volio_jimenez
+recruit_character = COS_manuel_zuniga_jiron

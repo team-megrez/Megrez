@@ -57,78 +57,75 @@ if = {
 }
 
 set_politics = {
-	ruling_party = progressivism
+	ruling_party = social_democrat
 	last_election = "1934.4.4"
 	election_frequency = 48
 	elections_allowed = yes
 }
 
 set_popularities = {
-	bolshevism = 0
-	communism = 0
-	revolutionary_socialism = 5
-	moderate_socialism = 5
-	progressivism = 36
-	liberalism = 8
-	liberal_conservatism = 4
-	social_conservatism = 30
-	anocracy = 2
-	autocracy = 8
-	reformed_voynism = 2
-	voynism = 0
-	radical_voynism = 0
+	totalist = 0
+	radical_socialist = 5
+	syndicalist = 5
+	social_democrat = 36
+	social_liberal = 8
+	market_liberal = 4
+	social_conservative = 30
+	authoritarian_democrat = 2
+	paternal_autocrat = 8
+	national_populist = 2
 }
 
-
-
+country_event = { id = urg.20 days = 855 }
+country_event = { id = urg.30 days = 855 }
 
 give_military_access = BRA
 
 add_ideas = URG_neutrality_idea
 
 ### Country Leaders
+recruit_character = URG_council
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+recruit_character = URG_hugo_fernandes
+recruit_character = URG_paulina_luisi
+recruit_character = URG_emilio_frugoni
+recruit_character = URG_gabriel_terra
+recruit_character = URG_juan_de_amezaga
+recruit_character = URG_cesar_battle_pacheco
+recruit_character = URG_luiz_conrado
+recruit_character = URG_luis_alberto_de_herrera
+recruit_character = URG_martin_echegoyen
+recruit_character = URG_joaquin_secco_illa
+recruit_character = URG_alfredo_baldomir_ferrari
+recruit_character = URG_fractured_leadership
 
 ### Generals and Admirals
-
-
-
-
+recruit_character = URG_alfredo_campos
+recruit_character = URG_oscar_diego_gestido
+recruit_character = URG_tydeo_larre_borges
+recruit_character = URG_atilio_frigerio
 
 ### Military Advisors
-
-
-
-
-
-
-
-
-
+recruit_character = URG_andres_martinez_trueba
+recruit_character = URG_eduardo_rodriguez_larreta
+recruit_character = URG_julio_enrique
+recruit_character = URG_alberto_fermin
+recruit_character = URG_julio_cesar
+recruit_character = URG_liber_seregni
+recruit_character = URG_leonardo_cesareo
+recruit_character = URG_la_escuela_naval
+recruit_character = URG_academia_militar_de_uruguay
 
 ### Civilian advisors
+recruit_character = URG_leopoldo_carlos
+recruit_character = URG_leonardo_vilarino
+recruit_character = URG_feliciano_alberto
+recruit_character = URG_horacio_arredondo
+recruit_character = URG_alfeo_brum
+recruit_character = URG_tomas_berreta
+recruit_character = URG_alberto_guani
+recruit_character = URG_asamblea_general_de_uruguay
+recruit_character = URG_jose_pedro
+recruit_character = URG_liber_falco
 
-
-
-
-
-
-
-
-
-
-
-
+activate_advisor = URG_gabriel_terra_sic

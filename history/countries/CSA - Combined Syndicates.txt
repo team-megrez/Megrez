@@ -9,26 +9,23 @@ USA_starting_tank_variants = yes
 USA_starting_plane_variants = yes
 
 set_politics = {
-	ruling_party = moderate_socialism
+	ruling_party = syndicalist
 	last_election = "1936.11.08"
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	bolshevism = 0
-	communism = 12
-	revolutionary_socialism = 14
-	moderate_socialism = 62
-	progressivism = 12
-	liberalism = 0
-	liberal_conservatism = 0
-	social_conservatism = 0
-	anocracy = 0
-	autocracy = 0
-	reformed_voynism = 0
-	voynism = 0
-	radical_voynism = 0
+	totalist = 12
+	radical_socialist = 14
+	syndicalist = 62
+	social_democrat = 12
+	social_liberal = 0
+	market_liberal = 0
+	social_conservative = 0
+	authoritarian_democrat = 0
+	paternal_autocrat = 0
+	national_populist = 0
 }
 
 ### AI strategies ###
@@ -57,139 +54,139 @@ add_ai_strategy = {
 create_country_leader = {
 	name = USA_floyd_olson
 	picture = "gfx/leaders/USA/Portrait_USA_Floyd_Olson.png"
-	ideology = progressivism_subtype
+	ideology = social_democrat_subtype
 }
 create_country_leader = {
 	name = PSA_henry_wallace
 	picture = "gfx/leaders/PSA/Portrait_PSA_Henry_Wallace.png"
-	ideology = progressivism_subtype
+	ideology = social_democrat_subtype
 }
 create_country_leader = {
 	name = USA_al_smith
 	picture = "gfx/leaders/USA/Portrait_USA_Al_Smith.png"
-	ideology = liberalism_subtype
+	ideology = social_liberal_subtype
 }
 create_country_leader = {
 	name = USA_alben_barley
 	picture = "gfx/leaders/USA/Portrait_USA_Alben_Barkley.png"
-	ideology = liberalism_subtype
+	ideology = social_liberal_subtype
 }
 create_country_leader = {
 	name = USA_alf_landon
 	picture = "gfx/leaders/USA/Portrait_USA_Alf_Landon_KR.png"
-	ideology = liberal_conservatism_subtype
+	ideology = market_liberal_subtype
 }
 create_country_leader = {
 	name = USA_john_nance_garner
 	picture = "gfx/leaders/USA/Portrait_USA_John_Nance_Garner.png"
-	ideology = social_conservatism_subtype
+	ideology = social_conservative_subtype
 }
 create_country_leader = {
 	name = TEX_charles_lindbergh
 	picture = "gfx/leaders/TEX/Portrait_TEX_charles_lindbergh.png"
-	ideology = anocracy_subtype
+	ideology = authoritarian_democrat_subtype
 }
 create_country_leader = {
 	name = USA_douglas_macarthur
 	picture = "gfx/leaders/USA/Portrait_USA_Douglas_MacArthur_KR.png"
-	ideology = autocracy_subtype
+	ideology = paternal_autocrat_subtype
 }
 create_country_leader = {
 	name = TEX_gerald_lyman_kenneth_smith
 	picture = "gfx/leaders/TEX/Portrait_TEX_gearld_k_smith.png"
-	ideology = reformed_voynism_subtype
+	ideology = national_populist_subtype
 }
 
 ### Country Leaders ###
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+recruit_character = CSA_earl_browder
+recruit_character = CSA_william_edward_foster
+recruit_character = CSA_jack_reed
+recruit_character = CSA_elizabeth_gurley_flynn
+recruit_character = CSA_daniel_hoan
+recruit_character = CSA_frank_johns
+recruit_character = CSA_eleanor_roosevelt
+recruit_character = CSA_frank_zeidler
+recruit_character = CSA_elmer_allison
+recruit_character = CSA_james_cannon
+recruit_character = CSA_henning_blomen
+recruit_character = CSA_norman_thomas
+recruit_character = CSA_upton_sinclair
+recruit_character = CSA_john_llewellyn_lewis
+recruit_character = CSA_israel_amter
+recruit_character = CSA_darlington_hoopes
+recruit_character = CSA_oakley_johnson
+recruit_character = CSA_asa_philip_randolph
 
 ### Second in Command ###
-
-
+recruit_character = CSA_revolutionary_congress
+activate_advisor = CSA_revolutionary_congress_sic
 
 ### Advisors ###
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+recruit_character = CSA_dorothy_day
+recruit_character = CSA_paul_leroy_robeson
+recruit_character = CSA_whittaker_chambers
+recruit_character = CSA_alger_hiss
+recruit_character = CSA_james_william_ford
+recruit_character = CSA_reverend_major_jealous_divine
+recruit_character = CSA_ernest_miller_hemingway
+recruit_character = CSA_ralph_hosea_chaplin
+recruit_character = CSA_harry_dexter_white
+recruit_character = CSA_meyer_london
+recruit_character = CSA_james_renshaw_cox
+recruit_character = CSA_ralph_johnson_bunche
+recruit_character = CSA_william_ross_knudsen
+recruit_character = CSA_harold_maskell_ware
+recruit_character = CSA_william_francis_murphy
+recruit_character = CSA_alexander_golberger
 
 ### Theorists ###
-
-
-
-
-
-
-
+recruit_character = CSA_john_henry_manley
+recruit_character = CSA_norman_scott
+recruit_character = CSA_marc_andrew_mitscher
+recruit_character = CSA_donald_wilson
+recruit_character = CSA_james_edmond_fechet
+recruit_character = CSA_terry_de_la_mesa_allen_sr
+recruit_character = CSA_john_benjamin_anderson
 
 ### Field Marshals ###
-
-
+recruit_character = CSA_smedley_butler
+recruit_character = CSA_james_kelly_parsons
 
 ### Generals ###
 # Defecting Officers
-
-
-
-
-
-
-
-
-
+recruit_character = CSA_evans_fordyce_carlson
+recruit_character = CSA_jacob_loucks_devers
+recruit_character = CSA_herbert_charles_heitke
+recruit_character = CSA_david_monroe_shoup
+recruit_character = CSA_robert_sharon_allen
+recruit_character = CSA_maurice_rose
+recruit_character = CSA_robert_hale_merriman
+recruit_character = CSA_benjamin_oliver_davis_sr
+recruit_character = CSA_campbell_carrington_johnson
 
 # Red Guards
-
-
-
-
-
-
+recruit_character = CSA_milton_wolff
+recruit_character = CSA_edward_allen_carter_jr
+recruit_character = CSA_benjamin_katine
+recruit_character = CSA_james_patrick_murphy
+recruit_character = CSA_john_tisa
+recruit_character = CSA_oliver_law
 
 ### Admirals ###
-
-
-
-
-
-
-
-
+recruit_character = CSA_william_rea_furlong
+recruit_character = CSA_arthur_schuyler_carpender
+recruit_character = CSA_arleigh_albert_burke
+recruit_character = CSA_hyman_godalia_rickover
+recruit_character = CSA_hugh_nathaniel_mulzac
+recruit_character = CSA_george_whelan_anderson_jr
+recruit_character = CSA_willard_john_smith
+recruit_character = CSA_youngblood_nance
 
 ### Military Staff ###
-
-
-
-
+recruit_character = CSA_nathan_farragut_twining
+recruit_character = CSA_willis_henry_hale
+recruit_character = CSA_bessie_coleman
+recruit_character = CSA_eddie_august_henry_schneider
 
 ### Character Setup ###
 CSA_jack_reed = {

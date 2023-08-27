@@ -46,34 +46,31 @@ if = {
 add_opinion_modifier = { target = HAI modifier = HAI_border_dispute }
 add_opinion_modifier = { target = HAI modifier = DOM_anti_haitian_1 }
 
-
-
+country_event = { id = domrep.1 days = 20 }
+country_event = { id = domrep.3 days = 74 }
 #Monte Christi Affair trigger
-
+country_event = { id = domrep.32 days = 916 }
 
 set_country_flag = cannot_have_conscription
 
 set_politics = {
-	ruling_party = social_conservatism
+	ruling_party = social_conservative
 	last_election = "1888.6.15"
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	bolshevism = 0
-	communism = 0
-	moderate_socialism = 2
-	revolutionary_socialism = 0
-	progressivism = 7
-	liberalism = 3
-	liberal_conservatism = 22
-	social_conservatism = 41
-	anocracy = 12
-	autocracy = 13
-	reformed_voynism = 0
-	voynism = 0
-	radical_voynism = 0
+	totalist = 0
+	syndicalist = 2
+	radical_socialist = 0
+	social_democrat = 7
+	social_liberal = 3
+	market_liberal = 22
+	social_conservative = 41
+	authoritarian_democrat = 12
+	paternal_autocrat = 13
+	national_populist = 0
 }
 
 add_ideas = {
@@ -85,29 +82,29 @@ add_ideas = {
 activate_targeted_decision = { target = HAI decision = HAI_bribe_officials }
 
 ### Country Leaders ###
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+recruit_character = DOM_heinrich_goldberg
+recruit_character = DOM_pedro_henriquez_urena
+recruit_character = DOM_juan_jimenes_grullon
+recruit_character = DOM_rafael_estrella_urena
+recruit_character = DOM_virgilio_martinez_reyna
+recruit_character = DOM_manuel_troncoso_concha
+recruit_character = DOM_rafael_trujillo_molina
+recruit_character = DOM_ramon_vasquez_rivera
+recruit_character = DOM_pilindo_bonetti_burgos
+recruit_character = DOM_Hector_Porfirio_Quezada
+recruit_character = DOM_Mauricio_Baez_Santos
+recruit_character = DOM_Antonio_de_la_Maza
+recruit_character = DOM_Fabio_Fiallo_Cabral
+recruit_character = DOM_Tomas_Baez_Diaz
+recruit_character = DOM_Andrea_Rodriguez_Perozo
+recruit_character = DOM_Tulio_Cestero_Leiva
+recruit_character = DOM_Federico_Henriquez_Carvajal
+recruit_character = DOM_Emilio_de_los_Santos
+recruit_character = DOM_Arturo_Despradel
+recruit_character = DOM_Mario_Cabral_Baez
+recruit_character = DOM_Jacinto_Bienvenido_Peynado
+recruit_character = DOM_Jesus_da_Costa_Ruiz
+recruit_character = DOM_Anibal_Trujillo_Molina
+recruit_character = DOM_Anibal_Vallejo_Sosa
+recruit_character = DOM_Honoracio_Yuna_Robles
+recruit_character = DOM_Domingo_de_los_Santos_Ortiz

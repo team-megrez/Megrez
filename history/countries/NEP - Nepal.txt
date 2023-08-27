@@ -11,26 +11,23 @@ set_technology = {
 set_war_support = 0.25
 
 set_politics = {
-	ruling_party = anocracy
+	ruling_party = authoritarian_democrat
 	last_election = "1888.6.15"
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	bolshevism = 0
-	communism = 1
-	revolutionary_socialism = 5
-	moderate_socialism = 0
-	progressivism = 11
-	liberalism = 7
-	liberal_conservatism = 0
-	social_conservatism = 7
-	anocracy = 45
-	autocracy = 23
-	reformed_voynism = 1
-	voynism = 0
-	radical_voynism = 0
+	totalist = 1
+	radical_socialist = 5
+	syndicalist = 0
+	social_democrat = 11
+	social_liberal = 7
+	market_liberal = 0
+	social_conservative = 7
+	authoritarian_democrat = 45
+	paternal_autocrat = 23
+	national_populist = 1
 }
 
 add_ideas = {
@@ -40,39 +37,39 @@ add_ideas = {
 	NEP_gurkha_brigades
 }
 
-
+country_event = { id = delhi.200 days = 639 random_days = 30 } # Long Night of the Festival of Lights
 
 # Country Leader #
-
-
-
-
-
-
-
-
+recruit_character = NEP_dhammalok_mahasthavir
+recruit_character = NEP_tribhuvan
+recruit_character = NEP_kaiser_shumsher_jang_bahadur_rana
+recruit_character = NEP_subarna_shamsher_rana
+recruit_character = NEP_tanka_prasad_acharya
+recruit_character = NEP_matrika_prasad_koirala
+recruit_character = NEP_bishweshwar_prasad_koirala
+recruit_character = NEP_kunwar_inderjit_singh
 # Field Marshal #
-
+recruit_character = NEP_juddha_shumsher_jang_bahadur_rana
 # Corp Commander #
+recruit_character = NEP_mutilal_gurung
 
+recruit_character = NEP_dashrath_chand
+recruit_character = NEP_bharat_shumsher_jang_bahadur_rana
+recruit_character = NEP_bharat_mani_sharma
+recruit_character = NEP_dharma_bhakta_mathema
+recruit_character = NEP_shukraraj_shastri
+recruit_character = NEP_krishna_prasad_koirala
+recruit_character = NEP_laxmi_prasad_devkota
+recruit_character = NEP_nrip_jang_rana
+recruit_character = NEP_mohan_shumsher_jang_bahadur_rana
+recruit_character = NEP_baber_shumsher_jang_bahadur_rana
+recruit_character = NEP_padma_shumsher_jang_bahadur_rana
+recruit_character = NEP_ranaji_vishnu_shumsher_jang_bahadur_rana
+recruit_character = NEP_purendra_bikram_shah
+recruit_character = NEP_karan_bahadur_rana
+recruit_character = NEP_kulbir_thapa
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+activate_advisor = NEP_juddha_shumsher_jang_bahadur_rana_sic
 
 ### Character Setup ###
 NEP_tribhuvan = { set_character_flag = is_monarch }

@@ -19,36 +19,33 @@ TUR = {
 }
 
 set_politics = {
-	ruling_party = anocracy
+	ruling_party = authoritarian_democrat
 	last_election = "1888.6.15"
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	bolshevism = 0
-	communism = 0
-	revolutionary_socialism = 0
-	moderate_socialism = 0
-	progressivism = 0
-	liberalism = 0
-	liberal_conservatism = 0
-	social_conservatism = 0
-	anocracy = 46
-	autocracy = 39
-	reformed_voynism = 15
-	voynism = 0
-	radical_voynism = 0
+	totalist = 0
+	radical_socialist = 0
+	syndicalist = 0
+	social_democrat = 0
+	social_liberal = 0
+	market_liberal = 0
+	social_conservative = 0
+	authoritarian_democrat = 46
+	paternal_autocrat = 39
+	national_populist = 15
 }
 
 activate_mission = JBS_War_of_Unification #to trigger unification war
 
+recruit_character = JBS_saud_bin_abd_al_aziz
 
-
-
-
-
-
+recruit_character = JBS_abdallah_ibn_talal_al_rashid
+recruit_character = JBS_abdallah_ibn_mitab_ibn_abd_al_aziz_al_rashid
+recruit_character = JBS_muhammad_ibn_talil_al_rashid
+recruit_character = JBS_saud_al_subhan
 
 add_ideas = {
 	limited_conscription
@@ -60,29 +57,29 @@ add_ideas = {
 
 add_offsite_building = { type = arms_factory level = 1 }
 
-
-
+country_event = { id = jbs.25 days = 150 } #The End of Sabaism
+country_event = { id = jbs.29 days = 400 } #Camel Racing in Ha'il
 
 ### Generals
 # al-Sa'adun is recruited in IRQ tag, and is moved to JBS temporarily
 ##Zaidan ibn Hithlain gets moved from IKH and back
+recruit_character = JBS_abd_al_rahman_ibn_rubayin
+recruit_character = JBS_dulaim_ibn_barrak
 
+recruit_character = JBS_ulemma_influence
+recruit_character = JBS_bedouin_influence
+recruit_character = JBS_urban_nobility_influence
 
-
-
-
-
-
-
-
-
+activate_advisor = JBS_ulemma_influence
+activate_advisor = JBS_bedouin_influence
+activate_advisor = JBS_urban_nobility_influence
 
 ### Character Setup ###
-
-
-
-
-
+recruit_character = HEJ_saud_bin_abd_al_aziz
+recruit_character = HEJ_abdallah_ibn_talal_al_rashid
+recruit_character = HEJ_abdallah_ibn_mitab_ibn_abd_al_aziz_al_rashid
+recruit_character = HEJ_muhammad_ibn_talil_al_rashid
+recruit_character = HEJ_saud_al_subhan
 
 JBS_saud_bin_abd_al_aziz = {
 	set_character_flag = is_monarch
