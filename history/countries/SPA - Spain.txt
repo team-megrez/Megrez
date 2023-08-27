@@ -1,4 +1,4 @@
-﻿capital = 1013
+﻿capital = 41
 oob = "SPA"
 set_naval_oob = "SPA_naval"
 set_research_slots = 3
@@ -107,21 +107,18 @@ create_dynamic_country = {
 
 	set_stability = 0.6
 	add_war_support = 0.5
-	set_politics = { ruling_party = revolutionary_socialism }
+	set_politics = { ruling_party = syndicalist }
 	set_popularities = {
-		bolshevism = 8
-		communism = 12
-		revolutionary_socialism = 55
-		moderate_socialism = 3
-		progressivism = 3
-		liberalism = 7
-		liberal_conservatism = 0
-		social_conservatism = 10
-		anocracy = 0
-		autocracy = 2
-	reformed_voynism = 0
-	voynism = 0
-	radical_voynism = 0
+		totalist = 8
+		radical_socialist = 12
+		syndicalist = 55
+		social_democrat = 3
+		social_liberal = 3
+		market_liberal = 7
+		social_conservative = 0
+		authoritarian_democrat = 10
+		paternal_autocrat = 0
+		national_populist = 2
 	}
 
 	add_ideas = SPA_social_breakdown
@@ -130,37 +127,37 @@ create_dynamic_country = {
 	create_country_leader = {
 		name = SPA_augusto_barcia_trelles
 		picture = "gfx/leaders/SPA/Portrait_SPA_Augusto_Barcia_Trelles.png"
-		ideology = moderate_socialism_subtype
+		ideology = social_democrat_subtype
 	}
 	create_country_leader = {
 		name = SPA_manuel_azana_diaz
 		picture = "gfx/leaders/SPA/Portrait_SPA_Manuel_Azana_Diaz.png"
-		ideology = progressivism_subtype
+		ideology = social_liberal_subtype
 	}
 	create_country_leader = {
 		name = SPA_niceto_alcala_zamora
 		picture = "gfx/leaders/SPA/Portrait_SPA_Niceto_Alcala_Zamora.png"
-		ideology = liberalism_subtype
+		ideology = market_liberal_subtype
 	}
 	create_country_leader = {
 		name = SPA_jose_calvo_sotelo
 		picture = "gfx/leaders/SPA/Portrait_SPA_Jose_Calvo_Sotelo.png"
-		ideology = liberal_conservatism_subtype
+		ideology = social_conservative_subtype
 	}
 	create_country_leader = {
 		name = SPA_gil_robles
 		picture = "gfx/leaders/SPA/Portrait_SPA_J_M_Gil_Robles_Quinones.png"
-		ideology = social_conservatism_subtype
+		ideology = authoritarian_democrat_subtype
 	}
 	create_country_leader = {
 		name = SPA_emilio_mola_vidal
 		picture = "gfx/leaders/SPA/Portrait_SPA_Mola_Vidal.png"
-		ideology = anocracy_subtype
+		ideology = paternal_autocrat_subtype
 	}
 	create_country_leader = {
 		name = SPA_camilo_alonso_vega
 		picture = "gfx/leaders/SPA/Portrait_SPA_Alonso_Vega.png"
-		ideology = autocracy_subtype
+		ideology = national_populist_subtype
 	}
 
 	### Country Leaders ###
@@ -226,21 +223,18 @@ create_dynamic_country = {
 
 	set_stability = 0.6
 	add_war_support = 0.5
-	set_politics = { ruling_party = anocracy }
+	set_politics = { ruling_party = paternal_autocrat }
 	set_popularities = {
-		bolshevism = 0
-		communism = 0
-		revolutionary_socialism = 0
-		moderate_socialism = 3
-		progressivism = 3
-		liberalism = 7
-		liberal_conservatism = 0
-		social_conservatism = 10
-		anocracy = 75
-		autocracy = 2
-	reformed_voynism = 0
-	voynism = 0
-	radical_voynism = 0
+		totalist = 0
+		radical_socialist = 0
+		syndicalist = 0
+		social_democrat = 3
+		social_liberal = 3
+		market_liberal = 7
+		social_conservative = 0
+		authoritarian_democrat = 10
+		paternal_autocrat = 75
+		national_populist = 2
 	}
 
 	add_ideas = SPA_social_breakdown
@@ -249,7 +243,7 @@ create_dynamic_country = {
 	create_country_leader = {
 		name = SWF_dolores_ibarruri_gomez
 		picture = "gfx/leaders/SWF/Portrait_SWF_Dolores_Ibarruri_Gomez.png"
-		ideology = bolshevism_subtype
+		ideology = totalist_subtype
 	}
 	create_country_leader = {
 		name = SWF_angel_pestana_nunez
@@ -259,20 +253,20 @@ create_dynamic_country = {
 	create_country_leader = {
 		name = SWF_buenaventura_durruti
 		picture = "gfx/leaders/SWF/Portrait_SWF_Durruti_Dumange.png"
-		ideology = revolutionary_socialism_subtype
+		ideology = syndicalist_subtype
 	}
 
 	### Country Leaders ###
 	recruit_character = SPR_javier_de_borbon_parma
 	SPR_javier_de_borbon_parma = {
 		set_character_flag = is_monarch
-		promote_character = moderate_socialism_subtype
-		promote_character = progressivism_subtype
-		promote_character = liberalism_subtype
-		promote_character = liberal_conservatism_subtype
-		promote_character = social_conservatism_subtype
-		promote_character = anocracy_subtype
-		promote_character = autocracy_subtype
+		promote_character = social_democrat_subtype
+		promote_character = social_liberal_subtype
+		promote_character = market_liberal_subtype
+		promote_character = social_conservative_subtype
+		promote_character = authoritarian_democrat_subtype
+		promote_character = paternal_autocrat_subtype
+		promote_character = national_populist_subtype
 	}
 
 	### Second in Command ###
@@ -317,26 +311,23 @@ create_dynamic_country = {
 set_country_flag = SPA_is_alfonsist_spain
 
 set_politics = {
-	ruling_party = social_conservatism
+	ruling_party = authoritarian_democrat
 	last_election = "1888.6.15"
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	bolshevism = 0
-	communism = 2
-	revolutionary_socialism = 5
-	moderate_socialism = 9
-	progressivism = 10
-	liberalism = 12
-	liberal_conservatism = 8
-	social_conservatism = 47
-	anocracy = 5
-	autocracy = 2
-	reformed_voynism = 0
-	voynism = 0
-	radical_voynism = 0
+	totalist = 0
+	radical_socialist = 2
+	syndicalist = 5
+	social_democrat = 9
+	social_liberal = 10
+	market_liberal = 12
+	social_conservative = 8
+	authoritarian_democrat = 47
+	paternal_autocrat = 5
+	national_populist = 2
 }
 
 country_event = { id = sprd.4 days = 13 }
@@ -354,7 +345,7 @@ add_ideas = {
 create_country_leader = {
 	name = SWF_dolores_ibarruri_gomez
 	picture = "gfx/leaders/SWF/Portrait_SWF_Dolores_Ibarruri_Gomez.png"
-	ideology = bolshevism_subtype
+	ideology = totalist_subtype
 }
 create_country_leader = {
 	name = SWF_angel_pestana_nunez
@@ -364,7 +355,7 @@ create_country_leader = {
 create_country_leader = {
 	name = SWF_buenaventura_durruti
 	picture = "gfx/leaders/SWF/Portrait_SWF_Durruti_Dumange.png"
-	ideology = revolutionary_socialism_subtype
+	ideology = syndicalist_subtype
 }
 
 ### Monarchs ###

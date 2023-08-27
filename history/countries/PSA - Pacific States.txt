@@ -10,26 +10,23 @@ USA_starting_naval_variants = yes
 USA_starting_plane_variants = yes
 
 set_politics = {
-	ruling_party = liberalism
+	ruling_party = market_liberal
 	last_election = "1936.11.08"
 	election_frequency = 48
 	elections_allowed = yes
 }
 
 set_popularities = {
-	bolshevism = 0
-	communism = 0
-	revolutionary_socialism = 0
-	moderate_socialism = 17
-	progressivism = 29
-	liberalism = 30
-	liberal_conservatism = 24
-	social_conservatism = 0
-	anocracy = 0
-	autocracy = 0
-	reformed_voynism = 0
-	voynism = 0
-	radical_voynism = 0
+	totalist = 0
+	radical_socialist = 0
+	syndicalist = 0
+	social_democrat = 17
+	social_liberal = 29
+	market_liberal = 30
+	social_conservative = 24
+	authoritarian_democrat = 0
+	paternal_autocrat = 0
+	national_populist = 0
 }
 
 add_ideas = PSA_last_bastion_of_american_democracy
@@ -59,12 +56,12 @@ add_ai_strategy = {
 create_country_leader = {
 	name = CSA_earl_browder
 	picture = "gfx/leaders/CSA/Portrait_CSA_Earl_Bowder.png"
-	ideology = bolshevism_subtype
+	ideology = totalist_subtype
 }
 create_country_leader = {
 	name = CSA_jack_reed
 	picture = "gfx/leaders/CSA/Portrait_CSA_Jack_Reed.png"
-	ideology = revolutionary_socialism_subtype
+	ideology = syndicalist_subtype
 }
 create_country_leader = {
 	name = NEE_arnold_petersen
@@ -74,17 +71,17 @@ create_country_leader = {
 create_country_leader = {
 	name = TEX_charles_lindbergh
 	picture = "gfx/leaders/TEX/Portrait_TEX_charles_lindbergh.png"
-	ideology = social_conservatism_subtype
+	ideology = authoritarian_democrat_subtype
 }
 create_country_leader = {
 	name = USA_douglas_macarthur
 	picture = "gfx/leaders/USA/Portrait_USA_Douglas_MacArthur_KR.png"
-	ideology = anocracy_subtype
+	ideology = paternal_autocrat_subtype
 }
 create_country_leader = {
 	name = TEX_gerald_lyman_kenneth_smith
 	picture = "gfx/leaders/TEX/Portrait_TEX_gearld_k_smith.png"
-	ideology = autocracy_subtype
+	ideology = national_populist_subtype
 }
 
 ### Country Leaders ###
