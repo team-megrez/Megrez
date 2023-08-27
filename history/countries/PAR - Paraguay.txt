@@ -43,23 +43,26 @@ add_ideas = {
 }
 
 set_politics = {
-	ruling_party = authoritarian_democrat
+	ruling_party = anocracy
 	last_election = "1935.10.1"
 	election_frequency = 73
 	elections_allowed = yes
 }
 
 set_popularities = {
-	totalist = 1
-	radical_socialist = 8
-	syndicalist = 6
-	social_democrat = 2
-	social_liberal = 10
-	market_liberal = 6
-	social_conservative = 5
-	authoritarian_democrat = 56
-	paternal_autocrat = 2
-	national_populist = 4
+	bolshevism = 0
+	communism = 1
+	revolutionary_socialism = 8
+	moderate_socialism = 6
+	progressivism = 2
+	liberalism = 10
+	liberal_conservatism = 6
+	social_conservatism = 5
+	anocracy = 56
+	autocracy = 2
+	reformed_voynism = 4
+	voynism = 0
+	radical_voynism = 0
 }
 
 country_event = { id = par.101 days = 2 }
@@ -118,6 +121,6 @@ recruit_character = PAR_juan_stefanich
 ### Character Setup ###
 activate_advisor = PAR_luis_alberto_riart_sic
 
-PAR_carlos_pastore = { retire = yes } #totalist only
-PAR_aristides_ortellado = { retire = yes } #totalist only
-PAR_camilo_recalde = { retire = yes } #totalist only
+PAR_carlos_pastore = { retire = yes } #communism only
+PAR_aristides_ortellado = { retire = yes } #communism only
+PAR_camilo_recalde = { retire = yes } #communism only

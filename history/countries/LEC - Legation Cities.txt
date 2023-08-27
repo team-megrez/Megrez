@@ -48,23 +48,26 @@ set_stability = 0.57
 set_war_support = 0.10
 
 set_politics = {
-	ruling_party = market_liberal
+	ruling_party = liberal_conservatism
 	last_election = "1930.11.9"
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	totalist = 0
-	radical_socialist = 0
-	syndicalist = 0
-	social_democrat = 1
-	social_liberal = 4
-	market_liberal = 46
-	social_conservative = 11
-	authoritarian_democrat = 5
-	paternal_autocrat = 19
-	national_populist = 14
+	bolshevism = 0
+	communism = 0
+	revolutionary_socialism = 0
+	moderate_socialism = 0
+	progressivism = 1
+	liberalism = 4
+	liberal_conservatism = 46
+	social_conservatism = 11
+	anocracy = 5
+	autocracy = 19
+	reformed_voynism = 14
+	voynism = 0
+	radical_voynism = 0
 }
 
 set_country_flag = { flag = jinrong_suspect value = 0 }
@@ -235,19 +238,19 @@ create_country_leader = {
 	name = LEC_pan_hannian
 	picture = GFX_Portrait_Asia_Generic_new_5
 	expire = "1965.1.1"
-	ideology = totalist_subtype
+	ideology = communism_subtype
 }
 
 create_country_leader = {
 	name = LEC_yuan_zhenying
 	picture = GFX_Portrait_Asia_Generic_new_4
 	expire = "1965.1.1"
-	ideology = syndicalist_subtype
+	ideology = moderate_socialism_subtype
 }
 
 create_country_leader = {
 	name = LEC_yun_daiying
 	picture = GFX_Portrait_Asia_Generic_new_6
 	expire = "1965.1.1"
-	ideology = radical_socialist_subtype
+	ideology = revolutionary_socialism_subtype
 }

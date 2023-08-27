@@ -9,23 +9,26 @@ RUS_starting_tank_variants = yes
 RUS_starting_naval_variants = yes
 
 set_politics = {
-	ruling_party = radical_socialist
+	ruling_party = revolutionary_socialism
 	last_election = "1930.11.9"
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	totalist = 9
-	radical_socialist = 41
-	syndicalist = 23
-	social_democrat = 19
-	social_liberal = 5
-	market_liberal = 3
-	social_conservative = 0
-	authoritarian_democrat = 0
-	paternal_autocrat = 0
-	national_populist = 0
+	bolshevism = 0
+	communism = 9
+	revolutionary_socialism = 41
+	moderate_socialism = 23
+	progressivism = 19
+	liberalism = 5
+	liberal_conservatism = 3
+	social_conservatism = 0
+	anocracy = 0
+	autocracy = 0
+	reformed_voynism = 0
+	voynism = 0
+	radical_voynism = 0
 }
 
 ### AI strategies ###
@@ -99,37 +102,37 @@ add_ai_strategy = {
 create_country_leader = {
 	name = RUS_irakli_tsereteli
 	picture = "gfx/leaders/RUS/Portrait_RUS_Irakli_Tsereteli.png"
-	ideology = social_democrat_subtype
+	ideology = progressivism_subtype
 }
 create_country_leader = {
 	name = RUS_viktor_chernov
 	picture = "gfx/leaders/RUS/Portrait_RUS_Viktor_Chernov.png"
-	ideology = social_democrat_subtype
+	ideology = progressivism_subtype
 }
 create_country_leader = {
 	name = RUS_vasily_maklakov
 	picture = "gfx/leaders/RUS/Portrait_RUS_Vasily_Maklakov.png"
-	ideology = market_liberal_subtype
+	ideology = liberal_conservatism_subtype
 }
 create_country_leader = {
 	name = RUS_nikolay_trubetskoy
 	picture = "gfx/leaders/RUS/Portrait_RUS_Nikolai_Trubetskoy.png"
-	ideology = social_conservative_subtype
+	ideology = social_conservatism_subtype
 }
 create_country_leader = {
 	name = RUS_dmitry_romanov
 	picture = "gfx/leaders/RUS/Portrait_RUS_Dmitri_Romanov.png"
-	ideology = authoritarian_democrat_subtype
+	ideology = anocracy_subtype
 }
 create_country_leader = {
 	name = RUS_pyotr_wrangel
 	picture = "gfx/leaders/RUS/Portrait_RUS_Pyotr_Wrangel.png"
-	ideology = paternal_autocrat_subtype
+	ideology = autocracy_subtype
 }
 create_country_leader = {
 	name = RUS_anastasy_vonsyatsky
 	picture = "gfx/leaders/RUS/Portrait_RUS_Anastasy_Vonsiatsky.png"
-	ideology = national_populist_subtype
+	ideology = reformed_voynism_subtype
 }
 
 ### Country Leaders ###
