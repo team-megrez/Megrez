@@ -108,7 +108,7 @@ add_dynamic_modifier = {
 }
 QIE_recalculate_peking_commission = yes
 
-
+set_variable = { country_intro_page_count = 2 } # intro screen
 
 
 
@@ -203,15 +203,15 @@ activate_targeted_decision = { target = FROM decision = QIE_entice_financial_sup
 ### Character Setup ###
 QIE_aisin_gioro_puyi = {
 	set_character_flag = is_monarch
-	
+	set_variable = { china_alignment = token:zhili }
 }
-QIE_wu_peifu = { 
-QIE_wellington_koo = { 
-QIE_hu_shih = { 
-QIE_yan_huiqing = { 
+QIE_wu_peifu = { set_variable = { china_alignment = token:zhili } }
+QIE_wellington_koo = { set_variable = { china_alignment = token:zhili } }
+QIE_hu_shih = { set_variable = { china_alignment = token:zhili } }
+QIE_yan_huiqing = { set_variable = { china_alignment = token:zhili } }
 
 QIE_jiang_baili = {
-	
+	set_variable = { china_alignment = token:zhili }
 	set_character_flag = QIE_zhili_leader
 }
 QIE_wang_huaiqing = { set_character_flag = QIE_zhili_leader }

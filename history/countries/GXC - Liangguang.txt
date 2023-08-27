@@ -70,7 +70,7 @@ add_ideas = {
 china_add_poor_army = yes
 
 ### Events ###
-
+set_variable = { country_intro_page_count = 2 } #intro screen
 
 
 
@@ -130,19 +130,19 @@ china_add_poor_army = yes
 
 ### Character Flags ###
 GXC_chen_mingshu = {
-	
+	set_variable = { china_alignment = token:left_kuomintang }
 	set_character_flag = GXC_guangdong_character
 }
 GXC_chen_jiongming = {
-	
+	set_variable = { china_alignment = token:federalists }
 	set_character_flag = GXC_guangdong_character
 }
 GXC_chen_qiyou = {
-	
+	set_variable = { china_alignment = token:federalists }
 	set_character_flag = GXC_guangdong_character
 }
 GXC_chen_lianbo = {
-	
+	set_variable = { china_alignment = token:fengtian }
 	set_character_flag = GXC_guangdong_character
 }
 
@@ -164,7 +164,7 @@ GXC_chen_lianzhong = {
 }
 
 GXC_ma_ji = {
-	
+	set_variable = { china_alignment = token:zhili }
 	set_character_flag = GXC_guangxi_character
 }
 GXC_lu_yuguang = { set_character_flag = GXC_guangxi_character }
@@ -173,7 +173,7 @@ GXC_zhang_gan = { set_character_flag = GXC_guangxi_character }
 GXC_liu_fei = { set_character_flag = GXC_guangxi_character }
 
 GXC_li_zongren = {
-	
+	set_variable = { china_alignment = token:right_kuomintang }
 	set_character_flag = CHI_original_unit_leader
 	set_character_flag = GXC_guangxi_character
 	retire = yes #in exile at game start

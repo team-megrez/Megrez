@@ -65,7 +65,7 @@ if = {
 	}
 }
 
-
+set_variable = { country_intro_page_count = 3 }
 
 
 
@@ -125,7 +125,7 @@ add_ideas = {
 }
 china_add_poor_army = yes
 
-
+set_variable = { political_power_ideology = token:autocracy }
 
 ### Mantetsu ###
 
@@ -141,14 +141,14 @@ diplomatic_relation = { country = JAP relation = non_aggression_pact }
 give_military_access = JAP
 
 ### Factionalism ###
-
-
-
-
+set_variable = { FNG_factionalism_war_support = -0.2 }
+set_variable = { FNG_factionalism_stability = -0.2 }
+set_variable = { FNG_factionalism_pp_factor = -0.1 }
+set_variable = { FNG_factionalism_conscription_factor = -0.1 }
 add_dynamic_modifier = { modifier = FNG_factionalism_modifier }
 
 ### Legitimacy ###
-
+set_variable = { FNG_legitimacy_level = 3 }
 
 ### Country Leaders ###
 
@@ -214,8 +214,8 @@ add_dynamic_modifier = { modifier = FNG_factionalism_modifier }
 
 
 ### Character Setup ###
-FNG_zhang_zuolin = { 
-FNG_zhang_xueliang = { 
+FNG_zhang_zuolin = { set_variable = { china_alignment = token:fengtian } }
+FNG_zhang_xueliang = { set_variable = { china_alignment = token:fengtian } }
 
 set_country_flag = FNG_concordia_association_active
 set_country_flag = FNG_communications_clique_active

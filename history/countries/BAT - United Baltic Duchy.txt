@@ -124,7 +124,7 @@ add_ideas = {
 	volunteer_only
 }
 
-
+set_variable = { country_intro_page_count = 3 }
 
 
 
@@ -232,8 +232,8 @@ BAT_adolf_friedrich = { set_character_flag = is_monarch }
 BAT_rolf_von_ungern_sternberg = { set_character_flag = character_event_only }
 BAT_adolf_constantin_pilar_von_pilchau = { set_character_flag = character_event_only }
 
-BAT_harry_lutz = { 
-BAT_heinrich_von_behr = { 
-BAT_ernst_von_nolcken = { 
-BAT_hans_von_manteuffel_szoege = { 
-BAT_otto_goldfeld = { 
+BAT_harry_lutz = { set_variable = { BAT.BAT_mission_general_@LIT = THIS } }
+BAT_heinrich_von_behr = { set_variable = { BAT.BAT_mission_general_@POL = THIS } }
+BAT_ernst_von_nolcken = { set_variable = { BAT.BAT_mission_general_@WHR = THIS } }
+BAT_hans_von_manteuffel_szoege = { set_variable = { BAT.BAT_mission_general_@UKR = THIS } }
+BAT_otto_goldfeld = { set_variable = { BAT.BAT_mission_general_@FIN = THIS } }
