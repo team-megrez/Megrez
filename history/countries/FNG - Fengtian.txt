@@ -66,14 +66,14 @@ if = {
 }
 
 set_variable = { country_intro_page_count = 3 }
-
-
-
-
-
-
-
-
+country_event = { id = fengtian.124 days = 28 }  # Communications Clique Assassination
+country_event = { id = fengtian.173 days = 266 } # The Asia Express
+country_event = { id = fengtian.117 days = 365 random_hours = 360 }   # Honghuzi Attacks in Heilongjiang
+country_event = { id = fngshen.0 days = 440 random_hours = 360 }      # Shenyang Conference Starter Event
+country_event = { id = fengtian.138 days = 450 }                # The Founding of the Jilin Film Association
+country_event = { id = fengtian.1411 days = 608 }               # Prince Kan'in Kotohito Visits Fengtian
+country_event = { id = fengtian.116 days = 1463 random_hours = 1560 } # Seditious Articles Proliferate
+country_event = { id = fengtian.330 days = 1915 }
 
 QIE = {
 	embargo_ROOT = yes
@@ -83,8 +83,8 @@ LEP = {
 	embargo_ROOT = yes
 	JAP = { embargo_PREV = yes }
 }
-
-
+GER = { embargo_ROOT = yes }
+GEA = { embargo_ROOT = yes }
 
 set_cosmetic_tag = FNG_government
 set_country_flag = china_is_potential_government
@@ -128,11 +128,11 @@ china_add_poor_army = yes
 set_variable = { political_power_ideology = token:autocracy }
 
 ### Mantetsu ###
-
-
-
-
-
+328 = { add_dynamic_modifier = { modifier = FNG_mantetsu_monopoly } } #Andong
+715 = { add_dynamic_modifier = { modifier = FNG_mantetsu_monopoly } } #Liaobei
+716 = { add_dynamic_modifier = { modifier = FNG_mantetsu_monopoly } } #Liaoning
+885 = { add_dynamic_modifier = { modifier = FNG_mantetsu_monopoly } } #Songjiang
+886 = { add_dynamic_modifier = { modifier = FNG_mantetsu_monopoly } } #Jilin
 
 add_dynamic_modifier = { modifier = FNG_mantetsu_influence_modifier }
 FNG_recalculate_mantetsu_effects = yes
@@ -151,67 +151,67 @@ add_dynamic_modifier = { modifier = FNG_factionalism_modifier }
 set_variable = { FNG_legitimacy_level = 3 }
 
 ### Country Leaders ###
+recruit_character = FNG_zhang_zuolin
+recruit_character = FNG_zhang_xueliang
+recruit_character = FNG_tang_shaoyi
 
-
-
-
-
+activate_advisor = FNG_zhang_xueliang_sic
 
 ### Second in Command ###
-
-
-
-
-
-
+recruit_character = FNG_ruan_zhenduo
+recruit_character = FNG_liang_shiyi
+recruit_character = FNG_jin_yunpeng
+recruit_character = FNG_pan_fu
+recruit_character = FNG_cao_rulin
+recruit_character = FNG_yang_yuting
 
 ### Advisor ###
-
-
-
-
-
-
-
-
-
-
+recruit_character = FNG_li_dingyi
+recruit_character = FNG_wang_yitang
+recruit_character = FNG_wu_jinglian
+recruit_character = FNG_sun_qichang
+recruit_character = FNG_wang_yintai
+recruit_character = FNG_li_shaogeng
+recruit_character = FNG_lu_ronghuan
+recruit_character = FNG_yuan_jinkai
+recruit_character = FNG_ding_jianxiu
+recruit_character = FNG_takema_machino
 
 ### Generals ###
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+recruit_character = FNG_wu_junsheng
+recruit_character = FNG_zhang_zuoxiang
+recruit_character = FNG_wang_shuchang
+recruit_character = FNG_ma_zhanshan
+recruit_character = FNG_wan_fulin
+recruit_character = FNG_zang_shiyi
+recruit_character = FNG_zhang_haipeng
+recruit_character = FNG_tang_yulin
+recruit_character = FNG_bao_wenyue
+recruit_character = FNG_zhang_jinghui
+recruit_character = FNG_feng_zhanhai
+recruit_character = FNG_su_bingwen
+recruit_character = FNG_yu_zhishan
+recruit_character = FNG_zou_zuohua
+recruit_character = FNG_fu_shuangying
 
 ### Admirals ###
-
-
+recruit_character = FNG_shen_honglie
+recruit_character = FNG_yin_zuoqian
 
 ### Military Staff ###
-
-
-
-
-
+recruit_character = FNG_meng_tieqiao
+recruit_character = FNG_xie_gangzhe
+recruit_character = FNG_li_guidan
+recruit_character = FNG_tong_yanbo
+recruit_character = FNG_gao_zhihang
 
 ### Theorists ###
-
-
-
+recruit_character = FNG_the_old_marshals_clique
+recruit_character = FNG_the_young_marshals_clique
+recruit_character = FNG_the_shikan_clique
 
 ### Manchuria ####
-
+recruit_character = FNG_guan_xiangying
 
 ### Character Setup ###
 FNG_zhang_zuolin = { set_variable = { china_alignment = token:fengtian } }

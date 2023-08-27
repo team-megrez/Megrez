@@ -41,23 +41,23 @@ if = {
 }
 set_variable = { country_intro_page_count = 2 }
 ### Events ###
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+country_event = { id = LIT.21 days = 350 } #fire the chain that prepares the election
+country_event = { id = LITFLA.1 days = 44 } #Lithuanioan-Belarusian language shift flavor
+country_event = { id = LITFLA.3 days = 129 random_days = 72 }
+country_event = { id = LITFLA.4 days = 366 random_days = 336 }
+country_event = { id = LITFLA.6 days = 400 random_days = 30 }
+country_event = { id = LITFLA.8 days = 731 random_days = 365 }
+country_event = { id = LITFLA.9 days = 831 random_days = 365 }
+country_event = { id = LITFLA.11 days = 700 random_days = 168 }
+country_event = { id = LITFLA.12 days = 232 random_days = 48 }
+country_event = { id = LITFLA.13 days = 650 random_days = 50 }
+country_event = { id = LITFLA.15 days = 1607 random_days = 168 }
+country_event = { id = LITFLA.16 days = 74 random_days = 48 }
+country_event = { id = LITFLA.17 days = 171 }
+country_event = { id = LITFLA.18 days = 200 }
+country_event = { id = LITFLA.19 days = 900 random_days = 50 }
+country_event = { id = LITFLA.20 days = 1200 random_days = 50 }
+country_event = { id = LITFLA.21 days = 492 } #Basketball !!!
 
 add_ideas = {
 	limited_conscription
@@ -99,59 +99,59 @@ set_variable = { LIT_LAF_threat = 25 }
 
 ### Integration ###
 ROOT = {
-
-
+	94 = { enable_state_integration_80_compliance = yes } #Volkovysk
+	97 = { enable_state_integration_80_compliance = yes } #Bialystok
 	188 = { enable_state_integration_50_compliance = yes } #Memel
 }
 
 ### Characters ###
+recruit_character = LIT_karl_gero_von_urach
+recruit_character = LIT_eberhard_von_urach
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+recruit_character = LIT_juozas_butkus
+recruit_character = LIT_vincas_galinis
+recruit_character = LIT_justas_paleckis
+recruit_character = LIT_steponas_kairys
+recruit_character = LIT_vaclovas_sidzikauskas
+recruit_character = LIT_stanislaw_narutowicz
+recruit_character = LIT_stasys_salkauskis
+recruit_character = LIT_antanas_smetona
+recruit_character = LIT_povilas_plechavicius
+recruit_character = LIT_kazimieras_tiskevicius
+recruit_character = LIT_augustinas_voldemaras
+recruit_character = LIT_vytautas_alantas
+recruit_character = LIT_antanas_maceina
 
 ### Advisors ###
-
-
-
-
-
-
-
-
-
-
-
-
+recruit_character = LIT_leonas_bistras
+activate_advisor = LIT_leonas_bistras_sic
+recruit_character = LIT_antanas_merkys
+recruit_character = LIT_salomeja_neris
+recruit_character = LIT_wilhelm_von_urach
+recruit_character = LIT_antanas_gustaitis
+recruit_character = LIT_augustinas_povilaitis
+recruit_character = LIT_jonas_vailokaitis
+recruit_character = LIT_juozas_paknys
+recruit_character = LIT_gabriele_petkevicaite-bite
+recruit_character = LIT_herbert_tillmanns
+recruit_character = LIT_jonas_pyragius
 
 ### Field Marshals ###
-
-
+recruit_character = LIT_silvestras_zukauskas
+recruit_character = LIT_stasys_rastikis
 
 ### Generals ####
-
-
-
-
-
-
-
+recruit_character = LIT_jonas_cernius
+recruit_character = LIT_kazys_skirpa
+recruit_character = LIT_mikas_reklaitis
+recruit_character = LIT_vincas_vitkauskas
+recruit_character = LIT_lucjan_zeligowski
+recruit_character = LIT_kazys_ladiga
+recruit_character = LIT_edvardas_adamkavicius
 
 ### Admirals ###
-
-
+recruit_character = LIT_antanas_kaskelis
+recruit_character = LIT_povilas_julius_labanauskas
 
 ### Character Setup ###
 LIT_karl_gero_von_urach = { set_character_flag = is_monarch }

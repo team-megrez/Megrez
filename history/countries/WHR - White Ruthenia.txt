@@ -52,17 +52,17 @@ if = {
 	set_technology = { early_fighter = 1 }
 }
 
-
-
-
-
-
-
-
-
-
-
-
+country_event = { id = whrpol.2 days = 14 } #Necessity of Reform
+country_event = { id = whrmisc.10 days = 420 } #A Very Jewish Day
+country_event = { id = whrmisc.11 days = 257 } #Central House of Officers
+country_event = { id = whrmisc.12 days = 452 } #Bielarusi ardenanosnaj
+country_event = { id = whrmisc.13 days = 1100 } #Main building of the National Academy of Sciences
+country_event = { id = whrmisc.14 days = 1225 } #Belarusian State Opera
+country_event = { id = whrmisc.15 days = 2281 } #Bielaruskim partyzanam
+country_event = { id = whrmisc.16 days = 480 } #State Philharmonic
+country_event = { id = whrmisc.17 days = 1771 } #Death of Liavon Dubiejkauski
+country_event = { id = whrmisc.18 days = 2629 } #Death of Vasil Zacharka
+RUS = { country_event = { id = whrmisc.23 days = 1492 } } #Accident Above Svecha, will fire in early 1940
 
 set_variable = { WHR_Land_Reform_Success = 40 }
 set_variable = { WHR_Land_Reform_Popularity = 50 }
@@ -110,52 +110,52 @@ add_ideas = {
 
 ### Integration ###
 ROOT = {
-
-
+	96 = { enable_state_integration_50_compliance = yes } #Vilnius
+	97 = { enable_state_integration_50_compliance = yes } #Bialystok
 	241 = { enable_state_integration_50_compliance = yes } #Gomel
 	243 = { enable_state_integration_50_compliance = yes } #Krichev
 	755 = { enable_state_integration_50_compliance = yes } #Vitebsk
 	997 = { enable_state_integration_50_compliance = yes } #Polesia
 
-
+	93 = { enable_state_integration_80_compliance = yes } #Brest
 	242 = { enable_state_integration_80_compliance = yes } #Smolensk
 }
 
 ### Country Leaders ###
+recruit_character = WHR_usievalad_ihnatouski
+recruit_character = WHR_tamas_hryb
+recruit_character = WHR_branislau_taraskievic
+recruit_character = WHR_mikola_abramcyk
+recruit_character = WHR_adam_stankievic
+recruit_character = WHR_radaslau_astrouski
+recruit_character = WHR_vaclau_lastouski
 
-
-
-
-
-
-
-
-
+recruit_character = WHR_werner_kempf
 
 ### Field Marshals ###
-
+recruit_character = WHR_kanstancin_jezavitau
 
 ### Generals ###
-
-
-
-
-
-
+recruit_character = WHR_timokh_khvedashchenya
+recruit_character = WHR_vital_kazlou
+recruit_character = WHR_mikalaj_janicki
+recruit_character = WHR_paval_vent
+recruit_character = WHR_francisak_kusal
+recruit_character = WHR_hasan_kanapatski
 
 ### Advisors ###
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+recruit_character = WHR_jan_sierada
+recruit_character = WHR_anton_lutskievic
+recruit_character = WHR_dmitry_pryshchepau
+recruit_character = WHR_symon_kandybovic
+recruit_character = WHR_paluta_badunova
+recruit_character = WHR_jazep_lesik
+recruit_character = WHR_jan_stankievic
+recruit_character = WHR_vaclau_ivanouski
+recruit_character = WHR_raman_skirmunt
+recruit_character = WHR_jewish_bund
+recruit_character = WHR_vasily_korzh
+recruit_character = WHR_anton_ausianik
+recruit_character = WHR_hieorhij_khalasciakou
+recruit_character = WHR_michal_vituska
+recruit_character = WHR_belvaiskrada
