@@ -48,23 +48,26 @@ set_stability = 0.57
 set_war_support = 0.10
 
 set_politics = {
-	ruling_party = market_liberal
+	ruling_party = liberal_conservatism
 	last_election = "1930.11.9"
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	totalist = 0
-	radical_socialist = 0
-	syndicalist = 0
-	social_democrat = 1
-	social_liberal = 4
-	market_liberal = 46
-	social_conservative = 11
-	authoritarian_democrat = 5
-	paternal_autocrat = 19
-	national_populist = 14
+	bolshevism = 0
+	communism = 0
+	revolutionary_socialism = 0
+	moderate_socialism = 0
+	progressivism = 1
+	liberalism = 4
+	liberal_conservatism = 46
+	social_conservatism = 11
+	anocracy = 5
+	autocracy = 19
+	reformed_voynism = 14
+	voynism = 0
+	radical_voynism = 0
 }
 
 set_country_flag = { flag = jinrong_suspect value = 0 }
@@ -109,20 +112,20 @@ AST = {
 	add_to_array = { LEC.guarantor_array = THIS }
 	save_global_event_target_as = LEC_has_british_vote
 }
-RUS = { LEC_add_to_legation_council_observer = yes }
-TRM = { LEC_add_to_legation_council_observer = yes }
 
-country_event = { id = lec.1 days = 3 }
-country_event = { id = lec.9 days = 11 }
-country_event = { id = lec.107 days = 444 }
-country_event = { id = lecgreengangclash.1 days = 100 }
-country_event = { id = lecbrits.1 days = 250 }
-country_event = { id = lechotung.1 days = 855 }
-country_event = { id = lecfuzhou.1 days = 600 }
-country_event = { id = lec.149 days = 750 }
-country_event = { id = lec.152 days = 1155 }
-country_event = { id = lec.153 days = 2360 }
-country_event = { id = lec.154 days = 1150 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 add_ideas = {
 	LEC_neutrality
@@ -164,90 +167,90 @@ ROOT = {
 }
 
 ### Leaders ###
-recruit_character = LEC_robert_ho_shai_lai
-recruit_character = LEC_nelson_trusler_johnson
-recruit_character = LEC_patrick_hurley
-recruit_character = LEC_norman_lockhart_smith
-recruit_character = LEC_mark_aitchison_young
-recruit_character = LEC_cornell_franklin
-recruit_character = LEC_siegmund_bodenheimer
-recruit_character = LEC_katsuo_okazaki
+
+
+
+
+
+
+
+
 
 ### Advisors ###
 # SiC #
-recruit_character = LEC_shanghai_municipal_council
-# Chinese #
-recruit_character = LEC_du_yuesheng
-recruit_character = LEC_robert_hotung
-recruit_character = LEC_huang_jinrong
-recruit_character = LEC_zhang_xiaolin
-recruit_character = LEC_liu_hongsheng
-recruit_character = LEC_thomas_tien_ken_sin
-# American #
-recruit_character = LEC_stirling_fessenden
-recruit_character = LEC_john_leighton_stuart
-# British #
-recruit_character = LEC_cecil_clementi
-recruit_character = LEC_vandeleur_molyneux_grayburn
-# German #
-recruit_character = LEC_lothar_eisentrager
-recruit_character = LEC_emil_helfferich
-# Japan #
-recruit_character = LEC_hiraya_amane
-recruit_character = LEC_masahiko_amakasu
 
-activate_advisor = LEC_shanghai_municipal_council_sic
-activate_advisor = LEC_du_yuesheng
-activate_advisor = LEC_zhang_xiaolin
-activate_advisor = LEC_huang_jinrong
+# Chinese #
+
+
+
+
+
+
+# American #
+
+
+# British #
+
+
+# German #
+
+
+# Japan #
+
+
+
+
+
+
+
 
 ### Commanders ###
 #British#
-recruit_character = LEC_francis_wogan_festing
-recruit_character = LEC_edward_barrett
+
+
 #German#
-recruit_character = LEC_georg_wetzell
-recruit_character = LEC_walter_stennes
+
+
 #Japanese#
-recruit_character = LEC_koreshige_inuzuka
-recruit_character = LEC_michitaro_komatsubara
+
+
 #International#
-recruit_character = LEC_william_ewart_fairbairn
-recruit_character = LEC_german_thieme
-recruit_character = LEC_ellis_mark_zacharias
+
+
+
 
 ### Admirals ###
-recruit_character = LEC_reginald_yorke_tyrwhitt
+
 
 ### High Command ###
 
-recruit_character = LEC_john_duncan
-recruit_character = LEC_jame_howe_dobson
-recruit_character = LEC_conway_pulford
-recruit_character = LEC_john_marston
-recruit_character = LEC_eric_sykes
-recruit_character = LEC_amleto_vespa
-recruit_character = LEC_morris_cohen
-recruit_character = LEC_international_army_committee
+
+
+
+
+
+
+
+
 
 ###Dummy KMT Leaders###
 create_country_leader = {
 	name = LEC_pan_hannian
 	picture = GFX_Portrait_Asia_Generic_new_5
 	expire = "1965.1.1"
-	ideology = totalist_subtype
+	ideology = communism_subtype
 }
 
 create_country_leader = {
 	name = LEC_yuan_zhenying
 	picture = GFX_Portrait_Asia_Generic_new_4
 	expire = "1965.1.1"
-	ideology = syndicalist_subtype
+	ideology = moderate_socialism_subtype
 }
 
 create_country_leader = {
 	name = LEC_yun_daiying
 	picture = GFX_Portrait_Asia_Generic_new_6
 	expire = "1965.1.1"
-	ideology = radical_socialist_subtype
+	ideology = revolutionary_socialism_subtype
 }

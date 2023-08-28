@@ -71,23 +71,26 @@ if = {
 set_country_flag = china_is_potential_government
 
 set_politics = {
-	ruling_party = authoritarian_democrat
+	ruling_party = anocracy
 	last_election = "1930.11.9"
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	totalist = 0
-	radical_socialist = 0
-	syndicalist = 0
-	social_democrat = 10
-	social_liberal = 5
-	market_liberal = 15
-	social_conservative = 10
-	authoritarian_democrat = 48
-	paternal_autocrat = 10
-	national_populist = 2
+	bolshevism = 0
+	communism = 0
+	revolutionary_socialism = 0
+	moderate_socialism = 0
+	progressivism = 10
+	liberalism = 5
+	liberal_conservatism = 15
+	social_conservatism = 10
+	anocracy = 48
+	autocracy = 10
+	reformed_voynism = 2
+	voynism = 0
+	radical_voynism = 0
 }
 
 add_ideas = {
@@ -106,9 +109,9 @@ add_dynamic_modifier = {
 QIE_recalculate_peking_commission = yes
 
 set_variable = { country_intro_page_count = 2 } # intro screen
-country_event = { id = qiedom.18 days = 14 random_hours = 96 } #mining conflicts
-country_event = { id = qiedom.4 days = 31 random_hours = 72 } #death of wang chengbin
-country_event = { id = qieflavor.11 days = 1096 random_hours = 1440 } #sarcophagus
+
+
+
 
 activate_targeted_decision = { target = FROM decision = QIE_bribe_lobbyists }
 activate_targeted_decision = { target = FROM decision = QIE_encourage_domestic_production }
@@ -116,86 +119,86 @@ activate_targeted_decision = { target = FROM decision = QIE_encourage_anti_germa
 activate_targeted_decision = { target = FROM decision = QIE_entice_financial_support }
 
 ### Country Leaders ###
-recruit_character = QIE_aisin_gioro_puyi
-recruit_character = QIE_aisin_gioro_pugong
 
-recruit_character = QIE_james_yen
-recruit_character = QIE_li_huang
-recruit_character = QIE_huang_boqiao
-recruit_character = QIE_aisin_gioro_pujie
-recruit_character = QIE_wellington_koo
-recruit_character = QIE_hu_shih
-recruit_character = QIE_yan_huiqing
-recruit_character = QIE_wu_peifu
-recruit_character = QIE_cao_kun
-recruit_character = QIE_kang_tongbi
-recruit_character = QIE_zeng_qi
 
-recruit_character = QIE_wen_tsungyao
 
-activate_advisor = QIE_wu_peifu_sic
-activate_advisor = QIE_cao_kun
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### Field Marshals ###
-recruit_character = QIE_jiang_baili
+
 
 ### Generals ###
-recruit_character = QIE_wang_huaiqing
-recruit_character = QIE_aisin_gioro_zaitao
-recruit_character = QIE_cai_chengxun
-recruit_character = QIE_liu_menggeng
-recruit_character = QIE_wang_chengbin
-recruit_character = QIE_zhang_qihuang
-recruit_character = QIE_lu_xiangting
-recruit_character = QIE_xiao_yaonan
-recruit_character = QIE_li_bingzhi
-recruit_character = QIE_aisin_gioro_xiqia
-recruit_character = QIE_zhang_shaozeng
-recruit_character = QIE_liu_zhenhua
-recruit_character = QIE_xing_shilian
-recruit_character = QIE_aisin_gioro_jixing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # get their roles in later events
-recruit_character = QIE_wang_lingyun
-recruit_character = QIE_du_xijun
-recruit_character = QIE_guo_jijiao
-recruit_character = QIE_wei_yisan
-recruit_character = QIE_gobulo_runqi
-recruit_character = QIE_zhang_yinwu
+
+
+
+
+
+
 
 ### Admirals ###
-recruit_character = QIE_wu_renli
-recruit_character = QIE_sa_zhenbing
-recruit_character = QIE_du_xigui
-recruit_character = QIE_aisin_gioro_zaixun
+
+
+
+
 
 ### Advisors ###
-recruit_character = QIE_bai_jianwu
-recruit_character = QIE_li_linsi
-recruit_character = QIE_wang_chonghui
-recruit_character = QIE_zhang_yanqing
-recruit_character = QIE_gao_lingwei
-recruit_character = QIE_tang_zhongming
-recruit_character = QIE_lei_haizong
-recruit_character = QIE_liang_shuming
-recruit_character = QIE_peng_shouxin
-recruit_character = QIE_wang_yujia
-recruit_character = QIE_yu_xuezhong
-recruit_character = QIE_xiong_bingqi
 
-recruit_character = QIE_aisin_gioro_zaizhen
-recruit_character = QIE_aisin_gioro_xiankui
-recruit_character = QIE_baokang
-recruit_character = QIE_xie_jieshi
-recruit_character = QIE_zheng_xiaoxu
-recruit_character = QIE_guo_zeyun
 
-recruit_character = QIE_tang_xiangming
 
-recruit_character = QIE_wang_guanyi
-recruit_character = QIE_ren_yunge
-recruit_character = QIE_shi_bangfan
-recruit_character = QIE_liu_muqun
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### Character Setup ###
 QIE_aisin_gioro_puyi = {
