@@ -1,0 +1,4161 @@
+########################
+#   Qing Decisions     #
+#  by MantisToboggan   #
+########################
+
+#placate assembly parties
+QIE_meet_assembly_parties_decisions = {
+	QIE_placate_manchu = {
+		icon = generic_agreement
+		allowed = { always = no }	# Activated by focus QIE_placateassembly
+		fire_only_once = yes
+		cost = 10
+		ai_will_do = { factor = 640 }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_placate_manchu"
+			set_country_flag = QIE_placate_manchu
+			country_event = qiedom.14
+			hidden_effect = {
+				country_event = { id = qiedom.17 days = 3 random_days = 3 }
+			}
+		}
+	}
+	QIE_placate_YCP = {
+		icon = generic_agreement
+		allowed = { always = no }	# Activated by focus QIE_placateassembly
+		fire_only_once = yes
+		cost = 10
+		ai_will_do = { factor = 640 }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_placate_YCP"
+			set_country_flag = QIE_placate_YCP
+			country_event = qiedom.15
+			hidden_effect = {
+				country_event = { id = qiedom.17 days = 3 random_days = 3 }
+			}
+		}
+	}
+	QIE_placate_NCERA = {
+		icon = generic_agreement
+		allowed = { always = no }	# Activated by focus QIE_placateassembly
+		fire_only_once = yes
+		cost = 10
+		ai_will_do = { factor = 640 }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_placate_NCERA"
+			set_country_flag = QIE_placate_NCERA
+			country_event = qiedom.16
+			hidden_effect = {
+				country_event = { id = qiedom.17 days = 3 random_days = 3 }
+			}
+		}
+	}
+}
+
+#############################
+#Zhili Plans (liu vs. baili)#
+#############################
+
+QIE_jiang_baili_plan_category = {
+	QIE_jiang_plan_mission = {
+		icon = fortress
+
+		allowed = { always = no } #manually activated
+
+		available = { #goal
+			NOT = {
+				has_country_flag = jiangbaili1_incomplete
+				has_country_flag = jiangbaili2_incomplete
+				has_country_flag = jiangbaili3_incomplete
+			}
+		}
+
+		is_good = no
+		days_mission_timeout = 720
+
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout QIE_jiang_plan_mission"
+			add_timed_idea = {
+				idea = QIE_unprepared_military
+				days = 730
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_jiang_plan_mission"
+			add_ideas = QIE_jiang_baili_plan_success
+		}
+	}
+
+	QIE_jiang_baili_phase1 = { #build land forts on FNG border
+		icon = generic_prepare_civil_war
+		allowed = { always = no }			# Activated by focus QIE_jiangbailiplan
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+		}
+
+		cost = 40
+		days_remove = 180
+		fire_only_once = yes
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		ai_will_do = { factor = 800 }
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_jiang_baili_phase1"
+			clr_country_flag = jiangbaili1_incomplete
+			custom_effect_tooltip = QIE_fortifications_phase1_tooltip
+			hidden_effect = {
+				every_owned_state = {
+					limit = {
+						any_neighbor_state = { NOT = { is_owned_by = ROOT } }
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+			}
+		}
+	}
+	QIE_jiang_baili_phase2 = { #build coastal forts
+		icon = generic_prepare_civil_war
+		allowed = { always = no }			# Activated by focus QIE_jiangbailiplan
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+		}
+
+		cost = 40
+		days_remove = 180
+		fire_only_once = yes
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		ai_will_do = { factor = 800 }
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_jiang_baili_phase2"
+			clr_country_flag = jiangbaili2_incomplete
+			custom_effect_tooltip = QIE_fortifications_phase2_tooltip
+			hidden_effect = {
+				every_owned_state = {
+					limit = { is_coastal = yes }
+					add_building_construction = {
+						type = coastal_bunker
+						level = 3
+						province = {
+							all_provinces = yes
+							limit_to_naval_base = yes
+						}
+					}
+				}
+			}
+		}
+	}
+	QIE_jiang_baili_phase3 = {
+		icon = generic_prepare_civil_war
+		allowed = { always = no }			# Activated by focus QIE_jiangbailiplan
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+		}
+
+		cost = 40
+		days_remove = 180
+		fire_only_once = yes
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		ai_will_do = { factor = 800 }
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_jiang_baili_phase3"
+			clr_country_flag = jiangbaili3_incomplete
+			custom_effect_tooltip = QIE_fortifications_phase3_tooltip
+			hidden_effect = {
+				every_owned_state = {
+					add_building_construction = {
+						type = bunker
+						province = {
+							all_provinces = yes
+							limit_to_victory_point = yes
+						}
+						level = 3
+					}
+				}
+			}
+		}
+	}
+}
+
+QIE_liu_menggeng_plan_category = {
+	QIE_liu_plan_mission = {
+		icon = generic_military
+
+		allowed = { always = no } #manually activated
+
+		available = { #goal
+			NOT = {
+				has_country_flag = liumenggeng1_incomplete
+				has_country_flag = liumenggeng2_incomplete
+				has_country_flag = liumenggeng3_incomplete
+			}
+		}
+
+		is_good = no
+		days_mission_timeout = 720
+
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout QIE_liu_plan_mission"
+			add_timed_idea = {
+				idea = QIE_unprepared_military
+				days = 730
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_liu_plan_mission"
+			add_ideas = QIE_liu_menggeng_plan_success
+		}
+	}
+	QIE_liu_menggeng_phase_1 = { #invest in health care
+		icon = generic_prepare_civil_war
+		allowed = { always = no }			# Activated by focus QIE_liumenggengplan
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+		}
+
+		cost = 40
+		days_remove = 180
+		fire_only_once = yes
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		ai_will_do = { factor = 800 }
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_liu_menggeng_phase_1"
+			clr_country_flag = liumenggeng1_incomplete
+			if = {
+				limit = {
+					NOT = {
+						has_tech = tech_field_hospital
+						is_researching_technology = tech_field_hospital
+					}
+				}
+				set_technology = { tech_field_hospital = 1 }
+			}
+			else = {
+				add_tech_bonus = {
+					name = QIE_liu_menggeng_phase_1
+					bonus = 1
+					uses = 1
+					category = hospital_tech
+				}
+			}
+		}
+	}
+	QIE_liu_menggeng_phase_2 = { #invest in logistics
+		icon = generic_prepare_civil_war
+		allowed = { always = no }			# Activated by focus QIE_liumenggengplan
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+		}
+
+		cost = 40
+		days_remove = 180
+		fire_only_once = yes
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		ai_will_do = { factor = 800 }
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_liu_menggeng_phase_2"
+			clr_country_flag = liumenggeng2_incomplete
+			if = {
+				limit = {
+					NOT = {
+						has_tech = tech_engineers
+						is_researching_technology = tech_engineers
+					}
+				}
+				set_technology = { tech_engineers = 1 }
+			}
+			else = {
+				add_tech_bonus = {
+					name = QIE_liu_menggeng_phase_2
+					bonus = 1
+					uses = 1
+					category = engineers_tech
+				}
+			}
+		}
+	}
+	QIE_liu_menggeng_phase_3 = { #build some interior railroads
+		icon = generic_prepare_civil_war
+		allowed = { always = no }			# Activated by focus QIE_liumenggengplan
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+		}
+
+		cost = 40
+		days_remove = 180
+		fire_only_once = yes
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		ai_will_do = { factor = 800 }
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_liu_menggeng_phase_3"
+			clr_country_flag = liumenggeng3_incomplete
+			every_owned_state = {
+				limit = { is_coastal = no }
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+}
+
+@QIE_german_influence_small_change = 0.05
+@QIE_german_influence_large_change = 0.08
+
+############################
+#German Influence Decisions#
+############################
+QIE_manage_german_influence = { #ways to buy down german support or gain PP by selling out
+	QIE_bribe_lobbyists = { #lose PP, lose MarLib popularity
+		icon = generic_flags
+		allowed = { always = no }			# Activated by history file/event
+		visible = {
+			if = {
+				limit = { has_global_flag = QIE_manchu_restoration }
+				has_country_flag = QIE_negotiated_debts
+			}
+		}
+		days_remove = 50
+		days_re_enable = 5
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 25
+				market_liberal > 0.40
+			}
+			modifier = {
+				factor = 0
+				has_political_power < 0
+			}
+		}
+
+		ai_hint_pp_cost = 100
+		custom_cost_text = QIE_MINUS_100_PP_MINUS_5_PEKCOM
+		custom_cost_trigger = {
+			has_political_power > 99.99
+			market_liberal > @QIE_german_influence_small_change
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_bribe_lobbyists"
+			effect_tooltip = {
+				set_temp_variable = { change = @QIE_german_influence_small_change }
+				multiply_temp_variable = { change = -1 }
+				add_popularity = {
+					ideology = market_liberal
+					popularity = change
+				}
+			}
+			hidden_effect = {
+				set_temp_variable = { QIE_final_harmony_association_influence = party_popularity@authoritarian_democrat }
+				add_to_temp_variable = { QIE_final_harmony_association_influence = @QIE_german_influence_small_change }
+				multiply_temp_variable = { QIE_final_harmony_association_influence = 100 }
+
+				set_temp_variable = { QIE_final_peking_kommission_influence = party_popularity@market_liberal }
+				subtract_from_temp_variable = { QIE_final_peking_kommission_influence = @QIE_german_influence_small_change }
+				multiply_temp_variable = { QIE_final_peking_kommission_influence = 100 }
+
+				set_political_party = {
+					ideology = authoritarian_democrat
+					popularity = QIE_final_harmony_association_influence
+				}
+				set_political_party = {
+					ideology = market_liberal
+					popularity = QIE_final_peking_kommission_influence
+				}
+			}
+			QIE_recalculate_peking_commission = yes
+			add_political_power = -100
+		}
+	}
+	QIE_encourage_domestic_production = { #get spirit that lowers civ factory for 60 days, at end get drop in MarLib popularity
+		icon = GFX_decision_generic_industry
+		allowed = { always = no }			# Activated by history file/event
+		visible = {
+			if = {
+				limit = { has_global_flag = QIE_manchu_restoration }
+				has_country_flag = QIE_negotiated_debts
+			}
+		}
+		days_remove = 90
+		days_re_enable = 5
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				market_liberal > 0.40
+			}
+		}
+
+		modifier = {
+			consumer_goods_factor = 0.1
+		}
+
+		custom_cost_text = QIE_MINUS_IND_MINUS_8_PEKCOM
+		custom_cost_trigger = {
+			market_liberal > 0.08
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_encourage_domestic_production"
+			effect_tooltip = {
+				set_temp_variable = { change = @QIE_german_influence_large_change }
+				multiply_temp_variable = { change = -1 }
+				add_popularity = {
+					ideology = market_liberal
+					popularity = change
+				}
+			}
+			hidden_effect = {
+				set_temp_variable = { QIE_final_harmony_association_influence = party_popularity@authoritarian_democrat }
+				add_to_temp_variable = { QIE_final_harmony_association_influence = @QIE_german_influence_large_change }
+				multiply_temp_variable = { QIE_final_harmony_association_influence = 100 }
+
+				set_temp_variable = { QIE_final_peking_kommission_influence = party_popularity@market_liberal }
+				subtract_from_temp_variable = { QIE_final_peking_kommission_influence = @QIE_german_influence_large_change }
+				multiply_temp_variable = { QIE_final_peking_kommission_influence = 100 }
+
+				if = {
+					limit = { has_government = authoritarian_democrat }
+					set_political_party = {
+						ideology = authoritarian_democrat
+						popularity = QIE_final_harmony_association_influence
+					}
+				}
+				else_if = {
+					limit = { has_government = social_conservative }
+					set_political_party = {
+						ideology = social_conservative
+						popularity = QIE_final_harmony_association_influence
+					}
+				}
+				else_if = {
+					limit = { has_government = paternal_autocrat }
+					set_political_party = {
+						ideology = paternal_autocrat
+						popularity = QIE_final_harmony_association_influence
+					}
+				}
+				set_political_party = {
+					ideology = market_liberal
+					popularity = QIE_final_peking_kommission_influence
+				}
+			}
+			QIE_recalculate_peking_commission = yes
+		}
+	}
+	QIE_encourage_anti_german_boycott = { 	#loses MarLib and AuthDem party, lowers stability
+		icon = GFX_decision_generic_scorched_earth
+		allowed = { always = no }			# Activated by history file/event
+		days_re_enable = 30
+
+		visible = { NOT = { has_global_flag = QIE_manchu_restoration } }
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				factor = 100
+				market_liberal > 0.40
+			}
+		}
+
+		custom_cost_text = QIE_MINUS_5_HA_MINUS_5_PEKOM
+		custom_cost_trigger = {
+			authoritarian_democrat > @QIE_german_influence_small_change
+			market_liberal > @QIE_german_influence_small_change
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_encourage_anti_german_boycott"
+			set_temp_variable = { change = @QIE_german_influence_small_change }
+			multiply_temp_variable = { change = -1 }
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = change
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = change
+			}
+			QIE_recalculate_peking_commission = yes
+		}
+	}
+	QIE_entice_financial_support = { #75 PP for 8 MarLib popularity
+		icon = GFX_decision_hol_exchange_intelligence_data
+		allowed = { always = no }			# Activated by history file/event
+		visible = {
+			if = {
+				limit = { has_global_flag = QIE_manchu_restoration }
+				has_country_flag = QIE_negotiated_debts
+			}
+		}
+		available = {
+			GER = { GER_has_black_monday = no }
+			market_liberal < 0.95
+		}
+
+		cost = 0
+		days_re_enable = 30
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				has_political_power < 50
+			}
+			modifier = {
+				factor = 0
+				market_liberal > 0.4
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_entice_financial_support"
+			add_political_power = 75
+			add_popularity = {
+				ideology = market_liberal
+				popularity = @QIE_german_influence_large_change
+			}
+			QIE_recalculate_peking_commission = yes
+		}
+	}
+	QIE_ger_debt_repayment = { # pay off debt
+		icon = GFX_decision_cash_flow
+		allowed = { always = no }				# Activated by QIE_more_equal_treaties or QIE_debt_issue
+		visible = {
+			has_country_flag = QIE_negotiated_debts
+		}
+		available = {
+			GER = { exists = yes }
+			has_country_flag = QIE_negotiated_debts
+		}
+
+		fire_only_once = no
+		cost = 50
+		days_re_enable = 20
+		days_remove = 10
+
+		ai_will_do = {
+			base = 25
+			modifier = {
+				add = -100
+				enemies_strength_ratio > 1
+			}
+			modifier = {
+				add = -100
+				OR = {
+					has_idea = QIE_fractured_empire
+					has_idea = QIE_fractured_empire0
+				}
+			}
+			modifier = {
+				add = 75
+				OR = {
+					has_idea = QIE_big_debt10
+					has_idea = QIE_big_debt9
+					has_idea = QIE_big_debt8
+					has_idea = QIE_big_debt7
+					has_idea = QIE_big_debt6
+				}
+			}
+			modifier = {
+				add = 50
+				market_liberal > 0.2
+			}
+			modifier = {
+				add = 500
+				has_political_power > 150
+			}
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_ger_debt_repayment"
+			QIE_lower_debt = yes
+			add_stability = 0.02
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.01
+			}
+			QIE_recalculate_peking_commission = yes
+		}
+	}
+}
+
+#german weaponry decisions
+QIE_buy_german_eqip_decisions = {	#purchase german small arms
+	QIE_buy_ger_rifles = {
+		icon = generic_prepare_civil_war
+		allowed = { always = no }				# Activated by focus QIE_buymauser
+
+		fire_only_once = no
+		days_remove = 30
+		days_re_enable = 90
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				# avoid division by zero
+				check_variable = { num_target_equipment_in_armies@infantry_equipment > 0 }
+
+				set_temp_variable = { QIE_infantry_equipment_ratio = num_equipment_in_armies@infantry_equipment }
+				divide_temp_variable = { QIE_infantry_equipment_ratio = num_target_equipment_in_armies@infantry_equipment }
+
+				set_temp_variable = { QIE_purchase_infantry_equipment_factor = 1 }
+				subtract_from_temp_variable = { QIE_purchase_infantry_equipment_factor = QIE_infantry_equipment_ratio }
+				multiply_temp_variable = { QIE_purchase_infantry_equipment_factor = 20 }
+
+				add = QIE_purchase_infantry_equipment_factor
+			}
+			modifier = {
+				set_temp_variable = { QIE_german_influence_negative_factor = party_popularity@market_liberal }
+				multiply_temp_variable = { QIE_german_influence_negative_factor = -20 }
+
+				add = QIE_german_influence_negative_factor
+			}
+		}
+
+		custom_cost_text = QIE_3_MARKS
+		custom_cost_trigger = {
+			market_liberal < 0.97
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_buy_ger_rifles"
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 2500
+				producer = GER
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.03
+			}
+			QIE_recalculate_peking_commission = yes
+		}
+	}
+	QIE_buy_ger_support = { #purchase German support equipment
+		icon = GFX_decision_support_equipment
+		allowed = { always = no }				# Activated by focus QIE_buymauser
+
+		fire_only_once = no
+		days_remove = 30
+		days_re_enable = 90
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				# avoid division by zero
+				check_variable = { num_target_equipment_in_armies@support_equipment > 0 }
+
+				set_temp_variable = { QIE_support_ratio = num_equipment_in_armies@support_equipment }
+				divide_temp_variable = { QIE_support_ratio = num_target_equipment_in_armies@support_equipment }
+
+				set_temp_variable = { QIE_purchase_support_factor = 1 }
+				subtract_from_temp_variable = { QIE_purchase_support_factor = QIE_support_ratio }
+				multiply_temp_variable = { QIE_purchase_support_factor = 20 }
+
+				add = QIE_purchase_support_factor
+			}
+			modifier = {
+				set_temp_variable = { QIE_german_influence_negative_factor = party_popularity@market_liberal }
+				multiply_temp_variable = { QIE_german_influence_negative_factor = -20 }
+
+				add = QIE_german_influence_negative_factor
+			}
+		}
+
+		custom_cost_text = QIE_4_MARKS
+		custom_cost_trigger = {
+			market_liberal < 0.96
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_buy_ger_support"
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 500
+				producer = GER
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.04
+			}
+			QIE_recalculate_peking_commission = yes
+		}
+	}
+	QIE_buy_ger_arty = { #purchase German artillery
+		icon = GFX_decision_artillery
+		allowed = { always = no }				# Activated by focus QIE_buymauser
+
+		fire_only_once = no
+		days_remove = 30
+		days_re_enable = 90
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				# avoid division by zero
+				check_variable = { num_target_equipment_in_armies@artillery_equipment > 0 }
+
+				set_temp_variable = { QIE_artillery_ratio = num_equipment_in_armies@artillery_equipment }
+				divide_temp_variable = { QIE_artillery_ratio = num_target_equipment_in_armies@artillery_equipment }
+
+				set_temp_variable = { QIE_purchase_artillery_factor = 1 }
+				subtract_from_temp_variable = { QIE_purchase_artillery_factor = QIE_artillery_ratio }
+				multiply_temp_variable = { QIE_purchase_artillery_factor = 20 }
+
+				add = QIE_purchase_artillery_factor
+			}
+			modifier = {
+				set_temp_variable = { QIE_german_influence_negative_factor = party_popularity@market_liberal }
+				multiply_temp_variable = { QIE_german_influence_negative_factor = -20 }
+
+				add = QIE_german_influence_negative_factor
+			}
+		}
+
+		custom_cost_text = QIE_4_MARKS
+		custom_cost_trigger = {
+			market_liberal < 0.96
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_buy_ger_arty"
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 500
+				producer = GER
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.04
+			}
+			QIE_recalculate_peking_commission = yes
+		}
+	}
+	QIE_buy_ger_anti_tank = { #purchase German anti-tank guns
+		icon = GFX_decision_artillery
+		allowed = { always = no }				# Activated by focus QIE_buymauser
+
+		fire_only_once = no
+		days_remove = 30
+		days_re_enable = 90
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				# avoid division by zero
+				check_variable = { num_target_equipment_in_armies@anti_tank_equipment > 0 }
+
+				set_temp_variable = { QIE_anti_tank_ratio = num_equipment_in_armies@anti_tank_equipment }
+				divide_temp_variable = { QIE_anti_tank_ratio = num_target_equipment_in_armies@anti_tank_equipment }
+
+				set_temp_variable = { QIE_purchase_anti_tank_factor = 1 }
+				subtract_from_temp_variable = { QIE_purchase_anti_tank_factor = QIE_anti_tank_ratio }
+				multiply_temp_variable = { QIE_purchase_anti_tank_factor = 20 }
+
+				add = QIE_purchase_anti_tank_factor
+			}
+			modifier = {
+				set_temp_variable = { QIE_german_influence_negative_factor = party_popularity@market_liberal }
+				multiply_temp_variable = { QIE_german_influence_negative_factor = -20 }
+
+				add = QIE_german_influence_negative_factor
+			}
+		}
+
+		custom_cost_text = QIE_4_MARKS
+		custom_cost_trigger = {
+			market_liberal < 0.96
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_buy_ger_anti_tank"
+			add_equipment_to_stockpile = {
+				type = anti_tank_equipment
+				amount = 500
+				producer = GER
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.04
+			}
+			QIE_recalculate_peking_commission = yes
+		}
+	}
+	QIE_buy_ger_anti_air = { #purchase German anti-air guns
+		icon = GFX_decision_artillery
+		allowed = { always = no }				# Activated by focus QIE_buymauser
+
+		fire_only_once = no
+		days_remove = 30
+		days_re_enable = 90
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				# avoid division by zero
+				check_variable = { num_target_equipment_in_armies@anti_air_equipment > 0 }
+
+				set_temp_variable = { QIE_anti_air_ratio = num_equipment_in_armies@anti_air_equipment }
+				divide_temp_variable = { QIE_anti_air_ratio = num_target_equipment_in_armies@anti_air_equipment }
+
+				set_temp_variable = { QIE_purchase_anti_air_factor = 1 }
+				subtract_from_temp_variable = { QIE_purchase_anti_air_factor = QIE_anti_air_ratio }
+				multiply_temp_variable = { QIE_purchase_anti_air_factor = 20 }
+
+				add = QIE_purchase_anti_air_factor
+			}
+			modifier = {
+				set_temp_variable = { QIE_german_influence_negative_factor = party_popularity@market_liberal }
+				multiply_temp_variable = { QIE_german_influence_negative_factor = -20 }
+
+				add = QIE_german_influence_negative_factor
+			}
+		}
+
+		custom_cost_text = QIE_4_MARKS
+		custom_cost_trigger = {
+			market_liberal < 0.96
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_buy_ger_anti_air"
+			add_equipment_to_stockpile = {
+				type = anti_air_equipment
+				amount = 500
+				producer = GER
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.04
+			}
+			QIE_recalculate_peking_commission = yes
+		}
+	}
+	QIE_buy_light_tanks = { #purchase German light tanks
+		icon = GFX_decision_tank
+		allowed = { always = no }				# Activated by focus QIE_motorized_armor
+
+		fire_only_once = no
+		days_remove = 60
+		days_re_enable = 180
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				# avoid division by zero
+				check_variable = { num_target_equipment_in_armies@light_tank_chassis > 0 }
+
+				set_temp_variable = { QIE_light_tank_ratio = num_equipment_in_armies@light_tank_chassis }
+				divide_temp_variable = { QIE_light_tank_ratio = num_target_equipment_in_armies@light_tank_chassis }
+
+				set_temp_variable = { QIE_purchase_light_tank_factor = 1 }
+				subtract_from_temp_variable = { QIE_purchase_light_tank_factor = QIE_light_tank_ratio }
+				multiply_temp_variable = { QIE_purchase_light_tank_factor = 20 }
+
+				add = QIE_purchase_light_tank_factor
+			}
+			modifier = {
+				set_temp_variable = { QIE_german_influence_negative_factor = party_popularity@market_liberal }
+				multiply_temp_variable = { QIE_german_influence_negative_factor = -20 }
+
+				add = QIE_german_influence_negative_factor
+			}
+		}
+
+		custom_cost_text = QIE_8_MARKS
+		custom_cost_trigger = {
+			market_liberal < 0.92
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_buy_light_tanks"
+			add_equipment_to_stockpile = {
+				type = light_tank_chassis
+				amount = 250
+				producer = GER
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.08
+			}
+			QIE_recalculate_peking_commission = yes
+		}
+	}
+	QIE_buy_medium_tanks = { #purchase German medium tanks
+		icon = GFX_decision_tank
+		allowed = { always = no }				# Activated by focus QIE_motorized_armor
+		visible = {
+			GER = { has_design_based_on = medium_tank_chassis }
+		}
+
+		fire_only_once = no
+		days_remove = 60
+		days_re_enable = 180
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				# avoid division by zero
+				check_variable = { num_target_equipment_in_armies@medium_tank_chassis > 0 }
+
+				set_temp_variable = { QIE_medium_tank_ratio = num_equipment_in_armies@medium_tank_chassis }
+				divide_temp_variable = { QIE_medium_tank_ratio = num_target_equipment_in_armies@medium_tank_chassis }
+
+				set_temp_variable = { QIE_purchase_medium_tank_factor = 1 }
+				subtract_from_temp_variable = { QIE_purchase_medium_tank_factor = QIE_medium_tank_ratio }
+				multiply_temp_variable = { QIE_purchase_medium_tank_factor = 20 }
+
+				add = QIE_purchase_medium_tank_factor
+			}
+			modifier = {
+				set_temp_variable = { QIE_german_influence_negative_factor = party_popularity@market_liberal }
+				multiply_temp_variable = { QIE_german_influence_negative_factor = -20 }
+
+				add = QIE_german_influence_negative_factor
+			}
+		}
+
+		custom_cost_text = QIE_8_MARKS
+		custom_cost_trigger = {
+			market_liberal < 0.92
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_buy_medium_tanks"
+			add_equipment_to_stockpile = {
+				type = medium_tank_chassis
+				amount = 250
+				producer = GER
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.08
+			}
+			QIE_recalculate_peking_commission = yes
+		}
+	}
+	QIE_buy_motorized = { #purchase German motorized
+		icon = GFX_decision_generic_motorized
+		allowed = { always = no }				# Activated by focus QIE_motorized_armor
+
+		fire_only_once = no
+		days_remove = 40
+		days_re_enable = 120
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				# avoid division by zero
+				check_variable = { num_target_equipment_in_armies@motorized_equipment > 0 }
+
+				set_temp_variable = { QIE_motorised_ratio = num_equipment_in_armies@motorized_equipment }
+				divide_temp_variable = { QIE_motorised_ratio = num_target_equipment_in_armies@motorized_equipment }
+
+				set_temp_variable = { QIE_purchase_motorised_factor = 1 }
+				subtract_from_temp_variable = { QIE_purchase_motorised_factor = QIE_motorised_ratio }
+				multiply_temp_variable = { QIE_purchase_motorised_factor = 20 }
+
+				add = QIE_purchase_motorised_factor
+			}
+			modifier = {
+				set_temp_variable = { QIE_german_influence_negative_factor = party_popularity@market_liberal }
+				multiply_temp_variable = { QIE_german_influence_negative_factor = -20 }
+
+				add = QIE_german_influence_negative_factor
+			}
+		}
+
+		custom_cost_text = QIE_8_MARKS
+		custom_cost_trigger = {
+			market_liberal < 0.92
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_buy_motorized"
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = 500
+				producer = GER
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.08
+			}
+			QIE_recalculate_peking_commission = yes
+		}
+	}
+
+	#QIE_buy_ger_armored_cars = {
+	#	icon = GFX_decision_hol_attract_foreign_investors
+	#
+	#	allowed = {
+	#		has_dlc_lar = yes
+	#	}
+	#
+	#	available = {
+	#		has_completed_focus = QIE_motorized_armor
+	#	}
+	#
+	#	fire_only_once = no
+	#	days_remove = 40
+	#	days_re_enable = 120
+	#
+	#	ai_will_do = {
+	#		base = 0
+	#		modifier = {
+	#			# avoid division by zero
+	#			check_variable = { num_target_equipment_in_armies@armored_car_equipment > 0 }
+	#
+	#			set_temp_variable = { QIE_armoured_car_ratio = num_equipment_in_armies@armored_car_equipment }
+	#			divide_temp_variable = { QIE_armoured_car_ratio = num_target_equipment_in_armies@armored_car_equipment }
+	#
+	#			set_temp_variable = { QIE_purchase_armoured_car_factor = 1 }
+	#			subtract_from_temp_variable = { QIE_purchase_armoured_car_factor = QIE_armoured_car_ratio }
+	#			multiply_temp_variable = { QIE_purchase_armoured_car_factor = 20 }
+	#
+	#			add = QIE_purchase_armoured_car_factor
+	#		}
+	#		modifier = {
+	#			set_temp_variable = { QIE_german_influence_negative_factor = party_popularity@market_liberal }
+	#			multiply_temp_variable = { QIE_german_influence_negative_factor = -20 }
+	#
+	#			add = QIE_german_influence_negative_factor
+	#		}
+	#	}
+	#
+	#	custom_cost_text = QIE_8_MARKS
+	#	custom_cost_trigger = {
+	#		market_liberal < 0.92
+	#	}
+	#
+	#	remove_effect = {
+	#		add_equipment_to_stockpile = {
+	#			type = armored_car_equipment
+	#			amount = 200
+	#			producer = GER
+	#		}
+	#		add_popularity = {
+	#			ideology = market_liberal
+	#			popularity = 0.08
+	#		}
+	#		QIE_recalculate_peking_commission = yes
+	#	}
+	#}
+
+	QIE_buy_ger_fighter = { #purchase german fighters
+		icon = GFX_decision_plane
+		allowed = { always = no }				# Activated by focus QIE_luftwaffe
+
+		fire_only_once = yes
+		days_remove = 60
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 80
+				stockpile_ratio = {
+					archetype = small_plane_airframe
+					ratio < 0.75
+				}
+			}
+			modifier = {
+				add = -100
+				market_liberal > 0.25
+			}
+		}
+
+		custom_cost_text = QIE_8_MARKS
+		custom_cost_trigger = {
+			market_liberal < 0.92
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_buy_ger_fighter"
+			QIE_import_german_air_expertise = yes
+			add_equipment_to_stockpile = {
+				type = small_plane_airframe
+				amount = 150
+				producer = GER
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.08
+			}
+			QIE_recalculate_peking_commission = yes
+		}
+	}
+	QIE_buy_ger_cas = { #purchase german CAS
+		icon = GFX_decision_plane
+		allowed = { always = no }				# Activated by focus QIE_luftwaffe
+
+		fire_only_once = yes
+		days_remove = 60
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 80
+				stockpile_ratio = {
+					archetype = small_plane_cas_airframe
+					ratio < 0.75
+				}
+			}
+			modifier = {
+				add = -100
+				market_liberal > 0.25
+			}
+		}
+
+		custom_cost_text = QIE_8_MARKS
+		custom_cost_trigger = {
+			market_liberal < 0.92
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_buy_ger_cas"
+			QIE_import_german_air_expertise = yes
+			add_equipment_to_stockpile = {
+				type = small_plane_cas_airframe
+				amount = 150
+				producer = GER
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.08
+			}
+			QIE_recalculate_peking_commission = yes
+		}
+	}
+	QIE_buy_ger_tac = { #purchase german tactical bombers
+		icon = GFX_decision_bomber
+		allowed = { always = no }				# Activated by focus QIE_luftwaffe
+
+		days_remove = 60
+		fire_only_once = yes
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 80
+				stockpile_ratio = {
+					archetype = medium_plane_airframe
+					ratio < 0.75
+				}
+			}
+			modifier = {
+				add = -100
+				market_liberal > 0.25
+			}
+		}
+
+		custom_cost_text = QIE_8_MARKS
+		custom_cost_trigger = {
+			market_liberal < 0.92
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_buy_ger_tac"
+			QIE_import_german_air_expertise = yes
+			add_equipment_to_stockpile = {
+				type = medium_plane_airframe
+				amount = 150
+				producer = GER
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.08
+			}
+			QIE_recalculate_peking_commission = yes
+		}
+	}
+	QIE_ger_destroyers = {
+		icon = generic_naval
+		allowed = { always = no }				# Activated by focus QIE_kriegsmarine
+		available = { NOT = { has_war_with = JAP }}
+
+		fire_only_once = yes
+		days_remove = 90
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 80
+				naval_strength_ratio = {
+					tag = JAP
+					ratio < 1
+				}
+			}
+			modifier = {
+				add = -100
+				market_liberal > 0.25
+			}
+		}
+
+		custom_cost_text = QIE_8_MARKS
+		custom_cost_trigger = {
+			market_liberal < 0.92
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_ger_destroyers"
+			QIE_create_variant_destroyer = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_ger_destroyers"
+			QIE_spawn_destroyers = yes
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.03
+			}
+			QIE_recalculate_peking_commission = yes
+		}
+	}
+	QIE_ger_subs = {
+		icon = generic_naval
+		allowed = { always = no }				# Activated by focus QIE_kriegsmarine
+		available = { NOT = { has_war_with = JAP }}
+
+		fire_only_once = yes
+		days_remove = 150
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 80
+				naval_strength_ratio = {
+					tag = JAP
+					ratio < 1
+				}
+			}
+			modifier = {
+				add = -100
+				market_liberal > 0.25
+			}
+		}
+
+		custom_cost_text = QIE_8_MARKS
+		custom_cost_trigger = {
+			market_liberal < 0.92
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_ger_subs"
+			QIE_create_variant_submarine = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_ger_subs"
+			QIE_spawn_submarines = yes
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.03
+			}
+			QIE_recalculate_peking_commission = yes
+		}
+	}
+	QIE_ger_cruisers = {
+		icon = generic_naval
+		allowed = { always = no }				# Activated by focus QIE_kriegsmarine
+		available = { NOT = { has_war_with = JAP }}
+
+		fire_only_once = yes
+		days_remove = 150
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 80
+				naval_strength_ratio = {
+					tag = JAP
+					ratio < 1
+				}
+			}
+			modifier = {
+				add = -100
+				market_liberal > 0.25
+			}
+		}
+
+		custom_cost_text = QIE_10_MARKS
+		custom_cost_trigger = {
+			market_liberal < 0.9
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_ger_cruisers"
+			QIE_create_variant_cruiser = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_ger_cruisers"
+			QIE_spawn_cruisers = yes
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.05
+			}
+			QIE_recalculate_peking_commission = yes
+		}
+	}
+	QIE_ger_battleship = { # buy german battleship
+		icon = generic_naval
+		allowed = { always = no }				# Activated by focus QIE_kriegsmarine
+		available = { NOT = { has_war_with = JAP }}
+
+		fire_only_once = yes
+		days_remove = 150
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 80
+				naval_strength_ratio = {
+					tag = JAP
+					ratio < 1
+				}
+			}
+			modifier = {
+				add = -100
+				market_liberal > 0.25
+			}
+		}
+
+		custom_cost_text = QIE_10_MARKS
+		custom_cost_trigger = {
+			market_liberal < 0.9
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_ger_battleship"
+			QIE_create_battleship_variant = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_ger_battleship"
+			QIE_spawn_battleship = yes
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.08
+			}
+			QIE_recalculate_peking_commission = yes
+		}
+	}
+	QIE_ger_convoys = { # buy german convoys
+		icon = generic_naval
+		allowed = { always = no }				# Activated by focus QIE_kriegsmarine
+		available = { NOT = { has_war_with = JAP }}
+
+		fire_only_once = no
+		days_re_enable = 20
+		days_remove = 50
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 80
+				naval_strength_ratio = {
+					tag = JAP
+					ratio = 0.35
+				}
+			}
+			modifier = {
+				add = -100
+				market_liberal > 0.25
+			}
+		}
+
+		custom_cost_text = QIE_5_MARKS
+		custom_cost_trigger = {
+			market_liberal < 0.95
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_ger_convoys"
+			add_equipment_to_stockpile = {
+				type = convoy
+				amount = 50
+				producer = GER
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.03
+			}
+			QIE_recalculate_peking_commission = yes
+		}
+	}
+}
+
+######################################
+#Anti-Foreign Military Tree Decisions#
+######################################
+
+#hire mercenaries
+QIE_hire_mercenaries_decisions = {
+	QIE_hire_bandits = {
+		icon = generic_industry
+		allowed = { always = no }				# Activated by focus QIE_zhili_mercs or QIE_foreigner_against_foreigner (Manchu)
+		fire_only_once = yes
+		cost = 40
+		days_remove = 15
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				enemies_strength_ratio > 0.75
+			}
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_hire_bandits"
+			division_template = {
+				name = "Bandit Mercenaries"
+				division_names_group = "QIE_MIL_01"
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+					infantry = { x = 0 y = 4 }
+				}
+				template_counter = 68
+			}
+			random_owned_controlled_state = {
+				prioritize = { 607 }
+				limit = { is_in_home_area = yes }
+				create_unit = {
+					division = "name = \"1st Forest Division\" division_template = \"Bandit Mercenaries\" start_experience_factor = 0.1"
+					prioritize_location = 11931
+					owner = ROOT
+					id = 1911
+				}
+				create_unit = {
+					division = "name = \"2nd Forest Division\" division_template = \"Bandit Mercenaries\" start_experience_factor = 0.1"
+					prioritize_location = 11931
+					owner = ROOT
+					id = 1911
+				}
+				create_unit = {
+					division = "name = \"3rd Forest Division\" division_template = \"Bandit Mercenaries\" start_experience_factor = 0.1"
+					prioritize_location = 11931
+					owner = ROOT
+					id = 1911
+				}
+			}
+			hidden_effect = {
+				country_event = { id = qieflavor.8 days = 32 }
+			}
+		}
+	}
+	QIE_hire_russian_cw_veterans = {
+		icon = generic_industry
+		allowed = { always = no }				# Activated by focus QIE_zhili_mercs or QIE_foreigner_against_foreigner (Manchu)
+		fire_only_once = yes
+		cost = 50
+		days_remove = 35
+
+		ai_will_do = { factor = 100 }
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_hire_russian_cw_veterans"
+			army_experience = 15
+			add_doctrine_cost_reduction = {
+				name = QIE_hire_russian_cw_veterans
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+	QIE_hire_legation_exiles = {
+		icon = generic_industry
+		allowed = { always = no }				# Activated by focus QIE_zhili_mercs or QIE_foreigner_against_foreigner (Manchu)
+		fire_only_once = yes
+		cost = 50
+		days_remove = 35
+
+		ai_will_do = { factor = 100 }
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_hire_legation_exiles"
+			navy_experience = 15
+			add_doctrine_cost_reduction = {
+				name = QIE_hire_legation_exiles
+				cost_reduction = 0.5
+				uses = 1
+				category = submarine_doctrine
+				category = convoy_defense_tree
+			}
+		}
+	}
+	QIE_hire_flying_tigers = {
+		icon = generic_industry
+		allowed = { always = no }				# Activated by focus QIE_zhili_mercs
+		visible = {
+			has_global_flag = USA_TEX_existed
+			NOT = { country_exists = TEX }
+		}
+
+		fire_only_once = yes
+		cost = 45
+		days_remove = 60
+
+		ai_will_do = { factor = 100 }
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_hire_flying_tigers"
+			air_experience = 30
+			add_doctrine_cost_reduction = {
+				name = QIE_hire_flying_tigers
+				cost_reduction = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+}
+
+#buy foreign guns
+QIE_buy_foreign_guns_decisions = {
+	QIE_buy_small_arms = {  #czech guns
+		icon = generic_prepare_civil_war
+		allowed = { always = no }				# Activated by focus QIE_buyforeignguns
+		visible = {
+			AUS = { has_war = no }
+			OR = {
+				country_exists = CZE
+				AND = {
+					country_exists = AUS
+					AUS = { owns_state = 9 }
+				}
+			}
+			NOT = {
+				has_war_with = CZE
+				has_war_with = AUS
+				has_war_with = GER
+			}
+		}
+
+		fire_only_once = no
+		days_remove = 30
+		days_re_enable = 90
+		cost = 50
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				stockpile_ratio = {
+					archetype = infantry_equipment
+					ratio < 0.75
+				}
+			}
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_buy_small_arms target: [From.GetName]"
+			activate_targeted_decision = { target = FROM decision = QIE_retroengineer_small_arms }
+			if = {
+				limit = { country_exists = CZE }
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_1
+					amount = 2500
+					producer = CZE
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_1
+					amount = 2500
+					producer = AUS
+				}
+			}
+		}
+	}
+	QIE_retroengineer_small_arms = { #gives bonus
+		icon = generic_prepare_civil_war
+		allowed = { always = no }				# Activated by focus QIE_buyforeignguns
+		fire_only_once = yes
+		days_remove = 65
+		cost = 75
+
+		ai_will_do = { factor = 100 }
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_retroengineer_small_arms"
+			add_tech_bonus = {
+				name = QIE_retroengineer_small_arms
+				bonus = 1
+				uses = 1
+				category = infantry_weapons
+			}
+		}
+	}
+	QIE_buy_support_equipment = { #buy danish MGs
+		icon = generic_prepare_civil_war
+		allowed = { always = no }				# Activated by focus QIE_buyforeignguns
+		visible = {
+			DEN = { has_war = no }
+			country_exists = DEN
+			NOT = {
+				has_war_with = DEN
+				has_war_with = GER
+			}
+		}
+
+		fire_only_once = no
+		days_remove = 30
+		days_re_enable = 90
+		cost = 50
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				stockpile_ratio = {
+					archetype = support_equipment
+					ratio < 0.75
+				}
+			}
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_buy_support_equipment"
+			add_equipment_to_stockpile = {
+				type = support_equipment_1
+				amount = 500
+				producer = DEN
+			}
+		}
+	}
+	QIE_buy_arty = { #buy arty
+		icon = ger_military_buildup
+		allowed = { always = no }				# Activated by focus QIE_buyforeignguns
+		visible = {
+			GER = { has_war = no }
+			country_exists = AUS
+			NOT = {
+				has_war_with = AUS
+				has_war_with = GER
+			}
+		}
+
+		fire_only_once = no
+		days_remove = 30
+		days_re_enable = 90
+		cost = 50
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				stockpile_ratio = {
+					archetype = artillery_equipment
+					ratio < 0.75
+				}
+			}
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_buy_arty"
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1
+				amount = 500
+				producer = AUS
+			}
+		}
+	}
+}
+
+#commission navy from Sicily
+QIE_commission_sicilian_ships = {
+	QIE_sic_destroyers = {
+		icon = generic_naval
+		allowed = { always = no }
+		available = { SIC = { has_war = no } }		# Activated by focus QIE_siciliyships or QIE_manchu_naval_academy (Manchu)
+		fire_only_once = yes
+		days_remove = 200
+		cost = 100
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				naval_strength_ratio = {
+					tag = JAP
+					ratio = 0.35
+				}
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_sic_destroyers"
+			QIE_create_variant_destroyer = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_sic_destroyers"
+			QIE_spawn_destroyers = yes
+		}
+	}
+	QIE_sic_subs = {
+		icon = generic_naval
+		allowed = { always = no }
+		available = { SIC = { has_war = no } }					# Activated by focus QIE_siciliyships or QIE_manchu_naval_academy (Manchu)
+		fire_only_once = yes
+		days_remove = 200
+		cost = 150
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				naval_strength_ratio = {
+					tag = JAP
+					ratio = 0.35
+				}
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_sic_subs"
+			QIE_create_variant_submarine = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_sic_subs"
+			QIE_spawn_submarines = yes
+		}
+	}
+	QIE_sic_cruisers = {
+		icon = generic_naval
+		allowed = { always = no }
+		available = { SIC = { has_war = no } }					# Activated by focus QIE_siciliyships or QIE_manchu_naval_academy (Manchu)
+		fire_only_once = yes
+		days_remove = 200
+		cost = 150
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				naval_strength_ratio = {
+					tag = JAP
+					ratio = 0.35
+				}
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_sic_cruisers"
+			QIE_create_variant_cruiser = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_sic_cruisers"
+			QIE_spawn_cruisers = yes
+		}
+	}
+	QIE_sic_convoys = {
+		icon = generic_naval
+		allowed = { always = no }
+		available = { SIC = { has_war = no } }				# Activated by focus QIE_siciliyships or QIE_manchu_naval_academy (Manchu)
+		fire_only_once = yes
+		days_remove = 100
+		cost = 50
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				naval_strength_ratio = {
+					tag = JAP
+					ratio = 0.35
+				}
+			}
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_sic_convoys"
+			add_equipment_to_stockpile = {
+				type = convoy
+				amount = 25
+				producer = SIC
+			}
+		}
+	}
+}
+
+#yiguandao decisions
+QIE_yiguandao_decisions_category = {
+	QIE_raise_yiguandao_militia = {
+		icon = GFX_decision_generic_prepare_civil_war
+		allowed = { always = no }				# Activated by focus QIE_yiguandao (Manchu)
+		fire_only_once = no
+		days_re_enable = 120
+		days_remove = 30
+
+		ai_will_do = {
+			factor = 15
+			modifier = {
+				add = 100
+				enemies_strength_ratio > 0.75
+			}
+			modifier = {
+				add = -100
+				national_populist > 0.25
+			}
+		}
+
+		visible = {
+			NOT = {
+				has_government = national_populist
+			}
+		}
+
+		custom_cost_text = QIE_4_YIGUANDAO
+		custom_cost_trigger = {
+			check_variable = { party_popularity@national_populist < 0.96 }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_raise_yiguandao_militia"
+			custom_effect_tooltip = QIE_yiguandao_militia_TT
+			hidden_effect = {
+				add_popularity = {
+					ideology = national_populist
+					popularity = 0.04
+				}
+				QIE_recalculate_yiguandao_influence = yes
+			}
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_raise_yiguandao_militia"
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_template = "Yiguandao Minbing" } }
+					division_template = {
+						name = "Yiguandao Minbing"
+						#division_names_group = "QIE_MIL_01"
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 0 y = 2 }
+							infantry = { x = 0 y = 3 }
+							infantry = { x = 0 y = 4 }
+						}
+						template_counter = 68
+					}
+				}
+				random_owned_controlled_state = {
+					prioritize = { 608 }
+					create_unit = {
+						division = "name = \"Yiguandao Minbing Dadui\" division_template = \"Yiguandao Minbing\" start_experience_factor = 1.0"
+						allow_spawning_on_enemy_provs = no
+						prioritize_location = 7160
+						owner = ROOT
+					}
+				}
+				random_owned_controlled_state = {
+					prioritize = { 608 }
+					create_unit = {
+						division = "name = \"Yiguandao Minbing Dadui\" division_template = \"Yiguandao Minbing\" start_experience_factor = 1.0"
+						allow_spawning_on_enemy_provs = no
+						prioritize_location = 7160
+						owner = ROOT
+					}
+				}
+				random_owned_controlled_state = {
+					prioritize = { 608 }
+					create_unit = {
+						division = "name = \"Yiguandao Minbing Dadui\" division_template = \"Yiguandao Minbing\" start_experience_factor = 1.0"
+						allow_spawning_on_enemy_provs = no
+						prioritize_location = 7160
+						owner = ROOT
+					}
+				}
+				random_owned_controlled_state = {
+					prioritize = { 608 }
+					create_unit = {
+						division = "name = \"Yiguandao Minbing Dadui\" division_template = \"Yiguandao Minbing\" start_experience_factor = 1.0"
+						allow_spawning_on_enemy_provs = no
+						prioritize_location = 7160
+						owner = ROOT
+					}
+				}
+			}
+		}
+	}
+	QIE_refugee_workforce = {
+		icon = GFX_decision_generic_factory
+		allowed = { always = no }				# Activated by focus QIE_yiguandao (Manchu)
+		fire_only_once = no
+		days_remove = 180
+		days_re_enable = 180
+
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				add = -100
+				national_populist > 0.25
+			}
+		}
+
+		visible = {
+			NOT = { has_government = national_populist }
+		}
+
+		custom_cost_text = QIE_5_YIGUANDAO
+		custom_cost_trigger = {
+			check_variable = { party_popularity@national_populist < 0.95 }
+		}
+
+		highlight_states = {
+			highlight_state_targets = { state = 608 }
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_refugee_workforce"
+			random_owned_controlled_state = {
+				prioritize = { 608 }
+				limit = {
+					is_core_of = ROOT
+					free_building_slots = { building = industrial_complex size > 0 include_locked = yes }
+				}
+				add_building_construction = { type = industrial_complex level = 1 }
+			}
+			random_owned_controlled_state = {
+				prioritize = { 608 }
+				limit = {
+					is_core_of = ROOT
+					free_building_slots = { building = industrial_complex size > 0 include_locked = yes }
+				}
+				add_building_construction = { type = industrial_complex level = 1 }
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_refugee_workforce"
+			add_political_power = -50
+			hidden_effect = {
+				add_popularity = {
+					ideology = national_populist
+					popularity = 0.05
+				}
+				QIE_recalculate_yiguandao_influence = yes
+			}
+		}
+	}
+	QIE_yiguandao_infiltraitors = {
+		icon = GFX_decision_binoculars
+		allowed = { always = no }				# Activated by focus QIE_yiguandao (Manchu)
+		available = {
+			has_war = yes
+		}
+
+		fire_only_once = no
+		days_remove = 180
+
+		custom_cost_text = QIE_2_YIGUANDAO
+		custom_cost_trigger = {
+			check_variable = { party_popularity@national_populist < 0.98 }
+		}
+
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				add = -100
+				national_populist > 0.3
+			}
+		}
+
+		modifier = {
+			recon_factor = 0.10
+			resistance_growth_on_our_occupied_states = 0.10
+			civilian_intel_factor = 0.1
+			army_intel_factor = 0.1
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_yiguandao_infiltraitors"
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_yiguandao_infiltraitors"
+			hidden_effect = {
+				add_popularity = {
+					ideology = national_populist
+					popularity = 0.02
+				}
+				QIE_recalculate_yiguandao_influence = yes
+			}
+		}
+	}
+	QIE_sponsor_prayer_meeting = {
+		icon = GFX_decision_generic_civil_support
+		allowed = { always = no }				# Activated by focus QIE_yiguandao (Manchu)
+		available = { has_completed_focus = QIE_bolster_legitimacy }
+
+		fire_only_once = no
+		days_re_enable = 90
+
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				add = -200
+				national_populist > 0.25
+			}
+		}
+
+		custom_cost_text = QIE_3_YIGUANDAO
+		custom_cost_trigger = {
+			check_variable = { party_popularity@national_populist < 0.97 }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_sponsor_prayer_meeting"
+			add_war_support = 0.05
+			add_political_power = 25
+			add_stability = 0.05
+			hidden_effect = {
+				add_popularity = {
+					ideology = national_populist
+					popularity = 0.03
+				}
+				QIE_recalculate_yiguandao_influence = yes
+			}
+		}
+	}
+	QIE_arrest_yiguandao_priest = {
+		icon = GFX_decision_generic_arrest
+		allowed = { always = no }				# Activated by focus QIE_zhang_tianran_backer (Manchu)
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				national_populist > 0.10
+			}
+			modifier = {
+				add = 100
+				national_populist > 0.17
+			}
+		}
+
+		visible = {
+			NOT = { has_government = national_populist }
+		}
+
+		custom_cost_text = QIE_MINUS_5_YIGUANDAO
+		custom_cost_trigger = {
+			check_variable = { party_popularity@national_populist > 0.05 }
+		}
+
+		fire_only_once = no
+		days_remove = 120
+		days_re_enable = 120
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_arrest_yiguandao_priest"
+			add_political_power = -50
+			hidden_effect = {
+				add_popularity = {
+					ideology = national_populist
+					popularity = -0.05
+				}
+				QIE_recalculate_yiguandao_influence = yes
+			}
+		}
+	}
+}
+
+#Qu decisions
+QIE_electoral_reforms_category = {
+	QIE_electoral_districting = {
+		icon = GFX_decision_border_war
+		allowed = { always = no }	# Activated by focus QIE_train_civil_servants
+		visible = {
+			QIE = {
+				has_country_flag = QIE_qu_backs_coup
+			}
+		}
+		cancel_trigger = {
+			date > 1940.8.1
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel QIE_electoral_districting"
+			clr_country_flag = QIE_electoral_districting_done
+			clr_country_flag = QIE_electoral_districting_legit
+		}
+		fire_only_once = yes
+		days_remove = 60
+		cost = 25
+		ai_will_do = {
+			factor = 640
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_LEGIT_SOCCON }
+				NOT = { has_completed_focus = QIE_pick_NCERA }
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_electoral_districting"
+			country_event = qieelection.5
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_electoral_districting"
+			set_country_flag = QIE_electoral_districting_done
+		}
+	}
+	QIE_polling_infrastructure = {
+		icon = GFX_decision_road
+		allowed = { always = no }	# Activated by focus QIE_train_civil_servants
+		available = {
+			has_country_flag = QIE_electoral_districting_done
+			OR = {
+				has_completed_focus = QIE_rural_infrastructure
+				has_completed_focus = QIE_imperial_roads
+			}
+		}
+		visible = {
+			QIE = {
+				has_country_flag = QIE_qu_backs_coup
+			}
+		}
+		cancel_trigger = {
+			date > 1940.8.1
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel QIE_polling_infrastructure"
+			clr_country_flag = QIE_polling_infrastructure_done
+			clr_country_flag = QIE_polling_infrastructure_legit
+			clr_country_flag = QIE_electoral_districting_done
+			clr_country_flag = QIE_electoral_districting_legit
+		}
+		fire_only_once = yes
+		days_remove = 120
+		cost = 50
+		ai_will_do = {
+			factor = 640
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_LEGIT_SOCCON }
+				NOT = { has_completed_focus = QIE_pick_NCERA }
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_polling_infrastructure"
+			country_event = qieelection.6
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_polling_infrastructure"
+			set_country_flag = QIE_polling_infrastructure_done
+		}
+	}
+	QIE_empower_local_assemblies = {
+		icon = GFX_decision_hand_out
+		allowed = { always = no }	# Activated by event QIE_train_civil_servants
+		available = {
+			has_country_flag = QIE_polling_infrastructure_done
+			OR = {
+				has_completed_focus = QIE_mandate_heaven
+				has_idea = QIE_centralize_the_state
+				has_idea = QIE_rural_insurgency_idea
+			}
+		}
+		visible = {
+			QIE = {
+				has_country_flag = QIE_qu_backs_coup
+			}
+		}
+		cancel_trigger = {
+			date > 1940.8.1
+		}
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel QIE_empower_local_assemblies"
+			clr_country_flag = QIE_empower_local_assemblies_legit
+			clr_country_flag = QIE_polling_infrastructure_done
+			clr_country_flag = QIE_polling_infrastructure_legit
+			clr_country_flag = QIE_electoral_districting_done
+			clr_country_flag = QIE_electoral_districting_legit
+		}
+		fire_only_once = yes
+		days_remove = 180
+		cost = 100
+		ai_will_do = {
+			factor = 640
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_LEGIT_SOCCON }
+				NOT = { has_completed_focus = QIE_rural_loyalty }
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_empower_local_assemblies"
+			country_event = qieelection.7
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_empower_local_assemblies"
+			hidden_effect = {
+				country_event = { id = qieelection.8 days = 3 random_days = 3 }
+			}
+		}
+	}
+}
+
+#Zhili Foreign Policy
+QIE_zhili_reunite_china_decisions_category = {
+
+	### Rebuilding the alliance decisions ###
+	QIE_prep_chahar = {
+		icon = generic_industry
+		allowed = { always = no }			# Activated by focus QIE_rebuild_alliance
+		visible = {
+			num_of_civilian_factories_available_for_projects > 3
+			MON = { owns_state = 621 }
+			controls_state = 611
+			controls_state = 615
+		}
+
+		fire_only_once = yes
+		days_remove = 60
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		ai_will_do = { factor = 100 }
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_prep_chahar"
+			611 = { #chahar
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 952
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 10397
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 828
+					instant_build = yes
+				}
+			}
+			615 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 12432
+					instant_build = yes
+				}
+			}
+		}
+	}
+	QIE_request_LEP_support_during_FNG_war = {
+		icon = generic_agreement
+		allowed = { always = no }			# Activated by focus QIE_rebuild_alliance
+		available = {
+			has_war_with = FNG
+		}
+		visible = {
+			FROM = {
+				exists = yes
+				is_subject = no
+				is_in_faction = no
+				NOT = { has_war_with = ROOT }
+			}
+		}
+
+		cancel_trigger = {
+			OR = {
+				NOT = { country_exists = FROM }
+				has_war_with = FROM
+				FROM = { is_subject = yes }
+				FROM = { is_in_faction = yes }
+			}
+		}
+
+		fire_only_once = yes
+		days_remove = 7
+		cost = 0
+		ai_will_do = { factor = 1000 }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_request_LEP_support_during_FNG_war target: [From.GetName]"
+			hidden_effect = {
+				FNG = {
+					country_event = lep.205
+					set_country_flag = ger_intervention_ask
+				}
+			}
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_request_LEP_support_during_FNG_war target: [From.GetName]"
+			FROM = {
+				country_event = lep.201
+			}
+		}
+	}
+}
+
+QIE_anqing_diplomacy_decisions_category = {
+	QIE_anq_visit_nanjing = {
+		icon = generic_form_nation
+		allowed = { always = no }					# Activated by focus ANQ_relocate_to_nanjing
+		visible = { FROM = { exists = yes }}
+
+		cost = 50
+		fire_only_once = yes
+		days_remove = 20
+		ai_will_do = { factor = 25 }
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_anq_visit_nanjing target: [From.GetName]"
+			FROM = {
+				country_event = { id = anq.87 days = 2 }
+			}
+		}
+	}
+
+	QIE_anq_wu_and_chen_decision = {
+		icon = generic_form_nation
+		allowed = { always = no }					# Activated by focus ANQ_relocate_to_nanjing
+		visible = {
+			check_variable = { ANQ.ANQ_beijing_level < 5 }
+			FROM = { exists = yes }
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = QIE_anqing_influence_mt_two_tt
+				check_variable = { ANQ.ANQ_beijing_level > 2 }
+			}
+		}
+		ai_will_do = { factor = 25 }
+		cost = 70
+		fire_only_once = yes
+		days_remove = 20
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_anq_wu_and_chen_decision target: [From.GetName]"
+			FROM = {
+				custom_effect_tooltip = anq_increase_qie_2
+				country_event = { id = anq.99 days = 2 }
+			}
+		}
+	}
+
+	QIE_anq_send_delegation = {
+		icon = generic_form_nation
+		allowed = { always = no }					# Activated by focus ANQ_relocate_to_nanjing
+		visible = {
+			check_variable = { ANQ.ANQ_beijing_level < 6 }
+			has_country_flag = QIE_visited_puyi_nanjing #triggers 175 days after puyi visit
+			FROM = { exists = yes }
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = QIE_anqing_influence_mt_two_tt
+				check_variable = { ANQ.ANQ_beijing_level > 2 }
+			}
+		}
+		ai_will_do = { factor = 25 }
+		cost = 50
+		fire_only_once = yes
+		days_remove = 10
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_anq_send_delegation target: [From.GetName]"
+			FROM = { #public conference?
+				country_event = { id = anq.101 days = 2 }
+			}
+		}
+	}
+
+	QIE_anq_organise_intellectual_meeting = {
+		icon = generic_political_discourse
+		allowed = { always = no }					# Activated by focus ANQ_relocate_to_nanjing
+		visible = {
+			check_variable = { ANQ.ANQ_beijing_level > 2 }
+			FROM = { exists = yes }
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = QIE_anqing_influence_mt_four_tt
+				check_variable = { ANQ.ANQ_beijing_level > 4 }
+			}
+		}
+		ai_will_do = { factor = 25 }
+		cost = 50
+		fire_only_once = yes
+		days_remove = 10
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_anq_organise_intellectual_meeting target: [From.GetName]"
+			FROM = {
+				country_event = { id = anq.90 days = 2 }
+			}
+		}
+	}
+
+	QIE_anq_counter_message = {
+		icon = generic_political_discourse
+
+		allowed = { always = no } #manually activated
+
+		cancel_trigger = {
+			NOT = { country_exists = ANQ }
+		}
+
+		cost = 30
+		days_remove = 10
+		fire_only_once = yes
+
+		selectable_mission = yes
+		days_mission_timeout = 50
+
+		ai_will_do = { base = 50 }
+
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout QIE_anq_counter_message"
+			add_political_power = -20
+			ANQ = {
+				custom_effect_tooltip = anq_decrease_qie_1
+				hidden_effect = {
+					add_popularity = {
+						ideology = market_liberal
+						popularity = -0.01
+					}
+					ANQ_remove_beijing_spirit = yes
+					ANQ_calculate_beijing_level = yes
+					ANQ_add_beijing_spirit = yes
+				}
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_anq_counter_message"
+			ANQ = {
+				custom_effect_tooltip = anq_increase_qie_1
+				country_event = { id = anq.91 days = 2 }
+			}
+		}
+	}
+
+	QIE_anq_contact_anticoncessions_leaders = {
+		icon = generic_political_discourse
+		allowed = { always = no }					# Activated by focus ANQ_relocate_to_nanjing
+		visible = {
+			check_variable = { ANQ.ANQ_beijing_level > 1 }
+			has_country_flag = QIE_anq_wu_has_met_chen
+			FROM = { exists = yes }
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = QIE_anqing_influence_mt_four_tt
+				check_variable = { ANQ.ANQ_beijing_level > 4 }
+			}
+		}
+		ai_will_do = { factor = 25 }
+		cost = 50
+		fire_only_once = yes
+		days_remove = 50
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_anq_contact_anticoncessions_leaders target: [From.GetName]"
+			country_event = { id = qiefor.78 days = 2 }
+		}
+	}
+
+	QIE_reach_out_to_anqing_before = { #before conflict
+		icon = generic_agreement
+		allowed = { always = no }					# Activated by focus ANQ_relocate_to_nanjing
+		visible = {
+			NOT = {
+				has_war_with = FNG
+				has_war_with = JAP
+				has_completed_focus = QIE_looseends
+			}
+			FROM = {
+				china_is_aligned_with_zhili = yes
+				is_in_faction = no
+				exists = yes
+			}
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = QIE_anqing_influence_mt_four_tt
+				check_variable = { ANQ.ANQ_beijing_level > 4 }
+			}
+		}
+		ai_will_do = { factor = 25 }
+		cost = 10
+		fire_only_once = yes
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_reach_out_to_anqing_before target: [From.GetName]"
+			custom_effect_tooltip = QIE_anqing_cant_ask_again_tt
+			FROM = {
+				country_event = { id = qiefor.66 days = 2 }
+			}
+		}
+	}
+
+	QIE_reach_out_to_anqing_during = { #during
+		icon = generic_agreement
+		allowed = { always = no }					# Activated by focus ANQ_relocate_to_nanjing
+		visible = {
+			FROM = {
+				china_is_aligned_with_zhili = yes
+				is_in_faction = no
+				exists = yes
+			}
+			OR = {
+				has_war_with = FNG
+				has_war_with = JAP
+			}
+		}
+
+		ai_will_do = { factor = 200 }
+
+		cost = 0
+		fire_only_once = yes
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_reach_out_to_anqing_during target: [From.GetName]"
+			FROM = {
+				country_event = { id = qiefor.67 days = 2 }
+			}
+		}
+	}
+
+	QIE_reach_out_to_anqing_after = { #after
+		icon = generic_agreement
+		allowed = { always = no }					# Activated by focus QIE_looseends
+		visible = {
+			FROM = {
+				china_is_aligned_with_zhili = yes
+				exists = yes
+				NOT = {
+					is_in_faction = yes
+					has_war_with = QIE
+				}
+			}
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = QIE_anqing_influence_mt_seven_tt
+				check_variable = { ANQ.ANQ_beijing_level > 7 }
+			}
+		}
+
+		cost = 0
+		days_remove = 50
+		fire_only_once = yes
+		ai_will_do = { factor = 25 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_reach_out_to_anqing_after target: [From.GetName]"
+			FROM = {
+				country_event = { id = qiefor.68 days = 2 }
+			}
+		}
+	}
+
+	QIE_reach_out_to_anqing_after_again = { #after
+		icon = generic_agreement
+		allowed = { always = no }					# Activated by focus QIE_looseends
+		visible = {
+			has_country_flag = QIE_anqing_refuses_after
+			FROM = {
+				china_is_aligned_with_zhili = yes
+				exists = yes
+				NOT = {
+					is_in_faction = yes
+					has_war_with = QIE
+				}
+			}
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = QIE_anqing_influence_mt_ten_tt
+				check_variable = { ANQ.ANQ_beijing_level > 10 }
+			}
+		}
+
+		cost = 0
+		days_remove = 50
+		fire_only_once = yes
+		ai_will_do = { factor = 25 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_reach_out_to_anqing_after_again target: [From.GetName]"
+			FROM = {
+				country_event = { id = qiefor.68 days = 2 }
+			}
+		}
+	}
+
+	QIE_war_goal_anqing_for_refusal_faction = { #after
+		icon = generic_agreement
+		allowed = { always = no }					# Activated by focus QIE_looseends or QIE_we_win (Manchu)
+		visible = {
+			OR = {
+				has_country_flag = QIE_anqing_refuses_during
+				has_country_flag = QIE_anqing_refuses_after
+			}
+			can_declare_war_on = FROM
+			FROM = {
+				china_is_aligned_with_zhili = yes
+				is_in_faction = no
+			}
+		}
+
+		available = {
+			if = {
+				limit = {
+					NOT = { has_country_flag = QIE_anqing_refuses_after }
+				}
+				custom_trigger_tooltip = {
+					tooltip = QIE_anqing_influence_lt_eight_tt
+					check_variable = { ANQ.ANQ_beijing_level < 8 }
+				}
+			}
+		}
+		cancel_trigger = {
+			NOT = {
+				can_declare_war_on = FROM
+			}
+		}
+
+		ai_will_do = { factor = 25 }
+		cost = 0
+		days_remove = 25
+		fire_only_once = yes
+		war_with_target_on_remove = yes
+
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel QIE_war_goal_anqing_for_refusal_faction target: [From.GetName]"
+			clear_decision_attack_AI = yes
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_war_goal_anqing_for_refusal_faction target: [From.GetName]"
+			QIE_incoming_attack_notification = yes    #warning event
+			setup_decision_attack_AI = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_war_goal_anqing_for_refusal_faction target: [From.GetName]"
+			clear_decision_attack_AI = yes
+			declare_war_on = {
+				target = FROM
+				type = annex_everything
+			}
+		}
+	}
+
+	QIE_anqing_attempt_training_again = {
+		allowed = { always = no }					# Activated by focus ANQ_relocate_to_nanjing
+		icon = generic_agreement
+		visible = {
+			NOT = {
+				has_war_with = FNG
+				has_war_with = JAP
+				has_completed_focus = QIE_looseends
+				has_completed_focus = QIE_we_win
+			}
+			is_neighbor_of = ANQ
+			has_country_flag = QIE_anqing_attempt_training_again_flag
+			FROM = {
+				china_is_aligned_with_zhili = yes
+				is_in_faction = yes
+			}
+		}
+
+		cost = 15
+		fire_only_once = yes
+		ai_will_do = { factor = 25 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_anqing_attempt_training_again target: [From.GetName]"
+			FROM = {
+				country_event = { id = anq.93 days = 3 }
+			}
+			add_ideas = QIE_anqing_training
+		}
+	}
+
+	QIE_integrate_anqing_before = { #before
+		icon = generic_agreement
+		allowed = { always = no }					# Activated by focus ANQ_relocate_to_nanjing
+		available = {
+			received_expeditionary_forces = { sender = FROM value < 1 }
+		}
+
+		visible = {
+			NOT = {
+				has_war_with = FNG
+				has_war_with = JAP
+				has_completed_focus = QIE_looseends
+			}
+			FROM = {
+				is_in_faction_with = QIE
+				china_is_aligned_with_zhili = yes
+			}
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = QIE_anqing_influence_mt_seven_tt
+				check_variable = { ANQ.ANQ_beijing_level > 7 }
+			}
+		}
+		ai_will_do = { factor = 25 }
+		cost = 0
+		days_remove = 30
+		fire_only_once = yes
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_integrate_anqing_before target: [From.GetName]"
+			custom_effect_tooltip = QIE_anqing_ask_integration_warning_tt
+			FROM = {
+				country_event = { id = qiefor.80 days = 2 }
+			}
+		}
+	}
+
+	QIE_integrate_anqing_after = { #after
+		icon = generic_agreement
+		allowed = { always = no }					# Activated by focus QIE_looseends
+		available = {
+			received_expeditionary_forces = { sender = FROM value < 1 }
+		}
+
+		visible = {
+			FROM = {
+				is_in_faction_with = QIE
+				china_is_aligned_with_zhili = yes
+			}
+		}
+
+		available = {
+			if = {
+				limit = { date < 1941.1.1 }
+				custom_trigger_tooltip = {
+					tooltip = QIE_anqing_influence_mt_seven_tt
+					check_variable = { ANQ.ANQ_beijing_level > 7 }
+				}
+			}
+			else_if = {
+				limit = { date < 1942.1.1 }
+				custom_trigger_tooltip = {
+					tooltip = QIE_anqing_influence_mt_five_tt
+					check_variable = { ANQ.ANQ_beijing_level > 5 }
+				}
+			}
+		}
+		ai_will_do = { factor = 25 }
+		cost = 0
+		days_remove = 50
+		fire_only_once = yes
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_integrate_anqing_after target: [From.GetName]"
+			custom_effect_tooltip = QIE_anqing_ask_integration_warning_tt
+			FROM = {
+				country_event = { id = qiefor.83 days = 2 }
+			}
+		}
+	}
+
+	QIE_integrate_anqing_after_again = { #after
+		icon = generic_agreement
+		allowed = { always = no }					# Activated by focus QIE_looseends
+		available = {
+			received_expeditionary_forces = { sender = FROM value < 1 }
+		}
+		visible = {
+			FROM = {
+				has_country_flag = ANQ_refused_integration_qing_after
+				is_in_faction_with = QIE
+				china_is_aligned_with_zhili = yes
+			}
+		}
+
+		available = {
+			date > 1942.1.1
+		}
+
+		cost = 0
+		days_remove = 50
+		fire_only_once = yes
+		ai_will_do = { factor = 25 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_integrate_anqing_after_again target: [From.GetName]"
+			FROM = {
+				country_event = { id = qiefor.83 days = 2 }
+			}
+		}
+	}
+}
+
+#zhili_manchu_war
+QIE_zhili_manchu_war_decisions_category = {
+	QIE_eyes_on_the_border = {
+		icon = generic_prepare_civil_war
+
+		allowed = { always = no }
+
+		available = {
+			num_divisions_in_states = {
+				count < 10
+				states = { 611 614 608 1062 1063 }
+			}
+		}
+
+		cancel_trigger = {
+			OR = {
+				NOT = { has_idea = QIE_zhili_manchu_war_idea }
+				NOT = { country_exists = FNG }
+				has_war_with = FNG
+			}
+		}
+
+		is_good = yes
+		days_mission_timeout = 150 #Approximately the amount of time needed for everything to happen
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_eyes_on_the_border"
+			activate_mission = QIE_fangs_on_the_border
+		}
+
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout QIE_eyes_on_the_border"
+			activate_mission = QIE_eyes_on_the_border
+		}
+	}
+
+	QIE_fangs_on_the_border = {
+		icon = generic_prepare_civil_war
+
+		allowed = { always = no }
+
+		available = {
+			num_divisions_in_states = {
+				count > 9
+				states = { 611 614 608 1062 1063 }
+			}
+		}
+
+		cancel_trigger = {
+			OR = {
+				NOT = { has_war_with = SHX }
+				NOT = { country_exists = FNG }
+				has_war_with = FNG
+			}
+		}
+
+		is_good = yes
+		days_mission_timeout = 25
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_fangs_on_the_border"
+			activate_mission = QIE_eyes_on_the_border
+		}
+
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout QIE_fangs_on_the_border"
+			if = {
+				limit = { QIE = { owns_state = 614 } }
+				FNG = { country_event = qiefor.90 }
+				if = {
+					limit = { QIE = { has_war_with = SHX } }
+					activate_mission = QIE_eyes_on_the_border
+				}
+			}
+			else = {
+				FNG = {
+					complete_national_focus = FNG_Begin_the_War_of_National_Reclamation
+					effect_tooltip = {
+						create_wargoal = {
+							target = QIE
+							type = annex_everything
+						}
+					}
+				}
+			}
+		}
+	}
+
+	QIE_SHX_intervention = {
+		icon = generic_prepare_civil_war
+
+		allowed = { always = no }
+
+		available = {
+			NOT = { country_exists = SHX }
+		}
+
+		cancel_trigger = {
+			OR = {
+				NOT = { has_war_with = SHX }
+				has_war_with = FNG
+			}
+		}
+
+		days_mission_timeout = 60
+		is_good = no
+
+		selectable_mission = no
+
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout QIE_SHX_intervention"
+			QIE = { country_event = shx_manchu.5 }
+		}
+	}
+
+	QIE_push_to_yellow_river = {
+		icon = generic_prepare_civil_war
+		allowed = { always = no }				# Activated by focus QIE_purge_zhili (Manchu)
+		highlight_states = {
+			highlight_state_targets = { state = 615 state = 1060 state = 1061 state = 1063 }
+		}
+
+		fire_only_once = yes
+		cost = 25
+		days_remove = 15
+
+		modifier = {
+			weekly_manpower = -50000
+			command_power_gain = -0.25
+		}
+
+		ai_will_do = { factor = 640 }
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_push_to_yellow_river"
+			1063 = { set_demilitarized_zone = no }
+			1061 = { set_demilitarized_zone = no }
+			615 = { set_demilitarized_zone = no }
+			1060 = { set_demilitarized_zone = no }
+			add_political_power = 50
+			army_experience = 3
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.075
+			}
+			hidden_effect = {
+				country_event = qiecoup.25
+				if = {
+					limit = { has_country_flag = QIE_yan_backs_coup }
+					country_event = shx_manchu.3
+				}
+			}
+		}
+	}
+
+	QIE_assault_luoyang = { #Assault on Luoyang
+		icon = generic_prepare_civil_war
+		allowed = { always = no }				# Activated by focus QIE_purge_zhili (Manchu)
+		available = {
+			1063 = { is_demilitarized_zone = no }
+			1061 = { is_demilitarized_zone = no }
+			615 = { is_demilitarized_zone = no }
+			1060 = { is_demilitarized_zone = no }
+		}
+
+		highlight_states = {
+			highlight_state_targets = { state = 607 }
+		}
+
+		fire_only_once = yes
+		cost = 25
+		days_remove = 7
+
+		modifier = {
+			weekly_manpower = -55000
+			command_power_gain = -0.25
+		}
+
+		ai_will_do = { factor = 640 }
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_assault_luoyang"
+			607 = { set_demilitarized_zone = no }
+			add_political_power = 50
+			army_experience = 6
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.075
+			}
+			if = {
+				limit = { has_country_flag = QIE_yan_backs_coup }
+				country_event = shx_manchu.4
+				hidden_effect = { SHX = { country_event = { id = shx_manchu.4 hours = 23 } } }
+			}
+			hidden_effect = {
+				country_event = qiecoup.26
+			}
+		}
+	}
+	QIE_mop_up_south = {
+		icon = generic_prepare_civil_war
+		allowed = { always = no }				# Activated by focus QIE_purge_zhili (Manchu)
+		available = {
+			607 = { is_demilitarized_zone = no }
+			has_war = no
+		}
+
+		highlight_states = {
+			highlight_state_targets = { state = 620 state = 799 state = 1058 state = 1059 }
+		}
+
+		fire_only_once = yes
+		cost = 25
+		days_remove = 14
+
+		modifier = {
+			weekly_manpower = -5000
+			command_power_gain = -0.25
+		}
+
+		ai_will_do = { factor = 640 }
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_mop_up_south"
+			799 = { set_demilitarized_zone = no }
+			620 = { set_demilitarized_zone = no }
+			1058 = { set_demilitarized_zone = no }
+			1059 = { set_demilitarized_zone = no }
+			add_political_power = 50
+			army_experience = 4
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.10
+			}
+			hidden_effect = {
+				country_event = qiecoup.27
+				set_country_flag = QIE_zhili_strongholds_down
+			}
+		}
+	}
+	QIE_final_push = {
+		icon = generic_prepare_civil_war
+		allowed = { always = no }				# Activated by focus QIE_purge_zhili (Manchu)
+		available = {
+			799 = { is_demilitarized_zone = no }
+			620 = { is_demilitarized_zone = no }
+			1058 = { is_demilitarized_zone = no }
+			1059 = { is_demilitarized_zone = no }
+			has_war = no
+			has_country_flag = QIE_zhili_strongholds_down
+		}
+
+		highlight_states = {
+			highlight_state_targets = { state = 1048 }
+		}
+
+		fire_only_once = yes
+		cost = 25
+		days_remove = 7
+
+		modifier = {
+			weekly_manpower = -55000
+			command_power_gain = -0.25
+		}
+
+		ai_will_do = { factor = 640 }
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_final_push"
+			1048 = { set_demilitarized_zone = no }
+			add_political_power = 50
+			army_experience = 7
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = -1.00
+			}
+			hidden_effect = {
+				country_event = qiecoup.28
+				if = {
+					limit = {
+						KUM = {
+							OR = {
+								has_war_with = SIK
+								has_war_with = ETS
+							}
+						}
+					}
+					country_event = { id = qiefor.49 days = 10 }
+				}
+			}
+		}
+	}
+}
+
+#QIE_manchu_reunite_china_decisions_category = {
+#	QIE_prepare_national_pacification_campaign = {
+#		icon = generic_prepare_civil_war
+#		allowed = { always = no }				# Activated by focus QIE_imperial_consolidation (Manchu)
+#		fire_only_once = yes
+#		cost = 50
+#		days_remove = 15
+
+#		modifier = {
+#			command_power_gain = -0.50
+#		}
+#
+#		ai_will_do = { factor = 100 }
+
+#		remove_effect = {
+#			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_prepare_national_pacification_campaign target: [From.GetName]"
+#			army_experience = 15
+#			FNG = {
+#				country_event = { id = qiefor.52 hours = 6 }
+#			}
+#			if = {
+#				limit = {
+#					country_exists = LEP
+#					country_exists = GEA
+#					GEA = { has_capitulated = no }
+#				}
+	#			GEA = {
+	#				country_event = { id = qiefor.55 hours = 6 }
+	#			}
+	#		}
+	#		hidden_effect = {
+	#			random_other_country = {
+	#				limit = { is_ai = yes }
+	#				news_event = { id = worldnews.234 hours = 2 }
+	#			}
+	#		}
+	#		activate_targeted_decision = { target = FROM decision = QIE_prepare_western_thrust }
+	#		activate_targeted_decision = { target = FROM decision = QIE_prepare_southern_thrust }
+	#		activate_targeted_decision = { target = FROM decision = QIE_prepare_eastern_thrust }
+	#	}
+	#}
+
+	#QIE_prepare_western_thrust = {
+	#	icon = generic_prepare_civil_war
+	#	allowed = { always = no }				# Activated by decision QIE_prepare_national_pacification_campaign
+	#	fire_only_once = yes
+	#	cost = 30
+	#	days_remove = 30
+
+	#	ai_will_do = { factor = 100 }
+
+	#	remove_effect = {
+	#		log = "[GetDateText]: [Root.GetName]: Decision remove QIE_prepare_western_thrust"
+	#		799 = {
+	#			add_building_construction = {
+	#				type = infrastructure
+	#				level = 1
+	#				instant_build = yes
+	#			}
+	#		}
+	#		if = {
+	#			limit = {
+	#				OR = {
+	#					is_in_faction_with = SHX
+	#					has_country_flag = QIE_yan_backs_coup
+	#				}
+	#			}
+	#			622 = {
+	#				add_building_construction = {
+	#					type = infrastructure
+	#					level = 1
+	#					instant_build = yes
+	#				}
+	#			}
+	#			1072 = {
+	#				add_building_construction = {
+	#					type = infrastructure
+	#					level = 1
+	#					instant_build = yes
+	#				}
+	#			}
+	#		}
+	#		else = {
+	#			615 = {
+	#				add_building_construction = {
+	#					type = infrastructure
+	#					level = 1
+	#					instant_build = yes
+	#				}
+	#			}
+	#			607 = {
+	#				add_building_construction = {
+	#					type = infrastructure
+	#					level = 1
+	#					instant_build = yes
+	#				}
+	#			}
+	#		}
+	#		if = {
+	#			limit = { can_declare_war_on = SHX }
+	#			add_to_array = { ROOT.china_possible_targets_array = SHX }
+	#			effect_tooltip = { activate_targeted_decision = { target = SHX decision = china_demand_submission } }
+	#		}
+	#		if = {
+	#			limit = { can_declare_war_on = XSM }
+	#			add_to_array = { ROOT.china_possible_targets_array = XSM }
+	#			effect_tooltip = { activate_targeted_decision = { target = XSM decision = china_demand_submission } }
+	#		}
+	#		if = {
+	#			limit = { can_declare_war_on = SIK }
+	#			add_to_array = { ROOT.china_possible_targets_array = SIK }
+	#			effect_tooltip = { activate_targeted_decision = { target = SIK decision = china_demand_submission } }
+	#		}
+	#		if = {
+	#			limit = { can_declare_war_on = KUM }
+	#			add_to_array = { ROOT.china_possible_targets_array = KUM }
+	#			effect_tooltip = { activate_targeted_decision = { target = KUM decision = china_demand_submission } }
+	#		}
+	#	}
+	#}
+
+	#QIE_prepare_southern_thrust = {
+	#	icon = generic_prepare_civil_war
+	#	allowed = { always = no }				# Activated by decision QIE_prepare_national_pacification_campaign
+	#	fire_only_once = yes
+	#	cost = 30
+	#	days_remove = 30
+
+	#	ai_will_do = { factor = 100 }
+
+	#	remove_effect = {
+	#		log = "[GetDateText]: [Root.GetName]: Decision remove QIE_prepare_southern_thrust"
+	#		620 = {
+	#			add_building_construction = {
+	#				type = infrastructure
+	#				level = 1
+	#				instant_build = yes
+	#			}
+	#		}
+	#		1048 = {
+	#			add_building_construction = {
+	#				type = infrastructure
+	#				level = 1
+	#				instant_build = yes
+	#			}
+	#		}
+	#		set_country_flag = prepped_for_southern_attacks
+	#		if = {
+	#			limit = { can_declare_war_on = HNN }
+	#			add_to_array = { ROOT.china_possible_targets_array = HNN }
+	#			effect_tooltip = { activate_targeted_decision = { target = HNN decision = china_demand_submission } }
+	#		}
+	#		if = {
+	#			limit = { can_declare_war_on = SZC }
+	#			add_to_array = { ROOT.china_possible_targets_array = SZC }
+	#			effect_tooltip = { activate_targeted_decision = { target = SZC decision = china_demand_submission } }
+	#		}
+	#		if = {
+	#			limit = { can_declare_war_on = YUN }
+	#			add_to_array = { ROOT.china_possible_targets_array = YUN }
+	#			effect_tooltip = { activate_targeted_decision = { target = YUN decision = china_demand_submission } }
+	#		}
+	#		if = {
+	#			limit = { can_declare_war_on = GXC }
+	#			add_to_array = { ROOT.china_possible_targets_array = GXC }
+	#			effect_tooltip = { activate_targeted_decision = { target = GXC decision = china_demand_submission } }
+	#		}
+	#	}
+	#}
+
+	#QIE_prepare_eastern_thrust = {
+	#	icon = generic_prepare_civil_war
+	#	allowed = { always = no }				# Activated by decision QIE_prepare_national_pacification_campaign
+	#	fire_only_once = yes
+	#	cost = 30
+	#	days_remove = 30
+
+	#	ai_will_do = { factor = 100 }
+
+	#	remove_effect = {
+	#		log = "[GetDateText]: [Root.GetName]: Decision remove QIE_prepare_eastern_thrust"
+	#		1058 = {
+	#			add_building_construction = {
+	#				type = infrastructure
+	#				level = 1
+	#				instant_build = yes
+	#			}
+	#		}
+	#		1059 = {
+	#			add_building_construction = {
+	#				type = infrastructure
+	#				level = 1
+	#				instant_build = yes
+	#			}
+	#		}
+	#		if = {
+	#			limit = { can_declare_war_on = SQI }
+	#			add_to_array = { ROOT.china_possible_targets_array = SQI }
+	#			effect_tooltip = { activate_targeted_decision = { target = SQI decision = china_demand_submission } }
+	#		}
+	#		if = {
+	#			limit = { can_declare_war_on = ANQ }
+	#			add_to_array = { ROOT.china_possible_targets_array = ANQ }
+	#			effect_tooltip = { activate_targeted_decision = { target = ANQ decision = china_demand_submission } }
+	#		}
+	#		if = {
+	#			limit = { can_declare_war_on = LEP }
+	#			add_to_array = { ROOT.china_possible_targets_array = LEP }
+	#			effect_tooltip = { activate_targeted_decision = { target = LEP decision = china_demand_submission } }
+	#		}
+	#	}
+	#}
+#}
+
+QIE_dam_breaching_decisions_category = {
+	QIE_relocate_civilians_out_of_danger_area = {
+		icon = generic_political_discourse
+		allowed = { always = no }				# Activated by focus QIE_zhili_flood_dams or QIE_prepare_dikes (Manchu)
+		available = {
+			has_war = no
+		}
+
+		fire_only_once = yes
+		cost = 150
+		days_remove = 90
+
+		ai_will_do = { factor = 100 }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_relocate_civilians_out_of_danger_area"
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_relocate_civilians_out_of_danger_area"
+			add_stability = 0.025
+			set_country_flag = civilians_relocated
+			custom_effect_tooltip = civilians_relocated_TT
+		}
+	}
+	QIE_breach_dams_channel_water_north = {
+		icon = generic_ignite_civil_war
+		allowed = { always = no }				# Activated by focus QIE_zhili_flood_dams or QIE_prepare_dikes (Manchu)
+		available = {
+			has_war = yes
+			1059 = { is_fully_controlled_by = ROOT } #OTL dam breached was in Zhengzhou - no reason to change really
+		}
+
+		fire_only_once = yes
+		cost = 25
+		days_remove = 14
+
+		highlight_states = {
+			highlight_provinces = { 1139 7074 4144 4114 1169 7092 11962 7160 9987 11933 }
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 1000
+				surrender_progress > 0
+				alliance_strength_ratio < 0.6
+				count_triggers = {
+					amount = 2
+					1062 = { #Baoding
+						controller = { has_war_with = ROOT }
+					}
+					1063 = { #Cangzhou
+						controller = { has_war_with = ROOT }
+					}
+					615 = { #Eastern Shanxi
+						controller = { has_war_with = ROOT }
+					}
+				}
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_breach_dams_channel_water_north target: [From.GetName]"
+			set_country_flag = breached_dams_so_water_goes_north
+			hidden_effect = {
+				remove_targeted_decision = { target = FROM decision = QIE_breach_dams_channel_water_south }
+			}
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_breach_dams_channel_water_north target: [From.GetName]"
+			1060 = {
+				add_province_modifier = {
+					static_modifiers = { flooded }
+					province = {
+						id = 1139
+						id = 7074
+						id = 4144
+						id = 4114
+					}
+				}
+				damage_building = {
+					type = infrastructure
+					damage = 2
+				}
+			}
+			1061 = {
+				add_province_modifier = {
+					static_modifiers = { flooded }
+					province = {
+						id = 1169
+						id = 7160
+						id = 7092
+						id = 9987
+						id = 11933
+						id = 11962
+					}
+				}
+				damage_building = {
+					type = infrastructure
+					damage = 3
+				}
+				damage_building = {
+					type = industrial_complex
+					damage = 0.5
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = civilians_relocated
+				}
+				add_stability = -0.05
+			}
+			else = {
+				add_stability = -0.10
+				add_political_power = -200
+			}
+			hidden_effect = {
+				activate_targeted_decision = { target = FROM decision = QIE_rebuild_from_flood_damage_north }
+				FNG = {
+					country_event = { id = fengtian.252 days = 1 }
+				}
+			}
+		}
+	}
+	QIE_breach_dams_channel_water_south = {
+		icon = generic_ignite_civil_war
+		allowed = { always = no }				# Activated by focus QIE_zhili_flood_dams or QIE_prepare_dikes (Manchu)
+		available = {
+			has_war = yes
+			1059 = { is_fully_controlled_by = ROOT } #OTL dam breached was in Zhengzhou - no reason to change really
+		}
+
+		fire_only_once = yes
+		cost = 25
+		days_remove = 14
+
+		highlight_states = {
+			highlight_provinces = { 4010 4066 7085 7126 7129 7540 7656 9995 10098 10364 12012 }
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 1000
+				surrender_progress > 0
+				alliance_strength_ratio < 0.6
+				count_triggers = {
+					amount = 2
+					597 = { #Jinan
+						controller = { has_war_with = ROOT }
+					}
+					1047 = { #Xuhai
+						controller = { has_war_with = ROOT }
+					}
+					1050 = { #Huaisi
+						controller = { has_war_with = ROOT }
+					}
+					1058 = { #Ruyang
+						controller = { has_war_with = ROOT }
+					}
+				}
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_breach_dams_channel_water_south target: [From.GetName]"
+			set_country_flag = breached_dams_so_water_goes_south
+			hidden_effect = {
+				remove_targeted_decision = { target = FROM decision = QIE_breach_dams_channel_water_north }
+			}
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_breach_dams_channel_water_south target: [From.GetName]"
+			1059 = {
+				add_province_modifier = {
+					static_modifiers = { flooded }
+					province = {
+						id = 4010
+						id = 4066
+						id = 7085
+						id = 7126
+						id = 7129
+						id = 7540
+						id = 7656
+						id = 9995
+						id = 10098
+						id = 10364
+						id = 12012
+					}
+				}
+				damage_building = {
+					type = infrastructure
+					damage = 2
+				}
+				damage_building = {
+					type = arms_factory
+					damage = 0.75
+				}
+				damage_building = {
+					type = industrial_complex
+					damage = 0.75
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = civilians_relocated
+				}
+				add_stability = -0.05
+			}
+			else = {
+				add_stability = -0.10
+				add_political_power = -200
+			}
+			hidden_effect = {
+				activate_targeted_decision = { target = FROM decision = QIE_rebuild_from_flood_damage_kaifeng }
+				FNG = {
+					country_event = { id = fengtian.252 days = 1 }
+				}
+			}
+		}
+	}
+	QIE_rebuild_from_flood_damage_kaifeng = {
+		icon = generic_industry
+		allowed = { always = no }				# Activated by focus QIE_zhili_flood_dams or QIE_prepare_dikes (Manchu)
+		available = {
+			has_war = no
+			1059 = { is_fully_controlled_by = ROOT } #OTL dam breached was in Zhengzhou - no reason to change really
+		}
+
+		fire_only_once = yes
+		cost = 100
+		days_remove = 200
+
+		highlight_states = { #Kaifeng
+			highlight_state_targets = { state = 1059 }
+		}
+
+		ai_will_do = { base = 50 }
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_rebuild_from_flood_damage_kaifeng"
+			1059 = {
+				remove_province_modifier = {
+					static_modifiers = { flooded }
+					province = {
+						id = 4010
+						id = 4066
+						id = 7085
+						id = 7126
+						id = 7129
+						id = 7540
+						id = 7656
+						id = 9995
+						id = 10098
+						id = 10364
+						id = 12012
+					}
+				}
+			}
+		}
+	}
+	QIE_rebuild_from_flood_damage_north = {
+		icon = generic_industry
+		allowed = { always = no }				# Activated by focus QIE_zhili_flood_dams or QIE_prepare_dikes (Manchu)
+		available = {
+			has_war = no
+			1060 = { is_fully_controlled_by = ROOT }
+			1061 = { is_fully_controlled_by = ROOT }
+		}
+
+		fire_only_once = yes
+		cost = 100
+		days_remove = 200
+
+		ai_will_do = { base = 50 }
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_rebuild_from_flood_damage_north"
+			1060 = {
+				remove_province_modifier = {
+					static_modifiers = { flooded }
+					province = {
+						id = 1139
+						id = 7074
+						id = 4144
+						id = 4114
+					}
+				}
+				damage_building = {
+					type = infrastructure
+					damage = 2
+				}
+			}
+			1061 = {
+				remove_province_modifier = {
+					static_modifiers = { flooded }
+					province = {
+						id = 1169
+						id = 7160
+						id = 7092
+						id = 9987
+						id = 11933
+						id = 11962
+					}
+				}
+			}
+		}
+	}
+}
+
+QIE_endgame_FP_decisions_category = {
+	QIE_integrate_tibet = {
+		icon = generic_agreement
+		allowed = { always = no }				# Activated by focus QIE_looseends or QIE_destroy_concessions (Manchu)
+		available = {
+			has_war = no
+			received_expeditionary_forces = { sender = FROM value < 1 }
+		}
+
+		visible = {
+			has_non_aggression_pact_with = FROM
+			is_neighbor_of = FROM
+			FROM = {
+				has_government = authoritarian_democrat
+			}
+		}
+
+		fire_only_once = yes
+		cost = 10
+
+		ai_will_do = { factor = 320 }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete QIE_integrate_tibet target: [From.GetName]"
+			country_event = qiefor.44
+		}
+	}
+}
+
+QIE_projects_decisions_category = {
+	QIE_develop_wuchang = {
+		icon = GFX_decision_generic_industry
+		allowed = { always = no }				# Activated by event qiefor.57
+		cost = 30
+		days_remove = 150
+		fire_only_once = yes
+
+		modifier = {
+			civilian_factory_use = 1
+		}
+
+		ai_will_do = { base = 500 }
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_develop_wuchang target: [From.GetName]"
+			FROM = {
+				custom_effect_tooltip = anq_increase_qie_1
+				hidden_effect = {
+					add_popularity = {
+						ideology = market_liberal
+						popularity = 0.01
+					}
+					ANQ_remove_beijing_spirit = yes
+					ANQ_calculate_beijing_level = yes
+					ANQ_add_beijing_spirit = yes
+				}
+			}
+			1048 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	QIE_canal_dikes_anqing = {
+		icon = generic_naval
+		allowed = { always = no }				# Activated by event qiefor.70
+		available = {
+			controls_state = 1060 #Hebi
+			controls_state = 1059 #Kaifeng
+			FROM = { controls_state = 1050 } #Huaisi
+		}
+
+		cost = 15
+		days_remove = 250
+		fire_only_once = yes
+
+		highlight_states = {
+			highlight_state_targets = { state = 1060 }
+		}
+
+		modifier = {
+			civilian_factory_use = 1
+		}
+
+		ai_will_do = { base = 500 }
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_canal_dikes_anqing target: [From.GetName]"
+			FROM = {
+				hidden_effect = {
+					activate_targeted_decision = { target = 596 decision = ANQ_canal_dikes_qing }
+				}
+				custom_effect_tooltip = anq_increase_qie_1
+				hidden_effect = {
+					add_popularity = {
+						ideology = market_liberal
+						popularity = 0.01
+					}
+					ANQ_remove_beijing_spirit = yes
+					ANQ_calculate_beijing_level = yes
+					ANQ_add_beijing_spirit = yes
+				}
+			}
+			1060 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			1059 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			1050 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+}
+
+QIE_defensive_preparations_category = {
+	QIE_huanghe_line = {
+		icon = fortress
+		allowed = { always = no }				# Activated by event fengtian.129
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			controls_state = 1059 #Kaifeng
+			controls_state = 607 #Heluo
+		}
+
+		cost = 40
+		days_remove = 180
+		fire_only_once = yes
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		highlight_states = {
+			highlight_state_targets = { state = 1059 }
+		}
+
+		ai_will_do = { factor = 100 }
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_huanghe_line"
+			1059 = {
+				add_building_construction = {
+					type = bunker
+					province = 7129
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					province = 7656
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					province = 9958
+					level = 1
+					instant_build = yes
+				}
+			}
+			607 = {
+				add_building_construction = {
+					type = bunker
+					province = 1004
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					province = 11931
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	QIE_withdraw_government_to_wuhan = {
+		icon = GFX_decision_infiltrate_state
+		allowed = { always = no }				# Activated by event fengtian.129
+		available = {
+			num_of_civilian_factories_available_for_projects > 1
+			OR = {
+				has_war_with = FNG
+				has_war_with = JAP
+			}
+		}
+		cost = 30
+		days_remove = 60
+		fire_only_once = yes
+
+		modifier = {
+			civilian_factory_use = 1
+			command_power_gain = -0.05
+			political_power_gain = -0.01
+		}
+
+		highlight_states = {
+			highlight_state_targets = { state = 1048 }
+		}
+
+		ai_will_do = { factor = 100 }
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_withdraw_government_to_wuhan"
+			set_global_flag = QIE_withdrew_to_wuhan
+			china_merges_wuhan = yes
+			add_victory_points = { province = 9843 value = -20 } #Beijing
+			add_victory_points = { province = 4619 value = 20 } #Wuhan
+		}
+	}
+	QIE_withdraw_civilian_factories_to_hubei = {
+		icon = GFX_decision_generic_factory
+		allowed = { always = no }				# Activated by event fengtian.129
+		available = {
+			num_of_civilian_factories_available_for_projects > 1
+			OR = {
+				1048 = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+					}
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+					}
+				}
+				620 = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+					}
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+					}
+				}
+			}
+		}
+		visible = {
+			OR = {
+				has_war_with = FNG
+				has_war_with = JAP
+			}
+			has_country_flag = {
+				flag = QIE_move_industrial_complex
+				value < 3
+			}
+		}
+		cost = 10
+		days_remove = 30
+		modifier = {
+			civilian_factory_use = 1
+		}
+		ai_will_do = { factor = 100 }
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_withdraw_civilian_factories_to_hubei"
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					industrial_complex > 0
+					NOT = {
+						state = 1048
+						state = 620
+					}
+				}
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+			}
+			add_one_random_civilian_factory = yes
+			if = {
+				limit = {
+					has_country_flag = {
+						flag = QIE_move_industrial_complex
+						value = 0
+					}
+				}
+				custom_effect_tooltip = QIE_move_factory_1
+			}
+			else_if = {
+				limit = {
+					has_country_flag = {
+						flag = QIE_move_industrial_complex
+						value = 1
+					}
+				}
+				custom_effect_tooltip = QIE_move_factory_2
+			}
+			else = {
+				custom_effect_tooltip = QIE_move_factory_3
+			}
+			if = {
+				limit = { NOT = { has_country_flag = QIE_move_industrial_complex } }
+				set_country_flag = { flag = QIE_move_industrial_complex value = 1 }
+			}
+			else = {
+				modify_country_flag = {
+					flag = QIE_move_industrial_complex
+					value = 1
+				}
+			}
+		}
+	}
+	QIE_withdraw_arms_factories_to_hubei = {
+		icon = GFX_decision_generic_factory
+		allowed = { always = no }				# Activated by event fengtian.129
+		available = {
+			num_of_civilian_factories_available_for_projects > 1
+			OR = {
+				1048 = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+					}
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+					}
+				}
+				620 = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+					}
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+					}
+				}
+			}
+		}
+		visible = {
+			OR = {
+				has_war_with = FNG
+				has_war_with = JAP
+			}
+			has_country_flag = {
+				flag = QIE_move_arms_factory
+				value < 3
+			}
+		}
+		cost = 10
+		days_remove = 30
+		modifier = {
+			civilian_factory_use = 1
+		}
+		ai_will_do = { factor = 100 }
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_withdraw_arms_factories_to_hubei"
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					arms_factory > 0
+					NOT = {
+						state = 1048
+						state = 620
+					}
+				}
+				remove_building = {
+					type = arms_factory
+					level = 1
+				}
+			}
+			add_one_random_military_factory = yes
+			if = {
+				limit = {
+					has_country_flag = {
+						flag = QIE_move_arms_factory
+						value = 0
+					}
+				}
+				custom_effect_tooltip = QIE_move_factory_1
+			}
+			else_if = {
+				limit = {
+					has_country_flag = {
+						flag = QIE_move_arms_factory
+						value = 1
+					}
+				}
+				custom_effect_tooltip = QIE_move_factory_2
+			}
+			else = {
+				custom_effect_tooltip = QIE_move_factory_3
+			}
+			if = {
+				limit = { NOT = { has_country_flag = QIE_move_arms_factory } }
+				set_country_flag = { flag = QIE_move_arms_factory value = 1 }
+			}
+			else = {
+				modify_country_flag = {
+					flag = QIE_move_arms_factory
+					value = 1
+				}
+			}
+		}
+	}
+	QIE_fortify_southern_approach = {
+		icon = fortress
+		allowed = { always = no }				# Activated by event fengtian.129
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			controls_state = 1048 #Wuhan
+			controls_state = 607 #Xiangyang
+			controls_state = 1058 #Ruyang
+		}
+
+		cost = 40
+		days_remove = 180
+		fire_only_once = yes
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		highlight_states = {
+			highlight_state_targets = { state = 1048 }
+		}
+
+		ai_will_do = { factor = 100 }
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove QIE_fortify_southern_approach"
+			1048 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+			607 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+			1058 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 4158
+				}
+			}
+		}
+	}
+}
+

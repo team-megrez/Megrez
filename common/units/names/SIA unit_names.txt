@@ -1,0 +1,184 @@
+﻿SIA = {
+	submarine = {
+		prefix = "HSMS"
+		generic = { "Reua Damnarm" }
+		unique = {
+			"Phlai-Chumphon" "Nilmangkorn" "Chalawan" "Kraitong" "Saruengkhamatsaya" "Vimala" "Loemlaiwan" "Taphao Tong" "Taphao Kaew"
+			"Mahachanok" "Komin" "Sutsakorn" "Suwanmalee" "Soisuwan" "Chansuda" "Suwannahong" "Manora" "Suthonthakumarn" "Suphannamatcha"
+			"Hemwarin" "Kunchornwaree" "Matchanakha" "Matchawarn"
+		}
+	}
+	destroyer = {
+		prefix = "HSMS"
+		generic = { "Reua Pikart" }
+		unique = {
+			"Maeklong" "Mongkut Rachakumarn" "Suriyamonthon" "Sarasin" "Prasae" "Tachin" "Songkhla" "Rayong" "Chumphon" "Klongyai" "Kangtang"
+			"Takbai" "Bangpakong" "Thiew Uthok" "Travane Vari" "Tongpliu" "Liulom" "Longlom" "Kraburi" "Saiburi" "Tapi" "Khirirat" "Krabi" "Narathiwat"
+			"Hua Hin" "Klang" "Sriracha" "Sattahip"
+		}
+	}
+	light_cruiser = {
+		prefix = "HSMS"
+		generic = { "Reua Lardtrawen" }
+		unique = {
+
+		## Other Historical Ships ##
+			"Thonburi" "Sri Ayutthaya"
+
+		## Ancient States ##
+			"Ligor" "Dvaravati" "Lavo" "Supannabhum" "Singhanavati" "Nyeonyang" "Haripunchai" "Pan Pan" "Raktamaritika"
+		}
+	}
+	heavy_cruiser = {
+		prefix = "HSMS"
+		generic = { "Reua Ladtrawen Humklor" }
+		unique = {
+			"Langkasuka" "Tarmpornling" "Nakhon Si Thammarat" "Isan" "Lanna" "Phitsanulok" "Si Kottaboon"
+		}
+	}
+	battleship = {
+		prefix = "HSMS"
+		generic = { "Reua Prajanbarn" }
+		unique = {
+		### Important Battles ###
+			"Bangrachan" "Nong Sarai" "Lardyah" "Bangkeo" "Tha Din Daeng" "Phosamton"
+		}
+	}
+	carrier = {
+		prefix = "HSMS"
+		generic = { "Reua Bantukkreungbin" }
+		unique = {
+			"Nakharat" "Sawaettachat" "Phra Nakhon" "Chakri Naruebaet"
+		}
+	}
+
+	fleet_names_template = FLEET_NAME_SIA
+	air_wing_names_template = AIR_WING_NAME_SIA_FALLBACK
+
+	# Air wings can only be named through archetype
+	small_plane_airframe = {
+		prefix = ""
+		generic = {
+			"Foongbin Khaplai"
+		}
+		generic_pattern = AIR_WING_NAME_SIA_FIGHTER
+		unique = {}
+	}
+
+	jet_fighter_equipment = {
+		prefix = ""
+		generic = {
+			"Foongbin Khaplai"
+		}
+		generic_pattern = AIR_WING_NAME_SIA_FIGHTER
+		unique = {}
+	}
+
+	medium_plane_fighter_airframe = {
+		prefix = ""
+		generic = {
+			"Foongbin Khaplai"
+		}
+		generic_pattern = AIR_WING_NAME_SIA_FIGHTER
+		unique = {}
+	}
+
+	medium_plane_scout_plane_airframe = {
+		prefix = ""
+		generic = {
+			"Foongbin Truajkarn"
+		}
+		generic_pattern = AIR_WING_NAME_SIA_SCOUT
+		unique = {}
+	}
+
+	small_plane_cas_airframe = {
+		prefix = ""
+		generic = {
+			"Foongbin Ju-Jome"
+		}
+		generic_pattern = AIR_WING_NAME_SIA_CAS
+		unique = {}
+	}
+
+	cv_small_plane_airframe = {
+		prefix = ""
+		generic = {
+			"Foongbin Khaplai"
+		}
+		generic_pattern = AIR_WING_NAME_SIA_CARRIER
+		unique = {}
+	}
+
+	cv_small_plane_cas_airframe = {
+		prefix = ""
+		generic = {
+			"Foongbin Ju-Jome"
+		}
+		generic_pattern = AIR_WING_NAME_SIA_CARRIER
+		unique = {}
+	}
+	cv_small_plane_naval_bomber_airframe = {
+		prefix = ""
+		generic = {
+			"Foongbin Tink-Torpedo"
+		}
+		generic_pattern = AIR_WING_NAME_SIA_CARRIER
+		unique = {}
+	}
+
+	medium_plane_airframe = {
+		prefix = ""
+		generic = {
+			"Foongbin Tink-Raburd"
+		}
+		generic_pattern = AIR_WING_NAME_SIA_L_BOMBER
+		unique = {}
+	}
+
+	jet_tac_bomber_equipment = {
+		prefix = ""
+		generic = {
+			"Foongbin Tink-Raburd"
+		}
+		generic_pattern = AIR_WING_NAME_SIA_L_BOMBER
+		unique = {}
+	}
+
+	small_plane_naval_bomber_airframe = {
+		prefix = ""
+		generic = {
+			"Foongbin Tink-Torpedo"
+		}
+		generic_pattern = AIR_WING_NAME_SIA_NAV_BOMBER
+		unique = {}
+	}
+
+	large_plane_airframe = {
+		prefix = ""
+		generic = {
+			"Foongbin Tink-Raburd"
+		}
+		generic_pattern = AIR_WING_NAME_SIA_H_BOMBER
+		unique = {}
+	}
+
+	jet_strat_bomber_equipment = {
+		prefix = ""
+		generic = {
+			"Foongbin Tink-Raburd"
+		}
+		generic_pattern = AIR_WING_NAME_SIA_H_BOMBER
+		unique = {}
+	}
+
+	transport_plane_equipment = {
+		prefix = ""
+		generic = {
+			"Foongbin Khonsong"
+		}
+		generic_pattern = AIR_WING_NAME_SIA_TRANSPORT
+		unique = {}
+	}
+}
+

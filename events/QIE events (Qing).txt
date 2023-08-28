@@ -1,0 +1,8103 @@
+﻿######################
+# Qing Empire Events #
+######################
+#  By MantisToboggan #
+######################
+
+add_namespace = qiedom
+add_namespace = qielepcollapse
+add_namespace = qiecoup
+add_namespace = qieelection
+add_namespace = qiefocus
+add_namespace = qiefor
+add_namespace = qieflavor
+
+#1936 dom events
+
+country_event = { # death of wang chengbin
+	id = qiedom.4
+	title = qiedom.4.t
+	desc = qiedom.4.d
+	picture = GFX_report_event_CHI_china_abandoned
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiedom.4 option qiedom.4.a"
+		name = qiedom.4.a #we need new leadership
+		swap_ideas = {
+			remove_idea = QIE_leadership_crisis
+			add_idea = QIE_leadership_crisis_bad
+		}
+		retire_character = QIE_wang_chengbin
+	}
+}
+
+country_event = { #black monday
+	id = qiedom.5
+	title = qiedom.5.t
+	desc = qiedom.5.d
+	picture = GFX_report_event_CHI_industry
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	immediate = {
+		hidden_effect = {
+			add_timed_idea = {
+				idea = QIE_black_monday
+				days = 150
+			}
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qiedom.5 option qiedom.5.a"
+		name = qiedom.5.a #damn it!
+		effect_tooltip = {
+			add_timed_idea = {
+				idea = QIE_black_monday
+				days = 150
+			}
+		}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = -0.03
+		}
+	}
+}
+
+country_event = { #elections happen
+	id = qiedom.13
+	title = qiedom.13.t
+	desc = qiedom.13.d
+	picture = GFX_report_event_CHI_tiger_room
+
+	is_triggered_only = yes #fires via qiefocus.3
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiedom.13 option qiedom.13.a"
+		name = qiedom.13.a #we didn't even have to rig them this time!
+		add_political_power = 50
+		retire_character = QIE_cao_kun
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.1
+		}
+		if = {
+			limit = {
+				has_character = QIE_yan_huiqing
+				NOT = { QIE_yan_huiqing = { has_advisor_role = political_advisor } }
+			}
+			custom_effect_tooltip = tooltip_white_line
+			add_advisor_role = {
+				character = QIE_yan_huiqing
+				advisor = {
+					slot = political_advisor
+					idea_token = QIE_yan_huiqing
+					traits = { KR_leading_diplomat }
+				}
+			}
+		}
+	}
+}
+
+country_event = { #meet manchu
+	id = qiedom.14
+	title = qiedom.14.t
+	desc = qiedom.14.d
+
+	picture = GFX_report_event_QIE_puyi_family
+
+	is_triggered_only = yes #fires via decision QIE_placate_manchu
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiedom.14 option qiedom.14.a"
+		name = qiedom.14.a #give them titles
+		add_timed_idea = {
+			idea = QIE_placating_manchu
+			days = 60
+		}
+	}
+}
+
+country_event = { #meet YCP
+	id = qiedom.15
+	title = qiedom.15.t
+	desc = qiedom.15.d
+	picture = GFX_report_event_CHI_tiger_room
+
+	is_triggered_only = yes #fires via decision QIE_placate_YCP
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiedom.15 option qiedom.15.a"
+		name = qiedom.15.a #promise army reforms
+		army_experience = -15
+		add_command_power = -15
+	}
+}
+
+country_event = { #meet NCERA
+	id = qiedom.16
+	title = qiedom.16.t
+	desc = qiedom.16.d
+	picture = GFX_report_event_FNG_farmers
+
+	is_triggered_only = yes #fires via decision QIE_placate_NCERA
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiedom.16 option qiedom.16.a"
+		name = qiedom.16.a #give them reforms
+		add_timed_idea = {
+			idea = QIE_placating_NCERA
+			days = 65
+		}
+	}
+}
+
+country_event = { #assembly returns to normal
+	id = qiedom.17
+	title = qiedom.17.t
+	desc = qiedom.17.d
+	picture = GFX_report_event_QIE_wu_peifu_time_cover
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = QIE_placate_NCERA
+		has_country_flag = QIE_placate_YCP
+		has_country_flag = QIE_placate_manchu
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qiedom.17 option qiedom.17.a"
+		name = qiedom.17.a #excellent
+		hidden_effect = {
+			clr_country_flag = QIE_placate_NCERA
+			clr_country_flag = QIE_placate_YCP
+			clr_country_flag = QIE_placate_manchu
+		}
+		remove_ideas = QIE_outraged_parties
+		hidden_effect = {
+			country_event = { id = qiedom.19 days = 15 random_days = 5 } #cao kun is removed for drunkenness
+		}
+	}
+}
+
+country_event = { #mining conflicts, leads to Shanxi event chain
+	id = qiedom.18
+	title = qiedom.18.t
+	desc = qiedom.18.d
+	picture = GFX_report_event_FNG_fushun_mine
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiedom.18 option qiedom.18.a"
+		name = qiedom.18.a #we wish them the best of luck
+		SHX = {
+			country_event = { id = shx_zhifeng.3 days = 15 }
+		}
+	}
+}
+
+country_event = { #Cao Kun gets booted
+	id = qiedom.19
+	title = qiedom.19.t
+	desc = qiedom.19.d
+	picture = GFX_report_event_QIE_cao_kun
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiedom.19 option qiedom.19.a"
+		name = qiedom.19.a #remove Cao, replace with Yan Huiqing
+		retire_character = QIE_cao_kun
+		if = {
+			limit = {
+				has_character = QIE_yan_huiqing
+				NOT = { QIE_yan_huiqing = { has_advisor_role = political_advisor } }
+			}
+			custom_effect_tooltip = tooltip_white_line
+			add_advisor_role = {
+				character = QIE_yan_huiqing
+				advisor = {
+					slot = political_advisor
+					idea_token = QIE_yan_huiqing
+					traits = { KR_leading_diplomat }
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = qiedom.20
+	title = qiedom.20.t
+	desc = qiedom.20.d
+	picture = GFX_report_event_CHI_official_announcement
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #great!
+		log = "[GetLogInfo]: event qiedom.20 option qiedom.20.a"
+		name = qiedom.20.a
+		clr_country_flag = legation_council_member
+		add_political_power = 50
+		LEC = {
+			country_event = { id = qiedom.21 hours = 6 }
+		}
+	}
+}
+
+country_event = {
+	id = qiedom.21
+	title = qiedom.21.t
+	desc = qiedom.21.d
+	picture = GFX_report_event_CHI_official_announcement
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #great!
+		log = "[GetLogInfo]: event qiedom.21 option qiedom.21.a"
+		name = qiedom.21.a
+		add_political_power = -5
+	}
+}
+
+##the LEP collapse
+
+country_event = { #Zhegan railroad sale and unrest
+	id = qielepcollapse.1
+	title = qielepcollapse.1.t
+	desc = qielepcollapse.1.d
+	picture = GFX_report_event_FNG_railway_construction_1
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	immediate = {
+		hidden_effect = {
+			country_event = { id = qielepcollapse.2 days = 8 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qielepcollapse.1 option qielepcollapse.1.a"
+		name = qielepcollapse.1.a #we need to keep our eye on this
+	}
+}
+
+country_event = { #increasing attacks on foreigners and bombings
+	id = qielepcollapse.2
+	title = qielepcollapse.2.t
+	desc = qielepcollapse.2.d
+	picture = GFX_report_event_FNG_protest
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qielepcollapse.2 option qielepcollapse.2.a"
+		name = qielepcollapse.2.a #draft a letter to Sun immediately
+	}
+}
+
+country_event = { #wuhu incident (contrary to name not a fun thing)
+	id = qielepcollapse.3
+	title = qielepcollapse.3.t
+	desc = qielepcollapse.3.d
+	picture = GFX_report_event_CHI_riot_police
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qielepcollapse.3 option qielepcollapse.3.a"
+		name = qielepcollapse.3.a #it seems our letter fell on deaf ears...
+		add_political_power = -30
+	}
+}
+
+country_event = { #anqing breaks free
+	id = qielepcollapse.4
+	title = qielepcollapse.4.t
+	desc = qielepcollapse.4.d
+	picture = GFX_report_event_CHI_warlord_observer
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qielepcollapse.4 option qielepcollapse.4.a"
+		name = qielepcollapse.4.a #prepare the southern garrisons
+		add_war_support = 0.03
+		hidden_effect = {
+			country_event = { id = qielepcollapse.24 days = 3 }
+		}
+	}
+}
+
+country_event = { #sun is shot. big f
+	id = qielepcollapse.5
+	title = qielepcollapse.5.t
+	desc = qielepcollapse.5.d
+	picture = GFX_report_event_FNG_protest
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qielepcollapse.5 option qielepcollapse.5.a"
+		name = qielepcollapse.5.a #God help us all
+		add_stability = -0.05
+		hidden_effect = {
+			country_event = { id = qieflavor.9 days = 32 } #pilot guy flees nanjing
+			if = {
+				limit = {
+					has_country_flag = QIE_wu_backs_chen
+				}
+				country_event = { id = qielepcollapse.12 days = 1 } #qi approaches wu, but wu said yes to chen
+			}
+			else = {
+				country_event = { id = qielepcollapse.8 days = 1 } #qi approaches wu, but wu said no to chen or chen didn't ask anything
+			}
+		}
+	}
+}
+
+country_event = { #docking access removed due to chaos in Nanjing, fleet retreats north
+	id = qielepcollapse.6
+	title = qielepcollapse.6.t
+	desc = qielepcollapse.6.d
+	picture = GFX_report_event_JAP_battleship_kongo
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qielepcollapse.6 option qielepcollapse.6.a"
+		name = qielepcollapse.6.a
+		add_political_power = -15
+	}
+}
+
+country_event = { #chen tiaoyuan asks for help
+	id = qielepcollapse.7
+	title = qielepcollapse.7.t
+	desc = qielepcollapse.7.d
+	picture = GFX_report_event_ANQ_chen_tiaoyuan
+
+	is_triggered_only = yes
+
+	option = { #Wu promises support for Chen
+		log = "[GetLogInfo]: event qielepcollapse.7 option qielepcollapse.7.a"
+		name = qielepcollapse.7.a
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_NAN_AUTDEM }
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_SHIH_AUTDEM }
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_KOO_AUTDEM }
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_PATAUT }
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_AUTDEM }
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_SOCCON }
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_LEGIT_SOCCON }
+				}
+			}
+		}
+		custom_effect_tooltip = qie_anti_concessions_decision_warning
+		hidden_effect = {
+			ANQ = {
+				country_event = { id = anq.3 days = 2 } #wu says yes
+			}
+		}
+		add_political_power = -50
+		add_stability = 0.05
+	}
+
+	option = { #Wu says no, Chen goes to the Japanese
+		log = "[GetLogInfo]: event qielepcollapse.7 option qielepcollapse.7.b"
+		name = qielepcollapse.7.b
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = QIE_PATH option = QIE_PATH_ANQ_AUTDEM }
+			}
+		}
+		hidden_effect = {
+			ANQ = {
+				country_event = { id = anq.4 days = 1 }
+			}
+		}
+		add_stability = -0.03
+	}
+}
+
+country_event = { #qi asks wu (if wu said no to chen), triggered from qielepcollapse.5
+	id = qielepcollapse.8
+	title = qielepcollapse.8.t
+	desc = qielepcollapse.8.d
+	picture = GFX_report_event_LEP_march
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = {
+			ANQ = {
+				has_country_flag = qing_supports_chen
+			}
+			has_country_flag = wu_intervenes_proANQ
+		}
+	}
+
+	option = { #Give him support
+		log = "[GetLogInfo]: event qielepcollapse.8 option qielepcollapse.8.a"
+		name = qielepcollapse.8.a
+		ai_chance = {
+			base = 80
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_ANQ_AUTDEM }
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_SHIH_AUTDEM }
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_KOO_AUTDEM }
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_PATAUT }
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_AUTDEM }
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_SOCCON }
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_LEGIT_SOCCON }
+				}
+			}
+		}
+		hidden_effect = {
+			set_country_flag = QIE_wu_backs_qi
+			LEP = {
+				country_event = { id = qielepcollapse.9 days = 1 } #wu says yes
+			}
+			add_ai_strategy = { #bugfix - stops them from refusing volunteers
+				type = befriend
+				id = GEA
+				value = 15
+			}
+			#intervention choice will fire from Qi assuming control (lepcollapse.19)
+		}
+	}
+
+	option = { #Wu says no, leads to coup
+		log = "[GetLogInfo]: event qielepcollapse.8 option qielepcollapse.8.b"
+		name = qielepcollapse.8.b
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_NAN_AUTDEM }
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_ANQ_AUTDEM }
+				}
+			}
+		}
+		LEP = {
+			country_event = { id = qielepcollapse.10 days = 1 }
+			set_country_flag = LEP_REP_flag
+		}
+		add_war_support = -0.05
+		add_stability = -0.10
+		add_political_power = -150
+		set_country_flag = wu_no_intervene
+		hidden_effect = {
+			country_event = { id = qielepcollapse.21 days = 10 } #widespread protests break out
+		}
+	}
+}
+
+country_event = { #EVENT FOR LEP, Wu said yes
+	id = qielepcollapse.9
+	title = qielepcollapse.9.t
+	desc = qielepcollapse.9.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {	#nice
+		log = "[GetLogInfo]: event qielepcollapse.9 option qielepcollapse.9.a"
+		name = qielepcollapse.9.a
+		set_party_name = {
+			ideology = authoritarian_democrat
+			long_name = LEP_qing_help_party_long
+			name = LEP_qing_help_party
+		}
+		add_political_power = 50 #Helps them rescue governorrs
+		add_command_power = 25 #Helps them with initial decisions
+	}
+	#QIE intervention choice will fire from Qi assuming control (lepcollapse.19)
+}
+
+country_event = { #EVENT FOR LEP, Wu said no
+	id = qielepcollapse.10
+	title = qielepcollapse.10.t
+	desc = qielepcollapse.10.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	#TODO have multiple versions for if Qing just said "we'll think about it"
+	option = {	#shit
+		log = "[GetLogInfo]: event qielepcollapse.10 option qielepcollapse.10.a"
+		name = qielepcollapse.10.a
+	}
+	#QIE intervention choice will fire from Qi assuming control (lepcollapse.19)
+}
+
+country_event = { #Second attempt at Chen
+	id = qielepcollapse.11
+	title = qielepcollapse.11.t
+	desc = qielepcollapse.11.d
+	picture = GFX_report_event_ANQ_chen_tiaoyuan
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		AND = {
+			NOT = {
+				has_country_flag = QIE_wu_backs_qi
+			}
+			has_country_flag = wu_no_intervene
+		}
+	}
+
+	option = {	#try again, goes to chen
+		log = "[GetLogInfo]: event qielepcollapse.11 option qielepcollapse.11.a"
+		name = qielepcollapse.11.a
+		ai_chance = { base = 0 }
+		ANQ = {
+			country_event = { id = anq.8 days = 1 }
+		}
+		clr_country_flag = wu_no_intervene
+	}
+
+	option = {	#sit it out
+		log = "[GetLogInfo]: event qielepcollapse.11 option qielepcollapse.11.b"
+		name = qielepcollapse.11.b
+		ai_chance = { base = 100 }
+		add_war_support = -0.05
+		add_political_power = -50
+	}
+}
+
+country_event = { #Qi asks Wu, but Wu supported Chen, triggered from qielepcollapse.5
+	id = qielepcollapse.12
+	title = qielepcollapse.12.t
+	desc = qielepcollapse.12.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {	#we'll think about it (but won't since working with chen)
+		log = "[GetLogInfo]: event qielepcollapse.12 option qielepcollapse.12.a"
+		name = qielepcollapse.12.a
+		LEP = {
+			country_event = { id = qielepcollapse.10 days = 1 }
+		}
+	}
+}
+
+country_event = { #Qing launches intervention pro-ANQ
+	id = qielepcollapse.13
+	title = qielepcollapse.13.t
+	desc = qielepcollapse.13.d
+	picture = GFX_report_event_QIE_soldiers_mobilize
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {	#indirect
+		log = "[GetLogInfo]: event qielepcollapse.13 option qielepcollapse.13.a"
+		name = qielepcollapse.13.a
+		if = {
+			limit = { has_country_flag = wu_intervenes_proLEP }
+			add_political_power = -2000
+			add_stability = -2
+		}
+		else = {
+			hidden_effect = {
+				set_country_flag = wu_intervenes_proANQ
+				clr_country_flag = wu_intervenes_proLEP
+				country_event = { id = qielepcollapse.17 hours = 2 }
+				country_event = { id = qielepcollapse.18 days = 4 }
+				random_other_country = {
+					limit = { is_ai = yes }
+					news_event = { id = worldnews.229 days = 2 }
+				}
+				reverse_add_opinion_modifier = {
+					target = ANQ
+					modifier = KR_friendly
+				}
+				add_opinion_modifier = {
+					target = ANQ
+					modifier = KR_friendly
+				}
+			}
+			add_war_support = 0.05
+			add_ideas = QIE_support_ANQ_idea
+			add_timed_idea = {
+				idea = QIE_popular_warlord_idea
+				days = 60
+			}
+			ANQ = {
+				save_event_target_as = volunteer_target
+				country_event = { id = anq.10 days = 1 }
+			}
+			send_volunteers_to_TARGET = yes
+			LEC = {
+				country_event = { id = lec.33 hours = 3 }
+			}
+			country_event = { id = qiedom.20 hours = 12 } #quits lec council
+		}
+	}
+}
+
+country_event = { #Qing pro LEP
+	id = qielepcollapse.14
+	title = qielepcollapse.14.t
+	desc = qielepcollapse.14.d
+	picture = GFX_report_event_QIE_soldiers_mobilize
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {	#indirect
+		log = "[GetLogInfo]: event qielepcollapse.14 option qielepcollapse.14.a"
+		name = qielepcollapse.14.a
+		if = {
+			limit = { has_country_flag = wu_intervenes_proANQ }
+			add_political_power = -2000
+			add_stability = -2
+		}
+		else = {
+			hidden_effect = {
+				country_event = { id = qielepcollapse.19 hours = 1 } #domestic unrest
+				country_event = { id = qielepcollapse.20 days = 5 } #german support
+				set_country_flag = wu_intervenes_proLEP
+				clr_country_flag = wu_intervenes_proANQ
+				reverse_add_opinion_modifier = {
+					target = LEP
+					modifier = KR_friendly
+				}
+				add_opinion_modifier = {
+					target = LEP
+					modifier = KR_friendly
+				}
+				random_other_country = {
+					limit = { is_ai = yes }
+					news_event = { id = worldnews.230 hours = 2 }
+				}
+			}
+			add_ideas = QIE_support_LEP_idea
+			add_war_support = 0.02
+			add_stability = -0.05
+			add_political_power = 50
+			LEP = { save_event_target_as = volunteer_target }
+			send_volunteers_to_TARGET = yes
+		}
+	}
+}
+
+country_event = { #Qing intervenes directly anyway in favor of Chen, triggered by earlier event, will fire after war already started
+	id = qielepcollapse.15
+	title = qielepcollapse.15.t
+	desc = qielepcollapse.15.d
+	picture = GFX_report_event_QIE_soldiers_mobilize
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qielepcollapse.15 option qielepcollapse.15.a"
+		name = qielepcollapse.15.a
+		hidden_effect = {
+			set_country_flag = wu_intervenes_proANQ
+			country_event = { id = qielepcollapse.17 hours = 2 }
+			country_event = { id = qielepcollapse.18 days = 4 }
+			reverse_add_opinion_modifier = {
+				target = ANQ
+				modifier = KR_friendly
+			}
+			add_opinion_modifier = {
+				target = ANQ
+				modifier = KR_friendly
+			}
+		}
+		add_war_support = 0.05
+		add_ideas = QIE_support_ANQ_idea
+		add_timed_idea = {
+			idea = QIE_popular_warlord_idea
+			days = 60
+		}
+		ANQ = {
+			country_event = { id = anq.10 days = 1 }
+		}
+	}
+}
+
+#qielepcollapse.16 is free
+
+country_event = { #popular support for wu
+	id = qielepcollapse.17
+	title = qielepcollapse.17.t
+	desc = qielepcollapse.17.d
+	picture = GFX_report_event_QIE_wu_peifu_shrine
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qielepcollapse.17 option qielepcollapse.17.a"
+		name = qielepcollapse.17.a #excellent!
+		add_political_power = 50
+		add_stability = 0.03
+	}
+}
+
+country_event = { #germans pissed at wu for interveneing Pro-ANQ
+	id = qielepcollapse.18
+	title = qielepcollapse.18.t
+	desc = qielepcollapse.18.d
+	picture = GFX_report_event_CHI_protest
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #we don't need their support anyways!
+		log = "[GetLogInfo]: event qielepcollapse.18 option qielepcollapse.18.a"
+		name = qielepcollapse.18.a
+		add_popularity = {
+			ideology = market_liberal
+			popularity = -1.00
+		}
+		hidden_effect = {
+			QIE_remove_peking_commission = yes
+			GER = {
+				country_event = { id = qiefor.86 hours = 6 }
+			}
+			GEA = {
+				country_event = { id = qiefor.86 hours = 6 }
+			}
+		}
+		custom_effect_tooltip = QIE_on_own_tooltip
+	}
+}
+
+country_event = { #assembly pissed at wu intervening pro-LEP
+	id = qielepcollapse.19
+	title = qielepcollapse.19.t
+	desc = qielepcollapse.19.d
+	picture = GFX_report_event_QIE_cao_kun
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #damn!
+		log = "[GetLogInfo]: event qielepcollapse.19 option qielepcollapse.19.a"
+		name = qielepcollapse.19.a
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.03
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.03
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.03
+		}
+		add_ideas = QIE_outraged_parties
+		add_political_power = -50
+		add_stability = -0.03
+	}
+}
+
+country_event = { #germany gives support to Wu for intervening pro-LEP
+	id = qielepcollapse.20
+	title = qielepcollapse.20.t
+	desc = qielepcollapse.20.d
+	picture = GFX_report_event_GEA_coltroops
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #at least somebody likes us...
+		log = "[GetLogInfo]: event qielepcollapse.20 option qielepcollapse.20.a"
+		name = qielepcollapse.20.a
+		add_political_power = 100
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.03
+		}
+		hidden_effect = {
+			country_event = { id = qieflavor.1 days = 120 random_days = 240 }
+		}
+	}
+}
+
+country_event = { #widespread rioting and looting following non-intervention
+	id = qielepcollapse.21
+	title = qielepcollapse.21.t
+	desc = qielepcollapse.21.d
+	picture = GFX_report_event_CHI_protest
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #damn it!
+		log = "[GetLogInfo]: event qielepcollapse.21 option qielepcollapse.21.a"
+		name = qielepcollapse.21.a
+		add_political_power = -50
+		add_stability = -0.10
+		add_ideas = QIE_big_protests
+		set_country_flag = QIE_coup_phase1
+		hidden_effect = {
+			country_event = { id = qiecoup.1 days = 30 random_days = 10 }
+			load_oob = "QIE_unrest"
+		}
+	}
+}
+
+country_event = { #Anqing is victorious, time to draw them closer
+	id = qielepcollapse.22
+	title = qielepcollapse.22.t
+	desc = qielepcollapse.22.d
+	picture = GFX_report_event_ANQ_chen_tiaoyuan
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #great!
+		log = "[GetLogInfo]: event qielepcollapse.22 option qielepcollapse.22.a"
+		name = qielepcollapse.22.a
+		add_political_power = 75
+		give_guarantee = ANQ
+		remove_ideas = QIE_support_ANQ_idea
+		add_opinion_modifier = {
+			target = ANQ
+			modifier = QIE_helped_during_LEP_war
+		}
+		reverse_add_opinion_modifier = {
+			target = ANQ
+			modifier = QIE_helped_during_LEP_war
+		}
+		#room for future expansion
+	}
+}
+
+country_event = { #LEP is victorious, time to guarantee them
+	id = qielepcollapse.23
+	title = qielepcollapse.23.t
+	desc = qielepcollapse.23.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qielepcollapse.23 option qielepcollapse.23.a"
+		name = qielepcollapse.23.a
+		add_political_power = 75
+		give_guarantee = LEP #you can get them in faction later, need to wrangle with germany
+		remove_ideas = QIE_support_LEP_idea
+		add_opinion_modifier = {
+			target = LEP
+			modifier = QIE_helped_during_LEP_war
+		}
+		reverse_add_opinion_modifier = {
+			target = LEP
+			modifier = QIE_helped_during_LEP_war
+		}
+	}
+}
+
+country_event = { #flavor #1, refugees flee north
+	id = qielepcollapse.24
+	title = qielepcollapse.24.t
+	desc = qielepcollapse.24.d
+	picture = GFX_report_event_CHI_economic
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			country_event = { id = qielepcollapse.25 days = 10 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qielepcollapse.24 option qielepcollapse.24.a"
+		name = qielepcollapse.24.a #divert resources south to care for the refugees
+		add_political_power = -25
+	}
+	option = {
+		log = "[GetLogInfo]: event qielepcollapse.24 option qielepcollapse.24.b"
+		name = qielepcollapse.24.b #who cares?
+		add_stability = -0.025
+	}
+}
+
+country_event = { #flavor #2 southern qing governors close railways, leads to riots/shootings
+	id = qielepcollapse.25
+	title = qielepcollapse.25.t
+	desc = qielepcollapse.25.d
+	picture = GFX_report_event_CHI_riot
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qielepcollapse.25 option qielepcollapse.25.a"
+		name = qielepcollapse.25.a
+		add_political_power = -25
+		hidden_effect = {
+			country_event = { id = qielepcollapse.26 days = 12 }
+		}
+	}
+}
+
+country_event = {  #flavor #3 yunnan/guanxi/shanxi governors cut contact with Qing
+	id = qielepcollapse.26
+	title = qielepcollapse.26.t
+	desc = qielepcollapse.26.d
+	picture = GFX_report_event_CHI_speech
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qielepcollapse.26 option qielepcollapse.26.a"
+		name = qielepcollapse.26.a
+		add_political_power = -25
+		add_stability = -0.05
+	}
+}
+
+country_event = { #chen totally believes in us
+	id = qielepcollapse.27
+	title = qielepcollapse.27.t
+	desc = qielepcollapse.27.d
+
+	is_triggered_only = yes
+
+	option = { #excellent!
+		log = "[GetLogInfo]: event qielepcollapse.27 option qielepcollapse.27.a"
+		name = qielepcollapse.27.a
+	}
+}
+
+country_event = { #chen secretly contacted the Japanese
+	id = qielepcollapse.28
+	title = qielepcollapse.28.t
+	desc = qielepcollapse.28.d
+
+	is_triggered_only = yes
+
+	option = { #bad news
+		log = "[GetLogInfo]: event qielepcollapse.28 option qielepcollapse.28.a"
+		name = qielepcollapse.28.a
+	}
+}
+
+country_event = { #we backed ANQ and they lose
+	id = qielepcollapse.29
+	title = qielepcollapse.29.t
+	desc = qielepcollapse.29.d
+
+	is_triggered_only = yes
+
+	option = { #damn
+		log = "[GetLogInfo]: event qielepcollapse.29 option qielepcollapse.29.a"
+		name = qielepcollapse.29.a
+		add_political_power = -100
+		remove_ideas = QIE_support_ANQ_idea
+		ANQ_remove_beijing_spirit = yes
+		add_manpower = 10000
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 500
+			producer = ANQ
+		}
+	}
+}
+
+country_event = { #we backed LEP and they lose
+	id = qielepcollapse.30
+	title = qielepcollapse.30.t
+	desc = qielepcollapse.30.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #damn
+		log = "[GetLogInfo]: event qielepcollapse.30 option qielepcollapse.30.a"
+		name = qielepcollapse.30.a
+		add_political_power = -100
+		remove_ideas = QIE_support_LEP_idea
+		add_manpower = 10000
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 500
+			producer = LEP
+		}
+	}
+}
+
+################
+#FOREIGN POLICY#
+################
+
+country_event = {
+	id = qiefor.11 #mas try and cut a deal with manchu
+	title = qiefor.11.t
+
+	desc = {
+		text = qiefor.11.d.FNG
+		trigger = {
+			country_exists = FNG
+			NOT = { has_war_with = FNG }
+			FNG = { is_subject = no }
+		}
+	}
+	desc = {
+		text = qiefor.11.d.no_FNG
+		trigger = {
+			OR = {
+				NOT = { country_exists = FNG }
+				has_war_with = FNG
+				FNG = { is_subject = yes }
+			}
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.11 option qiefor.11.a"
+		name = qiefor.11.a #try and cut them a deal
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0
+				has_government = social_conservative
+			}
+		}
+		FROM = {
+			effect_tooltip = { china_puppet_ROOT_effect = yes }
+			country_event = { id = qiefor.12 days = 1 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.11 option qiefor.11.b"
+		name = qiefor.11.b #we will fight them - ask FNG for help!
+		trigger = {
+			country_exists = FNG
+			NOT = { has_war_with = FNG }
+			FNG = { is_subject = no }
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 100
+				has_government = social_conservative
+			}
+		}
+		add_war_support = 0.10
+		FNG = { country_event = { id = qiefor.15 days = 1 } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.11 option qiefor.11.c"
+		name = qiefor.11.c #we will fight them
+		trigger = {
+			OR = {
+				NOT = { country_exists = FNG }
+				has_war_with = FNG
+				FNG = { is_subject = yes }
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 100
+				has_government = social_conservative
+			}
+		}
+		add_war_support = 0.10
+	}
+}
+
+country_event = {
+	id = qiefor.12 #mas give you a deal
+	title = qiefor.12.t
+	desc = qiefor.12.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.12 option qiefor.12.a"
+		name = qiefor.12.a #accept
+		ai_chance = { base = 100 }
+		china_puppet_FROM_effect = yes
+		FROM = { country_event = qiefor.13 }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.12 option qiefor.12.b"
+		name = qiefor.12.b #we will fight them - mas ask FNG for help!
+		ai_chance = { base = 0 }
+		add_war_support = 0.05
+		FROM = { country_event = qiefor.14 }
+	}
+}
+
+country_event = {
+	id = qiefor.13 #qing accept
+	title = qiefor.13.t
+	desc = qiefor.13.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.13 option qiefor.13.a"
+		name = qiefor.13.a #great
+		set_cosmetic_tag = XSM_manchu_puppet
+		QIE_create_pugong = yes
+	}
+}
+
+country_event = {
+	id = qiefor.14 #qing refuse, let's ask FNG for help
+	title = qiefor.14.t
+
+	desc = {
+		text = qiefor.14.d.FNG
+		trigger = {
+			country_exists = FNG
+			NOT = { has_war_with = FNG }
+			FNG = { is_subject = no }
+		}
+	}
+	desc = {
+		text = qiefor.14.d.no_FNG
+		trigger = {
+			OR = {
+				NOT = { country_exists = FNG }
+				has_war_with = FNG
+				FNG = { is_subject = yes }
+			}
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.14 option qiefor.14.a"
+		name = qiefor.14.a
+		if = {
+			limit = {
+				country_exists = FNG
+				NOT = { has_war_with = FNG }
+				FNG = { is_subject = no }
+			}
+			FNG = { country_event = { id = qiefor.15 days = 1 } }
+		}
+	}
+}
+
+country_event = { #Mas ask Fengtian for protection
+	id = qiefor.15
+	title = qiefor.15.t
+	desc = qiefor.15.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.15 option qiefor.15.a"
+		name = qiefor.15.a
+		ai_chance = { base = 70 }
+		give_guarantee = FROM
+		give_military_access = FROM
+		diplomatic_relation = {
+			country = FROM
+			relation = non_aggression_pact
+		}
+		FROM = { country_event = qiefor.151 }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.15 option qiefor.15.b"
+		name = qiefor.15.b
+		ai_chance = { base = 30 }
+		FROM = { country_event = qiefor.154 }
+	}
+}
+
+country_event = { #Fengtian protects us
+	id = qiefor.151
+	title = qiefor.151.t
+	desc = qiefor.151.d
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			QIE = { country_event = qiefor.152 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.151 option qiefor.150.a"
+		name = qiefor.150.a
+		give_guarantee = FROM
+		give_military_access = FROM
+		effect_tooltip = {
+			QIE = { country_event = qiefor.151 }
+		}
+	}
+}
+
+country_event = { #Fengtian protects the Ma Clique
+	id = qiefor.152
+	title = qiefor.152.t
+	desc = qiefor.152.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.152 option qiefor.152.a"
+		name = qiefor.152.a #Call off the attack
+		ai_chance = { base = 100 }
+		FNG = { country_event = { id = qiefor.153 days = 1 } }
+		XSM = { country_event = { id = qiefor.153 days = 1 } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.152 option qiefor.152.b"
+		name = qiefor.152.b #We will crush them both!
+		ai_chance = { base = 0 }
+		declare_war_on = {
+			target = XSM
+			type = annex_everything
+		}
+	}
+}
+
+country_event = { #The Manchu Back Down
+	id = qiefor.153
+	title = qiefor.153.t
+	desc = qiefor.153.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.153 option qiefor.153.a"
+		name = qiefor.153.a
+		add_war_support = 0.05
+	}
+}
+
+country_event = { #Fengtian Refuses Protection
+	id = qiefor.154
+	title = qiefor.154.t
+	desc = qiefor.154.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.154 option qiefor.154.a"
+		name = qiefor.154.a
+		add_war_support = 0.05
+	}
+}
+
+country_event = {
+	id = qiefor.17 #mas get guns
+	title = qiefor.17.t
+	desc = qiefor.17.d
+	picture = GFX_report_event_FNG_railway_construction_1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.17 option qiefor.17.a"
+		name = qiefor.17.a #thanks!
+		effect_tooltip = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 200
+				producer = QIE
+			}
+		}
+	}
+}
+
+country_event = {
+	id = qiefor.18 #mas get men
+	title = qiefor.18.t
+	desc = qiefor.18.d
+	picture = GFX_report_event_FNG_army1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.18 option qiefor.18.a"
+		name = qiefor.18.a #thanks!
+		add_manpower = 50000
+	}
+}
+
+country_event = {
+	id = qiefor.22 #Qi accepts our request to join FNG war
+	title = qiefor.22.t
+	desc = qiefor.22.d
+	picture = GFX_report_event_CHI_warlords
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.22 option qiefor.22.a"
+		name = qiefor.22.a #Great!
+		add_war_support = 0.05
+	}
+}
+
+country_event = {
+	id = qiefor.23 #Qi turns us down
+	title = qiefor.23.t
+	desc = qiefor.23.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.23 option qiefor.23.a"
+		name = qiefor.23.a #rip
+	}
+}
+
+country_event = {
+	id = qiefor.24 #start of shanxi mining event chain - rich vein discovered that extends into SHX territory
+	title = qiefor.24.t
+	desc = qiefor.24.d
+	picture = GFX_report_event_FNG_anshan_steel
+
+	fire_only_once = yes
+	is_triggered_only = yes #Triggered by focus QIE_shanxicoal
+	trigger = {
+		SHX = { exists = yes }
+		NOT = { QIE = { has_war_with = SHX } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.24 option qiefor.24.a"
+		name = qiefor.24.a #keep digging!
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 1.5
+				has_war = no
+			}
+			modifier = {
+				factor = 1.5
+				FNG = { exists = no }
+			}
+			modifier = {
+				factor = 1.5
+				strength_ratio = {
+					tag = SHX
+					ratio > 2
+				}
+				strength_ratio = {
+					tag = FNG
+					ratio > 1.5
+				}
+			}
+		}
+		add_resource = {
+			type = steel
+			amount = 2
+			state = 615 #Eastern Shanxi
+		}
+		hidden_effect = {
+			SHX = {
+				country_event = { id = qiefor.25 random_hours = 24 days = 3 }
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefor.24 option qiefor.24.b"
+		name = qiefor.24.b #Offer them a deal
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 2
+				check_variable = { SHX.SHX_QIE_influence_variable < 30 } #Low prior cooperation = less likely SHX will work with QIE
+			}
+			modifier = {
+				factor = 2
+				check_variable = { SHX.SHX_QIE_influence_variable < 50 } #Low prior cooperation = less likely SHX will work with QIE
+			}
+		}
+		custom_effect_tooltip = if_they_accept_tt
+		effect_tooltip = {
+			SHX_QIE_investment_medium = yes
+		}
+		hidden_effect = { SHX = { country_event = { id = qiefor.24001 random_hours = 24 days = 3 } } } #QIE Proposes a Joint Mining Expedition
+	}
+}
+
+country_event = {
+	id = qiefor.24001 #QIE Proposes a Joint Mining Expedition
+	title = qiefor.24001.t
+	desc = qiefor.24001.d
+	picture = GFX_report_event_FNG_anshan_steel
+
+	fire_only_once = yes
+	is_triggered_only = yes #Triggered by event qiefor.24 #start of shanxi mining event chain - rich vein discovered that extends into SHX territory
+	trigger = { NOT = { has_war_with = FROM } }
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.24001 option qiefor.24001.a"
+		name = qiefor.24001.a #We accept...for now
+		ai_chance = {
+			base = 75
+			modifier = {
+				factor = 1.5
+				has_political_power < 100
+			}
+			modifier = {
+				factor = 1.5
+				QIE = { has_war_with = JAP } #Yan can be patriotic when he wants to
+			}
+		}
+		add_political_power = 40
+		add_resource = {
+			type = steel
+			amount = 4
+			state = 1072 #Western Shanxi
+		}
+		add_resource = {
+			type = steel
+			amount = 2
+			state = 615 #Eastern Shanxi
+		}
+		SHX_QIE_investment_medium = yes
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.24001 option qiefor.24001.b"
+		name = qiefor.24001.b #We adamantly refuse
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 2
+				check_variable = { SHX.SHX_QIE_influence_variable < 30 } #Low prior cooperation = less likely SHX will work with QIE
+			}
+			modifier = {
+				factor = 2
+				check_variable = { SHX.SHX_QIE_influence_variable < 50 } #Low prior cooperation = less likely SHX will work with QIE
+			}
+		}
+		add_political_power = -35
+		add_resource = {
+			type = steel
+			amount = 2
+			state = 1072 #Western Shanxi
+		}
+	}
+}
+
+country_event = {
+	id = qiefor.24002 #QIE finds resources, offer to work with a friendly Shanxi?
+	title = qiefor.24002.t
+	desc = qiefor.24002.d
+	picture = GFX_report_event_FNG_anshan_steel
+
+	fire_only_once = yes
+	is_triggered_only = yes #Triggered by focus QIE_shanxicoal
+	trigger = {
+		SHX = { exists = yes }
+		NOT = { has_war_with = SHX }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.24002 option qiefor.24002.a"
+		name = qiefor.24002.a #Offer them a deal
+		ai_chance = { base = 100 }
+		custom_effect_tooltip = if_they_accept_tt
+		effect_tooltip = {
+			SHX_QIE_investment_medium = yes
+		}
+		hidden_effect = { SHX = { country_event = { id = qiefor.24001 random_hours = 24 days = 3 } } } #QIE Proposes a Joint Mining Expedition
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefor.24002 option qiefor.24002.b"
+		name = qiefor.24002.b #We are better off minding our own business
+		ai_chance = { base = 0 }
+		add_resource = {
+			type = steel
+			amount = 1
+			state = 615 #Eastern Shanxi
+		}
+	}
+}
+
+country_event = {
+	id = qiefor.25 #shx informed of QIE miners going into territory
+	title = qiefor.25.t
+	desc = qiefor.25.d
+	picture = GFX_report_event_FNG_anshan_steel
+
+	trigger = {
+		NOT = { has_war_with = FROM }
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.25 option qiefor.25.a"
+		name = qiefor.25.a #formally complain, threaten retribution
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 1.5
+				QIE = {
+					has_war = yes
+				}
+			}
+			modifier = {
+				factor = 1.5
+				FNG = {
+					strength_ratio = {
+						tag = QIE
+						ratio > 0.60
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				date > 1939.01.01
+			}
+		}
+		add_war_support = 0.05
+		add_political_power = 25
+		QIE = {
+			country_event = { id = qiefor.26 random_hours = 24 days = 3 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.25 option qiefor.25.b"
+		name = qiefor.25.b #We will have to bide our time
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 1.5
+				FNG = { exists = no }
+			}
+			modifier = {
+				factor = 1.5
+				strength_ratio = {
+					tag = QIE
+					ratio < 0.75
+				}
+			}
+			modifier = {
+				factor = 2
+				date < 1937.06.01
+			}
+		}
+		add_war_support = -0.05
+		add_political_power = -25
+	}
+}
+
+country_event = {
+	id = qiefor.26 #qie course of action - back down or keep mining
+	title = qiefor.26.t
+	desc = {
+		text = qiefor.26.d.fengtian
+		trigger = {
+			FNG = { exists = yes }
+		}
+	}
+	desc = {
+		text = qiefor.26.d.nofengtian
+		trigger = {
+			FNG = { exists = no }
+		}
+	}
+	picture = GFX_report_event_CHI_official_announcement
+
+	trigger = {
+		NOT = { has_war_with = FROM }
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.26 option qiefor.26.a"
+		name = qiefor.26.a #who cares? keep mining
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 1.5
+				613 = { #Qing more likely to press if they own Nanjing
+					is_owned_by_ROOT_or_subject = yes
+				}
+			}
+			modifier = {
+				factor = 1.5
+				strength_ratio = {
+					tag = SHX
+					ratio > 2
+				}
+			}
+			modifier = {
+				factor = 1.5
+				strength_ratio = {
+					tag = FNG
+					ratio > 1
+				}
+			}
+			modifier = {
+				factor = 2
+				date > 1939.01.01
+			}
+		}
+		add_resource = {
+			type = steel
+			amount = 2
+			state = 615
+		}
+		hidden_effect = {
+			SHX = {
+				country_event = { id = qiefor.27 random_hours = 24 days = 3 }
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefor.26 option qiefor.26.b"
+		name = qiefor.26.b #back down
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 1.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 1.5
+				strength_ratio = {
+					tag = SHX
+					ratio < 1.5
+				}
+			}
+			modifier = {
+				factor = 1.5
+				strength_ratio = {
+					tag = FNG
+					ratio < 1
+				}
+			}
+			modifier = {
+				factor = 2
+				date < 1937.06.01
+			}
+		}
+		add_political_power = -50
+		hidden_effect = {
+			SHX = {
+				country_event = { id = qiefor.28 random_hours = 24 days = 3 }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = qiefor.27 #qie keep mining, lets reach out to FNG
+	title = qiefor.27.t
+	desc = {
+		text = qiefor.27.d.nofengtian
+		trigger = { FNG = { exists = no } }
+	}
+	desc = {
+		text = qiefor.27.d.fengtian
+		trigger = { FNG = { exists = yes } }
+	}
+	picture = GFX_report_event_FNG_fushun_mine
+
+	trigger = { NOT = { has_war_with = FROM } }
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.27 option qiefor.27.a"
+		name = qiefor.27.a #reach out to FNG, ask for help
+		trigger = {
+			FNG = {
+				exists = yes
+				NOT = {
+					has_war_with = QIE
+				}
+			}
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 1.5
+				FNG = {
+					strength_ratio = {
+						tag = QIE
+						ratio > 0.75
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				SHX = {
+					strength_ratio = {
+						tag = QIE
+						ratio > 0.50
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				date > 1939.01.01
+			}
+		}
+		FNG = {
+			country_event = { id = qiefor.30 days = 2 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefor.27 option qiefor.27.b"
+		name = qiefor.27.b #Escalate on our own
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 25
+				FNG = { exists = no }
+			}
+			modifier = {
+				factor = 2
+				QIE = { has_war = yes }
+			}
+			modifier = {
+				factor = 2
+				QIE = { enemies_strength_ratio > 1 }
+			}
+		}
+		effect_tooltip = {
+			SHX_QIE_spend_large = yes
+		}
+		QIE = { country_event = { id = qiefor.27001 days = 2 } }
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefor.27 option qiefor.27.c"
+		name = qiefor.27.c #FNG can't help us. let them keep mining
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 25
+				FNG = { exists = no }
+			}
+			modifier = {
+				factor = 2
+				QIE = { enemies_strength_ratio < 0.5 }
+			}
+			modifier = {
+				factor = 2
+				date < 1937.06.01
+			}
+		}
+		add_political_power = -100
+		QIE = { country_event = { id = qiefor.29 days = 2 } }
+		custom_effect_tooltip = SHX_fate_depends_on_fengtian_tt
+	}
+}
+
+country_event = {
+	id = qiefor.27001 #SHX escalates on their own
+	title = qiefor.27001.t
+	desc = qiefor.27001.d
+	picture = GFX_report_event_FNG_army1
+
+	trigger = {
+		NOT = {
+			has_war_with = FROM
+			QIE = { has_war_with = SHX }
+		}
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.27001 option qiefor.27001.a"
+		name = qiefor.27001.a #This is an insult too far!
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 2
+				strength_ratio = {
+					tag = SHX
+					ratio > 2
+				}
+			}
+			modifier = {
+				factor = 2
+				FNG = { exists = no }
+			}
+		}
+		SHX_QIE_spend_giga = yes
+		declare_war_on = {
+			target = SHX
+			type = annex_everything
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefor.27001 option qiefor.27001.b"
+		name = qiefor.27001.b #back down - ends chain
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 2
+				strength_ratio = {
+					tag = SHX
+					ratio < 1.5
+				}
+			}
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+		SHX_QIE_spend_large = yes
+		add_political_power = -50
+		add_war_support = -0.10
+		SHX = { country_event = { id = qiefor.28 days = 1 } }
+	}
+}
+
+country_event = {
+	id = qiefor.28 #QIE capitulate to SHX on rights
+	title = qiefor.28.t
+	desc = qiefor.28.d
+	picture = GFX_report_event_CHI_official_announcement
+
+	trigger = { NOT = { has_war_with = FROM } }
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.28 option qiefor.28.a"
+		name = qiefor.28.a #great
+		add_political_power = 50
+		add_war_support = 0.10
+		add_resource = {
+			type = steel
+			amount = 2
+			state = 1072 #Western Shanxi
+		}
+		SHX_QIE_spend_small = yes
+	}
+}
+
+country_event = {
+	id = qiefor.29 #shx capitulate to QIE on rights
+	title = qiefor.29.t
+	desc = qiefor.29.d
+	picture = GFX_report_event_CHI_official_announcement
+
+	trigger = { NOT = { has_war_with = FROM } }
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.29 option qiefor.28.a"
+		name = qiefor.28.a #great
+		add_political_power = 50
+		add_resource = {
+			type = steel
+			amount = 2
+			state = 615
+		}
+		SHX_QIE_investment_large = yes
+	}
+}
+
+country_event = {
+	id = qiefor.30 #FNG step in
+	title = qiefor.30.t
+	desc = qiefor.30.d
+	picture = GFX_report_event_FNG_anshan_steel
+
+	trigger = {
+		NOT = {
+			has_war_with = FROM
+			has_war_with = FROM.FROM
+		}
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.30 option qiefor.30.a"
+		name = qiefor.30.a #time to step in
+		ai_chance = { base = 100 }
+		give_guarantee = SHX
+		SHX = {
+			country_event = qiefor.31
+		}
+		QIE = {
+			country_event = qiefor.32
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefor.30 option qiefor.30.b"
+		name = qiefor.30.b #back down this isn't worth conflict
+		ai_chance = { base = 0 }
+
+		add_political_power = -25
+		QIE = {
+			country_event = { id = qiefor.29 days = 1 }
+		}
+	}
+}
+
+country_event = {
+	id = qiefor.31 #FNG step in - for SHX
+	title = qiefor.31.t
+	desc = qiefor.31.d
+	picture = GFX_report_event_FNG_army1
+
+	trigger = {
+		NOT = {
+			has_war_with = FROM
+			has_war_with = FROM.FROM
+		}
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.31 option qiefor.31.a"
+		name = qiefor.31.a #nice
+		add_political_power = 50
+	}
+}
+
+country_event = {
+	id = qiefor.32 #FNG step in - for QIE
+	title = qiefor.32.t
+	desc = qiefor.32.d
+	picture = GFX_report_event_FNG_army1
+
+	trigger = {
+		NOT = {
+			has_war_with = FROM
+			has_war_with = FROM.FROM
+		}
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.32 option qiefor.32.a"
+		name = qiefor.32.a #call their bluff - start to mobilize soldiers
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0.1
+				strength_ratio = {
+					tag = FNG
+					ratio < 0.75
+				}
+			}
+		}
+		add_political_power = 50
+		SHX = {
+			country_event = { id = qiefor.33 days = 1 } #skirmishes break out
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefor.32 option qiefor.32.b"
+		name = qiefor.32.b #back down - ends chain
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 4.8
+				strength_ratio = {
+					tag = FNG
+					ratio < 0.75
+				}
+			}
+		}
+		add_political_power = -50
+		SHX = {
+			country_event = { id = qiefor.28 days = 1 }
+		}
+		FNG = {
+			country_event = { id = qiefor.28 days = 1 }
+		}
+	}
+}
+
+country_event = {
+	id = qiefor.33 #skirmishes on border - call on FNG for help
+	title = qiefor.33.t
+	desc = qiefor.33.d
+	picture = GFX_report_event_CHI_warlord_battle
+
+	trigger = {
+		NOT = {
+			has_war_with = FROM
+			has_war_with = FROM.FROM
+		}
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.33 option qiefor.33.a"
+		name = qiefor.33.a #call on FNG!
+		FNG = {
+			country_event = { id = qiefor.34 hours = 6 }
+		}
+	}
+}
+
+country_event = {
+	id = qiefor.34 #skirmishes on border - call on FNG for help
+	title = qiefor.34.t
+	desc = qiefor.34.d
+	picture = GFX_report_event_CHI_warlord_battle
+
+	trigger = {
+		NOT = {
+			has_war_with = FROM
+			has_war_with = FROM.FROM
+		}
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.34 option qiefor.34.a"
+		name = qiefor.34.a #ok honour the commitment
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 25
+				OR = {
+					ANQ = { china_is_aligned_with_fengtian = yes }
+					SQI = { china_is_aligned_with_fengtian = yes }
+				}
+			}
+			modifier = {
+				add = -25
+				ANQ = { china_is_aligned_with_fengtian = no }
+				SQI = { china_is_aligned_with_fengtian = no }
+			}
+			modifier = {
+				factor = 2
+				strength_ratio = {
+					tag = QIE
+					ratio > 1
+				}
+			}
+			modifier = {
+				factor = 2
+				date > 1939.01.01
+			}
+		}
+		declare_war_on = {
+			target = QIE
+			type = annex_everything
+		}
+		SHX = {
+			add_to_war = {
+				targeted_alliance = FNG
+				enemy = QIE
+				hostility_reason = QIE_mining_conflict_escallated_TT
+			}
+		}
+		QIE = {
+			country_event = qiefor.35 #war
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefor.34 option qiefor.34.b"
+		name = qiefor.34.b #back down... we aren't ready for war
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = -25
+				OR = {
+					ANQ = { china_is_aligned_with_fengtian = yes }
+					SQI = { china_is_aligned_with_fengtian = yes }
+				}
+			}
+			modifier = {
+				add = 25
+				ANQ = { china_is_aligned_with_fengtian = no }
+				SQI = { china_is_aligned_with_fengtian = no }
+			}
+			modifier = {
+				factor = 2
+				strength_ratio = {
+					tag = QIE
+					ratio < 0.75
+				}
+			}
+			modifier = {
+				factor = 2
+				date < 1937.06.01
+			}
+		}
+		add_political_power = -100
+		diplomatic_relation = {
+			country = SHX
+			relation = guarantee
+			active = no
+		}
+		SHX = {
+			country_event = qiefor.37 #shit
+		}
+	}
+}
+
+country_event = {
+	id = qiefor.35 #FNG attacks QIE
+	title = qiefor.35.t
+	desc = qiefor.35.d
+	picture = GFX_report_event_FNG_army1
+
+	trigger = {
+		NOT = {
+			has_war_with = FROM
+			has_war_with = FROM.FROM
+		}
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.35 option qiefor.35.a"
+		name = qiefor.35.a #to war!
+		add_war_support = 0.05
+	}
+}
+
+country_event = {
+	id = qiefor.36 #FNG backs down, attack SHX?
+	title = qiefor.36.t
+	desc = qiefor.36.d
+	picture = GFX_report_event_CHI_warlord_observer
+
+	trigger = {
+		NOT = {
+			has_war_with = FROM
+			has_war_with = FROM.FROM
+		}
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.36 option qiefor.36.a"
+		name = qiefor.36.a #destroy them
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 25
+				has_war = no
+			}
+			modifier = {
+				factor = 2
+				has_completed_focus = SHX_destiny
+			}
+		}
+		declare_war_on = {
+			target = SHX
+			type = annex_everything
+		}
+		add_war_support = 0.05
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefor.36 option qiefor.36.b"
+		name = qiefor.36.b #nah...
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = -25
+				has_war = no
+			}
+			modifier = {
+				factor = 2
+				check_variable = { SHX.SHX_QIE_influence_variable > 40 } #Higher QIE investment means they can avoid dealing with war
+			}
+		}
+		SHX_QIE_investment_giga = yes
+	}
+}
+
+country_event = {
+	id = qiefor.37 #FNG backs down
+	title = qiefor.37.t
+	desc = qiefor.37.d
+	picture = GFX_report_event_FNG_army1
+
+	trigger = {
+		NOT = {
+			has_war_with = FROM
+			has_war_with = FROM.FROM
+		}
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.37 option qiefor.37.a"
+		name = qiefor.37.a #shit
+		add_political_power = -50
+		add_war_support = 0.05
+		QIE = {
+			country_event = { id = qiefor.36 days = 7 } #easy pickings
+		}
+	}
+}
+
+country_event = {
+	id = qiefor.41 #TIB asks for help
+	title = qiefor.41.t
+	desc = qiefor.41.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.41 option qiefor.41.a"
+		name = qiefor.41.a #sure
+		ai_chance = { base = 100 }
+		add_political_power = 10
+		diplomatic_relation = {
+			country = TIB
+			relation = non_aggression_pact
+			active = yes
+		}
+		TIB = {
+			country_event = { id = qiefor.42 days = 1 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefor.41 option qiefor.41.b"
+		name = qiefor.41.b #nah
+		ai_chance = { base = 0 }
+		add_political_power = -10
+		TIB = {
+			country_event = { id = qiefor.43 days = 1 }
+		}
+	}
+}
+
+country_event = {
+	id = qiefor.42 #QIE says yes to TIB
+	title = qiefor.42.t
+	desc = qiefor.42.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.42 option qiefor.42.a"
+		name = qiefor.42.a #ok
+		add_political_power = 25
+		add_opinion_modifier = { target = QIE modifier = KR_approves_of_govt }
+		hidden_effect = {
+			diplomatic_relation = {
+				country = MON
+				relation = guarantee
+				active = no
+			}
+			diplomatic_relation = {
+				country = MON
+				relation = non_aggression_pact
+				active = no
+			}
+			diplomatic_relation = {
+				country = MON
+				relation = military_access
+				active = no
+			}
+			MON = {
+				diplomatic_relation = {
+					country = ROOT
+					relation = guarantee
+					active = no
+				}
+				diplomatic_relation = {
+					country = ROOT
+					relation = non_aggression_pact
+					active = no
+				}
+				diplomatic_relation = {
+					country = ROOT
+					relation = military_access
+					active = no
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = qiefor.43 #QIE says no to TIB
+	title = qiefor.43.t
+	desc = qiefor.43.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.43 option qiefor.43.a"
+		name = qiefor.43.a #oof
+		add_political_power = -25
+	}
+}
+
+country_event = {
+	id = qiefor.44 #how to integrate tibet
+	title = qiefor.44.t
+	desc = qiefor.44.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.44 option qiefor.44.a"
+		name = qiefor.44.a #keep autonomous
+		ai_chance = {
+			base = 75
+			modifier = {
+				add = 100
+				TIB = { is_ai = no }
+			}
+		}
+		TIB = {
+			country_event = { id = qiefor.45 days = 1 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefor.44 option qiefor.44.b"
+		name = qiefor.44.b #direct
+		ai_chance = { base = 25 }
+		TIB = {
+			country_event = { id = qiefor.46 days = 1 }
+		}
+	}
+}
+
+country_event = {
+	id = qiefor.45 #QIE demands indirect integration
+	title = qiefor.45.t
+	desc = qiefor.45.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.45 option qiefor.45.a"
+		name = qiefor.45.a #ok
+		ai_chance = { base = 100 }
+		QIE = {
+			set_country_flag = TIB_indirect_rule
+			country_event = qiefor.47
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefor.45 option qiefor.45.b"
+		name = qiefor.45.b #nah
+		ai_chance = { base = 0 }
+		QIE = {
+			country_event = qiefor.48
+		}
+	}
+}
+
+country_event = {
+	id = qiefor.46 #QIE demands direct integration
+	title = qiefor.46.t
+	desc = qiefor.46.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.46 option qiefor.46.a"
+		name = qiefor.46.a #ok
+		ai_chance = { base = 100 }
+		QIE = {
+			set_country_flag = TIB_direct_rule
+			country_event = qiefor.47
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefor.46 option qiefor.46.b"
+		name = qiefor.46.b #nah
+		ai_chance = { base = 0 }
+		QIE = {
+			country_event = qiefor.48
+		}
+	}
+}
+
+country_event = {
+	id = qiefor.47 #qing does the thing
+	title = qiefor.47.t
+	desc = qiefor.47.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.47 option qiefor.47.a"
+		name = qiefor.47.a
+		trigger = { has_country_flag = TIB_indirect_rule }
+		add_political_power = 15
+		TIB = { get_current_government_type = yes }
+		puppet = TIB
+		TIB = { restore_previous_government_type = yes }
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefor.47 option qiefor.47.b"
+		name = qiefor.47.b
+		trigger = { has_country_flag = TIB_direct_rule }
+		add_political_power = 15
+		annex_country = {
+			target = TIB
+			transfer_troops = yes
+		}
+	}
+}
+
+country_event = {
+	id = qiefor.48 #tib refuses - should never happen if AI
+	title = qiefor.48.t
+	desc = qiefor.48.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.48 option qiefor.48.a"
+		name = qiefor.48.a #destroy them!
+		create_wargoal = {
+			type = annex_everything
+			target = TIB
+		}
+	}
+}
+
+country_event = {
+	id = qiefor.49 #Xinjiang civil war event for Manchu QIE
+	title = qiefor.49.t
+	desc = qiefor.49.d
+	picture = GFX_report_event_SIK_kumul_map
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.49 option qiefor.49.a"
+		name = qiefor.49.a
+		add_political_power = 5
+		add_ideas = QIE_support_KUM_idea
+	}
+}
+
+country_event = {
+	id = qiefor.52 #QIE starts manchu war, FNG guarantees friends
+	title = qiefor.52.t
+	desc = qiefor.52.d
+	picture = GFX_report_event_QIE_worship_puyi
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.52 option qiefor.52.a"
+		name = qiefor.52.a #aight we got this
+		every_other_country = {
+			limit = {
+				is_chinese_tag = yes
+				china_is_aligned_with_fengtian = yes
+			}
+			country_event = { id = qiefor.53 hours = 6 }
+		}
+		QIE = {
+			country_event = { id = qiefor.54 hours = 8 }
+		}
+	}
+}
+
+country_event = {
+	id = qiefor.53 #FNG guarantee
+	title = qiefor.53.t
+	desc = qiefor.53.d
+	picture = GFX_report_event_QIE_worship_puyi
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.53 option qiefor.53.a"
+		name = qiefor.53.a #thanks
+		ai_chance = { base = 100 }
+		FROM = {
+			give_guarantee = ROOT
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefor.53 option qiefor.53.b"
+		name = qiefor.53.b #nah
+		ai_chance = { base = 0 }
+	}
+}
+
+country_event = {
+	id = qiefor.54 #reaction to FNG guarantee
+	title = qiefor.54.t
+	desc = qiefor.54.d
+	picture = GFX_report_event_FNG_army1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.54 option qiefor.54.a"
+		name = qiefor.54.a #we will crush them!
+		add_war_support = 0.075
+	}
+}
+
+country_event = {
+	id = qiefor.55 #GEA help to LEP
+	title = qiefor.55.t
+	desc = qiefor.55.d
+	picture = GFX_report_event_QIE_worship_puyi
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.55 option qiefor.55.a"
+		name = qiefor.55.a #send supplies
+		ai_chance = { base = 100 }
+		add_political_power = -100
+		LEP = {
+			country_event = { id = qiefor.56 hours = 12 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefor.55 option qiefor.55.b"
+		name = qiefor.55.b #who cares
+		ai_chance = { base = 0 }
+	}
+}
+
+country_event = {
+	id = qiefor.56 #GEA help arrives
+	title = qiefor.56.t
+	desc = qiefor.56.d
+	picture = GFX_report_event_GEA_coltroops
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.56 option qiefor.56.a"
+		name = qiefor.56.a #great!
+		add_political_power = 25
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 2500
+			producer = GER
+		}
+	}
+}
+
+# Anqing interaction events by Erag
+
+country_event = { #Wuchang-Anqing
+	id = qiefor.57
+	title = qiefor.57.t
+	desc = qiefor.57.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.57 option qiefor.57.a"
+		name = qiefor.57.a #good
+		ai_chance = { base = 30 }
+		custom_effect_tooltip = QIE_anqing_works_wuchang_tt
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefor.57 option qiefor.57.b"
+		name = qiefor.57.b #also invest ourselves
+		ai_chance = {
+			base = 70
+			modifier = {
+				has_political_power < 20
+				factor = 0.4
+			}
+		}
+		add_political_power = -20
+		custom_effect_tooltip = QIE_anqing_works_wuchang_tt
+		activate_targeted_decision = { target = ANQ decision = QIE_develop_wuchang }
+	}
+}
+
+country_event = { #fund large offices Beijing Liaison Council Nanjing
+	id = qiefor.58
+	title = qiefor.58.t
+	desc = qiefor.58.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #No, not worth it
+		log = "[GetLogInfo]: event qiefor.58 option qiefor.58.a"
+		name = qiefor.58.a #good
+		ai_chance = { base = 30 }
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefor.58 option qiefor.58.b"
+		name = qiefor.58.b #invest
+		ai_chance = {
+			base = 70
+			modifier = {
+				has_political_power < 20
+				factor = 0.2
+			}
+		}
+		add_political_power = -20
+		ANQ = {
+			custom_effect_tooltip = anq_increase_qie_1
+			country_event = { id = anq.74 days = 100 random_days = 50 }
+		}
+	}
+}
+
+country_event = { #anqing refuses special rights
+	id = qiefor.60
+	title = qiefor.60.t
+	desc = qiefor.60.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.60 option qiefor.60.a"
+		name = qiefor.60.a
+		ANQ = {
+			country_event = { id = anq.85 days = 2 }
+		}
+	}
+}
+
+country_event = { #anqing still refuses!
+	id = qiefor.61
+	title = qiefor.61.t
+	desc = qiefor.61.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.61 option qiefor.61.a"
+		name = qiefor.61.a
+		ANQ = {
+			country_event = { id = anq.86 days = 5 }
+		}
+	}
+}
+
+country_event = { #warm welcome in nanjing for puyi
+	id = qiefor.62
+	title = qiefor.62.t
+	desc = qiefor.62.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.62 option qiefor.62.a"
+		name = qiefor.62.a
+		ANQ = {
+			country_event = { id = anq.89 days = 3 }
+		}
+	}
+}
+
+country_event = { #protests in nanjing for puyi
+	id = qiefor.63
+	title = qiefor.63.t
+	desc = qiefor.63.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.63 option qiefor.63.a"
+		name = qiefor.63.a
+		ANQ = {
+			country_event = { id = anq.88 days = 3 }
+		}
+	}
+}
+
+country_event = { #chen positive response
+	id = qiefor.64
+	title = qiefor.64.t
+	desc = qiefor.64.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.64 option qiefor.64.a"
+		name = qiefor.64.a
+		ANQ = { custom_effect_tooltip = anq_increase_qie_2 }
+		add_political_power = 20
+		#excellent
+	}
+}
+
+country_event = { #chen negative response
+	id = qiefor.65
+	title = qiefor.65.t
+	desc = qiefor.65.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.65 option qiefor.65.a"
+		name = qiefor.65.a
+		custom_effect_tooltip = QIE_counter_message_decision_tt
+		hidden_effect = {
+			activate_mission = QIE_anq_counter_message
+		}
+	}
+}
+
+country_event = { #qing asks faction anqing before war
+	id = qiefor.66
+	title = qiefor.66.t
+	desc = qiefor.66.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.66 option qiefor.66.a"
+		name = qiefor.66.a
+		ai_chance = {
+			base = 60
+			modifier = {
+				add = 20
+				check_variable = { ANQ_beijing_level > 7 }
+			}
+			modifier = {
+				add = 10
+				check_variable = { ANQ_beijing_level > 5 }
+			}
+			modifier = {
+				add = 10
+				check_variable = { ANQ_beijing_level > 6 }
+			}
+		}
+		add_political_power = 50
+		custom_effect_tooltip = anq_increase_qie_3
+		hidden_effect = {
+			ANQ = {
+				add_popularity = {
+					ideology = market_liberal
+					popularity = 0.03
+				}
+				ANQ_remove_beijing_spirit = yes
+				ANQ_calculate_beijing_level = yes
+				ANQ_add_beijing_spirit = yes
+			}
+		}
+		QIE = {
+			effect_tooltip = { china_puppet_ROOT_effect = yes }
+			country_event = { id = china_events.8 days = 1 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.66 option qiefor.66.b"
+		name = qiefor.66.b #no
+		trigger = {
+			NOT = {
+				check_variable = { ANQ_beijing_level > 10 }
+			}
+		}
+		ai_chance = {
+			base = 40
+			modifier = {
+				add = -20
+				check_variable = { ANQ_beijing_level > 7 }
+			}
+			modifier = {
+				add = -10
+				check_variable = { ANQ_beijing_level > 5 }
+			}
+			modifier = {
+				add = -10
+				check_variable = { ANQ_beijing_level > 6 }
+			}
+		}
+		custom_effect_tooltip = anq_decrease_cred_10
+		subtract_from_variable = {
+			var = credibility_factor
+			value = 10
+		}
+		anq_recalculate_chens_credibility = yes
+		custom_effect_tooltip = anq_decrease_qie_2
+		hidden_effect = {
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.02
+			}
+			ANQ_remove_beijing_spirit = yes
+			ANQ_calculate_beijing_level = yes
+			ANQ_add_beijing_spirit = yes
+		}
+		ANQ_increase_beijing_anger_3x = yes
+		QIE = {
+			country_event = { id = qiefor.69 days = 1 }
+			set_country_flag = QIE_anqing_refuses_before
+		}
+	}
+}
+
+country_event = { #qing asks faction anqing during war
+	id = qiefor.67
+	title = qiefor.67.t
+	desc = qiefor.67.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.67 option qiefor.67.a"
+		name = qiefor.67.a
+		ai_chance = { base = 100 }
+		add_political_power = 50
+		custom_effect_tooltip = anq_increase_qie_3
+		hidden_effect = {
+			ANQ = {
+				add_popularity = {
+					ideology = market_liberal
+					popularity = 0.03
+				}
+				ANQ_remove_beijing_spirit = yes
+				ANQ_calculate_beijing_level = yes
+				ANQ_add_beijing_spirit = yes
+			}
+		}
+		QIE = {
+			effect_tooltip = { china_puppet_ROOT_effect = yes }
+			country_event = { id = china_events.8 days = 1 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.67 option qiefor.67.b"
+		name = qiefor.67.b #no
+		trigger = {
+			check_variable = { ANQ_beijing_level < 5 }
+		}
+		custom_effect_tooltip = anq_decrease_cred_10
+		subtract_from_variable = {
+			var = credibility_factor
+			value = 10
+		}
+		anq_recalculate_chens_credibility = yes
+		custom_effect_tooltip = anq_decrease_qie_2
+		hidden_effect = {
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.02
+			}
+			ANQ_remove_beijing_spirit = yes
+			ANQ_calculate_beijing_level = yes
+			ANQ_add_beijing_spirit = yes
+		}
+		ANQ_increase_beijing_anger_3x = yes
+		QIE = {
+			country_event = { id = qiefor.69 days = 1 }
+			set_country_flag = QIE_anqing_refuses_during
+		}
+	}
+}
+
+country_event = { #qing asks faction anqing after war
+	id = qiefor.68
+	title = qiefor.68.t
+	desc = qiefor.68.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.68 option qiefor.68.a"
+		name = qiefor.68.a
+		ai_chance = { base = 100 }
+		add_political_power = 50
+		custom_effect_tooltip = anq_increase_qie_3
+		hidden_effect = {
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.03
+			}
+			ANQ_remove_beijing_spirit = yes
+			ANQ_calculate_beijing_level = yes
+			ANQ_add_beijing_spirit = yes
+		}
+		QIE = {
+			effect_tooltip = { china_puppet_ROOT_effect = yes }
+			country_event = { id = china_events.8 days = 1 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.68 option qiefor.68.b"
+		name = qiefor.68.b #no
+		trigger = {
+			check_variable = { ANQ_beijing_level < 11 }
+		}
+		ai_chance = { base = 0 }
+		custom_effect_tooltip = anq_decrease_cred_10
+		subtract_from_variable = {
+			var = credibility_factor
+			value = 10
+		}
+		anq_recalculate_chens_credibility = yes
+		custom_effect_tooltip = anq_decrease_qie_2
+		hidden_effect = {
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.02
+			}
+			ANQ_remove_beijing_spirit = yes
+			ANQ_calculate_beijing_level = yes
+			ANQ_add_beijing_spirit = yes
+		}
+		ANQ_increase_beijing_anger_2x = yes
+		QIE = {
+			country_event = { id = qiefor.69 days = 1 }
+			set_country_flag = QIE_anqing_refuses_after
+		}
+	}
+}
+
+country_event = { #anqing refuses alliance
+	id = qiefor.69
+	title = qiefor.69.t
+	desc = {
+		text = qiefor.69.d1
+		trigger = { has_country_flag = QIE_anqing_refuses_before }
+	}
+	desc = {
+		text = qiefor.69.d2
+		trigger = { has_country_flag = QIE_anqing_refuses_during }
+	}
+	desc = {
+		text = qiefor.69.d3
+		trigger = { has_country_flag = QIE_anqing_refuses_after }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.69 option qiefor.69.a"
+		name = qiefor.69.a
+		ANQ = { custom_effect_tooltip = anq_decrease_qie_2 }
+		if = {
+			limit = { has_country_flag = QIE_anqing_refuses_after }
+			custom_effect_tooltip = QIE_war_goal_anqing_if_low_influence_tt
+		}
+		else_if = {
+			limit = { has_country_flag = QIE_anqing_refuses_during }
+			custom_effect_tooltip = QIE_war_goal_anqing_after_war_tt
+		}
+	}
+}
+
+country_event = { #anqing canals and dikes
+	id = qiefor.70
+	title = qiefor.70.t
+	desc = qiefor.70.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.70 option qiefor.70.a"
+		name = qiefor.70.a
+		activate_targeted_decision = { target = ANQ decision = QIE_canal_dikes_anqing }
+	}
+}
+
+country_event = { #army cooperation anqing
+	id = qiefor.71
+	title = qiefor.71.t
+	desc = qiefor.71.d
+
+	is_triggered_only = yes
+
+	option = {  #yes we help
+		log = "[GetLogInfo]: event qiefor.71 option qiefor.71.a"
+		name = qiefor.71.a
+		ai_chance = { base = 95 }
+		add_ideas = QIE_anqing_training
+		custom_effect_tooltip = QIE_training_idea_when_remove_tt
+		ANQ = {
+			country_event = { id = anq.93 days = 1 }
+		}
+	}
+
+	option = {  #nopey
+		log = "[GetLogInfo]: event qiefor.71 option qiefor.71.b"
+		name = qiefor.71.b
+		ai_chance = { base = 5 }
+	}
+}
+
+country_event = { #army cooperation anqing no
+	id = qiefor.72
+	title = qiefor.72.t
+	desc = qiefor.72.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.72 option qiefor.72.a"
+		name = qiefor.72.a
+		remove_ideas = QIE_anqing_training
+		custom_effect_tooltip = QIE_unlocks_try_army_cooperation_again_tt
+		set_country_flag = QIE_anqing_attempt_training_again_flag
+	}
+}
+
+country_event = { #army cooperation anqing concluded
+	id = qiefor.73
+	title = qiefor.73.t
+	desc = qiefor.73.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.73 option qiefor.73.a"
+		name = qiefor.73.a
+		remove_ideas = QIE_anqing_training
+		add_political_power = 10
+	}
+}
+
+country_event = { #denied the conference
+	id = qiefor.74
+	title = qiefor.74.t
+	desc = qiefor.74.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.74 option qiefor.74.a"
+		name = qiefor.74.a
+		add_political_power = -30
+	}
+}
+
+country_event = { #conference results
+	id = qiefor.75
+	title = qiefor.75.t
+	desc = {
+		text = qiefor.75.d1
+		trigger = { has_country_flag = ANQ_qie_conference_large_progress }
+	}
+	desc = {
+		text = qiefor.75.d2
+		trigger = { has_country_flag = ANQ_qie_conference_progress }
+	}
+	desc = {
+		text = qiefor.75.d3
+		trigger = {
+			NOT = {
+				has_country_flag = ANQ_qie_conference_large_progress
+				has_country_flag = ANQ_qie_conference_progress
+			}
+		}
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.75 option qiefor.75.a"
+		name = qiefor.75.a
+		trigger = {
+			OR = {
+				has_country_flag = ANQ_qie_conference_large_progress
+				has_country_flag = ANQ_qie_conference_progress
+			}
+		}
+		if = {
+			limit = { has_country_flag = ANQ_qie_conference_large_progress }
+			ANQ = { custom_effect_tooltip = anq_increase_qie_3 }
+		}
+		else_if = {
+			limit = { has_country_flag = ANQ_qie_conference_progress }
+			ANQ = { custom_effect_tooltip = anq_increase_qie_1 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.75 option qiefor.75.b"
+		name = qiefor.75.b
+		trigger = {
+			NOT = {
+				has_country_flag = ANQ_qie_conference_large_progress
+				has_country_flag = ANQ_qie_conference_progress
+			}
+		}
+		add_political_power = -10
+	}
+}
+
+country_event = { #dalu yinhang
+	id = qiefor.76
+	title = qiefor.76.t
+	desc = qiefor.76.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #more loans
+		log = "[GetLogInfo]: event qiefor.76 option qiefor.76.a"
+		name = qiefor.76.a
+		show_ideas_tooltip = QIE_anqing_loans
+		ai_chance = {
+			base = 60
+
+			modifier = {
+				add = -30
+				ANQ = { check_variable = { ANQ_beijing_level > 7 } }
+			}
+		}
+
+		ANQ = {
+			country_event = { id = anq.103 days = 1 }
+		}
+		set_country_flag = QIE_dalu_yinhang_anqing_more_loans
+	}
+	option = { #better terms
+		log = "[GetLogInfo]: event qiefor.76 option qiefor.76.b"
+		name = qiefor.76.b
+		add_political_power = -30
+		ai_chance = {
+			base = 20
+
+			modifier = {
+				ANQ = { check_variable = { ANQ_beijing_level > 7 } }
+				add = -20
+			}
+		}
+		ANQ = {
+			country_event = { id = anq.103 days = 1 }
+		}
+		set_country_flag = QIE_dalu_yinhang_anqing_better_terms
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefor.76 option qiefor.76.c"
+		name = qiefor.76.c
+		ai_chance = {
+			base = 20
+
+			modifier = {
+				ANQ = { check_variable = { ANQ_beijing_level > 7 } }
+				add = 50
+			}
+		}
+	}
+}
+
+country_event = { #anqing response to dalu yinhang
+	id = qiefor.77
+	title = qiefor.77.t
+	desc = {
+		text = qiefor.77.d1
+		trigger = { NOT = { has_country_flag = QIE_anqing_dalu_yinhang_refused } }
+	}
+	desc = {
+		text = qiefor.77.d2
+		trigger = { has_country_flag = QIE_anqing_dalu_yinhang_refused }
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.77 option qiefor.77.a"
+		name = qiefor.77.a
+		ai_chance = { base = 80 }
+		trigger = { NOT = { has_country_flag = QIE_anqing_dalu_yinhang_refused } }
+		if = {
+			limit = { has_country_flag = QIE_dalu_yinhang_anqing_more_loans }
+			add_timed_idea = {
+				idea = QIE_anqing_loans
+				days = 100
+			}
+		}
+		ANQ = { custom_effect_tooltip = anq_increase_qie_2 }
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefor.77 option qiefor.77.b"
+		name = qiefor.77.b
+		ai_chance = { base = 20 }
+		trigger = { has_country_flag = QIE_anqing_dalu_yinhang_refused }
+		add_political_power = -30
+	}
+}
+
+country_event = { #wu meets anticoncessions leaders anqing
+	id = qiefor.78
+	title = qiefor.78.t
+	desc = qiefor.78.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.78 option qiefor.78.a"
+		name = qiefor.78.a
+		ANQ = {
+			custom_effect_tooltip = anq_increase_qie_2
+			country_event = { id = anq.104 days = 2 }
+		}
+	}
+}
+
+country_event = { #cooperating reconstruction, help anqing out?
+	id = qiefor.79
+	title = qiefor.79.t
+	desc = qiefor.79.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.79 option qiefor.79.a"
+		name = qiefor.79.a
+		ai_chance = { base = 70 }
+		ANQ = {
+			custom_effect_tooltip = anq_increase_qie_2
+			country_event = { id = anq.105 days = 1 }
+		}
+		add_timed_idea = {
+			idea = QIE_anqing_reconstruction_aid
+			days = 100
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.79 option qiefor.79.b"
+		ai_chance = { base = 30 }
+		name = qiefor.79.b
+	}
+}
+
+country_event = { #anq integrate, initial (FIRES FOR ANQ)
+	id = qiefor.80
+	title = qiefor.80.t
+	desc = qiefor.80.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.80 option qiefor.80.a"
+		name = qiefor.80.a
+		ai_chance = {
+			base = 5
+			modifier = {
+				check_variable = { ANQ_beijing_level > 6 }
+				add = 5
+			}
+			modifier = {
+				check_variable = { ANQ_beijing_level > 7 }
+				add = 5
+			}
+			modifier = {
+				check_variable = { ANQ_beijing_level > 8 }
+				add = 10
+			}
+			modifier = {
+				check_variable = { ANQ_beijing_level > 9 }
+				add = 10
+			}
+			modifier = {
+				check_variable = { ANQ_beijing_level > 10 }
+				add = 15
+			}
+			modifier = {
+				date > 1940.1.1
+				add = 20
+			}
+			modifier = {
+				date > 1941.1.1
+				add = 30
+			}
+		}
+		china_integrate_ally_effect = yes
+		FROM = { country_event = { id = qiefor.81 days = 1 } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.80 option qiefor.80.b"
+		name = qiefor.80.b
+		ai_chance = {
+			base = 95
+			modifier = {
+				check_variable = { ANQ_beijing_level > 6 }
+				add = -5
+			}
+			modifier = {
+				check_variable = { ANQ_beijing_level > 7 }
+				add = -5
+			}
+			modifier = {
+				check_variable = { ANQ_beijing_level > 8 }
+				add = -10
+			}
+			modifier = {
+				check_variable = { ANQ_beijing_level > 9 }
+				add = -10
+			}
+			modifier = {
+				check_variable = { ANQ_beijing_level > 10 }
+				add = -15
+			}
+			modifier = {
+				date > 1940.1.1
+				add = -20
+			}
+			modifier = {
+				date > 1941.1.1
+				add = -30
+			}
+		}
+		add_political_power = -50
+		ANQ_increase_beijing_anger_3x = yes
+		custom_effect_tooltip = anq_decrease_qie_5
+		hidden_effect = {
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.05
+			}
+			ANQ_remove_beijing_spirit = yes
+			ANQ_calculate_beijing_level = yes
+			ANQ_add_beijing_spirit = yes
+		}
+		set_country_flag = ANQ_refused_integration_qing
+		QIE = {
+			country_event = { id = qiefor.82 days = 1 }
+		}
+	}
+}
+
+country_event = { #anqing says yes, start events
+	id = qiefor.81
+	title = qiefor.81.t
+	desc = qiefor.81.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.81 option qiefor.81.a"
+		name = qiefor.81.a
+		add_political_power = 100
+		add_timed_idea = {
+			idea = QIE_integrating_province
+			days = 90
+		}
+	}
+}
+
+country_event = { #anqing says no
+	id = qiefor.82
+	title = qiefor.82.t
+	desc = qiefor.82.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.82 option qiefor.82.a"
+		name = qiefor.82.a
+		add_political_power = -50
+		ANQ = { custom_effect_tooltip = anq_decrease_qie_5 }
+	}
+}
+
+country_event = { #anq integrate, after (first or second) (FIRES FOR ANQ)
+	id = qiefor.83
+	title = qiefor.83.t
+	desc = qiefor.83.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.83 option qiefor.83.a"
+		name = qiefor.83.a
+		ai_chance = {
+			base = 60
+			modifier = {
+				check_variable = { ANQ_beijing_level > 7 }
+				add = 40
+			}
+			modifier = {
+				date > 1941.1.1
+				add = 30
+			}
+		}
+		china_integrate_ally_effect = yes
+		FROM = { country_event = { id = qiefor.81 days = 1 } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.83 option qiefor.83.b"
+		name = qiefor.83.b
+		ai_chance = {
+			base = 40
+			modifier = {
+				check_variable = { ANQ_beijing_level > 7 }
+				add = -40
+			}
+			modifier = {
+				date > 1941.1.1
+				check_variable = { ANQ_beijing_level < 8 }
+				add = -30
+			}
+		}
+		add_political_power = -50
+		ANQ_increase_beijing_anger_3x = yes
+		custom_effect_tooltip = anq_decrease_qie_5
+		hidden_effect = {
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.05
+			}
+			ANQ_remove_beijing_spirit = yes
+			ANQ_calculate_beijing_level = yes
+			ANQ_add_beijing_spirit = yes
+		}
+
+		if = {
+			limit = { NOT = { has_country_flag = ANQ_refused_integration_qing_after } }
+			QIE = {
+				country_event = { id = qiefor.84 days = 1 }
+			}
+			set_country_flag = ANQ_refused_integration_qing_after
+		}
+		else = {
+			QIE = {
+				country_event = { id = qiefor.85 days = 1 } #war goal
+			}
+		}
+	}
+}
+
+country_event = { #anqing says no after
+	id = qiefor.84
+	title = qiefor.84.t
+	desc = qiefor.84.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.84 option qiefor.84.a"
+		name = qiefor.84.a
+		add_political_power = -50
+		ANQ = { custom_effect_tooltip = anq_decrease_qie_5 }
+	}
+}
+
+country_event = { #anqing says no after twice, war goal
+	id = qiefor.85
+	title = qiefor.85.t
+	desc = qiefor.85.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.85 option qiefor.85.a"
+		name = qiefor.85.a
+		add_political_power = -50
+		ANQ = {
+			custom_effect_tooltip = anq_decrease_qie_5
+			hidden_effect = {
+				add_popularity = {
+					ideology = market_liberal
+					popularity = -0.05
+				}
+			}
+			remove_puppet_and_leave_faction = yes
+		}
+		create_wargoal = {
+			target = ANQ
+			type = annex_everything
+		}
+	}
+}
+
+country_event = { #gea/ger informed of anti-concession stance
+	id = qiefor.86
+	title = qiefor.86.t
+	desc = qiefor.86.d
+	picture = GFX_report_event_CHI_protest
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.86 option qiefor.86.a"
+		name = qiefor.86.a #damn!
+		add_political_power = -25
+	}
+}
+
+country_event = { #gea/ger informed of anti-concession stance following coup
+	id = qiefor.87
+	title = qiefor.87.t
+	desc = qiefor.87.d
+	picture = GFX_report_event_CHI_protest
+
+	trigger = { has_global_flag = QIE_manchu_restoration }
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.87 option qiefor.87.a"
+		name = qiefor.87.a #damn!
+		add_political_power = -25
+	}
+}
+
+country_event = { #Beijing looks weak
+	id = qiefor.90
+	title = qiefor.90.t
+	desc = qiefor.90.d
+	picture = GFX_report_event_generic_beijing_map
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #This defeat is the gateway to many victories
+		log = "[GetLogInfo]: event qiefor.90 option qiefor.90.a"
+		name = qiefor.90.a
+		transfer_state = 614
+		hidden_effect = {
+			QIE = { country_event = { id = qiefor.91 hours = 1 } }
+		}
+	}
+}
+country_event = { #We look weak
+	id = qiefor.91
+	title = qiefor.91.t
+	desc = qiefor.91.d
+	picture = GFX_report_event_generic_beijing_map
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #Humiliating
+		log = "[GetLogInfo]: event qiefor.91 option qiefor.91.a"
+		name = qiefor.91.a
+	}
+}
+
+#RESERVED FOR ANQING UP UNTIL .100
+
+country_event = { #yang sen holds on in sichuan
+	id = qiefor.101
+	title = qiefor.101.t
+	desc = qiefor.101.d
+	picture = GFX_report_event_SZC_sichuan_map
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.101 option qiefor.101.a"
+		name = qiefor.101.a #great
+		add_political_power = 10
+		diplomatic_relation = {
+			country = SZC
+			relation = non_aggression_pact
+			active = yes
+		}
+		SZC = {
+			diplomatic_relation = {
+				country = QIE
+				relation = non_aggression_pact
+				active = yes
+			}
+		}
+	}
+}
+
+country_event = { #hostile takeover in sichuan
+	id = qiefor.102
+	title = qiefor.102.t
+	desc = qiefor.102.d
+	picture = GFX_report_event_SZC_sichuan_map
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #rip
+		log = "[GetLogInfo]: event qiefor.102 option qiefor.102.a"
+		name = qiefor.102.a
+	}
+}
+
+country_event = { #kmt breaks free, contests Qing rule
+	id = qiefor.103
+	title = qiefor.103.t
+	desc = qiefor.103.d
+	picture = GFX_report_event_CHI_french_army
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #who cares
+		log = "[GetLogInfo]: event qiefor.103 option qiefor.103.a"
+		name = qiefor.103.a
+	}
+}
+
+country_event = { #hunan breaks free, explain how zhao hengti is split between GXC and Zhili
+	id = qiefor.104
+	title = qiefor.104.t
+	desc = qiefor.104.d
+	picture = GFX_report_event_HNN_map
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #interesting
+		log = "[GetLogInfo]: event qiefor.104 option qiefor.104.a"
+		name = qiefor.104.a
+		diplomatic_relation = {
+			country = HNN
+			relation = non_aggression_pact
+			active = yes
+		}
+		HNN = {
+			diplomatic_relation = {
+				country = QIE
+				relation = non_aggression_pact
+				active = yes
+			}
+		}
+	}
+}
+
+country_event = { #yiguandao take over, explain how they're a wild card but not pro-fengtian
+	id = qiefor.105
+	title = qiefor.105.t
+	desc = qiefor.105.d
+	picture = GFX_report_event_SQI_yiguandao_military
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #interesting
+		log = "[GetLogInfo]: event qiefor.105 option qiefor.105.a"
+		name = qiefor.105.a
+	}
+}
+
+country_event = { #zongchang retains power, draws closer to FNG
+	id = qiefor.106
+	title = qiefor.106.t
+	desc = qiefor.106.d
+	picture = GFX_report_event_SQI_zongchang_and_zuolin
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #interesting
+		log = "[GetLogInfo]: event qiefor.106 option qiefor.106.a"
+		name = qiefor.106.a
+		hidden_effect = {
+			country_event = { id = qiefor.106 days = 120 random_days = 48 } #japanese stuff shows up
+		}
+	}
+}
+
+country_event = { #zhang zongchang arrested, qu takes over, he's a friend
+	id = qiefor.107
+	title = qiefor.107.t
+	desc = qiefor.107.d
+	picture = GFX_report_event_QIE_worship_puyi
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #great
+		log = "[GetLogInfo]: event qiefor.107 option qiefor.107.a"
+		name = qiefor.107.a
+		add_political_power = 10
+	}
+}
+
+country_event = { #sichuan civil war starts, yang is our friend
+	id = qiefor.108
+	title = qiefor.108.t
+	desc = qiefor.108.d
+	picture = GFX_report_event_CHI_warlord_battle
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #great
+		log = "[GetLogInfo]: event qiefor.108 option qiefor.108.a"
+		name = qiefor.108.a
+	}
+}
+
+country_event = { #GXC breaks free, contests Qing rule
+	id = qiefor.109
+	title = qiefor.109.t
+	desc = qiefor.109.d
+	picture = GFX_report_event_CHI_speech
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #who cares
+		log = "[GetLogInfo]: event qiefor.109 option qiefor.109.a"
+		name = qiefor.109.a
+	}
+}
+
+country_event = { #Zhao Hengti wins elections in Hunan, he's got to be loyal to feds now
+	id = qiefor.110
+	title = qiefor.110.t
+	desc = {
+		text = qiefor.110.d.zhili
+		trigger = {
+			NOT = { has_global_flag = QIE_manchu_restoration }
+		}
+	}
+	desc = {
+		text = qiefor.110.d.manchu
+		trigger = {
+			has_global_flag = QIE_manchu_restoration
+		}
+	}
+	picture = GFX_report_event_HNN_map
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {# damn
+		log = "[GetLogInfo]: event qiefor.110 option qiefor.110.a"
+		name = qiefor.110.a
+		trigger = {
+			NOT = { has_global_flag = QIE_manchu_restoration }
+		}
+		diplomatic_relation = {
+			country = HNN
+			relation = non_aggression_pact
+			active = no
+		}
+		HNN = {
+			diplomatic_relation = {
+				country = QIE
+				relation = non_aggression_pact
+				active = no
+			}
+		}
+	}
+	option = {# damn
+		log = "[GetLogInfo]: event qiefor.110 option qiefor.110.b"
+		name = qiefor.110.b
+		trigger = {
+			has_global_flag = QIE_manchu_restoration
+		}
+		diplomatic_relation = {
+			country = HNN
+			relation = non_aggression_pact
+			active = no
+		}
+		HNN = {
+			diplomatic_relation = {
+				country = QIE
+				relation = non_aggression_pact
+				active = no
+			}
+		}
+	}
+}
+
+country_event = { #tang shengzhi takes over Hunan, he's a federalist so rip
+	id = qiefor.111
+	title = qiefor.111.t
+
+	desc = {
+		text = qiefor.111.d.zhili
+		trigger = {
+			NOT = { has_global_flag = QIE_manchu_restoration }
+		}
+	}
+	desc = {
+		text = qiefor.111.d.manchu
+		trigger = {
+			has_global_flag = QIE_manchu_restoration
+		}
+	}
+
+	picture = GFX_report_event_HNN_map
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {# damn
+		log = "[GetLogInfo]: event qiefor.111 option qiefor.111.a"
+		name = qiefor.111.a
+		HNN = {
+			HNN_zhao_hengti = {
+				set_character_flag = QIE_zhili_leader
+				if = {
+					limit = { NOT = { has_global_flag = QIE_manchu_restoration } }
+					set_nationality = ROOT
+				}
+			}
+		}
+		diplomatic_relation = {
+			country = HNN
+			relation = non_aggression_pact
+			active = no
+		}
+		HNN = {
+			diplomatic_relation = {
+				country = QIE
+				relation = non_aggression_pact
+				active = no
+			}
+		}
+	}
+}
+
+country_event = { #socialist takeover in Hunan, rip
+	id = qiefor.112
+	title = qiefor.112.t
+	desc = qiefor.112.d
+	picture = GFX_report_event_HNN_map
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {# damn
+		log = "[GetLogInfo]: event qiefor.112 option qiefor.112.a"
+		name = qiefor.112.a
+		HNN = {
+			HNN_zhao_hengti = {
+				set_character_flag = QIE_zhili_leader
+				if = {
+					limit = { NOT = { has_global_flag = QIE_manchu_restoration } }
+					set_nationality = ROOT
+				}
+			}
+		}
+		diplomatic_relation = {
+			country = HNN
+			relation = non_aggression_pact
+			active = no
+		}
+		HNN = {
+			diplomatic_relation = {
+				country = QIE
+				relation = non_aggression_pact
+				active = no
+			}
+		}
+	}
+}
+
+country_event = { #Zhao Hengti rigs elections, he might help us now
+	id = qiefor.113
+	title = qiefor.113.t
+
+	desc = {
+		text = qiefor.113.d.zhili
+		trigger = {
+			NOT = { has_global_flag = QIE_manchu_restoration }
+		}
+	}
+	desc = {
+		text = qiefor.113.d.manchu
+		trigger = {
+			has_global_flag = QIE_manchu_restoration
+		}
+	}
+
+	picture = GFX_report_event_HNN_map
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.113 option qiefor.113.a"
+		name = qiefor.113.a
+		trigger = {
+			NOT = { has_global_flag = QIE_manchu_restoration }
+		}
+		add_political_power = 5
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qiefor.113 option qiefor.113.b"
+		name = qiefor.113.b
+		trigger = {
+			has_global_flag = QIE_manchu_restoration
+		}
+		diplomatic_relation = {
+			country = HNN
+			relation = non_aggression_pact
+			active = no
+		}
+		HNN = {
+			diplomatic_relation = {
+				country = QIE
+				relation = non_aggression_pact
+				active = no
+			}
+		}
+	}
+}
+
+country_event = { # Heads up to War Declaration Targets
+	id = qiefor.132
+	title = qiefor.132.t
+	desc = qiefor.132.d
+
+	picture = GFX_report_event_QIE_soldiers_planning
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = {
+			has_war_with = QIE
+		}
+	}
+
+	option = { #We have a short time to prepare.
+		log = "[GetLogInfo]: event qiefor.132 option qiefor.132.a"
+		name = qiefor.132.a
+		custom_effect_tooltip = QIE_invasion_discovery
+		hidden_effect = {
+			every_other_country = {
+				limit = {
+					NOT = { tag = FROM }
+					OR = {
+						is_ally_with = ROOT
+						has_guaranteed = ROOT
+					}
+				}
+				country_event = qiefor.134
+			}
+		}
+	}
+}
+
+country_event = { # Heads up to Japan
+	id = qiefor.133
+	title = qiefor.133.t
+	desc = qiefor.133.d
+
+	picture = GFX_report_event_QIE_soldiers_planning
+
+	trigger = {
+		tag = JAP
+		NOT = {
+			has_war_with = QIE
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = { # Is it time to consider an intervention?
+		log = "[GetLogInfo]: event qiefor.133 option qiefor.132.a"
+		name = qiefor.132.a
+		custom_effect_tooltip = QIE_invasion_discovery
+	}
+}
+
+country_event = { # Heads up to Overlord
+	id = qiefor.134
+	title = qiefor.134.t
+	desc = qiefor.134.d
+
+	picture = GFX_report_event_QIE_soldiers_planning
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = {
+			has_war_with = QIE
+		}
+	}
+
+	option = { # We must prepare!
+		log = "[GetLogInfo]: event qiefor.134 option qiefor.134.a"
+		name = qiefor.134.a
+		custom_effect_tooltip = QIE_invasion_discovery
+	}
+}
+
+country_event = { #[QIE.GetName]'s Wuhan Government is Finished
+	id = qiefor.145
+	title = qiefor.145.t
+	desc = qiefor.145.d
+
+	trigger = {
+		has_global_flag = QIE_withdrew_to_wuhan
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #As it should be
+		log = "[GetLogInfo]: event qiefor.145 option qiefor.145.a"
+		name = qiefor.145.a
+		add_victory_points = { province = 9843 value = 20 } #Beijing
+		add_victory_points = { province = 4619 value = -20 } #Wuhan
+	}
+
+	option = { #Separate the three cities
+		log = "[GetLogInfo]: event qiefor.145 option qiefor.145.b"
+		name = qiefor.145.b
+		add_political_power = -10
+		add_victory_points = { province = 9843 value = 20 } #Beijing
+		add_victory_points = { province = 4619 value = -20 } #Wuhan
+		china_splits_wuhan = yes
+	}
+}
+
+country_event = { #Time to Return to Beijing
+	id = qiefor.146
+	title = qiefor.146.t
+	desc = qiefor.146.d
+
+	trigger = {
+		has_global_flag = QIE_withdrew_to_wuhan
+		has_war = no
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #As it should be
+		log = "[GetLogInfo]: event qiefor.146 option qiefor.146.a"
+		name = qiefor.146.a
+		clr_global_flag = QIE_withdrew_to_wuhan
+		add_victory_points = { province = 9843 value = 20 } #Beijing
+		add_victory_points = { province = 4619 value = -20 } #Wuhan
+	}
+
+	option = { #Separate the three cities
+		log = "[GetLogInfo]: event qiefor.146 option qiefor.146.b"
+		name = qiefor.146.b
+		ai_chance = { base = 0 }
+		add_political_power = -10
+		clr_global_flag = QIE_withdrew_to_wuhan
+		add_victory_points = { province = 9843 value = 20 } #Beijing
+		add_victory_points = { province = 4619 value = -20 } #Wuhan
+		china_splits_wuhan = yes
+	}
+}
+
+country_event = { #[QIE.GetName] Garrisons Withdraw from Shanxi
+	id = qiefor.150
+	title = qiefor.150.t
+	desc = qiefor.150.d
+
+	is_triggered_only = yes
+
+	option = { #Finally
+		log = "[GetLogInfo]: event qiefor.150 option qiefor.150.a"
+		name = qiefor.150.a
+		effect_tooltip = { transfer_state = 615 }
+	}
+}
+
+######
+#COUP#
+######
+
+country_event = {
+	id = qiecoup.1 #rumbles of discontent
+	title = qiecoup.1.t
+	desc = qiecoup.1.d
+	picture = GFX_report_event_QIE_worship_puyi
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.1 option qiecoup.1.a"
+		name = qiecoup.1.a #keep an eye on them
+		hidden_effect = {
+			country_event = { id = qiecoup.2 days = 10 }
+		}
+	}
+}
+
+country_event = {
+	id = qiecoup.2 #plotters meet, realize they need external help
+	title = qiecoup.2.t
+	desc = qiecoup.2.d
+	picture = GFX_report_event_QIE_soldiers_planning
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.2 option qiecoup.2.a"
+		name = qiecoup.2.a #ask Yan Xishan
+		trigger = {
+			SHX = {
+				exists = yes
+				has_war = no
+				has_country_leader = { character = SHX_yan_xishan }
+				NOT = { has_global_flag = SHX_deal_QIE }
+			}
+		}
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = QIE_coup_friend option = QIE_COUP_FRIEND_QU }
+					has_game_rule = { rule = QIE_coup_friend option = QIE_COUP_FRIEND_ZHANG }
+				}
+			}
+		}
+		SHX = {
+			country_event = { id = qiecoup.3 days = 1 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiecoup.2 option qiecoup.2.b"
+		name = qiecoup.2.b #ask Qu Yingguang/Zhang Tianran
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = QIE_coup_friend option = QIE_COUP_FRIEND_YAN }
+			}
+		}
+		trigger = {
+			SQI = {
+				exists = yes
+				has_war = no
+				OR = {
+					has_country_leader = { character = SQI_qu_yingguang }
+					has_country_leader = { character = SQI_zhang_tianran }
+				}
+			}
+		}
+		SQI = {
+			if = {
+				limit = { has_country_leader = { character = SQI_zhang_tianran } }
+				country_event = { id = qiecoup.5 days = 1 }
+			}
+			else = {
+				country_event = { id = qiecoup.4 days = 1 }
+			}
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.2 option qiecoup.2.c"
+		name = qiecoup.2.c #There is no one to turn to
+		trigger = {
+			SHX = {
+				OR = {
+					exists = no
+					has_war = yes
+					has_global_flag = SHX_deal_QIE
+					NOT = { has_country_leader = { character = SHX_yan_xishan } }
+				}
+			}
+			SQI = {
+				OR = {
+					exists = no
+					has_war = yes
+					NOT = {
+						has_country_leader = { character = SQI_qu_yingguang }
+						has_country_leader = { character = SQI_zhang_tianran }
+					}
+				}
+			}
+		}
+		country_event = { id = qiecoup.13 days = 1 }
+	}
+}
+
+country_event = {
+	id = qiecoup.3 #asking Yan Xishan
+	title = qiecoup.3.t
+	desc = qiecoup.3.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.3 option qiecoup.3.a"
+		name = qiecoup.3.a #They need to promise me something
+		QIE = {
+			country_event = { id = qiecoup.6 days = 2 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.3 option qiecoup.3.b"
+		name = qiecoup.3.b #no this is too risky (will never fire if QIE is human)
+		ai_chance = { base = 0 }
+		QIE = {
+			set_country_flag = QIE_yan_says_no
+			country_event = { id = qiecoup.9 days = 2 }
+		}
+	}
+}
+
+country_event = {
+	id = qiecoup.4 #asking Qu Yingguang
+	title = qiecoup.4.t
+	desc = qiecoup.4.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.4 option qiecoup.4.a"
+		name = qiecoup.4.a #Of Course! For the glory of the Qing!
+		QIE = {
+			country_event = { id = qiecoup.11 days = 2 }
+		}
+		custom_effect_tooltip = QIE_coup_backer_warning_tt
+	}
+	option = {
+		log = "[GetLogInfo]: event qiecoup.4 option qiecoup.4.b"
+		name = qiecoup.4.b #no, this is too risky
+		ai_chance = { base = 0 }
+		QIE = {
+			set_country_flag = QIE_qu_says_no
+			country_event = { id = qiecoup.9 days = 2 }
+		}
+	}
+}
+
+country_event = {
+	id = qiecoup.5 #asking zhang tianran
+	title = qiecoup.5.t
+	desc = qiecoup.5.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.5 option qiecoup.5.a"
+		name = qiecoup.5.a #Of Course! For the glory of the Qing!
+		QIE = {
+			country_event = { id = qiecoup.12 days = 2 }
+		}
+		custom_effect_tooltip = QIE_coup_backer_warning_tt
+	}
+	option = {
+		log = "[GetLogInfo]: event qiecoup.5 option qiecoup.5.b"
+		name = qiecoup.5.b #no, this is too risky
+		ai_chance = { base = 0 }
+		QIE = {
+			set_country_flag = QIE_zhang_says_no
+			country_event = { id = qiecoup.9 days = 2 }
+		}
+	}
+}
+
+country_event = {
+	id = qiecoup.6 #how do we convince yan?
+	title = qiecoup.6.t
+	desc = qiecoup.6.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.6 option qiecoup.6.a"
+		name = qiecoup.6.a #emphasize the "master of China" angle - Ai will accept this
+		ai_chance = {
+			base = 70
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_SHIH_AUTDEM }
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_KOO_AUTDEM }
+				}
+			}
+		}
+		SHX = {
+			country_event = { id = qiecoup.7 days = 3 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiecoup.6 option qiecoup.6.b"
+		name = qiecoup.6.b #emphasize the "strengthening his position" angle - ai will reject this
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_PATAUT }
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_AUTDEM }
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_SOCCON }
+				}
+			}
+		}
+		SHX = {
+			country_event = { id = qiecoup.8 days = 3 }
+		}
+	}
+}
+
+country_event = {
+	id = qiecoup.7 #QIE emphasize the "master of China" angle. Yan, consumed by ambition, will say yes despite knowing better.
+	title = qiecoup.7.t
+	desc = qiecoup.7.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.7 option qiecoup.7.a"
+		name = qiecoup.7.a #Refuse them. The risks are too great.
+		ai_chance = { base = 0 }
+		QIE = {
+			set_country_flag = QIE_yan_says_no
+			country_event = { id = qiecoup.9 days = 3 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiecoup.7 option qiecoup.8.b"
+		name = qiecoup.8.b #Accept. China needs Yan's liberation.
+		ai_chance = { base = 100 }
+		QIE = {
+			country_event = { id = qiecoup.10 days = 3 }
+		}
+		SHX = {
+			country_event = { id = SHX_manchu.1 days = 1 }
+		}
+		custom_effect_tooltip = QIE_coup_backer_warning_tt
+	}
+}
+
+country_event = {
+	id = qiecoup.8 #QIE emphasized the "protecting from Zhili encroachment" angle. Yan, while tempted by an opportunity to strip land from a weakened Zhili, rejects the opportunity.
+	title = qiecoup.8.t
+	desc = qiecoup.8.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.8 option qiecoup.8.a"
+		name = qiecoup.8.a #Refuse them.
+		ai_chance = { base = 100 }
+		QIE = {
+			set_country_flag = QIE_yan_says_no
+			country_event = { id = qiecoup.9 days = 3 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.8 option qiecoup.8.b"
+		name = qiecoup.8.b #Accept. China needs to modernize.
+		ai_chance = { base = 0 }
+		QIE = {
+			country_event = { id = qiecoup.10 days = 3 }
+		}
+		SHX = {
+			country_event = { id = SHX_manchu.1 days = 1 }
+		}
+		custom_effect_tooltip = QIE_coup_backer_warning_tt
+	}
+}
+
+country_event = {
+	id = qiecoup.9 #failure, leads to coup being discovered
+	title = qiecoup.9.t
+	desc = {
+		text = qiecoup.9.d_yan
+		trigger = { has_country_flag = QIE_yan_says_no }
+	}
+	desc = {
+		text = qiecoup.9.d_qu
+		trigger = { has_country_flag = QIE_qu_says_no }
+	}
+	desc = {
+		text = qiecoup.9.d_zhang
+		trigger = { has_country_flag = QIE_zhang_says_no }
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.9 option qiecoup.9.a"
+		name = qiecoup.9.a #damn it! We blew our one shot
+		hidden_effect = {
+			QIE = {
+				country_event = { id = qiecoup.13 days = 5 } #plot discovered prematurely and shut down
+			}
+		}
+	}
+}
+
+country_event = {
+	id = qiecoup.10 #Yan says yes
+	title = qiecoup.10.t
+	desc = qiecoup.10.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.10 option qiecoup.10.a"
+		name = qiecoup.10.a #Excellent
+		set_country_flag = QIE_yan_backs_coup
+		hidden_effect = {
+			country_event = { id = qiecoup.16 days = 5 } #wu starts to notice military movements
+		}
+	}
+}
+
+country_event = {
+	id = qiecoup.11 #Qu says yes
+	title = qiecoup.11.t
+	desc = qiecoup.11.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.11 option qiecoup.11.a"
+		name = qiecoup.11.a #Excellent
+		set_country_flag = QIE_qu_backs_coup
+		hidden_effect = {
+			country_event = { id = qiecoup.16 days = 5 } #wu starts to notice military movements
+		}
+	}
+}
+
+country_event = {
+	id = qiecoup.12 #Zhang says yes
+	title = qiecoup.12.t
+	desc = qiecoup.12.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.12 option qiecoup.12.a"
+		name = qiecoup.12.a #Excellent
+		set_country_flag = QIE_zhang_backs_coup
+		hidden_effect = {
+			country_event = lepcollapse.29
+			country_event = { id = qiecoup.16 days = 5 } #wu starts to notice military movements
+		}
+	}
+}
+
+country_event = {
+	id = qiecoup.13 #the coup plot is discovered early and shut down!
+	title = qiecoup.13.t
+	desc = qiecoup.13.d
+	picture = GFX_report_event_QIE_zhili_soldiers
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.13 option qiecoup.13.a"
+		name = qiecoup.13.a #arrest these traitors! The Qing dynasty is dead!
+		add_political_power = 15
+		effect_tooltip = { set_cosmetic_tag = QIE }
+		drop_cosmetic_tag = yes
+		promote_character = {
+			character = QIE_wu_peifu
+			ideology = authoritarian_democrat_subtype
+		}
+		promote_character = {
+			character = QIE_wu_peifu
+			ideology = paternal_autocrat_subtype
+		}
+		set_politics = {
+			ruling_party = paternal_autocrat
+		}
+		delete_unit_template_and_units = { division_template = "Manchu Cavalry Division" }
+		delete_unit_template_and_units = { division_template = "Manchu Imperial Guard" }
+		remove_ideas = QIE_fractured_empire
+		clr_global_flag = SHX_deal_QIE
+		hidden_effect = {
+			every_other_country = {
+				limit = { is_chinese_tag = yes }
+				mark_focus_tree_layout_dirty = yes #update Qing-related foci
+			}
+			news_event = { id = worldnews.232 hours = 2 }
+			country_event = { id = qiecoup.14 days = 1 }
+			country_event = { id = qiecoup.15 days = 2 }
+		}
+	}
+}
+
+country_event = {
+	id = qiecoup.14 #purge manchu generals
+	title = qiecoup.14.t
+	desc = qiecoup.14.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.14 option qiecoup.14.a"
+		name = qiecoup.14.a #only purge the manchu, the rest can be rehabilitatied
+		add_stability = -0.03
+		army_experience = -10
+		custom_effect_tooltip = characters_will_be_retired
+		character_list_tooltip = {
+			limit = {
+				OR = {
+					is_character = QIE_aisin_gioro_pujie
+					is_character = QIE_aisin_gioro_pugong
+					is_character = QIE_aisin_gioro_zaitao
+					is_character = QIE_aisin_gioro_xiqia
+					is_character = QIE_aisin_gioro_jixing
+					is_character = QIE_aisin_gioro_zaixun
+					is_character = QIE_aisin_gioro_zaizhen
+					is_character = QIE_gobulo_runqi
+				}
+			}
+		}
+		hidden_effect = {
+			every_character = {
+				limit = {
+					OR = {
+						is_character = QIE_aisin_gioro_pujie
+						is_character = QIE_aisin_gioro_pugong
+						is_character = QIE_aisin_gioro_zaitao
+						is_character = QIE_aisin_gioro_xiqia
+						is_character = QIE_aisin_gioro_jixing
+						is_character = QIE_aisin_gioro_zaixun
+						is_character = QIE_aisin_gioro_zaizhen
+					}
+				}
+				retire = yes
+			}
+			QIE_xing_shilian = { remove_unit_leader_trait = hidden_sympathies } #as there is no longer a conspiricy for him to take part in
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiecoup.14 option qiecoup.14.b"
+		name = qiecoup.14.b #purge them all!
+		add_stability = 0.05
+		army_experience = -20
+		custom_effect_tooltip = characters_will_be_retired
+		character_list_tooltip = {
+			limit = {
+				OR = {
+					is_character = QIE_aisin_gioro_pujie
+					is_character = QIE_aisin_gioro_pugong
+					is_character = QIE_aisin_gioro_zaitao
+					is_character = QIE_aisin_gioro_xiqia
+					is_character = QIE_aisin_gioro_jixing
+					is_character = QIE_aisin_gioro_zaixun
+					is_character = QIE_aisin_gioro_zaizhen
+					is_character = QIE_gobulo_runqi
+					is_character = QIE_xing_shilian
+					is_character = QIE_lu_xiangting
+					is_character = QIE_zhang_yanqing
+				}
+			}
+		}
+		hidden_effect = {
+			every_character = {
+				limit = {
+					OR = {
+						is_character = QIE_aisin_gioro_pujie
+						is_character = QIE_aisin_gioro_pugong
+						is_character = QIE_aisin_gioro_zaitao
+						is_character = QIE_aisin_gioro_xiqia
+						is_character = QIE_aisin_gioro_jixing
+						is_character = QIE_aisin_gioro_zaixun
+						is_character = QIE_aisin_gioro_zaizhen
+						is_character = QIE_lu_xiangting
+						is_character = QIE_zhang_yanqing
+					}
+				}
+				retire = yes
+			}
+			QIE_lu_xiangting = {
+				set_nationality = LEC
+				unit_leader_event = qieflavor.14
+				remove_unit_leader_trait = QIE_Zhili_officer
+			}
+		}
+	}
+}
+
+country_event = {
+	id = qiecoup.15 #aftermath of coup, need to create new legitimate government
+	title = qiecoup.15.t
+	desc = qiecoup.15.d
+	picture = GFX_report_event_QIE_wu_peifu_time_cover
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.15 option qiecoup.15.a"
+		name = qiecoup.15.a #we need a new government
+		add_political_power = 15
+		set_country_flag = QIE_coup_failed
+		mark_focus_tree_layout_dirty = yes
+		clr_country_flag = legation_council_member
+		custom_effect_tooltip = QIE_wu_republic_open_tt
+		complete_national_focus = QIE_unrest
+	}
+}
+
+country_event = {
+	id = qiecoup.16 #wu notices troop movements, does he do anything?
+	title = qiecoup.16.t
+	desc = {
+		text = qiecoup.16.d_yan
+		trigger = { has_country_flag = QIE_yan_backs_coup }
+	}
+	desc = {
+		text = qiecoup.16.d_qu
+		trigger = { has_country_flag = QIE_qu_backs_coup }
+	}
+	desc = {
+		text = qiecoup.16.d_zhang
+		trigger = { has_country_flag = QIE_zhang_backs_coup }
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.16 option qiecoup.16.a"
+		name = qiecoup.16.a #investigate what's going on here
+		ai_chance = {
+			base = 45
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_PATAUT }
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_AUTDEM }
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_SOCCON }
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_LEGIT_SOCCON }
+				}
+			}
+		}
+		add_political_power = -50
+		hidden_effect = {
+			country_event = { id = qiecoup.17 days = 10 } #discovered that shandong/shanxi are plotting against Wu! he gets wargoal and shuts down coup
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiecoup.16 option qiecoup.16.b"
+		name = qiecoup.16.b #its nothing, focus on protests
+		ai_chance = {
+			base = 55
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_SHIH_AUTDEM }
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_KOO_AUTDEM }
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = { id = qiecoup.18 days = 30 } #anti-wu propaganda among troops, some officers go AWOL
+		}
+	}
+}
+
+country_event = {
+	id = qiecoup.17 #discovered they are plotting against him, need to do something
+	title = qiecoup.17.t
+	desc = {
+		text = qiecoup.17.d_yan
+		trigger = { has_country_flag = QIE_yan_backs_coup }
+	}
+	desc = {
+		text = qiecoup.17.d_qu
+		trigger = { has_country_flag = QIE_qu_backs_coup }
+	}
+	desc = {
+		text = qiecoup.17.d_zhang
+		trigger = { has_country_flag = QIE_zhang_backs_coup }
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.17 option qiecoup.17.a"
+		name = qiecoup.17.a #shandong is plotting to destroy us! arrest coup plotters and prepare for war
+		trigger = {
+			OR = {
+				has_country_flag = QIE_zhang_backs_coup
+				has_country_flag = QIE_qu_backs_coup
+			}
+		}
+		hidden_effect = {
+			country_event = { id = qiecoup.13 days = 1 }
+		}
+		create_wargoal = {
+			target = SQI
+			type = annex_everything
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiecoup.17 option qiecoup.17.b"
+		name = qiecoup.17.b #shanxi is plotting to destroy us! arrest coup plotters and prepare for war
+		trigger = { has_country_flag = QIE_yan_backs_coup }
+		hidden_effect = {
+			country_event = { id = qiecoup.13 days = 1 }
+			SHX = { country_event = shx_manchu.6 } #Inform them of the Plot's Failure
+		}
+		create_wargoal = {
+			target = SHX
+			type = annex_everything
+		}
+		if = {
+			limit = {
+				has_country_flag = QIE_yan_backs_coup
+				has_global_flag = SHX_deal_QIE
+			}
+			clr_global_flag = SHX_deal_QIE
+		}
+	}
+}
+
+country_event = {
+	id = qiecoup.18 #people start to go AWOL and propaganda starts to pop up
+	title = qiecoup.18.t
+	desc = qiecoup.18.d
+	picture = GFX_report_event_QIE_radio
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.18 option qiecoup.18.a"
+		name = qiecoup.18.a #what's going on here?
+		add_command_power = -10
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = -0.075
+		}
+		hidden_effect = {
+			country_event = { id = qiecoup.19 days = 15 }
+		}
+	}
+}
+
+country_event = {
+	id = qiecoup.19 #wu is summoned to Beijing
+	title = qiecoup.19.t
+	desc = qiecoup.19.d
+	picture = GFX_report_event_CHI_warlords
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.19 option qiecoup.19.a"
+		name = qiecoup.19.a #Wu boards a train...
+		hidden_effect = {
+			country_event = { id = qiecoup.20 days = 1 }
+		}
+	}
+}
+
+country_event = {
+	id = qiecoup.20 #wu and cao go to meeting
+	title = qiecoup.20.t
+	desc = qiecoup.20.d
+	picture = GFX_report_event_QIE_imperial_guard
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.20 option qiecoup.20.a"
+		name = qiecoup.20.a #They enter the hall...
+		hidden_effect = {
+			country_event = qiecoup.21
+		}
+	}
+}
+
+country_event = {
+	id = qiecoup.21 #Puyi flees the room and guards rush in to arrest them!
+	title = qiecoup.21.t
+	desc = qiecoup.21.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.21 option qiecoup.21.a"
+		name = qiecoup.21.a #Wu and Cao are killed! the coup succeeds!
+		ai_chance = {
+			base = 80
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_SHIH_AUTDEM }
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_KOO_AUTDEM }
+				}
+			}
+		}
+		retire_character = QIE_wu_peifu
+		retire_character = QIE_cao_kun
+		if = {
+			limit = { has_idea = QIE_leadership_crisis_bad }
+			remove_ideas = QIE_leadership_crisis_bad
+		}
+		else = {
+			remove_ideas = QIE_leadership_crisis
+		}
+		clr_global_flag = SHX_deal_QIE
+		country_event = qiecoup.22
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = QIE_yan_backs_coup }
+				SHX = { country_event = { id = shx_manchu.2 days = 7 } } #The Invasion Begins, will show for both QIE and SHX
+			}
+		}
+	}
+	option = { #wu's bodyguards manage to rush in and kill the Manchu bodyguards!
+		log = "[GetLogInfo]: event qiecoup.21 option qiecoup.21.b"
+		name = qiecoup.21.b
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_PATAUT }
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_AUTDEM }
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_SOCCON }
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_LEGIT_SOCCON }
+				}
+			}
+		}
+		country_event = qiecoup.24
+	}
+}
+
+country_event = {
+	id = qiecoup.22 #puyi declares the zhili clique traitors! some generals stay loyal while others rise up
+	title = qiecoup.22.t
+	desc = qiecoup.22.d
+	picture = GFX_report_event_QIE_worship_puyi
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.22 option qiecoup.22.a"
+		name = qiecoup.22.a #crush the traitors!
+		add_political_power = 150
+		QIE_reduce_fractured_empire = yes
+		clr_country_flag = legation_council_member
+		complete_national_focus = QIE_unrest
+		complete_national_focus = QIE_restoration
+		set_global_flag = QIE_manchu_restoration
+		set_politics = {
+			ruling_party = social_conservative
+		}
+		set_temp_variable = { coalition_partner_var = token:social_liberal }
+		add_to_coalition = yes
+		set_temp_variable = { coalition_partner_var = token:social_democrat }
+		add_to_coalition = yes
+		activate_advisor = QIE_aisin_gioro_pujie_sic
+		QIE_aisin_gioro_pujie = { promote_leader = yes }
+		custom_effect_tooltip = tooltip_white_line
+		QIE_zhili_clique_flees = yes
+		every_owned_state = {
+			limit = {
+				NOT = {
+					state = 608 #Beijing
+					state = 1062 #Baoding
+					state = 611 #Southern Chahar
+					state = 614 #Tangshan
+				}
+			}
+			set_demilitarized_zone = yes
+		}
+		every_subject_country = {
+			limit = { china_is_aligned_with_manchu = no }
+			china_break_puppet_effect = yes
+		}
+		delete_unit_template_and_units = { division_template = "Zhili Infantry Brigade" }
+		add_ideas = QIE_zhili_manchu_war_idea
+		QIE_aisin_gioro_zaizhen = { set_nationality = ROOT }
+		QIE_aisin_gioro_xiankui = { set_nationality = ROOT }
+		QIE_baokang = { set_nationality = ROOT }
+		QIE_xie_jieshi = { set_nationality = ROOT }
+		QIE_zheng_xiaoxu = { set_nationality = ROOT }
+		QIE_lu_xiangting = { remove_unit_leader_trait = QIE_Zhili_officer }
+		if = {
+			limit = { has_character = ANQ_sun_liren }
+			retire_character = ANQ_sun_liren
+		}
+		hidden_effect = {
+			set_cosmetic_tag = QIE_government_manchu
+			QIE_aisin_gioro_puyi = {
+				set_variable = { china_alignment = token:manchu_qing }
+				set_portraits = {
+					civilian = { large = "gfx/leaders/QIE/Portrait_QIE_Puyi_Uniform.png" }
+				}
+				remove_country_leader_role_authoritarian_democrat = yes
+				remove_country_leader_role_paternal_autocrat = yes
+				remove_country_leader_role_national_populist = yes
+				add_country_leader_role = {
+					country_leader = {
+						desc = QIE_aisin_gioro_puyi_manchu_leader_desc
+						ideology = authoritarian_democrat_subtype
+						traits = { QIE_restored_emperor }
+					}
+					promote_leader = yes
+				}
+				add_country_leader_role = {
+					country_leader = {
+						desc = QIE_aisin_gioro_puyi_manchu_leader_desc
+						ideology = paternal_autocrat_subtype
+						traits = { QIE_restored_emperor }
+					}
+					promote_leader = yes
+				}
+				add_country_leader_role = {
+					country_leader = {
+						desc = QIE_aisin_gioro_puyi_manchu_leader_desc
+						ideology = national_populist_subtype
+						traits = { QIE_restored_emperor }
+					}
+					promote_leader = yes
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = QIE_yan_backs_coup
+					SHX = {
+						exists = yes
+						is_subject = no
+					}
+				}
+				reverse_add_opinion_modifier = {
+					target = SHX
+					modifier = KR_friendly
+				}
+				add_opinion_modifier = {
+					target = SHX
+					modifier = KR_friendly
+				}
+				SHX = { country_event = qiecoup.23 } #the coup succeeds! time to intervene
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_country_flag = QIE_qu_backs_coup
+						has_country_flag = QIE_zhang_backs_coup
+					}
+					SQI = {
+						exists = yes
+						is_subject = no
+					}
+				}
+				reverse_add_opinion_modifier = {
+					target = SQI
+					modifier = KR_friendly
+				}
+				add_opinion_modifier = {
+					target = SQI
+					modifier = KR_friendly
+				}
+				SQI = {
+					country_event = qiecoup.23 #the coup succeeds! time to intervene
+					###country_event = lepcollapse.29
+				}
+			}
+			news_event = { id = worldnews.231 hours = 2 }
+			KUM = {
+				country_event = { id = kumul.113 hours = 3 }
+			}
+			LEC = {
+				country_event = { id = lec.59 hours = 3 }
+			}
+			hidden_effect = {
+				YUN = { country_event = yun.211 }
+			}
+			if = {
+				limit = { is_ai = yes }
+				random_list = {
+					1 = {
+						modifier = {
+							factor = 0
+							OR = {
+								difficulty > 3
+								has_custom_difficulty_setting = custom_diff_strong_qie
+							}
+						}
+						set_country_flag = QIE_AI_will_abandon_tangshan
+					}
+					3 = {
+						modifier = {
+							factor = 0
+							difficulty < 1
+						}
+						modifier = {
+							add = 2
+							difficulty > 2
+						}
+						modifier = {
+							add = -2
+							difficulty < 2
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = qiecoup.23 #SQI/SHX intervention
+	title = qiecoup.23.t
+	desc = qiecoup.23.d
+	picture = GFX_report_event_QIE_soldiers_mobilize
+
+	trigger = { is_subject = no }
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.23 option qiecoup.23.a"
+		name = qiecoup.23.a #time to join the qing sphere!
+		separate_peace_all_wars = yes
+		if = {
+			limit = { tag = SQI }
+			###country_event = lepcollapse.29 #lol this event was never localized?!
+			###QIE = { china_puppet_ROOT_effect = yes }
+			SQI_zhang_fuyun = {
+				set_nationality = QIE
+			}
+			SQI_lu_dezhen = {
+				set_nationality = QIE
+			}
+			SQI_wang_zonglu = {
+				set_nationality = QIE
+			}
+			if = {
+				limit = { QIE = { has_country_flag = QIE_zhang_backs_coup } }
+				SQI_zhang_tianran = { set_nationality = QIE }
+				QIE = {
+					if = {
+						limit = { has_character = SQI_zhang_tianran }	# Prevent error.log spam
+						SQI_zhang_tianran = {
+							remove_political_advisor_role = yes
+							add_advisor_role = {
+								character = SQI_zhang_tianran
+								advisor = {
+									slot = political_advisor
+									idea_token = SQI_zhang_tianran
+									traits = { QIE_chief_executive_bideyuan }
+									cost = 0
+									can_be_fired = no
+								}
+								activate = yes
+							}
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = { QIE = { has_country_flag = QIE_qu_backs_coup } }
+				SQI_qu_yingguang = { set_nationality = QIE }
+				QIE = {
+					if = {
+						limit = { has_character = SQI_qu_yingguang }	# Prevent error.log spam
+						SQI_qu_yingguang = {
+							remove_political_advisor_role = yes
+							add_advisor_role = {
+								character = SQI_qu_yingguang
+								advisor = {
+									slot = political_advisor
+									idea_token = SQI_qu_yingguang
+									traits = { QIE_secretary_general }
+									cost = 0
+									can_be_fired = no
+								}
+								activate = yes
+							}
+						}
+					}
+				}
+			}
+			QIE = {
+				annex_country = {
+					target = SQI
+					transfer_troops = no
+				}
+				country_event = { id = qiecoup.31 days = 10 }
+				change_tag_from = ROOT
+			}
+		}
+	}
+}
+
+country_event = {
+	id = qiecoup.24 #wu and cao escape, crush coup and DOW SQI/SHX
+	title = qiecoup.24.t
+	desc = qiecoup.24.d
+	picture = GFX_report_event_QIE_wu_peifu_time_cover
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.24 option qiecoup.24.a"
+		name = qiecoup.24.a #Destroy all those who oppose us!
+		add_political_power = 15
+		effect_tooltip = { set_cosmetic_tag = QIE }
+		drop_cosmetic_tag = yes #back to zhili clique
+		promote_character = {
+			character = QIE_wu_peifu
+			ideology = authoritarian_democrat_subtype
+		}
+		promote_character = {
+			character = QIE_wu_peifu
+			ideology = paternal_autocrat_subtype
+		}
+		set_politics = {
+			ruling_party = paternal_autocrat
+		}
+		delete_unit_template_and_units = { division_template = "Manchu Cavalry Division" }
+		delete_unit_template_and_units = { division_template = "Manchu Imperial Guard" }
+		retire_character = QIE_aisin_gioro_pujie
+		remove_ideas = QIE_fractured_empire
+		hidden_effect = {
+			news_event = { id = worldnews.232 hours = 2 }
+			country_event = { id = qiecoup.14 days = 1 }
+			country_event = { id = qiecoup.15 days = 2 }
+			SHX = { country_event = shx_manchu.6 } #Inform them of the Plot's Failure
+		}
+		if = {
+			limit = {
+				has_country_flag = QIE_yan_backs_coup
+				can_declare_war_on = SHX
+			}
+			create_wargoal = {
+				target = SHX
+				type = annex_everything
+			}
+			SHX = { country_event = shx_manchu.8 } #YCP flees to the mountains of Shanxi
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_country_flag = QIE_qu_backs_coup
+					has_country_flag = QIE_zhang_backs_coup
+				}
+				can_declare_war_on = SQI
+			}
+			create_wargoal = {
+				target = SQI
+				type = annex_everything
+			}
+		}
+	}
+}
+
+country_event = {
+	id = qiecoup.25 #win push to river
+	title = qiecoup.25.t
+	desc = qiecoup.25.d
+	picture = GFX_report_event_QIE_zhili_battle
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.25 option qiecoup.25.a"
+		name = qiecoup.25.a #excellent
+	}
+}
+
+country_event = {
+	id = qiecoup.26 #win luoyang
+	title = qiecoup.26.t
+	desc = qiecoup.26.d
+	picture = GFX_report_event_QIE_armored_car
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.26 option qiecoup.26.a"
+		name = qiecoup.26.a #excellent
+	}
+}
+
+country_event = {
+	id = qiecoup.27 #mopped garrisons
+	title = qiecoup.27.t
+	desc = qiecoup.27.d
+	picture = GFX_report_event_SQI_zongchang_military_1
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.27 option qiecoup.27.a"
+		name = qiecoup.27.a #excellent
+	}
+}
+
+country_event = {
+	id = qiecoup.28 #win war yay
+	title = qiecoup.28.t
+	desc = qiecoup.28.d
+	picture = GFX_report_event_QIE_worship_puyi
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.28 option qiecoup.28.a"
+		name = qiecoup.28.a #excellent
+		set_country_flag = won_zhili_manchu_war
+		remove_ideas = QIE_zhili_manchu_war_idea
+	}
+}
+
+country_event = {
+	id = qiecoup.29 #Germans withdraw
+	title = qiecoup.29.t
+	desc = qiecoup.29.d
+	picture = GFX_report_event_CHI_protest
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.29 option qiecoup.29.a"
+		name = qiecoup.29.a #We don't need them anyway
+		set_temp_variable = { coalition_partner_var = token:market_liberal }
+		remove_from_coalition = yes
+		add_political_power = 50
+		add_popularity = {
+			ideology = market_liberal
+			popularity = -1.00
+		}
+		hidden_effect = {
+			QIE_remove_peking_commission = yes
+			set_country_flag = QIE_germans_rejected_debt_negotiations
+			GER = {
+				country_event = { id = qiefor.87 hours = 6 }
+			}
+			GEA = {
+				country_event = { id = qiefor.87 hours = 6 }
+			}
+		}
+	}
+}
+
+country_event = { #Fengtian smells blood in the water
+	id = qiecoup.30 #coup backer aids QIE
+	title = qiecoup.30.t
+	desc = qiecoup.30.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.30 option qiecoup.30.a"
+		name = qiecoup.30.a #we must man the border
+		activate_mission = QIE_eyes_on_the_border
+		custom_effect_tooltip = QIE_fear_fengtian
+	}
+}
+
+country_event = {
+	id = qiecoup.31 #qie gets aid
+	title = qiecoup.31.t
+	desc = qiecoup.31.d
+	picture = GFX_report_event_QIE_wtf
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.31 option qiecoup.31.a"
+		name = qiecoup.31.a #great!
+		add_political_power = 75
+	}
+}
+
+country_event = {
+	id = qiecoup.32 #sham elections for Manchu coup
+	title = qiecoup.32.t
+	desc = qiecoup.32.d
+	picture = GFX_report_event_CHI_ambassador_announcement
+
+	trigger = {
+		date < 1944.1.1
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #NCERA without Zhang
+		log = "[GetLogInfo]: event qiecoup.32 option qiecoup.32.a"
+		trigger = {
+			has_government = social_conservative
+			NOT = {
+				has_country_flag = QIE_zhang_backs_coup
+				has_country_flag = QIE_election_prep
+			}
+		}
+		name = qiecoup.32.a #great! we won!
+		add_political_power = -50
+		hidden_effect = {
+			country_event = { id = qiecoup.33 hours = 1 }
+			set_party_name = {
+				ideology = authoritarian_democrat
+				name = QIE_social_democrat_coup_party
+				long_name = QIE_social_democrat_coup_party_long
+			}
+		}
+	}
+	option = { #NCERA but with Zhang
+		log = "[GetLogInfo]: event qiecoup.32 option qiecoup.32.a"
+		trigger = {
+			has_government = social_conservative
+			has_country_flag = QIE_zhang_backs_coup
+		}
+		name = qiecoup.32.a #great! we won!
+		add_political_power = -50
+		hidden_effect = {
+			country_event = { id = qiecoup.33 days = 7 }
+			set_party_name = {
+				ideology = national_populist
+				name = QIE_yiguandao_coup_party
+				long_name = QIE_yiguandao_coup_party_long
+			}
+		}
+	}
+	option = { #YCP that didnt consolidate with Yan earlier
+		log = "[GetLogInfo]: event qiecoup.32 option qiecoup.32.b"
+		trigger = {
+			has_government = authoritarian_democrat
+		}
+		name = qiecoup.32.b #great! we won!
+		add_political_power = -50
+		hidden_effect = {
+			country_event = { id = qiecoup.33 days = 7 }
+		}
+	}
+	option = { #Zongshe without Zhang
+		log = "[GetLogInfo]: event qiecoup.32 option qiecoup.32.c"
+		trigger = {
+			has_government = paternal_autocrat
+			NOT = { has_country_flag = QIE_zhang_backs_coup }
+		}
+		name = qiecoup.32.c #great! we won!
+		add_political_power = -50
+		hidden_effect = {
+			country_event = { id = qiecoup.33 days = 7 }
+			set_party_name = {
+				ideology = paternal_autocrat
+				name = QIE_paternal_autocrat_coup_party
+				long_name = QIE_paternal_autocrat_coup_party_long
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiecoup.32 option qiecoup.32.c"
+		trigger = {
+			has_government = paternal_autocrat
+			has_country_flag = QIE_zhang_backs_coup
+		}
+		name = qiecoup.32.c #great! we won!
+		add_political_power = -50
+		hidden_effect = {
+			country_event = { id = qiecoup.33 days = 7 }
+			set_party_name = {
+				ideology = authoritarian_democrat
+				name = QIE_social_conservative_coup_party
+				long_name = QIE_social_conservative_coup_party_long
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiecoup.32 option qiecoup.32.e"
+		trigger = {
+			has_government = social_conservative
+			has_country_flag = QIE_election_prep
+		}
+		name = qiecoup.32.e #Elections? in Qing?
+		add_political_power = 50
+		if = {
+			limit = { has_completed_focus = QIE_noble_factories }
+			country_event = { id = qieelection.1 days = 7 }
+		}
+		else = {
+			country_event = { id = qieelection.2 days = 7 }
+		}
+		hidden_effect = {
+			set_party_name = {
+				ideology = national_populist
+				name = QIE_yiguandao_coup_party
+				long_name = QIE_yiguandao_coup_party_long
+			}
+		}
+	}
+}
+
+country_event = {
+	id = qiecoup.33 #sham elections for Manchu coup part 2 - there won't be a round 3
+	title = qiecoup.33.t
+	desc = qiecoup.33.d
+	picture = GFX_report_event_CHI_ambassador_announcement
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiecoup.33 option qiecoup.33.a"
+		trigger = {
+			has_government = social_conservative
+			NOT = {
+				has_country_flag = QIE_zhang_backs_coup
+			}
+		}
+		name = qiecoup.33.a #great! we won!
+		add_political_power = -150
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.45
+		}
+		set_temp_variable = { coalition_partner_var = token:social_democrat }
+		add_to_coalition = yes
+		hidden_effect = {
+			set_party_name = {
+				ideology = social_conservative
+				name = QIE_social_liberal_party
+				long_name = QIE_social_liberal_party_long
+			}
+			add_popularity = {
+				ideology = social_conservative
+				popularity = -0.2
+			}
+			if = {
+				limit = {
+					OR = {
+						has_completed_focus = QIE_new_coronation
+						has_completed_focus = QIE_centralize_state
+					}
+				}
+				country_event = qiecoup.34
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiecoup.33 option qiecoup.33.e"
+		trigger = {
+			has_government = social_conservative
+			has_country_flag = QIE_zhang_backs_coup
+		}
+		name = qiecoup.33.e #great! we won!
+		add_political_power = -150
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.45
+		}
+		set_temp_variable = { coalition_partner_var = token:social_democrat }
+		add_to_coalition = yes
+		set_temp_variable = { coalition_partner_var = token:national_populist }
+		add_to_coalition = yes
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.05
+		}
+		QIE_recalculate_yiguandao_influence = yes
+		complete_national_focus = QIE_military_state
+		hidden_effect = {
+			set_party_name = {
+				ideology = social_conservative
+				name = QIE_ycp_moved_party
+				long_name = QIE_ycp_moved_party_long
+			}
+			add_popularity = {
+				ideology = social_conservative
+				popularity = -0.2
+			}
+			if = {
+				limit = {
+					OR = {
+						has_completed_focus = QIE_new_coronation
+						has_completed_focus = QIE_centralize_state
+					}
+				}
+				country_event = qiecoup.34
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiecoup.33 option qiecoup.33.b"
+		trigger = {
+			has_government = authoritarian_democrat
+		}
+		name = qiecoup.33.b #great! we won!
+		add_political_power = -150
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.20
+		}
+		if = {
+			limit = {
+				has_completed_focus = QIE_noble_factories
+				QIE_li_huang = { is_second_in_command = yes }
+			}
+			complete_national_focus = QIE_centralize_state
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						has_completed_focus = QIE_new_coronation
+						has_completed_focus = QIE_reform_criminal_justice
+					}
+				}
+				country_event = qiecoup.34
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiecoup.33 option qiecoup.33.c"
+		trigger = {
+			has_government = paternal_autocrat
+		}
+		name = qiecoup.33.c #great! we won!
+		add_political_power = -150
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.10
+		}
+		if = {
+			limit = {
+				OR = {
+					has_completed_focus = QIE_reform_criminal_justice
+					has_completed_focus = QIE_centralize_state
+				}
+			}
+			hidden_effect = {
+				country_event = qiecoup.34
+			}
+		}
+		else = {
+			complete_national_focus = QIE_military_state
+		}
+	}
+}
+
+country_event = { #Coalition Partner submits to the new order!
+	id = qiecoup.34
+	title = qiecoup.34.t
+	desc = qiecoup.34.d
+	picture = GFX_report_event_CHI_speech
+
+	is_triggered_only = yes #The fruits of your wise custodianship is slightly more content.
+	fire_only_once = yes
+
+	option = { #NCERA submits
+		log = "[GetLogInfo]: event qiecoup.34 option qiecoup.34.a"
+		name = qiecoup.34.a #NCERA falls in line
+		trigger = {
+			set_temp_variable = { coalition_target = token:social_conservative }
+			has_coalition_with_target = no
+			has_completed_focus = QIE_reform_criminal_justice
+			OR = {
+				QIE_li_huang = { is_second_in_command = yes }
+				has_government = paternal_autocrat
+			}
+		}
+		set_temp_variable = { coalition_partner_var = token:social_conservative }
+		add_to_coalition = yes
+		if = {
+			limit = { NOT = { has_completed_focus = QIE_appoint_viceroys } }
+			complete_national_focus = QIE_appoint_viceroys
+		}
+	}
+	option = { #YCP submits
+		log = "[GetLogInfo]: event qiecoup.34 option qiecoup.34.b"
+		name = qiecoup.34.b #YCP falls in line
+		trigger = {
+			has_completed_focus = QIE_centralize_state
+			NOT = {
+				QIE_li_huang = { is_second_in_command = yes }
+				AND = {
+					has_completed_focus = QIE_new_coronation
+					has_government = authoritarian_democrat
+				}
+			}
+		}
+		if = {
+			limit = { has_government = paternal_autocrat }
+			set_temp_variable = { coalition_partner_var = token:authoritarian_democrat }
+			add_to_coalition = yes
+		}
+		else = {
+			set_temp_variable = { coalition_partner_var = token:social_conservative }
+			add_to_coalition = yes
+		}
+		if = {
+			limit = {
+				has_government = paternal_autocrat
+				NOT = { has_completed_focus = QIE_noble_factories }
+			}
+			complete_national_focus = QIE_noble_factories
+		}
+	}
+	option = { #Zongshe submits
+		log = "[GetLogInfo]: event qiecoup.34 option qiecoup.34.c"
+		name = qiecoup.34.c #Zongshe falls in line
+		trigger = {
+			has_completed_focus = QIE_new_coronation
+			NOT = {
+				has_completed_focus = QIE_centralize_state
+			}
+		}
+		set_temp_variable = { coalition_partner_var = token:paternal_autocrat }
+		add_to_coalition = yes
+		if = {
+			limit = {
+				set_temp_variable = { coalition_target = token:social_conservative }
+				has_coalition_with_target = yes
+				has_completed_focus = QIE_reform_criminal_justice
+			}
+			complete_national_focus = QIE_appoint_viceroys
+		}
+	}
+	option = { #Zongshe and YCP submit
+		log = "[GetLogInfo]: event qiecoup.34 option qiecoup.34.e"
+		name = qiecoup.34.e #The New Chinese Empire Reformed
+		trigger = {
+			has_completed_focus = QIE_new_coronation
+			has_completed_focus = QIE_centralize_state
+			NOT = { QIE_li_huang = { is_second_in_command = yes } }
+		}
+		set_temp_variable = { coalition_partner_var = token:paternal_autocrat }
+		add_to_coalition = yes
+		set_temp_variable = { coalition_partner_var = token:authoritarian_democrat }
+		add_to_coalition = yes
+		complete_national_focus = QIE_noble_factories
+	}
+}
+
+########################
+#LEGIT DEMOCRACY EVENTS#
+########################
+
+country_event = { #Democratic Qing first elections with Zongshe aligned prior
+	id = qieelection.1
+	title = qieelection.1.t
+	desc = qieelection.1.d
+	picture = GFX_report_event_CHI_speech
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #NCERA stays united
+		log = "[GetLogInfo]: event qieelection.1 option qieelection.1.a"
+		name = qieelection.1.a #NCERA stays united
+		set_temp_variable = { coalition_partner_var = token:social_democrat }
+		add_to_coalition = yes
+		set_popularities = {
+			totalist = 0
+			syndicalist = 0
+			radical_socialist = 2
+			social_democrat = 24
+			social_liberal = 8
+			market_liberal = 0
+			social_conservative = 35
+			authoritarian_democrat = 25
+			paternal_autocrat = 0
+			national_populist = 6
+		}
+		if = {
+			limit = { QIE_james_yen = { is_second_in_command = no } }
+			activate_advisor = QIE_james_yen_sic
+		}
+	}
+	option = { #Zongshe-private ownership mandate
+		log = "[GetLogInfo]: event qieelection.1 option qieelection.1.b"
+		name = qieelection.1.b #Zongshe joins ruling government
+		set_politics = {
+			ruling_party = social_conservative
+			last_election = "1940.6.16"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		set_temp_variable = { coalition_partner_var = token:social_democrat }
+		add_to_coalition = yes
+		set_temp_variable = { coalition_partner_var = token:paternal_autocrat }
+		add_to_coalition = yes
+		set_popularities = {
+			totalist = 0
+			syndicalist = 0
+			radical_socialist = 6
+			social_democrat = 24
+			social_liberal = 0
+			market_liberal = 0
+			social_conservative = 25
+			authoritarian_democrat = 21
+			paternal_autocrat = 13
+			national_populist = 7
+		}
+		if = {
+			limit = { QIE_aisin_gioro_pujie = { is_second_in_command = no } }
+			activate_advisor = QIE_aisin_gioro_pujie_sic
+		}
+		if = {
+			limit = { NOT = { has_completed_focus = QIE_imperial_consolidation } }
+			complete_national_focus = QIE_imperial_consolidation
+		}
+	}
+}
+
+country_event = { #Democratic Qing first elections with YCP aligned or no one aligned prior
+	id = qieelection.2
+	title = qieelection.2.t
+	desc = qieelection.2.d
+	picture = GFX_report_event_CHI_speech
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #NCERA stays united
+		log = "[GetLogInfo]: event qieelection.2 option qieelection.1.a"
+		name = qieelection.1.a #NCERA stays united
+		set_temp_variable = { coalition_partner_var = token:social_democrat }
+		add_to_coalition = yes
+		set_popularities = {
+			totalist = 0
+			syndicalist = 0
+			radical_socialist = 2
+			social_democrat = 27
+			social_liberal = 5
+			market_liberal = 0
+			social_conservative = 35
+			authoritarian_democrat = 25
+			paternal_autocrat = 0
+			national_populist = 6
+		}
+		if = {
+			limit = { QIE_james_yen = { is_second_in_command = no } }
+			activate_advisor = QIE_james_yen_sic
+		}
+	}
+	option = { #YCP-the centralization mandate
+		log = "[GetLogInfo]: event qieelection.2 option qieelection.2.b"
+		name = qieelection.2.b #YCP joins ruling government
+		set_politics = {
+			ruling_party = social_conservative
+			last_election = "1940.6.16"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		set_temp_variable = { coalition_partner_var = token:social_democrat }
+		add_to_coalition = yes
+		set_temp_variable = { coalition_partner_var = token:authoritarian_democrat }
+		add_to_coalition = yes
+		set_popularities = {
+			totalist = 0
+			syndicalist = 0
+			radical_socialist = 2
+			social_democrat = 35
+			social_liberal = 5
+			market_liberal = 0
+			social_conservative = 27
+			authoritarian_democrat = 25
+			paternal_autocrat = 0
+			national_populist = 6
+		}
+		if = {
+			limit = { QIE_li_huang = { is_second_in_command = no } }
+			activate_advisor = QIE_li_huang_sic
+		}
+		if = {
+			limit = { NOT = { has_completed_focus = QIE_pick_YCP } }
+			unlock_national_focus = QIE_pick_YCP
+		}
+	}
+}
+
+country_event = { #you didn't ally with ycp before hand- 1944 elections
+	id = qieelection.3
+	title = qieelection.3.t
+	desc = qieelection.3.d
+	picture = GFX_report_event_CHI_speech
+
+	trigger = {
+		date > 1944.1.1
+		NOT = { has_government = authoritarian_democrat }
+		set_temp_variable = { coalition_target = token:authoritarian_democrat }
+		has_coalition_with_target = no
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #NCERA stands alone
+		log = "[GetLogInfo]: event qieelection.3 option qieelection.3.a"
+		name = qieelection.3.a #NCERA stays united
+		set_politics = {
+			ruling_party = social_democrat
+			last_election = "1944.6.16"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		set_temp_variable = { coalition_partner_var = token:social_conservative }
+		add_to_coalition = yes
+		set_popularities = {
+			totalist = 0
+			syndicalist = 0
+			radical_socialist = 5
+			social_democrat = 29
+			social_liberal = 2
+			market_liberal = 0
+			social_conservative = 31
+			authoritarian_democrat = 28
+			paternal_autocrat = 0
+			national_populist = 5
+		}
+		if = {
+			limit = { QIE_james_yen = { is_second_in_command = no } }
+			activate_advisor = QIE_james_yen_sic
+		}
+	}
+	option = { #YCP-the centralization mandate
+		log = "[GetLogInfo]: event qieelection.3 option qieelection.3.b"
+		trigger = {
+			has_government = social_conservative
+		}
+		name = qieelection.3.b #YCP joins ruling government
+		set_politics = {
+			ruling_party = social_conservative
+			last_election = "1944.6.16"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		set_temp_variable = { coalition_partner_var = token:social_democrat }
+		add_to_coalition = yes
+		set_temp_variable = { coalition_partner_var = token:authoritarian_democrat }
+		add_to_coalition = yes
+		set_popularities = {
+			totalist = 0
+			syndicalist = 0
+			radical_socialist = 2
+			social_democrat = 26
+			social_liberal = 2
+			market_liberal = 0
+			social_conservative = 33
+			authoritarian_democrat = 29
+			paternal_autocrat = 3
+			national_populist = 5
+		}
+		if = {
+			limit = { QIE_li_huang = { is_second_in_command = no } }
+			activate_advisor = QIE_li_huang_sic
+		}
+		if = {
+			limit = { NOT = { has_completed_focus = QIE_pick_YCP } }
+			unlock_national_focus = QIE_pick_YCP
+		}
+	}
+}
+
+country_event = { #YCP vs NCERA elections
+	id = qieelection.4
+	title = qieelection.4.t
+	desc = qieelection.4.d
+	picture = GFX_report_event_CHI_speech
+
+	trigger = {
+		date > 1944.1.1
+		NOT = { has_government = authoritarian_democrat }
+		set_temp_variable = { coalition_target = token:authoritarian_democrat }
+		has_coalition_with_target = yes
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #NCERA wins!
+		log = "[GetLogInfo]: event qieelection.4 option qieelection.4.a"
+		name = qieelection.4.a #NCERA maintains popularity
+		ai_chance = { base = 1 }
+		set_politics = {
+			ruling_party = social_democrat
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		set_temp_variable = { coalition_partner_var = token:social_conservative }
+		add_to_coalition = yes
+		if = {
+			limit = { QIE_james_yen = { is_second_in_command = no } }
+			activate_advisor = QIE_james_yen_sic
+		}
+	}
+	option = { #YCP wins!
+		log = "[GetLogInfo]: event qieelection.4 option qieelection.4.b"
+		name = qieelection.4.b #YCP takes over
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_LEGIT_SOCCON }
+			}
+		}
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.35
+		}
+		if = {
+			limit = { NOT = { has_completed_focus = QIE_pick_YCP } }
+			unlock_national_focus = QIE_pick_YCP
+			add_political_power = 100
+		}
+		if = {
+			limit = { QIE_li_huang = { is_second_in_command = no } }
+			activate_advisor = QIE_li_huang_sic
+		}
+		hidden_effect = {
+			country_event = { id = qieflavor.12 days = 112 }
+		}
+	}
+}
+
+country_event = { #To Gerrymander or to not Gerrymander
+	id = qieelection.5
+	title = qieelection.5.t
+	desc = qieelection.5.d
+	picture = GFX_report_event_generic_beijing_map
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #boring, legitimate districting
+		log = "[GetLogInfo]: event qieelection.5 option qieelection.5.a"
+		trigger = {
+			has_government = social_conservative
+		}
+		name = qieelection.5.a
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_SOCCON }
+			}
+		}
+		add_timed_idea = {
+			idea = QIE_electoral_districting_idea
+			days = 60
+		}
+		custom_effect_tooltip = QIE_electoral_districting_legit
+		set_country_flag = QIE_electoral_districting_legit
+	}
+	option = { #Gerrymander! pog!
+		log = "[GetLogInfo]: event qieelection.5 option qieelection.5.b"
+		name = qieelection.5.b
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_LEGIT_SOCCON }
+			}
+		}
+		set_temp_variable = { ideology_change_var = 0.075 }
+		change_ruling_party_popularity = yes
+	}
+}
+
+country_event = { #Polling Infrastructure
+	id = qieelection.6
+	title = qieelection.6.t
+	desc = qieelection.6.d
+	picture = GFX_report_event_MON_monastery
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #build purpose built election infrastructure to encourage voting
+		log = "[GetLogInfo]: event qieelection.6 option qieelection.6.a"
+		trigger = {
+			has_completed_focus = QIE_pick_NCERA
+		}
+		name = qieelection.6.a
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_SOCCON }
+			}
+		}
+		add_timed_idea = {
+			idea = QIE_polling_infrastructure_idea
+			days = 120
+		}
+		custom_effect_tooltip = QIE_polling_infrastructure_legit
+		set_country_flag = QIE_polling_infrastructure_legit
+	}
+	option = { #focus on military infrastructure instead
+		log = "[GetLogInfo]: event qieelection.6 option qieelection.6.b"
+		trigger = {
+			has_idea = QIE_noble_factories_idea
+		}
+		name = qieelection.6.b
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_LEGIT_SOCCON }
+			}
+		}
+		swap_ideas = {
+			remove_idea = QIE_noble_factories_idea
+			add_idea = QIE_noble_factories2_idea
+		}
+	}
+	option = { #make them party headquarters
+		log = "[GetLogInfo]: event qieelection.6 option qieelection.6.c"
+		trigger = {
+			has_completed_focus = QIE_pick_YCP
+		}
+		name = qieelection.6.c
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_LEGIT_SOCCON }
+			}
+		}
+		if = {
+			limit = { has_government = authoritarian_democrat }
+			set_temp_variable = { ideology_change_var = 0.1 }
+			change_ruling_party_popularity = yes
+		}
+		else = {
+			set_temp_variable = { ideology_change_var = 0.1 }
+			change_ruling_party_popularity = yes
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			}
+		}
+	}
+}
+
+country_event = { #Empower Local Assemblies
+	id = qieelection.7
+	title = qieelection.7.t
+	desc = qieelection.7.d
+	picture = GFX_report_event_CHI_vote
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #hold elections
+		log = "[GetLogInfo]: event qieelection.7 option qieelection.7.a"
+		trigger = {
+			has_government = social_conservative
+			has_idea = QIE_rural_insurgency_idea
+		}
+		name = qieelection.7.a
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_SOCCON }
+			}
+		}
+		add_political_power = -50
+		custom_effect_tooltip = QIE_empower_local_assemblies_legit
+		set_country_flag = QIE_empower_local_assemblies_legit
+	}
+	option = { #appoint candidates
+		log = "[GetLogInfo]: event qieelection.7 option qieelection.7.b"
+		name = qieelection.7.b
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_LEGIT_SOCCON }
+			}
+		}
+		add_stability = 0.05
+		add_political_power = 50
+	}
+}
+
+country_event = { #Were you a jerk?
+	id = qieelection.8
+	title = qieelection.8.t
+	desc = qieelection.8.d
+	picture = GFX_report_event_CHI_china_abandoned
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #you are a good egg
+		log = "[GetLogInfo]: event qieelection.8 option qieelection.8.a"
+		trigger = {
+			has_country_flag = QIE_empower_local_assemblies_legit
+			has_country_flag = QIE_polling_infrastructure_legit
+			has_country_flag = QIE_electoral_districting_legit
+		}
+		name = qieelection.8.a
+		hidden_effect = {
+			clr_country_flag = QIE_empower_local_assemblies_legit
+			clr_country_flag = QIE_polling_infrastructure_legit
+			clr_country_flag = QIE_electoral_districting_legit
+			clr_country_flag = QIE_polling_infrastructure_done
+			clr_country_flag = QIE_electoral_districting_done
+			set_country_flag = QIE_election_prep
+		}
+		custom_effect_tooltip = QIE_election_prep
+	}
+	option = { #you were a prick
+		log = "[GetLogInfo]: event qieelection.8 option qieelection.8.b"
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = QIE_empower_local_assemblies_legit }
+				NOT = { has_country_flag = QIE_polling_infrastructure_legit }
+				NOT = { has_country_flag = QIE_electoral_districting_legit }
+			}
+		}
+		name = qieelection.8.b
+		hidden_effect = {
+			clr_country_flag = QIE_empower_local_assemblies_legit
+			clr_country_flag = QIE_polling_infrastructure_legit
+			clr_country_flag = QIE_electoral_districting_legit
+			clr_country_flag = QIE_polling_infrastructure_done
+			clr_country_flag = QIE_electoral_districting_done
+		}
+		custom_effect_tooltip = QIE_election_prep_failed
+	}
+}
+
+###################
+#FOCUS TREE EVENTS#
+###################
+
+country_event = { #cao Kun's speech
+	id = qiefocus.1
+	title = qiefocus.1.t
+	desc = qiefocus.1.d
+	picture = GFX_report_event_QIE_cao_kun
+
+	is_triggered_only = yes #fires via focus QIE_Year_of_the_Rat
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefocus.1 option qiefocus.1.a"
+		name = qiefocus.1.a #The Speech is met with applause
+		add_political_power = 30
+	}
+}
+
+country_event = { #emergency meeting
+	id = qiefocus.2
+	title = qiefocus.2.t
+	desc = qiefocus.2.d
+	picture = GFX_report_event_QIE_soldiers_planning
+
+	is_triggered_only = yes #fires via focus QIE_emergencysession
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefocus.2 option qiefocus.2.a"
+		name = qiefocus.2.a	#ok
+		add_political_power = 15
+	}
+}
+
+country_event = { #elections planned
+	id = qiefocus.3
+	title = qiefocus.3.t
+	desc = qiefocus.3.d
+	picture = GFX_report_event_CHI_tiger_room
+
+	is_triggered_only = yes #fires via focus QIE_hold_elections
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefocus.3 option qiefocus.3.a"
+		name = qiefocus.3.a #schedule elections
+		hidden_effect = {
+			QIE = {
+				country_event = { id = qiedom.13 days = 61 } #elections happen, HA win
+			}
+		}
+	}
+}
+
+country_event = { #wu starts to draft a constitution
+	id = qiefocus.4
+	title = qiefocus.4.t
+	desc = qiefocus.4.d
+	picture = GFX_report_event_CHI_beijing_beiyang_flag
+
+	is_triggered_only = yes #fired by focus QIE_wu_constitution
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefocus.4 option qiefocus.4.a"
+		name = qiefocus.4.a #re-adopt Cao Kun's old constitution
+		ai_chance = { base = 30 }
+		custom_effect_tooltip = QIE_caokun_constitution_tt
+		hidden_effect = {
+			add_ideas = QIE_cao_kun_constitution
+			complete_national_focus = QIE_wu_constitution
+			country_event = { id = qiefocus.8 days = 10 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefocus.4 option qiefocus.4.b"
+		name = qiefocus.4.b #draft a new constitution
+		custom_effect_tooltip = QIE_drafting_constitution_tt
+		add_political_power = -50
+		hidden_effect = {
+			country_event = { id = qiefocus.5 days = 10 }
+		}
+	}
+}
+
+country_event = {
+	id = qiefocus.5 #Scholars convene, start. 1st question: Power of Executive
+	title = qiefocus.5.t
+	desc = qiefocus.5.d
+	picture = GFX_report_event_CHI_new_government
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefocus.5 option qiefocus.5.a"
+		name = qiefocus.5.a #strong executive
+		custom_effect_tooltip = QIE_strong_exec_tt
+		hidden_effect = {
+			set_country_flag = strong_executive_picked
+			country_event = { id = qiefocus.6 days = 15 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefocus.5 option qiefocus.5.b"
+		name = qiefocus.5.b #strong legislature
+		custom_effect_tooltip = QIE_strong_leg_tt
+		hidden_effect = {
+			set_country_flag = strong_leg_picked
+			country_event = { id = qiefocus.6 days = 15 }
+		}
+	}
+}
+
+country_event = {
+	id = qiefocus.6 #autonomy for provinces?
+	title = qiefocus.6.t
+	desc = qiefocus.6.d
+	picture = GFX_report_event_CHI_new_government
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefocus.6 option qiefocus.6.a"
+		name = qiefocus.6.a #some autonomy
+		custom_effect_tooltip = QIE_autonomy_tt
+		hidden_effect = {
+			set_country_flag = autonomy_picked
+			country_event = { id = qiefocus.7 days = 10 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefocus.6 option qiefocus.6.b"
+		name = qiefocus.6.b #keep it centralized
+		custom_effect_tooltip = QIE_centralized_tt
+		hidden_effect = {
+			set_country_flag = centralized_picked
+			country_event = { id = qiefocus.7 days = 10 }
+		}
+	}
+}
+
+country_event = {
+	id = qiefocus.7 #we have a constitution!
+	title = qiefocus.7.t
+	desc = qiefocus.7.d
+	picture = GFX_report_event_CHI_beijing_beiyang_flag
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #excellent! now to find a president...
+		log = "[GetLogInfo]: event qiefocus.7 option qiefocus.7.a"
+		name = qiefocus.7.a
+		if = {
+			limit = {
+				has_country_flag = centralized_picked
+				has_country_flag = strong_executive_picked
+			}
+			add_ideas = QIE_centralized_exec_constitution
+		}
+		if = {
+			limit = {
+				has_country_flag = centralized_picked
+				has_country_flag = strong_leg_picked
+			}
+			add_ideas = QIE_centralized_leg_constitution
+		}
+		if = {
+			limit = {
+				has_country_flag = autonomy_picked
+				has_country_flag = strong_executive_picked
+			}
+			add_ideas = QIE_autonomous_exec_constitution
+		}
+		if = {
+			limit = {
+				has_country_flag = autonomy_picked
+				has_country_flag = strong_leg_picked
+			}
+			add_ideas = QIE_autonomy_leg_constitution
+		}
+		country_event = { id = qiefocus.8 days = 1 }
+		hidden_effect = {
+			country_event = { id = qieflavor.13 days = 230 } #card playing metaphor
+		}
+	}
+}
+
+country_event = {
+	id = qiefocus.8 #picking a president
+	title = qiefocus.8.t
+	desc = qiefocus.8.d
+	picture = GFX_report_event_CHI_ambassador_announcement
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefocus.8 option qiefocus.8.a"
+		name = qiefocus.8.a #pick Hu Shih
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = QIE_path option = QIE_PATH_KOO_AUTDEM }
+			}
+		}
+		save_event_target_as = hu_picked
+		retire_character = QIE_cao_kun
+		country_event = { id = qiefocus.9 days = 3 } #inaugurating the republic
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefocus.8 option qiefocus.8.b"
+		name = qiefocus.8.b #pick Welington Koo
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = QIE_path option = QIE_PATH_SHIH_AUTDEM }
+			}
+		}
+		retire_character = QIE_cao_kun
+		country_event = { id = qiefocus.9 days = 3 } #inaugurating the republic
+	}
+}
+
+country_event = { #inaugurating the new government
+	id = qiefocus.9
+	title = qiefocus.9.t
+	desc = qiefocus.9.d
+	picture = GFX_report_event_CHI_beijing_beiyang_flag
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefocus.9 option qiefocus.9.a"
+		name = qiefocus.9.a #excellent!
+		set_cosmetic_tag = QIE_government
+		add_ideas = QIE_ilegitimate_republic_idea
+		set_politics = {
+			ruling_party = authoritarian_democrat
+		}
+		set_variable = { coalition_stability = 1 }
+		set_temp_variable = { coalition_partner_var = token:paternal_autocrat }
+		add_to_coalition = yes
+		if = {
+			limit = { has_event_target = hu_picked }
+			promote_character = QIE_hu_shih
+		}
+		else = {
+			promote_character = QIE_wellington_koo
+		}
+	}
+}
+
+country_event = {
+	id = qiefocus.10 #republican debt focus
+	title = qiefocus.10.t
+	desc = qiefocus.10.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefocus.10 option qiefocus.10.a"
+		name = qiefocus.10.a #default debt, germany is more of a hinderance
+		add_timed_idea = {
+			idea = QIE_defaulted_debt
+			days = 700
+		}
+		remove_ideas = QIE_big_debt
+		hidden_effect = {
+			country_event = { id = qiecoup.29 days = 2 }
+		}
+		country_event = { id = qiedom.20 hours = 12 } #quits lec council
+	}
+}
+
+country_event = {
+	id = qiefocus.11 #promote generals, we need to modernize
+	title = qiefocus.11.t
+	desc = qiefocus.11.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_report_event_QIE_warlord_soldiers
+
+	option = {
+		log = "[GetLogInfo]: event qiefocus.11 option qiefocus.11.a"
+		name = qiefocus.11.a #promote the generals, onto picking a plan
+		QIE_recruit_new_zhili_generals = yes
+		country_event = qiefocus.12
+	}
+}
+
+country_event = {
+	id = qiefocus.12 #which plan?
+	title = qiefocus.12.t
+	desc = qiefocus.12.d
+	picture = GFX_report_event_QIE_qing_patrol
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefocus.12 option qiefocus.12.a"
+		name = qiefocus.12.a
+	}
+}
+
+country_event = {
+	id = qiefocus.13 #What kind of Emperor
+	title = qiefocus.13.t
+	desc = qiefocus.13.d
+	picture = GFX_report_event_QIE_worship_puyi
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefocus.13 option qiefocus.13.a"
+		name = qiefocus.13.a #Emphasize stable figurehead
+		add_political_power = 25
+		effect_tooltip = {
+			swap_ruler_traits = {
+				remove = QIE_restored_emperor
+				add = QIE_restored_emperor2
+			}
+		}
+		hidden_effect = {
+			var:country_leader = {
+				for_each_loop = {
+					array = global.ideologies
+					meta_effect = {
+						text = {
+							if = {
+								limit = { has_ideology = [IDEOLOGY] }
+								swap_country_leader_traits = {
+									remove = QIE_restored_emperor
+									add = QIE_restored_emperor2
+									ideology = [IDEOLOGY]
+								}
+							}
+						}
+						IDEOLOGY = "[?v.GetTokenKey]"
+					}
+				}
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefocus.13 option qiefocus.13.b"
+		name = qiefocus.13.b #Emphasize benevolent arbitration
+		add_political_power = -25
+		effect_tooltip = {
+			swap_ruler_traits = {
+				remove = QIE_restored_emperor
+				add = QIE_restored_emperor3
+			}
+		}
+		hidden_effect = {
+			var:country_leader = {
+				for_each_loop = {
+					array = global.ideologies
+					meta_effect = {
+						text = {
+							if = {
+								limit = { has_ideology = [IDEOLOGY] }
+								swap_country_leader_traits = {
+									remove = QIE_restored_emperor
+									add = QIE_restored_emperor3
+									ideology = [IDEOLOGY]
+								}
+							}
+						}
+						IDEOLOGY = "[?v.GetTokenKey]"
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = qiefocus.14 #rebuild command structure flavor
+	title = qiefocus.14.t
+	desc = qiefocus.14.d
+	picture = GFX_report_event_QIE_noble_brothers
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			QIE_zhang_yinwu = { set_nationality = ROOT }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qiefocus.14 option qiefocus.14.a"
+		name = qiefocus.14.a #flavor
+		add_political_power = 10
+		add_command_power = 100
+		show_unit_leaders_tooltip = QIE_zhang_yinwu
+		country_event = { id = qieflavor.7 days = 2 }
+	}
+}
+
+country_event = {
+	id = qiefocus.15 #beijing city shuffle
+	title = qiefocus.15.t
+	desc = qiefocus.15.d
+	picture = GFX_report_event_CHI_new_government
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefocus.15 option qiefocus.15.a"
+		name = qiefocus.15.a #the parties re-align
+		set_party_name = {
+			ideology = social_conservative
+			name = QIE_social_conservative_coup_party
+			long_name = QIE_social_conservative_coup_party_long
+		}
+		set_party_name = {
+			ideology = authoritarian_democrat
+			name = QIE_authoritarian_democrat_coup_party
+			long_name = QIE_authoritarian_democrat_coup_party_long
+		}
+		set_party_name = {
+			ideology = paternal_autocrat
+			name = QIE_paternal_autocrat_coup_party
+			long_name = QIE_paternal_autocrat_coup_party_long
+		}
+		hidden_effect = {
+			set_party_name = {
+				ideology = social_liberal
+				name = QIE_social_liberal_coup_party
+				long_name = QIE_social_liberal_coup_party_long
+			}
+		}
+	}
+}
+
+country_event = {
+	id = qiefocus.16 #uneasy coalition
+	title = qiefocus.16.t
+	desc = qiefocus.16.d
+	picture = GFX_report_event_QIE_qing_patrol
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefocus.16 option qiefocus.16.a"
+		name = qiefocus.16.a #flavor
+	}
+}
+
+country_event = {
+	id = qiefocus.17 #yellow sand society
+	title = qiefocus.17.t
+	desc = qiefocus.17.d
+	picture = GFX_report_event_SQI_red_spears_3
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefocus.17 option qiefocus.17.a"
+		name = qiefocus.17.a #hire them
+		hidden_effect = {
+			load_oob = "QIE_yiguandao_militia"
+		}
+		add_political_power = -35
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefocus.17 option qiefocus.17.b"
+		name = qiefocus.17.b #this is too risky
+		add_political_power = 25
+	}
+}
+
+country_event = {
+	id = qiefocus.18 #picking emergency government
+	title = qiefocus.18.t
+	desc = {
+		text = qiefocus.18.d.zhang
+		trigger = {
+			has_country_flag = QIE_zhang_backs_coup
+		}
+	}
+	desc = {
+		text = qiefocus.18.d.qu
+		trigger = {
+			has_country_flag = QIE_qu_backs_coup
+		}
+	}
+	desc = {
+		text = qiefocus.18.d.yan
+		trigger = {
+			has_country_flag = QIE_yan_backs_coup
+		}
+	}
+	picture = GFX_report_event_generic_diplomacy2
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefocus.18 option qiefocus.18.a"
+		name = qiefocus.18.a #manchu party
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 100
+				has_country_flag = QIE_qu_backs_coup
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_AUTDEM }
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_SOCCON }
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_LEGIT_SOCCON }
+				}
+			}
+		}
+		set_politics = {
+			ruling_party = paternal_autocrat
+			last_election = "1936.6.16"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		unlock_national_focus = QIE_pick_MP
+		add_political_power = 100
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.1
+		}
+		activate_advisor = QIE_aisin_gioro_pujie_sic
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefocus.18 option qiefocus.18.b"
+		trigger = {
+			QIE = {
+				NOT = {
+					has_country_flag = QIE_zhang_backs_coup
+				}
+			}
+		}
+		name = qiefocus.18.b #YCP
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 100
+				has_country_flag = QIE_yan_backs_coup
+			}
+			modifier = {
+				add = 100
+				has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_AUTDEM }
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_PATAUT }
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_SOCCON }
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_LEGIT_SOCCON }
+				}
+			}
+		}
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			last_election = "1936.6.16"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		unlock_national_focus = QIE_pick_YCP
+		add_political_power = 100
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.1
+		}
+		activate_advisor = QIE_li_huang_sic
+		hidden_effect = {
+			country_event = { id = qieflavor.12 days = 112 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefocus.18 option qiefocus.18.c"
+		name = qiefocus.18.c #NCERA
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 100
+				has_country_flag = QIE_zhang_backs_coup
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_PATAUT }
+					has_game_rule = { rule = QIE_PATH option = QIE_PATH_MANCHU_AUTDEM }
+				}
+			}
+		}
+		set_politics = {
+			ruling_party = social_conservative
+			last_election = "1936.6.16"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		unlock_national_focus = QIE_pick_NCERA
+		add_political_power = 100
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.05
+		}
+		set_temp_variable = { coalition_partner_var = token:social_democrat }
+		add_to_coalition = yes
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.05
+		}
+		activate_advisor = QIE_james_yen_sic
+	}
+}
+
+country_event = { #Zongshe party fails to take it's own policies and collapses
+	id = qiefocus.19
+	title = qiefocus.19.t
+	desc = qiefocus.19.d
+	picture = GFX_report_event_CHI_ambassador_announcement
+
+	is_triggered_only = yes #fired by taking both non-Zongshe mutually exclusive focuses
+	fire_only_once = yes
+
+	immediate = {
+		if = {
+			limit = {
+				has_completed_focus = QIE_more_equal_treaties
+				NOT = { has_country_flag = QIE_yan_backs_coup }
+			}
+			hidden_effect = {
+				remove_targeted_decision = { target = FROM decision = QIE_buy_ger_rifles }
+				remove_targeted_decision = { target = FROM decision = QIE_buy_ger_support }
+				remove_targeted_decision = { target = FROM decision = QIE_buy_ger_arty }
+				remove_targeted_decision = { target = FROM decision = QIE_buy_ger_anti_tank }
+				remove_targeted_decision = { target = FROM decision = QIE_buy_ger_anti_air }
+				remove_ideas = QIE_big_debt10
+				remove_ideas = QIE_big_debt9
+				remove_ideas = QIE_big_debt8
+				remove_ideas = QIE_big_debt7
+				remove_ideas = QIE_big_debt6
+				remove_ideas = QIE_big_debt5
+				remove_ideas = QIE_big_debt4
+				remove_ideas = QIE_big_debt3
+				remove_ideas = QIE_big_debt2
+				remove_ideas = QIE_big_debt1
+			}
+			country_event = qiecoup.29
+			add_timed_idea = {
+				idea = QIE_defaulted_debt
+				days = 500
+			}
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qiefocus.19 option qiefocus.19.a"
+		name = qiefocus.19.a #NCERA takes over
+		add_ideas = QIE_fall_of_zongshe_idea
+		add_political_power = -100
+		add_stability = -0.1
+		set_politics = {
+			ruling_party = social_conservative
+			last_election = "1936.6.16"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.10
+		}
+		activate_advisor = QIE_james_yen_sic
+		set_temp_variable = { coalition_partner_var = token:social_democrat }
+		add_to_coalition = yes
+		set_temp_variable = { coalition_partner_var = token:authoritarian_democrat }
+		add_to_coalition = yes
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefocus.19 option qiefocus.19.b"
+		name = qiefocus.19.b #YCP takes over
+		add_ideas = QIE_fall_of_zongshe_idea
+		add_political_power = -100
+		add_stability = -0.1
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			last_election = "1936.6.16"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.10
+		}
+		activate_advisor = QIE_li_huang_sic
+		set_temp_variable = { coalition_partner_var = token:social_democrat }
+		add_to_coalition = yes
+		set_temp_variable = { coalition_partner_var = token:social_conservative }
+		add_to_coalition = yes
+	}
+}
+
+country_event = {
+	id = qiefocus.20 #Flirting with Republicanism?
+	title = qiefocus.20.t
+	desc = qiefocus.20.d
+	picture = GFX_report_event_CHI_successful_northern_expedition_flag
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefocus.20 option qiefocus.20.a"
+		name = qiefocus.20.a #Keep tabs
+		add_political_power = -25
+		add_war_support = 0.05
+		add_timed_idea = {
+			idea = qie_purge_left_idea
+			days = 180
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefocus.20 option qiefocus.20.b"
+		trigger = {
+			QIE = {
+				NOT = {
+					has_government = social_democrat
+					has_government = social_conservative
+				}
+			}
+		}
+		name = qiefocus.20.b #Investigate thoroughly
+		add_political_power = -50
+		add_war_support = 0.1
+		add_timed_idea = {
+			idea = qie_purge_left_idea
+			days = 365
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = -0.05
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefocus.20 option qiefocus.20.c"
+		trigger = {
+			QIE = {
+				NOT = {
+					has_government = social_democrat
+					has_government = social_conservative
+				}
+			}
+		}
+		name = qiefocus.20.c #purge thoroughly
+		add_political_power = -75
+		add_war_support = 0.1
+		add_stability = -0.05
+		add_ideas = qie_purge_left_idea
+		add_popularity = {
+			ideology = social_democrat
+			popularity = -0.10
+		}
+	}
+}
+
+country_event = {
+	id = qiefocus.21 #Yiguandao Contributions
+	title = qiefocus.21.t
+	desc = qiefocus.21.d
+	picture = GFX_report_event_SQI_yiguandao_secrets
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefocus.21 option qiefocus.21.a"
+		trigger = {
+			QIE = {
+				NOT = {
+					has_completed_focus = QIE_imperial_roads
+				}
+			}
+		}
+		name = qiefocus.21.a #imperial roads
+		complete_national_focus = QIE_imperial_roads
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.08
+		}
+		QIE_recalculate_yiguandao_influence = yes
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefocus.21 option qiefocus.21.b"
+		trigger = {
+			QIE = {
+				NOT = {
+					has_completed_focus = QIE_new_coronation
+				}
+			}
+		}
+		name = qiefocus.21.b #a new coronation
+		complete_national_focus = QIE_new_coronation
+		add_political_power = -100
+		set_temp_variable = { ideology_change_var = 0.05 }
+		change_ruling_party_popularity = yes
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.15
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefocus.21 option qiefocus.21.c"
+		trigger = {
+			QIE = {
+				NOT = {
+					has_completed_focus = QIE_rural_defense_force
+				}
+			}
+		}
+		name = qiefocus.21.c #deputise the militias
+		complete_national_focus = QIE_rural_defense_force
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.05
+		}
+		hidden_effect = {
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.03
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefocus.21 option qiefocus.21.e"
+		name = qiefocus.21.e #Go Home you weirdos
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.075
+		}
+		add_stability = 0.075
+	}
+}
+
+country_event = {
+	id = qiefocus.22 #new coronation?
+	title = qiefocus.22.t
+	desc = qiefocus.22.d
+	picture = GFX_report_event_QIE_puyi_family
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefocus.22 option qiefocus.22.a"
+		name = qiefocus.22.a #yes
+		add_political_power = -25
+		add_stability = 0.05
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefocus.22 option qiefocus.22.b"
+		trigger = {
+			OR = {
+				has_idea = QIE_fractured_empire2
+				has_idea = QIE_fractured_empire3
+			}
+		}
+		name = qiefocus.22.b #go big or go home
+		add_political_power = -100
+		QIE_reduce_fractured_empire = yes
+	}
+}
+
+country_event = {
+	id = qiefocus.23 #dynasties show up
+	title = qiefocus.23.t
+	desc = qiefocus.23.d
+	picture = GFX_report_event_QIE_worship_puyi
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefocus.23 option qiefocus.23.a"
+		name = qiefocus.23.a #nice
+		add_political_power = 50
+	}
+}
+
+country_event = { #coup backer stuff
+	id = qiefocus.24
+	title = qiefocus.24.t
+	desc = qiefocus.24.d
+	picture = GFX_report_event_QIE_puyi_and_generals
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #welcome Governor Yan to beijing!
+		log = "[GetLogInfo]: event qiefocus.24 option qiefocus.24.a"
+		trigger = {
+			QIE = {
+				has_country_flag = QIE_yan_backs_coup
+			}
+		}
+		name = qiefocus.24.a
+		complete_national_focus = QIE_yan_xishan_backer
+		#unlocks decision set
+	}
+	option = { #welcome Governor Qu to beijing!
+		log = "[GetLogInfo]: event qiefocus.24 option qiefocus.24.b"
+		trigger = {
+			QIE = {
+				has_country_flag = QIE_qu_backs_coup
+			}
+		}
+		name = qiefocus.24.b
+		complete_national_focus = QIE_qu_yingguang_backer
+	}
+	option = { #welcome Honoured Teacher Zhang to beijing!
+		log = "[GetLogInfo]: event qiefocus.24 option qiefocus.24.c"
+		trigger = {
+			QIE = {
+				has_country_flag = QIE_zhang_backs_coup
+			}
+		}
+		name = qiefocus.24.c
+		complete_national_focus = QIE_zhang_tianran_backer
+		hidden_effect = {
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.02
+			}
+		}
+	}
+}
+
+country_event = {
+	id = qiefocus.25 #join the RP?
+	title = qiefocus.25.t
+	desc = qiefocus.25.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefocus.25 option qiefocus.25.a"
+		name = qiefocus.25.a #just ask for a guarantee
+		GER = {
+			country_event = { id = qiefocus.27 days = 1 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefocus.25 option qiefocus.25.b"
+		name = qiefocus.25.b #focus on developing country instead
+		add_political_power = 50
+		add_stability = 0.10
+	}
+}
+
+country_event = {
+	id = qiefocus.27 #qing asks for guarantee
+	title = qiefocus.27.t
+	desc = qiefocus.27.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefocus.27 option qiefocus.27.a"
+		name = qiefocus.27.a #yes, we need an eastern bulwark
+		give_guarantee = FROM
+		diplomatic_relation = {
+			country = FROM
+			relation = non_aggression_pact
+		}
+		FROM = { give_military_access = ROOT }
+		if = {
+			limit = { has_subject = GEA }
+			FROM = {
+				diplomatic_relation = {
+					country = GEA
+					relation = non_aggression_pact
+				}
+				give_military_access = GEA
+			}
+			GEA = {
+				give_guarantee = FROM
+				give_military_access = FROM
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefocus.27 option qiefocus.27.b"
+		name = qiefocus.27.b #no, they are a liability
+		ai_chance = { base = 0 }
+	}
+}
+
+country_event = {
+	id = qiefocus.31 #German Rail Engineers
+	title = qiefocus.31.t
+	desc = qiefocus.31.d
+	picture = GFX_report_event_ARG_car9
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qiefocus.31 option qiefocus.31.a"
+		trigger = {
+			QIE = {
+				NOT = { has_completed_focus = QIE_jinghanRR }
+			}
+		}
+		name = qiefocus.31.a #Big Job, long term contract
+		add_political_power = -100
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.12
+		}
+		complete_national_focus = QIE_jinghanRR
+		swap_ideas = {
+			remove_idea = QIE_german_railroad_engineers_idea
+			add_idea = QIE_german_railroad_engineers_idea2
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefocus.31 option qiefocus.31.b"
+		name = qiefocus.31.b #Guarantee long term contract
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.02
+		}
+		swap_ideas = {
+			remove_idea = QIE_german_railroad_engineers_idea
+			add_idea = QIE_german_railroad_engineers_idea2
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefocus.31 option qiefocus.31.c"
+		name = qiefocus.31.c #Keep their role as consultants with Chinese management
+		add_political_power = 75
+		add_stability = 0.05
+	}
+}
+
+country_event = {
+	id = qiefocus.32 #Qiedebt stuff - GEA offered a chance to salvage German losses
+	title = qiefocus.32.t
+	desc = qiefocus.32.d
+	picture = GFX_report_event_generic_beijing_map
+
+	fire_only_once = yes
+	is_triggered_only = yes #only triggered by manchu negotiations for now
+
+	option = {
+		log = "[GetLogInfo]: event qiefocus.32 option qiefocus.32.a"
+		name = qiefocus.32.a #Ja
+		ai_chance = { base = 40 }
+		FROM = {
+			country_event = { id = qiefocus.33 days = 2 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefocus.32 option qiefocus.32.b"
+		name = qiefocus.32.b #Nein
+		ai_chance = {
+			base = 60
+			modifier = {
+				add = -60
+				QIE = {
+					is_ai = no
+				}
+			}
+		}
+		FROM = {
+			country_event = { id = qiecoup.29 days = 2 }
+		}
+	}
+}
+
+country_event = {
+	id = qiefocus.33 #Qiedebt stuff - QIE has altered the deal
+	title = qiefocus.33.t
+	desc = qiefocus.33.d
+	picture = GFX_report_event_generic_beijing_map
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			activate_targeted_decision = { target = FROM decision = QIE_buy_ger_rifles }
+			activate_targeted_decision = { target = FROM decision = QIE_buy_ger_support }
+			activate_targeted_decision = { target = FROM decision = QIE_buy_ger_arty }
+			activate_targeted_decision = { target = FROM decision = QIE_buy_ger_anti_tank }
+			activate_targeted_decision = { target = FROM decision = QIE_buy_ger_anti_air }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qiefocus.33 option qiefocus.33.a"
+		name = qiefocus.33.a #accept brutal terms
+		swap_ideas = {
+			remove_idea = QIE_big_debt
+			add_idea = QIE_big_debt10
+		}
+		activate_targeted_decision = { target = QIE decision = QIE_ger_debt_repayment }
+		set_country_flag = QIE_manchu_ger_negotiations
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefocus.33 option qiefocus.33.b"
+		name = qiefocus.33.b #leverage populist outrage
+		trigger = {
+			NOT = { has_country_leader = { character = QIE_aisin_gioro_puyi } }
+		}
+		swap_ideas = {
+			remove_idea = QIE_big_debt
+			add_idea = QIE_big_debt5
+		}
+		activate_targeted_decision = { target = QIE decision = QIE_ger_debt_repayment }
+		set_country_flag = QIE_manchu_ger_negotiations
+	}
+}
+
+country_event = {
+	id = qiefocus.34 #Qiedebt stuff - GEA/GER offers a bonus
+	title = qiefocus.34.t
+	desc = {
+		text = qiefocus.34.d.republic
+		trigger = {
+			NOT = { has_country_leader = { character = QIE_aisin_gioro_puyi } }
+		}
+	}
+	desc = {
+		text = qiefocus.34.d.manchu
+		trigger = { has_country_leader = { character = QIE_aisin_gioro_puyi } }
+	}
+	picture = GFX_report_event_CHI_new_era
+
+	fire_only_once = yes
+	is_triggered_only = yes #only triggered by manchu negotiations for now
+
+	option = {
+		log = "[GetLogInfo]: event qiefocus.34 option qiefocus.34.a"
+		trigger = {
+			NOT = { has_country_leader = { character = QIE_aisin_gioro_puyi } }
+		}
+		name = qiefocus.34.a #airforce buff
+		#complete_national_focus = QIE_luftwaffe #revamp will just get the focus
+		add_tech_bonus = {
+			name = QIE_luftwaffe
+			bonus = 1
+			uses = 1
+			category = cas_bomber
+			category = tactical_bomber
+		}
+		activate_targeted_decision = { target = FROM decision = QIE_buy_ger_fighter }
+		activate_targeted_decision = { target = FROM decision = QIE_buy_ger_cas }
+		activate_targeted_decision = { target = FROM decision = QIE_buy_ger_tac }
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefocus.34 option qiefocus.34.b"
+		trigger = {
+			NOT = { has_country_leader = { character = QIE_aisin_gioro_puyi } }
+		}
+		name = qiefocus.34.b #siemens contracts
+		#complete_national_focus = QIE_siemens #revamp will just get the focus
+		add_ideas = QIE_Sie_contracts
+		add_tech_bonus = {
+			name = QIE_siemens
+			bonus = 1
+			uses = 2
+			category = electronics
+		}
+		hidden_effect = {
+			country_event = { id = qieflavor.27 days = 90 random_days = 120 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefocus.34 option qiefocus.34.c"
+		trigger = { QIE = { has_country_leader = { character = QIE_aisin_gioro_puyi } } }
+		name = qiefocus.34.c #manchu only gets one bonus at the end
+		add_stability = 0.1
+		set_temp_variable = { ideology_change_var = 0.1 }
+		change_ruling_party_popularity = yes
+	}
+}
+
+country_event = {
+	id = qiefocus.35 #Qiedebt stuff - GEA offered a chance to salvage German losses
+	title = qiefocus.35.t
+	desc = qiefocus.35.d
+	picture = GFX_report_event_CUB_santeria
+
+	fire_only_once = yes
+	is_triggered_only = yes #after removing QIE_big_debt1
+
+	immediate = {
+		hidden_effect = {
+			clr_country_flag = QIE_negotiated_debts
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qiefocus.35 option qiefocus.35.a"
+		trigger = {
+			NOT = { has_completed_focus = QIE_luftwaffe }
+		}
+		name = qiefocus.35.a #planes
+		if = {
+			limit = { has_country_leader = { character = QIE_aisin_gioro_puyi } }
+			add_tech_bonus = {
+				name = QIE_luftwaffe
+				bonus = 1
+				uses = 1
+				category = cas_bomber
+				category = tactical_bomber
+			}
+			activate_targeted_decision = { target = FROM decision = QIE_buy_ger_fighter }
+			activate_targeted_decision = { target = FROM decision = QIE_buy_ger_cas }
+			activate_targeted_decision = { target = FROM decision = QIE_buy_ger_tac }
+		}
+		else = {
+			#complete_national_focus = QIE_luftwaffe #revamp will just get the focus
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qiefocus.35 option qiefocus.35.b"
+		trigger = {
+			NOT = { has_completed_focus = QIE_siemens }
+		}
+		name = qiefocus.35.b #siemens
+		if = {
+			limit = { has_country_leader = { character = QIE_aisin_gioro_puyi } }
+			add_ideas = QIE_Sie_contracts
+			add_tech_bonus = {
+				name = QIE_siemens
+				bonus = 1
+				uses = 2
+				category = electronics
+			}
+			hidden_effect = {
+				country_event = { id = qieflavor.27 days = 90 random_days = 120 }
+			}
+		}
+		else = {
+			#complete_national_focus = QIE_siemens #revamp will just get the focus
+		}
+	}
+}
+
+#flavor events
+
+country_event = { #german attache is found with prostitute
+	id = qieflavor.1
+	title = qieflavor.1.t
+	desc = qieflavor.1.d
+	picture = GFX_report_event_CHI_school_uniform
+
+	is_triggered_only = yes
+
+	option = { #arrest him, use as a pretext to curb some german influence
+		log = "[GetLogInfo]: event qieflavor.1 option qieflavor.1.a"
+		name = qieflavor.1.a
+		add_political_power = -15
+		add_popularity = {
+			ideology = market_liberal
+			popularity = -0.03
+		}
+		hidden_effect = {
+			GEA = {
+				country_event = { id = qieflavor.2 days = 2 }
+			}
+		}
+	}
+
+	option = { #let sleeping dogs lie
+		log = "[GetLogInfo]: event qieflavor.1 option qieflavor.1.b"
+		name = qieflavor.1.b
+		hidden_effect = {
+			random_list = {
+				50 = { #information is leaked to press
+					country_event = { id = qieflavor.3 days = 10 }
+					GER = {
+						country_event = { id = qieflavor.4 days = 15 }
+					}
+					GEA = {
+						country_event = { id = qieflavor.4 days = 15 }
+					}
+				}
+				50 = { #nothing happens
+					country_event = { id = qieflavor.5 days = 25 }
+				}
+			}
+		}
+	}
+}
+
+country_event = { #GEA response to arrest
+	id = qieflavor.2
+	title = qieflavor.2.t
+	desc = qieflavor.2.d
+	picture = GFX_report_event_CHI_official_announcement
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qieflavor.2 option qieflavor.2.a"
+		name = qieflavor.2.a #Damn!
+		add_political_power = -5
+	}
+}
+
+country_event = { #leak to press
+	id = qieflavor.3
+	title = qieflavor.3.t
+	desc = qieflavor.3.d
+	picture = GFX_report_event_FNG_paper_factory
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qieflavor.3 option qieflavor.3.a"
+		name = qieflavor.3.a #Uh oh...
+		add_political_power = -15
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = -0.025
+		}
+	}
+}
+
+country_event = { #GER/GEA response to leak
+	id = qieflavor.4
+	title = qieflavor.4.t
+	desc = qieflavor.4.d
+	picture = GFX_report_event_FNG_paper_factory
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qieflavor.4 option qieflavor.4.a"
+		name = qieflavor.4.a
+		add_political_power = -5
+	}
+}
+
+country_event = { #nothing happens
+	id = qieflavor.5
+	title = qieflavor.5.t
+	desc = qieflavor.5.d
+	picture = GFX_report_event_CHI_china_abandoned
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qieflavor.5 option qieflavor.5.a"
+		name = qieflavor.5.a
+		add_political_power = 5
+	}
+}
+
+country_event = {
+	id = qieflavor.7 #fat admiral man
+	title = qieflavor.7.t
+	desc = qieflavor.7.d
+
+	trigger = { has_character = QIE_aisin_gioro_zaixun }
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qieflavor.7 option qieflavor.7.a"
+		name = qieflavor.7.a #promote him
+		ai_chance = { base = 100 }
+		add_political_power = -15
+		hidden_effect = {
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.02
+			}
+		}
+		add_naval_commander_role = {
+			character = QIE_aisin_gioro_zaixun
+			desc = QIE_aisin_gioro_zaixun_admiral_desc
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			maneuvering_skill = 1
+			coordination_skill = 1
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qieflavor.7 option qieflavor.7.b"
+		name = qieflavor.7.b #no...
+		ai_chance = { base = 0 }
+	}
+}
+
+country_event = {
+	id = qieflavor.8 #bandits go rampage
+	title = qieflavor.8.t
+	desc = qieflavor.8.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qieflavor.8 option qieflavor.8.a"
+		name = qieflavor.8.a #arrest and execute the bandits
+		add_political_power = -15
+		delete_unit_template_and_units = { division_template = "Bandit Mercenaries" disband = yes }
+		hidden_effect = {
+			delete_unit = { id = 1911 disband = yes }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qieflavor.8 option qieflavor.8.b"
+		name = qieflavor.8.b #let them continue to fight
+		ai_chance = { base = 0 }
+		add_stability = -0.05
+	}
+}
+
+country_event = { #chinese lindbergh event
+	id = qieflavor.9
+	title = qieflavor.9.t
+	desc = qieflavor.9.d
+	picture = GFX_report_event_QIE_chinese_lindbergh
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qieflavor.9 option qieflavor.9.a"
+		name = qieflavor.9.a #great!
+		add_political_power = 10
+		add_ace = {
+			name = "Sun"
+			surname = "Tonggang"
+			callsign = "Lindbergh of the East"
+			type = fighter_genius
+		}
+	}
+}
+
+country_event = { #edith clifford williams flees ACW to hu shih
+	id = qieflavor.10
+	title = qieflavor.10.t
+	desc = qieflavor.10.d
+	picture = GFX_report_event_QIE_edith_clifford_williams
+
+	fire_only_once = yes
+	is_triggered_only = yes #will add trigger post-merge
+
+	option = {
+		log = "[GetLogInfo]: event qieflavor.10 option qieflavor.10.a"
+		name = qieflavor.10.a #welcome Miss Williams
+		add_political_power = 10
+	}
+}
+
+country_event = { #sarcophogus
+	id = qieflavor.11
+	title = qieflavor.11.t
+	desc = qieflavor.11.d
+	picture = GFX_report_event_QIE_relic_flavor
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qieflavor.11 option qieflavor.10.a"
+		name = qieflavor.10.a #interesting
+		add_political_power = 10
+	}
+}
+
+country_event = { #neitzche fanboys
+	id = qieflavor.12
+	title = qieflavor.12.t
+	desc = qieflavor.12.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qieflavor.12 option qieflavor.12.a"
+		name = qieflavor.12.a #Interesting
+		add_political_power = 10
+	}
+}
+
+country_event = { #puppet president playing cards
+	id = qieflavor.13
+	title = qieflavor.13.t
+	desc = qieflavor.13.d
+	picture = GFX_report_event_QIE_cardgame
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qieflavor.13 option qieflavor.13.a"
+		name = qieflavor.13.a #Interesting
+		add_political_power = 10
+	}
+}
+
+unit_leader_event = {
+	id = qieflavor.14
+	title = qieflavor.14.t
+	desc = qieflavor.14.d
+	picture = GFX_report_event_military_planning
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qieflavor.14 option qieflavor.14.a"
+		name = qieflavor.14.a
+		add_political_power = -15
+	}
+	option = {
+		log = "[GetLogInfo]: event qieflavor.14 option qieflavor.14.b"
+		name = qieflavor.14.b
+		ai_chance = { base = 0 }
+		add_political_power = 15
+		hidden_effect = {
+			THIS = {
+				retire = yes
+			}
+		}
+	}
+}
+
+country_event = { #anqing affirms our leadership
+	id = qieflavor.15
+	title = qieflavor.15.t
+	desc = qieflavor.15.d
+	picture = GFX_report_event_ANQ_chen_tiaoyuan
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qieflavor.15 option qieflavor.15.a"
+		name = qieflavor.15.a #nice
+		add_political_power = 15
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.03
+		}
+	}
+}
+
+country_event = { #chen tiaoyuan: model governor
+	id = qieflavor.16
+	title = qieflavor.16.t
+	desc = qieflavor.16.d
+	picture = GFX_report_event_CHI_new_era
+
+	trigger = {
+		ANQ_is_proqing = yes
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qieflavor.16 option qieflavor.16.a"
+		name = qieflavor.16.a #nice
+		add_stability = 0.05
+	}
+}
+
+country_event = { #Anqing mend Zhili divide
+	id = qieflavor.17
+	title = qieflavor.17.t
+	desc = qieflavor.17.d
+	picture = GFX_report_event_CHI_warlords
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qieflavor.17 option qieflavor.17.a"
+		name = qieflavor.17.a #nice
+		add_political_power = 15
+	}
+}
+
+country_event = { #Anqing joint military exercies
+	id = qieflavor.18
+	title = qieflavor.18.t
+	desc = qieflavor.18.d
+	picture = GFX_report_event_SQI_zongchang_military_1
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qieflavor.18 option qieflavor.18.a"
+		name = qieflavor.18.a #nice
+		army_experience = 15
+	}
+}
+
+country_event = { #german industry nationalized
+	id = qieflavor.19
+	title = qieflavor.19.t
+	desc = qieflavor.19.d
+	picture = GFX_report_event_FNG_industry3
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qieflavor.19 option qieflavor.19.a"
+		name = qieflavor.19.a #focus on consumer goods
+		ai_chance = { base = 50 }
+		add_political_power = 15
+	}
+	option = {
+		log = "[GetLogInfo]: event qieflavor.19 option qieflavor.19.b"
+		name = qieflavor.19.b #produce military supplies
+		ai_chance = { base = 50 }
+		army_experience = 5
+	}
+}
+
+country_event = {
+	id = qieflavor.20 #kang tongbi
+	title = qieflavor.20.t
+	desc = qieflavor.20.d
+	#picture = tongbi pic
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qieflavor.20 option qieflavor.20.a"
+		name = qieflavor.20.a #appoint her!
+		ai_chance = { base = 50 }
+		add_political_power = -50
+		add_advisor_role = {
+			character = QIE_kang_tongbi
+			advisor = {
+				slot = political_advisor
+				idea_token = QIE_kang_tongbi
+				traits = { KR_prominent_feminist }
+			}
+		}
+		if = {
+			limit = { has_free_political_advisor_slot = yes }
+			activate_advisor = QIE_kang_tongbi
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event qieflavor.20 option qieflavor.20.b"
+		name = qieflavor.20.b #let her continue her work
+		ai_chance = { base = 50 }
+		add_political_power = 25
+	}
+}
+
+country_event = { #anti-concession support for Zhili
+	id = qieflavor.21
+	title = qieflavor.21.t
+	desc = qieflavor.21.d
+	picture = GFX_report_event_QIE_puyi_and_generals
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qieflavor.21 option qieflavor.21.a"
+		name = qieflavor.21.a #nice
+		set_temp_variable = { coalition_partner_var = token:social_democrat }
+		add_to_coalition = yes
+		add_political_power = 15
+	}
+}
+
+country_event = { #baoding cadets get along with Zhili, yay
+	id = qieflavor.22
+	title = qieflavor.22.t
+	desc = qieflavor.22.d
+	picture = GFX_report_event_QIE_youth_league
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qieflavor.22 option qieflavor.22.a"
+		name = qieflavor.22.a #nice
+		set_temp_variable = { coalition_partner_var = token:social_liberal }
+		add_to_coalition = yes
+		army_experience = 5
+		add_political_power = 5
+	}
+}
+
+country_event = { #wu peifu given noble titles
+	id = qieflavor.23
+	title = qieflavor.23.t
+	desc = qieflavor.23.d
+	picture = GFX_report_event_QIE_wu_peifu_shrine
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qieflavor.23 option qieflavor.23.a"
+		name = qieflavor.23.a #yay
+		set_temp_variable = { coalition_partner_var = token:social_conservative }
+		add_to_coalition = yes
+		add_political_power = 5
+	}
+}
+
+country_event = { #wu and emperor hang out
+	id = qieflavor.24
+	title = qieflavor.24.t
+	desc = qieflavor.24.d
+	picture = GFX_report_event_QIE_puyi_family
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qieflavor.24 option qieflavor.24.a"
+		name = qieflavor.24.a #nice
+		add_political_power = 15
+	}
+}
+
+country_event = { #german sweatshops show up
+	id = qieflavor.25
+	title = qieflavor.25.t
+	desc = qieflavor.25.d
+	picture = GFX_report_event_FNG_industry2
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qieflavor.25 option qieflavor.25.a"
+		name = qieflavor.25.a #oof
+		add_political_power = -5
+	}
+}
+
+country_event = { #german railroads make it easy to get around
+	id = qieflavor.26
+	title = qieflavor.26.t
+	desc = qieflavor.26.d
+	picture = GFX_report_event_FNG_railway_construction_1
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qieflavor.26 option qieflavor.26.a"
+		name = qieflavor.26.a #nice
+		add_political_power = 5
+	}
+}
+
+country_event = { #troops appreciate radios
+	id = qieflavor.27
+	title = qieflavor.27.t
+	desc = qieflavor.27.d
+	picture = GFX_report_event_QIE_radio
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event qieflavor.27 option qieflavor.27.a"
+		name = qieflavor.27.a #nice
+		army_experience = 5
+	}
+}
+
+country_event = { #The Fall of Luoyang
+	id = qieflavor.28
+	title = qieflavor.28.t
+	desc = qieflavor.28.d
+
+	picture = GFX_report_event_CHI_warlord_battle
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_war_with = 607.controller
+		has_character = QIE_wu_peifu
+	}
+
+	option = {
+		log = "[GetLogInfo]: event qieflavor.28 option qieflavor.28.a"
+		name = qieflavor.28.a
+		add_political_power = -30
+	}
+}

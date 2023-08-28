@@ -1,0 +1,1840 @@
+﻿###########################
+# Political Events
+###########################
+# By Kallar, Nijato, Sir Rogers, Zankoas and ~mw~
+###########################
+
+add_namespace = kr.political
+
+###############################
+### Generic Faction Joining ###
+###############################
+
+country_event = { #Country requests to join faction
+	id = kr.political.10
+	title = kr.political.10.t
+	desc = kr.political.10.d
+	picture = GFX_report_event_generic_diplomacy1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.10 option kr.political.10.a"
+		name = kr.political.10.a
+		effect_tooltip = { faction_leader = { add_to_faction = FROM } }
+		FROM = { country_event = kr.political.11 }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.10 option kr.political.10.b"
+		name = kr.political.10.b
+		ai_chance = { base = 0 }
+		FROM = { country_event = kr.political.12 }
+	}
+}
+
+country_event = { #FROM accepts
+	id = kr.political.11
+	title = kr.political.11.t
+	desc = kr.political.11.d
+	picture = GFX_report_event_generic_diplomacy1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.11 option kr.political.11.a"
+		name = kr.political.11.a
+		if = {
+			limit = {
+				FROM = {
+					original_tag = AUS
+					AUS_has_habsburgs = yes
+					is_faction_leader = no
+				}
+			}
+			set_country_flag = AUS_former_faction_member
+		}
+		var:FROM.faction_leader = { add_to_faction = ROOT }
+	}
+}
+
+country_event = { #FROM refuses
+	id = kr.political.12
+	title = kr.political.12.t
+	desc = kr.political.12.d
+	picture = GFX_report_event_generic_diplomacy1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.12 option kr.political.12.a"
+		name = kr.political.12.a
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_outraged
+		}
+	}
+}
+
+country_event = { #Country is invited to faction
+	id = kr.political.13
+	title = kr.political.13.t
+	desc = kr.political.13.d
+	picture = GFX_report_event_generic_diplomacy1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.13 option kr.political.13.a"
+		name = kr.political.13.a
+		effect_tooltip = { var:FROM.faction_leader = { add_to_faction = ROOT } }
+		FROM = { country_event = kr.political.14 }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.13 option kr.political.13.b"
+		name = kr.political.13.b
+		ai_chance = { base = 0 }
+		FROM = { country_event = kr.political.15 }
+	}
+}
+
+country_event = { #FROM accepts
+	id = kr.political.14
+	title = kr.political.14.t
+	desc = kr.political.14.d
+	picture = GFX_report_event_generic_diplomacy1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.14 option kr.political.14.a"
+		name = kr.political.14.a
+		faction_leader = { add_to_faction = FROM }
+	}
+}
+
+country_event = { #FROM refuses
+	id = kr.political.15
+	title = kr.political.15.t
+	desc = kr.political.15.d
+	picture = GFX_report_event_generic_diplomacy1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.15 option kr.political.15.a"
+		name = kr.political.15.a
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_disapproves_of_govt
+		}
+	}
+}
+
+#######################
+### Faction Joining ###
+#######################
+
+country_event = { #event to remove the alert after ten days (donotlog)
+	id = kr.political.20
+	hidden = yes
+
+	trigger = {
+		is_in_array = { global.faction_joining_alerts = THIS }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		remove_from_array = { global.faction_joining_alerts = THIS }
+		set_variable_to_random = global.kaiserreich_alerts_dirty
+	}
+}
+
+#########################
+### Incoming War-ning ###
+#########################
+
+# Warning about impending declaration of war (used for decisions)
+country_event = { #donotlog
+	id = kr.political.30
+	hidden = yes
+
+	is_triggered_only = yes
+
+	option = {
+		every_country = {
+			limit = {
+				is_ai = no
+				OR = {
+					is_ally_with = ROOT
+					has_guaranteed = ROOT
+					civilwar_target = ROOT
+				}
+				NOT = { is_ally_with = FROM }
+			}
+			set_variable = { alert_war_target_@FROM = ROOT }
+			add_to_array = { incoming_war_alerts = FROM }
+			scoped_sound_effect = alert_enemy_generate_wargoal_sound
+		}
+		set_variable_to_random = global.kaiserreich_alerts_dirty
+	}
+}
+
+# Warning about impending declaration of war for allies (used for decisions)
+country_event = {
+	id = kr.political.32 #donotlog
+	title = kr.political.30.t
+	desc = kr.political.32.d
+	picture = GFX_report_event_generic_towar
+
+	is_triggered_only = yes
+
+	trigger = { is_ai = no }
+
+	option = {
+		name = kr.political.30.a
+	}
+}
+
+######################################
+### Setting up Factional Rivalries ###
+######################################
+
+country_event = { #donotlog
+	id = kr.political.50
+	hidden = yes
+	is_triggered_only = yes
+
+	trigger = {
+		GER = {
+			exists = yes
+			is_ally_with = ROOT
+		}
+		NOT = { has_variable = GER_faction }
+	}
+
+	immediate = {
+		every_other_country = {
+			limit = {
+				OR = {
+					AND = {
+						ENT = { exists = yes }
+						is_ally_with = ENT
+					}
+					AND = {
+						INT = { exists = yes }
+						is_ally_with = INT
+					}
+				}
+			}
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = KR_factional_rivalry
+			}
+			if = {
+				limit = { is_ally_with = INT }
+				embargo_PREV = yes
+			}
+		}
+		set_variable = { GER_faction = 1 }
+	}
+}
+
+country_event = { #donotlog
+	id = kr.political.51
+	hidden = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_variable = GER_faction
+		GER = {
+			exists = yes
+			NOT = { is_ally_with = ROOT }
+		}
+	}
+
+	immediate = {
+		every_other_country = {
+			limit = {
+				OR = {
+					AND = {
+						ENT = { exists = yes }
+						is_ally_with = ENT
+					}
+					AND = {
+						INT = { exists = yes }
+						is_ally_with = INT
+					}
+				}
+			}
+			remove_opinion_modifier = {
+				target = ROOT
+				modifier = KR_factional_rivalry
+			}
+			ROOT = {
+				remove_opinion_modifier = {
+					target = PREV
+					modifier = KR_factional_rivalry
+				}
+			}
+			clear_embargo_PREV = yes
+		}
+		clear_variable = GER_faction
+	}
+}
+
+country_event = { #donotlog
+	id = kr.political.52
+	hidden = yes
+	is_triggered_only = yes
+
+	trigger = {
+		ENT = {
+			exists = yes
+			is_ally_with = ROOT
+		}
+		NOT = { has_variable = ENT_faction }
+	}
+
+	immediate = {
+		every_other_country = {
+			limit = {
+				OR = {
+					AND = {
+						GER = { exists = yes }
+						is_ally_with = GER
+					}
+					AND = {
+						INT = { exists = yes }
+						is_ally_with = INT
+					}
+				}
+			}
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = KR_factional_rivalry
+			}
+			if = {
+				limit = {
+					INT = { exists = yes }
+					is_ally_with = INT
+				}
+				embargo_PREV = yes
+			}
+		}
+		set_variable = { ENT_faction = 1 }
+	}
+}
+
+country_event = { #donotlog
+	id = kr.political.53
+	hidden = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_variable = ENT_faction
+		ENT = {
+			exists = yes
+			NOT = { is_ally_with = ROOT }
+		}
+	}
+
+	immediate = {
+		every_other_country = {
+			limit = {
+				OR = {
+					AND = {
+						GER = { exists = yes }
+						is_ally_with = GER
+					}
+					AND = {
+						INT = { exists = yes }
+						is_ally_with = INT
+					}
+				}
+			}
+			remove_opinion_modifier = {
+				target = ROOT
+				modifier = KR_factional_rivalry
+			}
+			ROOT = {
+				remove_opinion_modifier = {
+					target = PREV
+					modifier = KR_factional_rivalry
+				}
+			}
+			clear_embargo_PREV = yes
+		}
+		clear_variable = ENT_faction
+	}
+}
+
+country_event = { #donotlog
+	id = kr.political.54
+	hidden = yes
+	is_triggered_only = yes
+
+	trigger = {
+		INT = {
+			exists = yes
+			is_ally_with = ROOT
+		}
+		NOT = { has_variable = INT_faction }
+	}
+
+	immediate = {
+		every_other_country = {
+			limit = {
+				OR = {
+					AND = {
+						GER = { exists = yes }
+						is_ally_with = GER
+					}
+					AND = {
+						ENT = { exists = yes }
+						is_ally_with = ENT
+					}
+				}
+			}
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = KR_factional_rivalry
+			}
+			embargo_PREV = yes
+		}
+		set_variable = { INT_faction = 1 }
+	}
+}
+
+country_event = { #donotlog
+	id = kr.political.55
+	hidden = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_variable = INT_faction
+		INT = {
+			exists = yes
+			NOT = { is_ally_with = ROOT }
+		}
+	}
+
+	immediate = {
+		every_other_country = {
+			limit = {
+				OR = {
+					AND = {
+						GER = { exists = yes }
+						is_ally_with = GER
+					}
+					AND = {
+						INT = { exists = yes }
+						is_ally_with = INT
+					}
+				}
+			}
+			remove_opinion_modifier = {
+				target = ROOT
+				modifier = KR_factional_rivalry
+			}
+			ROOT = {
+				remove_opinion_modifier = {
+					target = PREV
+					modifier = KR_factional_rivalry
+				}
+			}
+			clear_embargo_PREV = yes
+		}
+		clear_variable = INT_faction
+	}
+}
+
+#################################
+### Returning Cores to Allies ###
+#################################
+
+# Which cores to return?
+country_event = {
+	id = kr.political.75
+	title = kr.political.75.t
+	desc = kr.political.75.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.75 option kr.political.75.a"
+		name = kr.political.75.a #return all land
+		ai_chance = { base = 1 }
+		clr_country_flag = KR_returning_land
+		custom_effect_tooltip = KR_will_return_all
+		hidden_effect = {
+			event_target:return_to = {
+				country_event = kr.political.76
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event kr.political.75 option kr.political.75.b"
+		name = kr.political.75.b #return all land but vital provinces
+		trigger = {
+			any_owned_state = {
+				OR = {
+					is_core_of = event_target:return_to
+					is_claimed_by = event_target:return_to
+				}
+				is_claim_or_core_of_ROOT = no
+				is_important_state = yes
+				NOT = { has_variable = can_integrate_@ROOT }
+				NOT = { any_country_with_core = { has_variable = ROOT.can_integrate_@THIS } }
+				NOT = { has_state_flag = KR_keeping_state@ROOT }
+				if = {
+					limit = {
+						ROOT = { tag = JAP }
+						is_china_claim_of_JAP = yes
+					}
+					NOT = { has_variable = ambition_area_@ROOT }
+				}
+			}
+		}
+		ai_chance = { base = 100 }
+		custom_effect_tooltip = KR_will_return_rest
+		hidden_effect = {
+			clr_country_flag = KR_returning_land
+			every_owned_state = {
+				limit = {
+					OR = {
+						is_core_of = event_target:return_to
+						is_claimed_by = event_target:return_to
+					}
+					is_claim_or_core_of_ROOT = no
+					is_important_state = yes
+					NOT = { has_state_flag = KR_keeping_state@ROOT }
+					if = {
+						limit = {
+							ROOT = { tag = JAP }
+							is_china_claim_of_JAP = yes
+						}
+						NOT = { has_variable = ambition_area_@ROOT }
+					}
+				}
+				set_state_flag = KR_keeping_state@ROOT
+			}
+			if = {
+				limit = {
+					any_owned_state = {
+						OR = {
+							is_core_of = event_target:return_to
+							is_claimed_by = event_target:return_to
+						}
+						is_claim_or_core_of_ROOT = no
+						is_important_state = no
+						NOT = { has_variable = can_integrate_@ROOT }
+						NOT = { any_country_with_core = { has_variable = ROOT.can_integrate_@THIS } }
+						NOT = { has_state_flag = KR_keeping_state@ROOT }
+						OR = {
+							is_coastal = yes
+							any_neighbor_state = { is_owned_by = event_target:return_to }
+						}
+						if = {
+							limit = {
+								ROOT = { tag = JAP }
+								is_china_claim_of_JAP = yes
+							}
+							NOT = { has_variable = ambition_area_@ROOT }
+						}
+					}
+				}
+				event_target:return_to = {
+					country_event = kr.political.76
+				}
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event kr.political.75 option kr.political.75.c"
+		name = kr.political.75.c #return cores only
+		trigger = {
+			is_ai = no
+			any_owned_state = {
+				is_claim_or_core_of_ROOT = no
+				is_important_state = no
+				NOT = { has_variable = can_integrate_@ROOT }
+				NOT = { any_country_with_core = { has_variable = ROOT.can_integrate_@THIS } }
+				NOT = { has_state_flag = KR_keeping_state@ROOT }
+				is_core_of = event_target:return_to
+			}
+			any_owned_state = {
+				is_claim_or_core_of_ROOT = no
+				is_important_state = no
+				NOT = { has_variable = can_integrate_@ROOT }
+				NOT = { any_country_with_core = { has_variable = ROOT.can_integrate_@THIS } }
+				NOT = { has_state_flag = KR_keeping_state@ROOT }
+				NOT = { is_core_of = event_target:return_to }
+				is_claimed_by = event_target:return_to
+			}
+		}
+		custom_effect_tooltip = KR_will_return_cores
+		hidden_effect = {
+			clr_country_flag = KR_returning_land
+			every_owned_state = {
+				limit = {
+					is_claim_or_core_of_ROOT = no
+					NOT = { has_variable = can_integrate_@ROOT }
+					NOT = { any_country_with_core = { has_variable = ROOT.can_integrate_@THIS } }
+					NOT = { has_state_flag = KR_keeping_state@ROOT }
+					NOT = { is_core_of = event_target:return_to }
+					is_claimed_by = event_target:return_to
+				}
+				set_state_flag = KR_keeping_state@ROOT
+			}
+			event_target:return_to = {
+				country_event = kr.political.76
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event kr.political.75 option kr.political.75.e"
+		name = kr.political.75.e #keep it all you pig
+		ai_chance = { base = 0 }
+		clr_country_flag = KR_returning_land
+		custom_effect_tooltip = KR_will_not_return
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					OR = {
+						is_core_of = event_target:return_to
+						is_claimed_by = event_target:return_to
+					}
+					is_claim_or_core_of_ROOT = no
+					NOT = { has_variable = can_integrate_@ROOT }
+					NOT = { any_country_with_core = { has_variable = ROOT.can_integrate_@THIS } }
+					NOT = { has_state_flag = KR_keeping_state@ROOT }
+				}
+				set_state_flag = KR_keeping_state@ROOT
+			}
+		}
+	}
+}
+
+# Cores/claims have been returned by an ally
+country_event = {
+	id = kr.political.76
+	title = kr.political.76.t
+	desc = kr.political.76.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.76 option kr.political.76.a"
+		name = kr.political.76.a
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_returned_land
+		}
+		set_temp_variable = { tag_to_release = ROOT }
+		while_loop_effect = {
+			limit = {
+				FROM = {
+					any_owned_state = {
+						is_claim_or_core_of_ROOT = yes
+						is_claim_or_core_of_FROM = no
+						NOT = { has_variable = can_integrate_@FROM }
+						NOT = { any_country_with_core = { has_variable = FROM.can_integrate_@THIS } }
+						OR = {
+							is_coastal = yes
+							any_neighbor_state = { is_owned_by = ROOT }
+						}
+						if = {
+							limit = {
+								FROM = { tag = JAP }
+								is_china_claim_of_JAP = yes
+							}
+							NOT = { has_variable = ambition_area_@JAP }
+						}
+						NOT = { has_state_flag = KR_keeping_state@FROM }
+					}
+				}
+			}
+			FROM = {
+				every_owned_state = {
+					limit = {
+						is_claim_or_core_of_ROOT = yes
+						is_claim_or_core_of_FROM = no
+						NOT = { has_variable = can_integrate_@FROM }
+						NOT = { any_country_with_core = { has_variable = FROM.can_integrate_@THIS } }
+						OR = {
+							is_coastal = yes
+							any_neighbor_state = { is_owned_by = ROOT }
+						}
+						if = {
+							limit = {
+								FROM = { tag = JAP }
+								is_china_claim_of_JAP = yes
+							}
+							NOT = { has_variable = ambition_area_@JAP }
+						}
+						NOT = { has_state_flag = KR_keeping_state@FROM }
+					}
+					transfer_state_without_overriding_occupation = yes
+				}
+			}
+		}
+	}
+}
+
+##################################
+### Tag Switch to Puppet Event ###
+##################################
+#
+# current disabled
+# should you want to enable it, first uncomment this event (duh)
+# then add this after the puppet command in the annexation events you want it to fire in:
+# TAG = { save_global_event_target_as = change_tag_target }
+# country_event = kr.political.2
+# where TAG is the tag that has just been puppeted you will switch to after
+#
+#country_event = {
+#	id = kr.political.2
+#	title = kr.political.2.t
+#	desc = kr.political.2.d
+#	picture = GFX_report_event_generic_diplomacy3
+#
+#	is_triggered_only = yes
+#
+#	option = {
+#		name = kr.political.2.a #Stay as main tag
+#		clear_global_event_target = change_tag_target
+#	}
+#
+#	option = {
+#		name = kr.political.2.b #Change to puppet tag
+#		event_target:change_tag_target = {
+#			change_tag_from = ROOT
+#		}
+#		clear_global_event_target = change_tag_target
+#	}
+#}
+
+##################################
+### 	  Puppet Events 	   ###
+##################################
+
+# There are five main puppet levels:
+#  1. Integrated Puppet (kr_integrated_puppet) - the lowest, and countries normally can't raise above this if set here
+#  2. Occupied Puppet (kr_occupied_puppet) - the default state, countries will be able to raise to the next level once they get some military, based on their size
+#  3. Puppet (kr_default_puppet) - the equivalent to the old colony level, only majors can generally raise higher than this on their own
+#	4. Autonomous Puppet (kr_autonomous_puppet) - the equivalent to the old dominion level, only more majors can raise higher than this on their own
+#	5. Nominal Puppet (kr_nominal_puppet) - a puppet in name only, barely restricted, majors can eventually move to freedom from this level
+#
+# NOTE: Currently there is no system in place for moving autonomy back downwards
+#
+
+# Occupied Puppet moves to Puppet level once they've established a military
+country_event = {
+	id = kr.political.100
+	title = kr.political.100.t
+	desc = kr.political.100.d
+	picture = GFX_report_event_generic_diplomacy4
+
+	trigger = {
+		has_autonomy_state = kr_occupied_puppet
+		OR = {
+			overlord = { has_war = no }
+			overlord = { all_enemy_country = { has_war_with = ROOT } }
+		}
+		has_political_power > 0
+		has_stability > 0.25
+
+		set_temp_variable = { numunits = ROOT.owned_states }
+		clamp_temp_variable = { var = numunits max = 25 }
+		num_divisions > numunits
+
+		NOT = { has_country_flag = KR_can_raise_autonomy_level }
+	}
+
+	mean_time_to_happen = {
+		months = 3
+		modifier = {
+			factor = 0.5
+			has_stability > 0.5
+		}
+	}
+
+	immediate = {
+		set_country_flag = KR_can_raise_autonomy_level
+		overlord = { save_event_target_as = overlord_name }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.100 option kr.political.100.a"
+		name = kr.political.100.a
+		get_current_government_type = yes
+		overlord = {
+			set_autonomy = {
+				target = ROOT
+				autonomy_state = kr_default_puppet
+				end_wars = no
+			}
+			hidden_effect = { country_event = kr.political.101 }
+		}
+		restore_previous_government_type = yes
+		clr_country_flag = KR_can_raise_autonomy_level
+	}
+}
+
+country_event = {
+	id = kr.political.101
+	title = kr.political.101.t
+	desc = kr.political.101.d
+	picture = GFX_report_event_generic_diplomacy4
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.101 option kr.political.101.a"
+		name = kr.political.101.a
+		custom_effect_tooltip = FROM_becomes_puppet
+	}
+}
+
+# Puppet who is powerful enough moves to Autonomous Puppet
+country_event = {
+	id = kr.political.102
+	title = kr.political.102.t
+	picture = GFX_report_event_generic_diplomacy4
+
+	desc = {
+		text = kr.political.102.d.tfv
+		trigger = { has_subject_autonomy_feature = yes }
+	}
+	desc = {
+		text = kr.political.102.d
+		trigger = { has_subject_autonomy_feature = no }
+	}
+
+	trigger = {
+		has_autonomy_state = kr_default_puppet
+		OR = {
+			overlord = { has_war = no }
+			overlord = { all_enemy_country = { has_war_with = ROOT } }
+		}
+		has_political_power > 0
+		has_stability > 0.50
+		has_army_manpower = { size > 100000 }
+		NOT = {
+			has_country_flag = KR_can_raise_autonomy_level
+			overlord = {
+				strength_ratio = { tag = ROOT ratio > 3.0 }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 24
+		modifier = {
+			factor = 0.5
+			overlord = { has_elected_government = yes }
+		}
+		modifier = {
+			factor = 1.5
+			overlord = {
+				OR = {
+					has_authoritarian_government = yes
+					has_government = totalist
+				}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			overlord = {
+				strength_ratio = { tag = ROOT ratio < 2.0 }
+			}
+		}
+		modifier = {
+			factor = 0.8
+			overlord = {
+				strength_ratio = { tag = ROOT ratio < 1.5 }
+			}
+		}
+		modifier = {
+			factor = 0.5
+			overlord = {
+				strength_ratio = { tag = ROOT ratio < 1.0 }
+			}
+		}
+		modifier = {
+			factor = 0.5
+			overlord = {
+				strength_ratio = { tag = ROOT ratio < 0.75 }
+			}
+		}
+		modifier = {
+			factor = 0.5
+			has_stability > 0.75
+		}
+	}
+
+	immediate = {
+		set_country_flag = KR_can_raise_autonomy_level
+		overlord = { save_event_target_as = overlord_name }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.102 option kr.political.102.a"
+		name = kr.political.102.a
+		if = {
+			limit = { has_subject_autonomy_feature = yes }
+			custom_effect_tooltip = may_raise_autonomy
+			add_autonomy_ratio = {
+				value = 0.25
+				localization = clamour_for_autonomy
+			}
+		}
+		else = {
+			get_current_government_type = yes
+			overlord = {
+				set_autonomy = {
+					target = ROOT
+					autonomy_state = kr_autonomous_puppet
+					end_wars = no
+				}
+				hidden_effect = {
+					country_event = kr.political.103
+				}
+			}
+			restore_previous_government_type = yes
+			clr_country_flag = KR_can_raise_autonomy_level
+		}
+	}
+}
+
+country_event = {
+	id = kr.political.103
+	title = kr.political.103.t
+	desc = kr.political.103.d
+	picture = GFX_report_event_generic_diplomacy4
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.103 option kr.political.101.a"
+		name = kr.political.101.a
+		custom_effect_tooltip = FROM_becomes_autonomous_puppet
+	}
+}
+
+# Autonomous Puppet who is a major moves to Nominal Puppet
+country_event = {
+	id = kr.political.104
+	title = kr.political.102.t
+	picture = GFX_report_event_generic_diplomacy4
+
+	desc = {
+		text = kr.political.102.d.tfv
+		trigger = { has_subject_autonomy_feature = yes }
+	}
+	desc = {
+		text = kr.political.102.d
+		trigger = { has_subject_autonomy_feature = no }
+	}
+
+	trigger = {
+		has_autonomy_state = kr_autonomous_puppet
+		OR = {
+			overlord = { has_war = no }
+			overlord = { all_enemy_country = { has_war_with = ROOT } }
+		}
+		has_political_power > 0
+		has_stability > 0.70
+		has_army_manpower = { size > 100000 }
+		OR = {
+			AND = {
+				num_of_factories > 49
+				date < 1940.1.1
+			}
+			AND = {
+				num_of_factories > 74
+				NOT = { date < 1940.1.1 }
+				date < 1942.1.1
+			}
+			AND = {
+				num_of_factories > 99
+				NOT = { date < 1942.1.1 }
+				date < 1944.1.1
+			}
+			AND = {
+				num_of_factories > 124
+				NOT = { date < 1944.1.1 }
+				date < 1946.1.1
+			}
+			num_of_factories > 149
+		}
+		NOT = {
+			has_country_flag = KR_can_raise_autonomy_level
+			overlord = {
+				strength_ratio = { tag = ROOT ratio > 3.0 }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 36
+		modifier = {
+			factor = 0.5
+			overlord = { has_elected_government = yes }
+		}
+		modifier = {
+			factor = 1.5
+			overlord = {
+				OR = {
+					has_authoritarian_government = yes
+					has_government = totalist
+				}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			overlord = {
+				strength_ratio = { tag = ROOT ratio < 2.0 }
+			}
+		}
+		modifier = {
+			factor = 0.8
+			overlord = {
+				strength_ratio = { tag = ROOT ratio < 1.5 }
+			}
+		}
+		modifier = {
+			factor = 0.5
+			overlord = {
+				strength_ratio = { tag = ROOT ratio < 1.0 }
+			}
+		}
+		modifier = {
+			factor = 0.5
+			overlord = {
+				strength_ratio = { tag = ROOT ratio < 0.75 }
+			}
+		}
+		modifier = {
+			factor = 0.8
+			has_stability > 0.80
+		}
+	}
+
+	immediate = {
+		set_country_flag = KR_can_raise_autonomy_level
+		overlord = { save_event_target_as = overlord_name }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.104 option kr.political.102.a"
+		name = kr.political.102.a
+		if = {
+			limit = { has_subject_autonomy_feature = yes }
+			custom_effect_tooltip = may_raise_autonomy
+			add_autonomy_ratio = {
+				value = 0.25
+				localization = clamour_for_autonomy
+			}
+		}
+		else = {
+			get_current_government_type = yes
+			overlord = {
+				set_autonomy = {
+					target = ROOT
+					autonomy_state = kr_nominal_puppet
+					end_wars = no
+				}
+				hidden_effect = {
+					country_event = kr.political.105
+				}
+			}
+			restore_previous_government_type = yes
+			clr_country_flag = KR_can_raise_autonomy_level
+		}
+	}
+}
+
+country_event = {
+	id = kr.political.105
+	title = kr.political.103.t
+	desc = kr.political.103.d
+	picture = GFX_report_event_generic_diplomacy4
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.105 option kr.political.103.a"
+		name = kr.political.103.a
+		custom_effect_tooltip = FROM_becomes_nominal_puppet
+	}
+}
+
+# Nominal Puppet who is a major can become free
+country_event = {
+	id = kr.political.106
+	title = kr.political.106.t
+	picture = GFX_report_event_generic_diplomacy4
+
+	desc = {
+		text = kr.political.106.d.tfv
+		trigger = { has_subject_autonomy_feature = yes }
+	}
+	desc = {
+		text = kr.political.106.d
+		trigger = { has_subject_autonomy_feature = no }
+	}
+
+	trigger = {
+		has_autonomy_state = kr_nominal_puppet
+		is_actual_major = yes
+		OR = {
+			overlord = { has_war = no }
+			overlord = { all_enemy_country = { has_war_with = ROOT } }
+		}
+		has_political_power > 0
+		has_stability > 0.70
+		has_army_manpower = { size > 100000 }
+		NOT = {
+			has_country_flag = KR_can_become_free
+			overlord = {
+				strength_ratio = { tag = ROOT ratio > 3.0 }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 36
+		modifier = {
+			factor = 0.5
+			overlord = { has_elected_government = yes }
+		}
+		modifier = {
+			factor = 1.5
+			overlord = {
+				OR = {
+					has_authoritarian_government = yes
+					has_government = totalist
+				}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			overlord = {
+				strength_ratio = { tag = ROOT ratio < 2.0 }
+			}
+		}
+		modifier = {
+			factor = 0.8
+			overlord = {
+				strength_ratio = { tag = ROOT ratio < 1.5 }
+			}
+		}
+		modifier = {
+			factor = 0.5
+			overlord = {
+				strength_ratio = { tag = ROOT ratio < 1.0 }
+			}
+		}
+		modifier = {
+			factor = 0.5
+			overlord = {
+				strength_ratio = { tag = ROOT ratio < 0.75 }
+			}
+		}
+		modifier = {
+			factor = 0.8
+			has_stability > 0.80
+		}
+	}
+
+	immediate = {
+		set_country_flag = KR_can_become_free
+		overlord = { save_event_target_as = overlord_name }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.106 option kr.political.106.a"
+		name = kr.political.106.a
+		trigger = { has_subject_autonomy_feature = yes }
+		custom_effect_tooltip = may_become_free
+		add_autonomy_ratio = {
+			value = 0.25
+			localization = clamour_for_independence
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event kr.political.106 option kr.political.106.b"
+		name = kr.political.106.b # Demand independence
+		trigger = {
+			has_subject_autonomy_feature = no
+		}
+		overlord = {
+			country_event = kr.political.107
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event kr.political.106 option kr.political.106.c"
+		name = kr.political.106.c # Leave it be
+		trigger = {
+			has_subject_autonomy_feature = no
+			is_ai = no
+		}
+		add_stability = -0.10
+	}
+}
+
+country_event = {
+	id = kr.political.107
+	title = kr.political.107.t
+	desc = kr.political.107.d
+	picture = GFX_report_event_generic_diplomacy4
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.107 option kr.political.107.a"
+		name = kr.political.107.a #Agree
+		add_opinion_modifier = { target = FROM modifier = KR_close_allies }
+		FROM = {
+			clr_country_flag = KR_can_become_free
+			add_opinion_modifier = { target = ROOT modifier = KR_close_allies }
+		}
+		set_autonomy = {
+			target = FROM
+			autonomy_state = autonomy_free
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event kr.political.107 option kr.political.107.b"
+		name = kr.political.107.b #Refuse
+		ai_chance = { base = 0 }
+		FROM = {
+			add_opinion_modifier = { target = ROOT modifier = KR_outraged }
+			country_event = kr.political.108
+		}
+	}
+}
+
+country_event = {
+	id = kr.political.108
+	title = kr.political.108.t
+	desc = kr.political.108.d
+	picture = GFX_report_event_generic_diplomacy4
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.108 option kr.political.108.a"
+		name = kr.political.108.a
+		clr_country_flag = KR_can_become_free
+		set_country_flag = KR_independence_refused
+		add_war_support = 0.10
+		unlock_decision_tooltip = KR_fight_for_independence
+	}
+}
+
+# Puppet declares themselves free
+country_event = {
+	id = kr.political.109
+	title = kr.political.109.t
+	desc = kr.political.109.d
+	picture = GFX_report_event_generic_diplomacy4
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.109 option kr.political.109.a"
+		name = kr.political.109.a #Let them go
+		add_political_power = -50
+	}
+	option = {
+		log = "[GetLogInfo]: event kr.political.109 option kr.political.109.b"
+		name = kr.political.109.b #Fight
+		ai_chance = { base = 0 }
+		declare_war_on = {
+			target = FROM
+			type = annex_everything
+		}
+		set_country_flag = KR_independence_war_overlord
+		FROM = { set_country_flag = KR_independence_war }
+	}
+}
+
+# Peace event for independence war
+country_event = {
+	id = kr.political.110
+	title = kr.political.110.t
+	desc = kr.political.110.d
+
+	trigger = {
+		has_war = yes
+		has_country_flag = { flag = KR_independence_war days > 180 }
+		surrender_progress < 0.10
+		OR = {
+			is_in_faction = no
+			is_faction_leader = yes
+		}
+		any_enemy_country = {
+			has_country_flag = KR_independence_war_overlord
+			surrender_progress < 0.10
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 30
+	}
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.110 option kr.political.110.a"
+		name = kr.political.110.a #Let's end this
+		random_country = {
+			limit = { has_country_flag = KR_independence_war_overlord }
+			country_event = kr.political.111
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event kr.political.110 option kr.political.110.a"
+		name = kr.political.110.a #Fight on
+		ai_chance = { base = 0 }
+		add_war_support = -0.10
+	}
+}
+
+country_event = {
+	id = kr.political.111
+	title = kr.political.111.t
+	desc = kr.political.111.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.111 option kr.political.111.a"
+		name = kr.political.111.a #Let's end this
+		add_political_power = -50
+		FROM = { white_peace_with_ROOT = yes }
+	}
+	option = {
+		log = "[GetLogInfo]: event kr.political.111 option kr.political.111.a"
+		name = kr.political.111.a #Fight on
+		ai_chance = { base = 0 }
+		add_war_support = -0.10
+	}
+}
+
+##################################
+###   Demobilization Events    ###
+##################################
+
+# Check after a war whether we should be demobilizing
+country_event = {
+	id = kr.political.120
+
+	hidden = yes
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_unsupported_economic_law_ai = yes
+			has_unsupported_manpower_law_ai = yes
+		}
+		is_ai = yes
+		NOT = { has_game_rule = { rule = demobilization_options option = NONE } }
+		ROOT_is_threatened_cautious = no
+	}
+
+	immediate = {
+		clr_country_flag = has_demobilization_check
+		if = {
+			limit = { has_unattained_important_goals = no }
+			if = {
+				limit = { has_unsupported_economic_law_ai = yes }
+				if = {
+					limit = { has_war_support < 0.15 }
+					if = {
+						limit = { has_idea = tot_economic_mobilisation }
+						add_political_power = 300
+					}
+					else_if = {
+						limit = { has_idea = war_economy }
+						add_political_power = 225
+					}
+					else_if = {
+						limit = { has_idea = partial_economic_mobilisation }
+						add_political_power = 150
+					}
+					else = {
+						add_political_power = 75
+					}
+					add_ideas = civilian_economy
+				}
+				else_if = {
+					limit = { has_war_support < 0.25 }
+					if = {
+						limit = { has_idea = tot_economic_mobilisation }
+						add_political_power = 225
+					}
+					else_if = {
+						limit = { has_idea = war_economy }
+						add_political_power = 150
+					}
+					else = {
+						add_political_power = 75
+					}
+					add_ideas = low_economic_mobilisation
+				}
+				else = {
+					if = {
+						limit = { has_idea = tot_economic_mobilisation }
+						add_political_power = 150
+					}
+					else = {
+						add_political_power = 75
+					}
+					add_ideas = partial_economic_mobilisation
+				}
+			}
+
+			if = {
+				limit = { has_unsupported_manpower_law_ai = yes }
+				if = {
+					limit = { has_war_support < 0.1 }
+					if = {
+						limit = { has_idea = scraping_the_barrel }
+						add_political_power = 375
+					}
+					else_if = {
+						limit = { has_idea = all_adults_serve }
+						add_political_power = 300
+					}
+					else_if = {
+						limit = { has_idea = service_by_requirement }
+						add_political_power = 225
+					}
+					else_if = {
+						limit = { has_idea = extensive_conscription }
+						add_political_power = 150
+					}
+					else = {
+						add_political_power = 75
+					}
+					add_ideas = volunteer_only
+				}
+				else = {
+					if = {
+						limit = { has_idea = scraping_the_barrel }
+						add_political_power = 300
+					}
+					else_if = {
+						limit = { has_idea = all_adults_serve }
+						add_political_power = 225
+					}
+					else_if = {
+						limit = { has_idea = service_by_requirement }
+						add_political_power = 150
+					}
+					else = {
+						add_political_power = 75
+					}
+					add_ideas = limited_conscription
+				}
+			}
+		}
+
+		if = {
+			limit = { NOT = { has_country_flag = has_reduce_units_check } }
+			set_country_flag = has_reduce_units_check
+			country_event = { id = kr.political.121 days = 4 random_hours = 96 }
+		}
+	}
+}
+
+# Repeated check for whether an AI country should reduce its number of units
+country_event = {
+	id = kr.political.121
+
+	hidden = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.121 option 1"
+		if = {
+			limit = {
+				has_exceeded_maximum_divisions = yes
+				is_ai = yes
+				NOT = { has_game_rule = { rule = unit_limit_options option = NONE } }
+				ROOT_is_threatened_cautious = no
+				has_unattained_important_goals = no
+			}
+			disband_one_to_three_divisions = yes
+			country_event = { id = kr.political.121 days = 7 random_hours = 72 }
+		}
+		else = {
+			clr_country_flag = has_reduce_units_check
+		}
+	}
+}
+
+# Dynamically add operative nationalities
+country_event = { #donotlog
+	id = kr.political.209
+
+	hidden = yes
+	is_triggered_only = yes
+
+	option = {
+		every_country = {
+			limit = { has_intelligence_agency = yes }
+			every_operative = { add_operative_nationalities = yes }
+		}
+	}
+}
+
+##################################
+###    State Transfer Events   ###
+##################################
+
+# Puppeting
+country_event = {
+	id = kr.political.250
+	title = kr.political.250.t
+	desc = kr.political.250.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.250 option kr.political.250.a"
+		name = kr.political.250.a #Regular Puppet
+		if = {
+			limit = {
+				event_target:marked_country = { is_in_faction = yes }
+				event_target:to_be_overlord = {
+					is_in_faction = yes
+					NOT = { is_in_faction_with = event_target:marked_country }
+				}
+			}
+			event_target:marked_country = { leave_faction = yes }
+		}
+		event_target:to_be_overlord = { puppet = event_target:marked_country }
+		if = {
+			limit = {
+				event_target:to_be_overlord = {
+					is_in_faction = yes
+					NOT = { is_in_faction_with = event_target:marked_country }
+				}
+			}
+			event_target:to_be_overlord = {
+				faction_leader = { add_to_faction = event_target:marked_country }
+			}
+		}
+		clear_global_event_target = to_be_overlord
+		add_to_variable = { ROOT.update_stt_gui = 1 }
+	}
+	option = {
+		log = "[GetLogInfo]: event kr.political.250 option kr.political.250.b"
+		name = kr.political.250.b #Keep Old Government
+		if = {
+			limit = {
+				event_target:marked_country = { is_in_faction = yes }
+				event_target:to_be_overlord = {
+					is_in_faction = yes
+					NOT = { is_in_faction_with = event_target:marked_country }
+				}
+			}
+			event_target:marked_country = { leave_faction = yes }
+		}
+		event_target:marked_country = { get_current_government_type = yes }
+		custom_effect_tooltip = puppet_but_keep_government_tt
+		hidden_effect = {
+			event_target:to_be_overlord = { puppet = event_target:marked_country }
+		}
+		event_target:marked_country = { restore_previous_government_type = yes }
+		if = {
+			limit = {
+				event_target:to_be_overlord = {
+					is_in_faction = yes
+					NOT = { is_in_faction_with = event_target:marked_country }
+				}
+			}
+			event_target:to_be_overlord = {
+				faction_leader = { add_to_faction = event_target:marked_country }
+			}
+		}
+		clear_global_event_target = to_be_overlord
+		add_to_variable = { ROOT.update_stt_gui = 1 }
+	}
+	option = {
+		log = "[GetLogInfo]: event kr.political.250 option kr.political.250.c"
+		name = kr.political.250.c
+		clear_global_event_target = to_be_overlord
+	}
+}
+
+# Free Puppet
+country_event = {
+	id = kr.political.251
+	title = kr.political.251.t
+	desc = kr.political.251.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.251 option kr.political.250.a"
+		name = kr.political.250.a
+		event_target:marked_country = {
+			overlord = {
+				set_autonomy = {
+					target = event_target:marked_country
+					autonomy_state = autonomy_free
+				}
+			}
+		}
+		add_to_variable = { ROOT.update_stt_gui = 1 }
+	}
+	option = {
+		log = "[GetLogInfo]: event kr.political.251 option kr.political.250.c"
+		name = kr.political.250.c
+	}
+}
+
+# Add to Faction
+country_event = {
+	id = kr.political.252
+	title = kr.political.252.t
+	desc = kr.political.252.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.252 option kr.political.250.a"
+		name = kr.political.250.a
+		event_target:marked_country = {
+			if = {
+				limit = { is_faction_leader = yes }
+				dismantle_faction = yes
+			}
+			else_if = {
+				limit = { is_in_faction = yes }
+				leave_faction = yes
+			}
+		}
+		event_target:to_be_faction_leader = {
+			faction_leader = {
+				add_to_faction = event_target:marked_country
+			}
+		}
+		clear_global_event_target = to_be_faction_leader
+		add_to_variable = { ROOT.update_stt_gui = 1 }
+	}
+	option = {
+		log = "[GetLogInfo]: event kr.political.252 option kr.political.250.c"
+		name = kr.political.250.c
+		clear_global_event_target = to_be_faction_leader
+	}
+}
+
+# Make Faction Leader
+country_event = {
+	id = kr.political.253
+	title = kr.political.253.t
+	desc = kr.political.253.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.253 option kr.political.250.a"
+		name = kr.political.250.a
+		event_target:marked_country = {
+			set_faction_leader = yes
+		}
+		add_to_variable = { ROOT.update_stt_gui = 1 }
+	}
+	option = {
+		log = "[GetLogInfo]: event kr.political.253 option kr.political.250.c"
+		name = kr.political.250.c
+	}
+}
+
+# Leave Faction
+country_event = {
+	id = kr.political.254
+	title = kr.political.254.t
+	desc = kr.political.254.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.254 option kr.political.250.a"
+		name = kr.political.250.a
+		event_target:marked_country = {
+			if = {
+				limit = { is_faction_leader = yes }
+				dismantle_faction = yes
+			}
+			else_if = {
+				limit = { is_in_faction = yes }
+				leave_faction = yes
+			}
+		}
+		add_to_variable = { ROOT.update_stt_gui = 1 }
+	}
+	option = {
+		log = "[GetLogInfo]: event kr.political.254 option kr.political.250.c"
+		name = kr.political.250.c
+	}
+}
+
+# Peace
+country_event = {
+	id = kr.political.255
+	title = kr.political.255.t
+	desc = kr.political.255.d
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			event_target:marked_country = { save_event_target_as = white_peace_receiver }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.255 option kr.political.250.a"
+		name = kr.political.250.a
+		event_target:peace_target = { white_peace_with_TARGET = yes }
+		add_to_variable = { ROOT.update_stt_gui = 1 }
+		clear_global_event_target = peace_target
+	}
+	option = {
+		log = "[GetLogInfo]: event kr.political.255 option kr.political.255.b"
+		name = kr.political.255.b
+		trigger = {
+			event_target:marked_country = {
+				OR = {
+					is_subject = yes
+					is_in_faction = yes
+				}
+			}
+		}
+		event_target:marked_country = {
+			if = {
+				limit = { is_subject = yes }
+				overlord = {
+					set_autonomy = {
+						target = event_target:marked_country
+						autonomy_state = autonomy_free
+					}
+				}
+			}
+			if = {
+				limit = { is_faction_leader = yes }
+				dismantle_faction = yes
+			}
+			else_if = {
+				limit = { is_in_faction = yes }
+				leave_faction = yes
+			}
+		}
+		event_target:peace_target = { white_peace_with_TARGET = yes }
+		add_to_variable = { ROOT.update_stt_gui = 1 }
+		clear_global_event_target = peace_target
+	}
+	option = {
+		log = "[GetLogInfo]: event kr.political.255 option kr.political.250.c"
+		name = kr.political.250.c
+		clear_global_event_target = peace_target
+	}
+}
+
+# Peace Out Everyone
+country_event = {
+	id = kr.political.256
+	title = kr.political.256.t
+	desc = kr.political.256.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.256 option kr.political.250.a"
+		name = kr.political.250.a
+		event_target:marked_country = {
+			if = {
+				limit = { is_subject = yes }
+				overlord = {
+					set_autonomy = {
+						target = event_target:marked_country
+						autonomy_state = autonomy_free
+					}
+				}
+			}
+			if = {
+				limit = { is_faction_leader = yes }
+				dismantle_faction = yes
+			}
+			else_if = {
+				limit = { is_in_faction = yes }
+				leave_faction = yes
+			}
+			separate_peace_all_wars = yes
+		}
+		add_to_variable = { ROOT.update_stt_gui = 1 }
+	}
+	option = {
+		log = "[GetLogInfo]: event kr.political.256 option kr.political.250.c"
+		name = kr.political.250.c
+	}
+}
+
+# Declare War
+country_event = {
+	id = kr.political.257
+	title = kr.political.257.t
+	desc = kr.political.257.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event kr.political.257 option kr.political.250.a"
+		name = kr.political.250.a
+		event_target:marked_country = {
+			declare_war_on = {
+				target = event_target:war_target
+				type = annex_everything
+			}
+			hidden_effect = {
+				every_country = {
+					limit = {
+						is_ally_with = event_target:marked_country
+						NOT = {
+							tag = event_target:marked_country
+							has_war_with = event_target:war_target
+						}
+					}
+					meta_effect = {
+						text = {
+							add_to_war = {
+								targeted_alliance = [ALLY]
+								enemy = [ENEMY]
+							}
+						}
+						ALLY = "[marked_country.GetTag]"
+						ENEMY = "[war_target.GetTag]"
+					}
+				}
+			}
+		}
+		clear_global_event_target = war_target
+		add_to_variable = { ROOT.update_stt_gui = 1 }
+	}
+	option = {
+		log = "[GetLogInfo]: event kr.political.257 option kr.political.250.c"
+		name = kr.political.250.c
+		clear_global_event_target = war_target
+	}
+}
+

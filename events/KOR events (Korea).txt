@@ -1,0 +1,153 @@
+﻿#### Korea ####
+#### By Suzuha #####
+add_namespace = KOR
+
+country_event = { #multiparty democracy
+	id = kor.1
+	title = kor.1.t
+	desc = kor.1.d
+	picture = GFX_report_event_generic_diplomacy4
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		log = "[GetLogInfo]: event kor.1 option kor.1.a"
+		name = kor.1.a
+		set_party_name = {
+			ideology = social_democrat
+			name = KOR_social_democrat_knrp
+			long_name = KOR_social_democrat_knrp_long
+		}
+		set_party_name = {
+			ideology = social_liberal
+			name = KOR_social_liberal_ksp
+			long_name = KOR_social_liberal_ksp_long
+		}
+		set_party_name = {
+			ideology = market_liberal
+			name = KOR_market_liberal_kdp
+			long_name = KOR_market_liberal_kdp_long
+		}
+		set_party_name = {
+			ideology = social_conservative
+			name = KOR_social_conservative_kna
+			long_name = KOR_social_conservative_kna_long
+		}
+		set_party_name = {
+			ideology = radical_socialist
+			name = KOR_radical_socialist_knrp
+			long_name = KOR_radical_socialist_knrp_long
+		}
+		set_party_name = {
+			ideology = authoritarian_democrat
+			name = KOR_authoritarian_democrat_kna
+			long_name = KOR_authoritarian_democrat_kna_long
+		}
+		set_party_name = {
+			ideology = paternal_autocrat
+			name = KOR_paternal_autocrat_kna
+			long_name = KOR_paternal_autocrat_kna_long
+		}
+		set_party_name = {
+			ideology = national_populist
+			name = KOR_national_populist_kna
+			long_name = KOR_national_populist_kna_long
+		}
+	}
+}
+country_event = {
+	id = kor.2
+	title = kor.2.t
+	desc = kor.2.d
+	picture = GFX_report_event_generic_diplomacy4
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		log = "[GetLogInfo]: event kor.2 option kor.2.a"
+		name = kor.2.a
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = social_conservative
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 48
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event kor.2 option kor.2.b"
+		name = kor.2.b
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = social_liberal
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 48
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event kor.2 option kor.2.c"
+		name = kor.2.c
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = market_liberal
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 48
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event kor.2 option kor.2.dem"
+		name = kor.2.dem
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = social_democrat
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 48
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+	}
+}
+country_event = { #Event to send to LKMT to let them know that they have Sino-Korean Friendship idea
+	id = kor.3
+	title = kor.3.t
+	desc = kor.3.d
+	picture = GFX_report_event_CHI_successful_northern_expedition_flag
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event kor.3 option kor.3.a"
+		name = kor.3.a
+		add_ideas = KOR_sino_korean_friendship2
+	}
+}
+country_event = { #Event to send to RKMTto let them know that they have Sino-Korean Friendship idea
+	id = kor.4
+	title = kor.4.t
+	desc = kor.4.d
+	picture = GFX_report_event_CHI_successful_northern_expedition_flag
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event kor.4 option kor.4.a"
+		name = kor.4.a
+		add_ideas = KOR_twin_tigers_idea2
+	}
+}
+

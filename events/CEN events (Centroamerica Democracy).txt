@@ -1,0 +1,2148 @@
+﻿#####################################
+##Democratic Central America Events##
+##		  By Drozdovite            ##
+#####################################
+
+add_namespace = cendem
+
+### Intro Events
+country_event = { #the confederation happens
+	id = cendem.1
+	title = cendem.1.t
+	desc = cendem.1.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event cendem.1 option cendem.1.a"
+		name = cendem.1.a
+		hidden_effect = {
+			country_event = { id = cendem.2 days = 3 }
+			set_temp_variable = { days_to_event = 1976 }
+			calculate_days_since_game_start = yes
+			country_event = { id = cendem.106 days = days_to_event } #The Book "El Presidente" is published
+		}
+	}
+}
+
+country_event = { #Formation of the Partido Unionista
+	id = cendem.2
+	title = cendem.2.t
+	desc = cendem.2.d
+
+	is_triggered_only = yes
+
+	option = { #The first of many
+		log = "[GetLogInfo]: event cendem.2 option cendem.2.a"
+		name = cendem.2.a
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.05
+		}
+		hidden_effect = {
+			country_event = { id = cendem.4 days = 4 }
+		}
+	}
+}
+
+country_event = { #Formation of the Partido Unificacion Democratica
+	id = cendem.3
+	title = cendem.3.t
+	desc = cendem.3.d
+
+	is_triggered_only = yes
+
+	option = { #Choose José Ángel Zuñiga
+		log = "[GetLogInfo]: event cendem.3 option cendem.3.a"
+		name = cendem.3.a
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.10
+		}
+		promote_character = {
+			character = HON_jose_angel_zuniga_huete
+			ideology = market_liberal_subtype
+		}
+		hidden_effect = {
+			country_event = { id = cendem.5 days = 4 }
+		}
+	}
+	option = { #Choose Jose Maria Moncada
+		log = "[GetLogInfo]: event cendem.3 option cendem.3.b"
+		name = cendem.3.b
+		add_political_power = 25
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.10
+		}
+		if = {
+			limit = { HON_jose_maria_moncada_tapia = { has_ideology = market_liberal_subtype } }
+			promote_character = {
+				character = HON_jose_maria_moncada_tapia
+				ideology = market_liberal_subtype
+			}
+		}
+		else = {
+			add_country_leader_role = {
+				character = HON_jose_maria_moncada_tapia
+				country_leader = { ideology = market_liberal_subtype }
+				promote_leader = yes
+			}
+		}
+		hidden_effect = {
+			country_event = { id = cendem.5 days = 4 }
+		}
+	}
+}
+
+country_event = { #Formation of the Partido Liberal
+	id = cendem.4
+	title = cendem.4.t
+	desc = cendem.4.d
+
+	is_triggered_only = yes
+
+	option = { #The Flame of liberalism continues to shine
+		log = "[GetLogInfo]: event cendem.4 option cendem.4.a"
+		name = cendem.4.a
+		add_political_power = 25
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.10
+		}
+		promote_character = {
+			character = NIC_juan_bautista_sacasa
+			ideology = social_liberal_subtype
+		}
+		hidden_effect = {
+			country_event = { id = cendem.3 days = 4 }
+			country_event = { id = cendem.31 months = 36 }
+		}
+	}
+}
+
+country_event = { #Formation of the Partido del Trabajo
+	id = cendem.5
+	title = cendem.5.t
+	desc = cendem.5.d
+
+	is_triggered_only = yes
+
+	option = { #The Red Rose takes root in Central America with Araujo
+		log = "[GetLogInfo]: event cendem.5 option cendem.5.a"
+		name = cendem.5.a
+		add_political_power = 25
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.05
+		}
+		promote_character = {
+			character = ELS_arturo_araujo
+			ideology = social_democrat_subtype
+		}
+		hidden_effect = {
+			country_event = { id = cendem.18 days = 4 }
+			country_event = { id = cendem.32 months = 36 }
+		}
+	}
+	option = { #The Red Rose takes root in Central America with Moreno
+		log = "[GetLogInfo]: event cendem.5 option cendem.5.b"
+		name = cendem.5.b
+		trigger = {
+			has_character = NIC_francisco_sequeira_moreno
+		}
+		add_political_power = 25
+		set_country_flag = CEN_moreno_leads
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.05
+		}
+		promote_character = {
+			character = NIC_francisco_sequeira_moreno
+			ideology = social_democrat_subtype
+		}
+		hidden_effect = {
+			country_event = { id = cendem.18 days = 4 }
+			country_event = { id = cendem.32 months = 36 }
+		}
+	}
+}
+country_event = { #Formation of the Partido Nacional Revolucionario
+	id = cendem.18
+	title = cendem.18.t
+	desc = cendem.18.d
+
+	is_triggered_only = yes
+
+	option = { #The reds are back
+		log = "[GetLogInfo]: event cendem.18 option cendem.18.a"
+		name = cendem.18.a
+		add_political_power = 25
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.05
+		}
+		promote_character = {
+			character = GUA_silverio_ortiz
+			ideology = radical_socialist_subtype
+		}
+		hidden_effect = {
+			GUA_silverio_ortiz = {
+				if = {
+					limit = { NOT = { has_ideology = social_democrat_subtype } }
+					add_country_leader_role = {
+						country_leader = { ideology = social_democrat_subtype }
+					}
+				}
+			}
+			country_event = { id = cendem.7 days = 2 }
+		}
+	}
+}
+
+country_event = { #The Council Starts
+	id = cendem.6
+	title = cendem.6.t
+	desc = cendem.6.d
+	picture = GFX_report_event_ELS_government_house
+
+	is_triggered_only = yes
+
+	option = { #We welcome you all
+		log = "[GetLogInfo]: event cendem.6 option cendem.6.a"
+		name = cendem.6.a
+		country_event = { id = cendem.7 days = 7 }
+	}
+}
+
+country_event = { #What to do with our old enemies
+	id = cendem.7
+	title = cendem.7.t
+	desc = cendem.7.d
+
+	is_triggered_only = yes
+
+	option = { #Exile
+		log = "[GetLogInfo]: event cendem.7 option cendem.7.a"
+		name = cendem.7.a
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.05
+		}
+		country_event = { id = cendem.8 days = 7 }
+	}
+	option = { #Prison
+		log = "[GetLogInfo]: event cendem.7 option cendem.7.b"
+		name = cendem.7.b
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.05
+		}
+		country_event = { id = cendem.8 days = 7 }
+	}
+	option = { #Forced labour
+		log = "[GetLogInfo]: event cendem.7 option cendem.7.c"
+		name = cendem.7.c
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.1
+		}
+		country_event = { id = cendem.8 days = 7 }
+	}
+}
+
+country_event = { #Second Decision: Executive power President/Congress
+	id = cendem.8
+	title = cendem.8.t
+	desc = cendem.8.d
+
+	is_triggered_only = yes
+
+	option = { #The President
+		log = "[GetLogInfo]: event cendem.8 option cendem.8.a"
+		name = cendem.8.a
+		add_political_power = 50
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.05
+		}
+		country_event = { id = cendem.9 days = 3 }
+	}
+	option = { #The Congress
+		log = "[GetLogInfo]: event cendem.8 option cendem.8.b"
+		name = cendem.8.b
+		add_stability = 0.05
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.05
+		}
+		country_event = { id = cendem.9 days = 3 }
+	}
+}
+
+country_event = { #Third Decision: Constitutional supremacy, or local flexibility?
+	id = cendem.9
+	title = cendem.9.t
+	desc = cendem.9.d
+
+	is_triggered_only = yes
+
+	option = { #Constitution shall be absolute
+		log = "[GetLogInfo]: event cendem.9 option cendem.9.a"
+		name = cendem.9.a
+		add_political_power = 50
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.05
+		}
+		country_event = { id = cendem.10 days = 3 }
+	}
+	option = { #Flexible laws
+		log = "[GetLogInfo]: event cendem.9 option cendem.9.b"
+		name = cendem.9.b
+		add_stability = 0.05
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.05
+		}
+		country_event = { id = cendem.10 days = 3 }
+	}
+}
+country_event = { #Fourth Decision: Completely centralized Capital/ Splitting the capitals
+	id = cendem.10
+	title = cendem.10.t
+	desc = cendem.10.d
+
+	is_triggered_only = yes
+
+	option = { #Centralized Capital
+		log = "[GetLogInfo]: event cendem.10 option cendem.10.a"
+		name = cendem.10.a
+		add_political_power = 50
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.05
+		}
+		country_event = { id = cendem.11 days = 3 }
+	}
+	option = { #Separate Capitals
+		log = "[GetLogInfo]: event cendem.10 option cendem.10.b"
+		name = cendem.10.b
+		add_stability = 0.05
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.05
+		}
+		set_country_flag = CEN_Guatemala_chosen
+		set_country_flag = CEN_San_Salvador_chosen
+		set_country_flag = CEN_Tegucigalpa_chosen
+		set_country_flag = CEN_Managua_chosen
+		country_event = { id = cendem.12 days = 3 }
+	}
+}
+
+country_event = { #Fifth Decision A: Completely centralized Capital election
+	id = cendem.11
+	title = cendem.11.t
+	desc = cendem.11.d
+
+	is_triggered_only = yes
+
+	option = { #Ciudad de Guatemala
+		log = "[GetLogInfo]: event cendem.11 option cendem.11.a"
+		name = cendem.11.a
+		trigger = { owns_state = 313 }
+		set_capital = { state = 313 remember_old_capital = no }
+		country_event = { id = cendem.15 days = 3 }
+	}
+	option = { #El Salvador
+		log = "[GetLogInfo]: event cendem.11 option cendem.11.b"
+		name = cendem.11.b
+		trigger = { owns_state = 314 }
+		set_capital = { state = 314 remember_old_capital = no }
+		country_event = { id = cendem.15 days = 3 }
+	}
+	option = { #Tegucigalpa
+		log = "[GetLogInfo]: event cendem.11 option cendem.11.c"
+		name = cendem.11.c
+		trigger = { owns_state = 312 }
+		set_capital = { state = 312 remember_old_capital = no }
+		country_event = { id = cendem.15 days = 3 }
+	}
+	option = { #Managua
+		log = "[GetLogInfo]: event cendem.11 option cendem.11.e"
+		name = cendem.11.e
+		trigger = { owns_state = 317 }
+		set_capital = { state = 317 remember_old_capital = no }
+		country_event = { id = cendem.15 days = 3 }
+	}
+}
+
+country_event = { #Fifth Decision B: Executive Capital election
+	id = cendem.12
+	title = cendem.12.t
+	desc = cendem.12.d
+
+	is_triggered_only = yes
+
+	option = { #Ciudad de Guatemala
+		log = "[GetLogInfo]: event cendem.12 option cendem.12.a"
+		name = cendem.12.a
+		trigger = { owns_state = 313 }
+		set_capital = { state = 313 remember_old_capital = no }
+		clr_country_flag = CEN_Guatemala_chosen
+		country_event = { id = cendem.13 days = 3 }
+	}
+	option = { #El Salvador
+		log = "[GetLogInfo]: event cendem.12 option cendem.12.b"
+		name = cendem.12.b
+		trigger = { owns_state = 314 }
+		set_capital = { state = 314 remember_old_capital = no }
+		clr_country_flag = CEN_San_Salvador_chosen
+		country_event = { id = cendem.13 days = 3 }
+	}
+	option = { #Tegucigalpa
+		log = "[GetLogInfo]: event cendem.12 option cendem.12.c"
+		name = cendem.12.c
+		trigger = { owns_state = 312 }
+		set_capital = { state = 312 remember_old_capital = no }
+		clr_country_flag = CEN_Tegucigalpa_chosen
+		country_event = { id = cendem.13 days = 3 }
+	}
+	option = { #Managua
+		log = "[GetLogInfo]: event cendem.12 option cendem.12.e"
+		name = cendem.12.e
+		trigger = { owns_state = 317 }
+		set_capital = { state = 317 remember_old_capital = no }
+		clr_country_flag = CEN_Managua_chosen
+		country_event = { id = cendem.13 days = 3 }
+	}
+}
+country_event = { #Sixth Decision B: Judicial Capital election
+	id = cendem.13
+	title = cendem.13.t
+	desc = cendem.13.d
+
+	is_triggered_only = yes
+
+	option = { #Ciudad de Guatemala
+		log = "[GetLogInfo]: event cendem.13 option cendem.13.a"
+		name = cendem.13.a
+		trigger = {
+			has_country_flag = CEN_Guatemala_chosen
+		}
+		clr_country_flag = CEN_Guatemala_chosen
+		country_event = { id = cendem.14 days = 3 }
+	}
+	option = { #El Salvador
+		log = "[GetLogInfo]: event cendem.13 option cendem.13.b"
+		name = cendem.13.b
+		trigger = {
+			has_country_flag = CEN_San_Salvador_chosen
+		}
+		clr_country_flag = CEN_San_Salvador_chosen
+		country_event = { id = cendem.14 days = 3 }
+	}
+	option = { #Tegucigalpa
+		log = "[GetLogInfo]: event cendem.13 option cendem.13.c"
+		name = cendem.13.c
+		trigger = {
+			has_country_flag = CEN_Tegucigalpa_chosen
+		}
+		clr_country_flag = CEN_Tegucigalpa_chosen
+		country_event = { id = cendem.14 days = 3 }
+	}
+	option = { #Managua
+		log = "[GetLogInfo]: event cendem.13 option cendem.13.e"
+		name = cendem.13.e
+		trigger = {
+			has_country_flag = CEN_Managua_chosen
+		}
+		clr_country_flag = CEN_Managua_chosen
+		country_event = { id = cendem.14 days = 3 }
+	}
+}
+
+country_event = { #Sixth Decision B: Legislative Capital Election
+	id = cendem.14
+	title = cendem.14.t
+	desc = cendem.14.d
+
+	is_triggered_only = yes
+
+	option = { #Ciudad de Guatemala
+		log = "[GetLogInfo]: event cendem.14 option cendem.14.a"
+		name = cendem.14.a
+		trigger = {
+			has_country_flag = CEN_Guatemala_chosen
+		}
+		clr_country_flag = CEN_Guatemala_chosen
+		country_event = { id = cendem.15 days = 3 }
+	}
+	option = { #El Salvador
+		log = "[GetLogInfo]: event cendem.14 option cendem.14.b"
+		name = cendem.14.b
+		trigger = {
+			has_country_flag = CEN_San_Salvador_chosen
+		}
+		clr_country_flag = CEN_San_Salvador_chosen
+		country_event = { id = cendem.15 days = 3 }
+	}
+	option = { #Tegucigalpa
+		log = "[GetLogInfo]: event cendem.14 option cendem.14.c"
+		name = cendem.14.c
+		trigger = {
+			has_country_flag = CEN_Tegucigalpa_chosen
+		}
+		clr_country_flag = CEN_Tegucigalpa_chosen
+		country_event = { id = cendem.15 days = 3 }
+	}
+	option = { #Managua
+		log = "[GetLogInfo]: event cendem.14 option cendem.14.e"
+		name = cendem.14.e
+		trigger = {
+			has_country_flag = CEN_Managua_chosen
+		}
+		clr_country_flag = CEN_Managua_chosen
+		country_event = { id = cendem.15 days = 3 }
+	}
+}
+
+country_event = { #Status of the Armed forces Centralized approach/Decentralized Approach
+	id = cendem.15
+	title = cendem.15.t
+	desc = cendem.15.d
+
+	is_triggered_only = yes
+
+	option = { #Confederate Army
+		log = "[GetLogInfo]: event cendem.15 option cendem.15.a"
+		name = cendem.15.a
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.1
+		}
+		add_stability = 0.05
+		set_country_flag = CEN_confederate_army
+		country_event = { id = cendem.16 days = 3 }
+	}
+	option = { #Middle Ground
+		log = "[GetLogInfo]: event cendem.15 option cendem.15.b"
+		name = cendem.15.b
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.05
+		}
+		add_political_power = 25
+		add_stability = 0.025
+		set_country_flag = CEN_middle_option_army
+		country_event = { id = cendem.16 days = 3 }
+	}
+	option = { #Federal Army
+		log = "[GetLogInfo]: event cendem.15 option cendem.15.c"
+		name = cendem.15.c
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.05
+		}
+		add_political_power = 50
+		set_country_flag = CEN_federal_army
+		country_event = { id = cendem.16 days = 3 }
+	}
+}
+
+country_event = { #Provisional Cabinet Formation
+	id = cendem.16
+	title = cendem.16.t
+	desc = cendem.16.d
+
+	is_triggered_only = yes
+
+	option = { #It is a temporary solution until a formal Election is made
+		log = "[GetLogInfo]: event cendem.16 option cendem.16.a"
+		name = cendem.16.a
+	}
+}
+
+country_event = { #The snap election
+	id = cendem.19
+	title = cendem.19.t
+	desc = cendem.19.d
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #Soc. Dems. win
+		log = "[GetLogInfo]: event cendem.19 option cendem.19.a"
+		name = cendem.19.a
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_SOCCON }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_MARLIB }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_SOCLIB }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_RADSOC }
+				}
+			}
+		}
+		CEN_restore_socdem_president = yes
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = social_democrat
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 48
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.15
+		}
+		unlock_national_focus = CEN_DEM_Soc_Dem
+		hidden_effect = {
+			promote_character = {
+				character = GUA_jose_azmitia_gonzalez
+				ideology = social_conservative_subtype
+			}
+		}
+	}
+	option = { #Soc. Libs win
+		log = "[GetLogInfo]: event cendem.19 option cendem.19.b"
+		name = cendem.19.b
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_SOCCON }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_MARLIB }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_SOCDEM }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_RADSOC }
+				}
+			}
+		}
+		CEN_restore_socdem_president = yes
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = social_liberal
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 48
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.15
+		}
+		unlock_national_focus = CEN_DEM_Soc_Lib
+		hidden_effect = {
+			promote_character = {
+				character = GUA_jose_azmitia_gonzalez
+				ideology = social_conservative_subtype
+			}
+		}
+	}
+	option = { #Mar.libs win
+		log = "[GetLogInfo]: event cendem.19 option cendem.19.c"
+		name = cendem.19.c
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_SOCCON }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_SOCDEM }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_SOCLIB }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_RADSOC }
+				}
+			}
+		}
+		CEN_restore_socdem_president = yes
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = market_liberal
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 48
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.15
+		}
+		unlock_national_focus = CEN_DEM_Mar_Lib
+		hidden_effect = {
+			promote_character = {
+				character = GUA_jose_azmitia_gonzalez
+				ideology = social_conservative_subtype
+			}
+		}
+	}
+	option = { #Soc.Cons win
+		log = "[GetLogInfo]: event cendem.19 option cendem.19.e"
+		name = cendem.19.e
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_MARLIB }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_SOCDEM }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_SOCLIB }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_RADSOC }
+				}
+			}
+		}
+		CEN_restore_socdem_president = yes
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = social_conservative
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 48
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.15
+		}
+		unlock_national_focus = CEN_DEM_Soc_Con
+		hidden_effect = {
+			promote_character = {
+				character = GUA_jose_azmitia_gonzalez
+				ideology = social_conservative_subtype
+			}
+		}
+	}
+	option = { #Rad.socs. win
+		log = "[GetLogInfo]: event cendem.19 option cendem.19.f"
+		name = cendem.19.f
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_SOCCON }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_SOCDEM }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_SOCLIB }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_MARLIB }
+				}
+			}
+		}
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = social_democrat
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 48
+					elections_allowed = yes
+					name = CEN_radical_socialist_party
+					long_name = CEN_radical_socialist_party_long
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		promote_character = {
+			character = GUA_silverio_ortiz
+			ideology = social_democrat_subtype
+		}
+		set_temp_variable = { coalition_partner_var = token:radical_socialist }
+		add_to_coalition = yes
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.1
+		}
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = 0.05
+		}
+		unlock_national_focus = CEN_DEM_Rad_Soc
+		hidden_effect = {
+			promote_character = {
+				character = GUA_jose_azmitia_gonzalez
+				ideology = social_conservative_subtype
+			}
+		}
+	}
+}
+
+country_event = { #Elections of [GetYear]
+	id = cendem.20
+	title = cendem.20.t
+	desc = cendem.20.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_elected_government = yes
+	}
+
+	option = { #Soc. Dems. win
+		log = "[GetLogInfo]: event cendem.20 option cendem.20.a"
+		name = cendem.20.a
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_SOCCON }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_RADSOC }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_SOCLIB }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_MARLIB }
+				}
+			}
+		}
+		CEN_restore_socdem_president = yes
+		set_politics = {
+			ruling_party = social_democrat
+			elections_allowed = yes
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.15
+		}
+		unlock_national_focus = CEN_DEM_Soc_Dem
+		hidden_effect = { CEN_setup_new_presidents = yes }
+	}
+	option = { #Soc. Libs win
+		log = "[GetLogInfo]: event cendem.20 option cendem.20.b"
+		name = cendem.20.b
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_SOCCON }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_SOCDEM }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_RADSOC }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_MARLIB }
+				}
+			}
+		}
+		CEN_restore_socdem_president = yes
+		set_politics = {
+			ruling_party = social_liberal
+			elections_allowed = yes
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.15
+		}
+		unlock_national_focus = CEN_DEM_Soc_Lib
+		hidden_effect = { CEN_setup_new_presidents = yes }
+	}
+	option = { #Mar.libs win
+		log = "[GetLogInfo]: event cendem.20 option cendem.20.c"
+		name = cendem.20.c
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_SOCCON }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_SOCDEM }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_SOCLIB }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_RADSOC }
+				}
+			}
+		}
+		CEN_restore_socdem_president = yes
+		set_politics = {
+			ruling_party = market_liberal
+			elections_allowed = yes
+		}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.15
+		}
+		unlock_national_focus = CEN_DEM_Mar_Lib
+		hidden_effect = { CEN_setup_new_presidents = yes }
+	}
+	option = { #Soc.Cons win
+		log = "[GetLogInfo]: event cendem.20 option cendem.20.e"
+		name = cendem.20.e
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_RADSOC }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_SOCDEM }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_SOCLIB }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_MARLIB }
+				}
+			}
+		}
+		CEN_restore_socdem_president = yes
+		set_politics = {
+			ruling_party = social_conservative
+			elections_allowed = yes
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.15
+		}
+		unlock_national_focus = CEN_DEM_Soc_Con
+		hidden_effect = { CEN_setup_new_presidents = yes }
+	}
+	option = { #Rad.socs. win
+		log = "[GetLogInfo]: event cendem.20 option cendem.20.f"
+		name = cendem.20.f
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_SOCCON }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_SOCDEM }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_SOCLIB }
+					has_game_rule = { rule = CEN_dem_path option = CEN_DEM_PATH_MARLIB }
+				}
+			}
+		}
+		if = {
+			limit = { has_country_flag = CEN_arbenz_leads }
+			if = {
+				limit = { NOT = { has_country_leader = { character = GUA_jacobo_arbenz } } }
+				set_politics = {
+					ruling_party = social_democrat
+					elections_allowed = yes
+					name = CEN_radical_socialist_party
+					long_name = CEN_radical_socialist_party_long
+				}
+				promote_character = GUA_jacobo_arbenz
+			}
+		}
+		else = {
+			if = {
+				limit = { NOT = { has_country_leader = { character = GUA_silverio_ortiz } } }
+				set_politics = {
+					ruling_party = social_democrat
+					elections_allowed = yes
+					name = CEN_radical_socialist_party
+					long_name = CEN_radical_socialist_party_long
+				}
+				promote_character = {
+					character = GUA_silverio_ortiz
+					ideology = social_democrat_subtype
+				}
+			}
+		}
+		set_temp_variable = { coalition_partner_var = token:radical_socialist }
+		add_to_coalition = yes
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.1
+		}
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = 0.05
+		}
+		unlock_national_focus = CEN_DEM_Rad_Soc
+		hidden_effect = { CEN_setup_new_presidents = yes }
+	}
+}
+
+country_event = { #Changes in the parties, Soc.Dem.
+	id = cendem.30
+	title = cendem.30.t
+	desc = cendem.30.d
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #Choose Jacobo Arbenz
+		log = "[GetLogInfo]: event cendem.30 option cendem.30.a"
+		name = cendem.30.a
+		ai_chance = { base = 60 }
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.01
+		}
+		add_political_power = 25
+		if = {
+			limit = { has_government = social_democrat }
+			set_country_flag = CEN_create_arbenz
+		}
+		else = {
+			promote_character = GUA_jacobo_arbenz
+		}
+	}
+	option = { #Choose Juan José Arévalo
+		log = "[GetLogInfo]: event cendem.30 option cendem.30.b"
+		name = cendem.30.b
+		ai_chance = { base = 40 }
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.01
+		}
+		add_political_power = 25
+		if = {
+			limit = { has_government = social_democrat }
+			set_country_flag = CEN_create_arevalo
+		}
+		else = {
+			promote_character = GUA_juan_jose_arevalo_bermejo
+		}
+		hidden_effect = {
+			country_event = { id = cendem.32 days = 400 }
+		}
+	}
+}
+
+country_event = { #Changes in the parties, Soc.libs
+	id = cendem.31
+	title = cendem.31.t
+	desc = cendem.31.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #Sacassa remains as the leader
+		log = "[GetLogInfo]: event cendem.31 option cendem.31.a"
+		name = cendem.31.a
+		ai_chance = { base = 70 }
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.01
+		}
+		add_political_power = 25
+	}
+	option = { #Molinas becomes the new leader
+		log = "[GetLogInfo]: event cendem.31 option cendem.31.b"
+		name = cendem.31.b
+		ai_chance = { base = 30 }
+		add_popularity = {
+			ideology = social_liberal
+			popularity = -0.05
+		}
+		add_political_power = -25
+		add_stability = -0.05
+		if = {
+			limit = { has_government = social_liberal }
+			set_country_flag = CEN_create_molina
+		}
+		else = {
+			promote_character = ELS_alfonso_quinonez_molina
+		}
+	}
+}
+
+country_event = { #Changes in the parties, Soc.dems.
+	id = cendem.32
+	immediate = {
+		hidden_effect = {
+			country_event = { id = cendem.30 months = 36 }
+		}
+	}
+	title = cendem.32.t
+	desc = cendem.32.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #Choose Ramon Villeda Morales
+		log = "[GetLogInfo]: event cendem.32 option cendem.32.a"
+		name = cendem.32.a
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.01
+		}
+		add_political_power = 25
+		if = {
+			limit = { has_government = social_democrat }
+			set_country_flag = CEN_create_morales
+		}
+		else = {
+			promote_character = HON_jose_ramon_adolfo_villeda_morales
+		}
+	}
+	option = { #Choose Francisco Moreno
+		log = "[GetLogInfo]: event cendem.32 option cendem.32.b"
+		name = cendem.32.b
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.01
+		}
+		add_political_power = 25
+		if = {
+			limit = { has_government = social_democrat }
+			set_country_flag = CEN_create_moreno
+		}
+		else = {
+			promote_character = {
+				character = NIC_francisco_sequeira_moreno
+				ideology = social_democrat_subtype
+			}
+		}
+	}
+}
+
+country_event = { #Arbenz Joins the Rad.socs.
+	id = cendem.34
+	title = cendem.34.t
+	desc = cendem.34.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #He's welcome
+		log = "[GetLogInfo]: event cendem.34 option cendem.34.a"
+		name = cendem.34.a
+		add_political_power = 25
+		set_country_flag = CEN_arbenz_leads
+		promote_character = GUA_jacobo_arbenz
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = 0.01
+		}
+	}
+}
+
+#Flavour stuff for the Tree
+country_event = { #Partido del Trabajo protests!
+	id = cendem.37
+	title = cendem.37.t
+	desc = cendem.37.d
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #Damn socialists
+		log = "[GetLogInfo]: event cendem.37 option cendem.37.a"
+		name = cendem.37.a
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.05
+		}
+		add_political_power = -50
+		add_stability = -0.05
+	}
+}
+
+country_event = { #Central America requests our integration
+	id = cendem.39
+	title = cendem.39.t
+	desc = cendem.39.d
+
+	is_triggered_only = yes
+
+	option = { #Agree to their demands
+		log = "[GetLogInfo]: event cendem.39 option cendem.39.a"
+		name = cendem.39.a
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = COS_forpol option = COS_FORPOL_GER }
+					has_game_rule = { rule = COS_forpol option = COS_FORPOL_NEUT }
+					AND = {
+						has_game_rule = { rule = COS_forpol option = COS_FORPOL_ENT }
+						NOT = {
+							has_game_rule = { rule = CEN_forpol option = CEN_FORPOL_ENT }
+							CEN = { is_in_faction_with = ENT }
+						}
+					}
+				}
+			}
+		}
+		FROM = { country_event = { id = cendem.40 days = 3 } }
+	}
+
+	option = { #Agree to join them, but remain independent
+		log = "[GetLogInfo]: event cendem.39 option cendem.39.b"
+		name = cendem.39.b
+		ai_chance = { base = 0 }
+		FROM = { country_event = { id = cendem.41 days = 3 } }
+	}
+
+	option = { #Refuse to join them
+		log = "[GetLogInfo]: event cendem.39 option cendem.39.c"
+		name = cendem.39.c
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 100
+				OR = {
+					has_game_rule = { rule = COS_forpol option = COS_FORPOL_GER }
+					has_game_rule = { rule = COS_forpol option = COS_FORPOL_NEUT }
+					AND = {
+						has_game_rule = { rule = COS_forpol option = COS_FORPOL_ENT }
+						NOT = {
+							has_game_rule = { rule = CEN_forpol option = CEN_FORPOL_ENT }
+							CEN = { is_in_faction_with = ENT }
+						}
+					}
+				}
+			}
+		}
+		FROM = { country_event = { id = cendem.42 days = 3 } }
+	}
+}
+
+country_event = { #Costa Rica accepts to integrate
+	id = cendem.40
+	title = cendem.40.t
+	desc = cendem.40.d
+
+	is_triggered_only = yes
+
+	option = { #Wonderful!
+		log = "[GetLogInfo]: event cendem.40 option cendem.40.a"
+		name = cendem.40.a
+		add_political_power = 100
+		add_stability = 0.10
+		annex_country = {
+			target = FROM
+		}
+	}
+}
+
+country_event = { #Costa Rica demands autonomy within the union
+	id = cendem.41
+	title = cendem.41.t
+	desc = cendem.41.d
+
+	is_triggered_only = yes
+
+	option = { #We accept
+		log = "[GetLogInfo]: event cendem.41 option cendem.41.a"
+		name = cendem.41.a
+		ai_chance = { base = 100 }
+		FROM = { country_event = { id = cendem.43 days = 3 } }
+	}
+
+	option = { #We won't let this stand!
+		log = "[GetLogInfo]: event cendem.41 option cendem.41.b"
+		name = cendem.41.b
+		ai_chance = { base = 0 }
+		create_wargoal = {
+			type = annex_everything
+			target = FROM
+		}
+		hidden_effect = {
+			country_event = { id = cendem.104 days = 7 }
+		}
+	}
+}
+
+country_event = { #Costa Rica refuses to join
+	id = cendem.42
+	title = cendem.42.t
+	desc = cendem.42.d
+
+	is_triggered_only = yes
+
+	option = { #Well, it is what it is
+		log = "[GetLogInfo]: event cendem.42 option cendem.42.a"
+		name = cendem.42.a
+		ai_chance = { base = 100 }
+	}
+
+	option = { #We won't let this stand!
+		log = "[GetLogInfo]: event cendem.42 option cendem.42.b"
+		name = cendem.42.b
+		ai_chance = { base = 0 }
+		create_wargoal = {
+			type = annex_everything
+			target = FROM
+		}
+		hidden_effect = {
+			country_event = { id = cendem.104 days = 7 }
+		}
+	}
+}
+
+country_event = { #Central America accepts our request
+	id = cendem.43
+	title = cendem.43.t
+	desc = cendem.43.d
+
+	is_triggered_only = yes
+
+	option = { #We accept
+		log = "[GetLogInfo]: event cendem.43 option cendem.43.a"
+		name = cendem.43.a
+		if = {
+			limit = { is_in_faction = yes }
+			faction_leader = { country_event = cendem.44 }
+			leave_faction = yes
+		}
+		separate_peace_all_wars = yes
+		get_current_government_type = yes
+		FROM = {
+			set_autonomy = {
+				target = ROOT
+				autonomy_state = kr_integrated_puppet
+				end_wars = no
+			}
+		}
+		restore_previous_government_type = yes
+	}
+}
+
+country_event = { #Puppet Costa Rica joins Central America!
+	id = cendem.44
+	title = cendem.44.t
+	desc = cendem.44.d
+
+	is_triggered_only = yes
+
+	option = { #Very well
+		log = "[GetLogInfo]: event cendem.44 option cendem.44.a"
+		name = cendem.44.a
+	}
+}
+
+country_event = { #Central America requests our integration
+	id = cendem.46
+	title = cendem.46.t
+	desc = cendem.46.d
+
+	is_triggered_only = yes
+
+	option = { #Agree to their demands
+		log = "[GetLogInfo]: event cendem.46 option cendem.46.a"
+		name = cendem.46.a
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = PAN_crisis option = PAN_CRISIS_ENT }
+				NOT = {
+					has_game_rule = { rule = CEN_forpol option = CEN_FORPOL_ENT }
+					CEN = { is_in_faction_with = ENT }
+				}
+			}
+		}
+		FROM = { country_event = { id = cendem.47 days = 3 } }
+	}
+
+	option = { #Agree to join them, but remain independent
+		log = "[GetLogInfo]: event cendem.46 option cendem.46.b"
+		name = cendem.46.b
+		ai_chance = { base = 0 }
+		FROM = { country_event = { id = cendem.48 days = 3 } }
+	}
+
+	option = { #Refuse to join them
+		log = "[GetLogInfo]: event cendem.46 option cendem.46.c"
+		name = cendem.46.c
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 100
+				has_game_rule = { rule = PAN_crisis option = PAN_CRISIS_ENT }
+				NOT = {
+					has_game_rule = { rule = CEN_forpol option = CEN_FORPOL_ENT }
+					CEN = { is_in_faction_with = ENT }
+				}
+			}
+		}
+		FROM = { country_event = { id = cendem.49 days = 3 } }
+	}
+}
+
+country_event = { #Panama accepts to integrate
+	id = cendem.47
+	title = cendem.47.t
+	desc = cendem.47.d
+
+	is_triggered_only = yes
+
+	option = { #Wonderful!
+		log = "[GetLogInfo]: event cendem.47 option cendem.47.a"
+		name = cendem.47.a
+		add_political_power = 100
+		add_stability = 0.10
+		annex_country = {
+			target = FROM
+		}
+	}
+}
+
+country_event = { #Panama demands autonomy within the union
+	id = cendem.48
+	title = cendem.48.t
+	desc = cendem.48.d
+
+	is_triggered_only = yes
+
+	option = { #We accept
+		log = "[GetLogInfo]: event cendem.48 option cendem.48.a"
+		name = cendem.48.a
+		ai_chance = { base = 100 }
+		FROM = { country_event = { id = cendem.50 days = 3 } }
+	}
+
+	option = { #We won't let this stand!
+		log = "[GetLogInfo]: event cendem.48 option cendem.48.b"
+		name = cendem.48.b
+		ai_chance = { base = 0 }
+		create_wargoal = {
+			type = annex_everything
+			target = FROM
+		}
+		hidden_effect = {
+			country_event = { id = cendem.104 days = 7 }
+		}
+	}
+}
+
+country_event = { #Panama refuses to join
+	id = cendem.49
+	title = cendem.49.t
+	desc = cendem.49.d
+
+	is_triggered_only = yes
+
+	option = { #Well, it is what it is
+		log = "[GetLogInfo]: event cendem.49 option cendem.49.a"
+		name = cendem.49.a
+		ai_chance = { base = 100 }
+	}
+
+	option = { #We won't let this stand!
+		log = "[GetLogInfo]: event cendem.49 option cendem.49.b"
+		name = cendem.49.b
+		ai_chance = { base = 0 }
+		create_wargoal = {
+			type = annex_everything
+			target = FROM
+		}
+		hidden_effect = {
+			country_event = { id = cendem.104 days = 7 }
+		}
+	}
+}
+
+country_event = { #Central America accepts our request
+	id = cendem.50
+	title = cendem.50.t
+	desc = cendem.50.d
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #We accept
+		log = "[GetLogInfo]: event cendem.50 option cendem.50.a"
+		name = cendem.50.a
+		if = {
+			limit = { is_in_faction = yes }
+			faction_leader = { country_event = cendem.51 }
+			leave_faction = yes
+		}
+		separate_peace_all_wars = yes
+		get_current_government_type = yes
+		FROM = {
+			set_autonomy = {
+				target = ROOT
+				autonomy_state = kr_integrated_puppet
+				end_wars = no
+			}
+		}
+		restore_previous_government_type = yes
+	}
+}
+
+country_event = { #Puppet Panama joins Central America!
+	id = cendem.51
+	title = cendem.51.t
+	desc = cendem.51.d
+
+	is_triggered_only = yes
+
+	option = { #Very well
+		log = "[GetLogInfo]: event cendem.51 option cendem.51.a"
+		name = cendem.51.a
+	}
+}
+##Flavour stuff
+#Opening Universities in Central America
+country_event = { #Foundation of the Universidad Zamorano
+	id = cendem.100
+	title = cendem.100.t
+	desc = cendem.100.d
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #Great!
+		log = "[GetLogInfo]: event cendem.100 option cendem.100.a"
+		name = cendem.100.a
+		add_political_power = 25
+		country_event = { id = cendem.101 days = 45 }
+	}
+}
+
+country_event = { #Foundation of the Universidad Centroamericana
+	id = cendem.101
+	title = cendem.101.t
+	desc = cendem.101.d
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #The Spirit of the Union is spreading
+		log = "[GetLogInfo]: event cendem.101 option cendem.101.a"
+		name = cendem.101.a
+		add_political_power = 25
+		country_event = { id = cendem.102 days = 45 }
+	}
+}
+
+country_event = { #Construction of the Ciudad Universitaria 'Dr. Fabio Castillo Figueroa'
+	id = cendem.102
+	title = cendem.102.t
+	desc = cendem.102.d
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #El Salvador will be a place of knowledge, rather than reaction!
+		log = "[GetLogInfo]: event cendem.102 option cendem.102.a"
+		name = cendem.102.a
+		add_political_power = 25
+		country_event = { id = cendem.103 days = 45 }
+	}
+}
+
+country_event = { #Autonomization of the Universidad Nacional Autónoma de Honduras
+	id = cendem.103
+	title = cendem.103.t
+	desc = cendem.103.d
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #Honduras has its education freed from oppression
+		log = "[GetLogInfo]: event cendem.103 option cendem.103.a"
+		name = cendem.103.a
+		add_political_power = 25
+		country_event = { id = cendem.105 days = 45 }
+	}
+}
+
+country_event = { #Democrats Protest our intervention!
+	id = cendem.104
+	title = cendem.104.t
+	desc = cendem.104.d
+	is_triggered_only = yes
+
+	option = { #Damnit!
+		log = "[GetLogInfo]: event cendem.104 option cendem.104.a"
+		name = cendem.104.a
+		add_political_power = -100
+		add_stability = -0.30
+		add_popularity = {
+			ideology = social_conservative
+			popularity = -0.20
+		}
+	}
+}
+
+country_event = { #Universidad de San Carlos de Guatemala becomes autonomous after years of state oppression
+	id = cendem.105
+	title = cendem.105.t
+	desc = cendem.105.d
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #Great!
+		log = "[GetLogInfo]: event cendem.105 option cendem.105.a"
+		name = cendem.105.a
+		add_political_power = 25
+	}
+}
+
+country_event = { #The Book "El Presidente" is published
+	id = cendem.106
+	title = cendem.106.t
+	desc = cendem.106.d
+
+	trigger = {
+		has_elected_government = yes
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #A great work of literature!
+		log = "[GetLogInfo]: event cendem.106 option cendem.106.a"
+		name = cendem.106.a
+		add_political_power = 10
+	}
+}
+
+country_event = { #Expenditure of a new passport with Central American Identity
+	id = cendem.107
+	title = cendem.107.t
+	desc = cendem.107.d
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #Another step to unite our nation
+		log = "[GetLogInfo]: event cendem.107 option cendem.107.a"
+		name = cendem.107.a
+		add_stability = 0.10
+		add_political_power = 25
+	}
+}
+
+country_event = { #The Central American Bank is founded!
+	id = cendem.108
+	title = cendem.108.t
+	desc = cendem.108.d
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #Uniting our efforts, we can truly achieve greatness
+		log = "[GetLogInfo]: event cendem.108 option cendem.51.a"
+		name = cendem.51.a
+		add_political_power = 200
+	}
+}
+
+country_event = { #Our Farmers are suffering from our autarky efforts
+	id = cendem.109
+	title = cendem.109.t
+	desc = cendem.109.d
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #Dammit
+		log = "[GetLogInfo]: event cendem.109 option cendem.109.a"
+		name = cendem.109.a
+		add_political_power = -25
+	}
+}
+
+country_event = { #No Resources have been found in order to stop depending on Exports
+	id = cendem.110
+	title = cendem.110.t
+	desc = cendem.110.d
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #Dammit!
+		log = "[GetLogInfo]: event cendem.110 option cendem.110.a"
+		name = cendem.110.a
+		add_political_power = -25
+	}
+}
+
+country_event = { #Industry grew, but not to the level we expected
+	id = cendem.111
+	title = cendem.111.t
+	desc = cendem.111.d
+
+	trigger = {
+		has_completed_focus = CEN_DEM_just_kill_my_workers_already
+		has_completed_focus = CEN_DEM_i_hate_cash_crops
+		has_completed_focus = CEN_DEM_need_the_bank
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #Dammit, it seems autarky is impossible
+		log = "[GetLogInfo]: event cendem.111 option cendem.111.a"
+		name = cendem.111.a
+		add_political_power = -25
+	}
+}
+
+country_event = { #Equal laws for an equal people
+	id = cendem.112
+	title = cendem.112.t
+	desc = cendem.112.d
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #Diversity is not a weakness, it's a strength!
+		log = "[GetLogInfo]: event cendem.112 option cendem.112.a"
+		name = cendem.112.a
+		add_political_power = -25
+	}
+}
+
+country_event = { #New set of laws put in place to sideline the military
+	id = cendem.113
+	title = cendem.113.t
+	desc = cendem.113.d
+	is_triggered_only = yes
+
+	option = { #We seek to avoid the errors of the past
+		log = "[GetLogInfo]: event cendem.113 option cendem.113.a"
+		name = cendem.113.a
+		add_political_power = 100
+	}
+}
+
+country_event = { #Corruption Trials start
+	id = cendem.114
+	title = cendem.114.t
+	desc = cendem.114.d
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #Money can't save you from the swift hammer of Justice!
+		log = "[GetLogInfo]: event cendem.114 option cendem.114.a"
+		name = cendem.114.a
+		add_political_power = 25
+		hidden_effect = {
+			country_event = { id = cendem.116 days = 70 }
+		}
+	}
+}
+
+country_event = { #Corruption Trials end
+	id = cendem.116
+	title = cendem.116.t
+	desc = cendem.116.d
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #Jesus, THAT'S A LOT OF NAMES
+		log = "[GetLogInfo]: event cendem.116 option cendem.116.a"
+		name = cendem.116.a
+		add_political_power = 100
+	}
+}
+
+country_event = { #Nationalization laws create controversy
+	id = cendem.115
+	title = cendem.115.t
+	desc = cendem.115.d
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #Our friends in the PT stand with us, regardless of the others' opinion
+		log = "[GetLogInfo]: event cendem.115 option cendem.115.a"
+		name = cendem.115.a
+		add_political_power = -25
+	}
+}
+
+#Friendship Events
+country_event = { #hidden event to auto-refuse if they become hostile (donotlog)
+	id = cendem.200
+
+	trigger = {
+		NOT = { has_war_with = FROM }
+	}
+
+	is_triggered_only = yes
+	hidden = yes
+
+	option = {
+		if = {
+			limit = { at_war_with_or_justifying_wargoal_against_FROM = yes }
+			FROM = { country_event = { id = cendem.203 days = 2 } }
+		}
+		else = {
+			country_event = cendem.201
+		}
+	}
+}
+
+country_event = { #Central America wants to become friends
+	id = cendem.201
+	title = cendem.201.t
+	desc = cendem.201.d
+
+	is_triggered_only = yes
+
+	option = { #Pleasure doing business
+		log = "[GetLogInfo]: event cendem.201 option cendem.201.a"
+		name = cendem.201.a
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0
+				has_any_authoritarian_government = yes
+				FROM.FROM = { any_owned_state = { is_claimed_by = ROOT } }
+			}
+			modifier = {
+				factor = 0
+				has_government = totalist
+				FROM.FROM = { has_socialist_government = no }
+			}
+		}
+		FROM.FROM = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = KR_pleased
+			}
+			every_owned_state = {
+				limit = { is_claimed_by = ROOT }
+				remove_claim_by = ROOT
+			}
+			country_event = { id = cendem.202 days = 2 }
+		}
+	}
+
+	option = { #I'm a bad player who enjoys the suffering of Central America
+		log = "[GetLogInfo]: event cendem.201 option cendem.201.b"
+		name = cendem.201.b
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 1
+				has_any_authoritarian_government = yes
+				FROM.FROM = { any_owned_state = { is_claimed_by = ROOT } }
+			}
+			modifier = {
+				add = 1
+				has_government = totalist
+				FROM.FROM = { has_socialist_government = no }
+			}
+		}
+		add_political_power = -50
+		FROM.FROM = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = KR_disapproves_of_govt
+			}
+			country_event = { id = cendem.203 days = 2 }
+		}
+	}
+}
+
+country_event = { #Friendship with Costa Rica accepted
+	id = cendem.202
+	title = cendem.202.t
+	desc = cendem.202.d
+
+	trigger = {
+		at_war_with_or_justifying_wargoal_against_FROM = no
+	}
+
+	is_triggered_only = yes
+
+	option = { #Yaaay
+		log = "[GetLogInfo]: event cendem.202 option cendem.202.a"
+		name = cendem.202.a
+		add_political_power = 25
+		diplomatic_relation = {
+			country = FROM
+			relation = non_aggression_pact
+		}
+		FROM = {
+			every_owned_state = {
+				limit = { is_claimed_by = ROOT }
+				remove_claim_by = ROOT
+			}
+		}
+	}
+}
+
+country_event = { #Friendship with Costa Rica Refused
+	id = cendem.203
+	title = cendem.203.t
+	desc = cendem.203.d
+
+	trigger = {
+		at_war_with_or_justifying_wargoal_against_FROM = no
+	}
+
+	is_triggered_only = yes
+
+	option = { #Welp
+		log = "[GetLogInfo]: event cendem.203 option cendem.203.a"
+		name = cendem.203.a
+		effect_tooltip = {
+			add_opinion_modifier = {
+				target = FROM
+				modifier = KR_disapproves_of_govt
+			}
+		}
+	}
+}
+
+country_event = { #Democratic Central America asks to join the Entente
+	id = cendem.226
+	title = cendem.226.t
+	desc = cendem.226.d
+
+	is_triggered_only = yes
+
+	option = { #Pleasure doing bussiness
+		log = "[GetLogInfo]: event cendem.226 option cendem.226.a"
+		name = cendem.226.a
+		FROM = { country_event = cendem.227 }
+	}
+
+	option = { #Fuck Central America
+		log = "[GetLogInfo]: event cendem.226 option cendem.226.b"
+		name = cendem.226.b
+		ai_chance = { base = 0 }
+		FROM = { country_event = cendem.228 }
+	}
+}
+
+country_event = { #Canadians accept
+	id = cendem.227
+	title = cendem.227.t
+	desc = cendem.227.d
+
+	is_triggered_only = yes
+
+	option = { #Yaaay
+		log = "[GetLogInfo]: event cendem.227 option cendem.227.a"
+		name = cendem.227.a
+		add_political_power = -25
+		FROM = { add_to_faction = ROOT }
+	}
+}
+country_event = { #Canadians refuse
+	id = cendem.228
+	title = cendem.228.t
+	desc = cendem.228.d
+
+	is_triggered_only = yes
+
+	option = { #Yaaay
+		log = "[GetLogInfo]: event cendem.228 option cendem.228.a"
+		name = cendem.228.a
+		add_political_power = -25
+	}
+}
+
+country_event = { #Central America Wants our support to stay neutral (Canada)
+	id = cendem.235
+	title = cendem.235.t
+	desc = cendem.235.d
+
+	is_triggered_only = yes
+
+	option = { #Pleasure doing bussiness
+		log = "[GetLogInfo]: event cendem.235 option cendem.235.a"
+		name = cendem.235.a
+		add_opinion_modifier = {
+			target = CEN
+			modifier = CEN_accepted_friendship
+		}
+		hidden_effect = {
+			reverse_add_opinion_modifier = {
+				target = CEN
+				modifier = CEN_accepted_friendship
+			}
+			CEN = {
+				country_event = { id = cendem.236 days = 2 }
+			}
+		}
+	}
+	option = { #I'm a bad Canada player who enjoys the suffering of Central America
+		log = "[GetLogInfo]: event cendem.235 option cendem.235.b"
+		name = cendem.235.b
+		ai_chance = { base = 0 }
+		add_political_power = -50
+		add_opinion_modifier = {
+			target = CEN
+			modifier = CEN_refused_friendship
+		}
+		hidden_effect = {
+			reverse_add_opinion_modifier = {
+				target = CEN
+				modifier = CEN_refused_friendship
+			}
+			CEN = {
+				country_event = { id = cendem.237 days = 2 }
+			}
+		}
+	}
+}
+
+country_event = { #Canada accepts to guarantee us
+	id = cendem.236
+	title = cendem.236.t
+	desc = cendem.236.d
+
+	is_triggered_only = yes
+
+	option = { #Yaaay
+		log = "[GetLogInfo]: event cendem.236 option cendem.236.a"
+		name = cendem.236.a
+		add_political_power = 25
+		FROM = { give_guarantee = ROOT }
+	}
+}
+
+country_event = { #Canada Refuses to Guarantee us
+	id = cendem.237
+	title = cendem.237.t
+	desc = cendem.237.d
+
+	is_triggered_only = yes
+
+	option = { #Yaaay
+		log = "[GetLogInfo]: event cendem.237 option cendem.237.a"
+		name = cendem.237.a
+		add_political_power = -25
+	}
+}
+
+country_event = { #Central America Wants our support to stay neutral (USA)
+	id = cendem.238
+	title = cendem.238.t
+	desc = cendem.238.d
+
+	is_triggered_only = yes
+
+	option = { #Pleasure doing bussiness
+		log = "[GetLogInfo]: event cendem.238 option cendem.238.a"
+		name = cendem.238.a
+		add_opinion_modifier = {
+			target = CEN
+			modifier = CEN_accepted_friendship
+		}
+		hidden_effect = {
+			reverse_add_opinion_modifier = {
+				target = CEN
+				modifier = CEN_accepted_friendship
+			}
+			CEN = {
+				country_event = { id = cendem.239 days = 2 }
+			}
+		}
+	}
+	option = { #I'm a bad USA player who enjoys the suffering of Central America
+		log = "[GetLogInfo]: event cendem.238 option cendem.238.b"
+		name = cendem.238.b
+		ai_chance = { base = 0 }
+		add_political_power = -50
+		add_opinion_modifier = {
+			target = CEN
+			modifier = CEN_refused_friendship
+		}
+		hidden_effect = {
+			reverse_add_opinion_modifier = {
+				target = CEN
+				modifier = CEN_refused_friendship
+			}
+			CEN = {
+				country_event = { id = cendem.240 days = 2 }
+			}
+		}
+	}
+}
+
+country_event = { #The US accepts to guarantee us
+	id = cendem.239
+	title = cendem.239.t
+	desc = cendem.239.d
+
+	is_triggered_only = yes
+
+	option = { #Yaaay
+		log = "[GetLogInfo]: event cendem.239 option cendem.239.a"
+		name = cendem.239.a
+		add_political_power = 25
+		FROM = { give_guarantee = ROOT }
+	}
+}
+
+country_event = { #The US Refuses to Guarantee us
+	id = cendem.240
+	title = cendem.240.t
+	desc = cendem.240.d
+
+	is_triggered_only = yes
+
+	option = { #Yaaay?
+		log = "[GetLogInfo]: event cendem.240 option cendem.237.a"
+		name = cendem.237.a
+		add_political_power = -25
+	}
+}
+
+country_event = { #Military Parades Nationwide
+	id = cendem.241
+	title = cendem.241.t
+	desc = cendem.241.d
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			country_event = { id = cendem.241 days = 365 }
+		}
+	}
+
+	option = { #Yaaay
+		log = "[GetLogInfo]: event cendem.241 option cendem.241.a"
+		name = cendem.241.a
+		add_political_power = 25
+	}
+}
+
+country_event = { #Central America prepares to Invade us
+	id = cendem.242
+	title = cendem.242.t
+	desc = cendem.242.d
+
+	is_triggered_only = yes
+
+	option = { #We need to prepare
+		log = "[GetLogInfo]: event cendem.242 option cendem.242.a"
+		name = cendem.242.a
+	}
+}

@@ -1,0 +1,1566 @@
+﻿###########################
+# Natal Events
+###########################
+
+add_namespace = natal
+
+### Introduction events
+
+country_event = { #Introduction/Spawn Troops
+	id = natal.1
+	title = natal.1.t
+	desc = natal.1.d
+	picture = GFX_report_event_SAF_cape_town
+
+	is_triggered_only = yes
+
+	option = { #Together we shall prevail!
+		log = "[GetLogInfo]: event natal.1 option natal.1.a"
+		name = natal.1.a
+		add_war_support = 0.1
+		add_manpower = 25000
+	}
+}
+
+country_event = { #Rebels in Cape Town, Port Elizabeth and Johannesburg
+	id = natal.2
+	title = natal.2.t
+	desc = natal.2.d
+	picture = GFX_report_event_SAF_cape_town
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			country_event = { id = natal.9 days = 2 }
+			NAT = {
+				country_event = natal.3
+				country_event = { id = natal.8 days = 2 }
+				SAF_spawn_natalian_militias = yes
+			}
+		}
+	}
+
+	option = { #Together we shall prevail!
+		log = "[GetLogInfo]: event natal.2 option natal.2.a"
+		name = natal.2.a
+		effect_tooltip = {
+			NAT = { SAF_spawn_natalian_militias = yes }
+		}
+	}
+}
+
+country_event = { #Rebels in Cape Town, Port Elizabeth and Johannesburg (Natal perspective)
+	id = natal.3
+	title = natal.3.t
+	desc = natal.3.d
+	picture = GFX_report_event_SAF_cape_town
+
+	is_triggered_only = yes
+
+	option = { #Together we shall prevail!
+		log = "[GetLogInfo]: event natal.3 option natal.3.a"
+		name = natal.3.a
+		effect_tooltip = { SAF_spawn_natalian_militias = yes }
+	}
+}
+
+country_event = { #Joining the entente
+	id = natal.4
+	title = natal.4.t
+	desc = natal.4.d
+	picture = GFX_report_event_SAF_cape_town
+
+	is_triggered_only = yes
+
+	trigger = {
+		ENT = {
+			is_faction_leader = yes
+			NOT = { has_war_with = ROOT }
+		}
+	}
+
+	option = { #Together we shall prevail!
+		log = "[GetLogInfo]: event natal.4 option natal.4.a"
+		name = natal.4.a
+		ENT = { country_event = { id = natal.5 days = 4 } }
+	}
+}
+
+country_event = { #The reverse boer states want to join the entente
+	id = natal.5
+	title = natal.5.t
+	desc = natal.5.d
+	picture = GFX_report_event_SAF_cape_town
+
+	is_triggered_only = yes
+
+	option = { #Together we shall prevail!
+		log = "[GetLogInfo]: event natal.5 option natal.5.a"
+		name = natal.5.a
+		ai_chance = {
+			base = 95
+			modifier = {
+				factor = 0
+				surrender_progress > 0
+			}
+			modifier = {
+				factor = 0.75
+				NOT = { is_in_faction_with = AST }
+			}
+			modifier = {
+				factor = 0.5
+				has_war_with = INT
+			}
+			modifier = {
+				factor = 0.75
+				country_exists = CSA
+			}
+		}
+		add_to_faction = FROM
+		FROM = { country_event = natal.6 }
+		if = {
+			limit = { country_exists = ZIM }
+			add_to_faction = ZIM
+			ZIM = { country_event = natal.6 }
+		}
+		hidden_effect = {
+			ZAR = { country_event = { id = saf.254 days = 14 } }
+		}
+	}
+
+	option = { #Good luck, but we won't be helping
+		log = "[GetLogInfo]: event natal.5 option natal.5.b"
+		name = natal.5.b
+		ai_chance = { base = 5 }
+		FROM = { country_event = natal.7 }
+		if = {
+			limit = { country_exists = ZIM }
+			ZIM = { country_event = natal.7 }
+		}
+	}
+}
+
+country_event = { #Joined the entente
+	id = natal.6
+	title = natal.6.t
+	desc = natal.6.d
+	picture = GFX_report_event_SAF_cape_town
+
+	is_triggered_only = yes
+
+	option = { #Together we shall prevail!
+		log = "[GetLogInfo]: event natal.6 option natal.6.a"
+		name = natal.6.a
+		effect_tooltip = {
+			ENT = { add_to_faction = ROOT }
+		}
+	}
+}
+
+country_event = { #No help from the entente
+	id = natal.7
+	title = natal.7.t
+	desc = natal.7.d
+	picture = GFX_report_event_SAF_cape_town
+
+	is_triggered_only = yes
+
+	option = { #Oh no!
+		log = "[GetLogInfo]: event natal.7 option natal.6.a"
+		name = natal.6.a
+		add_war_support = -0.05
+	}
+}
+
+country_event = { #Port Elizabeth Declaration
+	id = natal.8
+	title = natal.8.t
+	desc = natal.8.d
+	picture = GFX_report_event_SAF_cape_town
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_civil_war = yes
+	}
+
+	option = { #We are the true South Africa
+		log = "[GetLogInfo]: event natal.8 option natal.8.a"
+		name = natal.8.a
+		custom_effect_tooltip = SAF_will_become_federation_after_war
+	}
+}
+
+country_event = { #Port Elizabeth Declaration (South African perspective)
+	id = natal.9
+	title = natal.9.t
+	desc = natal.9.d
+	picture = GFX_report_event_SAF_cape_town
+
+	is_triggered_only = yes
+
+	option = { #We are the true South Africa
+		log = "[GetLogInfo]: event natal.9 option natal.9.a"
+		name = natal.9.a
+		if = {
+			limit = { is_ai = no }
+			SAF_spawn_boer_reinforcements = yes
+		}
+	}
+}
+
+country_event = { #The navy defects to NAT
+	id = natal.10
+	title = natal.10.t
+	desc = natal.10.d
+	picture = GFX_report_event_SAF_cape_town
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			FROM = {
+				transfer_navy = { target = ROOT }
+				set_nationality = {
+					character = SAF_guy_waterhouse_hallifax
+					target_country = ROOT
+				}
+			}
+		}
+	}
+
+	option = { #Hurrah!
+		log = "[GetLogInfo]: event natal.10 option natal.10.a"
+		name = natal.10.a
+		effect_tooltip = {
+			FROM = {
+				transfer_navy = { target = ROOT }
+				set_nationality = {
+					character = SAF_guy_waterhouse_hallifax
+					target_country = ROOT
+				}
+			}
+		}
+	}
+}
+
+country_event = { #The navy defects to NAT (SAF)
+	id = natal.11
+	title = natal.11.t
+	desc = natal.11.d
+	picture = GFX_report_event_SAF_cape_town
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = { NAT = { country_event = natal.10 } }
+	}
+
+	option = { #Boo!
+		log = "[GetLogInfo]: event natal.11 option natal.10.a"
+		name = natal.10.a
+		effect_tooltip = {
+			transfer_navy = { target = NAT }
+			set_nationality = {
+				character = SAF_guy_waterhouse_hallifax
+				target_country = NAT
+			}
+		}
+	}
+}
+
+country_event = { #Option for white peace for either Natal or Southern Rhodesia
+	id = natal.12
+	title = natal.12.t
+	desc = natal.12.d
+	picture = GFX_report_event_SAF_cape_town
+
+	trigger = {
+		NOT = { has_country_flag = SAF_peace_deal_ongoing }
+	}
+
+	is_triggered_only = yes
+
+	option = { #Let us sign a peace
+		log = "[GetLogInfo]: event natal.12 option natal.12.a"
+		name = natal.12.a
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0.5
+				ZAR = {
+					surrender_progress > 0.2
+				}
+			}
+			modifier = {
+				factor = 0.5
+				ZAR = {
+					surrender_progress > 0.5
+				}
+			}
+			modifier = {
+				factor = 0
+				ZAR = {
+					surrender_progress > 0.8
+				}
+			}
+		}
+		country_event = natal.14 #Newcastle Convention
+		hidden_effect = {
+			NAT = { country_event = natal.14 }
+			ZAR = { country_event = natal.13 }
+		}
+	}
+
+	option = { #We will not rest until the republic is destroyed!
+		log = "[GetLogInfo]: event natal.12 option natal.12.b"
+		name = natal.12.b
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0
+				ZAR = {
+					surrender_progress < 0.2
+				}
+			}
+			modifier = {
+				factor = 0.5
+				ZAR = {
+					surrender_progress < 0.5
+				}
+			}
+			modifier = {
+				factor = 0.5
+				ZAR = {
+					surrender_progress < 0.8
+				}
+			}
+		}
+		custom_effect_tooltip = SAF_tt_no_more_peace
+	}
+}
+
+country_event = { #Newcastle Convention (South African perspective)
+	id = natal.13
+	title = natal.13.t
+	desc = natal.13.d
+	picture = GFX_report_event_SAF_cape_town
+
+	is_triggered_only = yes
+
+	immediate = {
+		log = "KR_Event_Logging;3RD BOER WAR WP;[GetDateText]"
+		clr_global_flag = saf_boer_war
+		hidden_effect = {
+			85 = { #Lesotho
+				if = {
+					limit = { controller = { is_ally_with = NAT } }
+					transfer_state_to = NAT
+				}
+			}
+			738 = { #Swaziland
+				if = {
+					limit = { controller = { is_ally_with = NAT } }
+					transfer_state_to = NAT
+				}
+			}
+
+			if = {
+				limit = { NAT = { has_capitulated = yes } }
+				NAT = { leave_faction = yes }
+			}
+			else_if = {
+				limit = { country_exists = NAT }
+				SAF_end_civil_war = yes
+			}
+
+			ZIM = {
+				if = {
+					limit = { has_capitulated = yes }
+					leave_faction = yes
+				}
+				else = {
+					every_owned_state = {
+						remove_core_of = ROOT
+						remove_claim_by = ROOT
+					}
+				}
+			}
+
+			every_enemy_country = {
+				limit = {
+					OR = {
+						tag = ZIM
+						tag = ENT
+					}
+					is_valid_peace_target = yes
+				}
+				white_peace_with_ROOT = yes
+			}
+		}
+	}
+
+	option = { #Signed
+		log = "[GetLogInfo]: event natal.13 option natal.13.a"
+		name = natal.13.a
+		effect_tooltip = {
+			every_enemy_country = {
+				limit = {
+					OR = {
+						original_tag = ROOT
+						tag = ZIM
+						tag = ENT
+					}
+				}
+				white_peace_with_ROOT = yes
+			}
+		}
+		if = {
+			limit = { has_template = "Reserve Unit" }
+			set_division_template_lock = {
+				division_template = "Reserve Unit"
+				is_locked = no
+			}
+		}
+		if = {
+			limit = { has_template = "Commando Division" }
+			set_division_template_lock = {
+				division_template = "Commando Division"
+				is_locked = no
+			}
+		}
+		if = {
+			limit = { has_template = "Afrikaner Scouts" }
+			set_division_template_lock = {
+				division_template = "Afrikaner Scouts"
+				is_locked = no
+			}
+		}
+	}
+}
+
+country_event = { #Newcastle Convention (British perspective)
+	id = natal.14
+	title = natal.14.t
+	desc = natal.14.d
+	picture = GFX_report_event_SAF_cape_town
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { tag = NAT }
+				load_focus_tree = natal_focus
+			}
+		}
+	}
+
+	option = { #Signed
+		log = "[GetLogInfo]: event natal.14 option natal.14.a"
+		name = natal.14.a
+		effect_tooltip = {
+			ZAR = { white_peace_with_ROOT = yes }
+		}
+		if = {
+			limit = { tag = NAT }
+			SAF_load_natal_content = yes
+		}
+	}
+}
+
+country_event = { #2nd Pretoria Convention (British perspective)
+	id = natal.15
+	title = natal.15.t
+	desc = natal.15.d
+	picture = GFX_report_event_SAF_cape_town
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = { ZAR = { country_event = natal.16 } }
+	}
+
+	option = { #Signed
+		log = "[GetLogInfo]: event natal.15 option natal.14.a"
+		name = natal.14.a
+		effect_tooltip = {
+			every_other_country = {
+				limit = {
+					is_in_faction_with = ROOT
+					OR = {
+						original_tag = SAF
+						tag = ZIM
+					}
+				}
+				leave_faction = yes
+			}
+			ZAR = { white_peace_with_ROOT = yes }
+		}
+	}
+}
+
+country_event = { #2nd Pretoria Convention (South African perspective)
+	id = natal.16
+	title = natal.16.t
+	desc = natal.16.d
+	picture = GFX_report_event_SAF_cape_town
+
+	immediate = {
+		log = "KR_Event_Logging;3RD BOER WAR SAF WINS;[GetDateText]"
+		clr_global_flag = saf_boer_war
+		hidden_effect = {
+			SAF_end_civil_war = yes
+			every_enemy_country = {
+				limit = {
+					is_in_faction_with = FROM
+					OR = {
+						original_tag = ROOT
+						tag = ZIM
+					}
+				}
+				leave_faction = yes
+			}
+			FROM = { white_peace_with_ROOT = yes }
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = { #Signed
+		log = "[GetLogInfo]: event natal.16 option natal.16.a"
+		name = natal.16.a
+		effect_tooltip = {
+			FROM = { white_peace_with_ROOT = yes }
+		}
+		if = {
+			limit = { has_template = "Reserve Unit" }
+			set_division_template_lock = {
+				division_template = "Reserve Unit"
+				is_locked = no
+			}
+		}
+		if = {
+			limit = { has_template = "Commando Division" }
+			set_division_template_lock = {
+				division_template = "Commando Division"
+				is_locked = no
+			}
+		}
+		if = {
+			limit = { has_template = "Afrikaner Scouts" }
+			set_division_template_lock = {
+				division_template = "Afrikaner Scouts"
+				is_locked = no
+			}
+		}
+	}
+}
+
+country_event = { #Native approach
+	id = natal.18
+	title = natal.18.t
+	desc = natal.18.d
+
+	is_triggered_only = yes
+
+	option = { #Be nice
+		log = "[GetLogInfo]: event natal.18 option natal.18.a"
+		name = natal.18.a
+		ai_chance = {
+			base = 60
+			modifier = {
+				factor = 0.2
+				has_government = paternal_autocrat
+			}
+		}
+		add_stability = 0.02
+		add_political_power = -50
+		custom_effect_tooltip = NAT_tt_a_conciliatory_approach
+		set_country_flag = NAT_nice_to_zulu
+	}
+
+	option = { #Repress
+		log = "[GetLogInfo]: event natal.18 option natal.18.b"
+		name = natal.18.b
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0.2
+				has_government = social_democrat
+			}
+		}
+		add_stability = -0.02
+		add_political_power = 50
+		custom_effect_tooltip = NAT_tt_a_hostile_approach
+		set_country_flag = NAT_not_nice_to_zulu
+	}
+}
+
+country_event = { #Working with Trade Unions
+	id = natal.19
+	title = natal.19.t
+	desc = natal.19.d
+
+	is_triggered_only = yes
+
+	option = { #Work with the ICU
+		log = "[GetLogInfo]: event natal.19 option natal.19.a"
+		name = natal.19.a
+		ai_chance = { base = 60 }
+		add_stability = 0.05
+		add_popularity = { ideology = syndicalist popularity = 0.02 }
+	}
+
+	option = { #New unions are better
+		log = "[GetLogInfo]: event natal.19 option natal.19.b"
+		name = natal.19.b
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0.2
+				has_government = social_democrat
+			}
+		}
+		add_popularity = { ideology = social_democrat popularity = 0.02 }
+	}
+}
+
+country_event = { #We want a zulu paramount chief, but the heir to Shaka is disputed
+	id = natal.20
+	title = natal.20.t
+	desc = natal.20.d
+
+	is_triggered_only = yes
+
+	option = { #Pikokwaziwayo
+		log = "[GetLogInfo]: event natal.20 option natal.20.a"
+		name = natal.20.a
+		ai_chance = { base = 35 }
+		add_stability = 0.05
+	}
+
+	option = { #Thandayiphi
+		log = "[GetLogInfo]: event natal.20 option natal.20.b"
+		name = natal.20.b
+		ai_chance = { base = 35 }
+		add_political_power = 25
+	}
+
+	option = { #Cyprian
+		log = "[GetLogInfo]: event natal.20 option natal.20.b"
+		name = natal.20.b
+		ai_chance = { base = 30 }
+		add_political_power = -25
+	}
+}
+
+country_event = { #Work with John Dube
+	id = natal.21
+	title = natal.21.t
+	desc = natal.21.d
+
+	is_triggered_only = yes
+
+	option = { #Excellent
+		log = "[GetLogInfo]: event natal.21 option natal.21.a"
+		name = natal.21.a
+		add_political_power = 50
+	}
+}
+
+country_event = { #Native approach
+	id = natal.22
+	title = natal.22.t
+	desc = natal.22.d
+
+	is_triggered_only = yes
+
+	option = { #Be nice
+		log = "[GetLogInfo]: event natal.22 option natal.22.a"
+		name = natal.22.a
+		ai_chance = {
+			base = 60
+			modifier = {
+				factor = 0.2
+				has_government = paternal_autocrat
+			}
+		}
+		add_stability = 0.02
+		add_political_power = -50
+		custom_effect_tooltip = NAT_tt_a_conciliatory_approach
+		set_country_flag = NAT_nice_to_indians
+	}
+
+	option = { #Repress
+		log = "[GetLogInfo]: event natal.22 option natal.22.b"
+		name = natal.22.b
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0.2
+				has_government = social_democrat
+			}
+		}
+		add_stability = -0.02
+		add_political_power = 50
+		custom_effect_tooltip = NAT_tt_a_hostile_approach
+		set_country_flag = NAT_not_nice_to_indians
+	}
+}
+
+country_event = { #Zulu vs Indian riot
+	id = natal.23
+	title = natal.23.t
+	desc = natal.23.d
+
+	is_triggered_only = yes
+
+	option = { #Blockade the Central Indian district, protract the violence
+		log = "[GetLogInfo]: event natal.23 option natal.23.a"
+		name = natal.23.a
+		trigger = {
+			has_completed_focus = NAT_carry_big_stick
+			has_completed_focus = NAT_restrict_indian_land_ownership
+		}
+		719 = {
+			add_manpower = -142
+		}
+		custom_effect_tooltip = NAT_tt_indians_and_zulu_fight
+		add_political_power = 50
+		add_stability = 0.1
+	}
+
+	option = { #Immediate intervention is necessary, crack down on the Zulu's
+		log = "[GetLogInfo]: event natal.23 option natal.23.b"
+		name = natal.23.b
+		trigger = {
+			NOT = {
+				has_completed_focus = NAT_restrict_indian_land_ownership
+			}
+		}
+		custom_effect_tooltip = NAT_tt_zulu_crackdown_justified
+		719 = {
+			add_manpower = -27
+		}
+		add_political_power = 50
+		add_stability = 0.1
+	}
+
+	option = { #Let the Zulu enjoy the Indian cuisine
+		log = "[GetLogInfo]: event natal.23 option natal.23.c"
+		name = natal.23.c
+		trigger = {
+			NOT = {
+				has_completed_focus = NAT_carry_big_stick
+			}
+		}
+		custom_effect_tooltip = NAT_tt_indians_forced_on_the_run
+		719 = {
+			add_manpower = -284
+		}
+		add_political_power = 50
+		add_stability = 0.1
+	}
+}
+
+country_event = { #Asiatic Representation Council
+	id = natal.24
+	title = natal.24.t
+	desc = natal.24.d
+
+	is_triggered_only = yes
+
+	option = { #Excellent
+		log = "[GetLogInfo]: event natal.24 option natal.24.a"
+		name = natal.24.a
+		set_temp_variable = { ideology_change_var = 0.05 }
+		change_ruling_party_popularity = yes
+		swap_ideas = { add_idea = NAT_idea_represented_indian_diaspora remove_idea = NAT_idea_indian_diaspora_no_pass_laws }
+	}
+}
+
+# Elections
+country_event = {
+	id = natal.25
+	title = natal.25.t
+	desc = natal.25.d
+	picture = GFX_report_event_SAF_parliament_1
+
+	is_triggered_only = yes
+	immediate = {
+		set_country_flag = saf_flag_elections_held
+	}
+
+	option = { #Heaton Nicholls and the UFP win
+		log = "[GetLogInfo]: event natal.25 option natal.25.a"
+		name = natal.25.a
+		ai_chance = { base = 70 }
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.1
+		}
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = market_liberal
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 60
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+	}
+
+	option = { #Charles Stallard and the Dominion Party
+		log = "[GetLogInfo]: event natal.25 option natal.25.b"
+		name = natal.25.b
+		ai_chance = { base = 20 }
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.15
+		}
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = paternal_autocrat
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 60
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+	}
+
+	option = { #Thomas Boydell and the Labour Party with SAP support
+		log = "[GetLogInfo]: event natal.25 option natal.25.c"
+		name = natal.25.c
+		ai_chance = { base = 10 }
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.25
+		}
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = social_democrat
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 60
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		set_temp_variable = { coalition_partner_var = token:social_conservative }
+		add_to_coalition = yes
+	}
+}
+
+country_event = { #Victory in the third Boer war
+	id = natal.26
+	title = natal.26.t
+	desc = natal.26.d
+	picture = GFX_report_event_SAF_cape_town
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		tag = NAT
+		NOT = { country_exists = ZAR }
+		any_owned_state = {
+			is_core_of = SAF
+			NOT = { state = 719 } #Natal
+		}
+	}
+
+	immediate = {
+		log = "KR_Event_Logging;3RD BOER WAR NAT WINS;[GetDateText]"
+		clr_country_flag = SAF_is_natal
+		clr_global_flag = saf_boer_war
+		hidden_effect = {
+			every_state = {
+				limit = {
+					is_claimed_by = SAF
+					NOT = { is_core_of = ROOT }
+				}
+				add_claim_by = ROOT
+			}
+		}
+	}
+
+	option = { #We are the true South Africa
+		log = "[GetLogInfo]: event natal.26 option natal.26.a"
+		name = natal.26.a
+		set_cosmetic_tag = SAF_federation
+		set_capital = { state = 681 remember_old_capital = no }
+		set_victory_points = { province = 13800 value = 2 } #Pietermaritzburg
+		add_ideas = SAF_idea_bittereinder_resistance
+		hidden_effect = {
+			set_popularities = {
+				totalist = 2
+				radical_socialist = 3
+				syndicalist = 1
+				social_democrat = 4
+				social_liberal = 32
+				market_liberal = 44
+				social_conservative = 0
+				authoritarian_democrat = 0
+				paternal_autocrat = 4
+				national_populist = 10
+			}
+		}
+	}
+}
+
+# Elections
+country_event = {
+	id = natal.27
+	title = natal.27.t
+	desc = natal.27.d
+	picture = GFX_report_event_SAF_parliament_1
+
+	is_triggered_only = yes
+	immediate = {
+		set_country_flag = SAF_fed_elections_held
+	}
+
+	option = { #Heaton Nicholls and the UFP win
+		log = "[GetLogInfo]: event natal.27 option natal.27.a"
+		name = natal.27.a
+		ai_chance = {
+			base = 70
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = SAF_path option = SAF_PATH_DOMINION_PATAUT }
+			}
+		}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.1
+		}
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = market_liberal
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 60
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+	}
+
+	option = { #J.H. Hofmeyr and the South African Party
+		log = "[GetLogInfo]: event natal.27 option natal.27.b"
+		name = natal.27.b
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = SAF_path option = SAF_PATH_DOMINION_SOCLIB }
+			}
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.1
+		}
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = social_liberal
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 60
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		hidden_effect = {
+			country_event = { id = natal.53 days = 365 random_days = 100 }
+			country_event = { id = natal.28 days = 30 }
+		}
+	}
+}
+
+# Dominionist Coup Attempt
+country_event = {
+	id = natal.28
+	title = natal.28.t
+	desc = natal.28.d
+	picture = GFX_report_event_SAF_parliament_1
+
+	is_triggered_only = yes
+
+	option = { #Gov-General supports Coup
+		log = "[GetLogInfo]: event natal.28 option natal.28.a"
+		name = natal.28.a
+		ai_chance = {
+			base = 60
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = SAF_path option = SAF_PATH_DOMINION_SOCLIB }
+			}
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.1
+		}
+		set_politics = {
+			ruling_party = paternal_autocrat
+			elections_allowed = no
+		}
+	}
+
+	option = { #Gove-General does not support the coup
+		log = "[GetLogInfo]: event natal.28 option natal.28.b"
+		name = natal.28.b
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = SAF_path option = SAF_PATH_DOMINION_PATAUT }
+			}
+		}
+		add_stability = -0.1
+		hidden_effect = {
+			country_event = { id = natal.29 days = 2 }
+		}
+	}
+}
+
+# Dominionist Coup Attempt fails
+country_event = {
+	id = natal.29
+	title = natal.29.t
+	desc = natal.29.d
+	picture = GFX_report_event_SAF_parliament_1
+
+	is_triggered_only = yes
+
+	option = { #Gov-General supports Coup
+		log = "[GetLogInfo]: event natal.29 option natal.27.a"
+		name = natal.27.a
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.1
+		}
+	}
+}
+
+# Election loop as South African Fed
+country_event = {
+	id = natal.51
+	title = natal.51.t
+	desc = natal.51.d
+	picture = GFX_report_event_SAF_parliament_1
+
+	is_triggered_only = yes
+	trigger = {
+		has_focus_tree = SAF_federation_focus
+		has_country_flag = SAF_fed_elections_held
+	}
+
+	option = { #Heaton Nicholls and the UFP win
+		log = "[GetLogInfo]: event natal.51 option natal.51.a"
+		name = natal.51.a
+		ai_chance = { base = 70 }
+		if = {
+			limit = {
+				market_liberal < 0.5
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.05
+			}
+		}
+		set_politics = {
+			ruling_party = market_liberal
+			elections_allowed = yes
+		}
+	}
+
+	option = { #J.H. Hofmeyr and the South African Party
+		log = "[GetLogInfo]: event natal.51 option natal.51.b"
+		name = natal.51.b
+		ai_chance = { base = 20 }
+		if = {
+			limit = {
+				social_liberal < 0.5
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.05
+			}
+		}
+		set_politics = {
+			ruling_party = social_liberal
+			elections_allowed = yes
+		}
+	}
+}
+
+# Elections loop Natal
+country_event = {
+	id = natal.52
+	title = natal.52.t
+	desc = natal.52.d
+	picture = GFX_report_event_SAF_parliament_1
+
+	is_triggered_only = yes
+	trigger = {
+		has_focus_tree = natal_focus
+		has_country_flag = saf_flag_elections_held
+	}
+
+	option = { #Heaton Nicholls and the UFP win
+		log = "[GetLogInfo]: event natal.52 option natal.52.a"
+		name = natal.52.a
+		ai_chance = { base = 70 }
+		if = {
+			limit = {
+				market_liberal < 0.5
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.05
+			}
+		}
+		set_politics = {
+			ruling_party = market_liberal
+			elections_allowed = yes
+		}
+	}
+
+	option = { #Charles Stallard and the Dominion Party
+		log = "[GetLogInfo]: event natal.52 option natal.52.b"
+		name = natal.52.b
+		ai_chance = { base = 20 }
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.15
+		}
+		set_politics = {
+			ruling_party = paternal_autocrat
+			elections_allowed = no
+		}
+	}
+
+	option = { #Thomas Boydell and the Labour Party with SAP support
+		log = "[GetLogInfo]: event natal.52 option natal.52.c"
+		name = natal.52.c
+		ai_chance = { base = 10 }
+		if = {
+			limit = {
+				social_democrat < 0.5
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
+		}
+		set_politics = {
+			ruling_party = social_democrat
+			elections_allowed = yes
+		}
+	}
+}
+
+country_event = { #Coloured Enfranchisement Act for the Federation
+	id = natal.53
+	title = natal.53.t
+	desc = natal.53.d
+	picture = GFX_report_event_SAF_parliament_1
+
+	is_triggered_only = yes
+	trigger = {
+		has_government = social_liberal
+	}
+
+	option = { # Hurrah!
+		log = "[GetLogInfo]: event natal.53 option natal.53.a"
+		name = natal.53.a
+		add_stability = 0.1
+		hidden_effect = {
+			country_event = { id = saf.172 days = 365 random_days = 100 }
+		}
+	}
+}
+
+country_event = { #Language battle in Stellenbosch
+	id = natal.54
+	title = natal.54.t
+	desc = natal.54.d
+	picture = GFX_report_event_generic_scandal
+
+	is_triggered_only = yes
+
+	option = { # Close them if necessary
+		log = "[GetLogInfo]: event natal.54 option natal.54.a"
+		name = natal.54.a
+		ai_chance = { base = 50 }
+		add_stability = -0.1
+		add_political_power = -25
+	}
+
+	option = { # Just revoke all their funding
+		log = "[GetLogInfo]: event natal.54 option natal.54.b"
+		name = natal.54.b
+		ai_chance = { base = 50 }
+		add_political_power = -20
+	}
+}
+
+country_event = { #Canada wants to quit the Boer War and focus on the Homecoming
+	id = natal.55
+	title = natal.55.t
+
+	desc = {
+		text = natal.55.d.default
+		trigger = {
+			country_exists = NAT
+			NAT = { has_capitulated = no }
+		}
+	}
+	desc = {
+		text = natal.55.d.losing
+		trigger = {
+			OR = {
+				NOT = { country_exists = NAT }
+				NAT = { has_capitulated = yes }
+			}
+		}
+	}
+
+	picture = GFX_report_event_generic_scandal
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = ENT
+		has_war_with = ZAR
+		has_war_with = ENG
+		ZAR = { has_socialist_government = no }
+	}
+
+	mean_time_to_happen = {
+		days = 25
+	}
+
+	option = { # Offer SAF peace
+		log = "[GetLogInfo]: event natal.55 option natal.55.a"
+		name = natal.55.a
+		ai_chance = {
+			base = 95
+			modifier = {
+				factor = 0.5
+				ZAR = {
+					surrender_progress > 0.2
+				}
+			}
+			modifier = {
+				factor = 0.2
+				ZAR = {
+					surrender_progress > 0.5
+				}
+			}
+			modifier = {
+				factor = 0
+				ZAR = {
+					surrender_progress > 0.8
+				}
+			}
+		}
+		ZAR = {
+			country_event = { id = natal.56 days = 2 }
+		}
+	}
+
+	option = { # We're about to defeat them
+		log = "[GetLogInfo]: event natal.55 option natal.55.b"
+		name = natal.55.b
+		ai_chance = { base = 5 }
+		add_political_power = -10
+	}
+}
+
+country_event = { #Peace with the Canadians?
+	id = natal.56
+	title = natal.56.t
+
+	desc = {
+		text = natal.56.d.default
+		trigger = {
+			country_exists = NAT
+			NAT = { has_capitulated = no }
+		}
+	}
+	desc = {
+		text = natal.56.d.winning
+		trigger = {
+			OR = {
+				NOT = { country_exists = NAT }
+				NAT = { has_capitulated = yes }
+			}
+		}
+	}
+
+	picture = GFX_report_event_generic_scandal
+
+	is_triggered_only = yes
+
+	option = { # Yes
+		log = "[GetLogInfo]: event natal.56 option natal.56.a"
+		name = natal.56.a
+		ai_chance = { base = 100 }
+		clr_global_flag = saf_boer_war
+		effect_tooltip = {
+			if = {
+				limit = {
+					country_exists = NAT
+					NAT = { has_capitulated = no }
+				}
+				if = {
+					limit = { owns_state = 545 }
+					release = ZIM
+				}
+				ZIM = {
+					every_owned_state = {
+						limit = { is_claimed_by = ZAR }
+						remove_claim_by = ZAR
+					}
+				}
+				NAT = {
+					every_owned_state = {
+						limit = { is_claimed_by = ZAR }
+						remove_claim_by = ZAR
+					}
+				}
+				every_owned_state = {
+					limit = {
+						OR = {
+							is_claimed_by = NAT
+							is_core_of = NAT
+						}
+					}
+					remove_claim_by = NAT
+					remove_core_of = NAT
+				}
+			}
+		}
+		ENT = {
+			effect_tooltip = { white_peace_with_ROOT = yes }
+			country_event = natal.57
+		}
+		if = {
+			limit = { has_template = "Reserve Unit" }
+			set_division_template_lock = {
+				division_template = "Reserve Unit"
+				is_locked = no
+			}
+		}
+		if = {
+			limit = { has_template = "Commando Division" }
+			set_division_template_lock = {
+				division_template = "Commando Division"
+				is_locked = no
+			}
+		}
+		if = {
+			limit = { has_template = "Afrikaner Scouts" }
+			set_division_template_lock = {
+				division_template = "Afrikaner Scouts"
+				is_locked = no
+			}
+		}
+	}
+
+	option = { # We're about to defeat them
+		log = "[GetLogInfo]: event natal.56 option natal.56.b"
+		name = natal.56.b
+		ai_chance = { base = 0 }
+		add_war_support = -0.1
+	}
+}
+
+country_event = { #SAF says yes
+	id = natal.57
+	title = natal.57.t
+	desc = natal.57.d
+	picture = GFX_report_event_generic_scandal
+
+	is_triggered_only = yes
+
+	immediate = {
+		log = "KR_Event_Logging;3RD BOER WAR WP;[GetDateText]"
+	}
+
+	option = { # Yes
+		log = "[GetLogInfo]: event natal.57 option natal.57.a"
+		name = natal.57.a
+		if = {
+			limit = {
+				country_exists = NAT
+				NAT = { has_capitulated = no }
+			}
+			hidden_effect = { SAF_end_civil_war = yes }
+			ZIM = { country_event = natal.59 }
+			NAT = { country_event = natal.59 }
+		}
+		else = {
+			if = {
+				limit = { is_in_faction_with = NAT }
+				NAT = {
+					leave_faction = yes
+					country_event = natal.59
+				}
+			}
+			if = {
+				limit = { is_in_faction_with = ZIM }
+				ZIM = {
+					leave_faction = yes
+					country_event = natal.59
+				}
+			}
+		}
+		FROM = { white_peace_with_ROOT = yes }
+	}
+}
+
+country_event = { #SAF says no
+	id = natal.58
+	title = natal.58.t
+	desc = natal.58.d
+	picture = GFX_report_event_generic_scandal
+
+	is_triggered_only = yes
+
+	option = { # No
+		log = "[GetLogInfo]: event natal.58 option natal.58.a"
+		name = natal.58.a
+	}
+}
+
+country_event = { #Informing Natal and Rhodesia about the peace
+	id = natal.59
+	title = natal.59.t
+	desc = natal.59.d
+	picture = GFX_report_event_generic_scandal
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { tag = NAT }
+				load_focus_tree = natal_focus
+			}
+		}
+	}
+
+	option = { # hmm
+		log = "[GetLogInfo]: event natal.59 option natal.59.a"
+		name = natal.59.a
+		if = {
+			limit = { tag = NAT }
+			SAF_load_natal_content = yes
+		}
+	}
+}
+
+# South Africa asks to join Entente (fired by decision)
+country_event = {
+	id = natal.60
+	title = natal.60.t
+	desc = natal.60.d
+	picture = GFX_report_event_SAF_parliament_1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event natal.60 option natal.60.a"
+		name = natal.60.a
+		add_political_power = 50
+		effect_tooltip = {
+			add_to_faction = FROM
+		}
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_approves_of_govt
+		}
+		FROM = {
+			country_event = { id = natal.61 days = 3 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event natal.60 option natal.60.b"
+		name = natal.60.b
+		ai_chance = { base = 0 }
+		add_political_power = -20
+		FROM = {
+			country_event = { id = natal.62 days = 3 }
+		}
+	}
+}
+
+# ENT agrees to let South Africa join
+country_event = {
+	id = natal.61
+	title = natal.61.t
+	desc = natal.61.d
+	picture = GFX_report_event_generic_diplomacy3
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event natal.61 option saf.33.a"
+		name = saf.33.a
+		add_political_power = 50
+		ENT = {
+			add_to_faction = ROOT
+		}
+		add_opinion_modifier = {
+			target = ENT
+			modifier = KR_approves_of_govt
+		}
+		every_country = {
+			limit = {
+				exists = yes
+				OR = {
+					tag = CAN
+					tag = GBR
+					is_in_faction_with = CAN
+					is_in_faction_with = GBR
+				}
+			}
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = KR_close_allies
+			}
+		}
+	}
+}
+
+# ENT refuses to let South Africa join
+country_event = {
+	id = natal.62
+	title = natal.62.t
+	desc = natal.62.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event natal.62 option natal.62.a"
+		name = natal.62.a
+		add_political_power = -50
+		add_opinion_modifier = {
+			target = ENT
+			modifier = KR_disapproves_of_govt
+		}
+	}
+}

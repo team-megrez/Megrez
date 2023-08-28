@@ -1,0 +1,67 @@
+debug_decisions = {
+
+	turn_off_plpc_debug = {
+		icon = generic_flags
+
+		visible = {
+			has_game_rule = { rule = peace_conference_options option = PLAYER_PRIMACY }
+			NOT = { has_global_flag = KR_plpc_turned_off }
+		}
+
+		fire_only_once = no
+		cost = 0
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete turn_off_plpc_debug"
+			custom_effect_tooltip = KR_plpc_disable_tt
+			set_global_flag = KR_plpc_turned_off
+		}
+	}
+
+	turn_on_plpc_debug = {
+		icon = generic_flags
+
+		visible = {
+			has_game_rule = { rule = peace_conference_options option = PLAYER_PRIMACY }
+			has_global_flag = KR_plpc_turned_off
+		}
+
+		fire_only_once = no
+		cost = 0
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete turn_on_plpc_debug"
+			custom_effect_tooltip = KR_plpc_enable_tt
+			clr_global_flag = KR_plpc_turned_off
+		}
+	}
+
+	stt_highlight_states = {
+		icon = hand_grab
+
+		allowed = {
+			always = no
+		}
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		fire_only_once = no
+		days_mission_timeout = 7
+		is_good = yes
+
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout stt_highlight_states"
+			hidden_effect = {
+				for_each_scope_loop = {
+					array = ROOT.marked_states
+					clr_state_flag = marked_for_transfer
+				}
+				clear_array = ROOT.marked_states
+				clear_variable = ROOT.update_stt_gui
+			}
+		}
+	}
+}
+

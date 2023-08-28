@@ -77,37 +77,34 @@ if = {
 }
 
 set_politics = {
-	ruling_party = anocracy
+	ruling_party = authoritarian_democrat
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	bolshevism = 0
-	communism = 4
-	revolutionary_socialism = 1
-	moderate_socialism = 7
-	progressivism = 4
-	liberalism = 6
-	liberal_conservatism = 8
-	social_conservatism = 12
-	anocracy = 40
-	autocracy = 10
-	reformed_voynism = 8
-	voynism = 0
-	radical_voynism = 0
+	totalist = 4
+	radical_socialist = 1
+	syndicalist = 7
+	social_democrat = 4
+	social_liberal = 6
+	market_liberal = 8
+	social_conservative = 12
+	authoritarian_democrat = 40
+	paternal_autocrat = 10
+	national_populist = 8
 }
 
 activate_targeted_decision = { target = CHL decision = BOL_kill_CHL }
 
-
-
-
-
-
-
-
-
+country_event = { id = pru.102 days = 10 random_days = 40 }
+country_event = { id = pru.103 days = 547 }
+country_event = { id = pru.113 days = 400 }
+country_event = { id = pru.114 days = 208 }
+country_event = { id = pru.115 days = 2375 }
+country_event = { id = pru.116 days = 168 }
+country_event = { id = pru.117 days = 426 }
+country_event = { id = pru.109 days = 4080 }
 
 set_variable = { ECU_PRU_tension = 0 }
 
@@ -117,66 +114,66 @@ add_ideas = {
 	PRU_guardia_monotera
 }
 
+recruit_character = PRU_gamaliel_churata
+recruit_character = PRU_victor_raul_haya_de_la_torre
+recruit_character = PRU_julio_alfredo_gonzalez_de_prada_y_verneuil
+recruit_character = PRU_luis_antonio_eguiguren_escudero
+recruit_character = PRU_jorge_prado_y_ugarteche
+recruit_character = PRU_manuel_vicente_villaran_godoy
+recruit_character = PRU_oscar_raimundo_benavides_larrea
+recruit_character = PRU_jose_de_la_riva_aguero_y_osma
+recruit_character = PRU_consejo_nacional
 
-
-
-
-
-
-
-
-
-
-
+recruit_character = PRU_pachacutec_ii
 
 ### Advisors ###
-
-
-
-
-
-
-
-
-
-
-
-
+recruit_character = PRU_jose_matias_manzanilla_barrientos
+recruit_character = PRU_manuel_encarnacion_rodriguez_davila
+recruit_character = PRU_ernesto_montagne_markholz
+recruit_character = PRU_antonio_rodriguez_ramirez
+recruit_character = PRU_hector_boza_aizcorbe
+recruit_character = PRU_hector_felipe_mercado_silva
+recruit_character = PRU_carlos_concha_cardenas
+recruit_character = PRU_felipe_de_la_barra_ugarte
+recruit_character = PRU_carlos_manuel_cox_roose
+recruit_character = PRU_luis_emilio_heysen_inchaustegui
+recruit_character = PRU_hildebrando_castro_pozo
+recruit_character = PRU_luciano_castillo_colonna
 
 ### Generals ###
-
-
-
-
-
+recruit_character = PRU_manuel_arturo_odria_amoretti
+recruit_character = PRU_eloy_gaspar_ureta_montehermoso
+recruit_character = PRU_carlos_miro_quesada_laos
+recruit_character = PRU_luis_alberto_flores_medina
+recruit_character = PRU_jose_agustin_haya_de_la_torre #socialist
 
 ### Admirals ###
-
-
-
+recruit_character = PRU_grimaldo_bravo_arenas
+recruit_character = PRU_carlos_rotalde_gonzales_del_valle
+recruit_character = PRU_roque_augusto_saldias_maninat
 
 ### Military Staff ###
 #Shared
-
+recruit_character = PRU_gustavo_adolfo_jimenez_saldias
 
 #Non-socialist
-
-
-
-
-
-
-
-
+recruit_character = PRU_cesar_augusto_de_la_fuente_alvarez
+recruit_character = PRU_federico_diaz_dulanto
+recruit_character = PRU_renan_elias_olivera
+recruit_character = PRU_ricardo_pio_perez_godoy
+recruit_character = PRU_manuel_maria_ponce_brousset
+recruit_character = PRU_fernando_sarmiento_ramirez
+recruit_character = PRU_jose_remigio_alzamora_freundt
+recruit_character = PRU_juan_bielovucic_cavalie
 
 #Socialist
-
-
-
-
-
-
-
+recruit_character = PRU_manuel_barretos_risco
+recruit_character = PRU_alfredo_tello_salavarria
+recruit_character = PRU_armando_revoredo_iglesias
+recruit_character = PRU_guillermo_cervantes_vasquez
+recruit_character = PRU_artidoro_aurelio_edmundo_garcia_godos_hurtado_de_mendoza
+recruit_character = PRU_segundo_remigio_morales_bermudez_sanchez
+recruit_character = PRU_apra_military_council
 
 ### Character Flags ###
 PRU_oscar_raimundo_benavides_larrea = { set_character_flag = PRU_regular_military }

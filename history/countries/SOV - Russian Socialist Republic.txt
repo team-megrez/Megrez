@@ -9,26 +9,23 @@ RUS_starting_tank_variants = yes
 RUS_starting_naval_variants = yes
 
 set_politics = {
-	ruling_party = revolutionary_socialism
+	ruling_party = radical_socialist
 	last_election = "1930.11.9"
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	bolshevism = 0
-	communism = 9
-	revolutionary_socialism = 41
-	moderate_socialism = 23
-	progressivism = 19
-	liberalism = 5
-	liberal_conservatism = 3
-	social_conservatism = 0
-	anocracy = 0
-	autocracy = 0
-	reformed_voynism = 0
-	voynism = 0
-	radical_voynism = 0
+	totalist = 9
+	radical_socialist = 41
+	syndicalist = 23
+	social_democrat = 19
+	social_liberal = 5
+	market_liberal = 3
+	social_conservative = 0
+	authoritarian_democrat = 0
+	paternal_autocrat = 0
+	national_populist = 0
 }
 
 ### AI strategies ###
@@ -102,100 +99,100 @@ add_ai_strategy = {
 create_country_leader = {
 	name = RUS_irakli_tsereteli
 	picture = "gfx/leaders/RUS/Portrait_RUS_Irakli_Tsereteli.png"
-	ideology = progressivism_subtype
+	ideology = social_democrat_subtype
 }
 create_country_leader = {
 	name = RUS_viktor_chernov
 	picture = "gfx/leaders/RUS/Portrait_RUS_Viktor_Chernov.png"
-	ideology = progressivism_subtype
+	ideology = social_democrat_subtype
 }
 create_country_leader = {
 	name = RUS_vasily_maklakov
 	picture = "gfx/leaders/RUS/Portrait_RUS_Vasily_Maklakov.png"
-	ideology = liberal_conservatism_subtype
+	ideology = market_liberal_subtype
 }
 create_country_leader = {
 	name = RUS_nikolay_trubetskoy
 	picture = "gfx/leaders/RUS/Portrait_RUS_Nikolai_Trubetskoy.png"
-	ideology = social_conservatism_subtype
+	ideology = social_conservative_subtype
 }
 create_country_leader = {
 	name = RUS_dmitry_romanov
 	picture = "gfx/leaders/RUS/Portrait_RUS_Dmitri_Romanov.png"
-	ideology = anocracy_subtype
+	ideology = authoritarian_democrat_subtype
 }
 create_country_leader = {
 	name = RUS_pyotr_wrangel
 	picture = "gfx/leaders/RUS/Portrait_RUS_Pyotr_Wrangel.png"
-	ideology = autocracy_subtype
+	ideology = paternal_autocrat_subtype
 }
 create_country_leader = {
 	name = RUS_anastasy_vonsyatsky
 	picture = "gfx/leaders/RUS/Portrait_RUS_Anastasy_Vonsiatsky.png"
-	ideology = reformed_voynism_subtype
+	ideology = national_populist_subtype
 }
 
 ### Country Leaders ###
+recruit_character = RUS_karl_radek
+recruit_character = RUS_aleksandra_kollontai
+recruit_character = RUS_aleksey_rykov
+recruit_character = RUS_nikolay_bukharin
 
-
-
-
-
-
-	
+RUS = { #Shlyapnikov is used in an event, so this gives RUS access to his handle
+	recruit_character = RUS_aleksandr_shlyapnikov
 	RUS_aleksandr_shlyapnikov = { set_nationality = SOV }
 }
 
 ### Second in Command ###
-
-
+recruit_character = RUS_all_russian_congress
+activate_advisor = RUS_all_russian_congress_sic
 
 ### Advisors ###
-
-
-
-
-
-
-
-
-
+recruit_character = RUS_ivan_smirnov
+recruit_character = RUS_ivar_smilga
+recruit_character = RUS_yevgeni_preobrazhensky
+recruit_character = RUS_mikhail_tomsky
+recruit_character = RUS_grigory_sokolnikov
+recruit_character = RUS_grigory_zinoviev
+recruit_character = RUS_lev_kamenev
+recruit_character = RUS_martemyan_ryutin
+recruit_character = RUS_nikolai_yezhov
 
 ### Field Marshals ###
-
-
-
+recruit_character = RUS_mikhail_tukhachevsky #FRA
+recruit_character = RUS_mikhail_frunze
+recruit_character = RUS_vasily_blyukher
 
 ### Generals ###
-
-
-
-
-
-
-
-
-
-
-
-
-
+recruit_character = RUS_aleksandr_yegorov #FOP
+recruit_character = RUS_georgy_zhukov #FOP
+recruit_character = RUS_iosib_dzugashvili #FOP
+recruit_character = RUS_ivan_konev
+recruit_character = RUS_maksim_purkayev
+recruit_character = RUS_aleksandr_gorbatov
+recruit_character = RUS_kirill_meretskov
+recruit_character = RUS_vasily_kuznetsov
+recruit_character = RUS_andrey_vlasov
+recruit_character = RUS_nikolay_berzarin
+recruit_character = RUS_nikolay_krylov
+recruit_character = RUS_semyon_timoshenko
+recruit_character = RUS_hayk_bzhishkyan
 
 ### Military Staff ###
-
-
-
-
+recruit_character = RUS_vasily_glazunov
+recruit_character = RUS_sergey_goriunov
+recruit_character = RUS_konstantin_vershinin
+recruit_character = RUS_timofei_kutsevalov
 
 ### Character Recruited by Effect ###
-
-
-
-
-
-
-
-
+recruit_character = RUS_aleksandr_vasilevsky
+recruit_character = RUS_boris_shaposhnikov
+recruit_character = RUS_nikolay_vatutin
+recruit_character = RUS_leonid_govorov
+recruit_character = RUS_arseny_golovko
+recruit_character = RUS_neon_antonov
+recruit_character = RUS_filipp_ivanov
+recruit_character = RUS_gordey_levchenko
 
 RUS_aleksandr_vasilevsky = {
 	set_character_flag = SOV_character

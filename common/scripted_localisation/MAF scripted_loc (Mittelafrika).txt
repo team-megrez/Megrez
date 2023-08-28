@@ -1,0 +1,37 @@
+defined_text = { #returns the demands that MAF has from POR
+	name = GetMAFDemands
+	text = {
+		trigger = { MAF = { has_country_flag = MAF_POR_Peace_take_north_MZB } }
+		localization_key = MAF_lk_take_north_MZB
+	}
+	text = {
+		trigger = { MAF = { has_country_flag = MAF_POR_Peace_take_All_MZB } }
+		localization_key = MAF_lk_take_all_MZB
+	}
+	text = {
+		trigger = { MAF = { has_country_flag = MAF_POR_Peace_take_part_ANG_MZB } }
+		localization_key = MAF_lk_take_part_ANG_MZB
+	}
+	text = {
+		trigger = { MAF = { has_country_flag = MAF_POR_Peace_take_All_ANG_MZB } }
+		localization_key = MAF_lk_take_all_ANG_MZB
+	}
+	text = {
+		localization_key = MAF_lk_take_nothing
+	}
+}
+
+defined_text = {
+	name = AFR_FormerOverlord_ADJ
+	text = {
+		trigger = {
+			OR = {
+				original_tag = ANG
+				original_tag = MZB
+			}
+		}
+		localization_key = POR_ADJ
+	}
+	text = { localization_key = GER_ADJ }
+}
+

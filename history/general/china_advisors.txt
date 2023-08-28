@@ -1,0 +1,54 @@
+﻿every_possible_country = {
+	limit = {
+		is_dynamic_country = no
+		OR = {
+			is_chinese_tag = yes
+			tag = KUM
+		}
+		NOT = { tag = FNG } #has its own set
+	}
+
+	### this file doesn't accept scripted effects - make sure that the below are exactly the same as in china_generate_chinese_theorists
+	generate_character = {
+		token_base = china_northern_school
+		advisor = {
+			name = china_northern_school
+			desc = china_northern_school_desc
+			slot = theorist
+			traits = { KR_northern_school }
+			ledger = army
+			cost = 100
+		}
+		portraits = {
+			army = { small = "gfx/interface/advisors/CHN/northern_school.png" }
+		}
+	}
+	generate_character = {
+		token_base = china_southern_school
+		advisor = {
+			name = china_southern_school
+			desc = china_southern_school_desc
+			slot = theorist
+			traits = { KR_southern_school }
+			ledger = army
+			cost = 100
+		}
+		portraits = {
+			army = { small = "gfx/interface/advisors/CHN/southern_school.png" }
+		}
+	}
+	generate_character = {
+		token_base = china_green_forest_school
+		advisor = {
+			name = china_green_forest_school
+			desc = china_green_forest_school_desc
+			slot = theorist
+			traits = { KR_green_forest_school }
+			ledger = army
+			cost = 100
+		}
+		portraits = {
+			army = { small = "gfx/interface/advisors/CHN/green_forest_school.png" }
+		}
+	}
+}

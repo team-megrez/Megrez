@@ -1,0 +1,554 @@
+### Xinjiang Decisions ###
+### By Beelzebub ###
+
+SIK_killing_mongol_decision_category = {
+
+	SIK_remove_mongol_mission = {
+		icon = generic_prepare_civil_war
+
+		allowed = { always = no } #manually activated
+
+		available = {
+			has_country_flag = SIK_camp_destroyed
+		}
+
+		cancel_trigger = {
+			NOT = { owns_state = 618 }
+		}
+
+		highlight_states = {
+			highlight_state_targets = { state = 618 }
+		}
+
+		fire_only_once = yes
+		is_good = no
+		days_mission_timeout = 500
+
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout SIK_remove_mongol_mission"
+			add_stability = -0.1
+			add_war_support = -0.05
+			MON = {
+				transfer_state = 618
+				country_event = { id = mon.450 }
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete SIK_remove_mongol_mission"
+			add_stability = 0.05
+			add_war_support = 0.02
+			add_political_power = 50
+		}
+	}
+
+	SIK_mobilize_shuren_division = {
+		icon = GFX_decision_ger_military_buildup
+
+		available = {
+			owns_state = 618
+			controls_state = 618
+			has_manpower > 1500
+		}
+		visible = {
+			has_active_mission = SIK_remove_mongol_mission
+		}
+		highlight_states = {
+			highlight_state_targets = { state = 618 }
+		}
+		ai_will_do = { factor = 50 }
+
+		fire_only_once = yes
+		days_remove = 10
+
+		custom_cost_trigger = {
+			command_power > 25
+		}
+		custom_cost_text = CP_25
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete SIK_mobilize_shuren_division"
+			add_manpower = -1500
+			hidden_effect = {
+				add_command_power = -25
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = -200
+				producer = SIK
+			}
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove SIK_mobilize_shuren_division"
+			set_country_flag = SIK_shuren_division_mobilized
+		}
+	}
+
+	SIK_march_dzungaria = {
+		icon = GFX_decision_generic_scorched_earth
+
+		available = {
+			owns_state = 618
+			controls_state = 618
+		}
+		visible = {
+			has_country_flag = SIK_shuren_division_mobilized
+			has_active_mission = SIK_remove_mongol_mission
+		}
+		highlight_states = {
+			highlight_state_targets = { state = 618 }
+		}
+		ai_will_do = { factor = 50 }
+
+		cost = 50
+		fire_only_once = yes
+		days_remove = 15
+
+		custom_cost_trigger = {
+			command_power > 25
+		}
+		custom_cost_text = CP_25
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete SIK_march_dzungaria"
+			hidden_effect = {
+				add_command_power = -25
+			}
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove SIK_march_dzungaria"
+			country_event = xinfd.2
+		}
+	}
+
+	SIK_setup_policing_dzungaria = {
+		icon = GFX_decision_oppression
+
+		available = {
+			owns_state = 618
+			controls_state = 618
+			has_manpower > 500
+		}
+		visible = {
+			has_active_mission = SIK_remove_mongol_mission
+		}
+		highlight_states = {
+			highlight_state_targets = { state = 618 }
+		}
+		ai_will_do = { factor = 50 }
+
+		fire_only_once = yes
+		days_remove = 30
+		custom_cost_trigger = {
+			command_power > 25
+		}
+		custom_cost_text = CP_25
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete SIK_setup_policing_dzungaria"
+			hidden_effect = {
+				add_command_power = -25
+			}
+			add_manpower = -500
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = -250
+				producer = SIK
+			}
+			add_stability = -0.05
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove SIK_setup_policing_dzungaria"
+		}
+	}
+}
+
+SIK_xinjiang_war_category = {
+	SIK_defend_dihua_mission = {
+		icon = generic_prepare_civil_war
+
+		allowed = { always = no } #manually activated
+
+		available = {
+			NOT = {
+				controls_state = 617
+			}
+			has_government = paternal_autocrat
+		}
+
+		highlight_states = {
+			highlight_state_targets = { state = 617 }
+		}
+
+		cancel_trigger = {
+			NOT = {
+				country_exists = KUM
+				country_exists = ETS
+			}
+		}
+
+		fire_only_once = yes
+
+		Is_good = yes
+		selectable_mission = no
+		days_mission_timeout = 200
+
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout SIK_defend_dihua_mission"
+			add_stability = 0.05
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete SIK_defend_dihua_mission"
+			SIK_raise_discontent = yes
+			add_popularity = {
+				ideology = social_democrat popularity = 0.05
+			}
+		}
+	}
+
+	SIK_unify_xinjiang = {
+		icon = GFX_decision_generic_flags
+
+		allowed = {
+			always = no
+		}
+
+		available = {
+			owns_state = 1083
+			owns_state = 619
+			NOT = {
+				country_exists = KUM
+				country_exists = ETS
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = { state = 617 }
+		}
+
+		fire_only_once = yes
+		cost = 0
+		is_good = no
+		selectable_mission = yes
+		days_mission_timeout = 300
+
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout SIK_unify_xinjiang"
+			country_event = { id = xin.47 days = 3 }
+			add_stability = -0.1
+			add_political_power = -50
+			SIK_raise_discontent = yes
+			add_popularity = {
+				ideology = social_democrat popularity = 0.05
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete SIK_unify_xinjiang"
+			log = "KR_Event_Logging;Xinjiang Clique WINS XINJIANG WAR;[GetDateText]"
+			set_country_flag = SIK_jin_rule
+			if = {
+				limit = { has_idea = SIK_rumors_discontent }
+				remove_ideas = SIK_rumors_discontent
+			}
+			else_if = {
+				limit = { has_idea = SIK_rumors_discontent_2 }
+				remove_ideas = SIK_rumors_discontent_2
+			}
+			else_if = {
+				limit = { has_idea = SIK_rumors_discontent_3 }
+				remove_ideas = SIK_rumors_discontent_3
+			}
+			add_stability = 0.05
+			add_political_power = 20
+			add_popularity = {
+				ideology = paternal_autocrat popularity = 0.10
+			}
+		}
+		ai_will_do = {
+			factor = 25
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SIK_path option = SIK_PATH_SOCDEM }
+					has_game_rule = { rule = SIK_path option = SIK_PATH_AUTDEM }
+				}
+			}
+		}
+	}
+
+	SIK_check_beiyuan = {
+		icon = GFX_decision_generic_agreement
+
+		allowed = { always = no } #manually activated
+
+		available = {
+			NOT = {
+				has_country_flag = SIK_beiyuan_mobilize
+				has_country_flag = SIK_beiyuan_defection
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = { state = 617 }
+		}
+
+		cost = 30
+
+		fire_only_once = yes
+
+		is_good = no
+		selectable_mission = yes
+		days_mission_timeout = 55
+
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout SIK_check_beiyuan"
+			country_event = xin.43
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete SIK_check_beiyuan"
+			country_event = xin.45
+		}
+		ai_will_do = {
+			factor = 25
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SIK_path option = SIK_PATH_SOCDEM }
+					has_game_rule = { rule = SIK_path option = SIK_PATH_AUTDEM }
+				}
+			}
+		}
+	}
+
+	SIK_mobilize_aksu_forces = {
+		icon = GFX_decision_generic_break_treaty
+
+		available = {
+			owns_state = 617
+			controls_state = 617
+			has_country_flag = SIK_aksu_army_demobilized
+		}
+		visible = {
+			has_government = paternal_autocrat
+		}
+		highlight_states = {
+			highlight_state_targets = { state = 617 }
+		}
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = SIK_path option = SIK_PATH_PATAUT }
+			}
+		}
+		cost = 25
+
+		fire_only_once = yes
+		days_remove = 20
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete SIK_mobilize_aksu_forces"
+			add_popularity = {
+				ideology = social_democrat popularity = 0.1
+			}
+			SIK_raise_discontent = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove SIK_mobilize_aksu_forces"
+			random_owned_controlled_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					NOT = { state = 1085 }
+				}
+				prioritize = { 617 }
+				create_unit = {
+					division = "name = \"Aksu Brigade\" division_template = \"Tungan Division\" start_experience_factor = 0.6 start_equipment_factor = 1.0"
+					owner = SIK
+				}
+			}
+			set_country_flag = SIK_aksu_army_demobilized
+		}
+	}
+
+	SIK_white_russian_recruitment = {
+		icon = GFX_decision_generic_prepare_civil_war
+
+		available = {
+			owns_state = 617
+			controls_state = 617
+		}
+		visible = {
+			has_government = paternal_autocrat
+		}
+		highlight_states = {
+			highlight_state_targets = { state = 617 }
+		}
+		ai_will_do = { factor = 50 }
+		custom_cost_trigger = {
+			command_power > 25
+		}
+		custom_cost_text = CP_25
+
+		fire_only_once = yes
+		days_remove = 40
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete SIK_white_russian_recruitment"
+			hidden_effect = {
+				add_command_power = -25
+			}
+			add_popularity = {
+				ideology = paternal_autocrat popularity = 0.1
+			}
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove SIK_white_russian_recruitment"
+			custom_effect_tooltip = SIK_white_russian_tooltips
+			hidden_effect = {
+				### Delete templates if existed before - no cheating
+				if = {
+					limit = { has_template = "White Russian Troops" }
+					delete_unit_template_and_units = { division_template = "White Russian Troops" disband = yes }
+				}
+				### Create templates
+				division_template = {
+					name = "White Russian Troops"
+					division_names_group = "SIK_INF_01"
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+					}
+				}
+				### Create divisions
+				random_owned_controlled_state = {
+					limit = { valid_state_for_spawning_friendly_unit = yes }
+					prioritize = { 617 }
+					create_unit = {
+						division = "name = \"White Russian Urumqi Garrison\" division_template = \"White Russian Troops\" start_experience_factor = 0.2 start_equipment_factor = 0.5"
+						owner = PREV
+						prioritize_location = 4709
+					}
+					create_unit = {
+						division = "name = \"White Russian Aksu Garrison\" division_template = \"White Russian Troops\" start_experience_factor = 0.2 start_equipment_factor = 0.5"
+						owner = PREV
+						prioritize_location = 4709
+					}
+				}
+			}
+		}
+	}
+
+	SIK_fortify_dihua = {
+		icon = GFX_decision_generic_construction
+
+		available = {
+			owns_state = 617
+			controls_state = 617
+		}
+		visible = {
+			OR = {
+				has_war_with = KUM
+				has_war_with = ETS
+			}
+		}
+		highlight_states = {
+			highlight_state_targets = { state = 617 }
+		}
+		ai_will_do = { factor = 50 }
+		cost = 30
+
+		fire_only_once = yes
+		days_remove = 10
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete SIK_fortify_dihua"
+
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove SIK_fortify_dihua"
+			617 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 4709
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	SIK_secure_turfan = {
+		icon = GFX_decision_generic_political_discourse
+
+		available = {
+			owns_state = 617
+			controls_state = 617
+		}
+		visible = {
+			has_war_with = KUM
+			has_government = paternal_autocrat
+			has_country_flag = SIK_turfan_troubles
+			NOT = {
+				has_country_flag = SIK_turfan_negotiations
+				has_country_flag = SIK_turfan_defection
+				has_country_flag = SIK_turfan_deployment
+			}
+		}
+		highlight_states = {
+			highlight_state_targets = { state = 617 }
+		}
+		ai_will_do = { factor = 50 }
+		cost = 30
+
+		fire_only_once = yes
+		days_remove = 5
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete SIK_secure_turfan"
+			set_country_flag = SIK_turfan_negotiations
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove SIK_secure_turfan"
+			country_event = xin.38
+		}
+	}
+}
+
+SIK_assassinate_damulla_category = {
+	SIK_assassinate_sabit_damulla_decision = {
+		icon = decision_generic_nationalism
+
+		available = {
+			date > 1937.6.1
+			NOT = { country_exists = KUM }
+		}
+
+		visible = {
+			has_war_with = ETS
+			has_capitulated = no
+		}
+
+		fire_only_once = yes
+		cost = 30
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				add = -15
+				ETS = {
+					is_ai = no
+				}
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete SIK_assassinate_sabit_damulla_decision"
+			country_event = xinfd.15
+		}
+	}
+}
+

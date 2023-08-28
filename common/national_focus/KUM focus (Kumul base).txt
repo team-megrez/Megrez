@@ -1,0 +1,62 @@
+#######################################
+# Kumul focus tree                    #
+# By Beelzebub and Kracc and WordZero #
+#######################################
+
+focus_tree = {
+	id = Kumul_start
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = KUM
+		}
+	}
+	default = no
+	continuous_focus_position = { x = 1170 y = 702 }
+
+	shared_focus = KUM_nasir_reign
+	shared_focus = KUM_xinjiang_administration
+}
+focus_tree = {
+	id = Kumul_xinjiang
+	country = {
+		factor = 0
+	}
+	default = no
+	continuous_focus_position = { x = 1170 y = 702 }
+
+	shared_focus = KUM_consolidating_xinjiang
+	shared_focus = KUM_the_kumul_army
+}
+
+focus_tree = {
+	id = Kumul_khanate
+	country = {
+		factor = 0
+	}
+	default = no
+	continuous_focus_position = { x = 1170 y = 702 }
+
+	shared_focus = KUM_consolidating_xinjiang
+	shared_focus = KUM_the_kumul_army
+	shared_focus = KUM_khanate_continuation
+}
+
+focus_tree = {
+	id = Kumul_non_khanate
+	country = {
+		factor = 0
+	}
+	default = no
+	continuous_focus_position = { x = 1170 y = 702 }
+
+	shared_focus = KUM_consolidating_xinjiang
+	shared_focus = KUM_the_kumul_army
+	shared_focus = KUM_khanate_no_more
+
+	shared_focus = CHS_provisional_government
+	shared_focus = CHS_reintegrate_academies
+	shared_focus = CHS_standardised_arsenals
+	shared_focus = CHS_southern_fleets_legacy
+}

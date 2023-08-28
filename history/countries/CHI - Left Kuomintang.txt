@@ -60,12 +60,12 @@ if = {
 	}
 }
 
-
-
-
-
-
-
+QIE = { embargo_ROOT = yes }
+LEP = { embargo_ROOT = yes }
+ANQ = { embargo_ROOT = yes }
+SQI = { embargo_ROOT = yes }
+FNG = { embargo_ROOT = yes }
+JAP = { embargo_ROOT = yes }
 
 set_cosmetic_tag = CHI_rebel
 
@@ -98,102 +98,99 @@ add_to_variable = { CHI_NRA_army_leader_cost_factor = 0.5 }
 add_to_variable = { CHI_NRA_training_time_factor = 0.1 }
 
 set_politics = {
-	ruling_party = revolutionary_socialism
+	ruling_party = radical_socialist
 	last_election = "1925.10.10"
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	bolshevism = 0
-	communism = 5
-	revolutionary_socialism = 48
-	moderate_socialism = 0
-	progressivism = 37
-	liberalism = 10
-	liberal_conservatism = 0
-	social_conservatism = 0
-	anocracy = 0
-	autocracy = 0
-	reformed_voynism = 0
-	voynism = 0
-	radical_voynism = 0
+	totalist = 5
+	radical_socialist = 48
+	syndicalist = 0
+	social_democrat = 37
+	social_liberal = 10
+	market_liberal = 0
+	social_conservative = 0
+	authoritarian_democrat = 0
+	paternal_autocrat = 0
+	national_populist = 0
 }
 ### Flavor Events
 ## chi_flavor.1 starts with Chen Gongbo's event
-
-
-
-
-
-
+country_event = { id = chi_flavor.2 days = 700 } # Song at Midnight
+country_event = { id = chi_flavor.3 days = 397 } #League of Left Wing Writers
+country_event = { id = chi_flavor.4 days = 1777 } #Needs to fire November 12, 1939 - CCBS event
+country_event = { id = chi_flavor.5 days = 745 } #Crossroads event
+country_event = { id = chi_flavor.6 days = 1281 } #Chen Bo'er
+country_event = { id = chi_flavor.7 days = 1312 } #Death of Lu Xun
 # chi_flavor.9 is Deng Yanda's unique event
-
+country_event = { id = literature.17 days = 130 random_days = 20 } #White Sun Over China
 
 ### CHI Generals ###
 
 ### Country Leaders ###
-
-
-
-
-
-
-
-
+recruit_character = CHI_dai_chunfeng
+recruit_character = CHI_chen_duxiu
+recruit_character = CHI_wang_jingwei
+recruit_character = CHI_song_qingling
+recruit_character = CHI_sun_fo
+recruit_character = CHI_xu_fulin
+recruit_character = CHI_lin_sen
+recruit_character = CHI_chen_guofu
 
 ### Field Marshals ###
-
+recruit_character = CHI_li_jishen
 
 ### Corps Commanders ###
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+recruit_character = CHI_xue_yue
+recruit_character = CHI_zhang_fakui
+recruit_character = CHI_deng_yanda
+recruit_character = CHI_ye_ting
+recruit_character = CHI_lin_biao
+recruit_character = CHI_zhang_yunyi
+recruit_character = CHI_wang_yaowu
+recruit_character = CHI_xu_xiangqian
+recruit_character = CHI_chiang_wei_kuo
+recruit_character = CHI_hu_zongnan
+recruit_character = CHI_du_yuming
+recruit_character = CHI_dai_anlan
+recruit_character = CHI_he_zhonghan
+recruit_character = CHI_zhang_zhizhong
+recruit_character = CHI_nie_rongzhen
+recruit_character = CHI_huang_qixiang
 
 ### Admirals ###
-
-
+recruit_character = CHI_li_zhilong
+recruit_character = CHI_chen_shaokuan
 
 ### Advisors ###
+recruit_character = CHI_liao_zhongkai
+recruit_character = CHI_chen_gongbo
+recruit_character = CHI_zhou_enlai
+recruit_character = CHI_song_ziwen
+recruit_character = CHI_gu_mengyu
+recruit_character = CHI_chen_bijun
+recruit_character = CHI_zhou_fohai
+recruit_character = CHI_li_shiqun
+recruit_character = CHI_eugene_chen
+recruit_character = CHI_zhang_renjie
+recruit_character = CHI_zhang_guotao
+recruit_character = CHI_mao_renfang
+recruit_character = CHI_chen_lifu
+recruit_character = CHI_cai_yuanpei
+recruit_character = CHI_deng_yingchao
+recruit_character = CHI_chiang_ching_kuo
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+activate_advisor = CHI_liao_zhongkai_sic
 
 ### Military Command #####
+recruit_character = CHI_deng_wenyi
+recruit_character = CHI_zhou_zhirou
+recruit_character = CHI_mao_bangchu
+recruit_character = CHI_su_yu
 
-
-
-
-
-
+recruit_character = CHI_chen_jiliang
 
 ### Character Setup ###
 CHI_hu_zongnan = { set_variable = { china_alignment = token:left_kuomintang } }

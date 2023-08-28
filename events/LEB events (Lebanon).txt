@@ -1,0 +1,1266 @@
+﻿add_namespace = leb
+
+country_event = { #Victory against Syria
+	id = leb.1
+	title = leb.1.t
+	desc = leb.1.d
+
+	picture = GFX_OTT_Barzani_Revolt
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event leb.1 option leb.1.a"
+		name = leb.1.a
+		add_stability = 0.05
+		add_war_support = 0.15
+		complete_national_focus = LEB_independence_achieved
+		country_event = { id = leb.2 days = 10 }
+		delete_unit_template_and_units = { division_template = "Militia Division" disband = yes }
+		hidden_effect = {
+			if = {
+				limit = {
+					is_subject = no
+					country_exists = ARM
+					ARM = { NOT = { has_government = national_populist } }
+				}
+				ARM = { country_event = { id = arm.4 days = 55 } }
+			}
+		}
+	}
+}
+
+country_event = { #End of the United Front
+	id = leb.2
+	title = leb.2.t
+	desc = leb.2.d
+
+	picture = GFX_OTT_Arab_Protest_Indoors
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event leb.2 option leb.2.a"
+		name = leb.2.a
+		add_political_power = -20
+		remove_ideas = LEB_united_front
+		end_coalition = yes
+		country_event = { id = leb.3 days = 10 }
+	}
+}
+
+country_event = { #The Provisional Parliament demands Fouad Chehab Step Down
+	id = leb.3
+	title = leb.3.t
+	desc = leb.3.d
+
+	picture = GFX_SYR_Parliament
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event leb.3 option leb.3.a"
+		name = leb.3.a
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = LEB_path option = LEB_PATH_AUTDEM }
+			}
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = -0.1
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.1
+		}
+		set_temp_variable = { coalition_partner_var = token:social_liberal }
+		add_to_coalition = yes
+		set_temp_variable = { coalition_partner_var = token:market_liberal }
+		add_to_coalition = yes
+		set_temp_variable = { coalition_partner_var = token:social_conservative }
+		add_to_coalition = yes
+		add_country_leader_role = {
+			character = LEB_provisional_parliament_of_lebanon
+			country_leader = { ideology = authoritarian_democrat_subtype }
+			promote_leader = yes
+		}
+		activate_advisor = LEB_raymond_edde_sic
+		complete_national_focus = LEB_chahab_steps_down
+		custom_effect_tooltip = LEB_marada_influence_warning
+		hidden_effect = {
+			set_cosmetic_tag = LEB_republic
+		}
+		LEB_set_up_chehab_coup = yes
+	}
+
+	option = {
+		log = "[GetLogInfo]: event leb.3 option leb.3.b"
+		name = leb.3.b
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = LEB_path option = LEB_PATH_MARLIB }
+					has_game_rule = { rule = LEB_path option = LEB_PATH_SOCLIB }
+					has_game_rule = { rule = LEB_path option = LEB_PATH_SOCCON_EGY }
+					has_game_rule = { rule = LEB_path option = LEB_PATH_SOCCON_IRQ }
+					has_game_rule = { rule = LEB_path option = LEB_PATH_NATPOP }
+				}
+			}
+		}
+		add_stability = 0.05
+		add_political_power = -50
+		complete_national_focus = LEB_democracy_at_any_cost
+	}
+}
+
+country_event = { #Dealing with the Dynasties
+	id = leb.4
+	title = leb.4.t
+	desc = leb.4.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event leb.4 option leb.4.a"
+		name = leb.4.a
+		trigger = {
+			NOT = { has_country_leader = { character = LEB_fuad_chehab } }
+		}
+		add_political_power = 20
+		add_war_support = -0.05
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.05
+		}
+		LEB_corruption_increase = yes
+		add_days_mission_timeout = {
+			mission = LEB_fuad_chehab_intervenes
+			days = -50
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event leb.4 option leb.4.b"
+		name = leb.4.b
+		add_political_power = -20
+		add_war_support = 0.05
+		if = {
+			limit = { has_country_leader = { character = LEB_fuad_chehab } }
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			}
+		}
+		else = {
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = national_populist
+				popularity = 0.025
+			}
+			custom_effect_tooltip = LEB_marada_influence_warning
+		}
+	}
+}
+
+country_event = { #Dealing with the Republican Movement
+	id = leb.5
+	title = leb.5.t
+	desc = leb.5.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event leb.5 option leb.5.a"
+		name = leb.5.a
+		add_political_power = -20
+		set_temp_variable = { coalition_partner_var = token:social_liberal }
+		add_to_coalition = yes
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.05
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event leb.5 option leb.5.b"
+		name = leb.5.b
+		add_stability = 0.05
+		custom_effect_tooltip = leb.5.b.tooltip
+		set_country_flag = harder_to_assume_full_power
+	}
+}
+
+country_event = { #Sunni Riots
+	id = leb.6
+	title = leb.6.t
+	desc = leb.6.d
+
+	picture = GFX_OTT_Arabs_Angry
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event leb.6 option leb.6.a"
+		name = leb.6.a
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.05
+		}
+		custom_effect_tooltip = LEB_marada_influence_warning
+	}
+
+	option = {
+		log = "[GetLogInfo]: event leb.6 option leb.6.b"
+		name = leb.6.b
+		add_stability = -0.05
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.05
+		}
+		add_days_mission_timeout = {
+			mission = LEB_fuad_chehab_intervenes
+			days = -50
+		}
+	}
+}
+
+country_event = { #Marada Demand Seats
+	id = leb.7
+	title = leb.7.t
+	desc = leb.7.d
+
+	picture = GFX_OTT_Syrian_Socialists
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event leb.7 option leb.7.a"
+		name = leb.7.a
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = LEB_path option = LEB_PATH_MARLIB }
+					has_game_rule = { rule = LEB_path option = LEB_PATH_SOCLIB }
+					has_game_rule = { rule = LEB_path option = LEB_PATH_SOCCON_EGY }
+					has_game_rule = { rule = LEB_path option = LEB_PATH_SOCCON_IRQ }
+					has_game_rule = { rule = LEB_path option = LEB_PATH_AUTDEM }
+				}
+			}
+		}
+		LEB_corruption_increase = yes
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.05
+		}
+		custom_effect_tooltip = LEB_marada_influence_warning
+	}
+
+	option = {
+		log = "[GetLogInfo]: event leb.7 option leb.7.b"
+		name = leb.7.b
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = LEB_path option = LEB_PATH_NATPOP }
+			}
+		}
+		add_stability = -0.05
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.05
+		}
+	}
+}
+
+country_event = { #A Threat from Within
+	id = leb.8
+	title = leb.8.t
+	desc = leb.8.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event leb.8 option leb.8.a"
+		name = leb.8.a
+		add_political_power = -30
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = -0.05
+		}
+	}
+}
+
+country_event = { #The New Constitution
+	id = leb.9
+	title = leb.9.t
+	desc = leb.9.d
+
+	picture = GFX_OTT_Sultan_Speech
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event leb.9 option leb.9.a"
+		name = leb.9.a
+		add_stability = 0.1
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						national_populist > 0.35
+						has_country_leader = { character = LEB_fuad_chehab }
+						has_game_rule = { rule = LEB_path option = LEB_PATH_NATPOP }
+					}
+				}
+				country_event = { id = leb.10 days = 7 }
+			}
+			else = {
+				country_event = { id = leb.14 days = 7 }
+			}
+		}
+	}
+}
+
+country_event = { #The Marada Coup
+	id = leb.10
+	title = leb.10.t
+	desc = leb.10.d
+
+	picture = GFX_IRQ_Machine_Gun
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event leb.10 option leb.10.a"
+		name = leb.10.a
+		trigger = {
+			NOT = { has_country_leader = { character = LEB_fuad_chehab } }
+		}
+		country_event = leb.11
+	}
+
+	option = {
+		log = "[GetLogInfo]: event leb.10 option leb.10.b"
+		name = leb.10.b
+		trigger = {
+			has_country_leader = { character = LEB_fuad_chehab }
+		}
+		country_event = leb.12
+	}
+}
+
+country_event = { #God, Fatherland, Family
+	id = leb.11
+	title = leb.11.t
+	desc = leb.11.d
+
+	picture = GFX_OTT_Syrian_Socialists
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event leb.11 option leb.11.a"
+		name = leb.11.a
+		end_coalition = yes
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.05
+		}
+		set_politics = {
+			ruling_party = national_populist
+			last_election = "1888.6.15"
+			election_frequency = 48
+			elections_allowed = no
+		}
+		activate_advisor = LEB_william_hawi_sic
+		complete_national_focus = LEB_allah_al_watan_al_a_elat
+		drop_cosmetic_tag = yes
+		add_days_mission_timeout = {
+			mission = LEB_fuad_chehab_intervenes
+			days = -400
+		}
+	}
+}
+
+country_event = { #A National Emergency
+	id = leb.12
+	title = leb.12.t
+	desc = leb.12.d
+
+	picture = GFX_IRQ_Tank_Street
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event leb.12 option leb.12.a"
+		name = leb.12.a
+		add_stability = 0.05
+		hidden_effect = {
+			country_event = { id = leb.13 days = 20 }
+		}
+	}
+}
+
+country_event = { #Extraordinary Powers?
+	id = leb.13
+	title = leb.13.t
+	desc = leb.13.d
+
+	picture = GFX_OTT_Raid_Porte
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event leb.13 option leb.13.a"
+		name = leb.13.a
+		add_stability = 0.05
+		country_event = { id = leb.15 days = 10 }
+		end_coalition = yes
+		LEB_set_up_chehab_coup = yes
+		hidden_effect = {
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.3
+			}
+			set_cosmetic_tag = LEB_republic
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event leb.13 option leb.13.b"
+		name = leb.13.b
+		if = {
+			limit = {
+				has_country_flag = harder_to_assume_full_power
+			}
+			add_political_power = -50
+			add_stability = -0.05
+		}
+		else = {
+			add_political_power = -25
+		}
+		if = {
+			limit = { has_country_leader = { character = LEB_fuad_chehab } }
+			set_country_leader_description = { desc = LEB_fuad_chehab_autdem_leader_desc }
+		}
+		complete_national_focus = LEB_pillars_of_society
+		hidden_effect = {
+			set_politics = {
+				ruling_party = authoritarian_democrat
+				last_election = "1888.6.15"
+				election_frequency = 48
+				elections_allowed = yes
+			}
+		}
+	}
+}
+
+country_event = { #The Marada Enter the Election
+	id = leb.14
+	title = leb.14.t
+	desc = leb.14.d
+
+	picture = GFX_OTT_Syrian_Socialists
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event leb.14 option leb.14.a"
+		name = leb.14.a
+		add_stability = 0.05
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.3
+		}
+		country_event = { id = leb.15 days = 10 }
+		end_coalition = yes
+	}
+}
+
+country_event = { #The Year Elections
+	id = leb.15
+	title = leb.15.t
+	desc = leb.15.d
+
+	picture = GFX_report_event_AST_election
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event leb.15 option leb.15.a"
+		name = leb.15.a
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = LEB_path option = LEB_PATH_MARLIB }
+					has_game_rule = { rule = LEB_path option = LEB_PATH_SOCLIB }
+				}
+			}
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = -0.2
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.2
+		}
+		set_politics = {
+			ruling_party = social_conservative
+			last_election = "1888.6.15"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		activate_advisor = LEB_riad_el_solh_sic
+		complete_national_focus = LEB_foster_national_pact
+		add_days_mission_timeout = {
+			mission = LEB_fuad_chehab_intervenes
+			days = -100
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event leb.15 option leb.15.b"
+		name = leb.15.b
+		trigger = {
+			NOT = {
+				has_idea = LEB_corruption_level_5
+			}
+		}
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = LEB_path option = LEB_PATH_SOCCON_EGY }
+					has_game_rule = { rule = LEB_path option = LEB_PATH_SOCCON_IRQ }
+					has_game_rule = { rule = LEB_path option = LEB_PATH_SOCLIB }
+				}
+			}
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = -0.2
+		}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.2
+		}
+		set_politics = {
+			ruling_party = market_liberal
+			last_election = "1888.6.15"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		activate_advisor = LEB_khayreddine_al_ahdab_sic
+		complete_national_focus = LEB_foster_national_pact
+		add_days_mission_timeout = {
+			mission = LEB_fuad_chehab_intervenes
+			days = -50
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event leb.15 option leb.15.c"
+		name = leb.15.c
+		trigger = {
+			NOT = {
+				has_idea = LEB_corruption_level_4
+				has_idea = LEB_corruption_level_5
+			}
+		}
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = LEB_path option = LEB_PATH_SOCCON_EGY }
+					has_game_rule = { rule = LEB_path option = LEB_PATH_SOCCON_IRQ }
+					has_game_rule = { rule = LEB_path option = LEB_PATH_MARLIB }
+				}
+			}
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = -0.2
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.2
+		}
+		set_politics = {
+			ruling_party = social_liberal
+			last_election = "1888.6.15"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		activate_advisor = LEB_abdallah_yafi_sic
+		complete_national_focus = LEB_pillars_of_society
+		add_days_mission_timeout = {
+			mission = LEB_fuad_chehab_intervenes
+			days = 600
+		}
+	}
+}
+
+country_event = { #The Third Beirut Reform Society Conference
+	id = leb.16
+	title = leb.16.t
+	desc = leb.16.d
+
+	picture = GFX_OTT_Parliament_Baghdad
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event leb.16 option leb.16.a"
+		name = leb.16.a
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.1
+		}
+		LEB_reform_society_spirit_level_improve = yes
+	}
+}
+
+country_event = { #The National Pact
+	id = leb.17
+	title = leb.17.t
+	desc = {
+		text = leb.17.d
+		trigger = {
+			has_government = social_conservative
+		}
+	}
+	desc = {
+		text = leb.17.e
+		trigger = {
+			has_government = market_liberal
+		}
+	}
+
+	picture = GFX_OTT_Sultan_Speech
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event leb.17 option leb.17.a"
+		name = leb.17.a
+		custom_effect_tooltip = leb.17.a.tt
+		set_temp_variable = { ideology_change_var = 0.05 }
+		change_ruling_party_popularity = yes
+		LEB_improve_ethnic_divides = yes
+		if = {
+			limit = {
+				has_government = market_liberal
+			}
+			LEB_national_bloc_spirit_level_improve = yes
+		}
+		else = {
+			LEB_constitutional_bloc_spirit_level_improve = yes
+		}
+	}
+}
+
+country_event = { #Syrian Nationalists Strike
+	id = leb.18
+	title = leb.18.t
+	desc = leb.18.d
+
+	picture = GFX_OTT_Gendarmerie
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event leb.18 option leb.18.a"
+		name = leb.18.a
+		add_stability = -0.05
+	}
+}
+
+country_event = { #Protests against El Khoury
+	id = leb.19
+	title = leb.19.t
+	desc = leb.19.d
+
+	picture = GFX_OTT_Gendarmerie
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event leb.19 option leb.19.a"
+		name = leb.19.a
+		add_stability = -0.1
+		add_days_mission_timeout = {
+			mission = LEB_fuad_chehab_intervenes
+			days = -100
+		}
+	}
+}
+
+country_event = { # Lebanon wants to join faction
+	id = leb.20
+	title = leb.20.t
+	desc = leb.20.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event leb.20 option leb.20.a"
+		name = leb.20.a
+		add_to_faction = LEB
+	}
+	option = {
+		log = "[GetLogInfo]: event leb.20 option leb.20.b"
+		name = leb.20.b
+		ai_chance = { factor = 0 }
+		LEB = {
+			country_event = { id = leb.21 days = 1 }
+		}
+	}
+}
+
+country_event = { # Rejected from faction
+	id = leb.21
+	title = leb.21.t
+	desc = leb.21.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event leb.21 option leb.21.a"
+		name = leb.21.a
+	}
+}
+
+country_event = { # New Elections
+	id = leb.22
+	title = leb.22.t
+	desc = leb.22.d
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				has_completed_focus = LEB_appeal_of_pan_arabism
+				has_completed_focus = LEB_no_winners_no_losers
+			}
+			AND = {
+				has_completed_focus = LEB_no_winners_no_losers
+				has_completed_focus = LEB_the_chehabist_way
+				has_completed_focus = LEB_maintain_our_neutrality
+				has_completed_focus = LEB_pursue_confessional_balance
+			}
+			AND = {
+				has_completed_focus = LEB_join_the_entente
+				has_completed_focus = LEB_the_young_phoenicians
+				has_completed_focus = LEB_suppress_syrian_nationalists
+			}
+			AND = {
+				has_completed_focus = LEB_suppress_syrian_nationalists
+				has_completed_focus = LEB_pursue_education_reform
+				has_completed_focus = LEB_join_the_arabs
+				has_completed_focus = LEB_extend_presidential_term
+			}
+		}
+	}
+
+	picture = GFX_report_event_AST_election
+
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event leb.22 option leb.22.a"
+		name = leb.22.a
+		ai_chance = {
+			factor = 33
+			modifier = {
+				OR = {
+					has_game_rule = { rule = LEB_path option = LEB_PATH_MARLIB }
+					has_game_rule = { rule = LEB_path option = LEB_PATH_SOCLIB }
+				}
+				factor = 0
+			}
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.2
+		}
+		set_politics = {
+			ruling_party = social_conservative
+			elections_allowed = yes
+		}
+		activate_advisor = LEB_riad_el_solh_sic
+	}
+
+	option = {
+		log = "[GetLogInfo]: event leb.22 option leb.22.b"
+		name = leb.22.b
+		ai_chance = {
+			factor = 33
+			modifier = {
+				OR = {
+					has_game_rule = { rule = LEB_path option = LEB_PATH_SOCLIB }
+					has_game_rule = { rule = LEB_path option = LEB_PATH_SOCCON_EGY }
+					has_game_rule = { rule = LEB_path option = LEB_PATH_SOCCON_IRQ }
+				}
+				factor = 0
+			}
+		}
+		trigger = {
+			NOT = {
+				has_idea = LEB_corruption_level_5
+			}
+		}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.2
+		}
+		set_politics = {
+			ruling_party = market_liberal
+			elections_allowed = yes
+		}
+		activate_advisor = LEB_khayreddine_al_ahdab_sic
+	}
+
+	option = {
+		log = "[GetLogInfo]: event leb.22 option leb.22.c"
+		name = leb.22.c
+		ai_chance = {
+			factor = 33
+			modifier = {
+				OR = {
+					has_game_rule = { rule = LEB_path option = LEB_PATH_MARLIB }
+					has_game_rule = { rule = LEB_path option = LEB_PATH_SOCCON_EGY }
+					has_game_rule = { rule = LEB_path option = LEB_PATH_SOCCON_IRQ }
+				}
+				factor = 0
+			}
+		}
+		trigger = {
+			NOT = {
+				has_idea = LEB_corruption_level_4
+				has_idea = LEB_corruption_level_5
+				has_completed_focus = LEB_the_national_pact
+			}
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.2
+		}
+		set_politics = {
+			ruling_party = social_liberal
+			elections_allowed = yes
+		}
+		activate_advisor = LEB_aref_abu_chakra_sic
+	}
+}
+
+country_event = { # New Elections (Chehab)
+	id = leb.23
+	title = leb.23.t
+	desc = leb.23.d
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	picture = GFX_report_event_AST_election
+
+	trigger = {
+		has_government = authoritarian_democrat
+		has_completed_focus = LEB_pursue_confessional_balance
+		has_completed_focus = LEB_the_chehabist_way
+		has_completed_focus = LEB_maintain_our_neutrality
+		has_completed_focus = LEB_no_winners_no_losers
+	}
+
+	option = {
+		log = "[GetLogInfo]: event leb.23 option leb.23.a"
+		name = leb.23.a
+		add_country_leader_role = {
+			character = LEB_charles_helou
+			country_leader = {
+				desc = LEB_charles_helou_leader_desc
+				ideology = authoritarian_democrat_subtype
+			}
+			promote_leader = yes
+		}
+	}
+}
+
+country_event = { # Chehab Intervenes
+	id = leb.24
+	title = leb.24.t
+	desc = leb.24.d
+
+	is_triggered_only = yes
+
+	trigger = {
+		LEB_fuad_chehab = {
+			is_character_slot = political_advisor
+		}
+	}
+
+	fire_only_once = yes
+
+	#picture =
+
+	option = {
+		log = "[GetLogInfo]: event leb.24 option leb.24.a"
+		name = leb.24.a
+		if = {
+			limit = { has_government = national_populist }
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.4
+			}
+			SYR = { country_event = { id = leb.34 days = 2 } }
+			if = {
+				limit = { has_template = "Marada Division" }
+				delete_unit_template_and_units = { division_template = "Marada Division" disband = no }
+			}
+		}
+		if = {
+			limit = {
+				has_completed_focus = LEB_a_new_constitution
+			}
+			complete_national_focus = LEB_pillars_of_society
+			set_politics = {
+				ruling_party = authoritarian_democrat
+				last_election = "1888.6.15"
+				election_frequency = 48
+				elections_allowed = yes
+			}
+			if = {
+				limit = { has_country_leader = { character = LEB_fuad_chehab } }
+				set_country_leader_description = { desc = LEB_fuad_chehab_autdem_leader_desc }
+			}
+		}
+		else = {
+			uncomplete_national_focus = {
+				focus = LEB_chahab_steps_down
+				uncomplete_children = yes
+			}
+			add_stability = 0.05
+			add_political_power = -50
+			complete_national_focus = LEB_democracy_at_any_cost
+			set_politics = {
+				ruling_party = authoritarian_democrat
+				last_election = "1888.6.15"
+				election_frequency = 48
+				elections_allowed = no
+			}
+		}
+		activate_advisor = LEB_khaled_chehab_sic
+		LEB_fuad_chehab = {
+			remove_political_advisor_role = yes
+		}
+		hidden_effect = {
+			drop_cosmetic_tag = yes
+		}
+	}
+}
+
+country_event = { # Lebanon Asks for Military Support
+	id = leb.25
+	title = leb.25.t
+	desc = leb.25.d
+
+	is_triggered_only = yes
+
+	#picture =
+
+	option = {
+		log = "[GetLogInfo]: event leb.25 option leb.25.a"
+		name = leb.25.a
+		LEB = {
+			country_event = { id = leb.26 days = 2 }
+			effect_tooltip = {
+				add_ideas = LEB_natfra_military_mission
+				add_advisor_role = {
+					character = LEB_philibert_collet
+					advisor = {
+						slot = high_command
+						ledger = army
+						idea_token = LEB_philibert_collet_hc
+						traits = { KR_MHC_infantry_2 }
+						cost = 100
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event leb.25 option leb.25.b"
+		name = leb.25.b
+		ai_chance = { factor = 0 }
+		LEB = {
+			country_event = { id = leb.27 days = 2 }
+		}
+	}
+}
+
+country_event = { # NATFRA gives support
+	id = leb.26
+	title = leb.26.t
+	desc = leb.26.d
+
+	is_triggered_only = yes
+
+	#picture =
+
+	option = {
+		log = "[GetLogInfo]: event leb.26 option leb.26.a"
+		name = leb.26.a
+		add_ideas = LEB_natfra_military_mission
+		add_advisor_role = {
+			character = LEB_philibert_collet
+			advisor = {
+				slot = high_command
+				ledger = army
+				idea_token = LEB_philibert_collet_hc
+				traits = { KR_MHC_infantry_2 }
+				cost = 100
+			}
+		}
+	}
+}
+
+country_event = { # NATFRA refuses
+	id = leb.27
+	title = leb.27.t
+	desc = leb.27.d
+
+	is_triggered_only = yes
+
+	#picture =
+
+	option = {
+		log = "[GetLogInfo]: event leb.27 option leb.27.a"
+		name = leb.27.a
+	}
+}
+
+country_event = { # Pre-war with Syria - Marada land reform start
+	id = leb.28
+	title = leb.28.t
+	desc = leb.28.d
+
+	is_triggered_only = yes
+
+	trigger = {
+		LEB_fuad_chehab = {
+			is_character_slot = political_advisor
+		}
+	}
+
+	#picture =
+
+	option = {
+		log = "[GetLogInfo]: event leb.28 option leb.28.a"
+		name = leb.28.a
+		add_days_mission_timeout = {
+			mission = LEB_fuad_chehab_intervenes
+			days = -200
+		}
+	}
+}
+
+country_event = { # Pre-war with Syria - National Crisis
+	id = leb.29
+	title = leb.29.t
+	desc = leb.29.d
+
+	is_triggered_only = yes
+
+	#picture =
+
+	option = {
+		log = "[GetLogInfo]: event leb.29 option leb.29.a"
+		name = leb.29.a
+		add_stability = -0.15
+		SYR = {
+			country_event = { id = leb.30 days = 5 }
+		}
+	}
+}
+
+country_event = { # Pre-war with Syria - Syria is informed of the Marada land reform
+	id = leb.30
+	title = leb.30.t
+	desc = leb.30.d
+
+	is_triggered_only = yes
+
+	#picture =
+
+	option = {
+		log = "[GetLogInfo]: event leb.30 option leb.30.a"
+		name = leb.30.a
+		LEB = {
+			country_event = { id = leb.31 days = 5 }
+		}
+	}
+}
+
+country_event = { # Pre-war with Syria - Syria warns Lebanon
+	id = leb.31
+	title = leb.31.t
+	desc = leb.31.d
+
+	is_triggered_only = yes
+
+	#picture =
+
+	option = {
+		log = "[GetLogInfo]: event leb.31 option leb.31.a"
+		name = leb.31.a
+		custom_effect_tooltip = leb.31.a.tt
+		SYR = {
+			country_event = { id = leb.32 days = 5 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event leb.31 option leb.31.b"
+		name = leb.31.b
+		custom_effect_tooltip = leb.31.b.tt
+		country_event = { id = leb.24 days = 5 }
+		ai_chance = { factor = 0 }
+	}
+}
+
+country_event = { # Pre-war with Syria - Does Syria attack?
+	id = leb.32
+	title = leb.32.t
+	desc = leb.32.d
+
+	is_triggered_only = yes
+
+	#picture =
+
+	option = {
+		log = "[GetLogInfo]: event leb.32 option leb.32.a"
+		name = leb.32.a
+		declare_war_on = {
+			target = LEB
+			type = annex_everything
+		}
+		activate_mission = SYR_second_syrian_lebanese_war
+		LEB = {
+			activate_mission = LEB_second_syrian_lebanese_war
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event leb.32 option leb.32.b"
+		name = leb.32.b
+		add_political_power = -100
+		add_stability = -0.1
+		add_war_support = -0.1
+		LEB = {
+			country_event = { id = leb.33 days = 2 }
+		}
+		ai_chance = { factor = 0 }
+	}
+}
+
+country_event = { # Syria backs down
+	id = leb.33
+	title = leb.33.t
+	desc = leb.33.d
+
+	is_triggered_only = yes
+
+	#picture =
+
+	option = {
+		log = "[GetLogInfo]: event leb.33 option leb.33.a"
+		name = leb.33.a
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.3
+		}
+		add_ideas = LEB_promoting_christian_families
+		553 = {
+			increase_state_category_by_one_level = yes
+		}
+	}
+}
+
+country_event = { # SYR event - the Marada have been overthrown
+	id = leb.34
+	title = leb.34.t
+	desc = leb.34.d
+
+	is_triggered_only = yes
+
+	#picture =
+
+	option = {
+		log = "[GetLogInfo]: event leb.34 option leb.34.a"
+		name = leb.34.a
+	}
+}
+
+country_event = { # Victory in the SSLW
+	id = leb.35
+	title = leb.35.t
+	desc = leb.35.d
+
+	is_triggered_only = yes
+
+	#picture =
+
+	option = {
+		log = "[GetLogInfo]: event leb.35 option leb.35.a"
+		name = leb.35.a
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.5
+		}
+		add_ideas = LEB_promoting_christian_families
+		553 = {
+			increase_state_category_by_one_level = yes
+		}
+	}
+}

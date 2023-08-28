@@ -1,0 +1,1937 @@
+#########################################
+###   MITTELAFRIKA COLLAPSE EFFECTS   ###
+#########################################
+
+fire_all_african_collapse_events = {
+	country_event = { id = mittel.182 days = 12 }
+	country_event = { id = mittel.140 days = 30 } #RWA revolts
+	country_event = { id = mittel.141 days = 32 } #BRD revolts
+	country_event = { id = mittel.142 days = 32 } #UGA revolts
+	country_event = { id = mittel.143 days = 45 } #KTG revolts
+	country_event = { id = mittel.144 days = 52 } #KBR revolts
+	country_event = { id = mittel.145 days = 50 } #BRT revolts
+	country_event = { id = mittel.146 days = 60 } #COG revolts
+	country_event = { id = mittel.147 days = 62 } #DAH revolts
+	country_event = { id = mittel.148 days = 62 } #GHA revolts
+	country_event = { id = mittel.149 days = 55 } #HAU revolts
+	country_event = { id = mittel.150 days = 42 } #ADA revolts
+}
+
+all_african_collapse_reinforcements = {
+	custom_effect_tooltip = MAF_all_african_reinforcements_tt
+	hidden_effect = {
+		RWA = { if = { limit = { has_war_with = ROOT }	RWA_BRD_spawn_units = yes } }
+		BRD = { if = { limit = { has_war_with = ROOT }	RWA_BRD_spawn_units = yes } }
+		UGA = { if = { limit = { has_war_with = ROOT }	UGA_spawn_units = yes } }
+		KTG = { if = { limit = { has_war_with = ROOT }	KTG_spawn_units = yes } }
+		KBR = { if = { limit = { has_war_with = ROOT }	KBR_spawn_units = yes } }
+		BRT = { if = { limit = { has_war_with = ROOT }	BRT_spawn_units = yes } }
+		COG = { if = { limit = { has_war_with = ROOT }	COG_spawn_units = yes } }
+		DAH = { if = { limit = { has_war_with = ROOT }	DAH_spawn_units = yes } }
+		GHA = { if = { limit = { has_war_with = ROOT }	GHA_spawn_units = yes } }
+		HAU = { if = { limit = { has_war_with = ROOT }	HAU_spawn_units = yes } }
+		ADA = { if = { limit = { has_war_with = ROOT }	ADA_spawn_units = yes } }
+	}
+}
+
+MAF_collapse = {
+	log = "KR_Event_Logging;MITTELAFRIKA COLLAPSES;[GetDateText]"
+
+	if = {
+		limit = { has_character = MAF_Hermann_von_Goering }
+		retire_character = MAF_Hermann_von_Goering
+	}
+
+	remove_ideas = {
+		MAF_colonial_budget_idea
+
+		MAF_Black_Monday_idea
+		MAF_Black_Monday_1937_mils
+		MAF_Black_Monday_1937_civs
+		MAF_Black_Monday_1938_mils
+		MAF_Black_Monday_1938_civs
+		MAF_Black_Monday_1939
+		MAF_Post_War
+
+		MAF_British_Settlers
+		MAF_belgian_investment
+
+		MAF_border_shit_show
+		MAF_Imminent_Collapse
+	}
+
+	remove_dynamic_modifier = { modifier = MAF_colonial_budget_modifier }
+	every_owned_state = {
+		set_demilitarized_zone = no
+
+		# Teleport all allied units back home
+		teleport_armies = {
+			limit = {
+				is_in_faction_with = ROOT
+				NOT = { tag = ROOT }
+				NOT = { is_subject_of = ROOT }
+			}
+			to_state_array = owned_controlled_states
+		}
+	}
+
+	# Set the global flags
+	set_global_flag = MAF_collapse
+	set_global_flag = MAF_NoAttack_Portugal
+
+	# News event
+	news_event = worldnews.120
+
+	# First give away any owned states to their controller, if we're at war
+	every_owned_state = {
+		limit = { NOT = { is_controlled_by = MAF } }
+		transfer_state_to = controller
+	}
+
+	# Disband MAF's army
+	separate_peace_all_wars = yes
+	delete_unit = { disband = yes }
+
+	# Now mark all existing breakaways
+	every_country = {
+		limit = { is_in_africa = yes }
+		set_country_flag = MAF_already_exists
+		if = {
+			limit = { has_idea = MAF_Nat_Buff }
+			save_event_target_as = white_peace_receiver
+			every_enemy_country = {
+				limit = {
+					is_valid_peace_target = yes
+					is_in_africa = no
+					NOT = { is_neighbor_of = PREV }
+				}
+				white_peace_with_TARGET = yes
+			}
+		}
+	}
+
+	# Release all subjects
+	every_subject_country = {
+		overlord = {
+			set_autonomy = {
+				target = PREV
+				autonomy_state = autonomy_free
+			}
+		}
+	}
+
+	# neighbours seizing territory
+	# Angola & Mozambique
+	every_owned_state = {
+		limit = { is_core_of = ANG }
+		if = {
+			limit = {
+				POR = {
+					owns_state = 540
+					surrender_progress < 0.5
+				}
+			}
+			transfer_state_to = POR
+			POR = { country_event = mittel.186 }
+		}
+		else = {
+			transfer_state_to = ANG
+			ANG = {
+				if = {
+					limit = { NOT = { has_country_flag = MAF_already_exists } }
+					ANG_MZB_spawn_units = yes
+					add_to_array = { global.MAF_collapse_tags = THIS }
+				}
+			}
+		}
+	}
+
+	every_owned_state = {
+		limit = { is_core_of = MZB }
+		if = {
+			limit = {
+				POR = {
+					owns_state = 950
+					surrender_progress < 0.5
+				}
+			}
+			transfer_state_to = POR
+			POR = { country_event = mittel.186 }
+		}
+		else = {
+			transfer_state_to = MZB
+			MZB = {
+				if = {
+					limit = { NOT = { has_country_flag = MAF_already_exists } }
+					ANG_MZB_spawn_units = yes
+					add_to_array = { global.MAF_collapse_tags = THIS }
+				}
+			}
+		}
+	}
+
+	#Jubaland
+	if = {
+		limit = { owns_state = 892 }
+		892 = {
+			transfer_state_to = 559.owner
+			save_event_target_as = transferred_state
+			state_event = { id = mittel.187 trigger_for = owner }
+		}
+	}
+	#Djibouti
+	if = {
+		limit = { owns_state = 268 }
+		268 = {
+			transfer_state_to = 906.owner
+			save_event_target_as = transferred_state
+			state_event = { id = mittel.187 trigger_for = owner }
+		}
+	}
+
+	### Time to unleash chaos
+	MAF_collapse_ost = yes
+	MAF_collapse_congo = yes
+	MAF_collapse_cameroons = yes
+	MAF_collapse_west = yes
+	MAF_collapse_zambesi = yes
+
+	## former NFA & the Horn
+	every_occupied_country = {
+		limit = {
+			OR = {
+				NFA_is_possible_revolter = yes
+				tag = SEN
+				tag = SIE
+				tag = LIB
+				tag = IVO
+				tag = ETH
+				tag = SOM
+				tag = ERI
+				tag = BOT
+				tag = ZIM
+			}
+		}
+		if = {
+			limit = { NOT = { has_country_flag = MAF_already_exists } }
+			add_to_array = { global.MAF_collapse_tags = THIS }
+		}
+		ROOT = { release = PREV }
+	}
+
+	## Nama-Hereroland
+	if = {
+		limit = { controls_state = 964 }
+		964 = { transfer_state_to = NMB }
+	}
+
+	NMB = {
+		if = {
+			limit = {
+				exists = yes
+				NOT = { has_country_flag = MAF_already_exists }
+			}
+			set_cosmetic_tag = NMB_ovambo
+			set_capital = { state = 964 remember_old_capital = yes }
+			NMB_spawn_units = yes
+			add_to_array = { global.MAF_collapse_tags = THIS }
+			complete_national_focus = NMB_stern_state
+		}
+	}
+
+	## Zambesia
+	release_on_controlled = ZAM
+
+	ZAM = {
+		if = {
+			limit = {
+				exists = yes
+				NOT = { has_country_flag = MAF_already_exists }
+			}
+			set_cosmetic_tag = ZAM_bemba
+			ZAM_spawn_units = yes
+			add_to_array = { global.MAF_collapse_tags = THIS }
+		}
+	}
+
+	## Nyasaland
+	release_on_controlled = MLW
+
+	MLW = {
+		if = {
+			limit = {
+				exists = yes
+				NOT = { has_country_flag = MAF_already_exists }
+			}
+			add_state_core = 813
+			add_state_core = 956
+			add_state_core = 954
+			add_state_core = 955
+			MLW_spawn_units = yes
+			add_to_array = { global.MAF_collapse_tags = THIS }
+		}
+	}
+
+	## Ostafrika
+	release_on_controlled = TZN
+	if = {
+		limit = { owns_state = 969 } #Rift Valley
+		969 = { transfer_state_to = TZN }
+	}
+
+	TZN = {
+		if = {
+			limit = {
+				exists = yes
+				NOT = { has_country_flag = MAF_already_exists }
+			}
+			set_cosmetic_tag = TZN_GER
+			transfer_technology = yes
+			TZN_spawn_units = yes
+			add_to_array = { global.MAF_collapse_tags = THIS }
+
+			MAF = {
+				transfer_units_fraction = {
+					target = TZN
+					size = 0.25
+					stockpile_ratio = 0.5
+					army_ratio = 0.25
+					navy_ratio = 0
+					air_ratio = 0
+					keep_unit_leaders_trigger = { always = yes }
+				}
+			}
+		}
+	}
+
+	# Do the diplomatic relationships
+	if = {
+		limit = { KBR = { NOT = { has_country_flag = MAF_already_exists } } }
+		KBR = {
+			if = {
+				limit = { can_declare_war_on = NGA }
+				declare_war_on = { target = NGA type = annex_everything }
+			}
+		}
+	}
+	if = {
+		limit = { CMR = { NOT = { has_country_flag = MAF_already_exists } } }
+		CMR = {
+			if = {
+				limit = { can_declare_war_on = ADA }
+				declare_war_on = { target = ADA type = annex_everything }
+			}
+			if = {
+				limit = { can_declare_war_on = GAB }
+				declare_war_on = { target = GAB type = annex_everything }
+			}
+		}
+	}
+	if = {
+		limit = { ADA = { NOT = { has_country_flag = MAF_already_exists } } }
+		ADA = {
+			if = {
+				limit = { can_declare_war_on = CAR }
+				declare_war_on = { target = CAR type = annex_everything }
+			}
+		}
+	}
+	if = {
+		limit = { KIV = { NOT = { has_country_flag = MAF_already_exists } } }
+		KIV = {
+			if = {
+				limit = { can_declare_war_on = COG }
+				declare_war_on = { target = COG type = annex_everything }
+			}
+			if = {
+				limit = { can_declare_war_on = CAR }
+				declare_war_on = { target = CAR type = annex_everything }
+			}
+			if = {
+				limit = { can_declare_war_on = UGA }
+				declare_war_on = { target = UGA type = annex_everything }
+			}
+		}
+	}
+	if = {
+		limit = { TKE = { NOT = { has_country_flag = MAF_already_exists } } }
+		TKE = {
+			if = {
+				limit = { can_declare_war_on = GAB }
+				declare_war_on = { target = GAB type = annex_everything }
+			}
+			if = {
+				limit = { can_declare_war_on = COG }
+				declare_war_on = { target = COG type = annex_everything }
+			}
+			if = {
+				limit = { can_declare_war_on = CAR }
+				declare_war_on = { target = CAR type = annex_everything }
+			}
+		}
+	}
+	if = {
+		limit = { TZN = { NOT = { has_country_flag = MAF_already_exists } } }
+		TZN = {
+			if = {
+				limit = { can_declare_war_on = ZAN }
+				declare_war_on = { target = ZAN type = annex_everything }
+			}
+		}
+	}
+	if = {
+		limit = { ZAM = { NOT = { has_country_flag = MAF_already_exists } } }
+		ZAM = {
+			if = {
+				limit = { can_declare_war_on = MLW }
+				declare_war_on = { target = MLW type = annex_everything }
+			}
+			if = {
+				limit = { can_declare_war_on = BRT }
+				declare_war_on = { target = BRT type = annex_everything }
+			}
+		}
+	}
+	if = {
+		limit = { MZB = { NOT = { has_country_flag = MAF_already_exists } } }
+		MZB = {
+			if = {
+				limit = { can_declare_war_on = TZN }
+				declare_war_on = { target = TZN type = annex_everything }
+			}
+			if = {
+				limit = { can_declare_war_on = MLW }
+				declare_war_on = { target = MLW type = annex_everything }
+			}
+		}
+	}
+
+	# Give all the tags the post MAF collapse idea
+	for_each_scope_loop = {
+		array = global.MAF_collapse_tags
+		add_ideas = {
+			MAF_post_collapse_army
+			disarmed_nation
+			limited_exports
+			isolation
+		}
+	}
+
+	# Get rid of those flags
+	every_country = {
+		limit = { is_in_africa = yes }
+		clr_country_flag = MAF_already_exists
+	}
+
+   # Fire all collapse-related events
+	if = {
+		limit = { country_exists = NFA }
+		NFA = {
+			country_event = nfa.522 #Flavour event
+			country_event = { id = nfa.523 days = 7 } #Dahomey flavour event
+		}
+	}
+	if = {
+		limit = { ETH = { has_country_flag = ETH_mittelafrika_rail } }
+		ETH = { country_event = ethiopia.33 }
+	}
+	BAT = { country_event = KRBAT.93 }
+	BEL = { country_event = mittel.110 }
+
+	#If MAF is GEX, game over
+	if = {
+		limit = { tag = GEX }
+		set_major = no
+		remove_ideas = MAF_on_borrowed_time
+		GER_wilhelm_iii = { set_nationality = GER }
+		if = {
+			limit = { has_character = GER_wilhelm_ii }
+			GER_wilhelm_ii = { set_nationality = GER }
+		}
+		every_character = {
+			limit = { has_character_flag = GER_character }
+			clr_character_flag = GER_character
+			set_nationality = GER
+		}
+
+		set_equipment_fraction = 0
+		every_state = {
+			remove_claim_by = MAF
+			remove_core_of = MAF
+		}
+		NMB = { annex_country = { target = MAF } }
+	}
+
+	#else, set up SWA
+	else = {
+		load_focus_tree = south_west_africa_focus
+		set_equipment_fraction = 0.5
+		clear_all_relations_except_wars = yes
+		every_enemy_country = {
+			limit = {
+				is_valid_peace_target = yes
+				OR = {
+					is_in_africa = no
+					AND = {
+						is_in_africa = yes
+						NOT = { is_owner_neighbor_of = ROOT }
+					}
+				}
+			}
+			white_peace_with_ROOT = yes
+		}
+
+		#Get rid of MAF cores/claims
+		every_state = { remove_claim_by = MAF }
+		every_core_state = {
+			limit = { NOT = { is_core_of = NMB } }
+			remove_core_of = MAF
+			add_claim_by = MAF
+		}
+		remove_state_core = 964
+		add_state_claim = 964
+
+		set_cosmetic_tag = MAF_SWA
+		save_global_event_target_as = KR_suedwest
+		set_capital = { state = 541 remember_old_capital = no }
+		SWA_spawn_units = yes
+
+		set_stability = 0.55
+		set_war_support = 0.7
+
+		set_politics = {
+			ruling_party = paternal_autocrat
+			last_election = "1888.6.15"
+			election_frequency = 48
+			elections_allowed = no
+		}
+
+		set_popularities = {
+			totalist = 0
+			radical_socialist = 1
+			syndicalist = 1
+			social_democrat = 6
+			social_liberal = 4
+			market_liberal = 2
+			social_conservative = 26
+			authoritarian_democrat = 37
+			paternal_autocrat = 23
+			national_populist = 0
+		}
+
+		if = {
+			limit = {
+				country_exists = NMB
+				NMB = { NOT = { has_country_flag = MAF_already_exists } }
+			}
+			declare_war_on = {
+				target = NMB
+				type = annex_everything
+			}
+			activate_mission = SWA_revolt_mission
+		}
+	}
+}
+
+################################
+##  COLLAPSING MITTELAFRIKA  ##
+################################
+
+MAF_collapse_ost = {
+	## Uganda (& Banyarwanda territories)
+	if = {
+		limit = { controls_state = 548 }
+		UGA = {
+			add_state_core = 869	# Rwanda
+			add_state_core = 870	# Urundi
+			add_state_core = 918	# Bukoba
+		}
+		release_on_controlled = UGA
+	}
+
+	UGA = {
+		if = {
+			limit = {
+				exists = yes
+				NOT = { has_country_flag = MAF_already_exists }
+			}
+			UGA_spawn_units = yes
+			RWA_BRD_spawn_units = yes
+			RWA_BRD_spawn_units = yes
+			drop_cosmetic_tag = yes
+			add_to_array = { global.MAF_collapse_tags = THIS }
+		}
+	}
+
+	## Zanzibar
+	if = {
+		limit = { controls_state = 905 }
+		905 = { add_core_of = ZAN }
+		970 = { add_core_of = ZAN }
+		release_on_controlled = ZAN
+	}
+
+	ZAN = {
+		if = {
+			limit = {
+				exists = yes
+				NOT = { has_country_flag = MAF_already_exists }
+			}
+			ZAN_spawn_units = yes
+			add_to_array = { global.MAF_collapse_tags = THIS }
+		}
+	}
+
+	## Kenya
+	every_controlled_state = {
+		limit = { is_core_of = KEN }
+		set_demilitarized_zone = no
+	}
+
+	if = {
+		limit = { NOT = { country_exists = KEN } }
+		if = {
+			limit = { has_completed_focus = MAF_disarm_the_british }
+			create_dynamic_country = {
+				original_tag = KEN
+				MAF_mau_mau_revolt_setup = yes
+				transfer_state = 547
+				MAF_mau_mau_revolt_spawn_units = yes
+
+				remove_ideas = MAF_Nat_Buff
+				add_ideas = MAF_post_collapse_army
+				add_to_array = { global.MAF_collapse_tags = THIS }
+			}
+		}
+		else = {
+			release_on_controlled = KEN
+			KEN_british_setup = yes
+			KEN = {
+				add_to_array = { global.MAF_collapse_tags = THIS }
+
+				add_state_claim = 548
+				if = {
+					limit = { can_declare_war_on = ZAN }
+					declare_war_on = { target = ZAN type = annex_everything }
+				}
+				## fire decision to declare on Uganda
+			}
+		}
+	}
+	else_if = {
+		limit = { KEN = { is_dynamic_country = yes } }
+		KEN = {
+			remove_ideas = MAF_Nat_Buff
+			add_ideas = MAF_post_collapse_army
+			add_to_array = { global.MAF_collapse_tags = THIS }
+		}
+	}
+	else = {
+		release_on_controlled = KEN
+	}
+
+	## Madagascar
+	if = {
+		limit = { controls_state = 543 }
+		release_on_controlled = MAD
+		add_to_array = { global.MAF_collapse_tags = MAD }
+	}
+}
+
+MAF_collapse_congo = {
+	## Katanga
+	if = {
+		limit = { controls_state = 879 }
+		879 = { add_core_of = KTG }
+		release_on_controlled = KTG
+
+		KTG = {
+			if = {
+				limit = {
+					exists = yes
+					NOT = { has_country_flag = MAF_already_exists }
+				}
+				KTG_spawn_units = yes
+				add_to_array = { global.MAF_collapse_tags = THIS }
+				country_event = { id = ktg.20 days = 15 }
+			}
+		}
+	}
+
+	### Kivu
+	if = {
+		limit = { controls_state = 977 }
+		KIV = {
+			add_state_core = 718
+			add_state_core = 949
+			add_state_core = 976
+			add_state_core = 977
+			add_state_core = 1026
+		}
+		release_on_controlled = KIV
+	}
+
+	KIV = {
+		if = {
+			limit = {
+				exists = yes
+				NOT = { has_country_flag = MAF_already_exists }
+			}
+
+			KIV_spawn_units = yes
+			add_to_array = { global.MAF_collapse_tags = THIS }
+		}
+	}
+
+	### Tshuapa
+	if = {
+		limit = { controls_state = 538 }
+		TKE = {
+			add_state_core = 538
+			add_state_core = 953
+			add_state_core = 974
+			add_state_core = 1025
+		}
+		release_on_controlled = TKE
+	}
+
+	TKE = {
+		if = {
+			limit = {
+				exists = yes
+				NOT = { has_country_flag = MAF_already_exists }
+			}
+			TSH_spawn_units = yes
+			add_to_array = { global.MAF_collapse_tags = THIS }
+		}
+	}
+
+	### Kongo
+	release_on_controlled = COG
+
+	COG = {
+		if = {
+			limit = {
+				exists = yes
+				NOT = { has_country_flag = MAF_already_exists }
+			}
+			set_politics = { ruling_party = authoritarian_democrat }
+			drop_cosmetic_tag = yes
+			COG_spawn_units = yes
+			if = {
+				limit = { owns_state = 914 }
+				add_state_core = 914
+			}
+			if = {
+				limit = { owns_state = 916 }
+				add_state_core = 916
+			}
+			add_to_array = { global.MAF_collapse_tags = THIS }
+		}
+	}
+}
+
+MAF_collapse_cameroons = {
+	## Adamawa
+	if = {
+		limit = { owns_state = 952 }
+		ADA = {
+			add_state_core = 952
+			add_state_core = 971
+		}
+		release_on_controlled = ADA
+	}
+
+	ADA = {
+		if = {
+			limit = {
+				exists = yes
+				NOT = { has_country_flag = MAF_already_exists }
+			}
+			ADA_spawn_units = yes
+			add_to_array = { global.MAF_collapse_tags = THIS }
+		}
+	}
+
+	## Bornu
+	if = {
+		limit = { owns_state = 962 }
+		KBR = {
+			add_state_core = 913
+			add_state_core = 962
+		}
+		release_on_controlled = KBR
+
+		KBR = {
+			if = {
+				limit = {
+					exists = yes
+					NOT = { has_country_flag = MAF_already_exists }
+				}
+				KBR_spawn_units = yes
+				add_to_array = { global.MAF_collapse_tags = THIS }
+			}
+		}
+	}
+
+	## Cameroon
+	release_on_controlled = CMR
+
+	CMR = {
+		if = {
+			limit = {
+				exists = yes
+				NOT = { has_country_flag = MAF_already_exists }
+			}
+			set_cosmetic_tag = CMR_GER
+			transfer_technology = yes
+			CMR_spawn_units = yes
+			add_to_array = { global.MAF_collapse_tags = THIS }
+
+			MAF = {
+				transfer_units_fraction = {
+					target = CMR
+					size = 0.1
+					stockpile_ratio = 0.25
+					army_ratio = 0.1
+					navy_ratio = 0
+					air_ratio = 0
+					keep_unit_leaders_trigger = { always = yes }
+				}
+			}
+		}
+	}
+
+	## Gabon
+	release_on_controlled = GAB
+
+	GAB = {
+		if = {
+			limit = {
+				exists = yes
+				NOT = { has_country_flag = MAF_already_exists }
+			}
+			GAB_spawn_units = yes
+			add_to_array = { global.MAF_collapse_tags = THIS }
+		}
+	}
+
+	## Ubangi-Shari
+	release_on_controlled = CAR
+
+	CAR = {
+		if = {
+			limit = {
+				exists = yes
+				NOT = { has_country_flag = MAF_already_exists }
+			}
+			set_cosmetic_tag = CAR_EMR
+			CAR_spawn_units = yes
+			add_to_array = { global.MAF_collapse_tags = THIS }
+
+			country_event = cea.1
+			set_politics = {
+				ruling_party = paternal_autocrat
+				last_election = "1918.11.9"
+				election_frequency = 48
+				elections_allowed = no
+			}
+			set_popularities = {
+				totalist = 0
+				syndicalist = 0
+				radical_socialist = 0
+				social_democrat = 23
+				social_liberal = 5
+				market_liberal = 5
+				social_conservative = 25
+				authoritarian_democrat = 0
+				paternal_autocrat = 42
+				national_populist = 0
+			}
+
+			CAR_Binyamin_I = {
+				if = {
+					limit = { has_ideology = social_conservative_subtype }
+					promote_character = social_conservative_subtype
+				}
+				else = {
+					add_country_leader_role = {
+						country_leader = { ideology = social_conservative_subtype }
+						promote_leader = yes
+					}
+				}
+				if = {
+					limit = { has_ideology = authoritarian_democrat_subtype }
+					promote_character = authoritarian_democrat_subtype
+				}
+				else = {
+					add_country_leader_role = {
+						country_leader = { ideology = authoritarian_democrat_subtype }
+						promote_leader = yes
+					}
+				}
+				if = {
+					limit = { has_ideology = paternal_autocrat_subtype }
+					promote_character = paternal_autocrat_subtype
+				}
+				else = {
+					add_country_leader_role = {
+						country_leader = { ideology = paternal_autocrat_subtype }
+						promote_leader = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+MAF_collapse_west = {
+	## Togoland
+	release_on_controlled = TOG
+
+	TOG = {
+		if = {
+			limit = {
+				exists = yes
+				NOT = { has_country_flag = MAF_already_exists }
+			}
+			TOG_spawn_units = yes
+			add_to_array = { global.MAF_collapse_tags = THIS }
+		}
+	}
+
+	## Dahomey
+	release_on_controlled = DAH
+
+	DAH = {
+		if = {
+			limit = {
+				exists = yes
+				NOT = { has_country_flag = MAF_already_exists }
+			}
+			DAH_spawn_units = yes
+			add_to_array = { global.MAF_collapse_tags = THIS }
+		}
+	}
+
+	## Nigeria
+	every_controlled_state = {
+		limit = { is_core_of = NGA }
+		set_demilitarized_zone = no
+	}
+	release_on_controlled = NGA
+
+	every_owned_state = {
+		limit = { is_core_of = GHA }
+		set_demilitarized_zone = no
+		transfer_state_to = NGA
+		add_claim_by = NGA
+	}
+
+	NGA = {
+		if = {
+			limit = {
+				exists = yes
+				NOT = { has_country_flag = MAF_already_exists }
+			}
+			NGA_british_setup = yes
+			set_cosmetic_tag = NGA_BWA
+			add_to_array = { global.MAF_collapse_tags = THIS }
+
+			if = {
+				limit = { is_neighbor_of = NFA }
+				country_event = { id = mittel.2500 days = 5 } #ask the French for protection
+			}
+			else = {
+				country_event = { id = mittel.2502 days = 24 } #collapse otherwise
+			}
+		}
+	}
+}
+
+MAF_collapse_zambesi = {
+	if = {
+		limit = { owns_state = 958 }
+		958 = { add_core_of = BRT }
+		release_on_controlled = BRT
+
+		BRT = {
+			if = {
+				limit = {
+					exists = yes
+					NOT = { has_country_flag = MAF_already_exists }
+				}
+				BRT_spawn_units = yes
+				add_to_array = { global.MAF_collapse_tags = THIS }
+			}
+		}
+	}
+}
+
+################################
+##    SETTING UP SPLINTERS    ##
+################################
+
+GHA_british_setup = {
+	GHA = {
+		set_cosmetic_tag = GHA_ENG
+		GHA_spawn_units = yes
+		set_politics = {
+			ruling_party = social_conservative
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.5
+		}
+		every_owned_state = {
+			remove_dynamic_modifier = { modifier = MAF_british_gold_coast }
+			set_demilitarized_zone = no
+
+			remove_core_of = MAF
+			remove_claim_by = MAF
+		}
+	}
+}
+
+NGA_british_setup = {
+	NGA = {
+		set_cosmetic_tag = NGA_ENG
+		NGA_spawn_units = yes
+		set_politics = {
+			ruling_party = social_conservative
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.5
+		}
+		NGA_Edward_Twining = {
+			if = {
+				limit = { has_ideology = social_conservative_subtype }
+				promote_character = social_conservative_subtype
+			}
+			else = {
+				add_country_leader_role = {
+					country_leader = { ideology = social_conservative_subtype }
+					promote_leader = yes
+				}
+			}
+		}
+		every_owned_state = {
+			remove_dynamic_modifier = { modifier = MAF_british_nigeria }
+			set_demilitarized_zone = no
+
+			remove_core_of = MAF
+			remove_claim_by = MAF
+		}
+	}
+}
+
+KEN_british_setup = {
+	KEN = {
+		set_cosmetic_tag = KEN_ENG
+		KEN_spawn_units = yes
+		set_politics = {
+			ruling_party = social_conservative
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.5
+		}
+		KEN_Thomas_Cholmondeley = {
+			if = {
+				limit = { has_ideology = social_conservative_subtype }
+				promote_character = social_conservative_subtype
+			}
+			else = {
+				add_country_leader_role = {
+					country_leader = { ideology = social_conservative_subtype }
+					promote_leader = yes
+				}
+			}
+		}
+		every_owned_state = {
+			set_demilitarized_zone = no
+
+			remove_core_of = MAF
+			remove_claim_by = MAF
+		}
+	}
+}
+
+MAF_mau_mau_revolt_setup = {
+	set_cosmetic_tag = KEN_KIK
+	KEN = {
+		KEN_Stanley_Mathenge = {
+			set_nationality = PREV.PREV
+			if = {
+				limit = { has_ideology = national_populist_subtype }
+				promote_character = yes
+			}
+			else = {
+				add_country_leader_role = {
+					country_leader = { ideology = national_populist_subtype }
+					promote_leader = yes
+				}
+			}
+		}
+	}
+	set_politics = {
+		ruling_party = national_populist
+		elections_allowed = no
+	}
+	set_popularities = {
+		totalist = 0
+		radical_socialist = 0
+		syndicalist = 0
+		social_democrat = 2
+		social_liberal = 6
+		market_liberal = 6
+		social_conservative = 2
+		authoritarian_democrat = 15
+		paternal_autocrat = 12
+		national_populist = 57
+	}
+	add_ideas = MAF_Nat_Buff
+	division_template = {
+		name = "Militia Division"
+		division_names_group = GERM_AFR_MIL_02
+		regiments = {
+			irregular_infantry = { x = 0 y = 0 }
+			irregular_infantry = { x = 0 y = 1 }
+			irregular_infantry = { x = 1 y = 0 }
+			irregular_infantry = { x = 1 y = 1 }
+		}
+	}
+	division_template = {
+		name = "Infantry Division"
+		division_names_group = GERM_INF_01
+		regiments = {
+			infantry = { x = 0 y = 0 }
+			infantry = { x = 0 y = 1 }
+			infantry = { x = 0 y = 2 }
+			infantry = { x = 1 y = 0 }
+			infantry = { x = 1 y = 1 }
+			infantry = { x = 1 y = 2 }
+			infantry = { x = 2 y = 0 }
+			infantry = { x = 2 y = 1 }
+			infantry = { x = 2 y = 2 }
+		}
+	}
+	division_template = {
+		name = "Cavalry Division"
+		division_names_group = GERM_CAV_01
+		regiments = {
+			cavalry = { x = 0 y = 0 }
+			cavalry = { x = 0 y = 1 }
+			cavalry = { x = 0 y = 2 }
+			cavalry = { x = 1 y = 0 }
+			cavalry = { x = 1 y = 1 }
+			cavalry = { x = 1 y = 2 }
+		}
+	}
+	division_template = {
+		name = "Mountaineer Division"
+		division_names_group = GERM_MTN_01
+		regiments = {
+			mountaineers = { x = 0 y = 0 }
+			mountaineers = { x = 0 y = 1 }
+			mountaineers = { x = 0 y = 2 }
+			mountaineers = { x = 1 y = 0 }
+			mountaineers = { x = 1 y = 1 }
+			mountaineers = { x = 1 y = 2 }
+			mountaineers = { x = 2 y = 0 }
+			mountaineers = { x = 2 y = 1 }
+			mountaineers = { x = 2 y = 2 }
+		}
+		priority = 2
+	}
+	if = {
+		limit = { has_global_flag = MAF_Kikuyu2 }
+		add_stability = 0.05
+	}
+	if = {
+		limit = { has_global_flag = MAF_Kikuyu3 }
+		add_stability = 0.05
+	}
+}
+
+MAF_mau_mau_revolt_spawn_units = {
+	547 = {
+		create_unit = {
+			division = "division_template = \"Militia Division\" start_experience_factor = 0.3"
+			owner = PREV
+			count = 2
+		}
+		create_unit = {
+			division = "division_template = \"Mountaineer Division\" start_experience_factor = 0.7"
+			owner = PREV
+		}
+		if = {
+			limit = { has_global_flag = MAF_Kikuyu2 }
+			clr_global_flag = MAF_Kikuyu2
+			create_unit = {
+				division = "division_template = \"Infantry Division\" start_experience_factor = 0.7"
+				owner = PREV
+				count = 2
+			}
+		}
+		if = {
+			limit = { has_global_flag = MAF_Kikuyu3 }
+			clr_global_flag = MAF_Kikuyu3
+			create_unit = {
+				division = "division_template = \"Militia Division\" start_experience_factor = 0.3"
+				owner = PREV
+				count = 2
+			}
+		}
+	}
+}
+
+##
+## start of MAF-POR Bush war scripted effect - I made it so it could fire from pretty much every tag, mostly for convenience
+##
+
+MAF_start_bush_war = {
+	hidden_effect = {
+		MAF = {
+			set_global_flag = MAF_POR_border_war
+			declare_war_on = {
+				target = POR
+				type = annex_everything
+			}
+			activate_mission = MAF_Bush_War_mission
+		}
+		POR = {
+			activate_mission = POR_Bush_War_mission
+		}
+		news_event = worldnews.180
+	}
+	custom_effect_tooltip = MAF_Bush_War_start_tt
+}
+
+MAF_end_bush_war = {
+	hidden_effect = {
+		MAF = {
+			remove_mission = MAF_Bush_War_mission
+			remove_ideas = MAF_border_shit_show
+		}
+		POR = {
+			remove_mission = POR_Bush_War_mission
+		}
+		clr_global_flag = MAF_POR_border_war
+	}
+}
+
+MAF_decide_stalemate_advantage = {
+	if = {
+		limit = {
+			count_triggers = { # MAF win conditions
+				amount = 2
+				540 = { #Loanda
+					is_owned_by = POR
+					is_controlled_by = MAF
+				}
+				544 = { #Moçambique
+					is_owned_by = POR
+					is_controlled_by = MAF
+				}
+				917 = { #Southern Angola
+					is_owned_by = POR
+					is_controlled_by = MAF
+				}
+				950 = { #Inhambane-Gaza
+					is_owned_by = POR
+					is_controlled_by = MAF
+				}
+			}
+		}
+		custom_effect_tooltip = MAF_Bush_War_MAF_advantage_tt
+		country_event = bushwar.40 #Bush War stalemate, German Advantage
+	}
+	else_if = {
+		limit = {
+			count_triggers = { # POR win conditions
+				amount = 2
+				813 = { #Zambesia
+					is_owned_by = MAF
+					is_controlled_by = POR
+				}
+				871 = { #Nyasaland
+					is_owned_by = MAF
+					is_controlled_by = POR
+				}
+				879 = { #Katanga
+					is_owned_by = MAF
+					is_controlled_by = POR
+				}
+				958 = { #Barotseland
+					is_owned_by = MAF
+					is_controlled_by = POR
+				}
+			}
+		}
+		custom_effect_tooltip = MAF_Bush_War_POR_advantage_tt
+		POR = { country_event = bushwar.43 } #Bush War stalemate, Portuguese Advantage
+	}
+	else = {
+		custom_effect_tooltip = MAF_Bush_War_NO_advantage_tt
+		MAF = { country_event = bushwar.47 } #Bush War stalemate, nobody's advantage
+	}
+}
+
+###################
+### UNIT SPAWNS ###
+###################
+ANG_MZB_spawn_units = {
+	every_owned_state = {
+		limit = {
+			is_core_of = PREV
+			is_controlled_by = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Divisão de Infantaria\" start_experience_factor = 0.3"
+			owner = PREV
+		}
+	}
+}
+
+### WEST AFRICA ###
+GHA_spawn_units = {
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Infanterie-Division\" start_experience_factor = 0.3"
+			owner = PREV
+			count = 3
+		}
+		create_unit = {
+			division = "division_template = \"Kavallerie-Division\" start_experience_factor = 0.3"
+			owner = PREV
+		}
+	}
+}
+
+TOG_spawn_units = {
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Infanterie-Division\" start_experience_factor = 0.3"
+			owner = PREV
+		}
+	}
+}
+
+DAH_spawn_units = {
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Division d'Infanterie\" start_experience_factor = 0.3"
+			owner = PREV
+		}
+	}
+}
+
+NGA_spawn_units = {
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Miliz-Division\" start_experience_factor = 0.3"
+			owner = PREV
+			count = 2
+		}
+	}
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Infanterie-Division\" start_experience_factor = 0.3"
+			owner = PREV
+		}
+	}
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Kavallerie-Division\" start_experience_factor = 0.3"
+			owner = PREV
+			count = 2
+		}
+	}
+}
+
+HAU_spawn_units = {
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Cavalry Division\" start_experience_factor = 0.3"
+			owner = PREV
+			count = 2
+		}
+	}
+}
+
+KBR_spawn_units = {
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Kavallerie-Division\" start_experience_factor = 0.3"
+			owner = PREV
+			count = 2
+		}
+	}
+}
+
+### EQU. AFRICA ###
+CMR_spawn_units = {
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Infanterie-Division\" start_experience_factor = 0.3"
+			owner = PREV
+			count = 2
+		}
+		create_unit = {
+			division = "division_template = \"Kavallerie-Division\" start_experience_factor = 0.3"
+			owner = PREV
+		}
+		create_unit = {
+			division = "division_template = \"Kampfgruppe-Division\" start_experience_factor = 0.3"
+			owner = PREV
+		}
+	}
+}
+
+ADA_spawn_units = {
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Infanterie-Division\" start_experience_factor = 0.3"
+			owner = PREV
+			count = 2
+		}
+		create_unit = {
+			division = "division_template = \"Kavallerie-Division\" start_experience_factor = 0.3"
+			owner = PREV
+			count = 2
+		}
+	}
+}
+
+CAR_spawn_units = {
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Kavallerie-Division\" start_experience_factor = 0.3"
+			owner = PREV
+			count = 2
+		}
+	}
+}
+
+GAB_spawn_units = {
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Division d'Infanterie\" start_experience_factor = 0.3"
+			owner = PREV
+			count = 2
+		}
+		create_unit = {
+			division = "division_template = \"Division de Cavalerie\" start_experience_factor = 0.3"
+			owner = PREV
+			count = 2
+		}
+	}
+}
+
+###    CONGO    ###
+COG_spawn_units = {
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Division ya Milice\" start_experience_factor = 0.3"
+			owner = PREV
+			count = 3
+		}
+	}
+}
+
+TSH_spawn_units = {
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Division ya Milice\" start_experience_factor = 0.3"
+			owner = PREV
+			count = 3
+		}
+	}
+}
+
+KIV_spawn_units = {
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Division ya Milice\" start_experience_factor = 0.3"
+			owner = PREV
+			count = 3
+		}
+	}
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Division ya ba Infanterie\" start_experience_factor = 0.3"
+			owner = PREV
+		}
+	}
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Division ya ba Cavalerie\" start_experience_factor = 0.3"
+			owner = PREV
+		}
+	}
+}
+
+KTG_spawn_units = {
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Division de Milice\" start_experience_factor = 0.3"
+			owner = PREV
+		}
+		create_unit = {
+			division = "division_template = \"Division de Cavalerie\" start_experience_factor = 0.3"
+			owner = PREV
+		}
+		create_unit = {
+			division = "division_template = \"Division d'Infanterie\" start_experience_factor = 0.3"
+			owner = PREV
+		}
+	}
+}
+
+### EAST AFRICA ###
+KEN_spawn_units = {
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Infantry Division\" start_experience_factor = 0.3"
+			owner = PREV
+			count = 3
+		}
+	}
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Militia Division\" start_experience_factor = 0.3"
+			owner = PREV
+			count = 3
+		}
+	}
+}
+
+UGA_spawn_units = {
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Kikosi cha Askari wa miguu\" start_experience_factor = 0.3"
+			owner = PREV
+		}
+		create_unit = {
+			division = "division_template = \"Kikosi cha Askari farasi\" start_experience_factor = 0.3"
+			owner = PREV
+			count = 2
+		}
+	}
+}
+
+TZN_spawn_units = {
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Kavallerie-Division\" start_experience_factor = 0.3"
+			owner = PREV
+			count = 2
+		}
+	}
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Infanterie-Division\" start_experience_factor = 0.3"
+			owner = PREV
+			count = 3
+		}
+	}
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Kampfgruppe-Division\" start_experience_factor = 0.3"
+			owner = PREV
+			count = 2
+		}
+	}
+}
+
+ZAN_spawn_units = {
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"al-Mushati\" start_experience_factor = 0.3"
+			owner = PREV
+			count = 2
+		}
+	}
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			impassable = no
+			OR = {
+				is_in_home_area = no
+				NOT = {
+					PREV = {
+						any_owned_state = {
+							is_in_home_area = no
+							is_controlled_by = owner
+						}
+					}
+				}
+			}
+		}
+		create_unit = {
+			division = "division_template = \"al-Mushati\" start_experience_factor = 0.3"
+			owner = PREV
+		}
+	}
+}
+
+RWA_BRD_spawn_units = {
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Kikosi cha Wanagambo\" start_experience_factor = 0.3"
+			owner = PREV
+		}
+	}
+}
+
+###
+
+BRT_spawn_units = {
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Militia Division\" start_experience_factor = 0.3"
+			owner = PREV
+			count = 3
+		}
+	}
+}
+
+ZAM_spawn_units = {
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Miliz-Division\" start_experience_factor = 0.3"
+			owner = PREV
+			count = 5
+		}
+	}
+}
+
+MLW_spawn_units = {
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Gulu la Asikilali ankhondo\" start_experience_factor = 0.3"
+			owner = PREV
+			count = 3
+		}
+	}
+}
+
+NMB_spawn_units = {
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Infanterie-Division\" start_experience_factor = 0.3"
+			owner = PREV
+			count = 2
+		}
+	}
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Infanterie-Division\" start_experience_factor = 0.3"
+			owner = PREV
+			count = 2
+		}
+	}
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Infanterie-Division\" start_experience_factor = 0.3"
+			owner = PREV
+		}
+	}
+}
+
+SWA_spawn_units = {
+	#add SWA templates
+	if = {
+		limit = { has_template = "Askari Division" }
+		delete_unit_template_and_units = { division_template = "Askari Division" }
+	}
+	division_template = {
+		name = "Askari Division"
+		division_names_group = GERM_AFR_MIL_01
+		regiments = {
+			irregular_infantry = { x = 0 y = 0 }
+			irregular_infantry = { x = 0 y = 1 }
+			irregular_infantry = { x = 1 y = 0 }
+			irregular_infantry = { x = 1 y = 1 }
+		}
+	}
+	if = {
+		limit = { has_template = "Infanterie-Division" }
+		delete_unit_template_and_units = { division_template = "Infanterie-Division" }
+	}
+	division_template = {
+		name = "Infanterie-Division"
+		division_names_group = GERM_INF_01
+		regiments = {
+			infantry = { x = 0 y = 0 }
+			infantry = { x = 0 y = 1 }
+			infantry = { x = 0 y = 2 }
+			infantry = { x = 1 y = 0 }
+			infantry = { x = 1 y = 1 }
+			infantry = { x = 1 y = 2 }
+			infantry = { x = 2 y = 0 }
+			infantry = { x = 2 y = 1 }
+			infantry = { x = 2 y = 2 }
+		}
+	}
+	if = {
+		limit = { has_template = "Kavallerie-Division" }
+		delete_unit_template_and_units = { division_template = "Kavallerie-Division" }
+	}
+	division_template = {
+		name = "Kavallerie-Division"
+		division_names_group = GERM_CAV_01
+		regiments = {
+			cavalry = { x = 0 y = 0 }
+			cavalry = { x = 0 y = 1 }
+			cavalry = { x = 0 y = 2 }
+			cavalry = { x = 1 y = 0 }
+			cavalry = { x = 1 y = 1 }
+			cavalry = { x = 1 y = 2 }
+		}
+	}
+	if = {
+		limit = { has_template = "Kampfgruppe-Division" }
+		delete_unit_template_and_units = { division_template = "Kampfgruppe-Division" }
+	}
+	division_template = {
+		name = "Kampfgruppe-Division"
+		division_names_group = GERM_MOT_01
+		regiments = {
+			motorized = { x = 0 y = 0 }
+			motorized = { x = 0 y = 1 }
+			motorized = { x = 0 y = 2 }
+			motorized = { x = 1 y = 0 }
+			motorized = { x = 1 y = 1 }
+			motorized = { x = 1 y = 2 }
+			motorized = { x = 2 y = 0 }
+		}
+	}
+
+	#spawn units
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Infanterie-Division\" start_experience_factor = 0.3"
+			owner = PREV
+		}
+	}
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Kampfgruppe-Division\" start_experience_factor = 0.3"
+			owner = PREV
+		}
+	}
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			valid_state_for_spawning_friendly_unit = yes
+		}
+		create_unit = {
+			division = "division_template = \"Kavallerie-Division\" start_experience_factor = 0.3"
+			owner = PREV
+			count = 2
+		}
+	}
+
+	#delete starting MAF templates
+	if = {
+		limit = { has_template = "Mittelafrikanische Division" }
+		delete_unit_template_and_units = { division_template = "Mittelafrikanische Division" }
+	}
+	if = {
+		limit = { has_template = "Leichte Infanterie-Brigade" }
+		delete_unit_template_and_units = { division_template = "Leichte Infanterie-Brigade" }
+	}
+	if = {
+		limit = { has_template = "Kavallerie Division" }
+		delete_unit_template_and_units = { division_template = "Kavallerie Division" }
+	}
+	if = {
+		limit = { has_template = "Kampfgruppe" }
+		delete_unit_template_and_units = { division_template = "Kampfgruppe" }
+	}
+	if = {
+		limit = { has_template = "Leichte Panzer-Division" }
+		delete_unit_template_and_units = { division_template = "Leichte Panzer-Division" }
+	}
+	if = {
+		limit = { has_template = "Gebirgsjäger Division" }
+		delete_unit_template_and_units = { division_template = "Gebirgsjäger Division" }
+	}
+	if = {
+		limit = { has_template = "Marine-Infanterie-Division" }
+		delete_unit_template_and_units = { division_template = "Marine-Infanterie-Division" }
+	}
+
+	#delete tech-generated templates
+	remove_all_tech_templates = yes
+
+	#delete AI-generated templates
+	remove_all_AI_templates = yes
+}
+
+add_temp_unit_leader_role = {
+	hidden_effect = {
+		if = {
+			limit = { is_unit_leader = no }
+			add_corps_commander_role = {
+				skill = 1
+				traits = { just_visiting }
+				visible = { always = no }
+			}
+			set_character_flag = temp_unit_leader
+		}
+	}
+}
+
+remove_temp_unit_leader_role = {
+	hidden_effect = {
+		if = {
+			limit = { has_character_flag = temp_unit_leader }
+			remove_unit_leader_role = yes
+			clr_character_flag = temp_unit_leader
+		}
+	}
+}

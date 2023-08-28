@@ -35,33 +35,30 @@ add_opinion_modifier = { target = HON modifier = NIC_holding_military }
 	add_dynamic_modifier = { modifier = conscription_exemptions_granted }
 }
 
-
-
+country_event = { id = nic.2 days = 22 }
+country_event = { id = cafla.18 days = 258 }
 
 set_stability = 0.52
 set_war_support = 0.24
 
 set_politics = {
-	ruling_party = moderate_socialism
+	ruling_party = syndicalist
 	last_election = "1932.4.6"
 	election_frequency = 48
 	elections_allowed = yes
 }
 
 set_popularities = {
-	bolshevism = 0
-	communism = 2
-	moderate_socialism = 36
-	revolutionary_socialism = 19
-	progressivism = 7
-	liberalism = 22
-	liberal_conservatism = 0
-	social_conservatism = 8
-	anocracy = 0
-	autocracy = 6
-	reformed_voynism = 0
-	voynism = 0
-	radical_voynism = 0
+	totalist = 2
+	syndicalist = 36
+	radical_socialist = 19
+	social_democrat = 7
+	social_liberal = 22
+	market_liberal = 0
+	social_conservative = 8
+	authoritarian_democrat = 0
+	paternal_autocrat = 6
+	national_populist = 0
 }
 add_ideas = {
 	limited_conscription
@@ -72,39 +69,39 @@ add_ideas = {
 
 activate_targeted_decision = { decision = CEN_unite_central_america target = THIS }
 
+recruit_character = NIC_augusto_cesar_sandino
+recruit_character = NIC_francisco_sequeira_moreno
+recruit_character = NIC_juan_bautista_sacasa
+recruit_character = NIC_emiliano_chamorro_vargas
+recruit_character = NIC_adolfo_diaz
+recruit_character = NIC_anastasio_somoza_garcia
 
+recruit_character = NIC_yank_levy
+recruit_character = NIC_abelardo_cuadra
+recruit_character = NIC_federico_davidson_blanco
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+recruit_character = NIC_jose_leon_diaz
+recruit_character = NIC_jose_pedro_zepeda
+recruit_character = NIC_santos_lopez
+recruit_character = NIC_miguel_angel_ortiz
+recruit_character = NIC_jose_roman_orozco
+recruit_character = NIC_hernan_robleto
+recruit_character = NIC_guillermo_sevilla_sacasa
+recruit_character = NIC_andres_vega_bolanos
+recruit_character = NIC_leon_debayle_sacasa
+recruit_character = NIC_ana_salvadora
+recruit_character = NIC_carlos_alberto_brenes_jarquin
+recruit_character = NIC_juan_ramon_aviles
+recruit_character = NIC_gustavo_abaunza
+recruit_character = NIC_leonardo_arguello
+recruit_character = NIC_pedro_altamirano
+recruit_character = NIC_pedro_antonio_irias
+recruit_character = NIC_celestino_zeledon
+recruit_character = NIC_juan_escamilla
+recruit_character = NIC_augusto_caldera
+recruit_character = NIC_ramon_telles
+recruit_character = NIC_carlos_castro_wassmer
+recruit_character = NIC_juan_pablo_umanzor
 
 ### Exiled Characters ###
 NIC_anastasio_somoza_garcia = { retire = yes }

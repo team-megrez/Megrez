@@ -55,74 +55,71 @@ add_ideas = {
 set_war_support = 0.55
 
 set_politics = {
-	ruling_party = liberal_conservatism
+	ruling_party = market_liberal
 	last_election = "1935.10.18"
 	election_frequency = 48
 	elections_allowed = yes
 }
 
 set_popularities = {
-	bolshevism = 0
-	communism = 0
-	revolutionary_socialism = 1
-	moderate_socialism = 4
-	progressivism = 8
-	liberalism = 9
-	liberal_conservatism = 51
-	social_conservatism = 10
-	anocracy = 7
-	autocracy = 0
-	reformed_voynism = 10
-	voynism = 0
-	radical_voynism = 0
+	totalist = 0
+	radical_socialist = 1
+	syndicalist = 4
+	social_democrat = 8
+	social_liberal = 9
+	market_liberal = 51
+	social_conservative = 10
+	authoritarian_democrat = 7
+	paternal_autocrat = 0
+	national_populist = 10
 }
 
 activate_mission = SWI_peace_mission_ongoing
-
-
-
-
-
+country_event = { id = prewar.1 days = 397 }   # Romandie Crisis
+country_event = { id = swiss.71 days = 96 }    # Union Nationale Rally
+country_event = { id = swiss.143 days = 70 }
+country_event = { id = swiss.145 days = 213 }  # Swiss National Day
+country_event = { id = swiss.146 months = 10 }
 
 ### Leaders ###
-
-
-
-
+recruit_character = SWI_jakob_herzog
+recruit_character = SWI_federal_union_council
+recruit_character = SWI_geneva_council_of_state
+recruit_character = SWI_swiss_federal_council
 
 ### Advisors ###
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+recruit_character = SWI_hans_heinrich_itschner
+recruit_character = SWI_fritz_brupbacher
+recruit_character = SWI_jules_humbert_droz
+recruit_character = SWI_ernst_nobs
+recruit_character = SWI_ernst_wetter
+recruit_character = SWI_philip_etter
+recruit_character = SWI_hans_oprecht
+recruit_character = SWI_walter_gunthart
+recruit_character = SWI_markus_feldmann
+recruit_character = SWI_hans_muller
+recruit_character = SWI_otto_punter
+recruit_character = SWI_max_rotter
+recruit_character = SWI_marcel_pilet_golaz
+recruit_character = SWI_emil_keller
+recruit_character = SWI_jean_marie_musy
+recruit_character = SWI_eduard_von_steiger
+recruit_character = SWI_ernst_leonhardt
+recruit_character = SWI_robert_tobler
+recruit_character = SWI_hans_hausamann
 
 ### Commanders ###
-
-
-
-
-
-
-
-
-
+recruit_character = SWI_eugen_bircher
+recruit_character = SWI_henri_guisan
+recruit_character = SWI_gustave_combe
+recruit_character = SWI_hermann_flueckiger
+recruit_character = SWI_jakob_labhardt
+recruit_character = SWI_jean_de_muralt
+recruit_character = SWI_jakob_huber
+recruit_character = SWI_louis_de_montmollin
+recruit_character = SWI_hans_bandi
 
 ### Military Staff ###
-
-
-
+recruit_character = SWI_fritz_rihner
+recruit_character = SWI_werner_lindecker
+recruit_character = SWI_etienne_primault

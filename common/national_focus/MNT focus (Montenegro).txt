@@ -1,0 +1,716 @@
+###########################
+# Montenegro Focus Tree
+# By Augenis
+###########################
+
+focus_tree = {
+	id = montenegro_focus
+
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = MNT
+		}
+	}
+
+	default = no
+	continuous_focus_position = { x = 1700 y = 600 }
+
+	focus = {
+		id = MNT_socialist
+		icon = GFX_goal_MNT_SR
+		cost = 6
+
+		x = 1
+		y = 0
+
+		available = {
+			has_socialist_government = yes
+		}
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_socialist"
+			set_temp_variable = { ideology_change_var = 0.2 }
+			change_ruling_party_popularity = yes
+			add_political_power = 150
+		}
+	}
+
+	focus = {
+		id = MNT_connection_to_the_people
+		icon = GFX_goal_generic_government_deals
+		cost = 7
+
+		relative_position_id = MNT_socialist
+		x = -2
+		y = 1
+
+		prerequisite = { focus = MNT_socialist }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_connection_to_the_people"
+			add_stability = 0.1
+		}
+	}
+
+	focus = {
+		id = MNT_national_equality
+		icon = GFX_goal_generic_national_unity
+		cost = 8
+
+		relative_position_id = MNT_connection_to_the_people
+		x = 1
+		y = 1
+
+		prerequisite = { focus = MNT_connection_to_the_people }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_national_equality"
+			add_stability = 0.1
+			add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = MNT_agrarian_reform
+		icon = GFX_focus_prc_agrarian_socialism
+		cost = 7
+
+		relative_position_id = MNT_socialist
+		x = 0
+		y = 1
+
+		prerequisite = { focus = MNT_socialist }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_agrarian_reform"
+			105 = {
+				increase_state_category_by_one_level = yes
+			}
+		}
+	}
+
+	focus = {
+		id = MNT_industrialisation
+		icon = GFX_goal_generic_coal_mining
+		cost = 8
+
+		relative_position_id = MNT_socialist
+		x = 2
+		y = 1
+
+		prerequisite = { focus = MNT_socialist }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_industrialisation"
+			105 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = MNT_democratic
+		icon = GFX_goal_MNT_Republic
+		cost = 6
+
+		x = 6
+		y = 0
+
+		available = {
+			has_elected_government = yes
+		}
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_democratic"
+			set_temp_variable = { ideology_change_var = 0.2 }
+			change_ruling_party_popularity = yes
+			add_political_power = 150
+		}
+	}
+
+	focus = {
+		id = MNT_land_reform
+		icon = GFX_goal_generic_land_reform
+		cost = 7
+
+		relative_position_id = MNT_democratic
+		x = -1
+		y = 1
+
+		prerequisite = { focus = MNT_democratic }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_land_reform"
+			105 = {
+				increase_state_category_by_one_level = yes
+			}
+		}
+	}
+
+	focus = {
+		id = MNT_peasant_cooperatives
+		icon = GFX_goal_agrarian_soldiers
+		cost = 8
+
+		relative_position_id = MNT_land_reform
+		x = -1
+		y = 1
+
+		prerequisite = { focus = MNT_land_reform }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_peasant_cooperatives"
+			add_ideas = MNT_peasant_cooperatives1
+		}
+	}
+
+	focus = {
+		id = MNT_free_education
+		icon = GFX_goal_KTG_Educate_natives
+		cost = 7
+
+		relative_position_id = MNT_democratic
+		x = 1
+		y = 1
+
+		prerequisite = { focus = MNT_democratic }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_free_education"
+			add_ideas = MNT_free_education1
+		}
+	}
+
+	focus = {
+		id = MNT_equality_of_religion
+		icon = GFX_goal_generic_improve_relations
+		cost = 8
+
+		relative_position_id = MNT_democratic
+		x = 0
+		y = 2
+
+		prerequisite = { focus = MNT_democratic }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_equality_of_religion"
+			add_stability = 0.05
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = MNT_reactionary
+		icon = GFX_goal_MNT_monarchy
+		cost = 6
+
+		x = 11
+		y = 0
+
+		available = {
+			has_authoritarian_government = yes
+		}
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_reactionary"
+			set_temp_variable = { ideology_change_var = 0.2 }
+			change_ruling_party_popularity = yes
+			add_political_power = 150
+			hidden_effect = { country_event = mnt.1 }
+		}
+	}
+
+	focus = {
+		id = MNT_legacy_of_greens
+		icon = GFX_ITA_green_shirts
+		cost = 7
+
+		relative_position_id = MNT_reactionary
+		x = -2
+		y = 1
+
+		prerequisite = { focus = MNT_reactionary }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_legacy_of_greens"
+			add_war_support = 0.10
+		}
+	}
+
+	focus = {
+		id = MNT_for_the_honour
+		icon = GFX_goal_mass_concentration_of_army
+		cost = 8
+
+		relative_position_id = MNT_legacy_of_greens
+		x = 2
+		y = 1
+
+		prerequisite = { focus = MNT_legacy_of_greens }
+		prerequisite = { focus = MNT_montenegrin_nationalism }
+		prerequisite = { focus = MNT_serbophobia }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_for_the_honour"
+			add_ideas = MNT_for_the_honour1
+		}
+	}
+
+	focus = {
+		id = MNT_serbophobia
+		icon = GFX_goal_serbia
+		cost = 7
+
+		relative_position_id = MNT_reactionary
+		x = 0
+		y = 1
+
+		prerequisite = { focus = MNT_reactionary }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_serbophobia"
+			add_ideas = MNT_serbophobia1
+			105 = {
+				add_building_construction = {
+					type = bunker
+					province = 11858
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					province = 6913
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = MNT_montenegrin_nationalism
+		icon = GFX_goal_generic_political_pressure
+		cost = 8
+
+		relative_position_id = MNT_reactionary
+		x = 2
+		y = 1
+
+		prerequisite = { focus = MNT_reactionary }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_montenegrin_nationalism"
+			add_stability = 0.10
+		}
+	}
+
+	focus = {
+		id = MNT_army
+		icon = GFX_goal_MNT_Army
+		cost = 6
+
+		x = 4
+		y = 3
+
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_army"
+			army_experience = 50
+		}
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+	}
+
+	focus = {
+		id = MNT_memories_of_christmas_uprising
+		icon = GFX_goal_offensive_army
+		cost = 6
+
+		relative_position_id = MNT_army
+		x = -1
+		y = 1
+
+		prerequisite = { focus = MNT_army }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_memories_of_christmas_uprising"
+			add_doctrine_cost_reduction = {
+				name = MNT_memories_of_christmas_uprising
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = MNT_arms_modernisation
+		icon = GFX_focus_generic_military_equipment
+		cost = 6
+
+		relative_position_id = MNT_army
+		x = 1
+		y = 1
+
+		prerequisite = { focus = MNT_army }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_arms_modernisation"
+			add_tech_bonus = {
+				name = MNT_arms_modernisation
+				bonus = 1
+				uses = 1
+				category = infantry_weapons
+			}
+		}
+	}
+
+	focus = {
+		id = MNT_artillery_modernisation
+		icon = GFX_goal_GEO_Artillery_Tactics
+		cost = 8
+
+		relative_position_id = MNT_arms_modernisation
+		x = 1
+		y = 1
+
+		prerequisite = { focus = MNT_arms_modernisation }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_artillery_modernisation"
+			add_tech_bonus = {
+				name = MNT_artillery_modernisation
+				bonus = 1
+				uses = 1
+				category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = MNT_arms_industry
+		icon = GFX_goal_munitions_factories
+		cost = 10
+
+		relative_position_id = MNT_arms_modernisation
+		x = -1
+		y = 1
+
+		prerequisite = { focus = MNT_arms_modernisation }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_arms_industry"
+			105 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = MNT_lessons_of_balkan_war
+		icon = GFX_goal_balkan_fist
+		cost = 6
+
+		relative_position_id = MNT_artillery_modernisation
+		x = -1
+		y = 1
+
+		prerequisite = { focus = MNT_artillery_modernisation }
+		prerequisite = { focus = MNT_arms_industry }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_lessons_of_balkan_war"
+			add_doctrine_cost_reduction = {
+				name = MNT_lessons_of_balkan_war
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = MNT_start_of_an_airforce
+		icon = GFX_goal_MNT_Air_Force
+		cost = 10
+
+		relative_position_id = MNT_arms_modernisation
+		x = -3
+		y = 1
+
+		prerequisite = { focus = MNT_arms_modernisation }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_start_of_an_airforce"
+			add_tech_bonus = {
+				name = MNT_start_of_an_airforce
+				bonus = 0.5
+				uses = 1
+				category = light_fighter
+			}
+			add_tech_bonus = {
+				name = MNT_start_of_an_airforce
+				bonus = 0.5
+				uses = 1
+				category = cas_bomber
+			}
+		}
+	}
+
+	focus = {
+		id = MNT_economy
+		icon = GFX_goal_generic_improve_industry
+		cost = 6
+
+		x = 10
+		y = 3
+
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_economy"
+			add_tech_bonus = {
+				name = MNT_economy
+				bonus = 1.0
+				uses = 1
+				category = industry
+			}
+		}
+	}
+
+	focus = {
+		id = MNT_farming_subsidies
+		icon = GFX_goal_agricultural_aid
+		cost = 7
+
+		relative_position_id = MNT_economy
+		x = -1
+		y = 1
+
+		prerequisite = { focus = MNT_economy }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_farming_subsidies"
+			add_political_power = 50
+			105 = {
+				increase_state_category_by_one_level = yes
+			}
+		}
+	}
+
+	focus = {
+		id = MNT_opium
+		icon = GFX_goal_opium
+		cost = 8
+
+		relative_position_id = MNT_farming_subsidies
+		x = -1
+		y = 1
+
+		prerequisite = { focus = MNT_farming_subsidies }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_opium"
+			add_ideas = MNT_opium1
+		}
+	}
+
+	focus = {
+		id = MNT_wood_industry
+		icon = GFX_goal_generic_forestry
+		cost = 9
+
+		relative_position_id = MNT_farming_subsidies
+		x = 1
+		y = 1
+
+		prerequisite = { focus = MNT_farming_subsidies }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_wood_industry"
+			105 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = MNT_beer
+		icon = GFX_goal_generic_party_bottle
+		cost = 7
+
+		relative_position_id = MNT_wood_industry
+		x = -1
+		y = 1
+
+		prerequisite = { focus = MNT_wood_industry }
+		prerequisite = { focus = MNT_opium }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_beer"
+			105 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = MNT_railways
+		icon = GFX_goal_generic_railway_construction
+		cost = 8
+
+		relative_position_id = MNT_economy
+		x = 1
+		y = 1
+
+		prerequisite = { focus = MNT_economy }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_railways"
+			105 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = MNT_port
+		icon = GFX_goal_MNT_Navy
+		cost = 8
+
+		relative_position_id = MNT_railways
+		x = 1
+		y = 1
+
+		prerequisite = { focus = MNT_railways }
+		available = { owns_state = 841 }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_port"
+			unlock_decision_tooltip = MNT_connect_to_port
+			unlock_decision_tooltip = MNT_coastal_facilities
+			unlock_decision_tooltip = MNT_merchant_navy
+		}
+	}
+
+	focus = {
+		id = MNT_powerplant
+		icon = GFX_goal_generic_lightbulb
+		cost = 9
+
+		relative_position_id = MNT_railways
+		x = 0
+		y = 2
+
+		prerequisite = { focus = MNT_railways }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_powerplant"
+			105 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = MNT_research
+		icon = GFX_goal_KTG_Bookstack
+		cost = 10
+
+		relative_position_id = MNT_powerplant
+		x = -1
+		y = 1
+
+		prerequisite = {
+			focus = MNT_beer
+		}
+		prerequisite = {
+			focus = MNT_powerplant
+		}
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus MNT_research"
+			add_research_slot_until_five = yes
+		}
+	}
+}
+

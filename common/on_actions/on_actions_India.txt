@@ -1,0 +1,172 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			for_each_scope_loop = {
+				array = global.indian_tags_array
+				for_each_scope_loop = {
+					array = global.indian_tags_array
+					enable_coring_at_eighty_compliance = yes
+					PREV = { enable_coring_at_fifty_compliance = yes }
+				}
+			}
+			every_state = {
+				limit = {
+					is_india = yes
+					NOT = { is_core_of = CEY }
+				}
+				for_each_scope_loop = {
+					array = global.indian_tags_array
+					PREV = { enable_state_integration_80_compliance = yes }
+				}
+			}
+		}
+	}
+
+	#ROOT is winner #FROM gets annexed - For civil wars on_civil_war_end is also fired
+	on_annex = {
+		effect = {
+			if = {
+				limit = { FROM = { tag = PRF } }
+				country_event = prf.206
+				321 = {
+					if = {
+						limit = { is_core_of = PRF }
+						remove_core_of = PRF
+						add_claim_by = PRF
+					}
+				}
+			}
+			else_if = {
+				limit = { FROM = { tag = HND } }
+				# Send the BNG people to the BNG tag instead of HND
+				HND = {
+					HND_abul_kasem_fazlul_huq = {
+						set_nationality = BNG
+						remove_country_leader_role_social_democrat = yes
+						add_country_leader_role = {
+							character = HND_abul_kasem_fazlul_huq
+							country_leader = {
+								desc = HND_abul_kasem_fazlul_huq_leader_desc
+								ideology = social_democrat_subtype
+							}
+							promote_leader = yes
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = { FROM = { tag = RAJ } }
+				# Send the PAK/KAS people to the PAK tag
+				RAJ = {
+					RAJ_ishar_singh = { set_nationality = PAK }
+					RAJ_malik_khizar_hayat_tiwana = { set_nationality = PAK }
+					RAJ_hari_singh = {
+						set_nationality = KAS
+						remove_country_leader_role_authoritarian_democrat = yes
+						add_country_leader_role = {
+							country_leader = { ideology = authoritarian_democrat_subtype }
+							promote_leader = yes
+						}
+					}
+					RAJ_minocher_rustom_masani = {
+						set_nationality = BOM
+						remove_country_leader_role_social_liberal = yes
+						add_country_leader_role = {
+							country_leader = { ideology = social_liberal_subtype }
+							promote_leader = yes
+						}
+					}
+				}
+			}
+		}
+	}
+
+	on_peaceconference_ended = {
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						tag = RAJ
+						tag = AFG
+					}
+					FROM = {
+						OR = {
+							tag = RAJ
+							tag = AFG
+						}
+					}
+				}
+				RAJ = { country_event = { id = delhi.7 days = 15 random_days = 10 } }
+			}
+
+			if = {
+				limit = { NOT = { has_global_flag = india_united } }
+				if = {
+					limit = {
+						original_tag = HND
+						is_subject = no
+						FROM = {
+							OR = {
+								original_tag = RAJ
+								original_tag = PRF
+							}
+						}
+						NOT = { country_exists = RAJ }
+						NOT = { country_exists = PRF }
+					}
+					set_global_flag = india_united
+					log = "KR_Event_Logging;Bharatiya Commune UNIFIES INDIA;[GetDateText]"
+				}
+				else_if = {
+					limit = {
+						original_tag = RAJ
+						is_subject = no
+						FROM = {
+							OR = {
+								original_tag = HND
+								original_tag = PRF
+							}
+						}
+						NOT = { country_exists = HND }
+						NOT = { country_exists = PRF }
+					}
+					set_global_flag = india_united
+					log = "KR_Event_Logging;Dominion of India UNIFIES INDIA;[GetDateText]"
+				}
+				else_if = {
+					limit = {
+						original_tag = PRF
+						is_subject = no
+						FROM = {
+							OR = {
+								original_tag = HND
+								original_tag = RAJ
+							}
+						}
+						NOT = { country_exists = HND }
+						NOT = { country_exists = RAJ }
+					}
+					set_global_flag = india_united
+					log = "KR_Event_Logging;Princely Federation/Hyderabad UNIFIES INDIA;[GetDateText]"
+				}
+			}
+		}
+	}
+
+	on_new_term_election = {
+		effect = {
+			### Dominion of India ###
+			if = {
+				limit = { tag = RAJ }
+				country_event = delhi.9
+				country_event = delhi.115
+			}
+			### Princely Federation ###
+			else_if = {
+				limit = { tag = PRF }
+				country_event = prf.20
+			}
+		}
+	}
+}
+

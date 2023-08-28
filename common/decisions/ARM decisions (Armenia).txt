@@ -1,0 +1,248 @@
+###########################
+# Armenia Decisions
+###########################
+# By Bloxerbot
+###########################
+
+ARM_foreign_policy = {
+	ARM_join_reichspakt = {
+		name = ARM_join_faction
+		icon = generic_political_discourse
+		allowed = { always = no }
+
+		available = {
+			at_peace_or_same_enemies_as_FROM = yes
+		}
+
+		visible = {
+			FROM = {
+				is_faction_leader = yes
+				NOT = { has_war_with = ROOT }
+			}
+			has_socialist_government = no
+			NOT = { has_government = national_populist }
+			is_subject = no
+			is_in_faction = no
+		}
+
+		target_trigger = {
+			FROM = { is_faction_leader = yes }
+			has_socialist_government = no
+			NOT = { has_government = national_populist }
+			is_subject = no
+			is_in_faction = no
+		}
+
+		cost = 0
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				OR = {
+					FROM = { surrender_progress > 0.1 }
+					FROM = { any_owned_state = { is_claim_or_core_of_ROOT = yes } }
+					NOT = { any_neighbor_country = { is_ally_with = FROM } }
+				}
+				NOT = { has_game_rule = { rule = ARM_forpol option = ARM_FORPOL_GER } }
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = ARM_forpol option = ARM_FORPOL_PER }
+					has_game_rule = { rule = ARM_forpol option = ARM_FORPOL_RUS }
+				}
+			}
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove ARM_join_reichspakt target: [From.GetName]"
+			FROM = { country_event = arm.55 }
+		}
+	}
+	ARM_join_russia = {
+		name = ARM_join_faction
+		icon = generic_political_discourse
+		allowed = { always = no }
+
+		available = {
+			at_peace_or_same_enemies_as_FROM = yes
+		}
+
+		visible = {
+			has_government = national_populist
+			FROM = {
+				is_faction_leader = yes
+				NOT = { has_war_with = ROOT }
+			}
+			is_subject = no
+			is_in_faction = no
+		}
+
+		target_trigger = {
+			has_government = national_populist
+			FROM = { is_faction_leader = yes }
+			is_subject = no
+			is_in_faction = no
+		}
+
+		cost = 0
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				OR = {
+					FROM = { surrender_progress > 0.1 }
+					FROM = { any_owned_state = { is_claim_or_core_of_ROOT = yes } }
+					NOT = { any_neighbor_country = { is_ally_with = FROM } }
+				}
+				NOT = { has_game_rule = { rule = ARM_forpol option = ARM_FORPOL_RUS } }
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = ARM_forpol option = ARM_FORPOL_PER }
+					has_game_rule = { rule = ARM_forpol option = ARM_FORPOL_GER }
+				}
+			}
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove ARM_join_russia target: [From.GetName]"
+			FROM = { country_event = arm.49 }
+		}
+	}
+
+	ARM_request_industrial_support = {
+		icon = generic_factory
+		allowed = { always = no }
+
+		visible = {
+			is_in_faction_with = FROM
+		}
+
+		cost = 25
+		fire_only_once = yes
+
+		ai_will_do = { factor = 10 }
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove ARM_request_industrial_support target: [From.GetName]"
+			FROM = { country_event = arm.18 }
+		}
+	}
+}
+
+ARM_war_of_independence = {
+	ARM_request_russian_guns = {
+		icon = generic_prepare_civil_war
+		allowed = { always = no }
+
+		visible = {
+			FROM = {
+				NOT = { has_war_with = ROOT }
+			}
+			OR = {
+				has_war_with = TUR
+				has_war_with = AZR
+			}
+		}
+
+		cost = 50
+		fire_only_once = yes
+
+		ai_will_do = { factor = 10 }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete ARM_request_russian_guns target: [From.GetName]"
+			FROM = { country_event = arm.90 }
+		}
+	}
+	ARM_capture_Kars = {
+		icon = generic_prepare_civil_war
+
+		allowed = { always = no }
+
+		highlight_states = {
+			highlight_state_targets = { state = 1000 }
+		}
+
+		available = {
+			1000 = { is_controlled_by_ROOT_or_ally = yes }
+		}
+
+		is_good = no
+		days_mission_timeout = 35
+
+		cancel_trigger = {
+			OR = {
+				TUR = { NOT = { owns_state = 1000 } }
+				NOT = { has_war_with = TUR }
+				is_subject = yes
+			}
+		}
+
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout ARM_capture_Kars"
+			add_war_support = -0.05
+			add_political_power = -25
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete ARM_capture_Kars"
+			ARM_upgrade_independence_fervour = yes
+			add_popularity = { ideology = paternal_autocrat popularity = 0.03 }
+			add_political_power = 35
+			country_event = { id = arm.87 days = 1 }
+			if = {
+				limit = {
+					NOT = { GEO = { has_war_with = TUR } }
+					TUR = { owns_state = 585 }
+				}
+				activate_mission = ARM_capture_Batumi
+			}
+		}
+	}
+	ARM_capture_Batumi = {
+		icon = generic_prepare_civil_war
+
+		allowed = { always = no }
+
+		highlight_states = {
+			highlight_state_targets = { state = 585 }
+		}
+
+		available = {
+			585 = { is_controlled_by_ROOT_or_ally = yes }
+		}
+
+		is_good = no
+		days_mission_timeout = 60
+
+		cancel_trigger = {
+			OR = {
+				TUR = { NOT = { owns_state = 585 } }
+				NOT = { has_war_with = TUR }
+				GEO = { has_war_with = TUR }
+				is_subject = yes
+			}
+		}
+
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout ARM_capture_Batumi"
+			add_war_support = -0.03
+			add_political_power = -10
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete ARM_capture_Batumi"
+			ARM_upgrade_independence_fervour = yes
+			add_popularity = { ideology = paternal_autocrat popularity = 0.02 }
+			add_political_power = 25
+			country_event = { id = arm.35 days = 1 }
+		}
+	}
+}

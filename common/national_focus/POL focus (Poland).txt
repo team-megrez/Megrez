@@ -1,0 +1,7161 @@
+#########################
+## Poland Focus Tree   ##
+## By Matoro & Alpinia ##
+#########################
+
+focus_tree = {
+	id = Poland_Focus_Tree
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = POL
+		}
+	}
+	default = no
+	continuous_focus_position = { x = 125 y = 3100 }
+
+	### Kingdom Tree ###
+	focus = {
+		id = POL_Emergency_Session
+		icon = GFX_goal_POL_kingdom
+		cost = 1
+
+		x = 2
+		y = 0
+
+		available = { always = no }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Emergency_Session"
+			custom_effect_tooltip = unlock_focuses
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+
+	focus = {
+		id = POL_Strengthen_The_Circle
+		icon = GFX_goal_generic_council
+		cost = 5
+
+		relative_position_id = POL_Emergency_Session
+		x = 4
+		y = 1
+
+		prerequisite = { focus = POL_Emergency_Session }
+		mutually_exclusive = { focus = POL_Form_The_Konigstreue }
+		available = { is_monarchy = yes }
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Strengthen_The_Circle"
+			add_political_power = 50
+			set_temp_variable = { POL_influence_change = 6 }
+			POL_add_royal_influence = yes
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = POL_Empower_Provincial_Assemblies
+		icon = GFX_goal_COS_Ferrer_Coup
+		cost = 5
+
+		relative_position_id = POL_Strengthen_The_Circle
+		x = 1
+		y = 1
+
+		prerequisite = { focus = POL_Strengthen_The_Circle }
+		available = { is_monarchy = yes }
+		ai_will_do = { factor = 1500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Empower_Provincial_Assemblies"
+			add_stability = 0.08
+			set_temp_variable = { POL_influence_change = 6 }
+			POL_add_royal_influence = yes
+			activate_targeted_decision = { target = ROOT decision = POL_Endorse_Constitutionalist_Intellectuals }
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = POL_roy_improve_tt
+			custom_effect_tooltip = POL_rep_subvert_tt
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = POL_Concessions_to_Unions
+		icon = GFX_socialist_constitution
+		cost = 5
+
+		relative_position_id = POL_Strengthen_The_Circle
+		x = -1
+		y = 1
+
+		prerequisite = { focus = POL_Strengthen_The_Circle }
+		available = { is_monarchy = yes }
+		ai_will_do = {
+			factor = 500
+			modifier = {
+				factor = 0
+				NOT = { has_completed_focus = POL_Weapon_Against_The_Underground }
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Concessions_to_Unions"
+			random_owned_controlled_state = {
+				set_temp_variable = { ROOT.POL_first_state = THIS }
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				limit = {
+					NOT = { state = var:POL_first_state }
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			activate_targeted_decision = { target = ROOT decision = POL_Lease_Royal_Estates }
+			custom_effect_tooltip = tooltip_white_line
+			set_temp_variable = { POL_influence_change = -4 }
+			POL_add_syndicalist_influence = yes
+			custom_effect_tooltip = POL_rep_subvert_tt
+			hidden_effect = { country_event = { id = poland.96 days = 350 random_days = 150 } } #Downaworicz
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = POL_Guarantee_The_Holdings_Of_Landowners
+		icon = GFX_focus_generic_agriculture
+		cost = 5
+
+		relative_position_id = POL_Empower_Provincial_Assemblies
+		x = -1
+		y = 1
+
+		prerequisite = { focus = POL_Empower_Provincial_Assemblies }
+		prerequisite = { focus = POL_Concessions_to_Unions }
+		available = { is_monarchy = yes }
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Guarantee_The_Holdings_Of_Landowners"
+			add_political_power = 75
+			set_temp_variable = { ideology_change_var = 5 }
+			change_ruling_party_popularity = yes
+			activate_targeted_decision = { target = ROOT decision = POL_Aristocratic_Charity }
+			custom_effect_tooltip = tooltip_white_line
+			set_temp_variable = { POL_influence_change = -5 }
+			POL_add_nationalist_influence = yes
+			custom_effect_tooltip = POL_roy_improve_tt
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = POL_Form_The_Konigstreue
+		icon = GFX_goal_generic_plotting
+		cost = 5
+
+		relative_position_id = POL_Emergency_Session
+		x = 8
+		y = 1
+
+		prerequisite = { focus = POL_Emergency_Session }
+		available = { is_monarchy = yes }
+		mutually_exclusive = {
+			focus = POL_Strengthen_The_Circle
+		}
+		ai_will_do = {
+			factor = 500
+			modifier = {
+				factor = 0.5
+				check_variable = { POL_royal_influence < 30 }
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Form_The_Konigstreue"
+			add_political_power = 100
+			set_temp_variable = { POL_influence_change = -5 }
+			POL_add_polish_influence = yes
+			custom_effect_tooltip = POL_intel1_tt
+			if = {
+				limit = { has_country_flag = POL_krakow_conspiracy }
+				subtract_from_variable = { POL_investigation_cost = 10 }
+			}
+			set_variable = { POL_industry_zone_cost = 50 }
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = POL_Empower_Elites
+		icon = GFX_goal_collaborate_local_elites
+		cost = 5
+
+		relative_position_id = POL_Form_The_Konigstreue
+		x = -1
+		y = 1
+
+		prerequisite = { focus = POL_Form_The_Konigstreue }
+		available = { is_monarchy = yes }
+		ai_will_do = { factor = 1500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Empower_Elites"
+			add_political_power = 50
+			activate_targeted_decision = { target = ROOT decision = POL_Loyalist_Army_Commissions }
+			custom_effect_tooltip = tooltip_white_line
+			set_temp_variable = { POL_influence_change = 3 }
+			POL_add_syndicalist_influence = yes
+			custom_effect_tooltip = POL_nat_subvert_tt
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = POL_Royal_Tours
+		icon = GFX_goal_POL_polish_king
+		cost = 5
+
+		relative_position_id = POL_Form_The_Konigstreue
+		x = 1
+		y = 1
+
+		prerequisite = { focus = POL_Form_The_Konigstreue }
+		available = { is_monarchy = yes }
+		ai_will_do = {
+			factor = 500
+			modifier = {
+				factor = 0
+				NOT = { has_completed_focus = POL_Weapon_Against_The_Underground }
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Royal_Tours"
+			add_stability = 0.05
+			activate_targeted_decision = { target = ROOT decision = POL_Start_A_Royal_Tour }
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = POL_roy_improve_tt
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = POL_Foster_Polish_German_Ties
+		icon = GFX_focus_ger_return_of_the_kaiser
+		cost = 5
+
+		relative_position_id = POL_Empower_Elites
+		x = 1
+		y = 1
+
+		available = {
+			country_exists = GER
+			is_monarchy = yes
+		}
+		prerequisite = { focus = POL_Royal_Tours }
+		prerequisite = { focus = POL_Empower_Elites }
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Foster_Polish_German_Ties"
+			add_political_power = 75
+			set_temp_variable = { POL_influence_change = 5 }
+			POL_add_german_influence = yes
+			activate_targeted_decision = { target = ROOT decision = POL_Commission_New_Industrial_Zone }
+			custom_effect_tooltip = tooltip_white_line
+			POL_reduce_polarisation = yes
+			add_opinion_modifier = {
+				modifier = KR_approves_of_govt
+				target = GER
+			}
+			reverse_add_opinion_modifier = {
+				modifier = KR_approves_of_govt
+				target = GER
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = POL_Weapon_Against_The_Underground
+		icon = GFX_goal_secret_agents
+		cost = 5
+
+		relative_position_id = POL_Strengthen_The_Circle
+		x = 2
+		y = 2
+
+		prerequisite = {
+			focus = POL_Empower_Provincial_Assemblies
+			focus = POL_Empower_Elites
+		}
+		available = { is_monarchy = yes }
+		ai_will_do = { factor = 1500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Weapon_Against_The_Underground"
+			country_event = poland.35
+			custom_effect_tooltip = POL_intel2_tt
+			if = {
+				limit = { has_country_flag = POL_krakow_conspiracy }
+				subtract_from_variable = { POL_investigation_cost = 20 }
+			}
+			if = {
+				limit = { has_dlc_lar = yes }
+				create_intelligence_agency = yes
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+
+	focus = {
+		id = POL_Direction_of_the_Privy_Council
+		icon = GFX_goal_generic_government_deals
+		cost = 5
+
+		relative_position_id = POL_Weapon_Against_The_Underground
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = POL_Weapon_Against_The_Underground
+		}
+		available = { is_monarchy = yes }
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Direction_of_the_Privy_Council"
+			country_event = poland.6
+		}
+	}
+
+	focus = {
+		id = POL_Rein_in_Sejm
+		icon = GFX_focus_generic_oppression
+		cost = 5
+
+		relative_position_id = POL_Direction_of_the_Privy_Council
+		x = 1
+		y = 1
+
+		prerequisite = {
+			focus = POL_Direction_of_the_Privy_Council
+		}
+		available = {
+			NOT = { has_country_flag = POL_downarowicz_cooperation }
+			is_monarchy = yes
+		}
+		mutually_exclusive = { focus = POL_Safeguard_the_Liberties }
+		ai_will_do = {
+			factor = 500
+			modifier = {
+				factor = 0.5
+				check_variable = { POL_royal_influence < 30 }
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Rein_in_Sejm"
+			add_political_power = 100
+			add_stability = 0.1
+			set_temp_variable = { POL_influence_change = -5 }
+			POL_add_royal_influence = yes
+			if = {
+				limit = { NOT = { has_country_flag = POL_had_event_88 } }
+				country_event = poland.88
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = POL_Safeguard_the_Liberties
+		icon = GFX_goal_Fight_for_Freedom
+		cost = 5
+
+		relative_position_id = POL_Direction_of_the_Privy_Council
+		x = -1
+		y = 1
+
+		prerequisite = {
+			focus = POL_Direction_of_the_Privy_Council
+		}
+		available = { is_monarchy = yes }
+		mutually_exclusive = { focus = POL_Rein_in_Sejm }
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Safeguard_the_Liberties"
+			add_political_power = 50
+			add_stability = 0.05
+			set_temp_variable = { POL_influence_change = 6 }
+			POL_add_royal_influence = yes
+			custom_effect_tooltip = tooltip_white_line
+			POL_reduce_polarisation = yes
+			set_temp_variable = { POL_influence_change = -4 }
+			POL_add_republican_influence = yes
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_STABILITY }
+	}
+
+	### Economic Tree ###
+	focus = {
+		id = POL_Drop_The_Gold_Standard
+		icon = GFX_focus_hol_abandon_the_gold_standard
+		cost = 5
+
+		relative_position_id = POL_Emergency_Session
+		x = -2
+		y = 1
+
+		prerequisite = { focus = POL_Emergency_Session }
+		ai_will_do = { factor = 3000 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Drop_The_Gold_Standard"
+			add_stability = -0.1
+			set_temp_variable = { POL_influence_change = -5 }
+			POL_add_german_influence = yes
+			set_temp_variable = { POL_influence_change = -5 }
+			POL_add_austrian_influence = yes
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = POL_Reintroduce_The_Zloty
+		icon = GFX_goal_bankruptcy
+		cost = 5
+
+		relative_position_id = POL_Drop_The_Gold_Standard
+		x = 2
+		y = 2
+
+		prerequisite = { focus = POL_Drop_The_Gold_Standard }
+		available = { set_temp_variable = { POL_influence_check = 30 } POL_polish_influence_check = yes }
+		continue_if_invalid = yes
+		ai_will_do = { factor = 3000 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Reintroduce_The_Zloty"
+			set_temp_variable = { POL_influence_change = 5 }
+			POL_add_royal_influence = yes
+			custom_effect_tooltip = POL_modifies_black_monday
+			add_to_variable = {
+				POL_black_monday_consumer_goods = -0.04
+				tooltip = POL_black_monday_consumer_goods_tooltip
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+
+	focus = {
+		id = POL_Loans_From_Foreign_Banks
+		icon = GFX_goal_COS_German_Bailout
+		cost = 5
+
+		relative_position_id = POL_Reintroduce_The_Zloty
+		x = 1
+		y = 1
+
+		prerequisite = {
+			focus = POL_Reintroduce_The_Zloty
+		}
+		mutually_exclusive = {
+			focus = POL_Nationalise_The_Bank_Of_Poland
+		}
+		available = {
+			OR = {
+				GER = { has_completed_focus = GER_schacht2 }
+				GER = { has_completed_focus = GER_groener2 }
+				AUS = { has_completed_focus = AUS_sdap_5 }
+				AUS = { has_completed_focus = AUS_cs_2 }
+			}
+		}
+		ai_will_do = { factor = 3000 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Loans_From_Foreign_Banks"
+			custom_effect_tooltip = POL_loan_tt
+			custom_effect_tooltip = POL_BM_decision_lower_tt
+			subtract_from_variable = { POL_BM_cost = 15 }
+			custom_effect_tooltip = tooltip_white_line
+			set_temp_variable = { POL_influence_change = 3 }
+			POL_add_nationalist_influence = yes
+
+			set_temp_variable = { POL_influence_change = 3 }
+			POL_add_syndicalist_influence = yes
+
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = POL_Nationalise_The_Bank_Of_Poland
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		cost = 5
+
+		relative_position_id = POL_Reintroduce_The_Zloty
+		x = -1
+		y = 1
+
+		available = {
+			set_temp_variable = { POL_influence_check = 50 }
+			POL_polish_influence_check = yes
+		}
+		prerequisite = {
+			focus = POL_Reintroduce_The_Zloty
+		}
+		mutually_exclusive = {
+			focus = POL_Loans_From_Foreign_Banks
+		}
+		continue_if_invalid = yes
+		ai_will_do = { factor = 3000 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Nationalise_The_Bank_Of_Poland"
+			custom_effect_tooltip = POL_nationalise_tt
+			custom_effect_tooltip = POL_BM_decision_higher_tt
+			activate_targeted_decision = { target = ROOT decision = POL_Stabilise_the_Zloty }
+			custom_effect_tooltip = tooltip_white_line
+			add_to_variable = { POL_BM_cost = 15 }
+			set_temp_variable = { POL_influence_change = -3 }
+			POL_add_syndicalist_influence = yes
+
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = POL_Pave_The_Country_Roads
+		icon = GFX_goal_generic_road_construction
+		cost = 5
+
+		relative_position_id = POL_Drop_The_Gold_Standard
+		x = 1
+		y = 1
+
+		available = { set_temp_variable = { POL_influence_check = 30 } POL_polish_influence_check = yes }
+		prerequisite = {
+			focus = POL_Drop_The_Gold_Standard
+		}
+		mutually_exclusive = {
+			focus = POL_The_Cooperative_Movement
+		}
+		continue_if_invalid = yes
+		ai_will_do = { factor = 3000 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Pave_The_Country_Roads"
+			custom_effect_tooltip = POL_modifies_black_monday
+			add_to_variable = {
+				POL_black_monday_factory_output = 0.04
+				tooltip = POL_black_monday_factory_output_tooltip
+			}
+			force_update_dynamic_modifier = yes
+			activate_targeted_decision = { target = ROOT decision = POL_Public_Work_Programmes }
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = POL_soc_subvert_tt
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_INDUSTRY FOCUS_FILTER_PRODUCTION }
+	}
+
+	focus = {
+		id = POL_The_Cooperative_Movement
+		icon = GFX_goal_agriculture2
+		cost = 5
+
+		relative_position_id = POL_Drop_The_Gold_Standard
+		x = -1
+		y = 1
+
+		available = { set_temp_variable = { POL_influence_check = 30 } POL_polish_influence_check = yes }
+		prerequisite = {
+			focus = POL_Drop_The_Gold_Standard
+		}
+		mutually_exclusive = {
+			focus = POL_Pave_The_Country_Roads
+		}
+		continue_if_invalid = yes
+		ai_will_do = { factor = 3000 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_The_Cooperative_Movement"
+			custom_effect_tooltip = POL_modifies_black_monday
+			add_to_variable = {
+				POL_black_monday_stability = 0.08
+				tooltip = POL_black_monday_stability_tooltip
+			}
+			add_to_variable = {
+				POL_black_monday_construction_speed = 0.04
+				tooltip = POL_black_monday_construction_speed_tooltip
+			}
+			force_update_dynamic_modifier = yes
+			activate_targeted_decision = { target = ROOT decision = POL_Cooperative_Subsidies }
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = POL_rep_subvert_tt
+		}
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = POL_Marketplace_of_Mitteleuropa
+		icon = GFX_goal_generic_positive_trade_relations_gold
+		cost = 5
+
+		relative_position_id = POL_Drop_The_Gold_Standard
+		x = -2
+		y = 2
+
+		prerequisite = {
+			focus = POL_Pave_The_Country_Roads
+			focus = POL_The_Cooperative_Movement
+		}
+		mutually_exclusive = {
+			focus = POL_The_Statist_Approach
+		}
+		available = { #GER/AUS must not be doing austerity path
+			OR = {
+				GER = { has_completed_focus = GER_schacht2 }
+				GER = { has_completed_focus = GER_groener2 }
+				AUS = { has_completed_focus = AUS_sdap_5 }
+				AUS = { has_completed_focus = AUS_cs_2 }
+			}
+		}
+		ai_will_do = { factor = 3000 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Marketplace_of_Mitteleuropa"
+			add_political_power = 75
+			custom_effect_tooltip = POL_modifies_black_monday
+			add_to_variable = {
+				POL_black_monday_consumer_goods = -0.04
+				tooltip = POL_black_monday_consumer_goods_tooltip
+			}
+			add_to_variable = {
+				POL_black_monday_factory_output = 0.04
+				tooltip = POL_black_monday_factory_output_tooltip
+			}
+			force_update_dynamic_modifier = yes
+			activate_targeted_decision = { target = ROOT decision = POL_Slash_Tariffs }
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = POL_soc_tt
+		}
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = POL_The_Statist_Approach
+		icon = GFX_goal_bag_of_money
+		cost = 5
+
+		relative_position_id = POL_Drop_The_Gold_Standard
+		x = 0
+		y = 2
+
+		available = { set_temp_variable = { POL_influence_check = 50 } POL_polish_influence_check = yes }
+		prerequisite = {
+			focus = POL_Pave_The_Country_Roads
+			focus = POL_The_Cooperative_Movement
+		}
+		mutually_exclusive = {
+			focus = POL_Marketplace_of_Mitteleuropa
+		}
+		continue_if_invalid = yes
+		ai_will_do = { factor = 3000 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_The_Statist_Approach"
+			add_political_power = -75
+			custom_effect_tooltip = POL_modifies_black_monday
+			add_to_variable = {
+				POL_black_monday_consumer_goods = -0.04
+				tooltip = POL_black_monday_consumer_goods_tooltip
+			}
+			add_to_variable = {
+				POL_black_monday_stability = 0.04
+				tooltip = POL_black_monday_stability_tooltip
+			}
+			force_update_dynamic_modifier = yes
+			activate_targeted_decision = { target = ROOT decision = POL_Subsidise_Polish_Companies }
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = POL_roy_improve_tt
+		}
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+	}
+
+#after BM
+
+	focus = {
+		id = POL_The_Second_Four_Year_Plan
+		icon = GFX_goal_economic_control
+		cost = 5
+
+		relative_position_id = POL_Drop_The_Gold_Standard
+		x = 0
+		y = 4
+
+		prerequisite = {
+			focus = POL_Loans_From_Foreign_Banks
+			focus = POL_Nationalise_The_Bank_Of_Poland
+		}
+		prerequisite = {
+			focus = POL_Marketplace_of_Mitteleuropa
+			focus = POL_The_Statist_Approach
+		}
+		ai_will_do = { factor = 3000 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_The_Second_Four_Year_Plan"
+			custom_effect_tooltip = POL_modifies_black_monday
+			add_to_variable = {
+				POL_black_monday_consumer_goods = -0.04
+				tooltip = POL_black_monday_consumer_goods_tooltip
+			}
+			custom_effect_tooltip = tooltip_white_line
+			activate_mission = POL_Completion_Of_The_Second_Four_Year_Plan
+			activate_targeted_decision = { target = ROOT decision = POL_Refurbish_The_Old_Polish_Industrial_Region }
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = POL_Attract_German_Corporations_Plan
+		icon = GFX_goal_COS_German_Bailout
+		cost = 5
+
+		relative_position_id = POL_The_Second_Four_Year_Plan
+		x = -2
+		y = 1
+
+		prerequisite = {
+			focus = POL_The_Second_Four_Year_Plan
+		}
+		bypass = {
+			OR = {
+				has_war_with = GER
+				has_socialist_government = yes
+			}
+		}
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Attract_German_Corporations_Plan"
+			add_political_power = 150
+			set_temp_variable = { POL_influence_change = 10 }
+			POL_add_german_influence = yes
+			custom_effect_tooltip = tooltip_white_line
+			set_temp_variable = { POL_influence_change = 4 }
+			POL_add_nationalist_influence = yes
+			set_temp_variable = { POL_influence_change = 4 }
+			POL_add_syndicalist_influence = yes
+
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+
+	focus = {
+		id = POL_Rural_Literacy_Campaigns
+		icon = GFX_goal_KTG_Bookstack
+		cost = 5
+
+		relative_position_id = POL_The_Second_Four_Year_Plan
+		x = 2
+		y = 1
+
+		prerequisite = {
+			focus = POL_The_Second_Four_Year_Plan
+		}
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Rural_Literacy_Campaigns"
+			add_timed_idea = {
+				idea = POL_rural_literacy_campaigns
+				days = 360
+			}
+			custom_effect_tooltip = POL_after_360_days
+			custom_effect_tooltip = POL_modifies_issues_at_hand
+			effect_tooltip = {
+				add_to_variable = {
+					POL_issues_at_hand_research_speed = 0.1
+					tooltip = POL_issues_at_hand_research_speed_tooltip
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = POL_Renovate_The_University_Of_Warsaw
+		icon = GFX_focus_POL_nationalist_education #GFX_goal_PAN_Create_the_Universidad_de_Panama
+		cost = 5
+
+		relative_position_id = POL_Rural_Literacy_Campaigns
+		x = 1
+		y = 1
+
+		available = {
+			NOT = { has_idea = POL_rural_literacy_campaigns }
+		}
+		prerequisite = {
+			focus = POL_Rural_Literacy_Campaigns
+		}
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Renovate_The_University_Of_Warsaw"
+			add_research_slot_until_five = yes
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = POL_Fuel_the_Industries
+		icon = GFX_goal_generic_coal_mining
+		cost = 5
+
+		relative_position_id = POL_The_Second_Four_Year_Plan
+		x = -3
+		y = 3
+
+		prerequisite = {
+			focus = POL_Expansion_Of_The_Electrical_Grid
+		}
+		ai_will_do = { factor = 200 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Fuel_the_Industries"
+			activate_targeted_decision = { target = 90 decision = POL_swietokrzyskie_mines }
+			activate_targeted_decision = { target = 90 decision = POL_expand_dabarowa_basin }
+			activate_targeted_decision = { target = 1088 decision = POL_bogdanka_coal_mine }
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = POL_control_over_lwow_tt
+			activate_targeted_decision = { target = 91 decision = POL_formation_of_polmin }
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = POL_Expansion_Of_The_Electrical_Grid
+		icon = GFX_focus_generic_electricity
+		cost = 5
+
+		relative_position_id = POL_The_Second_Four_Year_Plan
+		x = -1
+		y = 2
+
+		available = {
+			87 = { is_owned_and_controlled_by = ROOT }
+		}
+		prerequisite = {
+			focus = POL_Modernise_Urban_Infrastructure
+		}
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Expansion_Of_The_Electrical_Grid"
+			87 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_timed_idea = {
+				idea = POL_increased_electricity_production
+				days = 180
+			}
+			hidden_effect = {
+				country_event = { id = poland.435 days = 150 random_days = 40 }
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_PRODUCTION }
+	}
+
+	focus = {
+		id = POL_Modernise_Urban_Infrastructure
+		icon = GFX_ITA_urban
+		cost = 5
+
+		relative_position_id = POL_The_Second_Four_Year_Plan
+		x = 0
+		y = 1
+
+		available = {
+			10 = { is_owned_and_controlled_by = ROOT }
+		}
+		prerequisite = {
+			focus = POL_The_Second_Four_Year_Plan
+		}
+		ai_will_do = { factor = 1000 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Modernise_Urban_Infrastructure"
+			10 = { increase_state_category_by_one_level = yes }
+			activate_targeted_decision = { target = ROOT decision = POL_Improve_Urban_Infrastructure }
+			activate_targeted_decision = { target = ROOT decision = POL_New_Towns_Act }
+			activate_targeted_decision = { target = ROOT decision = POL_Build_Cheap_Housing }
+			activate_targeted_decision = { target = ROOT decision = POL_Levee_Construction }
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = POL_control_over_krakow_tt
+			activate_targeted_decision = { target = 88 decision = POL_Modernise_Krakow }
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = POL_Consumer_Industry
+		icon = GFX_goal_generic_consumer_goods
+		cost = 5
+
+		relative_position_id = POL_The_Second_Four_Year_Plan
+		x = 1
+		y = 2
+
+		prerequisite = {
+			focus = POL_Modernise_Urban_Infrastructure
+		}
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Consumer_Industry"
+			add_tech_bonus = {
+				name = POL_Consumer_Industry
+				bonus = 1
+				uses = 1
+				category = electronics
+			}
+			add_one_random_civilian_factory = yes
+			custom_effect_tooltip = tooltip_white_line
+			activate_targeted_decision = { target = 10 decision = POL_Lodz_Textile_Industry }
+			activate_targeted_decision = { target = 92 decision = POL_Develop_The_Auto_Industry }
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = POL_The_Central_Industrial_Region
+		icon = GFX_goal_GAL_COP
+		cost = 5
+
+		relative_position_id = POL_The_Second_Four_Year_Plan
+		x = 0
+		y = 3
+
+		prerequisite = {
+			focus = POL_Expansion_Of_The_Electrical_Grid
+		}
+		prerequisite = {
+			focus = POL_Consumer_Industry
+		}
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_The_Central_Industrial_Region"
+			add_tech_bonus = {
+				name = POL_The_Central_Industrial_Region
+				bonus = 1
+				uses = 1
+				category = industry
+			}
+			add_ideas = POL_central_industrial_region_1
+			custom_effect_tooltip = tooltip_white_line
+			activate_targeted_decision = { target = 10 decision = POL_Renovate_The_Warszawa_Glowna_Rail_Hub }
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = POL_Stalowa_Wola
+		icon = GFX_goal_social_reforms
+		cost = 5
+
+		relative_position_id = POL_The_Central_Industrial_Region
+		x = 0
+		y = 1
+
+		prerequisite = { focus = POL_The_Central_Industrial_Region }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Stalowa_Wola"
+			92 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_resource = {
+					type = steel
+					amount = 8
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = POL_Expand_The_Chemical_Industry
+		icon = GFX_goal_basic_oil
+		cost = 5
+
+		relative_position_id = POL_The_Central_Industrial_Region
+		x = -2
+		y = 1
+
+		prerequisite = {
+			focus = POL_The_Central_Industrial_Region
+		}
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Expand_The_Chemical_Industry"
+			if = {
+				limit = { has_tech = synth_oil_experiments }
+				add_tech_bonus = {
+					name = POL_Expand_The_Chemical_Industry
+					bonus = 0.75
+					uses = 2
+					category = synth_resources
+				}
+			}
+			else = {
+				set_technology = { synth_oil_experiments = 1 }
+			}
+			90 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = POL_Fund_The_Construction_Sector
+		icon = GFX_goal_generic_construction
+		cost = 5
+
+		relative_position_id = POL_The_Central_Industrial_Region
+		x = 2
+		y = 1
+
+		prerequisite = { focus = POL_The_Central_Industrial_Region }
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Fund_The_Construction_Sector"
+			if = { #has war industry
+				limit = { has_idea = POL_central_industrial_region_3 }
+				swap_ideas = {
+					remove_idea = POL_central_industrial_region_3
+					add_idea = POL_central_industrial_region_4
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = POL_central_industrial_region_1
+					add_idea = POL_central_industrial_region_2
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 87 }
+				limit = {
+					is_core_of = POL
+					free_building_slots = { building = industrial_complex size > 1 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = POL_War_Industry_Bureau
+		icon = GFX_focus_generic_tank_production
+		cost = 5
+
+		relative_position_id = POL_The_Central_Industrial_Region
+		x = -1
+		y = 2
+
+		prerequisite = {
+			focus = POL_Expand_The_Chemical_Industry
+		}
+		ai_will_do = { factor = 300 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_War_Industry_Bureau"
+			if = { #has construction
+				limit = { has_idea = POL_central_industrial_region_2 }
+				swap_ideas = {
+					remove_idea = POL_central_industrial_region_2
+					add_idea = POL_central_industrial_region_4
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = POL_central_industrial_region_1
+					add_idea = POL_central_industrial_region_3
+				}
+			}
+			activate_targeted_decision = { target = 90 decision = POL_Build_Starachowice_Artillery_Factory }
+			activate_targeted_decision = { target = 90 decision = POL_Build_Radom_Arms_Factory }
+			activate_targeted_decision = { target = 90 decision = POL_Build_Skarzysko_Munitions_Factory }
+			activate_targeted_decision = { target = 92 decision = POL_Build_Dabrowa_Munitions_Factory }
+			activate_targeted_decision = { target = 92 decision = POL_Build_Jawidz_Munitions_Factory }
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_PRODUCTION }
+	}
+
+	focus = {
+		id = POL_Domestic_Aircraft_Manufacturing
+		icon = GFX_focus_generic_aircraft_production
+		cost = 5
+
+		relative_position_id = POL_The_Central_Industrial_Region
+		x = 1
+		y = 2
+
+		prerequisite = { focus = POL_Fund_The_Construction_Sector }
+		ai_will_do = { factor = 300 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Domestic_Aircraft_Manufacturing"
+			random_owned_controlled_state = {
+				prioritize = { 10 }
+				limit = {
+					is_core_of = POL
+					free_building_slots = { building = industrial_complex size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = tooltip_white_line
+			activate_targeted_decision = { target = 10 decision = POL_Reopen_The_Central_Aviation_Workshops }
+			activate_targeted_decision = { target = 92 decision = POL_Build_Aircraft_Factories_In_Lublin }
+			activate_targeted_decision = { target = 1088 decision = POL_Expand_The_Podlasie_Aircraft_Factory }
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = POL_Eastern_Europes_Workshop
+		icon = GFX_goal_POL_industry_warsaw
+		cost = 5
+
+		relative_position_id = POL_The_Central_Industrial_Region
+		x = 0
+		y = 3
+
+		available = {
+			NOT = { has_idea = POL_black_monday }
+		}
+		prerequisite = { focus = POL_War_Industry_Bureau }
+		prerequisite = { focus = POL_Domestic_Aircraft_Manufacturing }
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Eastern_Europes_Workshop"
+			swap_ideas = {
+				remove_idea = POL_central_industrial_region_4
+				add_idea = POL_central_industrial_region_5
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_PRODUCTION }
+	}
+
+	### Army Tree ###
+	focus = {
+		id = POL_The_General_Inspectorate
+		icon = GFX_goal_POL_army
+		cost = 5
+
+		x = 18
+		y = 0
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_The_General_Inspectorate"
+			army_experience = 15
+			country_event = poland.335
+		}
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+	}
+
+	focus = {
+		id = POL_Structural_Reorganisations
+		icon = GFX_goal_generic_army_training
+		cost = 5
+
+		relative_position_id = POL_The_General_Inspectorate
+		x = -2
+		y = 1
+
+		prerequisite = {
+			focus = POL_The_General_Inspectorate
+		}
+		ai_will_do = {
+			factor = 300
+			modifier = {
+				factor = 0
+				NOT = { has_completed_focus = POL_Start_The_Six_Year_Plan }
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Structural_Reorganisations"
+			army_experience = 10
+			swap_ideas = {
+				remove_idea = POL_professional_army_1
+				add_idea = POL_professional_army_2
+			}
+		}
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_ARMY_BONUS }
+	}
+
+	focus = {
+		id = POL_Malkowski_And_Malkowskas_Legacy
+		icon = GFX_focus_prc_infiltration
+		cost = 5
+
+		relative_position_id = POL_Structural_Reorganisations
+		x = -1
+		y = 1
+
+		prerequisite = {
+			focus = POL_Structural_Reorganisations
+		}
+		ai_will_do = { factor = 100 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Malkowski_And_Malkowskas_Legacy"
+			custom_effect_tooltip = improved_recon_units_tech_effect
+			hidden_effect = {
+				set_technology = { improved_recon_units_tech = 1 }
+			}
+			add_tech_bonus = {
+				name = POL_Malkowski_And_Malkowskas_Legacy
+				bonus = 1
+				uses = 1
+				category = recon_tech
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_ARMY_BONUS }
+	}
+
+	focus = {
+		id = POL_Saving_Polish_Blood
+		icon = GFX_goal_generic_support_equipment
+		cost = 5
+
+		relative_position_id = POL_Malkowski_And_Malkowskas_Legacy
+		x = -1
+		y = 1
+
+		prerequisite = {
+			focus = POL_Malkowski_And_Malkowskas_Legacy
+		}
+		ai_will_do = { factor = 100 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Saving_Polish_Blood"
+			add_war_support = 0.05
+			custom_effect_tooltip = improved_field_hospitals_effect
+			hidden_effect = {
+				set_technology = { improved_field_hospitals = 1 }
+			}
+			add_tech_bonus = {
+				name = POL_Malkowski_And_Malkowskas_Legacy
+				bonus = 1
+				uses = 1
+				category = hospital_tech
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_ARMY_BONUS FOCUS_FILTER_WAR_SUPPORT }
+	}
+
+	focus = {
+		id = POL_Lessons_of_the_Trenches
+		icon = GFX_goal_generic_construction2
+		cost = 5
+
+		relative_position_id = POL_Malkowski_And_Malkowskas_Legacy
+		x = 0
+		y = 2
+
+		prerequisite = {
+			focus = POL_Malkowski_And_Malkowskas_Legacy
+		}
+		ai_will_do = { factor = 100 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Lessons_of_the_Trenches"
+			custom_effect_tooltip = expanded_engineer_corps_tech_effect
+			hidden_effect = {
+				set_technology = { expanded_engineer_corps_tech = 1 }
+			}
+			activate_targeted_decision = { target = ROOT decision = POL_build_ostroleka_line }
+			activate_targeted_decision = { target = ROOT decision = POL_build_chelm_line }
+		}
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+	}
+
+	focus = {
+		id = POL_Obrona_Narodowa
+		icon = GFX_goal_generic_drafted_army
+		cost = 5
+
+		relative_position_id = POL_Structural_Reorganisations
+		x = 2
+		y = 1
+
+		prerequisite = { focus = POL_Structural_Reorganisations }
+		prerequisite = { focus = POL_Start_The_Six_Year_Plan }
+		ai_will_do = {
+			factor = 300
+			modifier = {
+				factor = 3
+				has_government = social_conservative
+				NOT = { has_completed_focus = POL_Reinforce_The_Parliamentary_System }
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Obrona_Narodowa"
+			add_war_support = 0.05
+			swap_ideas = {
+				remove_idea = POL_professional_army_2
+				add_idea = POL_professional_army_3
+			}
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_WAR_SUPPORT }
+	}
+
+	focus = {
+		id = POL_Mossors_Cavalry_Reform
+		icon = GFX_goal_generic_cavalry
+		cost = 5
+
+		relative_position_id = POL_Obrona_Narodowa
+		x = -2
+		y = 1
+
+		prerequisite = {
+			focus = POL_Obrona_Narodowa
+		}
+		ai_will_do = { factor = 100 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Mossors_Cavalry_Reform"
+			if = {
+				limit = { has_idea = POL_modern_cavalry }
+				swap_ideas = {
+					remove_idea = POL_modern_cavalry
+					add_idea = POL_modern_cavalry2
+				}
+				else = {
+					add_ideas = POL_modern_cavalry
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+	}
+
+	focus = {
+		id = POL_Equestrian_AT
+		icon = GFX_goal_national_arsenal
+		cost = 5
+
+		relative_position_id = POL_Mossors_Cavalry_Reform
+		x = 0
+		y = 2
+
+		prerequisite = {
+			focus = POL_Mossors_Cavalry_Reform
+		}
+		ai_will_do = { factor = 100 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Equestrian_AT"
+			custom_effect_tooltip = tech_at_cavalry_effect
+			hidden_effect = {
+				set_technology = { tech_at_cavalry = 1 }
+			}
+		}
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+	}
+
+	focus = {
+		id = POL_Motorised_Dragoons
+		icon = GFX_goal_cavalry
+		cost = 5
+
+		relative_position_id = POL_Mossors_Cavalry_Reform
+		x = 1
+		y = 1
+
+		prerequisite = {
+			focus = POL_Mossors_Cavalry_Reform
+		}
+		ai_will_do = { factor = 100 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Motorised_Dragoons"
+			custom_effect_tooltip = tech_semi_motorised_cav_effect
+			hidden_effect = {
+				set_technology = { tech_semi_motorised_cav = 1 }
+			}
+		}
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+	}
+
+	focus = {
+		id = POL_Centre_for_Higher_Military_Studies
+		icon = GFX_EGY_Operation_Abu
+		cost = 5
+
+		relative_position_id = POL_Structural_Reorganisations
+		x = 3
+		y = 2
+
+		prerequisite = { focus = POL_Military_Research_And_Education_Institute }
+		prerequisite = { focus = POL_Obrona_Narodowa }
+		ai_will_do = {
+			factor = 300
+			modifier = {
+				factor = 3
+				has_government = social_conservative
+				NOT = { has_completed_focus = POL_Reinforce_The_Parliamentary_System }
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Centre_for_Higher_Military_Studies"
+			add_doctrine_cost_reduction = {
+				name = POL_Centre_for_Higher_Military_Studies
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+			swap_ideas = {
+				remove_idea = POL_professional_army_3
+				add_idea = POL_professional_army_4
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = POL_Start_The_Six_Year_Plan
+		icon = GFX_focus_generic_military_equipment
+		cost = 5
+
+		relative_position_id = POL_The_General_Inspectorate
+		x = 1
+		y = 1
+
+		prerequisite = {
+			focus = POL_The_General_Inspectorate
+		}
+		ai_will_do = { factor = 1000 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Start_The_Six_Year_Plan"
+			add_ideas = POL_industrial_mobilisation_1
+			add_one_random_military_factory = yes
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_PRODUCTION }
+	}
+
+	focus = {
+		id = POL_Military_Research_And_Education_Institute
+		icon = GFX_goal_military_research
+		cost = 5
+
+		relative_position_id = POL_The_General_Inspectorate
+		x = 2
+		y = 2
+
+		prerequisite = {
+			focus = POL_Start_The_Six_Year_Plan
+		}
+		ai_will_do = {
+			factor = 300
+			modifier = {
+				factor = 3
+				has_government = social_conservative
+				NOT = { has_completed_focus = POL_Reinforce_The_Parliamentary_System }
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Military_Research_And_Education_Institute"
+			add_doctrine_cost_reduction = {
+				name = POL_Military_Research_And_Education_Institute
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+			swap_ideas = {
+				remove_idea = POL_industrial_mobilisation_1
+				add_idea = POL_industrial_mobilisation_2
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = POL_Maroszeks_Self_Loading_Rifle
+		icon = GFX_focus_chi_army_reform
+		cost = 5
+
+		relative_position_id = POL_Military_Research_And_Education_Institute
+		x = 1
+		y = 1
+
+		prerequisite = {
+			focus = POL_Military_Research_And_Education_Institute
+		}
+		ai_will_do = {
+			factor = 300
+			modifier = {
+				factor = 3
+				has_government = social_conservative
+				NOT = { has_completed_focus = POL_Reinforce_The_Parliamentary_System }
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Maroszeks_Self_Loading_Rifle"
+			swap_ideas = {
+				remove_idea = POL_industrial_mobilisation_2
+				add_idea = POL_industrial_mobilisation_3
+			}
+			add_tech_bonus = {
+				name = POL_Maroszeks_Self_Loading_Rifle
+				bonus = 1
+				uses = 1
+				category = infantry_weapons
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_ARMY_BONUS }
+	}
+
+	focus = {
+		id = POL_Artillery_Modernisation
+		icon = GFX_goal_generic_army_artillery
+		cost = 5
+
+		relative_position_id = POL_Military_Research_And_Education_Institute
+		x = 0
+		y = 2
+
+		prerequisite = {
+			focus = POL_Maroszeks_Self_Loading_Rifle
+		}
+		ai_will_do = {
+			factor = 300
+			modifier = {
+				factor = 3
+				has_government = social_conservative
+				NOT = { has_completed_focus = POL_Reinforce_The_Parliamentary_System }
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Artillery_Modernisation"
+			swap_ideas = {
+				remove_idea = POL_industrial_mobilisation_3
+				add_idea = POL_industrial_mobilisation_4
+			}
+			add_tech_bonus = {
+				name = POL_Artillery_Modernisation
+				bonus = 1
+				uses = 1
+				category = artillery
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_PRODUCTION }
+	}
+
+	focus = {
+		id = POL_Finish_The_8TP_Programme
+		icon = GFX_goal_POL_light_tanks
+		cost = 5
+
+		relative_position_id = POL_Start_The_Six_Year_Plan
+		x = 3
+		y = 1
+
+		prerequisite = {
+			focus = POL_Start_The_Six_Year_Plan
+		}
+		ai_will_do = { factor = 350 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Finish_The_8TP_Programme"
+			custom_effect_tooltip = POL_8TP_Programme_tooltip
+			hidden_effect = {
+				10 = {
+					create_unit = {
+						division = "division_template = \"Dywizja Pancerna\" start_experience_factor = 0.35 start_equipment_factor = 0.8"
+						owner = POL
+					}
+					create_unit = {
+						division = "division_template = \"Dywizja Pancerna\" start_experience_factor = 0.35 start_equipment_factor = 0.8"
+						owner = POL
+					}
+				}
+			}
+			set_division_template_lock = {
+				division_template = "Dywizja Pancerna"
+				is_locked = no
+			}
+			set_temp_variable = { POL_influence_change = 5 }
+			POL_add_german_influence = yes
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER }
+	}
+
+	focus = {
+		id = POL_Project_Uruguay
+		icon = GFX_focus_generic_tank_destroyer
+		cost = 5
+
+		relative_position_id = POL_Finish_The_8TP_Programme
+		x = 1
+		y = 1
+
+		prerequisite = {
+			focus = POL_Finish_The_8TP_Programme
+		}
+		ai_will_do = { factor = 100 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Project_Uruguay"
+			army_experience = 35
+			add_tech_bonus = {
+				name = POL_Project_Uruguay
+				bonus = 1
+				ahead_reduction = 3
+				uses = 1
+				technology = infantry_at
+				technology = antitank5
+			}
+		}
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = POL_Improved_Tank_Designs
+		icon = GFX_goal_generic_army_tanks2
+		cost = 5
+
+		relative_position_id = POL_Finish_The_8TP_Programme
+		x = 0
+		y = 2
+
+		prerequisite = {
+			focus = POL_Finish_The_8TP_Programme
+		}
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Improved_Tank_Designs"
+			add_tech_bonus = {
+				name = POL_Improved_Tank_Designs
+				bonus = 1
+				uses = 2
+				category = armor
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = POL_Combined_Arms_Warfare
+		icon = GFX_focus_generic_combined_arms
+		cost = 5
+
+		relative_position_id = POL_Centre_for_Higher_Military_Studies
+		x = 0
+		y = 2
+
+		prerequisite = { focus = POL_Centre_for_Higher_Military_Studies }
+		prerequisite = { focus = POL_Artillery_Modernisation }
+		ai_will_do = {
+			factor = 300
+			modifier = {
+				factor = 3
+				has_government = social_conservative
+				NOT = { has_completed_focus = POL_Reinforce_The_Parliamentary_System }
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Combined_Arms_Warfare"
+			swap_ideas = {
+				remove_idea = POL_professional_army_4
+				add_idea = POL_professional_army_5
+			}
+		}
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+	}
+
+	focus = {
+		id = POL_Expand_The_Academy_Of_Warsaw
+		icon = GFX_focus_generic_military_academy
+		cost = 5
+
+		relative_position_id = POL_Centre_for_Higher_Military_Studies
+		x = 0
+		y = 3
+
+		prerequisite = { focus = POL_Combined_Arms_Warfare }
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Expand_The_Academy_Of_Warsaw"
+			add_research_slot_until_five = yes
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+#Germany tree
+	focus = {
+		id = POL_Germanys_Eastern_Bulwark
+		icon = GFX_goal_Deutsches_Heer
+		cost = 6
+
+		relative_position_id = POL_Expand_The_Academy_Of_Warsaw
+		x = -10
+		y = 1
+
+		prerequisite = { focus = POL_Expand_The_Academy_Of_Warsaw }
+		available = { is_in_faction_with = GER }
+		mutually_exclusive = { focus = POL_Vanguard_of_the_Internationale }
+		mutually_exclusive = { focus = POL_Legacy_of_the_Legions }
+		mutually_exclusive = { focus = POL_Armia_Ludowa }
+		ai_will_do = {
+			factor = 250
+			modifier = {
+				factor = 0
+				NOT = { has_completed_focus = POL_Election_of_1938 }
+			}
+			modifier = {
+				factor = 2
+				POL_has_circle = yes
+			}
+			modifier = {
+				factor = 0.5
+				POL_has_circle = no
+			}
+			modifier = {
+				factor = 0
+				is_subject = no
+				OR = {
+					has_game_rule = { rule = POL_election option = POL_ELECTION_SOCDEM_AUS }
+					has_game_rule = { rule = POL_election option = POL_ELECTION_SOCLIB_AUS }
+					has_game_rule = { rule = POL_election option = POL_ELECTION_REPUBLIC_SOCCON_AUS }
+					has_game_rule = { rule = POL_revolts option = POL_REVOLTS_TOTALIST }
+					has_game_rule = { rule = POL_revolts option = POL_REVOLTS_SYNDIE }
+					has_game_rule = { rule = POL_revolts option = POL_REVOLTS_RADSOC }
+					has_game_rule = { rule = POL_revolts option = POL_REVOLTS_NATPOP }
+					has_game_rule = { rule = POL_revolts option = POL_REVOLTS_PATAUT }
+					has_game_rule = { rule = POL_revolts option = POL_REVOLTS_SOCCON }
+				}
+			}
+		}
+		on_uncomplete = {
+			remove_ideas = {
+				POL_german-polish_military_industrial_complex_1
+				POL_german-polish_military_industrial_complex_2
+				POL_german-polish_military_industrial_complex_3
+				POL_german-polish_military_industrial_complex_4
+				POL_german-polish_military_industrial_complex_5
+				POL_polnische_wehrmacht_1
+				POL_polnische_wehrmacht_2
+				POL_polnische_wehrmacht_3
+			}
+			add_ideas = {
+				POL_industrial_mobilisation_4
+				POL_professional_army_5
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Germanys_Eastern_Bulwark"
+			swap_ideas = {
+				remove_idea = POL_industrial_mobilisation_4
+				add_idea = POL_german-polish_military_industrial_complex_1
+			}
+			if = {
+				limit = { has_character = GER_heinz_guderian }
+				GER_heinz_guderian = { promote_leader = yes }
+			}
+			set_temp_variable = { POL_influence_change = 5 }
+			POL_add_german_influence = yes
+		}
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+	}
+
+	focus = {
+		id = POL_Contracts_With_CWS
+		icon = GFX_focus_POL_beck_ribbentrop
+		cost = 6
+
+		relative_position_id = POL_Germanys_Eastern_Bulwark
+		x = 1
+		y = 1
+
+		prerequisite = { focus = POL_Germanys_Eastern_Bulwark }
+		available = { is_in_faction_with = GER }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Contracts_With_CWS"
+			swap_ideas = {
+				remove_idea = POL_german-polish_military_industrial_complex_1
+				add_idea = POL_german-polish_military_industrial_complex_2
+			}
+		}
+		search_filters = { FOCUS_FILTER_PRODUCTION }
+	}
+
+	focus = {
+		id = POL_Expand_PZInz
+		icon = GFX_goal_generic_heavy_armour_german
+		cost = 6
+
+		relative_position_id = POL_Germanys_Eastern_Bulwark
+		x = 1
+		y = 2
+
+		prerequisite = { focus = POL_Contracts_With_CWS }
+		available = { is_in_faction_with = GER }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Expand_PZInz"
+			swap_ideas = {
+				remove_idea = POL_german-polish_military_industrial_complex_2
+				add_idea = POL_german-polish_military_industrial_complex_3
+			}
+		}
+		search_filters = { FOCUS_FILTER_PRODUCTION }
+	}
+
+	focus = {
+		id = POL_Integrated_Communication
+		icon = GFX_focus_generic_radio_equipment
+		cost = 6
+
+		relative_position_id = POL_Germanys_Eastern_Bulwark
+		x = -1
+		y = 1
+
+		prerequisite = { focus = POL_Germanys_Eastern_Bulwark }
+		available = { is_in_faction_with = GER }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Integrated_Communication"
+			swap_ideas = {
+				remove_idea = POL_professional_army_5
+				add_idea = POL_polnische_wehrmacht_1
+			}
+			add_tech_bonus = {
+				name = POL_Integrated_Communication
+				bonus = 1
+				uses = 1
+				category = electronics
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_ARMY_BONUS }
+	}
+
+	focus = {
+		id = POL_Artillery_from_the_Sky
+		icon = GFX_focus_generic_eagle
+		cost = 6
+
+		relative_position_id = POL_Germanys_Eastern_Bulwark
+		x = -1
+		y = 2
+
+		prerequisite = { focus = POL_Integrated_Communication }
+		available = { is_in_faction_with = GER }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Artillery_from_the_Sky"
+			air_experience = 15
+			add_tech_bonus = {
+				name = POL_Artillery_from_the_Sky
+				bonus = 1
+				uses = 1
+				category = cas_bomber
+				category = tactical_bomber
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_ARMY_XP }
+	}
+
+	focus = {
+		id = POL_Army-Air_Coordination
+		icon = GFX_goal_Deutsche_Luftstreitkrafte
+		cost = 6
+
+		relative_position_id = POL_Germanys_Eastern_Bulwark
+		x = -2
+		y = 3
+
+		prerequisite = { focus = POL_Artillery_from_the_Sky }
+		available = { is_in_faction_with = GER }
+		ai_will_do = {
+			factor = 250
+			modifier = {
+				factor = 0
+				OR = {
+					has_tech = air_superiority
+					has_tech = formation_flying
+				}
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Army-Air_Coordination"
+			add_doctrine_cost_reduction = {
+				name = POL_Army-Air_Coordination
+				cost_reduction = 0.5
+				uses = 2
+				category = cat_operational_integrity
+			}
+			hidden_effect = {
+				country_event = { id = polandflavor.6 days = 75 }
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = POL_Mechanisation_of_Cavalry
+		icon = GFX_goal_generic_armored_cars
+		cost = 6
+
+		relative_position_id = POL_Germanys_Eastern_Bulwark
+		x = 0
+		y = 3
+
+		prerequisite = { focus = POL_Integrated_Communication }
+		prerequisite = { focus = POL_Expand_PZInz }
+		available = { is_in_faction_with = GER }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Mechanisation_of_Cavalry"
+			swap_ideas = {
+				remove_idea = POL_polnische_wehrmacht_1
+				add_idea = POL_polnische_wehrmacht_2
+			}
+			add_tech_bonus = {
+				name = POL_Mechanisation_of_Cavalry
+				bonus = 1
+				uses = 1
+				category = cat_mechanized_equipment
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_ARMY_BONUS }
+	}
+
+	focus = {
+		id = POL_Centralized_Fuel_Supply
+		icon = GFX_goal_generic_oil_refinery
+		cost = 6
+
+		relative_position_id = POL_Germanys_Eastern_Bulwark
+		x = 3
+		y = 2
+
+		prerequisite = { focus = POL_Contracts_With_CWS }
+		available = {
+			is_in_faction_with = GER
+			has_tech = synth_oil_experiments
+		}
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Centralized_Fuel_Supply"
+			98 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = fuel_silo
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = POL_Develop_The_9TP
+		icon = GFX_goal_generic_heavy_armour_british
+		cost = 6
+
+		relative_position_id = POL_Germanys_Eastern_Bulwark
+		x = 2
+		y = 3
+
+		prerequisite = { focus = POL_Expand_PZInz }
+		available = { is_in_faction_with = GER }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Develop_The_9TP"
+			country_event = poland.336
+			add_tech_bonus = {
+				name = POL_Develop_The_9TP
+				bonus = 1
+				uses = 1
+				category = armor
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = POL_Wojna_Blyskawiczna
+		icon = GFX_goal_MAF_Graveyard
+		cost = 6
+
+		relative_position_id = POL_Germanys_Eastern_Bulwark
+		x = 1
+		y = 4
+
+		prerequisite = { focus = POL_Develop_The_9TP }
+		prerequisite = { focus = POL_Mechanisation_of_Cavalry }
+		available = { is_in_faction_with = GER }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Wojna_Blyskawiczna"
+			swap_ideas = {
+				remove_idea = POL_polnische_wehrmacht_2
+				add_idea = POL_polnische_wehrmacht_3
+			}
+		}
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+	}
+
+#Centrolew military
+	focus = {
+		id = POL_Armia_Ludowa
+		icon = GFX_goal_mass_concentration_of_army
+		cost = 6
+
+		relative_position_id = POL_Expand_The_Academy_Of_Warsaw
+		x = -3
+		y = 1
+
+		prerequisite = { focus = POL_Expand_The_Academy_Of_Warsaw }
+		mutually_exclusive = { focus = POL_Germanys_Eastern_Bulwark }
+		mutually_exclusive = { focus = POL_Vanguard_of_the_Internationale }
+		mutually_exclusive = { focus = POL_Legacy_of_the_Legions }
+		available = { has_completed_focus = POL_Centrolew }
+		ai_will_do = {
+			factor = 250
+			modifier = {
+				factor = 2
+				has_left_democratic_government = yes
+			}
+			modifier = {
+				factor = 0.5
+				has_left_democratic_government = no
+			}
+			modifier = {
+				factor = 0
+				is_subject = no
+				OR = {
+					has_game_rule = { rule = POL_revolts option = POL_REVOLTS_NATPOP }
+					has_game_rule = { rule = POL_revolts option = POL_REVOLTS_PATAUT }
+					has_game_rule = { rule = POL_revolts option = POL_REVOLTS_SOCCON }
+				}
+			}
+		}
+		on_uncomplete = {
+			remove_ideas = {
+				POL_industrial_mobilisation_5
+				POL_peoples_army_1
+				POL_peoples_army_2
+				POL_peoples_army_3
+				POL_peoples_army_4
+			}
+			add_ideas = {
+				POL_industrial_mobilisation_4
+				POL_professional_army_5
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Armia_Ludowa"
+			add_stability = 0.05
+			add_doctrine_cost_reduction = {
+				name = POL_Armia_Ludowa
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+			if = {
+				limit = {
+					has_character = GAL_wladyslaw_sikorski
+					GAL_wladyslaw_sikorski = { is_unit_leader = yes }
+				}
+				GAL_wladyslaw_sikorski = {
+					promote_leader = yes
+					add_unit_leader_trait = adaptable
+				}
+			}
+			POL_consolidate_uprising = yes
+		}
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = POL_Unified_Command
+		icon = GFX_goal_officers
+		cost = 6
+
+		relative_position_id = POL_Armia_Ludowa
+		x = -1
+		y = 1
+
+		prerequisite = { focus = POL_Armia_Ludowa }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Unified_Command"
+			swap_ideas = {
+				remove_idea = POL_professional_army_5
+				add_idea = POL_peoples_army_1
+			}
+			POL_consolidate_uprising = yes
+		}
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_ARMY_BONUS }
+	}
+
+	focus = {
+		id = POL_Reserve_System
+		icon = GFX_goal_army_guy_2
+		cost = 6
+
+		relative_position_id = POL_Armia_Ludowa
+		x = -1
+		y = 2
+
+		prerequisite = { focus = POL_Unified_Command }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Reserve_System"
+			swap_ideas = {
+				remove_idea = POL_peoples_army_1
+				add_idea = POL_peoples_army_2
+			}
+			custom_effect_tooltip = tech_irregulars_effect
+			hidden_effect = {
+				set_technology = { tech_irregulars = 1 popup = yes }
+			}
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_ARMY_BONUS }
+	}
+
+	focus = {
+		id = POL_Economic_Mobilisation
+		icon = GFX_goal_generic_improve_industry
+		cost = 6
+
+		relative_position_id = POL_Armia_Ludowa
+		x = -2
+		y = 3
+
+		prerequisite = { focus = POL_Unified_Command }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Economic_Mobilisation"
+			add_war_support = 0.05
+			swap_ideas = {
+				remove_idea = POL_industrial_mobilisation_4
+				add_idea = POL_industrial_mobilisation_5
+			}
+			POL_consolidate_uprising = yes
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY FOCUS_FILTER_WAR_SUPPORT }
+	}
+
+	focus = {
+		id = POl_Professional_Core
+		icon = GFX_goal_military_academy
+		cost = 6
+
+		relative_position_id = POL_Armia_Ludowa
+		x = 2
+		y = 1
+
+		prerequisite = { focus = POL_Armia_Ludowa }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POl_Professional_Core"
+			add_tech_bonus = {
+				name = POl_Professional_Core
+				bonus = 1
+				uses = 1
+				category = para_tech
+				category = mountaineers_tech
+			}
+			add_tech_bonus = {
+				name = POl_Professional_Core
+				bonus = 1
+				uses = 1
+				category = cat_mechanized_equipment
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = POL_Infantry_Tanks
+		icon = GFX_goal_AUS_tanks
+		cost = 6
+
+		relative_position_id = POL_Armia_Ludowa
+		x = 1
+		y = 2
+
+		prerequisite = { focus = POl_Professional_Core }
+		bypass = { has_war_with = AUS }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Infantry_Tanks"
+			add_tech_bonus = {
+				name = POL_Infantry_Tanks
+				bonus = 1
+				uses = 1
+				category = armor
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = POL_Air_Defence_Squadrons
+		icon = GFX_goal_POL_airforce
+		cost = 6
+
+		relative_position_id = POL_Armia_Ludowa
+		x = 3
+		y = 2
+
+		prerequisite = { focus = POl_Professional_Core }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Air_Defence_Squadrons"
+			air_experience = 15
+			add_tech_bonus = {
+				name = POL_Air_Defence_Squadrons
+				bonus = 1
+				uses = 1
+				category = light_fighter
+				category = cat_heavy_fighter
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_AIR_XP }
+	}
+
+	focus = {
+		id = POL_Bomber_Force
+		icon = GFX_goal_bombs_away
+		cost = 6
+
+		relative_position_id = POL_Armia_Ludowa
+		x = 2
+		y = 3
+
+		prerequisite = { focus = POL_Air_Defence_Squadrons }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Bomber_Force"
+			add_tech_bonus = {
+				name = POL_Bomber_Force
+				bonus = 1
+				uses = 1
+				category = tactical_bomber
+			}
+			add_doctrine_cost_reduction = {
+				name = POL_Bomber_Force
+				cost_reduction = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = POL_Polish_Citizen-Soldier
+		icon = GFX_goal_liberty
+		cost = 6
+
+		relative_position_id = POL_Armia_Ludowa
+		x = 0
+		y = 3
+
+		prerequisite = { focus = POL_Infantry_Tanks }
+		prerequisite = { focus = POL_Reserve_System }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Polish_Citizen-Soldier"
+			swap_ideas = {
+				remove_idea = POL_peoples_army_2
+				add_idea = POL_peoples_army_3
+			}
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_ARMY_BONUS }
+	}
+
+	focus = {
+		id = POL_Unshakeable_Will
+		icon = GFX_focus_POL_prepare_for_the_inevitable
+		cost = 6
+
+		relative_position_id = POL_Armia_Ludowa
+		x = 0
+		y = 4
+
+		prerequisite = { focus = POL_Polish_Citizen-Soldier }
+		prerequisite = { focus = POL_Economic_Mobilisation }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Unshakeable_Will"
+			swap_ideas = {
+				remove_idea = POL_peoples_army_3
+				add_idea = POL_peoples_army_4
+			}
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_ARMY_BONUS FOCUS_FILTER_ARMY_XP }
+	}
+
+#Syndie tree
+	focus = {
+		id = POL_Vanguard_of_the_Internationale
+		icon = GFX_goal_agrarian_socialism
+		cost = 6
+
+		relative_position_id = POL_Expand_The_Academy_Of_Warsaw
+		x = 11
+		y = 1
+
+		prerequisite = { focus = POL_Expand_The_Academy_Of_Warsaw }
+		available = { has_socialist_government = yes }
+		mutually_exclusive = { focus = POL_Germanys_Eastern_Bulwark }
+		mutually_exclusive = { focus = POL_Legacy_of_the_Legions }
+		mutually_exclusive = { focus = POL_Armia_Ludowa }
+		ai_will_do = {
+			factor = 250
+			modifier = {
+				factor = 2
+				has_socialist_government = yes
+			}
+		}
+		on_uncomplete = {
+			remove_ideas = {
+				POL_deep_operations_1
+				POL_deep_operations_2
+				POL_deep_operations_3
+				POL_deep_operations_4
+			}
+			add_ideas = {
+				POL_industrial_mobilisation_4
+				POL_professional_army_5
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Vanguard_of_the_Internationale"
+			army_experience = 25
+			POL_consolidate_uprising = yes
+		}
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+	}
+
+	focus = {
+		id = POL_Operational_Planning
+		icon = GFX_goal_Focus_Military_Mobilisation
+		cost = 6
+
+		relative_position_id = POL_Vanguard_of_the_Internationale
+		x = -2
+		y = 1
+
+		prerequisite = { focus = POL_Vanguard_of_the_Internationale }
+		available = { has_socialist_government = yes }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Operational_Planning"
+			swap_ideas = {
+				remove_idea = POL_professional_army_5
+				add_idea = POL_deep_operations_1
+			}
+			POL_konstanty_rokossowski = {
+				add_unit_leader_trait = thorough_planner
+			}
+		}
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+	}
+
+	focus = {
+		id = POL_Local_Initiative
+		icon = GFX_goal_integrate_the_militia
+		cost = 6
+
+		relative_position_id = POL_Vanguard_of_the_Internationale
+		x = -3
+		y = 2
+
+		prerequisite = { focus = POL_Operational_Planning }
+		available = { has_socialist_government = yes }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Local_Initiative"
+			swap_ideas = {
+				remove_idea = POL_deep_operations_1
+				add_idea = POL_deep_operations_2
+			}
+			add_doctrine_cost_reduction = {
+				name = POL_Local_Initiative
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+		search_filters = { FOCUS_FILTER_ARMY_BONUS FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = POL_Art_of_the_Misdirection
+		icon = GFX_goal_machine
+		cost = 6
+
+		relative_position_id = POL_Vanguard_of_the_Internationale
+		x = -1
+		y = 2
+
+		prerequisite = { focus = POL_Operational_Planning }
+		available = { has_socialist_government = yes }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Art_of_the_Misdirection"
+			if = {
+				limit = { has_dlc_lar = yes }
+				if = {
+					limit = { has_intelligence_agency = yes }
+					upgrade_intelligence_agency = upgrade_commando_training
+				}
+				else = {
+					create_intelligence_agency = yes
+				}
+				if = {
+					limit = { has_idea = POL_dwojka_lar }
+					swap_ideas = {
+						remove_idea = POL_dwojka_lar
+						add_idea = POL_dwojka_lar2
+					}
+				}
+				else = {
+					add_ideas = POL_dwojka_lar2
+					add_political_power = -35
+				}
+			}
+			else_if = {
+				limit = { has_idea = POL_dwojka }
+				swap_ideas = {
+					remove_idea = POL_dwojka
+					add_idea = POL_dwojka2
+				}
+			}
+			else = {
+				add_ideas = POL_dwojka2
+				add_political_power = -35
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+
+	focus = {
+		id = POL_Spirit_of_Hussars
+		icon = GFX_goal_generic_mechanisation
+		cost = 6
+
+		relative_position_id = POL_Vanguard_of_the_Internationale
+		x = -2
+		y = 3
+
+		prerequisite = { focus = POL_Local_Initiative }
+		prerequisite = { focus = POL_Art_of_the_Misdirection }
+		available = { has_socialist_government = yes }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Spirit_of_Hussars"
+			swap_ideas = {
+				remove_idea = POL_deep_operations_2
+				add_idea = POL_deep_operations_3
+			}
+		}
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+	}
+
+	focus = {
+		id = POL_Coordination_with_Communards
+		icon = GFX_goal_FRA_french_revanchism
+		cost = 6
+
+		relative_position_id = POL_Vanguard_of_the_Internationale
+		x = 1
+		y = 1
+
+		prerequisite = { focus = POL_Vanguard_of_the_Internationale }
+		available = { has_socialist_government = yes }
+		ai_will_do = { factor = 250 }
+		on_uncomplete = {
+			remove_targeted_decision = { target = INT decision = POL_internationale_advisors }
+			remove_targeted_decision = { target = INT decision = POL_internationale_engineers }
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Coordination_with_Communards"
+			activate_targeted_decision = { target = INT decision = POL_internationale_advisors }
+			activate_targeted_decision = { target = INT decision = POL_internationale_engineers }
+		}
+	}
+
+	focus = {
+		id = POL_Tools_for_Shock_Troops
+		icon = GFX_goal_generic_artillery_factories
+		cost = 6
+
+		relative_position_id = POL_Vanguard_of_the_Internationale
+		x = 0
+		y = 3
+
+		prerequisite = { focus = POL_Coordination_with_Communards }
+		available = { has_socialist_government = yes }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Tools_for_Shock_Troops"
+			add_tech_bonus = {
+				name = POL_Tools_for_Shock_Troops
+				bonus = 1
+				uses = 1
+				category = artillery
+			}
+			add_tech_bonus = {
+				name = POL_Tools_for_Shock_Troops
+				bonus = 1
+				uses = 1
+				category = armor
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = POL_Eyes_in_the_Sky
+		icon = GFX_goal_POL_airforce
+		cost = 6
+
+		relative_position_id = POL_Vanguard_of_the_Internationale
+		x = 1
+		y = 2
+
+		prerequisite = { focus = POL_Coordination_with_Communards }
+		available = { has_socialist_government = yes }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Eyes_in_the_Sky"
+			air_experience = 25
+			add_tech_bonus = {
+				name = POL_Eyes_in_the_Sky
+				bonus = 1
+				uses = 1
+				category = radar_tech
+			}
+			add_tech_bonus = {
+				name = POL_Eyes_in_the_Sky
+				bonus = 1
+				uses = 1
+				category = electronics
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_AIR_XP }
+	}
+
+	focus = {
+		id = POL_Concentrated_Destruction
+		icon = GFX_goal_MAF_white_phosphorus
+		cost = 6
+
+		relative_position_id = POL_Vanguard_of_the_Internationale
+		x = 2
+		y = 3
+
+		prerequisite = { focus = POL_Eyes_in_the_Sky }
+		available = { has_socialist_government = yes }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Concentrated_Destruction"
+			add_doctrine_cost_reduction = {
+				name = POL_Concentrated_Destruction
+				cost_reduction = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+			add_tech_bonus = {
+				name = POL_Concentrated_Destruction
+				bonus = 1
+				uses = 1
+				category = tactical_bomber
+				category = cat_strategic_bomber
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = POL_Tactical_Annihilation
+		icon = GFX_goal_authority
+		cost = 6
+
+		relative_position_id = POL_Vanguard_of_the_Internationale
+		x = 0
+		y = 4
+
+		prerequisite = { focus = POL_Tools_for_Shock_Troops }
+		prerequisite = { focus = POL_Spirit_of_Hussars }
+		available = { has_socialist_government = yes }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Tactical_Annihilation"
+			swap_ideas = {
+				remove_idea = POL_deep_operations_3
+				add_idea = POL_deep_operations_4
+			}
+		}
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+	}
+
+#Russia tree
+	focus = {
+		id = POL_Legacy_of_the_Legions
+		icon = GFX_EGY_Palestine_Defence
+		cost = 6
+
+		relative_position_id = POL_Expand_The_Academy_Of_Warsaw
+		x = 4
+		y = 1
+
+		prerequisite = { focus = POL_Expand_The_Academy_Of_Warsaw }
+		mutually_exclusive = { focus = POL_Vanguard_of_the_Internationale }
+		mutually_exclusive = { focus = POL_Armia_Ludowa }
+		mutually_exclusive = { focus = POL_Germanys_Eastern_Bulwark }
+		available = { has_socialist_government = no }
+		ai_will_do = {
+			factor = 250
+			modifier = {
+				factor = 0
+				NOT = { has_completed_focus = POL_Election_of_1938 }
+			}
+			modifier = {
+				factor = 3
+				OR = {
+					POL_has_nationalist = yes
+					has_game_rule = { rule = POL_revolts option = POL_REVOLTS_NATPOP }
+					has_game_rule = { rule = POL_revolts option = POL_REVOLTS_PATAUT }
+					has_game_rule = { rule = POL_revolts option = POL_REVOLTS_SOCCON }
+				}
+			}
+			modifier = {
+				factor = 0.5
+				POL_has_nationalist = no
+			}
+			modifier = {
+				factor = 0
+				is_subject = no
+				OR = {
+					has_game_rule = { rule = POL_revolts option = POL_REVOLTS_TOTALIST }
+					has_game_rule = { rule = POL_revolts option = POL_REVOLTS_SYNDIE }
+					has_game_rule = { rule = POL_revolts option = POL_REVOLTS_RADSOC }
+				}
+			}
+		}
+		on_uncomplete = {
+			remove_ideas = {
+				POL_national_defense_fund_1
+				POL_national_defense_fund_2
+				POL_national_army_1
+				POL_national_army_2
+				POL_national_army_3
+				POL_national_army_4
+			}
+			add_ideas = {
+				POL_industrial_mobilisation_4
+				POL_professional_army_5
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Legacy_of_the_Legions"
+			if = {
+				limit = {
+					POL_has_nationalist = yes
+					NOT = { has_country_flag = POL_purged_rydz }
+				}
+				POL_create_rydz = yes
+				POL_edward_rydz_smigly = {
+					promote_leader = yes
+					remove_unit_leader_trait = old_guard
+					add_max_trait = 1
+				}
+			}
+			swap_ideas = {
+				remove_idea = POL_professional_army_5
+				add_idea = POL_national_army_1
+			}
+			POL_consolidate_uprising = yes
+		}
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+	}
+
+	focus = {
+		id = POL_National_Defense_Fund
+		icon = GFX_goal_industry_air
+		cost = 6
+
+		relative_position_id = POL_Legacy_of_the_Legions
+		x = -2
+		y = 1
+
+		prerequisite = { focus = POL_Legacy_of_the_Legions }
+		ai_will_do = {
+			factor = 250
+			modifier = {
+				factor = 0
+				POL_has_nationalist = yes
+				NOT = { has_completed_focus = POL_Moral_Education }
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_National_Defense_Fund"
+			swap_ideas = {
+				remove_idea = POL_industrial_mobilisation_4
+				add_idea = POL_national_defense_fund_1
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = POL_State_Aviation_Works
+		icon = GFX_goal_new_airforce
+		cost = 6
+
+		relative_position_id = POL_Legacy_of_the_Legions
+		x = -2
+		y = 3
+
+		prerequisite = { focus = POL_National_Defense_Fund }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_State_Aviation_Works"
+			swap_ideas = {
+				remove_idea = POL_national_defense_fund_1
+				add_idea = POL_national_defense_fund_2
+			}
+			add_tech_bonus = {
+				name = POL_State_Aviation_Works
+				bonus = 1
+				uses = 1
+				category = industry
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_PRODUCTION }
+	}
+
+	focus = {
+		id = POL_Domestic_Plane_Models
+		icon = GFX_goal_POL_recon_aircraft
+		cost = 6
+
+		relative_position_id = POL_Legacy_of_the_Legions
+		x = -1
+		y = 2
+
+		prerequisite = { focus = POL_National_Defense_Fund }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Domestic_Plane_Models"
+			add_tech_bonus = {
+				name = POL_Domestic_Plane_Models
+				bonus = 1
+				uses = 1
+				category = air_equipment
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = POL_Modernisation_of_Artillery
+		icon = GFX_goal_GEO_Artillery_Tactics
+		cost = 6
+
+		relative_position_id = POL_Legacy_of_the_Legions
+		x = 0
+		y = 1
+
+		prerequisite = { focus = POL_Legacy_of_the_Legions }
+		ai_will_do = {
+			factor = 250
+			modifier = {
+				factor = 4
+				POL_has_nationalist = yes
+				OR = {
+					POL = { has_war_with = RUS }
+					POL = { has_war_with = SOV }
+				}
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Modernisation_of_Artillery"
+			add_tech_bonus = {
+				name = POL_Modernisation_of_Artillery
+				bonus = 1
+				uses = 1
+				category = artillery
+			}
+			if = {
+				limit = { has_dlc_nsb = yes }
+				add_political_power = -50
+				set_technology = { railway_gun = 1 }
+				create_railway_gun = {
+					equipment = railway_gun_equipment_1
+					name = "Danuta"
+				}
+			}
+			else = {
+				army_experience = 15
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = POL_Motorisation_of_Cavalry
+		icon = GFX_goal_generic_army_motorized
+		cost = 6
+
+		relative_position_id = POL_Legacy_of_the_Legions
+		x = 2
+		y = 1
+
+		prerequisite = { focus = POL_Legacy_of_the_Legions }
+		ai_will_do = {
+			factor = 250
+			modifier = {
+				factor = 4
+				POL_has_nationalist = yes
+				OR = {
+					POL = { has_war_with = RUS }
+					POL = { has_war_with = SOV }
+				}
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Motorisation_of_Cavalry"
+			if = {
+				limit = { has_idea = POL_modern_cavalry }
+				swap_ideas = {
+					remove_idea = POL_modern_cavalry
+					add_idea = POL_modern_cavalry2
+				}
+				else = {
+					add_ideas = POL_modern_cavalry
+				}
+			}
+			add_tech_bonus = {
+				name = POL_Motorisation_of_Cavalry
+				bonus = 1
+				uses = 1
+				category = cat_armored_cars
+				category = cat_mechanized_equipment
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_ARMY_BONUS }
+	}
+
+	focus = {
+		id = POL_National_Volunteer_Corps
+		icon = GFX_goal_army_guy
+		cost = 6
+
+		relative_position_id = POL_Legacy_of_the_Legions
+		x = 1
+		y = 2
+
+		prerequisite = { focus = POL_Modernisation_of_Artillery }
+		prerequisite = { focus = POL_Motorisation_of_Cavalry }
+		ai_will_do = {
+			factor = 250
+			modifier = {
+				factor = 4
+				POL_has_nationalist = yes
+				OR = {
+					POL = { has_war_with = RUS }
+					POL = { has_war_with = SOV }
+				}
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_National_Volunteer_Corps"
+			add_war_support = 0.05
+			swap_ideas = {
+				remove_idea = POL_national_army_1
+				add_idea = POL_national_army_2
+			}
+		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_MANPOWER }
+	}
+
+	focus = {
+		id = POL_Adoption_of_14TP
+		icon = GFX_goal_doctrine_tank_warfare
+		cost = 6
+
+		relative_position_id = POL_Legacy_of_the_Legions
+		x = 2
+		y = 3
+
+		prerequisite = { focus = POL_National_Volunteer_Corps }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Adoption_of_14TP"
+			add_tech_bonus = {
+				name = POL_Adoption_of_14TP
+				bonus = 1
+				uses = 2
+				category = cat_medium_armor
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = POL_Moral_Education
+		icon = GFX_goal_generic_officer
+		cost = 6
+
+		relative_position_id = POL_Legacy_of_the_Legions
+		x = 0
+		y = 3
+
+		prerequisite = { focus = POL_National_Volunteer_Corps }
+		ai_will_do = {
+			factor = 250
+			modifier = {
+				factor = 4
+				POL_has_nationalist = yes
+				OR = {
+					POL = { has_war_with = RUS }
+					POL = { has_war_with = SOV }
+				}
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Moral_Education"
+			swap_ideas = {
+				remove_idea = POL_national_army_2
+				add_idea = POL_national_army_3
+			}
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = POL_Shield_of_the_Slavic_World
+		icon = GFX_goal_generic_barricades
+		cost = 6
+
+		relative_position_id = POL_Legacy_of_the_Legions
+		x = 1
+		y = 4
+
+		prerequisite = { focus = POL_Adoption_of_14TP }
+		prerequisite = { focus = POL_Moral_Education }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Shield_of_the_Slavic_World"
+			set_temp_variable = { ideology_change_var = 5 }
+			change_ruling_party_popularity = yes
+			swap_ideas = {
+				remove_idea = POL_national_army_3
+				add_idea = POL_national_army_4
+			}
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+	}
+
+#Election_bypass
+	focus = {
+		id = POL_Election_of_1938
+		icon = GFX_goal_generic_elections
+		cost = 1
+
+		x = 17
+		y = 13
+
+		available = { always = no }
+		bypass = { has_socialist_government = yes }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Election_of_1938"
+		}
+	}
+
+	### Centrolew Tree ###
+	focus = {
+		id = POL_Centrolew
+		icon = GFX_goal_generic_enforce_labor_regulation #GFX_goal_liberty
+		cost = 7
+
+		relative_position_id = POL_Election_of_1938
+		x = -6
+		y = 1
+
+		prerequisite = { focus = POL_Election_of_1938 }
+		available = { has_left_democratic_government = yes }
+		bypass = { has_socialist_government = yes }
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Centrolew"
+			set_temp_variable = { ideology_change_var = 5 }
+			change_ruling_party_popularity = yes
+			if = {
+				limit = { is_monarchy = yes }
+				add_stability = 0.05
+				set_temp_variable = { POL_influence_change = 5 }
+				POL_add_royal_influence = yes
+			}
+			else = {
+				set_temp_variable = { POL_influence_change = 10 }
+				POL_add_republican_influence = yes
+
+			}
+			custom_effect_tooltip = POL_centrolew_harder_warning
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = POL_Revolutionary_Republic
+		icon = GFX_goal_generic_revolutionary_government
+		cost = 7
+
+		relative_position_id = POL_Centrolew
+		x = -9
+		y = 1
+
+		available = { always = no }
+		prerequisite = { focus = POL_Centrolew }
+		bypass = { has_socialist_government = yes }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Revolutionary_Republic"
+			custom_effect_tooltip = POL_war_required
+		}
+	}
+
+	focus = {
+		id = POL_Workers_Economy
+		icon = GFX_goal_syndicalist_workers
+		cost = 7
+
+		relative_position_id = POL_Revolutionary_Republic
+		x = 1
+		y = 1
+
+		prerequisite = { focus = POL_Revolutionary_Republic }
+		available = { has_socialist_government = yes }
+		ai_will_do = { factor = 1000 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Workers_Economy"
+			custom_effect_tooltip = POL_scales_with_eco_tt
+			set_temp_variable = { POL_eco_stab_hit = 1 }
+			set_temp_variable = { POL_eco_modifier = POL_influence }
+			divide_temp_variable = { POL_eco_modifier = -100 }
+			add_to_temp_variable = { POL_eco_stab_hit = POL_eco_modifier }
+			multiply_temp_variable = { POL_eco_stab_hit = -0.3 }
+			#subtract_from_temp_variable = { POL_eco_stab_hit = POL_influence }
+			#multiply_temp_variable = { POL_eco_stab_hit = -0.5 }
+			add_stability = POL_eco_stab_hit
+
+			add_popularity = { ideology = syndicalist popularity = 0.05 }
+			hidden_effect = {
+				set_temp_variable = { POL_influence_change = 100 }
+				POL_add_polish_influence = yes
+			}
+		}
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = POL_Creation_of_Small_Farms
+		icon = GFX_goal_agriculture
+		cost = 7
+
+		relative_position_id = POL_Revolutionary_Republic
+		x = 2
+		y = 2
+
+		prerequisite = {
+			focus = POL_Workers_Economy
+		}
+		available = { has_socialist_government = yes }
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Creation_of_Small_Farms"
+			if = {
+				limit = {
+					has_idea = POL_issues_at_hand
+					hidden_trigger = {
+						OR = {
+							has_country_flag = POL_small_land_reform
+							has_country_flag = POL_moderate_land_reform
+						}
+					}
+				}
+				clr_country_flag = POL_small_land_reform
+				clr_country_flag = POL_moderate_land_reform
+				set_country_flag = POL_radical_land_reform
+			}
+			else_if = {
+				limit = {
+					has_idea = POL_issues_at_hand
+					NOT = {
+						has_country_flag = POL_small_land_reform
+						has_country_flag = POL_moderate_land_reform
+						has_country_flag = POL_radical_land_reform
+					}
+				}
+				country_event = poland.442
+				custom_effect_tooltip = POL_land_reform_change_tt
+			}
+			else_if = {
+				limit = { has_idea = POL_export_agriculture }
+				swap_ideas = {
+					remove_idea = POL_export_agriculture
+					add_idea = POL_nation_of_small_farms
+				}
+			}
+			else = {
+				set_temp_variable = { ideology_change_var = 5 }
+				change_ruling_party_popularity = yes
+				add_political_power = 100
+			}
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+
+	focus = {
+		id = POL_Topple_the_Tyrants
+		icon = GFX_goal_generic_tackle_corruption
+		cost = 7
+
+		relative_position_id = POL_Revolutionary_Republic
+		x = -1
+		y = 1
+
+		prerequisite = { focus = POL_Revolutionary_Republic }
+		available = { has_socialist_government = yes }
+		cancelable = no
+		ai_will_do = { factor = 1000 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Topple_the_Tyrants"
+			POL_consolidate_uprising = yes
+			hidden_effect = {
+				country_event = { id = poland.600 days = 51 }
+			}
+			add_popularity = { ideology = market_liberal popularity = -0.05 }
+			add_popularity = { ideology = authoritarian_democrat popularity = -0.05 }
+			add_popularity = { ideology = social_conservative popularity = -0.05 }
+			add_popularity = { ideology = paternal_autocrat popularity = -0.05 }
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = POL_The_Myth_of_the_Revolution
+		icon = GFX_goal_red_star_gold_wreath
+		cost = 7
+
+		relative_position_id = POL_Workers_Economy
+		x = -1
+		y = 1
+
+		prerequisite = { focus = POL_Topple_the_Tyrants }
+		prerequisite = { focus = POL_Workers_Economy }
+		available = {
+			has_socialist_government = yes
+			surrender_progress < 0.25
+		}
+		continue_if_invalid = yes
+		cancelable = no
+		ai_will_do = { factor = 1000 }
+		select_effect = {
+			log = "[GetDateText]: [Root.GetName]: Select Focus POL_The_Myth_of_the_Revolution"
+			if = {
+				limit = { NOT = { has_idea = POL_WK2_reparations_fra } }
+				hidden_effect = { country_event = { id = poland.601 days = 15 } }
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_The_Myth_of_the_Revolution"
+			add_ideas = POL_revolutionary_republic_idea
+			if = {
+				limit = { has_idea = POL_revolutionary_factionalism }
+				remove_ideas = POL_revolutionary_factionalism
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = POL_In_Zakrzewskis_Light
+		icon = GFX_goal_ideology_totalist
+		cost = 7
+
+		relative_position_id = POL_The_Myth_of_the_Revolution
+		x = -2
+		y = 1
+
+		prerequisite = { focus = POL_The_Myth_of_the_Revolution }
+		mutually_exclusive = { focus = POL_The_People_Must_Decide }
+		available = {
+			POL_zakr = yes
+			has_government = totalist
+		}
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_In_Zakrzewskis_Light"
+			if = {
+				limit = {
+					NOT = { has_country_leader_with_trait = POL_dictator_of_revolution }
+					has_socialist_government = yes
+				}
+				add_country_leader_trait = POL_dictator_of_revolution
+			}
+			activate_mission = POL_zakrzewski_consolidate_mission
+			unlock_decision_tooltip = POL_reform_the_ZZZ
+			unlock_decision_tooltip = POL_centralize_paramilitaries
+			unlock_decision_tooltip = POL_propaganda_campaigns
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+
+	focus = {
+		id = POL_Sorelian_Doctrine
+		icon = GFX_Socialist_Law
+		cost = 7
+
+		relative_position_id = POL_In_Zakrzewskis_Light
+		x = -1
+		y = 1
+
+		prerequisite = { focus = POL_In_Zakrzewskis_Light }
+		available = {
+			POL_zakr = yes
+			totalist > 0.5
+			has_government = totalist
+		}
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Sorelian_Doctrine"
+			swap_ideas = {
+				remove_idea = POL_revolutionary_republic_idea
+				add_idea = POL_moral_syndicalism_1
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = POL_Moral_Syndicalism
+		icon = GFX_goal_civil_service
+		cost = 7
+
+		relative_position_id = POL_In_Zakrzewskis_Light
+		x = 1
+		y = 2
+
+		prerequisite = { focus = POL_Sorelian_Doctrine }
+		available = {
+			POL_zakr = yes
+			has_government = totalist
+		}
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Moral_Syndicalism"
+			swap_ideas = {
+				remove_idea = POL_moral_syndicalism_1
+				add_idea = POL_moral_syndicalism_2
+			}
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = POL_Catholic_Social_Teaching
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		cost = 7
+
+		relative_position_id = POL_In_Zakrzewskis_Light
+		x = -1
+		y = 2
+
+		prerequisite = { focus = POL_Sorelian_Doctrine }
+		available = {
+			POL_zakr = yes
+			has_government = totalist
+		}
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Catholic_Social_Teaching"
+			country_event = poland.610 #alliance with the church
+
+			POL_reduce_polarisation = yes
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = POL_Proletarian_Nationalism
+		icon = GFX_goal_generic_army_mass_assault
+		cost = 7
+
+		relative_position_id = POL_In_Zakrzewskis_Light
+		x = -2
+		y = 3
+
+		prerequisite = { focus = POL_Moral_Syndicalism }
+		prerequisite = { focus = POL_Catholic_Social_Teaching }
+		available = {
+			POL_zakr = yes
+			has_government = totalist
+		}
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Proletarian_Nationalism"
+			add_ideas = POL_eternal_polish_revolution
+		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_MANPOWER }
+	}
+
+	focus = {
+		id = POL_Pilsudskis_Vision
+		icon = GFX_ITA_syndicalist_unite
+		cost = 7
+
+		relative_position_id = POL_Moral_Syndicalism
+		x = -1
+		y = 1
+
+		prerequisite = {
+			focus = POL_Moral_Syndicalism
+			focus = POL_The_French_Model
+		}
+		mutually_exclusive = { focus = POL_Internationalism }
+		available = {
+			POL_zakr = yes
+		}
+		ai_will_do = {
+			factor = 250
+			modifier = {
+				factor = 4
+				OR = {
+					has_war_with = LIT
+					has_war_with = UKR
+					has_war_with = RUS
+					has_war_with = SOV
+					has_war_with = WHR
+				}
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Pilsudskis_Vision"
+			custom_effect_tooltip = POL_PLC_decisions_tt
+			add_political_power = 50
+			add_war_support = 0.05
+		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = POL_The_People_Must_Decide
+		icon = GFX_goal_ideology_syndicalist
+		cost = 7
+
+		relative_position_id = POL_The_Myth_of_the_Revolution
+		x = 1
+		y = 1
+
+		prerequisite = { focus = POL_The_Myth_of_the_Revolution }
+		mutually_exclusive = { focus = POL_In_Zakrzewskis_Light }
+		available = {
+			OR = {
+				has_country_flag = POL_zakrzewski_ousted
+				has_government = radical_socialist
+			}
+		}
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_The_People_Must_Decide"
+			add_political_power = 100
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = POL_Supreme_Chamber_of_Commerce
+		icon = GFX_goal_generic_workers_democracy
+		cost = 7
+
+		relative_position_id = POL_In_Zakrzewskis_Light
+		x = 2
+		y = 1
+
+		prerequisite = {
+			focus = POL_In_Zakrzewskis_Light
+			focus = POL_The_People_Must_Decide
+		}
+		available = {
+			has_completed_focus = POL_Eastern_Europes_Workshop
+		}
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Supreme_Chamber_of_Commerce"
+			if = {
+				limit = {
+					has_idea = POL_central_industrial_region_5
+					has_government = totalist
+				}
+				swap_ideas = {
+					remove_idea = POL_central_industrial_region_5
+					add_idea = POL_central_industrial_syndicate
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = POL_central_industrial_region_5
+					add_idea = POL_union_economy
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = POL_Land_of_Free_Men
+		icon = GFX_goal_red_star_dove
+		cost = 7
+
+		relative_position_id = POL_The_People_Must_Decide
+		x = 1
+		y = 1
+
+		prerequisite = { focus = POL_The_People_Must_Decide }
+		prerequisite = { focus = POL_Creation_of_Small_Farms }
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Land_of_Free_Men"
+			swap_ideas = {
+				remove_idea = POL_revolutionary_republic_idea
+				add_idea = POL_revolutionary_republic_idea_2
+			}
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = POL_Peasant_Cooperatives
+		icon = GFX_goal_agrarian_socialism
+		cost = 7
+
+		relative_position_id = POL_The_People_Must_Decide
+		x = 2
+		y = 2
+
+		prerequisite = { focus = POL_Land_of_Free_Men }
+		mutually_exclusive = { focus = POL_The_French_Model }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Peasant_Cooperatives"
+			swap_ideas = {
+				remove_idea = POL_revolutionary_republic_idea_2
+				add_idea = POL_cooperative_socialism_1
+			}
+		}
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_MANPOWER }
+	}
+
+	focus = {
+		id = POL_Healing_the_Scars
+		icon = GFX_goal_syndicalist_congress
+		cost = 7
+
+		relative_position_id = POL_The_People_Must_Decide
+		x = 1
+		y = 3
+
+		prerequisite = {
+			focus = POL_Peasant_Cooperatives
+			focus = POL_The_French_Model
+		}
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Healing_the_Scars"
+			activate_targeted_decision = { target = ROOT decision = POL_truce_with_PPS }
+			activate_targeted_decision = { target = ROOT decision = POL_truce_with_PSL }
+			POL_reduce_polarisation = yes
+			hidden_effect = { country_event = { id = poland.610 days = 55 } }
+		}
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+
+	focus = {
+		id = POL_The_French_Model
+		icon = GFX_goal_NFA_friend_with_poland
+		cost = 7
+
+		relative_position_id = POL_The_People_Must_Decide
+		x = 0
+		y = 2
+
+		prerequisite = { focus = POL_Land_of_Free_Men }
+		prerequisite = { focus = POL_Supreme_Chamber_of_Commerce }
+		mutually_exclusive = { focus = POL_Peasant_Cooperatives }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_The_French_Model"
+			swap_ideas = {
+				remove_idea = POL_revolutionary_republic_idea_2
+				add_idea = POL_french_model_1
+			}
+		}
+		search_filters = { FOCUS_FILTER_PRODUCTION }
+	}
+
+	focus = {
+		id = POL_Internationalism
+		icon = GFX_goal_FRA_Internationale_Congress
+		cost = 7
+
+		relative_position_id = POL_The_People_Must_Decide
+		x = -1
+		y = 3
+
+		prerequisite = {
+			focus = POL_The_French_Model
+			focus = POL_Moral_Syndicalism
+		}
+		mutually_exclusive = { focus = POL_Pilsudskis_Vision }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Internationalism"
+			add_timed_idea = {
+				idea = POL_phalanstere_aid
+				days = 365
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = POL_Equality_Triumphant
+		icon = GFX_goal_Workers_Paradise
+		cost = 7
+
+		relative_position_id = POL_Peasant_Cooperatives
+		x = 1
+		y = 1
+
+		prerequisite = { focus = POL_Peasant_Cooperatives }
+		prerequisite = { focus = POL_Free_And_Secular_Education }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Equality_Triumphant"
+			swap_ideas = {
+				remove_idea = POL_cooperative_socialism_1
+				add_idea = POL_cooperative_socialism_2
+			}
+		}
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_MANPOWER }
+	}
+
+	focus = {
+		id = POL_Red_Intermarium
+		icon = GFX_goal_POL_intermarium
+		cost = 7
+
+		relative_position_id = POL_Pilsudskis_Vision
+		x = -1
+		y = 1
+
+		available = {
+			POL_zakr = yes
+		}
+		prerequisite = {
+			focus = POL_Pilsudskis_Vision
+		}
+		mutually_exclusive = {
+			focus = POL_Central_European_Commonwealth
+			focus = POL_Polish_Socialist_Republic
+		}
+
+		will_lead_to_war_with = RUS
+
+		ai_will_do = {
+			factor = 250
+			modifier = {
+				factor = 0
+				RUS = {
+					exists = yes
+					has_socialist_government = no
+				}
+				GER = { exists = yes }
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Red_Intermarium"
+			unlock_decision_tooltip = POL_found_commonwealth
+			custom_effect_tooltip = POL_intermarium_tt
+			custom_effect_tooltip = tooltip_white_line
+			if = {
+				limit = { has_idea = POL_french_model_1 }
+				swap_ideas = {
+					remove_idea = POL_french_model_1
+					add_idea = POL_french_model_2
+				}
+			}
+			if = {
+				limit = { has_idea = POL_moral_syndicalism_2 }
+				swap_ideas = {
+					remove_idea = POL_moral_syndicalism_2
+					add_idea = POL_moral_syndicalism_3
+				}
+			}
+			if = {
+				limit = {
+					RUS = {
+						exists = yes
+						is_subject = no
+						has_socialist_government = no
+					}
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = RUS
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+	}
+
+	focus = {
+		id = POL_Central_European_Commonwealth
+		icon = GFX_goal_syndicalism
+		cost = 7
+
+		relative_position_id = POL_Internationalism
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = POL_Internationalism
+		}
+		mutually_exclusive = {
+			focus = POL_Red_Intermarium
+			focus = POL_Polish_Socialist_Republic
+		}
+
+		will_lead_to_war_with = CZE
+		will_lead_to_war_with = AUS
+		will_lead_to_war_with = SLO
+		will_lead_to_war_with = GAL
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 500
+				OR = {
+					9 = { is_controlled_by_ROOT_or_subject = yes }
+					70 = { is_controlled_by_ROOT_or_subject = yes }
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = POL_revolts option = POL_REVOLTS_TOTALIST }
+					has_game_rule = { rule = POL_revolts option = POL_REVOLTS_SYNDIE }
+					has_game_rule = { rule = POL_revolts option = POL_REVOLTS_RADSOC }
+				}
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Central_European_Commonwealth"
+			unlock_decision_tooltip = POL_form_zapadoslavia
+			if = {
+				limit = { has_idea = POL_french_model_1 }
+				swap_ideas = {
+					remove_idea = POL_french_model_1
+					add_idea = POL_french_model_2
+				}
+			}
+			if = {
+				limit = {
+					var:9.owner = { has_socialist_government = no }
+				}
+				POL = {
+					create_wargoal = {
+						type = annex_everything
+						target = var:9.owner
+					}
+				}
+			}
+			if = {
+				limit = {
+					var:70.owner = { has_socialist_government = no }
+				}
+				POL = {
+					create_wargoal = {
+						type = annex_everything
+						target = var:70.owner
+					}
+				}
+			}
+			hidden_effect = {
+				every_state = {
+					limit = {
+						OR = {
+							is_core_of = CZE
+							is_core_of = SLO
+							state = 66
+						}
+						is_claim_or_core_of_ROOT = no
+					}
+					add_claim_by = ROOT
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+	}
+
+	focus = {
+		id = POL_Polish_Socialist_Republic
+		icon = GFX_goal_red_star_dove
+		cost = 7
+
+		relative_position_id = POL_Internationalism
+		x = 3
+		y = 1
+
+		prerequisite = {
+			focus = POL_Healing_the_Scars
+		}
+		mutually_exclusive = {
+			focus = POL_Central_European_Commonwealth
+			focus = POL_Red_Intermarium
+		}
+		ai_will_do = {
+			factor = 250
+			modifier = {
+				factor = 2
+				UKR = {
+					has_socialist_government = yes
+					is_subject = no
+				}
+			}
+			modifier = {
+				factor = 2
+				WHR = {
+					has_socialist_government = yes
+					is_subject = no
+				}
+			}
+			modifier = {
+				factor = 2
+				LIT = {
+					has_socialist_government = yes
+					is_subject = no
+				}
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Polish_Socialist_Republic"
+			if = {
+				limit = { has_idea = POL_french_model_1 }
+				add_stability = 0.1
+				add_war_support = -0.1
+				set_temp_variable = { ideology_change_var = 5 }
+				change_ruling_party_popularity = yes
+				swap_ideas = {
+					remove_idea = POL_french_model_1
+					add_idea = POL_french_model_2
+				}
+			}
+			else = {
+				add_stability = 0.2
+				add_war_support = -0.2
+				set_temp_variable = { ideology_change_var = 10 }
+				change_ruling_party_popularity = yes
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT }
+	}
+
+	focus = {
+		id = POL_Embrace_Secularism
+		icon = GFX_BEL_Federalism
+		cost = 7
+
+		relative_position_id = POL_Centrolew
+		x = -2
+		y = 5
+
+		prerequisite = {
+			focus = POL_The_People_Must_Decide
+			focus = POL_In_Zakrzewskis_Light
+			focus = POL_Thorough_Land_Reform
+		}
+		available = { POL_has_progressive = yes }
+		cancelable = no
+		select_effect = {
+			log = "[GetDateText]: [Root.GetName]: Select Focus POL_Embrace_Secularism"
+			hidden_effect = {
+				if = {
+					limit = { has_socialist_government = no }
+					country_event = { id = poland.231 days = 5 }
+				}
+				else = {
+					country_event = { id = poland.232 days = 5 }
+				}
+				if = {
+					limit = {
+						POL = { is_ai = yes }
+						OR = {
+							has_game_rule = { rule = POL_election option = POL_ELECTION_REPUBLIC_SOCCON_AUS }
+							has_game_rule = { rule = POL_election option = POL_ELECTION_REPUBLIC_SOCCON_GER }
+						}
+					}
+					set_temp_variable = { POL_influence_change = 20 }
+					POL_add_nationalist_influence = yes
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 250
+			modifier = {
+				factor = 4
+				has_active_mission = POL_centrolew_reform_mission #AI weight reverted because the instability idea can only be removed by POL_Dawn_of_Progress which requires this focus to be taken
+			}
+			modifier = {
+				factor = 10
+				OR = {
+					has_game_rule = { rule = POL_election option = POL_ELECTION_REPUBLIC_SOCCON_AUS }
+					has_game_rule = { rule = POL_election option = POL_ELECTION_REPUBLIC_SOCCON_GER }
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = POL_election option = POL_ELECTION_REPUBLIC_SOCCON_AUS }
+					has_game_rule = { rule = POL_election option = POL_ELECTION_REPUBLIC_SOCCON_GER }
+				}
+				NOT = { has_completed_focus = POL_Union_with_Krakow }
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Embrace_Secularism"
+			add_ideas = POL_tolerance_1
+			set_temp_variable = { POL_influence_change = 5 }
+			POL_add_nationalist_influence = yes
+			if = {
+				limit = { NOT = { has_completed_focus = POL_Revolutionary_Republic } }
+				set_temp_variable = { POL_influence_change = -5 }
+				POL_add_syndicalist_influence = yes
+				POL_nationalist_coup = yes
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+
+	focus = {
+		id = POL_Free_And_Secular_Education
+		icon = GFX_goal_KTG_Bookstack
+		cost = 7
+
+		relative_position_id = POL_Embrace_Secularism
+		x = -1
+		y = 1
+
+		prerequisite = { focus = POL_Embrace_Secularism }
+		available = {
+			POL_has_progressive = yes
+			NOT = { has_idea = POL_secularisation }
+		}
+		ai_will_do = {
+			factor = 250
+			modifier = {
+				factor = 4
+				has_active_mission = POL_centrolew_reform_mission
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Free_And_Secular_Education"
+			if = {
+				limit = { has_idea = POL_tolerance_3 }
+				swap_ideas = {
+					remove_idea = POL_tolerance_3
+					add_idea = POL_tolerance_4
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = POL_tolerance_1
+					add_idea = POL_tolerance_2
+				}
+			}
+			set_temp_variable = { ideology_change_var = 5 }
+			change_ruling_party_popularity = yes
+			set_temp_variable = { POL_influence_change = 5 }
+			POL_add_nationalist_influence = yes
+			if = {
+				limit = { NOT = { has_completed_focus = POL_Revolutionary_Republic } }
+				set_temp_variable = { POL_influence_change = -5 }
+				POL_add_syndicalist_influence = yes
+			}
+			POL_nationalist_coup = yes
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = POL_Enshrine_Minority_Rights
+		icon = GFX_goal_UKR_minority_rights
+		cost = 7
+
+		relative_position_id = POL_Embrace_Secularism
+		x = 1
+		y = 1
+
+		prerequisite = { focus = POL_Embrace_Secularism }
+		available = { POL_has_progressive = yes }
+		ai_will_do = {
+			factor = 250
+			modifier = {
+				factor = 4
+				has_active_mission = POL_centrolew_reform_mission
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Enshrine_Minority_Rights"
+			if = {
+				limit = { has_idea = POL_tolerance_2 }
+				swap_ideas = {
+					remove_idea = POL_tolerance_2
+					add_idea = POL_tolerance_4
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = POL_tolerance_1
+					add_idea = POL_tolerance_3
+				}
+			}
+			if = {
+				limit = { NOT = { has_completed_focus = POL_Revolutionary_Republic } }
+				set_temp_variable = { POL_influence_change = -5 }
+				POL_add_syndicalist_influence = yes
+			}
+			if = {
+				limit = { NOT = { has_completed_focus = POL_Revolutionary_Republic } }
+				POL_nationalist_coup = yes
+			}
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_STABILITY FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+
+	focus = {
+		id = POL_Female_Suffrage
+		icon = GFX_focus_generic_female_voting
+		cost = 7
+
+		relative_position_id = POL_Embrace_Secularism
+		x = 0
+		y = 2
+
+		prerequisite = { focus = POL_Enshrine_Minority_Rights }
+		prerequisite = { focus = POL_Free_And_Secular_Education }
+		available = { POL_has_progressive = yes }
+		ai_will_do = {
+			factor = 250
+			modifier = {
+				factor = 8
+				has_active_mission = POL_centrolew_reform_mission
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Female_Suffrage"
+			swap_ideas = {
+				remove_idea = POL_tolerance_4
+				add_idea = POL_tolerance_5
+			}
+			set_temp_variable = { POL_influence_change = 5 }
+			POL_add_nationalist_influence = yes
+			if = {
+				limit = { NOT = { has_completed_focus = POL_Revolutionary_Republic } }
+				set_temp_variable = { POL_influence_change = -5 }
+				POL_add_syndicalist_influence = yes
+			}
+			if = {
+				limit = { NOT = { has_completed_focus = POL_Revolutionary_Republic } }
+				POL_nationalist_coup = yes
+			}
+		}
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+
+	focus = {
+		id = POL_Shackle_the_Senate
+		icon = GFX_goal_DEI_focus_disband_volksraad
+		cost = 8
+
+		relative_position_id = POL_Centrolew
+		x = -3
+		y = 1
+
+		prerequisite = { focus = POL_Centrolew }
+		available = {
+			has_left_democratic_government = yes
+			OR = {
+				NOT = { has_country_flag = POL_royal_veto_used }
+				is_monarchy = no
+			}
+		}
+		cancelable = no
+		cancel = {
+			is_monarchy = yes
+			has_country_flag = POL_royal_veto_used
+		}
+		select_effect = {
+			log = "[GetDateText]: [Root.GetName]: Select Focus POL_Shackle_the_Senate"
+			if = {
+				limit = { is_monarchy = yes }
+				hidden_effect = {
+					country_event = { id = poland.156 days = 30 } #The warning
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 50000
+			modifier = {
+				factor = 2
+				has_active_mission = POL_centrolew_reform_mission
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Shackle_the_Senate"
+			add_popularity = { ideology = social_conservative popularity = -0.05 }
+			POL_reduce_polarisation = yes
+			set_temp_variable = { POL_influence_change = 5 }
+			POL_add_republican_influence = yes
+
+		}
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = POL_Curtail_the_Geheimrat
+		icon = GFX_goal_crush_monarchy
+		cost = 8
+
+		relative_position_id = POL_Centrolew
+		x = 1
+		y = 1
+
+		prerequisite = { focus = POL_Centrolew }
+		available = {
+			has_left_democratic_government = yes
+			NOT = { has_country_flag = POL_royal_veto_used }
+		}
+		bypass = { is_monarchy = no }
+		cancelable = no
+		cancel = { has_country_flag = POL_royal_veto_used }
+		select_effect = {
+			log = "[GetDateText]: [Root.GetName]: Select Focus POL_Curtail_the_Geheimrat"
+			if = {
+				limit = { is_monarchy = yes }
+				hidden_effect = {
+					country_event = { id = poland.156 days = 30 } #The warning
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 50000
+			modifier = {
+				factor = 2
+				has_active_mission = POL_centrolew_reform_mission
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Curtail_the_Geheimrat"
+			add_popularity = { ideology = paternal_autocrat popularity = -0.07 }
+			add_popularity = { ideology = authoritarian_democrat popularity = -0.07 }
+
+			if = {
+				limit = { has_country_leader_with_trait = POL_geheimrat }
+				remove_country_leader_trait = POL_geheimrat
+			}
+			else_if = {
+				limit = { has_country_leader_with_trait = POL_geheimrat1 }
+				remove_country_leader_trait = POL_geheimrat1
+			}
+			else_if = {
+				limit = { has_country_leader_with_trait = POL_geheimrat2 }
+				remove_country_leader_trait = POL_geheimrat2
+			}
+			else_if = {
+				limit = { has_country_leader_with_trait = POL_geheimrat3 }
+				remove_country_leader_trait = POL_geheimrat3
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = POL_Democracy_and_Transparency
+		icon = GFX_goal_DOM_Call_Special_Election
+		cost = 7
+
+		relative_position_id = POL_Centrolew
+		x = 0
+		y = 2
+
+		prerequisite = { focus = POL_Curtail_the_Geheimrat }
+		prerequisite = { focus = POL_Shackle_the_Senate }
+		available = { has_left_democratic_government = yes }
+		ai_will_do = {
+			factor = 500
+			modifier = {
+				factor = 2
+				has_active_mission = POL_centrolew_reform_mission
+			}
+			modifier = {
+				factor = 10
+				OR = {
+					has_game_rule = { rule = POL_election option = POL_ELECTION_REPUBLIC_SOCCON_AUS }
+					has_game_rule = { rule = POL_election option = POL_ELECTION_REPUBLIC_SOCCON_GER }
+				}
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Democracy_and_Transparency"
+			if = {
+				limit = { has_government = social_democrat }
+				add_ideas = POL_dawn_of_progress_pps_1
+			}
+			if = {
+				limit = { has_government = social_liberal }
+				add_ideas = POL_dawn_of_progress_psl_1
+			}
+			if = {
+				limit = { has_idea = POL_republic_instability1 }
+				swap_ideas = {
+					remove_idea = POL_republic_instability1
+					add_idea = POL_republic_instability2
+				}
+			}
+			add_war_support = -0.06
+			hidden_effect = {
+				country_event = { id = poland.381 days = 30 }
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_government = social_democrat
+						has_government = social_liberal
+					}
+				}
+				effect_tooltip = {
+					swap_ideas = {
+						remove_idea = POL_republic_instability1
+						add_idea = POL_republic_instability2
+					}
+				}
+				custom_effect_tooltip = tooltip_apply_one_of_effects_depending_on_ruling_party
+				effect_tooltip = {
+					add_ideas = POL_dawn_of_progress_pps_1
+					custom_effect_tooltip = tooltip_white_line
+					add_ideas = POL_dawn_of_progress_psl_1
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_MANPOWER FOCUS_FILTER_PRODUCTION }
+	}
+
+	focus = {
+		id = POL_Land_of_Peasants
+		icon = GFX_focus_generic_agriculture
+		cost = 7
+
+		relative_position_id = POL_Democracy_and_Transparency
+		x = 1
+		y = 1
+
+		prerequisite = { focus = POL_Democracy_and_Transparency }
+		available = { has_left_democratic_government = yes }
+		mutually_exclusive = { focus = POL_Create_The_Chamber_Of_Labour }
+		ai_will_do = {
+			factor = 250
+			modifier = {
+				factor = 4
+				has_active_mission = POL_centrolew_reform_mission
+			}
+			modifier = {
+				factor = 20
+				OR = {
+					has_game_rule = { rule = POL_election option = POL_ELECTION_REPUBLIC_SOCCON_AUS }
+					has_game_rule = { rule = POL_election option = POL_ELECTION_REPUBLIC_SOCCON_GER }
+				}
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Land_of_Peasants"
+			if = {
+				limit = { has_idea = POL_dawn_of_progress_pps_1 }
+				swap_ideas = {
+					remove_idea = POL_dawn_of_progress_pps_1
+					add_idea = POL_dawn_of_progress_pps_psl
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = POL_dawn_of_progress_psl_1
+					add_idea = POL_dawn_of_progress_psl_2
+				}
+			}
+			set_temp_variable = { POL_influence_change = -5 }
+			POL_add_nationalist_influence = yes
+		}
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+
+	focus = {
+		id = POL_Create_The_Chamber_Of_Labour
+		icon = GFX_goal_social_reforms
+		cost = 7
+
+		relative_position_id = POL_Democracy_and_Transparency
+		x = -3
+		y = 1
+
+		prerequisite = { focus = POL_Democracy_and_Transparency }
+		available = { has_left_democratic_government = yes }
+		mutually_exclusive = { focus = POL_Land_of_Peasants }
+		ai_will_do = {
+			factor = 250
+			modifier = {
+				factor = 4
+				has_active_mission = POL_centrolew_reform_mission
+			}
+			modifier = {
+				factor = 20
+				OR = {
+					has_game_rule = { rule = POL_election option = POL_ELECTION_REPUBLIC_SOCCON_AUS }
+					has_game_rule = { rule = POL_election option = POL_ELECTION_REPUBLIC_SOCCON_GER }
+				}
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Create_The_Chamber_Of_Labour"
+			if = {
+				limit = { has_idea = POL_dawn_of_progress_psl_1 }
+				swap_ideas = {
+					remove_idea = POL_dawn_of_progress_psl_1
+					add_idea = POL_dawn_of_progress_pps_psl
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = POL_dawn_of_progress_pps_1
+					add_idea = POL_dawn_of_progress_pps_2
+				}
+			}
+			set_temp_variable = { POL_influence_change = -5 }
+			POL_add_syndicalist_influence = yes
+		}
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_PRODUCTION }
+	}
+
+	focus = {
+		id = POL_Nationalise_Heavy_Industry
+		icon = GFX_goal_state_economy
+		cost = 9
+
+		relative_position_id = POL_Shackle_the_Senate
+		x = -1
+		y = 1
+
+		prerequisite = { focus = POL_Shackle_the_Senate }
+		prerequisite = { focus = POL_Curtail_the_Geheimrat }
+		mutually_exclusive = { focus = POL_Nationalise_Infrastructure }
+		available = {
+			has_left_democratic_government = yes
+			NOT = { has_country_flag = POL_deal_with_lewiatan }
+			has_country_flag = POL_trade_finished
+		}
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Nationalise_Heavy_Industry"
+			add_political_power = -50
+			set_temp_variable = { POL_influence_change = 15 }
+			POL_add_polish_influence = yes
+			if = {
+				limit = { has_idea = POL_german_hegemony }
+				swap_ideas = {
+					remove_idea = POL_german_hegemony
+					add_idea = POL_german_cooperation
+				}
+			}
+			else_if = {
+				limit = { has_idea = POL_german_cooperation }
+				swap_ideas = {
+					remove_idea = POL_german_cooperation
+					add_idea = POL_polish_control
+				}
+			}
+			else_if = {
+				limit = { has_idea = POL_austro_german_condominium }
+				swap_ideas = {
+					remove_idea = POL_austro_german_condominium
+					add_idea = POL_polish_control
+				}
+			}
+			else = {
+				random_owned_state = {
+					limit = { is_core_of = POL }
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			random_owned_state = {
+				limit = { is_core_of = POL }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = POL_Unionisation_of_Peasants
+		icon = GFX_goal_agrarian_reform
+		cost = 7
+
+		relative_position_id = POL_Nationalise_Heavy_Industry
+		x = -1
+		y = 3
+
+		prerequisite = {
+			focus = POL_Thorough_Land_Reform
+			focus = POL_The_People_Must_Decide
+		}
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Unionisation_of_Peasants"
+			if = {
+				limit = { has_socialist_government = yes }
+				add_stability = 0.05
+			}
+			else = {
+				set_temp_variable = { ideology_change_var = 5 }
+				change_ruling_party_popularity = yes
+				set_temp_variable = { POL_influence_change = 5 }
+				POL_add_republican_influence = yes
+
+			}
+			POL_reduce_polarisation = yes
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+
+	focus = {
+		id = POL_National_Healthcare
+		icon = GFX_goal_FIN_promote_the_red_cross
+		cost = 7
+
+		relative_position_id = POL_Nationalise_Heavy_Industry
+		x = 0
+		y = 2
+
+		prerequisite = {
+			focus = POL_Create_The_Chamber_Of_Labour
+			focus = POL_Land_of_Peasants
+		}
+		available = { has_left_democratic_government = yes }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_National_Healthcare"
+			add_ideas = POL_national_healthcare_idea
+			custom_effect_tooltip = tooltip_white_line
+			if = {
+				limit = { has_socialist_government = no }
+
+				set_temp_variable = { POL_influence_change = -5 }
+				POL_add_syndicalist_influence = yes
+			}
+			else = {
+				set_temp_variable = { POL_influence_change = 5 }
+				POL_add_syndicalist_influence = yes
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_MANPOWER }
+	}
+
+	focus = {
+		id = POL_Workers_Rights
+		icon = GFX_GBR_fate_of_unions
+		cost = 7
+
+		relative_position_id = POL_Nationalise_Heavy_Industry
+		x = 2
+		y = 2
+
+		prerequisite = {
+			focus = POL_Create_The_Chamber_Of_Labour
+			focus = POL_Land_of_Peasants
+		}
+		available = {
+			has_left_democratic_government = yes
+			NOT = { has_country_flag = POL_deal_with_lewiatan }
+		}
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Workers_Rights"
+			set_temp_variable = { ideology_change_var = 5 }
+			change_ruling_party_popularity = yes
+			POL_reduce_polarisation = yes
+			multiply_variable = { POL_revolution_timer = 2 }
+			custom_effect_tooltip = POL_denounce_socialists_tt
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+
+	focus = {
+		id = POL_Union_with_Krakow
+		icon = GFX_goal_POL_union
+		cost = 7
+
+		relative_position_id = POL_Democracy_and_Transparency
+		x = 3
+		y = 1
+
+		prerequisite = { focus = POL_Democracy_and_Transparency }
+		available = {
+			OR = {
+				has_left_democratic_government = yes
+				AND = {
+					has_socialist_government = yes
+					88 = { owner = { has_socialist_government = yes } }
+				}
+			}
+			NOT = { has_war_with = AUS }
+			custom_trigger_tooltip = {
+				tooltip = POL_no_AH_war_tt
+				hidden_trigger = {
+					NOT = { AUS = { has_war_with = HUN } }
+					NOT = { AUS = { has_war_with = GAL } }
+				}
+			}
+			88 = { is_fully_controlled_by = owner }
+		}
+		bypass = {
+			OR = {
+				owns_state = 88
+				GAL = {
+					is_subject = yes
+					NOT = { is_subject_of = AUS }
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1000
+			modifier = {
+				factor = 10
+				OR = {
+					has_game_rule = { rule = POL_election option = POL_ELECTION_REPUBLIC_SOCCON_AUS }
+					has_game_rule = { rule = POL_election option = POL_ELECTION_REPUBLIC_SOCCON_GER }
+				}
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Union_with_Krakow"
+			88 = {
+				owner = {
+					if = {
+						limit = { is_subject = yes }
+						OVERLORD = { country_event = poland.233 }
+					}
+					else = { country_event = poland.233 }
+				}
+			}
+			set_temp_variable = { POL_influence_change = 5 }
+			POL_add_republican_influence = yes
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+
+	focus = {
+		id = POL_Nationalise_Infrastructure
+		icon = GFX_goal_generic_railroad
+		cost = 7
+
+		relative_position_id = POL_Centrolew
+		x = -2
+		y = 2
+
+		mutually_exclusive = { focus = POL_Nationalise_Heavy_Industry }
+		prerequisite = { focus = POL_Shackle_the_Senate }
+		prerequisite = { focus = POL_Curtail_the_Geheimrat }
+		available = {
+			has_left_democratic_government = yes
+			has_country_flag = POL_trade_finished
+		}
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Nationalise_Infrastructure"
+			set_temp_variable = { POL_influence_change = 10 }
+			POL_add_polish_influence = yes
+			if = {
+				limit = { has_idea = POL_german_hegemony }
+				swap_ideas = {
+					remove_idea = POL_german_hegemony
+					add_idea = POL_german_cooperation
+				}
+			}
+			else_if = {
+				limit = { has_idea = POL_german_cooperation }
+				swap_ideas = {
+					remove_idea = POL_german_cooperation
+					add_idea = POL_polish_control
+				}
+			}
+			else_if = {
+				limit = { has_idea = POL_austro_german_condominium }
+				swap_ideas = {
+					remove_idea = POL_austro_german_condominium
+					add_idea = POL_polish_control
+				}
+			}
+			else = {
+				random_owned_state = {
+					limit = {
+						is_core_of = POL
+						infrastructure < 5
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = POL
+					infrastructure < 5
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = POL
+					infrastructure < 5
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = POL_Thorough_Land_Reform
+		icon = GFX_goal_OTT_Land_Reform
+		cost = 7
+
+		relative_position_id = POL_Land_of_Peasants
+		x = -1
+		y = 1
+
+		prerequisite = {
+			focus = POL_Land_of_Peasants
+			focus = POL_Create_The_Chamber_Of_Labour
+		}
+		available = {
+			has_left_democratic_government = yes
+			set_temp_variable = { POL_influence_check = 40 }
+			POL_polish_influence_check = yes
+		}
+		ai_will_do = {
+			factor = 500
+			modifier = {
+				factor = 4
+				has_active_mission = POL_centrolew_reform_mission
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Thorough_Land_Reform"
+			country_event = poland.442
+			custom_effect_tooltip = POL_land_reform_tt
+			set_temp_variable = { POL_influence_change = 5 }
+			POL_add_republican_influence = yes
+
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+
+	focus = {
+		id = POL_Fill_The_Railway_Gaps
+		icon = GFX_goal_generic_railway_construction
+		cost = 7
+
+		relative_position_id = POL_Curtail_the_Geheimrat
+		x = 3
+		y = 1
+
+		prerequisite = {
+			focus = POL_Curtail_the_Geheimrat
+			focus = POL_Entrenched_Constitutionalism
+			focus = POL_Empower_Geheimrat
+			focus = POL_Cement_The_Churchs_Status
+		}
+		available = {
+			OR = {
+				is_monarchy = yes
+				has_left_democratic_government = yes
+				has_government = social_conservative
+			}
+		}
+		bypass = { has_idea = POL_crossroads_of_europe }
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				OR = {
+					has_active_mission = POL_centrolew_reform_mission
+					has_active_mission = POL_curtail_veto_mission
+				}
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Fill_The_Railway_Gaps"
+			unlock_decision_category_tooltip = POL_Crossroads_Of_Europe_decisions
+		}
+	}
+
+	focus = {
+		id = POL_Friends_in_Vienna
+		icon = GFX_goal_POL_austrian_king
+		cost = 7
+
+		relative_position_id = POL_Union_with_Krakow
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = POL_Union_with_Krakow
+			focus = POL_Allies_in_Lewiatan
+		}
+		available = {
+			OR = {
+				NOT = { is_subject_of = GER }
+				has_country_flag = POL_downarowicz_cooperation
+			}
+			NOT = { has_war_with = AUS }
+			has_socialist_government = no
+			has_country_flag = POL_trade_finished
+		}
+		ai_will_do = {
+			factor = 250
+			modifier = {
+				factor = 2
+				AUS = { is_ai = no }
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Friends_in_Vienna"
+			if = {
+				limit = { has_idea = POL_polish_control }
+				swap_ideas = {
+					remove_idea = POL_polish_control
+					add_idea = POL_austrian_cooperation
+				}
+			}
+			else_if = {
+				limit = { has_idea = POL_german_cooperation }
+				swap_ideas = {
+					remove_idea = POL_german_cooperation
+					add_idea = POL_austro_german_condominium
+				}
+			}
+			else_if = {
+				limit = { has_idea = POL_austrian_cooperation }
+				swap_ideas = {
+					remove_idea = POL_austrian_cooperation
+					add_idea = POL_austrian_friendship
+				}
+			}
+			else_if = {
+				limit = { has_idea = POL_austro_german_condominium }
+				swap_ideas = {
+					remove_idea = POL_austro_german_condominium
+					add_idea = POL_austrian_cooperation
+				}
+			}
+			else = { add_political_power = 100 }
+			set_temp_variable = { POL_influence_change = 5 }
+			POL_add_republican_influence = yes
+		}
+		bypass = {
+
+			AUS = {
+				or = {
+					exists = no
+					is_puppet = yes
+
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = POL_Constitutionalist_Coalition
+		icon = GFX_goal_ideology_social_liberal
+		cost = 7
+
+		relative_position_id = POL_Friends_in_Vienna
+		x = 1
+		y = 1
+
+		prerequisite = { focus = POL_Friends_in_Vienna }
+		prerequisite = { focus = POL_Unite_the_Poles }
+		available = {
+			is_monarchy = yes
+			has_country_flag = POL_downarowicz_cooperation
+		}
+		ai_will_do = {
+			factor = 500
+			modifier = {
+				factor = 2
+				check_variable = { POL_rep_influence > POL_royal_influence }
+			}
+			modifier = {
+				factor = 0
+				is_subject = no
+				OR = {
+					has_game_rule = { rule = POL_revolts option = POL_REVOLTS_TOTALIST }
+					has_game_rule = { rule = POL_revolts option = POL_REVOLTS_SYNDIE }
+					has_game_rule = { rule = POL_revolts option = POL_REVOLTS_RADSOC }
+				}
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Constitutionalist_Coalition"
+			set_temp_variable = { coalition_partner_var = token:social_liberal }
+			add_to_coalition = yes
+			set_temp_variable = { coalition_partner_var = token:social_democrat }
+			add_to_coalition = yes
+			set_temp_variable = { coalition_partner_var = token:social_conservative }
+			remove_from_coalition = yes
+			set_temp_variable = { coalition_partner_var = token:authoritarian_democrat }
+			remove_from_coalition = yes
+			set_temp_variable = { POL_influence_change = -10 }
+			POL_add_republican_influence = yes
+			set_temp_variable = { POL_influence_change = 8 }
+			POL_add_royal_influence = yes
+			custom_effect_tooltip = POL_secularism_tt
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = POL_Sincere_Government
+		icon = GFX_goal_DOM_The_Trial
+		cost = 7
+
+		relative_position_id = POL_Thorough_Land_Reform
+		x = 0
+		y = 1
+
+		prerequisite = { focus = POL_Thorough_Land_Reform }
+		available = { has_left_democratic_government = yes }
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Sincere_Government"
+			add_stability = 0.15
+			set_temp_variable = { POL_influence_change = 5 }
+			POL_add_republican_influence = yes
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = POL_Peoples_Banks
+		icon = GFX_goal_bag_of_money
+		cost = 7
+
+		relative_position_id = POL_Sincere_Government
+		x = 1
+		y = 1
+
+		prerequisite = { focus = POL_Sincere_Government }
+		available = {
+			has_left_democratic_government = yes
+			NOT = { has_country_flag = POL_deal_with_lewiatan }
+		}
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Peoples_Banks"
+			add_stability = 0.15
+			POL_reduce_polarisation = yes
+			unlock_decision_tooltip = POL_Rural_Credit_Programme
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = POL_Unicameralism
+		icon = GFX_goal_government_icon
+		cost = 7
+
+		relative_position_id = POL_Sincere_Government
+		x = 0
+		y = 2
+
+		prerequisite = {
+			focus = POL_Sincere_Government
+		}
+		available = {
+			has_left_democratic_government = yes
+		}
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Unicameralism"
+			if = {
+				limit = { has_idea = POL_dawn_of_progress_pps_2 }
+				swap_ideas = {
+					remove_idea = POL_dawn_of_progress_pps_2
+					add_idea = POL_dawn_of_progress_pps_3
+				}
+			}
+			else_if = {
+				limit = { has_idea = POL_dawn_of_progress_psl_2 }
+				swap_ideas = {
+					remove_idea = POL_dawn_of_progress_psl_2
+					add_idea = POL_dawn_of_progress_psl_3
+				}
+			}
+			else_if = {
+				limit = { has_idea = POL_dawn_of_progress_pps_psl }
+				swap_ideas = {
+					remove_idea = POL_dawn_of_progress_pps_psl
+					add_idea = POL_dawn_of_progress_pps_psl_2
+				}
+			}
+			else = {
+				custom_effect_tooltip = tooltip_apply_one_of_effects_depending_on_ideas
+				effect_tooltip = {
+					swap_ideas = {
+						remove_idea = POL_dawn_of_progress_pps_2
+						add_idea = POL_dawn_of_progress_pps_3
+					}
+					swap_ideas = {
+						remove_idea = POL_dawn_of_progress_pps_psl
+						add_idea = POL_dawn_of_progress_pps_psl_2
+					}
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_PRODUCTION }
+	}
+
+	focus = {
+		id = POL_Dawn_of_Progress
+		icon = GFX_goal_generic_enforce_labor_regulation
+		cost = 7
+
+		relative_position_id = POL_Sincere_Government
+		x = -1
+		y = 3
+
+		prerequisite = { focus = POL_Unicameralism }
+		prerequisite = { focus = POL_Female_Suffrage }
+		available = { has_left_democratic_government = yes }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Dawn_of_Progress"
+			hidden_effect = {
+				activate_targeted_decision = { target = ROOT decision = POL_found_intermarium }
+			}
+			if = {
+				limit = { has_idea = POL_republic_instability2 }
+				remove_ideas = POL_republic_instability2
+			}
+			else = {
+				effect_tooltip = {
+					remove_ideas = POL_republic_instability2
+				}
+			}
+			POL_reduce_polarisation = yes
+			set_country_flag = POL_completed_centrolew_reform
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+
+	### Circle Tree ###
+	focus = {
+		id = POL_Circle
+		icon = GFX_goal_POL_polish_king
+		cost = 7
+
+		relative_position_id = POL_Election_of_1938
+		x = 2
+		y = 1
+
+		prerequisite = { focus = POL_Election_of_1938 }
+		available = {
+			POL_has_circle = yes
+			is_monarchy = yes
+		}
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Circle"
+			add_political_power = 75
+			hidden_effect = {
+				country_event = { id = ukraine.65 days = 120 } #Royal visit to Kyiv
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = POL_Entrenched_Constitutionalism
+		icon = GFX_goal_new_treaty
+		cost = 7
+
+		relative_position_id = POL_Circle
+		x = -2
+		y = 1
+
+		prerequisite = { focus = POL_Circle }
+		available = { has_government = market_liberal }
+		mutually_exclusive = {
+			focus = POL_Empower_Geheimrat
+		}
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Entrenched_Constitutionalism"
+			add_ideas = POL_enshrine_constitution
+			set_temp_variable = { POL_influence_change = -5 }
+			POL_add_republican_influence = yes
+			POL_reduce_polarisation = yes
+			activate_mission = POL_curtail_veto_mission
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = POL_Empower_Geheimrat
+		icon = GFX_goal_COS_Ferrer_Coup
+		cost = 7
+
+		relative_position_id = POL_Circle
+		x = 1
+		y = 1
+
+		prerequisite = { focus = POL_Circle }
+		available = { POL_evil_monarchy = yes }
+		mutually_exclusive = {
+			focus = POL_Entrenched_Constitutionalism
+		}
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Empower_Geheimrat"
+			add_ideas = POL_control_by_geheimrat
+			set_temp_variable = { POL_influence_change = 5 }
+			POL_add_republican_influence = yes
+		}
+		search_filters = { FOCUS_FILTER_PRODUCTION FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+
+	focus = {
+		id = POL_Purge_Nationalist_Terrorists
+		icon = GFX_HOL_crackdown_natpop
+		cost = 7
+
+		relative_position_id = POL_Empower_Geheimrat
+		x = 1
+		y = 1
+
+		prerequisite = { focus = POL_Empower_Geheimrat }
+		available = { POL_evil_monarchy = yes }
+		ai_will_do = {
+			factor = 500
+			modifier = {
+				factor = 2
+				check_variable = { POL_nat_influence > 30 }
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Purge_Nationalist_Terrorists"
+			set_temp_variable = { POL_influence_change = -15 }
+			POL_add_nationalist_influence = yes
+			multiply_variable = { POL_coup_timer = 2 }
+			custom_effect_tooltip = POL_denounce_nationalists_tt
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+
+	focus = {
+		id = POL_Ally_with_Szlachta
+		icon = GFX_goal_collaborate_local_elites
+		cost = 7
+
+		relative_position_id = POL_Empower_Geheimrat
+		x = -3
+		y = 1
+
+		prerequisite = {
+			focus = POL_Entrenched_Constitutionalism
+			focus = POL_Empower_Geheimrat
+		}
+		available = { POL_has_circle = yes }
+		ai_will_do = {
+			factor = 250
+			modifier = {
+				factor = 2
+				has_active_mission = POL_curtail_veto_mission
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Ally_with_Szlachta"
+			add_political_power = 75
+			set_temp_variable = { ideology_change_var = 5 }
+			change_ruling_party_popularity = yes
+			set_temp_variable = { POL_influence_change = -5 }
+			POL_add_nationalist_influence = yes
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = POL_Address_Land_Issue
+		icon = GFX_goal_OTT_Land_Reform
+		cost = 7
+
+		relative_position_id = POL_Empower_Geheimrat
+		x = -1
+		y = 1
+
+		prerequisite = {
+			focus = POL_Entrenched_Constitutionalism
+			focus = POL_Empower_Geheimrat
+		}
+		cancelable = no
+		select_effect = {
+			log = "[GetDateText]: [Root.GetName]: Select Focus POL_Address_Land_Issue"
+			country_event = { id = poland.263 days = 10 }
+		}
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Address_Land_Issue"
+			set_temp_variable = { POL_influence_change = 5 }
+			POL_add_royal_influence = yes
+			country_event = poland.440
+			custom_effect_tooltip = POL_land_reform_tt
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+
+	focus = {
+		id = POL_Allies_in_Lewiatan
+		icon = GFX_goal_generic_debt_negotiations
+		cost = 7
+
+		relative_position_id = POL_Ally_with_Szlachta
+		x = -1
+		y = 1
+
+		prerequisite = {
+			focus = POL_Ally_with_Szlachta
+		}
+		mutually_exclusive = { focus = POL_Allies_in_Berlin }
+		available = {
+			has_government = market_liberal
+			has_country_flag = POL_trade_finished
+		}
+		ai_will_do = {
+			factor = 250
+			modifier = {
+				factor = 2
+				has_active_mission = POL_curtail_veto_mission
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Allies_in_Lewiatan"
+			if = {
+				limit = { has_idea = POL_austrian_cooperation }
+				swap_ideas = {
+					remove_idea = POL_austrian_cooperation
+					add_idea = POL_polish_control
+				}
+			}
+			else_if = {
+				limit = { has_idea = POL_german_cooperation }
+				swap_ideas = {
+					remove_idea = POL_german_cooperation
+					add_idea = POL_polish_control
+				}
+			}
+			else_if = {
+				limit = { has_idea = POL_austro_german_condominium }
+				swap_ideas = {
+					remove_idea = POL_austro_german_condominium
+					add_idea = POL_polish_control
+				}
+			}
+			else = {
+				add_one_random_civilian_factory = yes
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = POL_andrzej_wierbicki
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = POL_Allies_in_Berlin
+		icon = GFX_goal_align_germany
+		cost = 7
+
+		relative_position_id = POL_Empower_Geheimrat
+		x = -1
+		y = 2
+
+		prerequisite = { focus = POL_Ally_with_Szlachta }
+		mutually_exclusive = { focus = POL_Allies_in_Lewiatan }
+		available = {
+			has_country_flag = POL_trade_finished
+		}
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Allies_in_Berlin"
+			add_political_power = 50
+			set_temp_variable = { POL_influence_change = 10 }
+			POL_add_german_influence = yes
+			if = {
+				limit = { has_idea = POL_polish_control }
+				swap_ideas = {
+					remove_idea = POL_polish_control
+					add_idea = POL_german_cooperation
+				}
+			}
+			else_if = {
+				limit = { has_idea = POL_austrian_cooperation }
+				swap_ideas = {
+					remove_idea = POL_austrian_cooperation
+					add_idea = POL_austro_german_condominium
+				}
+			}
+			else_if = {
+				limit = { has_idea = POL_german_cooperation }
+				swap_ideas = {
+					remove_idea = POL_german_cooperation
+					add_idea = POL_german_hegemony
+				}
+			}
+			else_if = {
+				limit = { has_idea = POL_austro_german_condominium }
+				swap_ideas = {
+					remove_idea = POL_austro_german_condominium
+					add_idea = POL_german_cooperation
+				}
+			}
+			else = {
+				add_ideas = POL_german_hegemony
+			}
+			set_temp_variable = { POL_influence_change = 5 }
+			POL_add_syndicalist_influence = yes
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL FOCUS_FILTER_PRODUCTION FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+
+	focus = {
+		id = POL_Attract_German_Corporations
+		icon = GFX_goal_German_Investements
+		cost = 7
+
+		relative_position_id = POL_Empower_Geheimrat
+		x = 0
+		y = 3
+
+		prerequisite = { focus = POL_Allies_in_Berlin }
+		prerequisite = { focus = POL_Arrest_Socialist_Agitators }
+		available = { POL_evil_monarchy = yes }
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Attract_German_Corporations"
+			98 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			87 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			set_temp_variable = { POL_influence_change = 5 }
+			POL_add_german_influence = yes
+			set_temp_variable = { POL_influence_change = 2 }
+			POL_add_nationalist_influence = yes
+			set_temp_variable = { POL_influence_change = 2 }
+			POL_add_syndicalist_influence = yes
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+
+	focus = {
+		id = POL_Manage_the_Unions
+		icon = GFX_goal_Yellow_Union
+		cost = 7
+
+		relative_position_id = POL_Allies_in_Lewiatan
+		x = 2
+		y = 1
+
+		prerequisite = {
+			focus = POL_Allies_in_Lewiatan
+			focus = POL_Allies_in_Berlin
+		}
+		available = { POL_has_circle = yes }
+		ai_will_do = {
+			factor = 500
+			modifier = {
+				factor = 2
+				check_variable = { POL_soc_influence > 30 }
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Manage_the_Unions"
+			set_temp_variable = { POL_influence_change = -6 }
+			POL_add_syndicalist_influence = yes
+			POL_reduce_polarisation = yes
+			multiply_temp_variable = { POL_revolution_timer = 2 }
+			custom_effect_tooltip = POL_denounce_socialists_tt
+		}
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+
+	focus = {
+		id = POL_Unite_the_Poles
+		icon = GFX_focus_generic_polish_deal
+		cost = 7
+
+		relative_position_id = POL_Allies_in_Lewiatan
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = POL_Allies_in_Lewiatan
+			focus = POL_Allies_in_Berlin
+		}
+		available = {
+			has_government = market_liberal
+			GER = {
+				has_completed_focus = GER_zollverein
+				NOT = { has_war_with = AUS }
+			}
+			NOT = { has_war_with = AUS }
+			NOT = { AUS = { has_war_with = HUN } }
+			NOT = { AUS = { has_war_with = GAL } }
+			set_temp_variable = { POL_influence_check = 40 }
+			POL_polish_influence_check = yes
+			var:88.owner = {
+				has_full_control_of_state = 88
+				if = {
+					limit = { owns_state = 80 }
+					has_full_control_of_state = 80
+				}
+				if = {
+					limit = { owns_state = 89 }
+					has_full_control_of_state = 89
+				}
+				if = {
+					limit = { owns_state = 91 }
+					has_full_control_of_state = 91
+				}
+				if = {
+					limit = { owns_state = 713 }
+					has_full_control_of_state = 713
+				}
+			}
+		}
+		bypass = {
+			OR = {
+				owns_state = 88
+				GAL = {
+					is_subject = yes
+					NOT = { is_subject_of = AUS }
+				}
+			}
+		}
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Unite_the_Poles"
+			var:88.owner = {
+				if = {
+					limit = { is_subject = yes }
+					OVERLORD = { country_event = poland.233 }
+				}
+				else = { country_event = poland.233 }
+			}
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+	}
+
+	focus = {
+		id = POL_Primacy_of_the_Sejm
+		icon = GFX_goal_COS_Ferrer_Coup
+		cost = 7
+
+		relative_position_id = POL_Allies_in_Berlin
+		x = -2
+		y = 2
+
+		prerequisite = { focus = POL_Manage_the_Unions }
+		prerequisite = {
+			focus = POL_Unite_the_Poles
+			focus = POL_Friends_in_Vienna
+		}
+		mutually_exclusive = { focus = POL_Rule_by_Royal_Decree }
+		available = { has_government = market_liberal }
+		ai_will_do = {
+			factor = 250
+			modifier = {
+				factor = 2
+				has_active_mission = POL_curtail_veto_mission
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Primacy_of_the_Sejm"
+			swap_ideas = {
+				remove_idea = POL_enshrine_constitution
+				add_idea = POL_enshrine_constitution_2
+			}
+			set_temp_variable = { POL_influence_change = 5 }
+			POL_add_royal_influence = yes
+			set_temp_variable = { POL_influence_change = -5 }
+			POL_add_republican_influence = yes
+			POL_reduce_polarisation = yes
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+
+	focus = {
+		id = POL_Rule_by_Royal_Decree
+		icon = GFX_focus_generic_authoritarian_government
+		cost = 7
+
+		relative_position_id = POL_Primacy_of_the_Sejm
+		x = 3
+		y = 0
+
+		prerequisite = { focus = POL_Manage_the_Unions }
+		prerequisite = { focus = POL_Attract_German_Corporations }
+		mutually_exclusive = { focus = POL_Primacy_of_the_Sejm }
+		available = { POL_evil_monarchy = yes }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Rule_by_Royal_Decree"
+			swap_ideas = {
+				remove_idea = POL_control_by_geheimrat
+				add_idea = POL_control_by_geheimrat_2
+			}
+			set_temp_variable = { POL_influence_change = -4 }
+			POL_add_nationalist_influence = yes
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+
+	focus = {
+		id = POL_Guarded_Democracy
+		icon = GFX_goal_generic_parliament2
+		cost = 7
+
+		relative_position_id = POL_Rule_by_Royal_Decree
+		x = 1
+		y = 1
+
+		prerequisite = {
+			focus = POL_Rule_by_Royal_Decree
+			focus = POL_Christian_Trade_Unionism
+		}
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Guarded_Democracy"
+			add_stability = 0.06
+			add_popularity = {
+				ideology = social_liberal
+				popularity = -0.08
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.08
+			}
+			add_popularity = {
+				ideology = national_populist
+				popularity = -0.08
+			}
+			set_temp_variable = { POL_influence_change = -4 }
+			POL_add_nationalist_influence = yes
+			hidden_effect = {
+				country_event = { id = poland.262 days = 30 }
+			}
+		}
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = POL_Royal_Academy_of_Arts
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		cost = 7
+
+		relative_position_id = POL_Primacy_of_the_Sejm
+		x = -1
+		y = 1
+
+		prerequisite = { focus = POL_Primacy_of_the_Sejm }
+		available = { has_government = market_liberal }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Royal_Academy_of_Arts"
+			add_country_leader_trait = POL_patron_of_the_painters
+			set_temp_variable = { POL_influence_change = 5 }
+			POL_add_royal_influence = yes
+			POL_reduce_polarisation = yes
+		}
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = POL_Mitteleuropa_Ties
+		icon = GFX_goal_GER_Mitteleuropa_Cash
+		cost = 7
+
+		relative_position_id = POL_Primacy_of_the_Sejm
+		x = 1
+		y = 1
+
+		prerequisite = {
+			focus = POL_Primacy_of_the_Sejm
+			focus = POL_Rule_by_Royal_Decree
+		}
+		available = {
+			has_completed_focus = POL_Eastern_Europes_Workshop
+			POL_has_circle = yes
+		}
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Mitteleuropa_Ties"
+			swap_ideas = {
+				remove_idea = POL_central_industrial_region_5
+				add_idea = POL_hub_of_mitteleurope
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_PRODUCTION }
+	}
+
+	focus = {
+		id = POL_Secure_Magnates
+		icon = GFX_focus_AUS_agriculture
+		cost = 7
+
+		relative_position_id = POL_Primacy_of_the_Sejm
+		x = 2
+		y = 2
+
+		prerequisite = { focus = POL_Guarded_Democracy }
+		prerequisite = { focus = POL_Mitteleuropa_Ties }
+		available = { POL_evil_monarchy = yes }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Secure_Magnates"
+			swap_ideas = {
+				remove_idea = POL_control_by_geheimrat_2
+				add_idea = POL_control_by_geheimrat_3
+			}
+			set_temp_variable = { POL_influence_change = 5 }
+			POL_add_republican_influence = yes
+			set_temp_variable = { POL_influence_change = 5 }
+			POL_add_syndicalist_influence = yes
+			hidden_effect = { country_event = { id = poland.251 days = 150 } }
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_PRODUCTION }
+	}
+
+	focus = {
+		id = POL_Abolish_The_Royal_Veto
+		icon = GFX_focus_rom_handle_king
+		cost = 7
+
+		relative_position_id = POL_Entrenched_Constitutionalism
+		x = 0
+		y = 6
+
+		prerequisite = { focus = POL_Primacy_of_the_Sejm }
+		available = { has_government = market_liberal }
+		ai_will_do = {
+			factor = 500
+			modifier = {
+				factor = 2
+				has_active_mission = POL_curtail_veto_mission
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Abolish_The_Royal_Veto"
+			swap_ideas = {
+				remove_idea = POL_enshrine_constitution_2
+				add_idea = POL_enshrine_constitution_3
+			}
+			set_temp_variable = { POL_influence_change = 10 }
+			POL_add_royal_influence = yes
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = POL_Path_of_Least_Resistance
+		icon = GFX_focus_POL_expand_polish_intelligence
+		cost = 7
+
+		relative_position_id = POL_Rule_by_Royal_Decree
+		x = -2
+		y = 3
+
+		prerequisite = {
+			focus = POL_Abolish_The_Royal_Veto
+			focus = POL_Secure_Magnates
+		}
+		available = { POL_has_circle = yes }
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Path_of_Least_Resistance"
+			if = {
+				limit = { has_government = market_liberal }
+				add_country_leader_trait = POL_figurehead_hohenzollern
+			}
+			else_if = {
+				limit = { has_government = authoritarian_democrat }
+				add_country_leader_trait = POL_king_of_the_elite
+			}
+			else_if = {
+				limit = { has_government = paternal_autocrat }
+				add_country_leader_trait = POL_eternal_general_governor
+			}
+			if = {
+				limit = { has_idea = POL_martial_law }
+				remove_ideas = POL_martial_law
+			}
+			POL_reduce_polarisation = yes
+			hidden_effect = {
+				country_event = { id = poland.800 days = 100 random_days = 250 }
+			}
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+	}
+
+#National democrats
+
+	focus = {
+		id = POL_Christian_Conservatism
+		icon = GFX_focus_por_concordat
+		cost = 7
+
+		relative_position_id = POL_Election_of_1938
+		x = 8
+		y = 1
+
+		available = { POL_has_nationalist = yes }
+		prerequisite = { focus = POL_Election_of_1938 }
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Christian_Conservatism"
+			add_stability = 0.05
+			if = {
+				limit = { is_monarchy = yes }
+				custom_effect_tooltip = POL_Christian_Conservatism_warning
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						OR = {
+							is_in_faction_with = GER
+							is_in_faction_with = AUS
+						}
+						RUS = {
+							exists = yes
+							is_subject = no
+						}
+					}
+					if = {
+						limit = { is_monarchy = yes }
+						country_event = { id = poland.254 days = 30 } #Parasol events
+					}
+					else = {
+						country_event = { id = poland.255 days = 60 } #Only later one
+					}
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = POL_Cement_The_Churchs_Status
+		icon = GFX_goal_PAP_crusade
+		cost = 7
+
+		relative_position_id = POL_Christian_Conservatism
+		x = -1
+		y = 1
+
+		prerequisite = { focus = POL_Christian_Conservatism }
+		mutually_exclusive = { focus = POL_Exceptional_Individual }
+		available = { POL_has_nationalist = yes }
+		ai_will_do = {
+			factor = 500
+			modifier = {
+				factor = 0
+				POL_dobo = yes
+				NOT = { has_country_flag = POL_postwar_coup }
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Cement_The_Churchs_Status"
+			add_ideas = POL_state_catholicism_1
+		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = POL_Outlaw_Austrian_Agents
+		icon = GFX_goal_generic_imprison_people
+		cost = 7
+
+		relative_position_id = POL_Empower_Geheimrat
+		x = 3
+		y = 1
+
+		prerequisite = { focus = POL_Cement_The_Churchs_Status }
+		available = { POL_has_nationalist = yes }
+		ai_will_do = {
+			factor = 500
+			modifier = {
+				factor = 2
+				check_variable = { POL_rep_influence > 30 }
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Outlaw_Austrian_Agents"
+			add_stability = 0.05
+			set_temp_variable = { POL_influence_change = -15 }
+			POL_add_republican_influence = yes
+
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = POL_Arrest_Socialist_Agitators
+		icon = GFX_HOL_red_scare
+		cost = 7
+
+		relative_position_id = POL_Cement_The_Churchs_Status
+		x = -3
+		y = 2
+
+		prerequisite = {
+			focus = POL_Purge_Nationalist_Terrorists
+			focus = POL_Outlaw_Austrian_Agents
+		}
+		available = {
+			OR = {
+				has_government = social_conservative
+				has_authoritarian_government = yes
+			}
+		}
+		cancelable = no
+		select_effect = {
+			log = "[GetDateText]: [Root.GetName]: Select Focus POL_Arrest_Socialist_Agitators"
+			country_event = { id = poland.382 days = 12 }
+		}
+		ai_will_do = {
+			factor = 500
+			modifier = {
+				factor = 2
+				check_variable = { POL_soc_influence > 30 }
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Arrest_Socialist_Agitators"
+			set_temp_variable = { POL_influence_change = -15 }
+			POL_add_syndicalist_influence = yes
+
+			multiply_variable = { POL_revolution_timer = 2 }
+			custom_effect_tooltip = POL_denounce_socialists_tt
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+
+	focus = {
+		id = POL_The_Christian_Coalition
+		icon = GFX_goal_ideology_social_conservative
+		cost = 7
+
+		relative_position_id = POL_Arrest_Socialist_Agitators
+		x = 1
+		y = 1
+
+		prerequisite = { focus = POL_Arrest_Socialist_Agitators }
+		prerequisite = { focus = POL_Allies_in_Berlin }
+		available = {
+			is_monarchy = yes
+			has_country_flag = POL_zamoyski_cooperation
+		}
+		ai_will_do = {
+			factor = 500
+			modifier = {
+				factor = 2
+				check_variable = { POL_nat_influence > POL_royal_influence }
+			}
+			modifier = {
+				factor = 0
+				is_subject = no
+				OR = {
+					has_game_rule = { rule = POL_revolts option = POL_REVOLTS_NATPOP }
+					has_game_rule = { rule = POL_revolts option = POL_REVOLTS_PATAUT }
+					has_game_rule = { rule = POL_revolts option = POL_REVOLTS_SOCCON }
+				}
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_The_Christian_Coalition"
+			if = {
+				limit = {
+					set_temp_variable = { coalition_target = token:social_conservative }
+					has_coalition_with_target = no
+				}
+				set_temp_variable = { coalition_partner_var = token:social_conservative }
+				add_to_coalition = yes
+			}
+			set_temp_variable = { POL_influence_change = 6 }
+			POL_add_royal_influence = yes
+			set_temp_variable = { POL_influence_change = -8 }
+			POL_add_nationalist_influence = yes
+
+			add_popularity = { ideology = national_populist popularity = -0.05 }
+			custom_effect_tooltip = POL_nationalism_tt
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = POL_Eliminate_Class_Divisions
+		icon = GFX_goal_generic_controlled_board
+		cost = 7
+
+		relative_position_id = POL_Cement_The_Churchs_Status
+		x = 1
+		y = 1
+
+		prerequisite = { focus = POL_Cement_The_Churchs_Status }
+		available = { POL_has_nationalist = yes }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Eliminate_Class_Divisions"
+			set_temp_variable = { POL_influence_change = 10 }
+			POL_add_nationalist_influence = yes
+			set_temp_variable = { POL_influence_change = -5 }
+			POL_add_syndicalist_influence = yes
+			POL_reduce_polarisation = yes
+
+		}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = POL_Slay_Hydra_of_Capitalism
+		icon = GFX_goal_generic_seize_money
+		cost = 5
+
+		relative_position_id = POL_Cement_The_Churchs_Status
+		x = 3
+		y = 1
+
+		prerequisite = {
+			focus = POL_Cement_The_Churchs_Status
+			focus = POL_Exceptional_Individual
+		}
+		available = {
+			has_country_flag = POL_trade_finished
+		}
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Slay_Hydra_of_Capitalism"
+			if = {
+				limit = { has_idea = POL_austrian_cooperation }
+				swap_ideas = {
+					remove_idea = POL_austrian_cooperation
+					add_idea = POL_polish_control
+				}
+			}
+			else_if = {
+				limit = { has_idea = POL_german_cooperation }
+				swap_ideas = {
+					remove_idea = POL_german_cooperation
+					add_idea = POL_polish_control
+				}
+			}
+			else_if = {
+				limit = { has_idea = POL_austro_german_condominium }
+				swap_ideas = {
+					remove_idea = POL_austro_german_condominium
+					add_idea = POL_polish_control
+				}
+			}
+			else = {
+				add_political_power = 100
+				add_stability = 0.05
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = POL_Reinforce_The_Parliamentary_System
+		icon = GFX_goal_government_icon
+		cost = 7
+
+		relative_position_id = POL_Eliminate_Class_Divisions
+		x = -1
+		y = 1
+
+		prerequisite = { focus = POL_Eliminate_Class_Divisions }
+		mutually_exclusive = { focus = POL_The_Marshal }
+		available = {
+			OR = {
+				has_government = social_conservative
+				has_country_flag = POL_postwar_coup
+			}
+		}
+		ai_will_do = {
+			factor = 750
+			modifier = {
+				factor = 0
+				OR = {
+					RUS = {
+						is_faction_leader = yes
+						surrender_progress < 0.2
+					}
+					SOV = {
+						is_faction_leader = yes
+						surrender_progress < 0.2
+					}
+				}
+				NOT = {
+					is_in_faction_with = RUS
+					has_game_rule = { rule = POL_revolts option = POL_REVOLTS_NO_REVOLT }
+					has_game_rule = { rule = POL_revolts option = POL_REVOLTS_TOTALIST }
+					has_game_rule = { rule = POL_revolts option = POL_REVOLTS_SYNDIE }
+					has_game_rule = { rule = POL_revolts option = POL_REVOLTS_RADSOC }
+				}
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Reinforce_The_Parliamentary_System"
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.1
+			}
+			set_temp_variable = { POL_influence_change = -5 }
+			POL_add_republican_influence = yes
+			POL_reduce_polarisation = yes
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+
+	focus = {
+		id = POL_Corporatism
+		icon = GFX_goal_state_economy
+		cost = 7
+
+		relative_position_id = POL_Reinforce_The_Parliamentary_System
+		x = 1
+		y = 1
+
+		prerequisite = {
+			focus = POL_Reinforce_The_Parliamentary_System
+			focus = POL_The_Marshal
+		}
+		available = { POL_has_nationalist = yes }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Corporatism"
+			add_ideas = POL_corporatism
+			if = {
+				limit = { has_idea = free_trade }
+				swap_ideas = {
+					remove_idea = free_trade
+					add_idea = limited_exports
+				}
+			}
+			if = {
+				limit = { has_idea = export_focus }
+				swap_ideas = {
+					remove_idea = export_focus
+					add_idea = limited_exports
+				}
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = POL_andrzej_wierbicki
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_PRODUCTION FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = POL_Christian_Trade_Unionism
+		icon = GFX_BEL_Catholic_Construction
+		cost = 7
+
+		relative_position_id = POL_Reinforce_The_Parliamentary_System
+		x = 0
+		y = 2
+
+		prerequisite = {
+			focus = POL_Reinforce_The_Parliamentary_System
+		}
+		available = {
+			POL_has_nationalist = yes
+			social_conservative > 0.30
+		}
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Christian_Trade_Unionism"
+			add_stability = 0.05
+
+			set_temp_variable = { POL_influence_change = -10 }
+			POL_add_syndicalist_influence = yes
+			POL_reduce_polarisation = yes
+			multiply_variable = { POL_revolution_timer = 2 }
+			custom_effect_tooltip = POL_denounce_socialists_tt
+		}
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_INTERNAL_AFFAIRS }
+	}
+
+	focus = {
+		id = POL_Managed_Land_Reform
+		icon = GFX_goal_OTT_Land_Reform
+		cost = 7
+
+		relative_position_id = POL_Corporatism
+		x = 1
+		y = 1
+
+		prerequisite = { focus = POL_Corporatism }
+		available = { POL_has_nationalist = yes }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Managed_Land_Reform"
+			set_temp_variable = { ideology_change_var = 5 }
+			change_ruling_party_popularity = yes
+			country_event = poland.441
+			custom_effect_tooltip = POL_land_reform_tt
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = POL_Polonisation_Programs
+		icon = GFX_focus_generic_oppression
+		cost = 7
+
+		relative_position_id = POL_Managed_Land_Reform
+		x = -3
+		y = 1
+
+		prerequisite = {
+			focus = POL_Managed_Land_Reform
+			focus = POL_Rule_by_Royal_Decree
+			focus = POL_Christian_Trade_Unionism
+		}
+		cancelable = no
+		select_effect = {
+			log = "[GetDateText]: [Root.GetName]: Select Focus POL_Polonisation_Programs"
+			hidden_effect = { country_event = { id = poland.251 days = 5 } }
+		}
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Polonisation_Programs"
+			set_temp_variable = { ideology_change_var = 10 }
+			change_ruling_party_popularity = yes
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = POL_Social_Altruism
+		icon = GFX_focus_por_concordat
+		cost = 7
+
+		relative_position_id = POL_Christian_Trade_Unionism
+		x = 0
+		y = 2
+
+		prerequisite = { focus = POL_First_of_Slavs }
+		prerequisite = { focus = POL_Polonisation_Programs }
+		prerequisite = { focus = POL_Christian_Trade_Unionism }
+		available = { POL_has_nationalist = yes }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Social_Altruism"
+			if = {
+				limit = { has_government = paternal_autocrat }
+				add_stability = 0.1
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = POL_state_catholicism_2
+					add_idea = POL_state_catholicism_3
+				}
+			}
+
+			POL_consolidate_uprising = yes
+		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_MANPOWER }
+	}
+
+	focus = {
+		id = POL_The_Marshal
+		icon = GFX_goal_ideology_paternal_autocrat
+		cost = 7
+
+		relative_position_id = POL_Eliminate_Class_Divisions
+		x = 1
+		y = 1
+
+		prerequisite = {
+			focus = POL_Exceptional_Individual
+			focus = POL_Cement_The_Churchs_Status
+		}
+		mutually_exclusive = { focus = POL_Reinforce_The_Parliamentary_System }
+		available = { POL_rydz = yes }
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_The_Marshal"
+			custom_effect_tooltip = POL_war_required
+			if = {
+				limit = { POL_rydz = no }
+				custom_effect_tooltip = POL_no_parasol
+			}
+			custom_effect_tooltip = tooltip_white_line
+			POL_consolidate_uprising = yes
+			POL_edward_rydz_smigly = {
+				add_unit_leader_trait = media_personality
+			}
+			#set_leader_description = LOC_KEY
+			swap_ideas = {
+				remove_idea = POL_state_catholicism_1
+				add_idea = POL_polish_shogunate_1
+			}
+			if = {
+				limit = {
+					NOT = { POL_boguslaw_miedzinski = { has_advisor_role = second_in_command } }
+				}
+				activate_advisor = POL_boguslaw_miedzinski_sic
+			}
+			unlock_decision_category_tooltip = POL_Marshals_Cult
+		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL FOCUS_FILTER_ARMY_BONUS }
+	}
+
+	focus = {
+		id = POL_Party_of_National_Unification
+		icon = GFX_focus_POL_OZON #GFX_ITA_green_shirts
+		cost = 7
+
+		relative_position_id = POL_The_Marshal
+		x = 1
+		y = 1
+
+		prerequisite = { focus = POL_The_Marshal }
+		available = {
+			POL_rydz = yes
+			paternal_autocrat > 0.2
+		}
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Party_of_National_Unification"
+			POL_consolidate_uprising = yes
+			POL_edward_rydz_smigly = {
+				promote_leader = yes
+				add_unit_leader_trait = expert_delegator
+				if = {
+					limit = { NOT = { has_trait = organizer } }
+					add_unit_leader_trait = organizer
+				}
+			}
+			set_temp_variable = { ideology_change_var = 10 }
+			change_ruling_party_popularity = yes
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ARMY_BONUS }
+	}
+
+	focus = {
+		id = POL_Centralisation_of_Power
+		icon = GFX_goal_skull_fortification
+		cost = 7
+
+		relative_position_id = POL_Party_of_National_Unification
+		x = -1
+		y = 3
+
+		prerequisite = { focus = POL_Hijack_Endecja }
+		prerequisite = { focus = POL_First_of_Slavs }
+		available = {
+			POL_rydz = yes
+			paternal_autocrat > 0.4
+		}
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Centralisation_of_Power"
+			swap_ideas = {
+				remove_idea = POL_polish_shogunate_1
+				add_idea = POL_polish_shogunate_2
+			}
+			POL_edward_rydz_smigly = {
+				add_skill_level = 1
+				add_max_trait = 2
+			}
+		}
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+	}
+
+	focus = {
+		id = POL_Saviour_of_Poland
+		icon = GFX_focus_POL_sanation_right
+		cost = 7
+
+		relative_position_id = POL_Centralisation_of_Power
+		x = 0
+		y = 1
+
+		prerequisite = { focus = POL_Centralisation_of_Power }
+		available = {
+			POL_rydz = yes
+			GER = { exists = no }
+		}
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Saviour_of_Poland"
+			country_event = poland.256
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = POL_256_tt
+			custom_effect_tooltip = tooltip_white_line
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = POL_polish_shogunate_2
+					add_idea = POL_polish_shogunate_3
+				}
+			}
+			custom_effect_tooltip = tooltip_white_line
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = POL_polish_shogunate_2
+					add_idea = POL_polish_shogunate_4
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_STABILITY FOCUS_FILTER_PRODUCTION }
+	}
+
+	focus = {
+		id = POL_First_of_Slavs
+		icon = GFX_goal_POL_flag
+		cost = 7
+
+		relative_position_id = POL_Managed_Land_Reform
+		x = -1
+		y = 1
+
+		prerequisite = {
+			focus = POL_Managed_Land_Reform
+			focus = POL_Christian_Trade_Unionism
+		}
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_First_of_Slavs"
+			swap_ideas = {
+				remove_idea = POL_state_catholicism_1
+				add_idea = POL_state_catholicism_2
+			}
+			POL_reduce_polarisation = yes
+			for_each_scope_loop = {
+				array = POL_polish_lands
+				add_claim_by = ROOT
+			}
+			POL_consolidate_uprising = yes
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = POL_Catholic_State
+		icon = GFX_goal_ideology_social_conservative
+		cost = 7
+		dynamic = yes
+
+		relative_position_id = POL_First_of_Slavs
+		x = -1
+		y = 2
+
+		prerequisite = { focus = POL_Social_Altruism }
+		available = { POL_has_nationalist = yes }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Catholic_State"
+			swap_ideas = {
+				remove_idea = POL_state_catholicism_3
+				add_idea = POL_state_catholicism_4
+			}
+
+			if = {
+				limit = { is_monarchy = yes }
+				hidden_effect = {
+					country_event = { id = poland.800 days = 100 random_days = 250 }
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ARMY_BONUS }
+	}
+
+	focus = {
+		id = POL_Exceptional_Individual
+		icon = GFX_goal_ideology_national_populist
+		cost = 5
+
+		relative_position_id = POL_Christian_Conservatism
+		x = 3
+		y = 1
+
+		prerequisite = { focus = POL_Christian_Conservatism }
+		mutually_exclusive = { focus = POL_Cement_The_Churchs_Status }
+		available = {
+			POL_dobo = yes
+			NOT = { has_country_flag = POL_postwar_coup }
+		}
+		cancelable = no
+		ai_will_do = {
+			factor = 500
+			modifier = {
+				factor = 4
+				POL_dobo = yes
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Exceptional_Individual"
+			custom_effect_tooltip = POL_war_required
+			POL_consolidate_uprising = yes
+		}
+	}
+
+	focus = {
+		id = POL_Liberation_of_Greater_Poland
+		icon = GFX_focus_POL_plan_west
+		cost = 3
+
+		relative_position_id = POL_Exceptional_Individual
+		x = 1
+		y = 1
+
+		prerequisite = { focus = POL_Exceptional_Individual }
+		available = {
+			controls_state = 86
+			POL_dobo = yes
+		}
+		cancel = { NOT = { controls_state = 86 } }
+		ai_will_do = { factor = 3000 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Liberation_of_Greater_Poland"
+			add_country_leader_trait = POL_cult_of_great_man
+			add_war_support = 0.15
+			add_popularity = { ideology = national_populist popularity = 0.05 }
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = POL_Root_Out_Those_Without_Faith
+		icon = GFX_goal_skull_treaty2
+		cost = 7
+
+		relative_position_id = POL_Liberation_of_Greater_Poland
+		x = 1
+		y = 1
+
+		prerequisite = { focus = POL_Liberation_of_Greater_Poland }
+		available = { POL_dobo = yes }
+		cancelable = no
+		select_effect = {
+			log = "[GetDateText]: [Root.GetName]: Select Focus POL_Root_Out_Those_Without_Faith"
+			country_event = { id = poland.702 days = 15 }
+		}
+		ai_will_do = {
+			factor = 250
+			modifier = {
+				factor = 8
+				has_active_mission = POL_sejm_revolt
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Root_Out_Those_Without_Faith"
+			country_event = poland.701
+			POL_consolidate_uprising = yes
+		}
+	}
+
+	focus = {
+		id = POL_End_Army_Factionalism
+		icon = GFX_goal_authority
+		cost = 7
+
+		relative_position_id = POL_Liberation_of_Greater_Poland
+		x = -1
+		y = 1
+
+		prerequisite = { focus = POL_Liberation_of_Greater_Poland }
+		available = { POL_dobo = yes }
+		ai_will_do = {
+			factor = 250
+			modifier = {
+				factor = 8
+				has_active_mission = POL_military_takeover
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_End_Army_Factionalism"
+			country_event = poland.700
+			add_timed_idea = {
+				idea = POL_education_of_army
+				days = 180
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_MANPOWER FOCUS_FILTER_ARMY_BONUS }
+	}
+
+	focus = {
+		id = POL_The_Monoidea
+		icon = GFX_goal_generic_expel_people
+		cost = 7
+
+		relative_position_id = POL_Liberation_of_Greater_Poland
+		x = 0
+		y = 2
+
+		prerequisite = { focus = POL_Root_Out_Those_Without_Faith }
+		prerequisite = { focus = POL_End_Army_Factionalism }
+		available = { POL_dobo = yes }
+		cancelable = no
+		select_effect = {
+			log = "[GetDateText]: [Root.GetName]: Select Focus POL_The_Monoidea"
+			country_event = { id = poland.704 days = 15 }
+		}
+		ai_will_do = { factor = 250 }
+		on_uncomplete = {
+			remove_ideas = POL_great_nation_2
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_The_Monoidea"
+			add_ideas = POL_great_nation_2
+			hidden_effect = {
+				country_event = { id = poland.709 days = 160 }
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_MANPOWER }
+	}
+
+	focus = {
+		id = POL_Moral_Planning
+		icon = GFX_BEL_Federalism
+		cost = 7
+
+		relative_position_id = POL_The_Monoidea
+		x = 0
+		y = 1
+
+		prerequisite = { focus = POL_The_Monoidea }
+		available = { POL_dobo = yes }
+		ai_will_do = { factor = 1000 }
+		on_uncomplete = {
+			remove_ideas = POL_great_nation_3
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Moral_Planning"
+			swap_ideas = {
+				remove_idea = POL_great_nation_2
+				add_idea = POL_great_nation_3
+			}
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER }
+	}
+
+	focus = {
+		id = POL_Hijack_Endecja
+		icon = GFX_goal_ANQ_convince_intellectuals
+		cost = 7
+
+		relative_position_id = POL_The_Monoidea
+		x = -2
+		y = 2
+
+		prerequisite = {
+			focus = POL_Moral_Planning
+			focus = POL_Party_of_National_Unification
+		}
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Hijack_Endecja"
+			add_stability = 0.05
+			if = {
+				limit = { has_government = national_populist }
+				custom_effect_tooltip = POL_Hijack_Endecja_tt2
+				hidden_effect = {
+					set_temp_variable = { POL_soccon_var = POL.party_popularity@social_conservative }
+					add_to_temp_variable = { POL_soccon_var = POL.party_popularity@paternal_autocrat }
+					add_popularity = {
+						ideology = national_populist
+						popularity = POL_soccon_var
+					}
+					add_popularity = {
+						ideology = social_conservative
+						popularity = -1
+					}
+					add_popularity = {
+						ideology = paternal_autocrat
+						popularity = -1
+					}
+				}
+			}
+			else_if = {
+				limit = { has_government = paternal_autocrat }
+				custom_effect_tooltip = POL_Hijack_Endecja_tt1
+				hidden_effect = {
+					set_temp_variable = { POL_soccon_var = POL.party_popularity@social_conservative }
+					add_to_temp_variable = { POL_soccon_var = POL.party_popularity@national_populist }
+					add_popularity = {
+						ideology = paternal_autocrat
+						popularity = POL_soccon_var
+					}
+					add_popularity = {
+						ideology = social_conservative
+						popularity = -1
+					}
+					add_popularity = {
+						ideology = national_populist
+						popularity = -1
+					}
+				}
+			}
+			else = {
+				custom_effect_tooltip = POL_Hijack_Endecja_tt3
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = POL_Land_For_All
+		icon = GFX_goal_generic_stable_government
+		cost = 7
+
+		relative_position_id = POL_The_Monoidea
+		x = 2
+		y = 1
+
+		prerequisite = { focus = POL_The_Monoidea }
+		available = { POL_dobo = yes }
+		cancelable = no
+		select_effect = {
+			log = "[GetDateText]: [Root.GetName]: Select Focus POL_Land_For_All"
+			country_event = { id = poland.705 days = 15 }
+			country_event = { id = poland.706 days = 30 }
+		}
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Land_For_All"
+			add_stability = 0.15
+			if = {
+				limit = {
+					has_idea = POL_issues_at_hand
+					NOT = { has_completed_focus = POL_Thorough_Land_Reform }
+				}
+				country_event = poland.442
+				custom_effect_tooltip = POL_land_reform_tt
+			}
+			else_if = {
+				limit = { has_idea = POL_issues_at_hand }
+				add_political_power = -50
+				remove_ideas = POL_issues_at_hand
+				remove_dynamic_modifier = { modifier = POL_issues_at_hand_modifier }
+			}
+			else_if = {
+				limit = { has_idea = POL_export_agriculture }
+				swap_ideas = {
+					remove_idea = POL_export_agriculture
+					add_idea = POL_nation_of_small_farms
+				}
+			}
+			else_if = {
+				limit = { has_idea = POL_modernized_agriculture }
+				swap_ideas = {
+					remove_idea = POL_export_agriculture
+					add_idea = POL_nation_of_small_farms
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = POL_National_Distributism
+		icon = GFX_goal_POL_industry_warsaw
+		cost = 7
+
+		relative_position_id = POL_The_Monoidea
+		x = 1
+		y = 2
+
+		prerequisite = { focus = POL_Land_For_All }
+		available = {
+			POL_dobo = yes
+			has_completed_focus = POL_Eastern_Europes_Workshop
+			NOT = { has_active_mission = POL_sejm_revolt }
+		}
+		cancelable = no
+		select_effect = {
+			log = "[GetDateText]: [Root.GetName]: Select Focus POL_National_Distributism"
+			country_event = { id = poland.708 days = 15 }
+		}
+		ai_will_do = { factor = 250 }
+		on_uncomplete = {
+			swap_ideas = {
+				remove_idea = POL_decentralized_eco
+				add_idea = POL_central_industrial_region_5
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_National_Distributism"
+			swap_ideas = {
+				remove_idea = POL_central_industrial_region_5
+				add_idea = POL_decentralized_eco
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MANPOWER FOCUS_FILTER_PRODUCTION }
+	}
+
+	focus = {
+		id = POL_Small-Scale_Production
+		icon = GFX_focus_generic_steel
+		cost = 7
+
+		relative_position_id = POL_The_Monoidea
+		x = 3
+		y = 2
+
+		prerequisite = { focus = POL_Land_For_All }
+		available = {
+			POL_dobo = yes
+			has_completed_focus = POL_National_Distributism
+		}
+		ai_will_do = { factor = 250 }
+		on_uncomplete = {
+			remove_ideas = POL_decentralized_eco_2
+			modify_building_resources = {
+				building = industrial_complex resource = steel amount = -1
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Small-Scale_Production"
+			modify_building_resources = {
+				building = industrial_complex resource = steel amount = 1
+			}
+			swap_ideas = {
+				remove_idea = POL_decentralized_eco
+				add_idea = POL_decentralized_eco_2
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MANPOWER }
+	}
+
+	focus = {
+		id = POL_Union_of_Western_Slavs
+		icon = GFX_goal_POL_slavic_union
+		cost = 7
+
+		relative_position_id = POL_National_Distributism
+		x = 1
+		y = 1
+
+		prerequisite = { focus = POL_National_Distributism }
+		available = {
+			is_subject = no
+			POL_dobo = yes
+			NOT = { has_country_flag = POL_postwar_coup }
+		}
+		ai_will_do = {
+			base = 250
+			modifier = {
+				factor = 0
+				OR = {
+					is_in_faction_with = RUS
+					surrender_progress > 0.5
+				}
+			}
+		}
+		will_lead_to_war_with = RUS
+		will_lead_to_war_with = INT
+
+		will_lead_to_war_with = AUS
+		will_lead_to_war_with = CZE
+		will_lead_to_war_with = SLO
+		will_lead_to_war_with = UKR
+		will_lead_to_war_with = LIT
+		will_lead_to_war_with = WHR
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Union_of_Western_Slavs"
+			add_war_support = 0.1
+			custom_effect_tooltip = POL_war_warning_tt
+			if = {
+				limit = { is_in_faction_with = RUS }
+				leave_faction = yes
+			}
+
+			if = {
+				limit = {
+					NOT = { has_wargoal_against = 9.owner }
+					9 = { is_owned_by_ROOT_or_subject = no }
+				}
+				create_wargoal = {
+					type = topple_government
+					target = 9.owner
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_wargoal_against = 70.owner }
+					70 = { is_owned_by_ROOT_or_subject = no }
+				}
+				create_wargoal = {
+					type = topple_government
+					target = 70.owner
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_wargoal_against = 91.owner }
+					91 = { is_owned_by_ROOT_or_subject = no }
+				}
+				create_wargoal = {
+					type = topple_government
+					target = 91.owner
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_wargoal_against = 11.owner }
+					11 = { is_owned_by_ROOT_or_subject = no }
+				}
+				create_wargoal = {
+					type = topple_government
+					target = 11.owner
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_wargoal_against = 202.owner }
+					202 = { is_owned_by_ROOT_or_subject = no }
+				}
+				create_wargoal = {
+					type = topple_government
+					target = 202.owner
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_wargoal_against = 206.owner }
+					206 = { is_owned_by_ROOT_or_subject = no }
+				}
+				create_wargoal = {
+					type = topple_government
+					target = 206.owner
+				}
+			}
+			custom_effect_tooltip = POL_add_to_union_tt
+			hidden_effect = {
+				RUS = {
+					create_wargoal = {
+						type = topple_government
+						target = POL
+					}
+				}
+				INT = {
+					create_wargoal = {
+						type = topple_government
+						target = POL
+					}
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	}
+
+	focus = {
+		id = POL_Towards_Great_Nation
+		icon = GFX_goal_agrarian_soldiers
+		cost = 7
+
+		relative_position_id = POL_The_Monoidea
+		x = 0
+		y = 3
+
+		prerequisite = { focus = POL_Moral_Planning }
+		prerequisite = { focus = POL_National_Distributism }
+		available = { POL_dobo = yes }
+		ai_will_do = { factor = 500 }
+		on_uncomplete = {
+			remove_ideas = POL_great_nation_4
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Towards_Great_Nation"
+			swap_ideas = {
+				remove_idea = POL_great_nation_3
+				add_idea = POL_great_nation_4
+			}
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER }
+	}
+
+	focus = {
+		id = POL_Total_Catholicism
+		icon = GFX_PAP_holy_war
+		cost = 7
+
+		relative_position_id = POL_Towards_Great_Nation
+		x = 1
+		y = 1
+
+		prerequisite = { focus = POL_Towards_Great_Nation }
+		prerequisite = { focus = POL_National_Distributism }
+		available = { POL_dobo = yes }
+		ai_will_do = { factor = 250 }
+		on_uncomplete = {
+			remove_ideas = POL_great_nation_5
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Total_Catholicism"
+			swap_ideas = {
+				remove_idea = POL_great_nation_4
+				add_idea = POL_great_nation_5
+			}
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}
+
+	#add nuclear event for dobo
+
+	## Naval tree (don't laugh!)
+	focus = {
+		id = POL_Rebirth_of_Polish_Navy
+		icon = GFX_goal_POL_navy
+		cost = 5
+
+		x = 28
+		y = 1
+
+		#allow_branch = { any_owned_state = { is_coastal = yes } }
+		available = {
+			owns_state_with_naval_base = yes
+			has_manpower > 2500
+		}
+		ai_will_do = { factor = 200 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Rebirth_of_Polish_Navy"
+			navy_experience = 25
+			POL_jozef_unrug = { set_nationality = ROOT }
+			custom_effect_tooltip = POL_german_ships_tt
+			hidden_effect = {
+				if = {
+					limit = { has_dlc_mtg = yes }
+					set_technology = { early_ship_hull_light = 1 popup = no }
+					set_technology = { early_ship_hull_submarine = 1 popup = no }
+					create_equipment_variant = {
+						name = "Wilk Class"
+						type = ship_hull_submarine_1
+						parent_version = 0
+						modules = {
+							fixed_ship_torpedo_slot = ship_torpedo_sub_1
+							fixed_ship_engine_slot = sub_ship_engine_1
+							rear_1_custom_slot = empty
+						}
+					}
+					create_equipment_variant = {
+						name = "Wicher Class"
+						type = ship_hull_light_1
+						parent_version = 0
+						modules = {
+							fixed_ship_battery_slot = ship_light_battery_1
+							fixed_ship_anti_air_slot = ship_anti_air_1
+							fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+							fixed_ship_radar_slot = empty
+							fixed_ship_engine_slot = light_ship_engine_1
+							fixed_ship_torpedo_slot = ship_torpedo_1
+							mid_1_custom_slot = ship_mine_layer_1
+							rear_1_custom_slot = ship_depth_charge_1
+						}
+					}
+					create_ship = { name = "ORP Wicher" type = ship_hull_light_1 equipment_variant = "Wicher Class" creator = POL }
+					create_ship = { name = "ORP Piorun" type = ship_hull_light_1 equipment_variant = "Wicher Class" creator = POL }
+					create_ship = { name = "ORP Wilk" type = ship_hull_submarine_1 equipment_variant = "Wilk Class" creator = POL }
+					create_ship = { name = "ORP Ryś" type = ship_hull_submarine_1 equipment_variant = "Wilk Class" creator = POL }
+					create_ship = { name = "ORP Żbik" type = ship_hull_submarine_1 equipment_variant = "Wilk Class" creator = POL }
+				}
+				else = {
+					set_technology = { early_destroyer = 1 popup = no }
+					set_technology = { early_submarine = 1 popup = no }
+					create_ship = { name = "ORP Wicher" type = destroyer_1 equipment_variant = "Weltkrieg Destroyer" creator = POL }
+					create_ship = { name = "ORP Piorun" type = destroyer_1 equipment_variant = "Weltkrieg Destroyer" creator = POL }
+					create_ship = { name = "ORP Wilk" type = submarine_1 equipment_variant = "Weltkrieg Submarine" creator = POL }
+					create_ship = { name = "ORP Ryś" type = submarine_1 equipment_variant = "Weltkrieg Submarine" creator = POL }
+					create_ship = { name = "ORP Żbik" type = submarine_1 equipment_variant = "Weltkrieg Submarine" creator = POL }
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_NAVY_XP }
+	}
+
+	focus = {
+		id = POL_Grand_Shipyard_of_Gdansk
+		icon = GFX_goal_generic_shipyard
+		cost = 5
+
+		relative_position_id = POL_Rebirth_of_Polish_Navy
+		x = -2
+		y = 1
+
+		prerequisite = { focus = POL_Rebirth_of_Polish_Navy }
+		available = { owns_state = 776 }
+		ai_will_do = { factor = 200 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Grand_Shipyard_of_Gdansk"
+			776 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = { has_dlc_mtg = yes }
+				set_technology = {
+					early_ship_hull_submarine = 1
+					early_ship_hull_light = 1
+					basic_depth_charges = 1
+					basic_torpedo = 1
+					basic_battery = 1
+					basic_naval_mines = 1
+				}
+			}
+
+			### Navy - non MtG ###
+			if = {
+				limit = { has_dlc_mtg = no }
+				set_technology = {
+					early_submarine = 1
+					early_destroyer = 1
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = POL_Maritime_and_Colonial_League
+		icon = GFX_focus_POL_colonial_league
+		cost = 5
+
+		relative_position_id = POL_Rebirth_of_Polish_Navy
+		x = -2
+		y = 2
+
+		prerequisite = { focus = POL_Grand_Shipyard_of_Gdansk }
+		ai_will_do = { factor = 150 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Maritime_and_Colonial_League"
+			#mabe add some nice decisions or something
+			add_political_power = 75
+			add_equipment_to_stockpile = {
+				type = convoy
+				amount = 50
+				producer = POL
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = POL_Establish_Admiralty
+		icon = GFX_goal_navy_hat_ships
+		cost = 5
+
+		relative_position_id = POL_Rebirth_of_Polish_Navy
+		x = 1
+		y = 1
+
+		prerequisite = { focus = POL_Rebirth_of_Polish_Navy }
+		available = { owns_state = 776 }
+		ai_will_do = { factor = 200 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Establish_Admiralty"
+			add_doctrine_cost_reduction = {
+				name = POL_Establish_Admiralty
+				cost_reduction = 0.5
+				uses = 2
+				category = naval_doctrine
+			}
+			if = {
+				limit = {
+					UKR = {
+						NOT = { is_subject_of = GER }
+						OR = {
+							exists = no
+							is_subject = yes
+							has_socialist_government = yes
+							is_ai = yes
+						}
+					}
+				}
+				UKR = {
+					UKR_yurii_svirskyi = {
+						set_nationality = POL
+						set_character_name = POL_jerzy_swirski
+					}
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = POL_Ship_Acquisitions
+		icon = GFX_goal_generic_coastal_navy2
+		cost = 5
+
+		relative_position_id = POL_Rebirth_of_Polish_Navy
+		x = 3
+		y = 1
+
+		prerequisite = { focus = POL_Rebirth_of_Polish_Navy }
+		available = {
+			OR = {
+				is_in_faction_with = INT
+				is_in_faction_with = RUS
+				is_in_faction_with = SOV
+				is_in_faction_with = ENT
+				is_in_faction_with = AUS
+			}
+			owns_state_with_naval_base = yes
+			has_manpower > 2500
+		}
+		ai_will_do = {
+			factor = 250
+			modifier = {
+				factor = 0.5
+				has_political_power < 100
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Ship_Acquisitions"
+			add_political_power = -100
+			create_equipment_variant = {
+				name = "Grom Class"
+				type = ship_hull_light_1
+				parent_version = 0
+				modules = {
+					fixed_ship_battery_slot = ship_light_battery_1
+					fixed_ship_anti_air_slot = ship_anti_air_2
+					fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+					fixed_ship_radar_slot = empty
+					fixed_ship_engine_slot = light_ship_engine_1
+					fixed_ship_torpedo_slot = ship_torpedo_2
+					mid_1_custom_slot = ship_mine_layer_1
+					rear_1_custom_slot = ship_depth_charge_2
+				}
+			}
+			create_equipment_variant = {
+				name = "Bałtyk Class"
+				type = ship_hull_cruiser_1
+				parent_version = 0
+				modules = {
+					fixed_ship_battery_slot = ship_light_medium_battery_1
+					fixed_ship_anti_air_slot = ship_anti_air_1
+					fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+					fixed_ship_radar_slot = empty
+					fixed_ship_engine_slot = cruiser_ship_engine_1
+					fixed_ship_armor_slot = ship_armor_cruiser_1
+					mid_1_custom_slot = ship_torpedo_1
+					mid_2_custom_slot = ship_anti_air_1
+					rear_1_custom_slot = ship_light_battery_1
+				}
+				obsolete = yes
+			}
+			effect_tooltip = {
+				create_ship = { name = "ORP Grom" type = ship_hull_light_1 equipment_variant = "Grom Class" creator = faction_leader }
+				create_ship = { name = "ORP Błyskawica" type = ship_hull_light_1 equipment_variant = "Grom Class" creator = faction_leader }
+				create_ship = { name = "ORP Orkan" type = ship_hull_light_1 equipment_variant = "Grom Class" creator = faction_leader }
+				create_ship = { name = "ORP Bałtyk" type = ship_hull_cruiser_1 equipment_variant = "Bałtyk Class" creator = faction_leader }
+			}
+			hidden_effect = {
+				faction_leader = { country_event = poland.337 }
+				# Since ship variants are added to POL, those must be spawned as POL equipment
+				if = {
+					limit = { has_dlc_mtg = yes }
+					set_technology = { early_ship_hull_cruiser = 1 popup = no }
+					create_ship = { name = "ORP Grom" type = ship_hull_light_1 equipment_variant = "Grom Class" }
+					create_ship = { name = "ORP Błyskawica" type = ship_hull_light_1 equipment_variant = "Grom Class" }
+					create_ship = { name = "ORP Orkan" type = ship_hull_light_1 equipment_variant = "Grom Class" }
+					create_ship = { name = "ORP Bałtyk" type = ship_hull_cruiser_1 equipment_variant = "Bałtyk Class" }
+				}
+				else = {
+					set_technology = { early_light_cruiser = 1 popup = no }
+					create_ship = { name = "ORP Grom" type = destroyer_1 equipment_variant = "Weltkrieg Destroyer" }
+					create_ship = { name = "ORP Błyskawica" type = destroyer_1 equipment_variant = "Weltkrieg Destroyer" }
+					create_ship = { name = "ORP Orkan" type = destroyer_1 equipment_variant = "Weltkrieg Destroyer" }
+					create_ship = { name = "ORP Bałtyk" type = light_cruiser_1 equipment_variant = "Weltkrieg Light Cruiser" }
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = POL_Protection_of_Baltic
+		icon = GFX_goal_generic_baltic_sea
+		cost = 5
+
+		relative_position_id = POL_Rebirth_of_Polish_Navy
+		x = 0
+		y = 2
+
+		prerequisite = { focus = POL_Establish_Admiralty }
+		prerequisite = { focus = POL_Ship_Acquisitions }
+		mutually_exclusive = { focus = POL_Hunt_and_Harass }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Protection_of_Baltic"
+			add_ideas = POL_navy_protection
+			if = {
+				limit = { has_dlc_mtg = yes }
+				add_tech_bonus = {
+					name = POL_Protection_of_Baltic
+					bonus = 1
+					uses = 2
+					category = naval_mines
+				}
+			}
+			add_tech_bonus = {
+				name = POL_Protection_of_Baltic
+				bonus = 0.5
+				uses = 1
+				category = dd_tech
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_NAVY_BONUS }
+	}
+
+	focus = {
+		id = POL_Hunt_and_Harass
+		icon = GFX_goal_generic_navy_submarine
+		cost = 5
+
+		relative_position_id = POL_Rebirth_of_Polish_Navy
+		x = 2
+		y = 2
+
+		prerequisite = { focus = POL_Establish_Admiralty }
+		prerequisite = { focus = POL_Ship_Acquisitions }
+		mutually_exclusive = { focus = POL_Protection_of_Baltic }
+		ai_will_do = { factor = 250 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Hunt_and_Harass"
+			add_ideas = POL_navy_hunt
+			add_tech_bonus = {
+				name = POL_Hunt_and_Harass
+				bonus = 1.0
+				uses = 2
+				category = ss_tech
+			}
+			add_tech_bonus = {
+				name = POL_Hunt_and_Harass
+				bonus = 1.0
+				uses = 1
+				category = cl_tech
+				category = ca_tech
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_NAVY_BONUS }
+	}
+
+	focus = {
+		id = POL_Marriage_to_the_Sea
+		icon = GFX_goal_generic_coastal_navy
+		cost = 5
+
+		relative_position_id = POL_Rebirth_of_Polish_Navy
+		x = -1
+		y = 3
+
+		prerequisite = {
+			focus = POL_Hunt_and_Harass
+			focus = POL_Protection_of_Baltic
+		}
+		prerequisite = { focus = POL_Maritime_and_Colonial_League }
+		ai_will_do = { factor = 200 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus POL_Marriage_to_the_Sea"
+			add_stability = 0.1
+			add_doctrine_cost_reduction = {
+				name = POL_Marriage_to_the_Sea
+				cost_reduction = 0.5
+				uses = 1
+				category = naval_doctrine
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_STABILITY }
+	}
+}
+

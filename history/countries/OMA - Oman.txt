@@ -13,30 +13,27 @@ set_technology = {
 set_war_support = 0.42
 
 set_politics = {
-	ruling_party = autocracy
+	ruling_party = paternal_autocrat
 	last_election = "1888.6.15"
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	bolshevism = 0
-	communism = 0
-	revolutionary_socialism = 4
-	moderate_socialism = 0
-	progressivism = 4
-	liberalism = 5
-	liberal_conservatism = 7
-	social_conservatism = 10
-	anocracy = 15
-	autocracy = 45
-	reformed_voynism = 10
-	voynism = 0
-	radical_voynism = 0
+	totalist = 0
+	radical_socialist = 4
+	syndicalist = 0
+	social_democrat = 4
+	social_liberal = 5
+	market_liberal = 7
+	social_conservative = 10
+	authoritarian_democrat = 15
+	paternal_autocrat = 45
+	national_populist = 10
 }
 
-
-
+country_event = { id = oma.10 days = 150 random_days = 120 } #Imam loyalists refuse to pay taxes
+country_event = { id = oma.11 days = 240 random_days = 120 } #Tribal Raids
 
 add_ideas = {
 	limited_conscription
@@ -46,14 +43,14 @@ add_ideas = {
 }
 
 ### Country Leaders ###
-
+recruit_character = OMA_said_ibn_taimur
 
 ### Generals ###
-
-
+recruit_character = OMA_suleiman_bin_himayer_al_ryami
+recruit_character = OMA_talib_bin_ali_al_hinai
 
 ### Admirals ###
-
+recruit_character = OMA_ali_bin_serhan
 
 ### Character Setup ###
 OMA_said_ibn_taimur = { set_character_flag = is_monarch }

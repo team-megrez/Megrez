@@ -1,0 +1,309 @@
+defined_text = {
+	name = GetGrantTerritoryEventOption
+	text = {
+		trigger = {
+			is_ally_with = ROOT
+			set_temp_variable = { target = THIS }
+		}
+		localization_key = annex.give_to_ally
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { target = THIS }
+		}
+		localization_key = annex.give_to_neutral
+	}
+}
+
+defined_text = {
+	name = GetLandExchangeOfferEventTitle
+	text = {
+		localization_key = annex.5.t
+	}
+}
+
+defined_text = {
+	name = GetLandExchangeOfferEventDesc
+	text = {
+		localization_key = annex.5.desc
+	}
+}
+
+defined_text = {
+	name = GetLandExchangeOfferEventOptionAccept
+	text = {
+		localization_key = annex.5.a
+	}
+}
+
+defined_text = {
+	name = GetLandExchangeOfferEventOptionRefuse
+	text = {
+		localization_key = annex.5.b
+	}
+}
+
+defined_text = {
+	name = GetLandExchangeAcceptedEventTitle
+	text = {
+		localization_key = annex.6.t
+	}
+}
+
+defined_text = {
+	name = GetLandExchangeAcceptedEventDesc
+	text = {
+		localization_key = annex.6.desc
+	}
+}
+
+defined_text = {
+	name = GetLandExchangeAcceptedEventOption
+	text = {
+		localization_key = annex.6.a
+	}
+}
+
+defined_text = {
+	name = GetLandExchangeRefusedEventTitle
+	text = {
+		localization_key = annex.7.t
+	}
+}
+
+defined_text = {
+	name = GetLandExchangeRefusedEventDesc
+	text = {
+		localization_key = annex.7.desc
+	}
+}
+
+defined_text = {
+	name = GetLandExchangeRefusedEventOption
+	text = {
+		localization_key = annex.7.a
+	}
+}
+
+defined_text = {
+	name = GetLandExchangeNotificationEventTitle
+	text = {
+		localization_key = annex.8.t
+	}
+}
+
+defined_text = {
+	name = GetLandExchangeNotificationEventDesc
+	text = {
+		localization_key = annex.8.desc
+	}
+}
+
+defined_text = {
+	name = GetLandExchangeNotificationEventOption
+	text = {
+		localization_key = annex.8.a
+	}
+}
+
+defined_text = {
+	name = annexation_AST_CONQ_title
+	text = {
+		trigger = {
+			OR = {
+				284 = { is_valid_annexation_state = yes } #North Island
+				tag = GBR
+				AND = {
+					tag = ENT
+					is_commonwealth_tag = yes
+				}
+				AND = {
+					tag = CAN
+					CAN_is_dominion = yes
+				}
+			}
+		}
+		localization_key = annexation_AST_CONQ_australasia
+	}
+	text = {
+		localization_key = annexation_AST_CONQ_australia
+	}
+}
+
+defined_text = {
+	name = annexation_AST_CONQ_description
+	text = {
+		trigger = {
+			OR = {
+				tag = GBR
+				AND = {
+					tag = ENT
+					is_commonwealth_tag = yes
+				}
+				AND = {
+					tag = CAN
+					CAN_is_dominion = yes
+				}
+			}
+		}
+		localization_key = annexation_AST_CONQ_entente_desc
+	}
+	text = {
+		trigger = { 284 = { is_valid_annexation_state = yes } } #North Island
+		localization_key = annexation_AST_CONQ_australasia_desc
+	}
+	text = {
+		localization_key = annexation_AST_CONQ_australia_desc
+	}
+}
+
+defined_text = {
+	name = annexation_CUB_CONQ_description
+	text = {
+		trigger = {
+			is_american_tag = yes
+			NOT = { tag = CSA }
+		}
+		localization_key = annexation_CUB_CONQ_desc_USA
+	}
+	text = {
+		localization_key = annexation_CUB_CONQ_desc_other
+	}
+}
+
+defined_text = {
+	name = annexation_ECU_CONQ_description
+	text = {
+		trigger = {
+			NOT = { owns_state = 305 } #Quito
+		}
+		localization_key = annexation_ECU_CONQ_galapagos
+	}
+	text = {
+		localization_key = annexation_ENG_CONQ_normal
+	}
+}
+
+defined_text = {
+	name = annexation_ENG_CONQ_title
+	text = {
+		trigger = {
+			NOT = { owns_state = 121 } #Lothian
+		}
+		localization_key = annexation_ENG_CONQ_england
+	}
+	text = {
+		localization_key = annexation_ENG_CONQ_britain
+	}
+}
+
+defined_text = {
+	name = annexation_ENG_CONQ_description
+	text = {
+		trigger = {
+			NOT = { owns_state = 121 } #Lothian
+		}
+		localization_key = annexation_ENG_CONQ_desc_england
+	}
+	text = {
+		trigger = {
+			tag = GER
+		}
+		localization_key = annexation_ENG_CONQ_desc_britain_GER
+	}
+	text = {
+		localization_key = annexation_ENG_CONQ_desc_britain
+	}
+}
+
+defined_text = {
+	name = annexation_GER_CONQ_description
+	text = {
+		trigger = {
+			OR = {
+				tag = RUS
+				tag = SOV
+			}
+		}
+		localization_key = annexation_GER_CONQ_desc_RUS
+	}
+	text = {
+		localization_key = annexation_GER_CONQ_desc_other
+	}
+}
+
+defined_text = {
+	name = annexation_IRE_CONQ_description
+	text = {
+		trigger = {
+			is_british_tag = yes
+			has_socialist_government = yes
+		}
+		localization_key = annexation_IRE_CONQ_desc_ENG
+	}
+	text = {
+		trigger = {
+			is_british_tag = yes
+			has_socialist_government = no
+		}
+		localization_key = annexation_IRE_CONQ_desc_GBR
+	}
+	text = {
+		localization_key = annexation_IRE_CONQ_desc_other
+	}
+}
+
+defined_text = {
+	name = annexation_LAT_CONQ_title
+	text = {
+		trigger = {
+			11 = { is_valid_annexation_state = yes } #Kaunas
+			13 = { is_valid_annexation_state = yes } #Estonia
+		}
+		localization_key = annexation_LAT_CONQ_baltic
+	}
+	text = {
+		localization_key = annexation_LAT_CONQ_latvia
+	}
+}
+
+defined_text = {
+	name = annexation_LAT_CONQ_description
+	text = {
+		trigger = {
+			11 = { is_valid_annexation_state = yes } #Kaunas
+			13 = { is_valid_annexation_state = yes } #Estonia
+		}
+		localization_key = annexation_LAT_CONQ_baltic_desc
+	}
+	text = {
+		localization_key = annexation_LAT_CONQ_latvia_desc
+	}
+}
+
+defined_text = {
+	name = annexation_LBA_CONQ_title
+	text = {
+		trigger = {
+			448 = { is_valid_annexation_state = yes } #Tripoli
+		}
+		localization_key = annexation_LBA_CONQ_libya
+	}
+	text = {
+		localization_key = annexation_LBA_CONQ_cyrenaica
+	}
+}
+
+defined_text = {
+	name = annexation_LBA_CONQ_description
+	text = {
+		trigger = {
+			448 = { is_valid_annexation_state = yes } #Tripoli
+		}
+		localization_key = annexation_LBA_CONQ_libya_desc
+	}
+	text = {
+		localization_key = annexation_LBA_CONQ_cyrenaica_desc
+	}
+}
+
