@@ -1,78 +1,81 @@
-﻿capital = 547
-set_research_slots = 2
+capital = 1187
 
-set_technology = {
-	### Infantry ###
-	infantry_weapons = 1
-	tech_irregulars = 1
-}
+# Vacant
+# recruit_character = KEN_Generic_Vacant
+fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
+# recruit_character = KEN_Tom_Mboya
+
+oob = "BFR_1962"
 
 add_ideas = {
-	war_economy
-	limited_exports
+	#political#
+	tno_political_parties_multiparty_system
+	tno_religious_rights_pluralism
+	tno_trade_unions_all_allowed
+	tno_immigration_quota_immigration
+	tno_slavery_outlawed
+	tno_public_meetings_allowed
+	tno_press_rights_free_press
+	tno_vote_franchise_universal
+	#military#
+	tno_conscription_service_by_requirement
+	tno_military_supervision_rules_of_engagement
+	tno_training_basic_training
+	tno_draft_exemptions_none
+	#economic#
+	tno_trade_laws_export_focus
+	tno_income_taxation_high_income_weighted
+	tno_minimum_wage_acceptable_minimum
+	tno_max_workhours_10_hour_work_day
+	tno_pensions_acceptable_pensions
+	tno_unemployment_moderate_subsidies
+	tno_regulations_moderate_regulations
+	#social#
+	tno_health_care_low_income_protections
+	tno_education_public_education
+	tno_penal_system_incarceration
+	tno_gender_rights_women_in_the_workplace
+	tno_security_regulated_police
+	#misc#
+	tno_pollution_some_regulations
+	tno_safety_acceptable_regulations
+	tno_child_labor_illegal
+	tno_refugees_skilled
+	tno_racial_integration_integrated_military
+	tno_women_military_assistance
+	tno_minorities_equal_rights
+	tno_lgbt_rights_lgbt_outlawed
+	#social development
+	
+	tno_army_professionalism_political_interference
+	tno_industrial_expertise_nascent
+	tno_industrial_equipment_power_tools
+	tno_admin_efficiency_functional_administrative_systems
+	tno_healthcare_nascent
+	tno_agriculture_basic_mechanized
+	tno_research_facilities_outdated
+	tno_academic_base_basic_literacy
 }
 
 set_politics = {
-	ruling_party = paternal_autocrat
-	last_election = "1888.6.15"
-	election_frequency = 48
+	ruling_party = conservative
+	last_election = "1931.1.1"
+	election_frequency = 96
 	elections_allowed = no
 }
 
 set_popularities = {
-	totalist = 0
-	radical_socialist = 0
+	vanguardist = 0
+	national_populist = 0
+	socialist = 0
+	progressive =  0
+	ecologist = 67
+
+	liberal = 8
+	conservative = 23
 	syndicalist = 0
-	social_democrat = 2
-	social_liberal = 6
-	market_liberal = 6
-	social_conservative = 12
-	authoritarian_democrat = 15
-	paternal_autocrat = 47
-	national_populist = 12
+	anocrat = 2
+	
 }
 
-set_cosmetic_tag = KEN_ENG
-
-recruit_character = KEN_Stanley_Mathenge      #Kikuyu revolt leader
-recruit_character = KEN_Thomas_Cholmondeley   #British leader
-recruit_character = KEN_Philip_Euen_Mitchell
-
-### Templates ###
-division_template = {
-	name = "Militia Division"
-	division_names_group = AFR-SW_MIL_01
-	regiments = {
-		irregular_infantry = { x = 0 y = 0 }
-		irregular_infantry = { x = 0 y = 1 }
-		irregular_infantry = { x = 1 y = 0 }
-		irregular_infantry = { x = 1 y = 1 }
-	}
-}
-division_template = {
-	name = "Infantry Division"
-	division_names_group = AFR-SW_INF_01
-	regiments = {
-		infantry = { x = 0 y = 0 }
-		infantry = { x = 0 y = 1 }
-		infantry = { x = 0 y = 2 }
-		infantry = { x = 1 y = 0 }
-		infantry = { x = 1 y = 1 }
-		infantry = { x = 1 y = 2 }
-		infantry = { x = 2 y = 0 }
-		infantry = { x = 2 y = 1 }
-		infantry = { x = 2 y = 2 }
-	}
-}
-division_template = {
-	name = "Cavalry Division"
-	division_names_group = AFR-SW_CAV_01
-	regiments = {
-		cavalry = { x = 0 y = 0 }
-		cavalry = { x = 0 y = 1 }
-		cavalry = { x = 0 y = 2 }
-		cavalry = { x = 1 y = 0 }
-		cavalry = { x = 1 y = 1 }
-		cavalry = { x = 1 y = 2 }
-	}
-}
+TNO_startup_nation = yes

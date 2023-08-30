@@ -1,148 +1,126 @@
-﻿capital = 315
-oob = "CUB"
-set_naval_oob = "CUB_naval"
+capital = 315
+
+# Vacant
+# recruit_character = CUB_Generic_Vacant
+# recruit_character = CUB_Fidel_Castro
+# recruit_character = CUB_Jose_Antonio_Echeverria
+# recruit_character = CUB_Carlos_Prio_Socarras
+# recruit_character = CUB_Manuel_Urrutia_Lleo
+# recruit_character = CUB_Jose_Miro_Cardona
+# recruit_character = CUB_Raul_Cepero_Bonilla
+# recruit_character = CUB_Ramon_Barquin
+# recruit_character = CUB_Rolando_Masferrer
+# recruit_character = CUB_Raul_Castro
+# recruit_character = CUB_Celia_Sanchez
+# recruit_character = CUB_Camilo_Cienfuegos
+# recruit_character = CUB_Manuel_Pineiro
+# recruit_character = CUB_Rolando_Cubela_Secades
+# recruit_character = CUB_Faure_Chomon_Mediavilla
+# recruit_character = CUB_Eloy_Gutierrez_Menoyo
+# recruit_character = CUB_Ramon_Grau
+# recruit_character = CUB_Carlos_Hevia
+# recruit_character = CUB_Felipe_Pazos_Roque
+
+promote_character = {
+	character = CUB_Fidel_Castro
+	ideology = paternalism_provisional_government_subtype
+}
+
+#econtype
+set_variable = { TNO_economy_subtype = token:Econ_Subtype_Dirigisme }
+set_variable = { TNO_economy_type = token:Econ_Type_Corporatism }
+
+oob = "CUB_1962"
+
+add_ideas = {
+	#political#
+	tno_political_parties_one_party_state
+	tno_religious_rights_secularism
+	tno_trade_unions_all_allowed
+	tno_immigration_open_immigration
+	tno_slavery_outlawed
+	tno_public_meetings_allowed
+	tno_press_rights_free_press
+	tno_vote_franchise_no_voting
+	#military#
+	tno_conscription_limited_conscription
+	tno_military_supervision_rules_of_engagement
+	tno_training_basic_training
+	tno_draft_exemptions_none
+	#economic#
+	tno_trade_laws_export_focus
+	tno_income_taxation_high_income_weighted
+	tno_minimum_wage_good_minimum_wage
+	tno_max_workhours_8_hour_work_day
+	tno_pensions_good_pensions
+	tno_unemployment_generous_subsidies
+	#social#
+	tno_health_care_universal_health_care
+	tno_education_free_education
+	tno_penal_system_incarceration
+	tno_gender_rights_promoted_equality
+	tno_security_regulated_police
+	tno_regulations_moderate_regulations
+	#misc#
+	tno_refugees_vetted_entry
+	tno_women_combat_roles
+	tno_racial_integration_integrated_military
+	tno_child_labor_illegal
+	tno_safety_excellent_regulations
+	tno_pollution_some_regulations
+	tno_lgbt_rights_lgbt_outlawed
+	tno_minorities_equal_rights
+	#social development
+	tno_academic_base_tertiary_schooling
+	tno_industrial_expertise_experienced
+	tno_industrial_equipment_modern
+	tno_admin_efficiency_streamlined_bureaucracy
+	tno_agriculture_mass_mechanized
+	tno_healthcare_developed
+	tno_research_facilities_modern
+	tno_army_professionalism_professional
+}
+
 set_research_slots = 3
-set_stability = 0.3
-set_war_support = 0.15
-set_convoys = 10
-starting_train_buffer = 1
-
-set_technology = {
-	### Infantry ###
-	infantry_weapons = 1
-
-	### Support ###
-	tech_support = 1
-
-	### Artillery ###
-	gw_artillery = 1
-
-	### Trains ###
-	basic_train = 1
-}
-
-### Planes - BBA ###
-if = {
-	limit = { has_dlc_bba = yes }
-	set_air_oob = "CUB_air_bba"
-}
-
-### Planes - non BBA ###
-if = {
-	limit = { has_dlc_bba = no }
-	set_air_oob = "CUB_air_legacy"
-	set_technology = { early_fighter = 1 }
-}
-
-### Navy - MtG ###
-if = {
-	limit = { has_dlc_mtg = yes }
-	set_technology = {
-		### Hulls ###
-		early_ship_hull_light = 1
-
-		### Modules ###
-		basic_naval_mines = 1
-		basic_battery = 1
-		basic_torpedo = 1
-		basic_depth_charges = 1
-	}
-}
-
-### Navy - Non MtG ###
-if = {
-	limit = { has_dlc_mtg = no }
-	set_technology = {
-		### Hulls ###
-		early_destroyer = 1
-	}
-}
-
-country_event = { id = cuba.254 days = 20 }
-country_event = { id = cuba.1 days = 28 }
-news_event = { id = cuba.226 days = 139 }
-country_event = { id = cuba.223 days = 769 }
-country_event = { id = cuba.241 days = 1162 }
-country_event = { id = cuba.242 days = 1777 }
-country_event = { id = cuba.251 days = 2076 } #Death of Mario Garcia Menocal
-country_event = { id = cuba.224 days = 2212 }
-country_event = { id = cuba.225 days = 2259 }
-country_event = { id = cuba.245 days = 2706 }
 
 set_politics = {
-	ruling_party = social_democrat
-	last_election = "1935.1.28"
+	ruling_party = conservative
+	last_election = "1961.1.20"
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	totalist = 2
-	radical_socialist = 5
-	syndicalist = 12
-	social_democrat = 40
-	social_liberal = 13
-	market_liberal = 12
-	social_conservative = 10
-	authoritarian_democrat = 4
-	paternal_autocrat = 0
-	national_populist = 2
+	conservative = 100
+}
+
+
+set_technology = {
+	basic_train = 1
+
+	infantry_weapons_1 = 1
+	night_vision_1 = 1
+	
+	infantry_kit_1 = 1
+	infantry_weapons_2 = 1
+	night_vision_2 = 1
+	infantry_kit_2 = 1
+	infantry_weapons_improvements_mine_1 = 1
+	infantry_kit_3 = 1
+	basic_infantry_equipment = 1
+	support_weapons = 1
+	infantry_at = 1
+	infantry_at_upgrade_1 = 1
 }
 
 add_ideas = {
-	CUB_partial_great_depression
-	CUB_american_influence
-	CUB_mixed_regime
-	gitmo_lease_idea
-	free_trade
-	limited_conscription
+	CUB_idea_cuban_revolution
+	CUB_idea_reform_frenzy
+	CUB_idea_uncertain_direction
+	CUB_idea_question_democracy
+	CUB_Manuel_Urrutia_Lleo_hog
+	CUB_Jose_Miro_Cardona_for
+	CUB_Raul_Cepero_Bonilla_eco
+	CUB_Ramon_Barquin_sec
 }
 
-### Country Leaders ###
-recruit_character = CUB_lazaro_pena_gonzalez
-recruit_character = CUB_sandalio_junco_camellon
-recruit_character = CUB_julio_mella_mcpartland
-recruit_character = CUB_tina_modotti
-recruit_character = CUB_antonio_guiteras_holmes
-recruit_character = CUB_raul_roa_garcia
-recruit_character = CUB_juan_blas_hernandez
-recruit_character = CUB_alberto_bayo_giroud
-recruit_character = CUB_rafael_trejo_gonzalez
-recruit_character = CUB_manuel_bisbe_alberni
-recruit_character = CUB_carlos_cespedes_quesada
-recruit_character = CUB_miguel_mariano_gomez
-recruit_character = CUB_jose_agripino_barnet_y_vinajeras
-recruit_character = CUB_mario_garcia_menocal
-recruit_character = CUB_carlos_prio_socarras
-recruit_character = CUB_clemente_vazquez_bello
-recruit_character = CUB_carlos_mendieta_montefur
-recruit_character = CUB_ramon_grau_san_martin
-recruit_character = CUB_martin_diaz_tamayo
-recruit_character = CUB_alberto_lamar_schweyer
-
-### Advisors ###
-recruit_character = CUB_nicolas_cristobal_guillen_batista
-recruit_character = CUB_jesus_menendez_larrondo
-recruit_character = CUB_francisco_blas_roca_calderio
-recruit_character = CUB_eduardo_rene_chibas_ribas
-recruit_character = CUB_manuel_urrutia_lleo
-recruit_character = CUB_pedro_pablo_cazanas_y_garcia
-recruit_character = CUB_alfredo_ignacio_llaguno_canals
-recruit_character = CUB_ramon_francisco_crusellas_touzet
-recruit_character = CUB_jaime_marine_montes
-
-### Generals ###
-recruit_character = CUB_alberto_herrera_franchi
-recruit_character = CUB_manuel_lopez_migoya
-recruit_character = CUB_genovevo_perez_damera
-recruit_character = CUB_jose_francisco_marti_zayas_bazan
-
-### Admirals ###
-recruit_character = CUB_ernesto_julio_usatorres_ubieta
-
-### Military Staff ###
-recruit_character = CUB_mario_torres_menier
-
-### Characters Recruited by Effect ###
-CUB_genovevo_perez_damera = { retire = yes }
-CUB_jose_francisco_marti_zayas_bazan = { retire = yes }

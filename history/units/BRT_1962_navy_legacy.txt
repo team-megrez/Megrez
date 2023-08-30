@@ -1,0 +1,95 @@
+units = {
+	fleet = {
+		name = "Breton Fleet"
+		naval_base = "3552"
+		task_force = {
+			name = "Coastal Defense Squadron"
+			location = 3552
+
+			#Destroyers
+			ship = {
+				name = "Alarc'h"
+				pride_of_the_fleet = yes
+				definition = destroyer
+				start_experience_factor = 0.5
+				equipment = {
+					destroyer_1 = {
+						amount = 1
+						owner = BRT
+						version_name = "Zerstörer 1944"
+					}
+				}
+			}
+
+			#Frigates
+			ship = {
+				name = "Erminig"
+				definition = frigate
+				start_experience_factor = 0.25
+				equipment = {
+					frigate_1 = {
+						amount = 1
+						owner = BRT
+						version_name = "F-Class Escort Ship"
+					}
+				}
+			}
+
+		}
+
+		#task_force = {
+		#	name = "Maritime Policing Force"
+		#	location = 3552
+		#
+		#	#Corvettes
+		#	ship = {
+		#		name = "Brest"
+		#		definition = corvette
+		#		start_experience_factor = 0.1
+		#		equipment = {
+		#			ship_hull_very_light_1 = {
+		#				amount = 1
+		#				owner = BRT
+		#				version_name = "Type 44 Torpedoboot"
+		#			}
+		#		}
+		#	}
+		#	ship = {
+		#		name = "Roazhon"
+		#		definition = corvette
+		#		start_experience_factor = 0.1
+		#		equipment = {
+		#			ship_hull_very_light_1 = {
+		#				amount = 1
+		#				owner = BRT
+		#				version_name = "Type 44 Torpedoboot"
+		#			}
+		#		}
+		#	}
+		#	ship = {
+		#		name = "An Oriant"
+		#		definition = corvette
+		#		start_experience_factor = 0.1
+		#		equipment = {
+		#			ship_hull_very_light_1 = {
+		#				amount = 1
+		#				owner = BRT
+		#				version_name = "Type 44 Torpedoboot"
+		#			}
+		#		}
+		#	}
+		#	ship = {
+		#		name = "Naoned"
+		#		definition = corvette
+		#		start_experience_factor = 0.1
+		#		equipment = {
+		#			ship_hull_very_light_1 = {
+		#				amount = 1
+		#				owner = BRT
+		#				version_name = "Type 44 Torpedoboot"
+		#			}
+		#		}
+		#	}
+		#}
+	}
+}

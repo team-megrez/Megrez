@@ -1,66 +1,140 @@
-﻿capital = 293
+capital = 293
 
-oob = "YEM"
+# Vacant
+# recruit_character = YEM_Generic_Vacant
+#Characters
+# recruit_character = YEM_Ahmad_Bin_Yahya
 
-set_research_slots = 2
-set_technology = {
-	### Infantry ###
-	infantry_weapons = 1
-	tech_irregulars = 1
-	camelry = 1
+fill_empty_minister_nochecks = yes #Please remove if you are adding ministers
+
+oob = "YEM_1962"
+
+YEM = {
+	set_cosmetic_tag = YEM_FIXED
 }
 
-country_event = { id = yemen.36 days = 287 }
+# Starting tech
+set_technology = {
+	basic_train = 1
 
-set_war_support = 0.2
 
-TUR = {
-	set_autonomy = {
-		target = YEM
-		autonomy_state = kr_ottoman_emirate
-	}
+# Infantry
+	infantry_weapons_1 = 1
+	night_vision_1 = 1
+	
+	infantry_kit_1 = 1
+	infantry_weapons_2 = 1
+	night_vision_2 = 1
+	infantry_kit_2 = 1
+	basic_infantry_equipment = 1
+	support_weapons = 1
+	infantry_at = 1
+	
+# Support
+	tech_support = 1
+	
+# Armor
+
+# Artillery
+	
+# Land Doctrine
+
+# Naval
+	
+# Helicopters
+
+# Light Aircraft
+	early_fighter = 1
+	
+# Heavy Aircraft
+	
+# Air Doctrine
+
+# Engineering
+
+# Industry
 }
 
 set_politics = {
-	ruling_party = paternal_autocrat
-	last_election = "1888.6.15"
-	election_frequency = 48
+	ruling_party = conservative
+	last_election = "1933.2.16"
+	election_frequency = 36
 	elections_allowed = no
 }
 
-set_popularities = {
-	totalist = 0
-	radical_socialist = 4
-	syndicalist = 0
-	social_democrat = 0
-	social_liberal = 12
-	market_liberal = 4
-	social_conservative = 15
-	authoritarian_democrat = 5
-	paternal_autocrat = 60
-	national_populist = 0
+diplomatic_relation = {
+	country = ITA
+	relation = docking_rights
+	active = yes
 }
 
-set_convoys = 35
+set_popularities = {
+	vanguardist = 0
+	national_populist = 0
+	socialist = 10
+	progressive =  0
+	ecologist = 0
+	liberal = 0
+	conservative = 26
+	syndicalist = 64
+	anocrat = 0
+}
 
 add_ideas = {
-	YEM_Ottoman_Rule
-	YEM_Old_Army
-	YEM_Anarchy
+	TRI_Member
+	YEM_the_Aden_arsenal
+	YEM_saudi_influence
+	YEM_tribes_and_Sects
+	
+	### POLITICAL LAWS ###
+	tno_political_parties_one_party_state
+	tno_religious_rights_state_religion
+	tno_trade_unions_illegal
+	tno_immigration_open_immigration
+	tno_slavery_penal_labor
+	tno_public_meetings_regulated
+	tno_press_rights_censored_press
+	tno_vote_franchise_no_voting
+
+	### MILITARY LAWS ###
+	tno_conscription_broadened_conscription
+	tno_military_supervision_no_supervision
+	tno_training_basic_training
+	tno_draft_exemptions_none
+
+	### SOCIAL LAWS ###
+	tno_health_care_support_for_emergencies
+	tno_education_stratified_education
+	tno_penal_system_harsh_penal_code
+	tno_gender_rights_traditional_roles
+	tno_security_regulated_police
+	tno_regulations_token_regulations
+
+	### ECONOMIC LAWS ###
+	tno_trade_laws_limited_exports
+	tno_income_taxation_tax_havens
+	tno_minimum_wage_trinket_minimum_wage
+	tno_max_workhours_12_hour_work_day
+	tno_pensions_trinket_pensions
+	tno_unemployment_trinket_subsidies
+
+	### MISC LAWS ###
+	tno_pollution_few_regulations
+	tno_safety_minimal_regulations
+	tno_child_labor_illegal
+	tno_refugees_vetted_entry
+	tno_racial_integration_segregated_regiments
+	tno_women_banned
+	tno_minorities_segregation
+	tno_lgbt_rights_lgbt_outlawed
+
+	### SOCIETAL DEVELOPMENT ###
+	tno_army_professionalism_disgruntled_veterans
+	tno_industrial_expertise_nascent
+	tno_industrial_equipment_power_tools
+	tno_healthcare_nascent
+	tno_agriculture_basic_mechanized
+	tno_research_facilities_outdated
+	tno_academic_base_basic_literacy
+	tno_admin_efficiency_deficient_administrative_systems
 }
-
-### Country Leaders ###
-recruit_character = YEM_yahya_al_hamid
-recruit_character = YEM_ahmad_bin_yahya
-
-recruit_character = YEM_abdul_rahman_al_eryani
-recruit_character = YEM_ahmad_muhammad_numan
-recruit_character = YEM_ali_nassar_al_qadari
-
-### Generals ###
-recruit_character = YEM_hassal_al_amiri
-recruit_character = YEM_Abdullah_as_sallal
-
-### Character Setup ###
-YEM_yahya_al_hamid = { set_character_flag = is_monarch }
-YEM_ahmad_bin_yahya = { set_character_flag = is_monarch }

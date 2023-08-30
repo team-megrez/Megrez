@@ -1,0 +1,163 @@
+SER_blow_up_the_country = {
+	set_global_flag = SER_CW_ongoing
+	set_global_flag = SER_join_pakt_properly #adds natsoc serbia to the pakt it finishes its civil war before germany
+	SER = { remove_ideas = Pakt_Marionettenstaat }
+	GER = { 
+		end_puppet = SER
+		set_autonomy = {
+			target = SER
+			autonomy_state = autonomy_free
+		}
+	}
+
+	# Every side has cores, no resistance
+	every_owned_state = {
+		add_core_of = SRN
+		add_core_of = GMS
+	}
+
+	leave_faction = yes
+	# ASNOS and Chetniks always appear, so set them here
+
+	# Chetniks
+	SER_Nikola_Kalabic = {
+		set_nationality = SRN
+	}
+	SER_Dragutin_Keserovic = {
+		set_nationality = SRN
+	}
+	SER_Mirko_Lalatovic = {
+		set_nationality = SRN
+	}
+	SER_Dragisa_Kasikovic = {
+		set_nationality = SRN
+	}
+	SER_Velimir_Piletic = {
+		set_nationality = SRN
+	}
+	SER_Dragomir_Jovanovic = {
+		set_nationality = GMS
+	}
+	SER_Dobrivoje_Cilerdzic = {
+		set_nationality = GMS
+	}
+	SER_Strahinja_Janjic = {
+		set_nationality = GMS
+	}
+	SER_Konstantin_Musicki = {
+		set_nationality = GMS
+	}
+	SER_Ratko_Parezanin = {
+		set_nationality = GMS
+	}
+	SER_Jakov_Ljotic = {
+		set_nationality = GMS
+	}
+	SER_Velibor_Jonic = {
+		set_nationality = GMS
+	}
+	SRN = {
+		promote_character = SER_Nikola_Kalabic
+		add_ideas = {
+			SER_Dragutin_Keserovic_hog
+			SER_Mirko_Lalatovic_for
+			SER_Dragisa_Kasikovic_eco
+			SER_Velimir_Piletic_sec
+		}
+		transfer_state = 1274
+		transfer_state = 107
+		transfer_state = 203
+		transfer_state = 1730
+		set_province_controller = 15653
+		set_province_controller = 9756
+		set_province_controller = 15651
+		load_oob = SRN_civil_war
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = SERBIA_CIVIL_WAR_OUTCOME
+					option = SERBIA_CIVIL_WAR_OUTCOME_SRN
+				}
+			}
+			apply_war_buff_with_5_divisions = yes
+		}
+	}
+
+	# ASNOS 
+	delete_unit_template_and_units = {
+		division_template = "Motorizovani Divizija"
+		disband = no
+	}
+	delete_unit_template_and_units = {
+		division_template = "Pešadija Divizija"
+		disband = no
+	}
+	load_oob = SER_Partisans
+	remove_ideas = {
+		SER_majka_srbija
+		SER_government_of_anything_but_salvation
+		SER_Serbia_Shall_Not_be_Pacified
+	}
+	hidden_effect = {
+		set_popularities = {
+			communist = 23
+			socialist = 19
+			progressivism = 6
+			despotism = 52
+		}
+		econ_leave_sphere = yes
+	}
+	set_cosmetic_tag = SER_NLM
+	set_politics = {
+		ruling_party = despotism
+		elections_allowed = no
+	}
+	promote_character = SER_Blagoje_Neskovic
+	add_country_leader_role = {
+		character = SER_Aleksandar_Rankovic
+		country_leader = {
+			expire = "1999.1.1.1"
+			ideology = despotism_partisan_movement_subtype
+		}
+		promote_leader = yes
+	}
+	set_party_name = {
+		ideology = communist
+		long_name = SER_communist_party_NLM_long
+		name = SER_communist_party_NLM
+	}
+	set_party_name = {
+		ideology = socialist
+		long_name = SER_communist_party_NLM_long
+		name = SER_communist_party_NLM
+	}
+	set_party_name = {
+		ideology = progressivism
+		long_name = SER_communist_party_NLM_long
+		name = SER_communist_party_NLM
+	}
+	set_party_name = {
+		ideology = paternalism
+		long_name = SER_communist_party_NLM_long
+		name = SER_communist_party_NLM
+	}
+	set_party_name = {
+		ideology = despotism
+		long_name = SER_despotism_party_NLM_long
+		name = SER_despotism_party_NLM
+	}
+	set_temp_variable = { TNO_economy_type_temp = token:Econ_Type_Capitalism }
+	econ_type_change = yes
+	remove_all_ministers = yes
+	add_ideas = {
+		SER_Petar_Stambolic_hog
+		SER_Dobrica_Cosic_for
+		SER_Dragutin_Zelenovic_eco
+		SER_Nikola_Ljubicic_sec
+
+		SER_Refugee_Question
+		SER_A_Divided_Front
+		SER_Death_To_Fascism_Freedom_To_The_People
+		SER_Violence
+	}
+}

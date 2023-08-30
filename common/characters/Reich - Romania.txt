@@ -1,0 +1,94 @@
+characters = {
+	### ROMANIA
+	ROM_Mihai_I = {
+		name = ROM_Mihai_I
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ROM/Portrait_Romania_Michael_I.dds"
+			}
+		}
+		country_leader = {
+			desc = "POLITICS_MICHAEL_I_DESC"
+			ideology = despotism_interim_government_subtype
+			traits = { }
+			expire = "1975.1.1.1"
+			id = -1
+		}
+	}
+	ROM_Dumitru_Damaceanu = {
+		name = ROM_Dumitru_Damaceanu
+		portraits = {
+			civilian = { small = "GFX_idea_ROM_Dumitru_Damaceanu" }
+		}
+		advisor = {
+			slot = head_of_government
+			idea_token = ROM_Dumitru_Damaceanu_hog
+			allowed = { original_tag = ROM }
+			traits = {
+				head_of_government
+				hog_old_general
+			}
+			ledger = civilian
+			cost = -1
+			can_be_fired = no
+			ai_will_do = { factor = 0 }
+		}
+	}
+	ROM_Gheorghe_Mihail = {
+		name = ROM_Gheorghe_Mihail
+		portraits = {
+			civilian = { small = "GFX_idea_ROM_Gheorghe_Mihail" }
+		}
+		advisor = {
+			slot = security_minister
+			idea_token = ROM_Gheorghe_Mihail_sec
+			allowed = { original_tag = ROM }
+			traits = {
+				security_minister
+				sec_retired_general
+			}
+			ledger = civilian
+			cost = -1
+			can_be_fired = no
+			ai_will_do = { factor = 0 }
+		}
+	}
+	ROM_Ioan_Mocsony_Starcea = {
+		name = ROM_Ioan_Mocsony_Starcea
+		portraits = {
+			civilian = { small = "GFX_idea_ROM_Ioan_Mocsony_Starcea" }
+		}
+		advisor = {
+			slot = economy_minister
+			idea_token = ROM_Ioan_Mocsony_Starcea_eco
+			allowed = { original_tag = ROM }
+			traits = {
+				economy_minister
+				eco_industrialiser
+			}
+			ledger = civilian
+			cost = -1
+			can_be_fired = no
+			ai_will_do = { factor = 0 }
+		}
+	}
+	ROM_Constatin_Visoianu = {
+		name = ROM_Constatin_Visoianu
+		portraits = {
+			civilian = { small = "GFX_idea_ROM_Constatin_Visoianu" }
+		}
+		advisor = {
+			slot = foreign_minister
+			idea_token = ROM_Constatin_Visoianu_for
+			allowed = { original_tag = ROM }
+			traits = {
+				foreign_minister
+				for_seasoned_ambassador
+			}
+			ledger = civilian
+			cost = -1
+			can_be_fired = no
+			ai_will_do = { factor = 0 }
+		}
+	}
+}

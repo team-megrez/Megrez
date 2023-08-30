@@ -1,0 +1,1152 @@
+scripted_gui = {
+	## FOPO VIEW
+	TNO_fopo_container = {
+		window_name = "TNO_fopo_container"
+		context_type = player_context
+		parent_window_name = powerbalanceview
+
+		visible = { check_variable = { TNO_BoP_SelectedTab = token:BoP_Tab_GlobalConflicts } }
+		ai_enabled = { always = no }
+
+		dynamic_lists = {
+			conflict_tabs = {
+				array = TNO_active_conflicts
+				index = conflict_idx
+				value = conflict_id
+				entry_container = TNO_fopo_conflict_tab
+			}
+			conflict_guis = {
+				array = world_conflict_guis
+				index = conflict_idx
+				value = conflict_id
+				entry_container = [Get_TNO_fopo_conflict_guis]
+			}
+		}
+
+		effects = {
+			conflict_icon_click = {
+				set_variable = { selected_conflict_id = conflict_id }
+				clear_array = world_conflict_guis
+				add_to_array = { world_conflict_guis = conflict_id }
+			}
+			tab_click = {
+				set_variable = { selected_conflict_id = conflict_id }
+				clear_array = world_conflict_guis
+				add_to_array = { world_conflict_guis = conflict_id }
+			}
+
+			frontlines_btn_click = {
+				set_variable = { TNO_fopo_selected_front = 1 }
+			}
+			homefront_btn_click = {
+				set_variable = { TNO_fopo_selected_front = 2 }
+			}
+		}
+
+		triggers = {
+			conflict_icon_visible = {
+				if = {
+					limit = {
+						check_variable = { selected_conflict_id = conflict_id }
+					}
+					set_temp_variable = { fopo_button_tab_frame = 2 }
+				}
+				else = {
+					set_temp_variable = { fopo_button_tab_frame = 1 }
+				}
+			}
+
+			frontlines_btn_visible = {
+				TNO_fopo_should_display_homefront = yes
+			}
+			homefront_btn_visible = {
+				TNO_fopo_should_display_homefront = yes
+			}
+			conflict_status_visible = {
+				TNO_fopo_should_display_homefront = no
+			}
+			conflict_title_visible = {
+				TNO_fopo_should_display_homefront = no
+			}
+			info_tab_visible = {
+				TNO_fopo_show_info_tab = yes
+			}
+
+			frontlines_btn_click_enabled = {
+				check_variable = { TNO_fopo_selected_front = 2 }
+			}
+			homefront_btn_click_enabled = {
+				check_variable = { TNO_fopo_selected_front = 1 }
+			}
+		}
+
+
+		properties = {
+			tab_bg = {
+				frame = fopo_button_tab_frame
+			}
+			tab = {
+				frame = fopo_button_tab_frame
+			}
+			sidebar = {
+				image = "[Get_fopo_sidebar]"
+				frame = TNO_fopo_selected_front
+			}
+			topbar = {
+				image = "[Get_fopo_topbar]"
+				frame = TNO_fopo_selected_front
+			}
+			conflict_icon = {
+				image = "[Get_fopo_icon]"
+			}
+			seal = {
+				image = "[Get_fopo_seal]"
+			}
+		}
+
+
+		### INDONESIAN CIVIL WAR
+		effects = {
+			discontent_effect_box_click = {
+				effect_tooltip = {
+					INS_ICW_discontent_effect = yes
+				}
+			}
+		}
+		properties = {
+			escalation_bar = {
+				frame = global.ICW_escalation
+			}
+			discontent_bar = {
+				frame = ICW_discontent
+			}
+		}
+
+
+		### JAMAICAN REFERENDUM
+		properties = {
+			arrow = {
+				frame = WIN.WIN_jamaica_favor
+			}
+			timer_fill = {
+				frame = WIN.WIN_referendum_fill
+			}
+		}
+
+		triggers = {
+			left_icon_1_visible = {
+				check_variable = { WIN.WIN_jamaica_daily_favor < 0 }
+				NOT = { check_variable = { WIN.WIN_jamaica_daily_favor < -0.5 } }
+			}
+			left_icon_2_visible = {
+				check_variable = { WIN.WIN_jamaica_daily_favor < -0.5 }
+				NOT = { check_variable = { WIN.WIN_jamaica_daily_favor < -1 } }
+			}
+			left_icon_3_visible = {
+				check_variable = { WIN.WIN_jamaica_daily_favor < -1 }
+			}
+			right_icon_1_visible = {
+				check_variable = { WIN.WIN_jamaica_daily_favor > 0 }
+				NOT = { check_variable = { WIN.WIN_jamaica_daily_favor > 0.5 } }
+			}
+			right_icon_2_visible = {
+				check_variable = { WIN.WIN_jamaica_daily_favor > 0.5 }
+				NOT = { check_variable = { WIN.WIN_jamaica_daily_favor > 1 } }
+			}
+			right_icon_3_visible = {
+				check_variable = { WIN.WIN_jamaica_daily_favor > 1 }
+			}
+		}
+
+		effects = {
+			add_jam_btn_click = {
+				TNO_increase_jamaica_indep_chance_low = yes
+			}
+
+			add_wif_btn_click = {
+				TNO_decrease_jamaica_indep_chance_low = yes
+				log = "[?WIN.WIN_jamaica_favor]"
+			}
+		}
+
+		## JAMAICAN CRISIS
+
+		triggers = {
+			japan_map_visible = {
+				original_tag = JAP
+			}
+			add_violence_btn_visible = {
+				always = no
+			}
+			add_fervor_btn_visible = {
+				always = no
+			}
+			lower_violence_btn_visible = {
+				always = no
+			}
+			lower_fervor_btn_visible = {
+				always = no
+			}
+		}
+		properties = {
+			violence_bar = {
+				frame = WIN.WIN_violence
+			}
+			japan_map = {
+				frame = WIN.WIN_japan_map_frame
+			}
+		}
+
+		properties = {
+			fervor_bar = {
+				frame = WIN.WIN_fervor
+			}
+		}
+
+		effects = {
+			add_violence_btn_click = {
+				TNO_increase_crisis_violence_med = yes
+			}
+
+			lower_violence_btn_click = {
+				TNO_decrease_crisis_violence_med = yes
+			}
+			add_fervor_btn_click = {
+				TNO_increase_fervor_med = yes
+			}
+
+			lower_fervor_btn_click = {
+				TNO_decrease_fervor_med = yes
+			}
+		}
+
+
+		## Bukharan Keneş
+
+		dynamic_lists = {
+			conference_seats = {
+				array = TRK.CA_Conference_seat_x
+				change_scope = no
+				entry_container= TNO_CA_Conference_dot
+				index = seat_idx
+			}
+		}
+		properties = {
+			seat_dot = {
+				x = TRK.CA_Conference_seat_x^seat_idx
+				y = TRK.CA_Conference_seat_y^seat_idx
+				frame = TRK.CA_Conference_alignment^TRK.CA_Conference_indices^seat_idx
+			}
+			ofn_bar = {
+				frame = TRK.TK_delegates^1
+			}
+			pakt_bar = {
+				frame = TRK.TK_delegates^2
+			}
+			tension_bar = {
+				frame = TRK.CA_Conference_tension
+			}
+			suspicion_bar = {
+				frame = TRK.CA_Conference_suspicion
+			}
+		}
+
+		## Philippines
+		properties = {
+			supply_bar = {
+				frame = JAP.JP_PHI_supply
+			}
+			out_of_supply_bar = {
+				frame = JAP.JP_PHI_supply
+			}
+			supply_arrow = {
+				x = JAP.JP_PHI_target_pos
+			}
+		}
+
+		triggers = {
+			supply_bar_visible = {
+				check_variable = {
+					var = JAP.JP_PHI_supply
+					value = JAP.JP_PHI_supply_perc
+					compare = greater_than_or_equals
+				}
+			}
+			out_of_supply_bar_visible = {
+				check_variable = { JAP.JP_PHI_supply_perc > JAP.JP_PHI_supply }
+			}
+		}
+
+		## Philippines Reconstruction
+		properties = {
+			reconstruction_bar = { frame = PHI_reconstruction_var }
+			seal = {
+				image = "[Get_fopo_seal]"
+			}
+		}
+
+		triggers = {
+			sidebar_JAP_visible = {
+				original_tag = JAP
+			}
+			sidebar_USA_visible = {
+				original_tag = USA
+			}
+			reconstruction_complete_button_click_enabled = {
+				check_variable = { PHI_reconstruction_var = 100 }
+				if = {
+					limit = {
+						original_tag = USA
+						NOT = { country_exists = SPH }
+					}
+					has_country_flag = USA_PHI_delegitimized_leyte
+				}
+			}
+			phili_reconstruction_arrow_visible = {
+				check_variable = { PHI_reconstruction_var = 100 }
+				if = {
+					limit = {
+						original_tag = USA
+						NOT = { country_exists = SPH }
+					}
+					has_country_flag = USA_PHI_delegitimized_leyte
+				}
+			}
+		}
+
+		effects = {
+			reconstruction_complete_button_click = {
+				PHI_reconstruction_complete = yes
+			}
+		}
+
+		## ICELAND
+
+		properties = {
+			proofn_bg_bar = {
+				frame = ICE.ICE_OFNSUPPORT_BG
+			}
+			proofn_bar = {
+				frame = ICE.ICE_OFNSUPPORT
+			}
+			ind_bg_bar = {
+				frame = ICE.ICE_INDSUPPORT_BG
+			}
+			ind_bar = {
+				frame = ICE.ICE_INDSUPPORT
+			}
+			antiofn_bg_bar = {
+				frame = ICE.ICE_ANTIOFNSUPPORT_BG
+			}
+			antiofn_bar = {
+				frame = ICE.ICE_ANTIOFNSUPPORT
+			}
+		}
+
+		## Malayan Reconstruction
+
+		## USA SAF Reconstruction!
+		triggers = {
+			#Angola Section
+			Angola_status_progbar_visible = {
+				NOT = {
+					has_global_flag = CAR_FORMED
+				}
+			}
+			Angola_status_frame_visible = {
+				NOT = {
+					has_global_flag = CAR_FORMED
+				}
+			}
+			AngolaFlag_visible = {
+				NOT = {
+					has_global_flag = CAR_FORMED
+				}
+			}
+			AngolaFlag_overlay_visible = {
+				NOT = {
+					has_global_flag = CAR_FORMED
+				}
+			}
+			AngolaMidpoint_visible = {
+				NOT = {
+					has_global_flag = CAR_FORMED
+				}
+			}
+
+			#Congo Section
+			Congo_status_progbar_visible = {
+				NOT = {
+					has_global_flag = CAR_FORMED
+				}
+			}
+			Congo_status_frame_visible = {
+				NOT = {
+					has_global_flag = CAR_FORMED
+
+				}
+			}
+			CongoFlag_visible = {
+				NOT = {
+					has_global_flag = CAR_FORMED
+				}
+			}
+			CongoFlag_overlay_visible = {
+				NOT = {
+					has_global_flag = CAR_FORMED
+				}
+			}
+			CongoMidpoint_visible = {
+				NOT = {
+					has_global_flag = CAR_FORMED
+				}
+			}
+
+			#East Africa Section
+			EastAfrica_status_progbar_visible = {
+				NOT = {
+					has_global_flag = CAR_FORMED
+				}
+			}
+			EastAfrica_status_frame_visible = {
+				NOT = {
+					has_global_flag = CAR_FORMED
+				}
+			}
+			EastAfricaFlag_visible = {
+				NOT = {
+					has_global_flag = CAR_FORMED
+				}
+			}
+			EastAfricaFlag_overlay_visible = {
+				NOT = {
+					has_global_flag = CAR_FORMED
+				}
+			}
+			#USC Section
+			CentralAfrica_status_progbar_visible = {
+				has_global_flag = CAR_FORMED
+			}
+			CentralAfrica_frame_visible = {
+				has_global_flag = CAR_FORMED
+			}
+			CentralAfricaFlag_visible = {
+				has_global_flag = CAR_FORMED
+			}
+			CentralAfricaFlag_overlay_visible = {
+				has_global_flag = CAR_FORMED
+			}
+		}
+
+		properties = {
+			Angola_status_progbar = {
+				frame = ANG.OFN_MANDATE_rebel_stability_display
+			}
+			Congo_status_progbar = {
+				frame = COG.OFN_MANDATE_rebel_stability_display
+			}
+			EastAfrica_status_progbar = {
+				frame = MZB.OFN_MANDATE_rebel_stability_display
+			}
+			CentralAfrica_status_progbar = {
+				frame = USC.OFN_MANDATE_rebel_stability_display
+			}
+		}
+
+		#SAW Withdrawal
+
+		properties = {
+			withdrawal_bar = { frame = GER_withdrawal_var }
+		}
+
+		triggers = {
+			withdrawal_complete_button_click_enabled = {
+				check_variable = { GER_withdrawal_var = 100 }
+			}
+		}
+
+		effects = {
+			withdrawal_complete_button_click = {
+				if = {
+					limit = {
+						has_global_flag = german_civil_war_speervic
+					}
+					SGR_conclude_SAW = yes
+				}
+				if = {
+					limit = {
+						has_global_flag = german_civil_war_bormannvic
+					}
+					GER_Bormann_SAF_conclude_SAW = yes
+				}
+				remove_mission = GER_withdrawal_deadline
+			}
+		}
+
+		## West Africa Reconstruction
+		properties = {
+			FF_reconstruction_bar_mil = { frame = WAF_mil_reconstruct_prog }
+			FF_reconstruction_bar_eco = { frame = WAF_eco_reconstruct_prog }
+			seal = {
+				image = "[Get_fopo_seal]"
+			}
+		}
+
+		triggers = {
+			sidebar_USA_visible = {
+				original_tag = USA
+			}
+			FF_reconstruction_complete_button_click_enabled = {
+				check_variable = { WAF_mil_reconstruct_prog = 100 }
+				check_variable = { WAF_eco_reconstruct_prog = 100 }
+			}
+			FF_reconstruction_arrow_visible = {
+				check_variable = { WAF_mil_reconstruct_prog = 100 }
+				check_variable = { WAF_eco_reconstruct_prog = 100 }
+			}
+		}
+
+		effects = {
+			FF_reconstruction_complete_button_click = {
+				WAF_reconstruction_complete = yes
+				remove_mission = USA_WAFR_reconstruction_timeout
+			}
+		}
+
+		## Puerto Plata
+		properties = {
+			pp_strength_bar_overlay = {
+				frame = USA.US_PP_supply
+			}
+			pp_preparation_bar_overlay = {
+				frame = CAL.PPI_ceasefire_military_preparation
+			}
+			pp_strength_arrow = {
+				x = USA.US_PP_target_pos
+			}
+			pp_spy_meter = {
+				frame = global.PP_spy_strength_CAL
+			}
+			ceasefire_pp_spy_meter = {
+				frame = global.PP_spy_strength_CAL
+			}
+			pp_dom_preparation_bar_overlay = {
+				frame = DOM.PPI_ceasefire_military_preparation
+			}
+			ceasefire_pp_brandenburger_meter = {
+				frame = global.PP_brandenburger_manpower
+			}
+		}
+
+		triggers = {
+			pp_strength_bar_visible = {
+				check_variable = {
+					var = USA.US_PP_supply
+					value = USA.US_PP_supply_perc
+					compare = greater_than_or_equals
+				}
+				NOT = {
+					OR = {
+						has_global_flag = PPI_ceasefire_happening
+						has_global_flag = PPI_civil_war_ongoing
+					}
+				}
+			}
+			pp_strength_bar_overlay_visible = {
+				NOT = {
+					OR = {
+						has_global_flag = PPI_ceasefire_happening
+						has_global_flag = PPI_civil_war_ongoing
+					}
+				}
+			}
+			pp_out_of_strength_bar_visible = {
+				check_variable = { USA.US_PP_supply_perc > USA.US_PP_supply }
+				NOT = {
+					OR = {
+						has_global_flag = PPI_ceasefire_happening
+						has_global_flag = PPI_civil_war_ongoing
+					}
+				}
+			}
+			pp_preparation_bar_visible = {
+				OR = {
+					has_global_flag = PPI_ceasefire_happening
+					has_global_flag = PPI_civil_war_ongoing
+				}
+			}
+			pp_preparation_bar_overlay_visible = {
+				OR = {
+					has_global_flag = PPI_ceasefire_happening
+					has_global_flag = PPI_civil_war_ongoing
+				}
+			}
+			preparation_indicator_visible = {
+				OR = {
+					has_global_flag = PPI_ceasefire_happening
+					has_global_flag = PPI_civil_war_ongoing
+				}
+			}
+
+			assemble_text_visible = {
+				NOT = {
+					OR = {
+						has_global_flag = PPI_ceasefire_happening
+						has_global_flag = PPI_civil_war_ongoing
+					}
+				}
+			}
+			pp_strength_arrow_visible = {
+				NOT = {
+					OR = {
+						has_global_flag = PPI_ceasefire_happening
+						has_global_flag = PPI_civil_war_ongoing
+					}
+				}
+			}
+			strength_indicator_visible = {
+				NOT = {
+					OR = {
+						has_global_flag = PPI_ceasefire_happening
+						has_global_flag = PPI_civil_war_ongoing
+					}
+				}
+			}
+			spy_indicator_visible = {
+				NOT = {
+					OR = {
+						has_global_flag = PPI_ceasefire_happening
+						has_global_flag = PPI_civil_war_ongoing
+					}
+				}
+			}
+			ceasefire_spy_indicator_visible = {
+				OR = {
+					has_global_flag = PPI_ceasefire_happening
+					has_global_flag = PPI_civil_war_ongoing
+				}
+			}
+			ceasefire_pp_spy_meter_visible = {
+				OR = {
+					has_global_flag = PPI_ceasefire_happening
+					has_global_flag = PPI_civil_war_ongoing
+				}
+			}
+			pp_spy_meter_visible = {
+				NOT = {
+					OR = {
+						has_global_flag = PPI_ceasefire_happening
+						has_global_flag = PPI_civil_war_ongoing
+					}
+				}
+			}
+			GER_PP_Prep_spy_indicator_visible = {
+				NOT = {
+					OR = {
+						has_global_flag = PPI_ceasefire_happening
+						has_global_flag = PPI_civil_war_ongoing
+					}
+				}
+			}
+			GER_PP_prep_spy_meter_visible = {
+				NOT = {
+					OR = {
+						has_global_flag = PPI_ceasefire_happening
+						has_global_flag = PPI_civil_war_ongoing
+					}
+				}
+			}
+
+			ceasefire_brandenburger_indicator_visible = {
+				OR = {
+					has_global_flag = PPI_ceasefire_happening
+					has_global_flag = PPI_civil_war_ongoing
+				}
+			}
+			ceasefire_pp_brandenburger_meter_visible = {
+				OR = {
+					has_global_flag = PPI_ceasefire_happening
+					has_global_flag = PPI_civil_war_ongoing
+				}
+			}
+
+			ibr_preparation_indicator_visible = {
+				OR = {
+					has_global_flag = PPI_ceasefire_happening
+					has_global_flag = PPI_civil_war_ongoing
+				}
+			}
+			ger_preparation_indicator_visible = {
+				OR = {
+					has_global_flag = PPI_ceasefire_happening
+					has_global_flag = PPI_civil_war_ongoing
+				}
+			}
+			pp_dom_preparation_bar_visible = {
+				OR = {
+					has_global_flag = PPI_ceasefire_happening
+					has_global_flag = PPI_civil_war_ongoing
+				}
+			}
+			pp_dom_preparation_bar_overlay_visible = {
+				OR = {
+					has_global_flag = PPI_ceasefire_happening
+					has_global_flag = PPI_civil_war_ongoing
+				}
+			}
+			preparation_outline_visible = {
+				OR = {
+					has_global_flag = PPI_ceasefire_happening
+					has_global_flag = PPI_civil_war_ongoing
+				}
+			}
+		}
+
+		## French Reclamation
+		dynamic_lists = {
+			TNO_FrenchReclamation_Focus_Gridbox = {
+				array = FFR.FrenchReclamation_Focus
+				change_scope = no
+				entry_container= TNO_FrenchReclamation_Focus_Gridbox_EntryContainer
+				index = i
+			}
+		}
+		triggers = {
+			TNO_FrenchReclamation_Focus_Stored_Bar_Empty_visible = {
+				check_variable = { FFR.FrenchReclamation_Focus_Stored = 0 }
+			}
+			TNO_FrenchReclamation_Focus_Bar_Empty_visible = {
+				check_variable = { FFR.FrenchReclamation_Focus^i = 0 }
+			}
+			TNO_FrenchReclamation_Focus_Stored_Button_USA_visible = {
+				OR = {
+					tag = USA
+					AND = {
+						has_global_flag = IBR_FFR_negotiations_successful
+						tag = IBR
+					}
+				}
+			}
+			TNO_FrenchReclamation_Focus_Stored_Button_USA_click_enabled = {
+				check_variable = { FFR.FrenchReclamation_Focus_Stored < 5 }
+				has_political_power > 29.99
+			}
+			TNO_FrenchReclamation_Focus_Stored_Button_GER_visible = {
+				tag = GER
+			}
+			TNO_FrenchReclamation_Button_Usual_USA_visible = {
+				OR = {
+					tag = USA
+					AND = {
+						has_global_flag = IBR_FFR_negotiations_successful
+						tag = IBR
+					}
+				}
+			}
+			TNO_FrenchReclamation_Button_Usual_USA_click_enabled = {
+				check_variable = { FFR.FrenchReclamation_Focus_Stored > 0 }
+				check_variable = { FFR.FrenchReclamation_Focus^i < 5 }
+			}
+			TNO_FrenchReclamation_Button_Usual_GER_visible = {
+				tag = GER
+			}
+		}
+		effects = {
+			TNO_FrenchReclamation_Focus_Stored_Button_USA_click = {
+				add_to_variable = { FFR.FrenchReclamation_Focus_Stored = 1 }
+				add_political_power = -30
+			}
+			TNO_FrenchReclamation_Button_Usual_USA_click = {
+				add_to_variable = { FFR.FrenchReclamation_Focus_Stored = -1 }
+				add_to_variable = { FFR.FrenchReclamation_Focus^i = 1 }
+				FFR_reclamation_dynamic_modifier_calculate = yes
+			}
+		}
+		properties = {
+			TNO_FrenchReclamation_Focus_Stored_Bar = { frame = FFR.FrenchReclamation_Focus_Stored }
+			TNO_FrenchReclamation_Focus_Bar = { frame = FFR.FrenchReclamation_Focus^i }
+		}
+
+		## Haitian Civil War
+		triggers = {
+			scenario_control_visible = {
+				if = {
+					limit = {
+						has_global_flag = HIS_trujillo_blitz_ongoing
+					}
+					set_temp_variable = { haiti_active_tab = 1 }
+				}
+				else = {
+					set_temp_variable = { haiti_active_tab = 0 }
+				}
+			}
+		}
+		dynamic_lists = {
+			haiti_map_grid = {
+				array = HAI_map_array
+				entry_container = TNO_Haitian_War_GUI_Map_Entry
+				value = hai_v
+				index = hai_i
+			}
+			haiti_dummy_gridbox = {
+				array = Haiti_dummy_array
+				entry_container = "TNO_Haitian_War_SubGUI_[?haiti_active_tab]"
+			}
+		}
+		triggers = {
+			haiti_involvement_bar_visible = {
+				NOT = { has_country_flag = TNO_HCW_disengagement_phase }
+			}
+			haiti_involvement_bar_red_visible = {
+				has_country_flag = TNO_HCW_disengagement_phase
+			}
+			haiti_involvement_bar_overlay_visible = {
+				NOT = { has_country_flag = TNO_HCW_disengagement_phase }
+			}
+			haiti_involvement_bar_overlay_inverted_visible = {
+				has_country_flag = TNO_HCW_disengagement_phase
+			}
+			haiti_signal_lost_pie_visible = {
+				has_country_flag = HCW_signal_lost
+			}
+			haiti_signal_lost_visible = {
+				has_country_flag = HCW_signal_lost
+			}
+			state_trujillo_tension_visible = {
+				check_variable = { HAI_blitz_tension > 0 }
+			}
+			haiti_tension_text_visible = {
+				check_variable = { HAI_blitz_tension > 0 }
+			}
+			state_trujillo_warning_visible = {
+				check_variable = { HAI_blitz_tension > 49.999 }
+			}
+			state_trujillo_normal_visible = {
+				check_variable = { HAI_blitz_tension = 0 }
+			}
+			haiti_map_button_visible = {
+				set_temp_variable = { haiti_map_button_y = HAI_map_y^hai_i }
+				add_to_temp_variable = { haiti_map_button_y = 1 }
+
+				if = {
+					limit = {
+						check_variable = { HAI_selected_state = hai_v }
+					}
+					set_temp_variable = { haiti_map_button_frame = 2 }
+				}
+				else = {
+					set_temp_variable = { haiti_map_button_frame = 1 }
+				}
+
+				NOT = { has_country_flag = HCW_signal_lost }
+			}
+		}
+		effects = {
+			haiti_map_button_click = {
+				set_variable = { HAI_selected_state = hai_v }
+				TNO_HCW_Draw_Pie_Chart = yes
+			}
+		}
+		properties = {
+			haiti_map_icon = {
+				frame = hai_v:gui_display_frame
+				image = "GFX_haitianwar_state_[?hai_v]"
+				x = HAI_map_x^hai_i
+				y = HAI_map_y^hai_i
+			}
+			haiti_map_button = {
+				frame = haiti_map_button_frame
+				image = "GFX_haitianwar_state_selected_[?hai_v]"
+				x = HAI_map_x^hai_i
+				y = haiti_map_button_y
+			}
+			haiti_communism_pie = {
+				frame = HAI_selected_state:HCW_Communist_Control
+			}
+			haiti_divided_pie = {
+				frame = haiti_divided_pie_frame
+			}
+			haiti_government_pie = {
+				frame = haiti_government_pie_frame
+			}
+			haiti_legitimacy_bar = {
+				frame = HAI_legitimacy
+			}
+			haiti_violence_bar = {
+				frame = HAI_radicalism
+			}
+			haiti_weariness_bar = {
+				frame = HAI_weariness
+			}
+			state_trujillo_tension = {
+				frame = HAI_blitz_tension
+			}
+			state_trujillo_normal = {
+				frame = HCW_Hinche_frame
+			}
+			haiti_involvement_bar_overlay = {
+				frame = HAI_involvement
+			}
+			haiti_involvement_bar_overlay_inverted = {
+				frame = HAI_involvement
+			}
+		}
+
+		## Madagascar civil war
+		dynamic_lists = {
+			madagascar_map_grid = {
+				array = Madagascar_map_array
+				entry_container = TNO_Madagascar_GUI_Map_Entry
+				value = mad_v
+				index = mad_i
+			}
+			madagascar_dummy_gridbox = {
+				array = Madagascar_dummy_array
+				entry_container = "TNO_Madagascar_SubGUI_[?Madagascar_active_tab]"
+			}
+		}
+
+		triggers = {
+			madagascar_line_visible = {
+				check_variable = { Madagascar_active_tab = 1 }
+			}
+			map_icon_visible = {
+				if = {
+					limit = {
+						var:mad_v = {
+							is_controlled_by = MDM
+						}
+					}
+					set_temp_variable = { madagascar_node_frame = 3 }
+				}
+				else = {
+					if = {
+						limit = {
+							OR = {
+								original_tag = JAP
+								original_tag = USA
+							}
+						}
+						if = {
+							limit = {
+								var:mad_v = {
+									is_controlled_by = MAD
+								}
+							}
+							set_temp_variable = { madagascar_node_frame = 1 }
+							else = {
+								set_temp_variable = { madagascar_node_frame = 2 }
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							original_tag = GER
+						}
+						if = {
+							limit = {
+								var:mad_v = {
+									is_controlled_by = MDG
+								}
+							}
+							set_temp_variable = { madagascar_node_frame = 1 }
+							else = {
+								set_temp_variable = { madagascar_node_frame = 2 }
+							}
+						}
+					}
+				}
+
+				check_variable = { Madagascar_is_city^mad_i = 1 }
+			}
+			selected_node_visible = {
+				check_variable = { Madagascar_selected_city = mad_v }
+				check_variable = { Madagascar_is_city^mad_i = 1 }
+			}
+
+			map_icon_mini_visible = {
+				check_variable = { Madagascar_is_city^mad_i = 2 }
+			}
+			selected_node_small_visible = {
+				check_variable = { Madagascar_selected_city = mad_v }
+				check_variable = { Madagascar_is_city^mad_i = 2 }
+			}
+
+			trail_icon_visible = {
+				check_variable = { Madagascar_is_city^mad_i = 0 }
+			}
+
+			madagascar_button_1_visible = {
+				if = {
+					limit = {
+						check_variable = { Madagascar_active_tab = 0 }
+					}
+					set_temp_variable = { madagascar_button_1_frame = 1 }
+					set_temp_variable = { madagascar_button_2_frame = 2 }
+				}
+				else = {
+					set_temp_variable = { madagascar_button_1_frame = 2 }
+					set_temp_variable = { madagascar_button_2_frame = 1 }
+				}
+			}
+
+			madagascar_strength_icon_visible = {
+				if = {
+					limit = {
+						check_variable = { Madagascar_selected_city:Madagascar_strength_var_@ROOT > 74.999 }
+					}
+					set_temp_variable = { Madagascar_strength_icon_frame = 4 }
+				}
+				else_if = {
+					limit = {
+						check_variable = { Madagascar_selected_city:Madagascar_strength_var_@ROOT > 49.999 }
+					}
+					set_temp_variable = { Madagascar_strength_icon_frame = 3 }
+				}
+				else_if = {
+					limit = {
+						check_variable = { Madagascar_selected_city:Madagascar_strength_var_@ROOT > 24.999 }
+					}
+					set_temp_variable = { Madagascar_strength_icon_frame = 2 }
+				}
+				else = {
+					set_temp_variable = { Madagascar_strength_icon_frame = 1 }
+				}
+			}
+
+			madagascar_pie_usa_visible = {
+				OR = {
+					original_tag = USA
+					original_tag = JAP
+				}
+			}
+			madagascar_pie_japan_visible = {
+				OR = {
+					original_tag = USA
+					original_tag = JAP
+				}
+			}
+			madagascar_flag_USA_visible = {
+				OR = {
+					original_tag = USA
+					original_tag = JAP
+				}
+			}
+			madagascar_flag_JAP_visible = {
+				OR = {
+					original_tag = USA
+					original_tag = JAP
+				}
+			}
+
+			madagascar_pie_germany_visible = {
+				original_tag = GER
+			}
+			madagascar_pie_france_visible = {
+				original_tag = GER
+			}
+			madagascar_flag_GER_visible = {
+				original_tag = GER
+			}
+			madagascar_flag_FRA_visible = {
+				original_tag = GER
+			}
+		}
+
+		effects = {
+			map_icon_click = {
+				set_variable = { Madagascar_selected_city = mad_v }
+			}
+			map_icon_mini_click = {
+				set_variable = { Madagascar_selected_city = mad_v }
+			}
+			madagascar_button_1_click = {
+				set_variable = { Madagascar_active_tab = 0 }
+			}
+			madagascar_button_2_click = {
+				set_variable = { Madagascar_active_tab = 1 }
+			}
+		}
+
+		properties = {
+
+			madagascar_involvement_bar_overlay = {
+				frame = global.MAD_war_prog
+			}
+
+			madagascar_line = {
+				image = "GFX_madagascar_line_[?Madagascar_selected_city]"
+			}
+			map_icon_mini = {
+				frame = madagascar_node_frame
+				x = Madagascar_map_array_x^mad_i
+				y = Madagascar_map_array_y^mad_i
+			}
+			map_icon = {
+				frame = madagascar_node_frame
+				x = Madagascar_map_array_x^mad_i
+				y = Madagascar_map_array_y^mad_i
+			}
+			selected_node = {
+				x = Madagascar_map_array_x^mad_i
+				y = Madagascar_map_array_y^mad_i
+			}
+			selected_node_small = {
+				x = Madagascar_map_array_x^mad_i
+				y = Madagascar_map_array_y^mad_i
+			}
+			trail_icon = {
+				frame = madagascar_node_frame
+				image = "GFX_madagascar_trail_[?mad_v.GetID]"
+				x = Madagascar_map_array_x^mad_i
+				y = Madagascar_map_array_y^mad_i
+			}
+
+			madagascar_button_1 = {
+				frame = madagascar_button_1_frame
+			}
+			madagascar_button_2 = {
+				frame = madagascar_button_2_frame
+			}
+
+			madagascar_strength_bar = {
+				frame = Madagascar_selected_city:Madagascar_strength_var_@ROOT
+			}
+			madagascar_strength_icon = {
+				frame = Madagascar_strength_icon_frame
+			}
+
+			madagascar_pie_usa = {
+				frame = madagascar_pie_usa_frame
+			}
+			madagascar_pie_japan = {
+				frame = global.Madagascar_JAP_influence
+			}
+			madagascar_pie_germany = {
+				frame = madagascar_pie_germany_frame
+			}
+			madagascar_pie_france = {
+				frame = global.Madagascar_FRA_influence
+			}
+			madagascar_investment_bar = {
+				frame = Madagascar_investment
+			}
+			madagascar_contributions_bar = {
+				frame = Madagascar_contributions
+			}
+
+			madagascar_flag_JAP = {
+				image = "[?JAP.GetFlag]"
+			}
+			madagascar_flag_USA = {
+				image = "[?USA.GetFlag]"
+			}
+			madagascar_flag_GER = {
+				image = "[?GER.GetFlag]"
+			}
+			madagascar_flag_FRA = {
+				image = "[?FRA.GetFlag]"
+			}
+		}
+	}
+}

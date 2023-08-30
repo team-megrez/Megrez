@@ -1,0 +1,192 @@
+defined_text = {
+	name = BRT_BNC_main
+
+	text = {
+		trigger = {
+			OR = {
+				has_country_flag = BRT_mordrel_in_charge
+				has_country_flag = BRT_laine_in_charge
+			}
+		}
+		localization_key = BRT_BNC_main_noelection
+	}
+	text = {
+		trigger = {
+			has_country_flag = BRT_delaporte_in_charge
+		}
+		localization_key = BRT_BNC_main_election
+	}
+	text = {
+		trigger = {
+			has_country_flag = BRT_delaporte_in_charge
+		}
+		localization_key = BRT_BNC_main_election
+	}
+
+}
+
+defined_text = {
+	name = BRT_BNC_stuff
+
+	text = {
+		trigger = {
+			has_country_flag = BRT_mordrel_in_charge
+		}
+		localization_key = BRT_BNC_mordrel
+	}
+	text = {
+		trigger = {
+			has_country_flag = BRT_laine_in_charge
+		}
+		localization_key = BRT_BNC_laine
+	}
+	text = {
+		trigger = {
+			has_country_flag = BRT_delaporte_in_charge
+		}
+		localization_key = BRT_BNC_delaporte
+	}
+	text = {
+		trigger = {
+			has_country_flag = BRT_delaporte_in_charge
+			has_country_flag = BRT_left_exists
+		}
+		localization_key = BRT_BNC_delaporte_and_left
+	}
+
+}
+
+defined_text = {
+	name = BRT_BNC_left_alliance
+
+	text = {
+		trigger = {
+			has_country_flag = BRT_left_exists
+		}
+		localization_key = BRT_BNC_leftists
+	}
+
+}
+
+defined_text = {
+	name = BRT_BNC_natsoc_vs_burg
+
+	text = {
+		trigger = {
+			check_variable = {
+				var = party_popularity@national_socialism
+				value = party_popularity@esoteric_nazism
+				compare = greater_than
+			}
+		}
+		localization_key = BRT_BNC_natsoc_dominant
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				var = party_popularity@esoteric_nazism
+				value = party_popularity@national_socialism
+				compare = greater_than
+			}
+		}
+		localization_key = BRT_BNC_burg_dominant
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				var = party_popularity@esoteric_nazism
+				value = party_popularity@national_socialism
+				compare = equals
+			}
+		}
+		localization_key = BRT_BNC_burg_natsoc_equal
+	}
+
+}
+
+defined_text = {
+	name = BRT_BNC_democ_comp
+
+	text = {
+		trigger = {
+			check_variable = {
+				var = party_popularity@paternalism
+				value = party_popularity@conservatism
+				compare = greater_than_or_equals
+			}
+			check_variable = {
+				var = party_popularity@paternalism
+				value = party_popularity@liberalism
+				compare = greater_than_or_equals
+			}
+		}
+		localization_key = BRT_BNC_democ_authdem
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				var = party_popularity@conservatism
+				value = party_popularity@paternalism
+				compare = greater_than_or_equals
+			}
+			check_variable = {
+				var = party_popularity@conservatism
+				value = party_popularity@liberalism
+				compare = greater_than_or_equals
+			}
+		}
+		localization_key = BRT_BNC_democ_soccon
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				var = party_popularity@liberalism
+				value = party_popularity@paternalism
+				compare = greater_than_or_equals
+			}
+			check_variable = {
+				var = party_popularity@liberalism
+				value = party_popularity@conservatism
+				compare = greater_than_or_equals
+			}
+		}
+		localization_key = BRT_BNC_democ_soclib
+	}
+
+}
+
+defined_text = {
+	name = BRT_BNC_socialist_comp
+
+	text = {
+		trigger = {
+			check_variable = {
+				var = party_popularity@progressivism
+				value = party_popularity@socialist
+				compare = greater_than
+			}
+		}
+		localization_key = BRT_BNC_socialist_socdem
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				var = party_popularity@socialist
+				value = party_popularity@progressivism
+				compare = greater_than
+			}
+		}
+		localization_key = BRT_BNC_socialist_socialist
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				var = party_popularity@socialist
+				value = party_popularity@progressivism
+				compare = equals
+			}
+		}
+		localization_key = BRT_BNC_socialist_equal
+	}
+
+}

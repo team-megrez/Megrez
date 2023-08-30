@@ -1,253 +1,555 @@
-﻿capital = 743
+capital = 813 #Sanghai
 
-oob = "LEC"
+# Vacant
+# recruit_character = CHI_Generic_Vacant
 
-set_technology = {
-	### Infantry ###
-	infantry_weapons = 1
-	infantry_weapons1 = 1
-	tech_support = 1
-	gw_artillery = 1
-	tech_military_police = 1
 
-	### Naval ###
-	marines = 1
+oob = "CHI_1962"
 
-	### Trains ###
-	basic_train = 1
-}
+###Playable
+set_country_flag = tno_playable_country
 
-### Planes - BBA ###
-if = {
-	limit = { has_dlc_bba = yes }
-	set_air_oob = "LEC_air_bba"
-	set_technology = {
-		aa_lmg = 1
-		engines_1 = 1
-		early_bombs = 1
-		iw_small_airframe = 1
-		iw_medium_airframe = 1
-		iw_large_airframe = 1
-	}
-}
-
-### Planes - non BBA ###
-if = {
-	limit = { has_dlc_bba = no }
-	set_air_oob = "LEC_air_legacy"
-	set_technology = {
-		early_fighter = 1
-		early_bomber = 1
-		naval_bomber1 = 1
-	}
-}
+set_war_support = 1.00
+set_stability = 1.00
 
 set_research_slots = 3
-set_convoys = 247
-set_stability = 0.57
-set_war_support = 0.10
+set_convoys = 40
+
+# recruit_character = CHI_gao_zongwu
+# recruit_character = CHI_zhou_fohai
+# recruit_character = CHI_tao_xisheng
+# recruit_character = CHI_zhang_renli
+# recruit_character = CHI_xiao_shuxuan
+# recruit_character = CHI_dissidents
+# recruit_character = CHI_Bao_Wenyue
+# recruit_character = CHI_Ye_Peng
+# recruit_character = CHI_Fu_Shuangying
+# recruit_character = CHI_peng_mengji
+# recruit_character = CHI_chen_daqing
+# recruit_character = CHI_sun_dianying
+# recruit_character = CHI_luo_benli
+# recruit_character = CHI_pang_bingxun
+
+ set_technology = {
+	basic_train = 1
+
+
+	##INFANTRY##
+	# infantry_equipment_0 = 1
+	infantry_weapons_1 = 1
+	night_vision_1 = 1
+	
+	infantry_kit_1 = 1
+	infantry_weapons_2 = 1
+	night_vision_2 = 1
+	infantry_kit_2 = 1
+	infantry_weapons_improvements_mine_1 = 1
+	infantry_kit_3 = 1
+	infantry_weapons_improvements_ammo_1 = 1
+	infantry_weapons_improvements_grenade_1 = 1
+	#
+	infantry_weapons_3 = 1
+	night_vision_3 = 1
+	infantry_kit_4 = 1
+	basic_infantry_equipment = 1
+	support_weapons = 1
+	support_weapons_hmg_1 = 1
+	combat_support_equipment_1 = 1
+	
+	support_weapons_arty_1 = 1
+	infantry_at = 1
+	infantry_at_upgrade_1 = 1
+	#
+	
+	
+	motorized_infantry = 1
+	motorized_rocket_unit = 1
+	motorized_infantry_1 = 1
+	marines = 1
+	#
+	tech_special_forces = 1
+
+
+	
+
+	##SUPPORT##
+	tech_support = 1
+	tech_engineers = 1
+	assault_weapons_1 = 1
+	tech_engineers2 = 1
+	assault_weapons_2 = 1
+	tech_engineers3 = 1
+	assault_weapons_3 = 1
+	tech_recon = 1
+	tech_recon2 = 1
+	tech_military_police = 1
+	tech_military_police2 = 1
+	tech_military_police3 = 1
+	tech_maintenance_company = 1
+	tech_maintenance_company2 = 1
+	tech_field_hospital = 1
+	tech_field_hospital2 = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	tech_signal_company2 = 1
+
+	##ARMOR##
+	
+
+	##HELICOPTERS##
+	helicopter_engines = 1
+	very_early_helicopter = 1
+	early_helicopter = 1
+
+	##LIGHT AIR##
+	early_fighter = 1
+	interceptor_1945 = 1
+	fighter_1945 = 1
+	CAS_1945 = 1
+	
+##HEAVY AIR##
+	tac_bomber1 = 1
+	tac_air_1945 = 1
+	strategic_bomber1 = 1
+	heavy_air_1945 = 1
+	transport_air1 = 1
+	transport_air_1945 = 1
+
+##NAVAL##
+	ww2_destroyer = 1
+	#basic_destroyer = 1
+	ww2_cruiser = 1
+	#basic_cruiser = 1
+	ww2_battleship = 1
+	ww2_submarine = 1
+	#ww2_carrier = 1
+	#early_carrier = 1
+	transport = 1
+	#basic_frigate = 1
+	
+##ENGINEERING##
+	electronic_mechanical_engineering = 1
+	radio = 1
+	radio_detection = 1
+	decimetric_radar = 1
+	centimetric_radar = 1
+	mechanical_computing = 1
+	computing_machine = 1
+	basic_encryption = 1
+	basic_decryption = 1
+	improved_computing_machine = 1
+	improved_encryption = 1
+	improved_decryption = 1
+	advanced_computing_machine = 1
+	advanced_encryption = 1
+
+	##INDUSTRY##
+	ww2_line_production = 1
+	mass_production_1 = 1
+	building_construction_1 = 1
+	consumer_goods_reduction_1 = 1
+	
+	energy_technology_1 = 1
+	social_construction_1 = 1
+	resource_extraction_methods = 1
+	excavation0 = 1
+	military_construction_1 = 1
+}
+
+# MtG tech #
+
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	set_technology = {
+		early_ship_hull_very_light = 1
+		basic_ship_hull_very_light = 1
+		early_ship_hull_more_light = 1
+		basic_ship_hull_more_light = 1
+		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
+		improved_ship_hull_light = 1
+		basic_depth_charges = 1
+		improved_depth_charges = 1
+		advanced_depth_charges = 1
+		sonar = 1
+		improved_sonar = 1
+		good_sonar = 1
+		early_ship_hull_cruiser = 1
+		basic_ship_hull_cruiser = 1
+		early_ship_hull_submarine = 1
+		basic_ship_hull_submarine = 1
+		smoke_generator = 1
+		basic_torpedo = 1
+		magnetic_detonator = 1
+		basic_battery = 1
+		basic_light_battery = 1
+		basic_secondary_battery = 1
+		improved_secondary_battery = 1
+		mtg_transport = 1
+		basic_naval_mines = 1
+		submarine_mine_laying = 1
+	}
+	set_naval_oob = "CHI_1962_naval_mtg"
+	create_equipment_variant = {
+		name = "Agano Class"
+		type = ship_hull_cruiser_2
+		name_group = CHI_CA_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_engine_slot = cruiser_ship_engine_2
+			fixed_ship_armor_slot = ship_armor_cruiser_2
+			fixed_ship_radar_slot = ship_radar_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_battery_slot = dp_light_battery
+			fixed_ship_secondaries_slot = ship_secondaries_2
+			rear_1_custom_slot = ship_depth_charge_3
+			mid_2_custom_slot = ship_mine_layer_1
+			mid_1_custom_slot = ship_anti_air_1
+			front_1_custom_slot = ship_anti_air_1
+		}
+	}
+	create_equipment_variant = {
+		name = "Akizuki Class"
+		type = ship_hull_light_2
+		name_group = JAP_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_engine_slot = light_ship_engine_3
+			fixed_ship_radar_slot = ship_sonar_3
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_battery_slot = dp_light_battery
+			mid_1_custom_slot = ship_mine_sweeper_1
+			rear_1_custom_slot = ship_depth_charge_3
+		}
+	}
+	create_equipment_variant = {
+		name = "Kagero Class"
+		type = ship_hull_light_1
+		name_group = CHI_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_radar_slot = ship_radar_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_battery_slot = dp_light_battery
+			mid_1_custom_slot = ship_depth_charge_3
+			rear_1_custom_slot = ship_mine_sweeper_1
+		}
+	}
+	## Frigates ##
+	create_equipment_variant = {
+		name = "Matsu Class"
+		type = ship_hull_more_light_1
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = dp_light_battery
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = ship_radar_1
+			fixed_ship_engine_slot = light_ship_engine_2
+			mid_1_custom_slot = ship_anti_air_1
+			rear_1_custom_slot = ship_mine_sweeper_1
+		}
+	}
+}
+
+if = {
+	limit = {
+		NOT = { has_dlc = "Man the Guns" }
+	}
+	set_technology = {
+		ww2_frigate = 1
+		basic_frigate = 1
+		ww2_submarine = 1
+		basic_submarine = 1
+		ww2_destroyer = 1
+		basic_destroyer = 1
+		improved_destroyer = 1
+		ww2_cruiser = 1
+		basic_cruiser = 1
+		transport = 1
+		landing_craft = 1
+	}
+	set_naval_oob = "CHI_1962_naval"
+	create_equipment_variant = {
+		name = "Agano Class"
+		type = heavy_cruiser_2
+		name_group = CHI_CA_HISTORICAL
+	}
+	create_equipment_variant = {
+		name = "Akizuki Class"
+		type = destroyer_2
+		name_group = CHI_DD_HISTORICAL
+	}
+	create_equipment_variant = {
+		name = "Kagero Class"
+		type = destroyer_1
+		name_group = CHI_DD_HISTORICAL
+	}
+	## Frigates ##
+	create_equipment_variant = {
+		name = "Matsu Class"
+		type = frigate_1
+	}
+}
+
+# NSB tech #
+
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		mechanised_infantry3 = 1
+		APC_1950 = 1
+		APC_1960 = 1
+		advanced_light_tank = 1
+		IFV_1950 = 1
+		advanced_medium_tank = 1
+
+		Heavy_1945 = 1
+
+		artillery4 = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		NSB_APC_1945 = 1
+		NSB_APC_1950 = 1
+		NSB_APC_1960 = 1
+		NSB_IFV_1945 = 1
+		NSB_IFV_1945_modules_1 = 1
+		NSB_IFV_1945_modules_2 = 1
+		NSB_IFV_1950 = 1
+
+		NSB_heavy_1945 = 1
+		
+		NSB_MBT_1945 = 1
+
+		NSB_Engine_1 = 1
+
+		NSB_artillery_1945 = 1
+	}
+}
+
+
+set_variable = { CHI_edu_debuff_stab = -0.20 }
+set_variable = { CHI_edu_debuff_warsup = -0.20 }
+set_variable = { CHI_edu_debuff_pol = -0.35 }
+set_variable = { CHI_edu_tax_pop = -0.15 }
+set_variable = { CHI_edu_socdev_rate = -3 }
+set_variable = { CHI_edu_school_PE = -0.2 }
+set_variable = { CHI_edu_gdp_growth = -2.5 }
+set_variable = { CHI_edu_school_speed = -0.15 }
+set_variable = { CHI_edu_school_coverage = -0.3 }
+set_variable = { CHI_edu_misc_costs = 0 }
+
+set_variable = { CHI_research_speed_buff = -0.20 }
+set_variable = { CHI_research_socdev_rate = -4 }
+set_variable = { CHI_research_office_PE = -0.3 }
+set_variable = { CHI_research_office_coverage = -0.25 }
+
+set_variable = { CHI_industry_exc = -0.40 }
+set_variable = { CHI_industry_output = -0.40 }
+set_variable = { CHI_industry_cg_produce = -0.10 }
+set_variable = { CHI_industry_effcap = -0.35 }
+set_variable = { CHI_industry_const = -0.25 }
 
 set_politics = {
-	ruling_party = market_liberal
-	last_election = "1930.11.9"
-	election_frequency = 48
+	ruling_party = conservative
+	last_election = "1960.11.11"
+	election_frequency = 36
 	elections_allowed = no
 }
 
 set_popularities = {
-	totalist = 0
-	radical_socialist = 0
-	syndicalist = 0
-	social_democrat = 1
-	social_liberal = 4
-	market_liberal = 46
-	social_conservative = 11
-	authoritarian_democrat = 5
-	paternal_autocrat = 19
-	national_populist = 14
+	vanguardist = 1
+	socialist = 0
+	ecologist = 3
+	liberal = 6
+	conservative = 22
+	syndicalist = 45
+	anocrat = 23
+	paternalist =  0
+	national_populist = 0
+	
 }
 
-set_country_flag = { flag = jinrong_suspect value = 0 }
-set_country_flag = { flag = yuesheng_suspect value = 1 }
-set_country_flag = { flag = xiaolin_suspect value = 1 }
-set_country_flag = { flag = adler_suspect value = 0 }
-set_country_flag = { flag = british_suspect value = 0 }
-set_country_flag = { flag = eisentrager_suspect value = 0 }
-set_country_flag = cannot_have_conscription
-
-### Legation Council ###
-AUS = {
-	LEC_add_to_legation_council = yes
-	add_to_array = { LEC.guarantor_array = THIS }
-}
-BEL = {
-	LEC_add_to_legation_council = yes
-	add_to_array = { LEC.guarantor_array = THIS }
-}
-JAP = {
-	LEC_add_to_legation_council = yes
-	add_to_array = { LEC.guarantor_array = THIS }
-	activate_targeted_decision = { decision = LEC_JAP_take_tianjin target = LEC }
-}
-USA = {
-	LEC_add_to_legation_council = yes
-	add_to_array = { LEC.guarantor_array = THIS }
-	save_global_event_target_as = LEC_has_american_vote
-}
-GER = {
-	LEC_add_to_legation_council = yes
-	add_to_array = { LEC.guarantor_array = THIS }
-}
-GEA = {
-	LEC_add_to_legation_council_observer = yes
-	give_guarantee = LEC
-	add_to_array = { LEC.guarantor_array = THIS }
-}
-AST = {
-	LEC_add_to_legation_council_observer = yes
-	give_guarantee = LEC
-	add_to_array = { LEC.guarantor_array = THIS }
-	save_global_event_target_as = LEC_has_british_vote
-}
-RUS = { LEC_add_to_legation_council_observer = yes }
-TRM = { LEC_add_to_legation_council_observer = yes }
-
-country_event = { id = lec.1 days = 3 }
-country_event = { id = lec.9 days = 11 }
-country_event = { id = lec.107 days = 444 }
-country_event = { id = lecgreengangclash.1 days = 100 }
-country_event = { id = lecbrits.1 days = 250 }
-country_event = { id = lechotung.1 days = 855 }
-country_event = { id = lecfuzhou.1 days = 600 }
-country_event = { id = lec.149 days = 750 }
-country_event = { id = lec.152 days = 1155 }
-country_event = { id = lec.153 days = 2360 }
-country_event = { id = lec.154 days = 1150 }
 
 add_ideas = {
-	LEC_neutrality
-	LEC_volunteer_force
-	LEC_currency_6
-	free_trade
+	#Country
+	Sphere_Core_Member
+	CHI_japans_breadbasket_0
+	CHI_slave_of_the_samurai_0
+	CHI_small_army
+	CHI_surrounded_by_enemies
+	CHI_edu_debuff_placeholder
+	CHI_Research_Dummy_idea
+	
+	#Political
+	tno_political_parties_one_party_state
+	tno_religious_rights_secularism
+	tno_trade_unions_state_controlled
+	tno_immigration_open_immigration
+	tno_slavery_corvee
+	tno_public_meetings_regulated
+	tno_press_rights_censored_press
+	tno_vote_franchise_no_voting
+
+	#Military
+	tno_conscription_volunteer_only
+	tno_military_supervision_no_supervision
+	tno_training_basic_training
+	tno_draft_exemptions_none
+
+	#Economic
+	tno_trade_laws_export_focus
+	tno_income_taxation_elite_tax_exemptions
+	tno_minimum_wage_no_minimum_wage
+	tno_max_workhours_unlimited_work_day
+	tno_pensions_no_pensions
+	tno_unemployment_no_subsidies
+
+	#Social
+	tno_health_care_support_for_emergencies
+	tno_education_stratified_education
+	tno_penal_system_incarceration
+	tno_gender_rights_traditional_roles
+	tno_security_regulated_police
+	tno_regulations_utterly_unregulated
+
+	#MISC
+	tno_refugees_skilled
+	tno_women_banned
+	tno_racial_integration_none
+	tno_child_labor_legal
+	tno_safety_no_regulations
+	tno_pollution_no_controls
+	tno_lgbt_rights_lgbt_outlawed
+	tno_minorities_oppression
+
+	#Societal Development
+	tno_army_professionalism_reluctant_conscripts
+	tno_industrial_expertise_incompetent
+	tno_industrial_equipment_power_tools
+	tno_agriculture_centralized
+	tno_healthcare_nascent
+	tno_research_facilities_basic
+	tno_academic_base_mass_illiteracy
+	tno_admin_efficiency_deficient_administrative_systems
+
+	#Economy - #construction Spending
+	##construction_level_8
+
+	#Ministers
+	CHI_Zhou_Fohai_hog
+	CHI_Xiao_Shuxuan_sec
+	CHI_Tao_Xisheng_for
+	CHI_Zhang_Renli_eco
+
+	# Officer Corps
+	CHI_Bao_Wenyue_army_chief
+	CHI_Ye_Peng_high_command
+	CHI_sun_dianying_high_command
+	CHI_pang_bingxun_high_command
 }
 
-set_variable = { LEC_currency_reserves = 6 }
-set_variable = { LEC_currency_idea = token:LEC_currency_6 }
+set_country_flag = tno_defined_startup_effectiveness
 
-add_to_array = { LEC_currency_ideas = 0 } #placeholder
-add_to_array = { LEC_currency_ideas = token:LEC_currency_1 }
-add_to_array = { LEC_currency_ideas = token:LEC_currency_2 }
-add_to_array = { LEC_currency_ideas = token:LEC_currency_3 }
-add_to_array = { LEC_currency_ideas = token:LEC_currency_4 }
-add_to_array = { LEC_currency_ideas = token:LEC_currency_5 }
-add_to_array = { LEC_currency_ideas = token:LEC_currency_6 }
-add_to_array = { LEC_currency_ideas = token:LEC_currency_7 }
-add_to_array = { LEC_currency_ideas = token:LEC_currency_8 }
-add_to_array = { LEC_currency_ideas = token:LEC_currency_9 }
+# ECONOMIC LAWS
+set_variable = { tno_trade_laws_effectiveness = 90 }
+set_variable = { tno_income_taxation_effectiveness = 60 }
+set_variable = { tno_minimum_wage_effectiveness = 40 }
+set_variable = { tno_max_workhours_effectiveness = 60 }
+set_variable = { tno_pensions_effectiveness = 50 }
+set_variable = { tno_unemployment_effectiveness = 40 }
+set_variable = { tno_regulations_effectiveness = 50 }
 
-### Integration ###
-ROOT = {
-	326 = { enable_state_integration_50_compliance = yes } #Hong Kong
-	609 = { enable_state_integration_50_compliance = yes } #Tianjin
-	728 = { enable_state_integration_50_compliance = yes } #Guangzhouwan
-	729 = { enable_state_integration_50_compliance = yes } #Macao
-	743 = { enable_state_integration_50_compliance = yes } #Shanghai
-	744 = { enable_state_integration_50_compliance = yes } #Qingdao
-	745 = { enable_state_integration_50_compliance = yes } #Kwantung
-	746 = { enable_state_integration_50_compliance = yes } #Ningbo
-	747 = { enable_state_integration_50_compliance = yes } #Fuzhou
-	801 = { enable_state_integration_50_compliance = yes } #Shantou
-	802 = { enable_state_integration_50_compliance = yes } #Xiamen
-	803 = { enable_state_integration_50_compliance = yes } #Wenzhou
-	996 = { enable_state_integration_50_compliance = yes } #Weihaiwei
-	1075 = { enable_state_integration_50_compliance = yes } #Nantong
+# SOCIAL LAWS
+set_variable = { tno_health_care_effectiveness = 40 }
+set_variable = { tno_education_effectiveness = 35 }
+set_variable = { tno_penal_system_effectiveness = 60 }
+set_variable = { tno_gender_rights_effectiveness = 35 }
+set_variable = { tno_security_effectiveness = 65 }
+
+# POLITICAL LAWS
+set_variable = { tno_political_parties_effectiveness = 70 }
+set_variable = { tno_religious_rights_effectiveness = 65 }
+set_variable = { tno_trade_unions_effectiveness = 75 }
+set_variable = { tno_immigration_effectiveness = 55 }
+set_variable = { tno_slavery_effectiveness = 65 }
+set_variable = { tno_public_meetings_effectiveness = 70 }
+set_variable = { tno_press_rights_effectiveness = 40 }
+set_variable = { tno_vote_franchise_effectiveness = 70 }
+
+# MILITARY LAWS
+set_variable = { tno_conscription_effectiveness = 40 }
+set_variable = { tno_military_supervision_effectiveness = 40 }
+set_variable = { tno_training_effectiveness = 70 }
+set_variable = { tno_draft_exemptions_effectiveness = 75 }
+
+set_variable = { TNO_economy_type = token:Econ_Type_Corporatism }
+set_variable = { TNO_economy_subtype = token:Econ_Subtype_Dirigisme }
+
+# LAR #
+if = {
+	limit = { has_dlc = "La Resistance" }
+	create_intelligence_agency = {
+		name = "Zhongzhiwei Tegong Zongbu"
+		icon = "GFX_intelligence_agency_logo_chi"
+	}
 }
 
-### Leaders ###
-recruit_character = LEC_robert_ho_shai_lai
-recruit_character = LEC_nelson_trusler_johnson
-recruit_character = LEC_patrick_hurley
-recruit_character = LEC_norman_lockhart_smith
-recruit_character = LEC_mark_aitchison_young
-recruit_character = LEC_cornell_franklin
-recruit_character = LEC_siegmund_bodenheimer
-recruit_character = LEC_katsuo_okazaki
+# NSB #
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
 
-### Advisors ###
-# SiC #
-recruit_character = LEC_shanghai_municipal_council
-# Chinese #
-recruit_character = LEC_du_yuesheng
-recruit_character = LEC_robert_hotung
-recruit_character = LEC_huang_jinrong
-recruit_character = LEC_zhang_xiaolin
-recruit_character = LEC_liu_hongsheng
-recruit_character = LEC_thomas_tien_ken_sin
-# American #
-recruit_character = LEC_stirling_fessenden
-recruit_character = LEC_john_leighton_stuart
-# British #
-recruit_character = LEC_cecil_clementi
-recruit_character = LEC_vandeleur_molyneux_grayburn
-# German #
-recruit_character = LEC_lothar_eisentrager
-recruit_character = LEC_emil_helfferich
-# Japan #
-recruit_character = LEC_hiraya_amane
-recruit_character = LEC_masahiko_amakasu
-
-activate_advisor = LEC_shanghai_municipal_council_sic
-activate_advisor = LEC_du_yuesheng
-activate_advisor = LEC_zhang_xiaolin
-activate_advisor = LEC_huang_jinrong
-
-### Commanders ###
-#British#
-recruit_character = LEC_francis_wogan_festing
-recruit_character = LEC_edward_barrett
-#German#
-recruit_character = LEC_georg_wetzell
-recruit_character = LEC_walter_stennes
-#Japanese#
-recruit_character = LEC_koreshige_inuzuka
-recruit_character = LEC_michitaro_komatsubara
-#International#
-recruit_character = LEC_william_ewart_fairbairn
-recruit_character = LEC_german_thieme
-recruit_character = LEC_ellis_mark_zacharias
-
-### Admirals ###
-recruit_character = LEC_reginald_yorke_tyrwhitt
-
-### High Command ###
-
-recruit_character = LEC_john_duncan
-recruit_character = LEC_jame_howe_dobson
-recruit_character = LEC_conway_pulford
-recruit_character = LEC_john_marston
-recruit_character = LEC_eric_sykes
-recruit_character = LEC_amleto_vespa
-recruit_character = LEC_morris_cohen
-recruit_character = LEC_international_army_committee
-
-###Dummy KMT Leaders###
-create_country_leader = {
-	name = LEC_pan_hannian
-	picture = GFX_Portrait_Asia_Generic_new_5
-	expire = "1965.1.1"
-	ideology = totalist_subtype
-}
-
-create_country_leader = {
-	name = LEC_yuan_zhenying
-	picture = GFX_Portrait_Asia_Generic_new_4
-	expire = "1965.1.1"
-	ideology = syndicalist_subtype
-}
-
-create_country_leader = {
-	name = LEC_yun_daiying
-	picture = GFX_Portrait_Asia_Generic_new_6
-	expire = "1965.1.1"
-	ideology = radical_socialist_subtype
+	create_equipment_variant = {
+		name = "Type 17 Shinhoto Ho-Ki"
+		type = IFV_chassis_1
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_heavy_machine_gun
+			turret_type_slot = IFV_one_man_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+		}
+		
+		icon = GFX_JAP_IFV_1950_medium
+		upgrades = {
+			tank_nsb_engine_upgrade = 3
+			tank_nsb_armor_upgrade = 2
+		}
+	}
+	create_equipment_variant = {
+		name = "Type 20"
+		type = APC_chassis_2
+		parent_version = 0
+		modules = {
+			APC_designation_slot = APC_infantry
+			APC_armament_slot = APC_infantry_weapon
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_diesel_engine
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = secondary_turret_hmg
+		}
+		
+		icon = GFX_CHI_APC_1960_medium
+		upgrades = {
+			ac_nsb_engine_upgrade = 6
+			ac_nsb_armor_upgrade = 6
+		}
+	}
 }

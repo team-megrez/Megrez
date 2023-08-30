@@ -1,0 +1,112 @@
+﻿division_template = {
+	name = "SS-Division"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 }
+	}
+}
+division_template = {
+	name = "Garnision Madagaskar"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+}
+
+units = {
+	division = {
+		name = "SS-Division Werner Goldberg"
+		location = 10993
+		division_template = "SS-Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.8
+	}
+
+	division = {
+		name = "SS-Division Erhard Milch"
+		location = 11015
+		division_template = "SS-Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.8
+	}
+	division = {
+		name = "SS-Division Heym"
+		location = 13705
+		division_template = "SS-Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.8
+	}
+	division = {
+		name = "Trainings Division Geyer"
+		location = 2200
+		division_template = "SS-Division"
+		start_experience_factor = 0.2
+		}
+	division = {
+		name = "SS-Division Herzel"
+		location = 13705
+		division_template = "SS-Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.8
+	}
+	division = {
+		name = "Garnision Madagaskar Süd"
+		location = 2200
+		division_template = "Garnision Madagaskar"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.8
+	}
+	division = {
+		name = "Garnision Madagaskar Nord"
+		location = 15914
+		division_template = "Garnision Madagaskar"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.8
+	}
+}
+
+### Starting Production ###
+
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_2
+			creator = "MAD"
+		}
+		requested_factories = 2
+		progress = 0.3
+		efficiency = 50
+	}
+	add_equipment_production = {
+		equipment = {
+			type = artillery_equipment_3
+			creator = "MAD"
+		}
+		requested_factories = 1
+		progress = 0.6
+		efficiency = 50
+	}
+	add_equipment_production = {
+		equipment = {
+			type = anti_tank_equipment_0
+			creator = "MAD"
+		}
+		requested_factories = 1
+		progress = 0.2
+		efficiency = 50
+	}
+}

@@ -1,0 +1,228 @@
+##SORTED BY STARTING TAG, AND THEN STATE ID NUMBER
+#GRE
+state_control_effect_187 = {
+	if = {
+		limit = { 
+			has_global_flag = TNO_endonym_mode
+			is_controlled_by = GRE
+		}
+		set_state_name = STATE_187_gre
+		reset_province_name = 16264
+	}
+	else_if = {
+		limit = { 
+			has_global_flag = TNO_endonym_mode
+			is_controlled_by = TUR
+		}
+		set_state_name = STATE_187_tur
+		set_province_name = {
+			id = 16264
+			name = VICTORY_POINTS_16264_tur
+		}
+	}
+	else_if = {
+		limit = { 
+			has_global_flag = TNO_endonym_mode
+			is_controlled_by = ITA
+		}
+		set_state_name = STATE_187_ita
+		set_province_name = {
+			id = 16264
+			name = VICTORY_POINTS_16264_ita
+		}
+	}
+	else = {
+		reset_state_name = yes
+		reset_province_name = 16264
+	}
+}
+state_control_effect_1263 = {
+	if = {
+		limit = { 
+			has_global_flag = TNO_endonym_mode
+			is_controlled_by = GRE
+		}
+		set_state_name = STATE_1263_gre
+	}
+	else_if = {
+		limit = { 
+			has_global_flag = TNO_endonym_mode
+			is_controlled_by = TUR
+		}
+		set_state_name = STATE_1263_tur
+	}
+	else_if = {
+		limit = { 
+			has_global_flag = TNO_endonym_mode
+			is_controlled_by = ITA
+		}
+		set_state_name = STATE_1263_ita
+	}
+	else_if = {
+		limit = { 
+			has_global_flag = TNO_endonym_mode
+			is_controlled_by = GER
+		}
+		set_state_name = STATE_1263_ger
+	}
+	else = {
+		reset_state_name = yes
+	}
+}
+#IBR
+state_control_effect_171 = {
+	if = {
+		limit = {
+			is_controlled_by = GAL
+		}
+		if = {
+			limit = { has_global_flag = TNO_endonym_mode }
+			set_state_name = STATE_171_ibr_gal
+		}
+		else = { reset_state_name = yes }
+		reset_province_name = 9686
+	}
+	else_if = {
+		limit = {
+			is_controlled_by = POR
+			is_controlled_by = PPR
+		}
+		if = {
+			limit = { has_global_flag = TNO_endonym_mode }
+			set_state_name = STATE_171_por
+		}
+		else = { reset_state_name = yes }
+		reset_province_name = 9686
+	}
+	else = {
+		if = {
+			limit = { has_global_flag = TNO_endonym_mode }
+			set_state_name = STATE_171_ibr_gal
+			set_province_name = {
+				id = 9686
+				name = VICTORY_POINTS_9686_ibr_spa
+			}
+		}
+		else = {
+			reset_state_name = yes
+			reset_province_name = 9686
+		}
+	}
+}
+state_control_effect_982 = {
+	if = {
+		limit = {
+			is_controlled_by = GAL
+		}
+		if = {
+			limit = { has_global_flag = TNO_endonym_mode }
+			set_state_name = STATE_982_ibr_gal
+		}
+		else = { reset_state_name = yes }
+		reset_province_name = 3931
+	}
+	else_if = {
+		limit = {
+			is_controlled_by = POR
+			is_controlled_by = PPR
+		}
+		if = {
+			limit = { has_global_flag = TNO_endonym_mode }
+			set_state_name = STATE_982_por
+		}
+		else = { reset_state_name = yes }
+		set_province_name = {
+			id = 758
+			name = VICTORY_POINTS_758_por
+		}
+	}
+	else = {
+		if = {
+			limit = { has_global_flag = TNO_endonym_mode }
+			set_state_name = STATE_982_ibr_gal
+		}
+		else = { reset_state_name = yes }
+		set_province_name = {
+			id = 758
+			name = VICTORY_POINTS_758_ibr_spa
+		}
+	}
+}
+state_control_effect_984 = {
+	if = {
+		limit = {
+			OR = {
+				is_controlled_by = BSQ
+				is_controlled_by = ETA
+			}
+		}
+		set_state_name = STATE_984_bsq
+		set_province_name = {
+			id = 3931
+			name = VICTORY_POINTS_3931_bsq
+		}
+	}
+	else = {
+		set_state_name = STATE_984_ibr_spa
+		reset_province_name = 3931
+	}
+}
+state_control_effect_993 = {
+	if = {
+		limit = {
+			OR = {
+				is_controlled_by = BSQ
+				is_controlled_by = ETA
+			}
+		}
+		if = {
+			limit = { has_global_flag = TNO_endonym_mode }
+			set_state_name = STATE_993_bsq
+			set_province_name = {
+				id = 3735
+				name = VICTORY_POINTS_3735_bsq
+			}
+		}
+		else = {
+			reset_state_name = yes
+			reset_province_name = 3735
+		}
+		set_province_name = {
+			id = 740
+			name = VICTORY_POINTS_740_bsq
+		}
+	}
+	else = {
+		if = {
+			limit = { has_global_flag = TNO_endonym_mode }
+			set_state_name = STATE_993_ibr_spa
+			set_province_name = {
+				id = 3735
+				name = VICTORY_POINTS_3735_ibr_spa
+			}
+		}
+		else = {
+			reset_state_name = yes
+			reset_province_name = 3735
+		}
+		reset_province_name = 740
+	}
+}
+
+#TUR
+state_control_effect_230 = {
+	if = {
+		limit = { is_controlled_by = TUR }
+		set_state_name = STATE_230_tur
+		set_province_name = {
+			id = 12320
+			name = VICTORY_POINTS_12320_tur
+		}
+	}
+	else = {
+		reset_state_name = yes
+		reset_province_name = 12320
+	}
+}
+
+

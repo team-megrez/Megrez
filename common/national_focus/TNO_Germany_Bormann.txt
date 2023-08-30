@@ -1,0 +1,342 @@
+########################################################################
+##  ██████╗  ██████╗ ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗███╗   ██╗  ##
+##  ██╔══██╗██╔═══██╗██╔══██╗████╗ ████║██╔══██╗████╗  ██║████╗  ██║  ##
+##  ██████╔╝██║   ██║██████╔╝██╔████╔██║███████║██╔██╗ ██║██╔██╗ ██║  ##
+##  ██╔══██╗██║   ██║██╔══██╗██║╚██╔╝██║██╔══██║██║╚██╗██║██║╚██╗██║  ##
+##  ██████╔╝╚██████╔╝██║  ██║██║ ╚═╝ ██║██║  ██║██║ ╚████║██║ ╚████║  ##
+##  ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═══╝  ##
+##          ███████╗ ██████╗  ██████╗██╗   ██╗███████╗                ##
+##          ██╔════╝██╔═══██╗██╔════╝██║   ██║██╔════╝                ##
+##          █████╗  ██║   ██║██║     ██║   ██║███████╗                ##
+##          ██╔══╝  ██║   ██║██║     ██║   ██║╚════██║                ##
+##          ██║     ╚██████╔╝╚██████╗╚██████╔╝███████║                ##
+##          ╚═╝      ╚═════╝  ╚═════╝ ╚═════╝ ╚══════╝                ##
+##          ████████╗██████╗ ███████╗███████╗███████╗                 ##
+##          ╚══██╔══╝██╔══██╗██╔════╝██╔════╝██╔════╝                 ##
+##             ██║   ██████╔╝█████╗  █████╗  ███████╗                 ##
+##             ██║   ██╔══██╗██╔══╝  ██╔══╝  ╚════██║                 ##
+##             ██║   ██║  ██║███████╗███████╗███████║                 ##
+##             ╚═╝   ╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝                 ##
+########################################################################
+
+#Bormann Civil War
+focus_tree = {
+	id = tno_bormann_civil_war
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = BGR
+		}
+	}
+	default = no
+	shared_focus = BOR_der_burgerkrieg
+}
+
+#Bromann Post-CW Trees
+focus_tree = {
+	id = GER_bormann_post_cw_tree
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = GER
+		}
+	}
+	default = no
+
+	###Phase 1
+	##Political
+	#Bormann Opening Treee##
+	shared_focus = BOR_der_wilde_ritt
+	##Foreign##
+	#Ostland
+	shared_focus = BOR_war_in_the_ostfront				#War; OCW Ongoing
+	shared_focus = BOR_stability_in_the_ostfront		#Conservative; Stahlecker 
+	shared_focus = BOR_hostiles_in_the_ostfront			#Militarist; Drechsler 
+	shared_focus = BOR_treason_in_the_ostfront			#Reformist; Meyer-Landrut
+	shared_focus = BOR_darkness_in_the_ostfront			#SS; Jeckeln
+	shared_focus = BOR_betrayal_in_the_ostfront			#Free; Vituska
+	shared_focus = BOR_chaos_in_the_ostfront			#Free; Kovner
+	#Kaukasien
+	shared_focus = BOR_barons_of_kaukasien				#Industrialists
+	shared_focus = BOR_the_mad_prince					#SS; Josias
+	shared_focus = BOR_chaos_in_kaukasia				#Revolt/Anarchy
+	
+	#Afrika
+	shared_focus = BOR_the_reichs_war_down_in_africa
+	
+	###Phase 2
+	##Political
+	#Post-Dismantlement I
+	shared_focus = BOR_sweeping_the_dregs
+	#Econ I
+	shared_focus = BOR_a_modern_wunderwaffe
+	##Foreign##
+	#Norway
+	shared_focus = BOR_reichs_northern_fortress
+	#Burgundy
+	shared_focus = BOR_against_the_shadow_state
+	#Italy
+	shared_focus = BOR_the_italian_debacle
+	#Sphere/Japan
+	shared_focus = BOR_a_bond_forged_in_atomic_fire
+	#OFN/USA
+	shared_focus = GER_BOR_OFN_Lifting_The_Curtain
+
+	###Phase 3
+	##Political
+	#Oil Crisis
+	shared_focus = BOR_hot_wind_blowing					#Oil Crisis + Econ II
+
+	###Closing
+	##Political
+	#Opulence
+	shared_focus = BOR_end_of_the_ride
+}
+
+#Used to update allow_branches (see scripted effects), to do so call the below; ~
+#|	reload_GER_bormann_post_cw_tree = yes
+
+###############################
+#+===========================+#
+#+= Bormann Debug Tree Defs =+#
+#+===========================+#
+###############################
+
+######## Debug Tree Def #########
+#     Bormann Afrika Tree(s)    #
+#################################
+focus_tree = {
+	id = BOR_DBG_SAF_tree
+	country = { factor = 0 }
+	default = no
+
+	shared_focus = BOR_the_reichs_war_down_in_africa
+}
+
+######## Debug Tree Def #########
+#    Bormann Ostland Tree(s)    #
+#################################
+focus_tree = {
+	id = BOR_DBG_OST_trees
+	country = { factor = 0 }
+	default = no
+
+	shared_focus = BOR_war_in_the_ostfront
+	shared_focus = BOR_stability_in_the_ostfront
+	shared_focus = BOR_hostiles_in_the_ostfront
+	shared_focus = BOR_treason_in_the_ostfront
+	shared_focus = BOR_darkness_in_the_ostfront
+	shared_focus = BOR_betrayal_in_the_ostfront
+	shared_focus = BOR_chaos_in_the_ostfront
+}
+
+####### War; OCW Ongoing ######
+focus_tree = {
+	id = BOR_DBG_OST_OCW_tree
+	country = { factor = 0 }
+	default = no
+
+	shared_focus = BOR_war_in_the_ostfront
+}
+
+### Conservative; Stahlecker ##
+focus_tree = {
+	id = BOR_DBG_OST_Stahlecker_tree
+	country = { factor = 0 }
+	default = no
+	
+	shared_focus = BOR_stability_in_the_ostfront
+}
+
+#### Militarist; Drechsler ####
+focus_tree = {
+	id = BOR_DBG_OST_Drechsler_tree
+	country = { factor = 0 }
+	default = no
+	
+	shared_focus = BOR_hostiles_in_the_ostfront
+}
+
+## Reformist; Meyer-Landrut ###
+focus_tree = {
+	id = BOR_DBG_OST_Meyer_Landrut_tree
+	country = { factor = 0 }
+	default = no
+	
+	shared_focus = BOR_treason_in_the_ostfront
+}
+
+######### SS; Jeckeln #########
+focus_tree = {
+	id = BOR_DBG_OST_Jeckeln_tree
+	country = { factor = 0 }
+	default = no
+	
+	shared_focus = BOR_darkness_in_the_ostfront
+}
+
+######## Free; Vituska ########
+focus_tree = {
+	id = BOR_DBG_OST_Vituska_tree
+	country = { factor = 0 }
+	default = no
+	
+	shared_focus = BOR_betrayal_in_the_ostfront
+}
+
+######### Free; Kovner ########
+focus_tree = {
+	id = BOR_DBG_OST_Kovner_tree
+	country = { factor = 0 }
+	default = no
+	
+	shared_focus = BOR_chaos_in_the_ostfront
+}
+
+######## Debug Tree Def ##########
+#   Bormann Kaukasien Tree(s)    #
+##################################
+focus_tree = {
+	id = BOR_DBG_KAU_trees
+	country = { factor = 0 }
+	default = no
+
+	shared_focus = BOR_barons_of_kaukasien
+	shared_focus = BOR_the_mad_prince
+	shared_focus = BOR_chaos_in_kaukasia
+}
+
+######### Kaukasien; Industrialists #########
+focus_tree = {
+	id = BOR_DBG_KAU_industrialists_tree
+	country = { factor = 0 }
+	default = no
+	
+	shared_focus = BOR_barons_of_kaukasien
+}
+
+######### Kaukasien; Josias #########
+focus_tree = {
+	id = BOR_DBG_KAU_josias_tree
+	country = { factor = 0 }
+	default = no
+
+	shared_focus = BOR_the_mad_prince
+}
+
+######### Kaukasien; Revolt #########
+focus_tree = {
+	id = BOR_DBG_KAU_revolt_tree
+	country = { factor = 0 }
+	default = no
+
+	shared_focus = BOR_chaos_in_kaukasia
+}
+
+######## Debug Tree Def #########
+#     Bormann Norway Tree(s)    #
+#################################
+focus_tree = {
+	id = BOR_DBG_NOR_tree
+	country = { factor = 0 }
+	default = no
+
+	shared_focus = BOR_reichs_northern_fortress
+}
+
+######## Debug Tree Def ########
+#    Bormann Econ I Tree(s)    #
+################################
+focus_tree = {
+	id = BOR_DBG_Econ_I_tree
+	country = { factor = 0 }
+	default = no
+
+	shared_focus = BOR_a_modern_wunderwaffe
+}
+
+######## Debug Tree Def ##############
+#    Bormann Post Dismantlement Tree #
+######################################
+focus_tree = {
+	id = BOR_DBG_Post_DismantlementI_tree
+	country = { factor = 0 }
+	default = no
+
+	shared_focus = BOR_sweeping_the_dregs
+}
+
+######## Debug Tree Def ########
+#    Bormann OFN/US Tree(s)    #
+################################
+focus_tree = {
+	id = BOR_DBG_OFN_tree
+	country = { factor = 0 }
+	default = no
+
+	shared_focus = GER_BOR_OFN_Lifting_The_Curtain
+}
+
+######## Debug Tree Def ########
+# Bormann Sphere/Japan Tree(s) #
+################################
+focus_tree = {
+	id = BOR_DBG_Sphere_tree
+	country = { factor = 0 }
+	default = no
+
+	shared_focus = BOR_a_bond_forged_in_atomic_fire
+}
+
+######## Debug Tree Def ##########
+#      Bormann Italy Tree(s)     #
+##################################
+focus_tree = {
+	id = BOR_DBG_Italy_tree
+	country = { factor = 0 }
+	default = no
+
+	shared_focus = BOR_the_italian_debacle
+}
+
+######## Debug Tree Def ########
+#   Bormann Burgundy Tree(s)   #
+################################
+focus_tree = {
+	id = BOR_DBG_Burgundy_tree
+	country = { factor = 0 }
+	default = no
+
+	shared_focus = BOR_against_the_shadow_state
+}
+
+######## Debug Tree Def ##########
+#   Bormann Oil Crisis Tree(s)   #
+##################################
+focus_tree = {
+	id = BOR_DBG_Oil_Crisis_trees
+	country = { factor = 0 }
+	default = no
+
+	shared_focus = BOR_hot_wind_blowing
+}
+
+######## Debug Tree Def ########
+#   Bormann Opulence Tree(s)   #
+################################
+focus_tree = {
+	id = BOR_DBG_Opulence_tree
+	country = { factor = 0 }
+	default = no
+
+	shared_focus = BOR_end_of_the_ride
+}
+
+# Blank focus tree
+focus_tree = {
+	id = BOR_Blank
+	country = { factor = 0 }
+	default = no
+}

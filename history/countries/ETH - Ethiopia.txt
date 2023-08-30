@@ -1,90 +1,84 @@
-﻿capital = 271
-oob = "ETH"
-set_research_slots = 2
-set_convoys = 10
-set_war_support = 0.20
+capital = 271
 
-set_technology = {
-	### Infantry ###
-	infantry_weapons = 1
-	tech_irregulars = 1
-	tech_mountaineers = 1
-	camelry = 1
+# Vacant
+# recruit_character = ETH_Generic_Vacant
+fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
+# recruit_character = ETH_Haile_Selassie_Gugsa
 
-	### Support ###
-	tech_support = 1
 
-	### Artillery ###
-	gw_artillery = 1
+oob = "ETH_1962"
+
+add_ideas = {
+### POLITICAL LAWS ###
+	tno_political_parties_one_party_state
+	tno_religious_rights_state_religion
+	tno_trade_unions_illegal
+	tno_immigration_open_immigration
+	tno_slavery_penal_labor
+	tno_public_meetings_regulated
+	tno_press_rights_censored_press
+	tno_vote_franchise_no_voting
+
+	### MILITARY LAWS ###
+	tno_conscription_broadened_conscription
+	tno_military_supervision_no_supervision
+	tno_training_basic_training
+	tno_draft_exemptions_none
+
+	### SOCIAL LAWS ###
+	tno_health_care_support_for_emergencies
+	tno_education_stratified_education
+	tno_penal_system_harsh_penal_code
+	tno_gender_rights_traditional_roles
+	tno_security_regulated_police
+	tno_regulations_token_regulations
+
+	### ECONOMIC LAWS ###
+	tno_trade_laws_limited_exports
+	tno_income_taxation_tax_havens
+	tno_minimum_wage_trinket_minimum_wage
+	tno_max_workhours_12_hour_work_day
+	tno_pensions_trinket_pensions
+	tno_unemployment_trinket_subsidies
+
+	### MISC LAWS ###
+	tno_pollution_few_regulations
+	tno_safety_minimal_regulations
+	tno_child_labor_illegal
+	tno_refugees_vetted_entry
+	tno_racial_integration_segregated_regiments
+	tno_women_banned
+	tno_minorities_segregation
+	tno_lgbt_rights_lgbt_outlawed
+
+	### SOCIETAL DEVELOPMENT ###
+	tno_army_professionalism_political_interference
+	tno_industrial_expertise_nascent
+	tno_industrial_equipment_power_tools
+	tno_healthcare_rudimentary
+	tno_agriculture_basic_mechanized
+	tno_research_facilities_outdated
+	tno_academic_base_basic_literacy
+	tno_admin_efficiency_deficient_administrative_systems
 }
 
-country_event = { id = ethiopia.8 days = 585 }
-
 set_politics = {
-	ruling_party = paternal_autocrat
-	last_election = "1888.6.15"
-	election_frequency = 48
+	ruling_party = conservative
+	last_election = "1931.1.1"
+	election_frequency = 96
 	elections_allowed = no
 }
 
 set_popularities = {
-	totalist = 0
-	syndicalist = 0
-	radical_socialist = 1
-	social_democrat = 2
-	social_liberal = 0
-	market_liberal = 2
-	social_conservative = 23
-	authoritarian_democrat = 35
-	paternal_autocrat = 36
-	national_populist = 1
+	vanguardist = 0
+	national_populist = 0
+	socialist = 0
+	progressive =  0
+	ecologist = 0
+
+	liberal = 8
+	conservative = 67
+	syndicalist = 23
+	anocrat = 2
+	
 }
-
-add_ideas = {
-	ETH_Debt_idea_1
-	ETH_Aristocratic_Army
-	ETH_Slavery_idea
-	ETH_Levy_Army
-}
-
-### Relations ###
-give_military_access = GER
-give_military_access = MAF
-
-### Country Leaders ###
-recruit_character = ETH_haile_selassie
-recruit_character = ETH_imru_haile_selassie
-
-### Seconds in Command ###
-recruit_character = ETH_yemiserach_imru
-recruit_character = ETH_nasibu_zeamanuel
-recruit_character = ETH_haile_selassie_gugsa
-recruit_character = ETH_amha_selassie
-
-activate_advisor = ETH_amha_selassie_sic
-
-### Advisors ###
-recruit_character = ETH_beyene_merid
-recruit_character = ETH_desta_damtew
-recruit_character = ETH_yeebio_woldai
-recruit_character = ETH_obboo_bulee_dabarsa
-recruit_character = ETH_aklilu_habte_wold
-recruit_character = ETH_mesfin_sileshi
-recruit_character = ETH_seyoum_mengesha
-recruit_character = ETH_yilma_deressa
-recruit_character = ETH_lorenzo_taezaz
-
-### Generals ###
-recruit_character = ETH_mulugeta_yeggazu
-recruit_character = ETH_abebe_aregai
-recruit_character = ETH_kassa_haile_darge
-recruit_character = ETH_hailu_tekle_haymanot
-
-### Military Staff ###
-recruit_character = ETH_gamtesa_gidera
-recruit_character = ETH_ayalew_birru
-recruit_character = ETH_haile_kebedde
-recruit_character = ETH_ethiopian_military_council
-
-### Character Setup ###
-ETH_haile_selassie = { set_character_flag = is_monarch }

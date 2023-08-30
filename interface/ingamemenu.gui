@@ -3,7 +3,7 @@ guiTypes = {
 	containerWindowType = {
 		name = "ingamemenu"
 		position = { x = 0 y = 0 }
-		size = { width = 320 height = 455 }
+		size = { width = 320 height = 390}
 		Orientation = center
 		Origo = center
 		fade_time = 500
@@ -17,40 +17,40 @@ guiTypes = {
 
 		buttonType = {
 			name = "menu_load_button"
-			position = { x = 16 y = 18 }
+			position = { x = 16 y = 35 }
 			quadTextureSprite ="GFX_main_lobby_button"
 			buttonText = "MENU_BAR_LOAD_GAME"
-			buttonFont = "hoi_24header"
+			buttonFont = "aldrich_24_outline"
 			clicksound = click_default
 			oversound = ui_menu_over
 		}
 
 		buttonType = {
 			name = "menu_save_button"
-			position = { x = 16 y = 58 }
+			position = { x = 16 y = 75 }
 			quadTextureSprite ="GFX_main_lobby_button"
 			buttonText = "MENU_BAR_SAVE_GAME"
-			buttonFont = "hoi_24header"
+			buttonFont = "aldrich_24_outline"
 			clicksound = click_default
 			oversound = ui_menu_over
 		}
 
 		buttonType = {
 			name = "menu_gamesettings_button"
-			position = { x = 16 y = 98}
+			position = { x = 16 y = 115}
 			quadTextureSprite ="GFX_main_lobby_button"
 			buttonText = "MENU_BAR_GAME_OPTIONS"
-			buttonFont = "hoi_24header"
+			buttonFont = "aldrich_24_outline"
 			clicksound = click_default
 			oversound = ui_menu_over
 		}
-
+		
 		buttonType = {
 			name = "menu_playthrough_stats_button"
-			position = { x = 16 y = 138}
-			quadTextureSprite ="GFX_main_lobby_button"
+			position = { x = 16 y = 155 }
+			quadTextureSprite ="GFX_main_lobby_button"	
 			buttonText = "MENU_BAR_PLAYTHROUGH_STATS"
-			buttonFont = "hoi_24header"
+			buttonFont = "aldrich_24_outline"
 			clicksound = click_default
 			oversound = ui_menu_over
 		}
@@ -66,56 +66,62 @@ guiTypes = {
 
 		buttonType = {
 			name = "menu_wiki_button"
-			position = { x = 16 y = 178}
+			position = { x = 16 y = 195}
 			quadTextureSprite ="GFX_main_lobby_button"
 			buttonText = "MENU_BAR_GAME_WIKI"
-			buttonFont = "hoi_24header"
+			buttonFont = "aldrich_24_outline"
 			clicksound = click_default
 			oversound = ui_menu_over
-			web_link = "https://github.com/Kaiserreich/Kaiserreich-4-Bug-Reports#readme" #KR: changed link
+			web_link = ""
 		}
 
 		buttonType = {
 			name = "menu_resign_button"
-			position = { x = 16 y = 218}
+			position = { x = 16 y = 235 }
 			quadTextureSprite ="GFX_main_lobby_button"
 			buttonText = "MENU_BAR_GAME_RESIGN"
-			buttonFont = "hoi_24header"
+			buttonFont = "aldrich_24_outline"
 			clicksound = click_default
 			oversound = ui_menu_over
 		}
 
 		buttonType = {
 			name = "menu_quit_button"
-			position = { x = 16 y = 258 }
+			position = {  x = 16 y = 275 }
 			quadTextureSprite ="GFX_main_lobby_button"
 			buttonText = "MENU_BAR_QUIT"
-			buttonFont = "hoi_24header"
+			buttonFont = "aldrich_24_outline"
 			clicksound = click_default
 			oversound = ui_menu_over
 		}
 
 		buttonType = {
 			name = "menu_close_button"
-			position = { x = 16 y = 340 }
+			position = { x = 16 y = 317 }
 			quadTextureSprite ="GFX_main_lobby_button"
-			buttonFont = "hoi_24header"
+			buttonFont = "aldrich_24_outline"
 			buttonText = "CLOSE"
 			shortcut = "ESCAPE"
 			clicksound = click_default
 			oversound = ui_menu_over
 		}
 
+		positionType = {
+			name = "playthrough_stats_offset"
+			position = { x = 0 y = 0 }
+		}
+		
+		## facebook etc.
 		ButtonType = {
 			name = "homepage_button"
-			position = { x = 10000 y = 10000 } #KR: disabled (originally 19,389)
+			position = { x = -6000 y = 349 }
 			quadTextureSprite ="homepage"
 			clicksound = click_default
 			pdx_tooltip = "MENU_HOMEPAGE"
 		}
 		ButtonType = {
 			name = "forum_button"
-			position = { x = 10000 y = 10000 } #KR: disabled (originally 59,389)
+			position = { x = -6000 y = 349 }
 			quadTextureSprite ="forum"
 			clicksound = click_default
 			pdx_tooltip = "MENU_FORUM"
@@ -123,39 +129,25 @@ guiTypes = {
 		}
 		ButtonType = {
 			name = "facebook_button"
-			position = { x = 10000 y = 10000 } #KR: disabled (originally 99,389)
+			position = { x = -6000 y = 349 }
 			quadTextureSprite ="facebook"
 			clicksound = click_default
 			pdx_tooltip = "MENU_FACEBOOK"
 			web_link = "https://www.facebook.com/Heartsofiron"
-		}
+		}			
+		
 		ButtonType = {
 			name = "twitter_button"
-			position = { x = 99 y = 389 } #KR: changed position (originally 139,389)
+			position = { x = -6000 y = 349 }
 			quadTextureSprite ="twitter"
 			#clicksound = click_default
 			pdx_tooltip = "MENU_TWITTER"
-			web_link = "https://twitter.com/kaisermod" #KR: adj. link
+			web_link = "https://twitter.com/hoi_game"
 		}
-		ButtonType = {
-			name = "instagram_button"
-			position = { x = 139 y = 389 } #KR: changed position (originally 179,389)
-			quadTextureSprite ="instagram"
-			#clicksound = click_default
-			pdx_tooltip = "MENU_WIKIA" #KR: adj. tooltip
-			web_link = "https://kaiserreich.wikia.com" #KR: adj. link
-		}
-		ButtonType = {
-			name = "discord_button"
-			position = { x = 179 y = 389 } #KR: changed position (originally 219,389)
-			quadTextureSprite ="discord"
-			#clicksound = click_default
-			pdx_tooltip = "MENU_DISCORD"
-			web_link = "https://discord.gg/kaiserreich" #KR: adj. link
-		}
+		
 		ButtonType = {
 			name = "privacy_policy_button"
-			position = { x = 10000 y = 10000 } #KR: disabled (originally 259,389)
+			position = { x = -6000 y = 349 }
 			quadTextureSprite ="privacy"
 			#clicksound = click_default
 			pdx_tooltip = "MENU_PRIVACY_POLICY"
@@ -163,7 +155,7 @@ guiTypes = {
 
 		ButtonType = {
 			name = "achievements_button"
-			position = { x = 299 y = 389 }
+			position = { x = 259 y = 349 }
 			quadTextureSprite ="achievements"
 			pdx_tooltip = "MENU_ACHIEVEMENTS"
 		}
@@ -171,30 +163,126 @@ guiTypes = {
 
 	containerWindowType = {
 		name ="ingamemenu_load"
-		position = { x = -236 y = -270 }
+		position = { x = -210 y = -250 }
 		size = { width = 420 height = 500}
 		Orientation = center
 
+		iconType =
+		{
+			name ="menu"
+			spriteType = "GFX_load_save_top_screen"
+			position = { x= 76 y = 63 }
+			Orientation = "UPPER_LEFT"
+		}
 
+
+		#iconType = {
+		#	name ="menu_bottom"
+		#	spriteType = "GFX_load_save_bottom"
+		#	position = { x= 76 y = 490 }
+		#	Orientation = "UPPER_LEFT"
+		#}
+
+		instantTextBoxType =
+		{
+			name = "saves_dirs"
+			position = { x = 10 y = 375 }
+			textureFile = ""
+			font = "hoi_20bs"
+			borderSize = {x = 0 y = 4}
+			text = ""
+			maxWidth = 120
+			maxHeight = 16
+			format = left
+			fixedsize = yes
+			truncate = yes
+		}
+
+		checkboxType = {
+			name = "localgames_tab"
+			position = { x = 113  y = 84 }
+			quadTextureSprite ="GFX_save_game_btn"
+			Orientation = "UPPER_LEFT"
+		}
+
+		checkboxType = {
+			name = "remotegames_tab"
+			position = { x = 270 y = 84 }
+			quadTextureSprite ="GFX_save_game_btn"
+			Orientation = "UPPER_LEFT"
+		}
+
+		instantTextBoxType = {
+			name = "localgames_label"
+			position = { x = 124 y = 92 }
+			textureFile = ""
+			font = "Bomb_24"
+			borderSize = {x = 0 y = 0}
+			text = "MENU_BAR_LOCALGAMES"
+			maxWidth = 100
+			maxHeight = 20
+			fixedsize = yes
+			Orientation = "UPPER_LEFT"
+			format = centre
+		}
+
+		instantTextBoxType = {
+			name = "cloudgames_label"
+			position = { x = 280 y = 92 }
+			textureFile = ""
+			font = "Bomb_24"
+			borderSize = {x = 0 y = 0}
+			text = "MENU_BAR_CLOUDGAMES"
+			maxWidth = 100
+			maxHeight = 20
+			fixedsize = yes
+			Orientation = "UPPER_LEFT"
+			format = centre
+		}
+
+		buttonType = {
+			name = "load"
+			position = { x = 280 y = 530 }
+			quadTextureSprite ="GFX_sort_button_100x29"
+			frame = 1
+			buttonText = "MENU_BAR_LOAD"
+			buttonFont = "aldrich_24_outline"
+			Orientation = "UPPER_LEFT"
+			clicksound = click_close
+			oversound = ui_menu_over
+			shortcut = "RETURN"
+		}
+
+		buttonType = {
+			name = "cancel"
+			position = { x = 113 y = 530 }
+			quadTextureSprite ="GFX_sort_button_100x29"
+			frame = 1
+			buttonText = "BACK"
+			buttonFont = "aldrich_24_outline"
+			Orientation = "UPPER_LEFT"
+			clicksound = click_close
+			oversound = ui_menu_over
+			shortcut = "ESCAPE"
+		}
 
 		containerWindowType = {
 			name ="games"
-			position = { x = 75 y = 126 }
-			size = { width = 350 height = 370}
+			position = { x = 69 y = 155 }
+			size = { width = 353 height = 365}
 			verticalScrollbar = "right_vertical_slider"
-			scroll_wheel_factor = 55
-			smooth_scrolling = yes
+			vertical_scroll_step = 5
 
 			background = {
 				name = "Background"
-				quadTextureSprite ="GFX_no_frame_special_bg"
+				quadTextureSprite ="GFX_tiled_window_transparent"
 			}
-
+			
 			instantTextBoxType={
-				position = { x = 0 y = 0 }
+				position = { x = 0 y = -6 }
 				name = "disk_quota"
 				textureFile = ""
-				font = "hoi_16mbs"
+				font = "aldrich_16_outline"
 				borderSize = { x = 8 y = 5 }
 				maxWidth = 320
 				maxHeight = 10
@@ -206,118 +294,19 @@ guiTypes = {
 
 			gridBoxType = {
 				name = "games_grid"
-				position = { x=13 y =24}
+				position = { x=13 y =8}
 				size = { width =280 height = 400}
 				slotsize = { width = 280 height = 55 }
 				format = "UPPER_LEFT"
 				max_slots_horizontal = 1
 			}
 		}
-
-		iconType =
-		{
-			name ="menu"
-			spriteType = "GFX_load_save_top_screen"
-			position = { x= 76 y = 63 }
-			Orientation = "UPPER_LEFT"
-		}
-
-
-		iconType =
-		{
-			name ="menu_bottom"
-			spriteType = "GFX_load_save_bottom"
-			position = { x= 76 y = 490 }
-			Orientation = "UPPER_LEFT"
-		}
-
-		instantTextBoxType =
-		{
-			name = "saves_dirs"
-			position = { x = 10 y = 375 }
-			textureFile = ""
-			font = "hoi_20bs"
-			borderSize = {x = 0 y = 4}
-			text = ""
-			maxWidth = 120
-			maxHeight = 16
-			format = left
-			fixedsize = yes
-			truncate = yes
-		}
-
-		checkboxType = {
-			name = "localgames_tab"
-			position = { x = 105  y = 84 }
-			quadTextureSprite ="GFX_save_load_file_btn"
-			Orientation = "UPPER_LEFT"
-		}
-
-		checkboxType = {
-			name = "remotegames_tab"
-			position = { x = 262 y = 84 }
-			quadTextureSprite ="GFX_save_load_file_btn"
-			Orientation = "UPPER_LEFT"
-		}
-
-		instantTextBoxType = {
-			name = "localgames_label"
-			position = { x = 115 y = 91 }
-			textureFile = ""
-			font = "hoi_20bs"
-			borderSize = {x = 0 y = 0}
-			text = "MENU_BAR_LOCALGAMES"
-			maxWidth = 100
-			maxHeight = 20
-			fixedsize = yes
-			Orientation = "UPPER_LEFT"
-			format = centre
-		}
-
-		instantTextBoxType = {
-			name = "cloudgames_label"
-			position = { x = 269 y = 91 }
-			textureFile = ""
-			font = "hoi_20bs"
-			borderSize = {x = 0 y = 0}
-			text = "MENU_BAR_CLOUDGAMES"
-			maxWidth = 100
-			maxHeight = 20
-			fixedsize = yes
-			Orientation = "UPPER_LEFT"
-			format = centre
-		}
-
-
-		buttonType = {
-			name = "load"
-			position = { x = 245 y = 503 }
-			quadTextureSprite ="GFX_button_148x34"
-			buttonText = "MENU_BAR_LOAD"
-			buttonFont = "hoi_20b"
-			Orientation = "UPPER_LEFT"
-			clicksound = click_close
-			oversound = ui_menu_over
-			shortcut = "RETURN"
-		}
-
-		buttonType = {
-			name = "cancel"
-			position = { x = 100 y = 503 }
-			quadTextureSprite ="GFX_button_148x34"
-			buttonText = "BACK"
-			buttonFont = "hoi_20b"
-			Orientation = "UPPER_LEFT"
-			clicksound = click_close
-			oversound = ui_menu_over
-			shortcut = "ESCAPE"
-		}
 	}
 
 	containerWindowType = {
 		name ="ingamemenu_save"
-		position = { x=-236 y =-270 }
-		size = { width = 420 height = 500}
+		position = { x=-210 y =-250 }
+		size = { width = 415 height = 500}
 		Orientation = center
 
 		iconType =
@@ -328,20 +317,19 @@ guiTypes = {
 			Orientation = "UPPER_LEFT"
 		}
 
-		iconType =
-		{
-			name ="menu_bottom"
-			spriteType = "GFX_load_save_bottom_screen"
-			position = { x= 76 y = 446 }
-			Orientation = "UPPER_LEFT"
-		}
+		#iconType = {
+		#	name ="menu_bottom"
+		#	spriteType = "GFX_load_save_bottom_screen"
+		#	position = { x= 76 y = 446 }
+		#	Orientation = "UPPER_LEFT"
+		#}
 
 		instantTextBoxType =
 		{
 			name = "saves_dirs"
 			position = { x = 10 y = 375 }
 			textureFile = ""
-			font = "hoi_20bs"
+			font = "Bomb_24"
 			borderSize = {x = 0 y = 4}
 			text = ""
 			maxWidth = 120
@@ -351,25 +339,37 @@ guiTypes = {
 			truncate = yes
 		}
 
+		#instantTextBoxType={
+		#	position = { x = 275 y = 379 }
+		#	name = "disk_quota"
+		#	font = "Bomb_24"
+		#	borderSize = { x = 8 y = 0 }
+		#	maxWidth = 188
+		#	maxHeight = 18
+		#	text = "MENU_BAR_DISK_QUOTA"
+		#	orientation = "UPPER_LEFT"
+		#	format = centre
+		#}
+
 		checkboxType = {
 			name = "localgames_tab"
-			position = { x = 105  y = 84 }
-			quadTextureSprite ="GFX_save_load_file_btn"
+			position = { x = 113  y = 84 }
+			quadTextureSprite ="GFX_save_game_btn"
 			Orientation = "UPPER_LEFT"
 		}
 
 		checkboxType = {
 			name = "remotegames_tab"
-			position = { x = 262 y = 84 }
-			quadTextureSprite ="GFX_save_load_file_btn"
+			position = { x = 270 y = 84 }
+			quadTextureSprite ="GFX_save_game_btn"
 			Orientation = "UPPER_LEFT"
 		}
 
 		instantTextBoxType = {
 			name = "localgames_label"
-			position = { x = 115 y = 91 }
+			position = { x = 124 y = 92 }
 			textureFile = ""
-			font = "hoi_20bs"
+			font = "Bomb_24"
 			borderSize = {x = 0 y = 0}
 			text = "MENU_BAR_LOCALGAMES"
 			maxWidth = 100
@@ -381,9 +381,9 @@ guiTypes = {
 
 		instantTextBoxType = {
 			name = "cloudgames_label"
-			position = { x = 269 y = 91 }
+			position = { x = 280 y = 92 }
 			textureFile = ""
-			font = "hoi_20bs"
+			font = "Bomb_24"
 			borderSize = {x = 0 y = 0}
 			text = "MENU_BAR_CLOUDGAMES"
 			maxWidth = 100
@@ -395,21 +395,21 @@ guiTypes = {
 
 		containerWindowType = {
 			name ="games"
-			position = { x = 75 y = 126 }
-			size = { width = 350 height = 320}
+			position = { x = 69 y = 155 }
+			size = { width = 353 height = 325}
 			verticalScrollbar = "right_vertical_slider"
 			vertical_scroll_step = 5
 
 			background = {
 				name = "Background"
-				quadTextureSprite ="GFX_no_frame_special_bg"
+				quadTextureSprite ="GFX_tiled_window_transparent"
 			}
-
+			
 			instantTextBoxType={
-				position = { x = 0 y = 0 }
+				position = { x = 0 y = -8 }
 				name = "disk_quota"
 				textureFile = ""
-				font = "hoi_16mbs"
+				font = "aldrich_16_outline"
 				borderSize = { x = 8 y = 5 }
 				maxWidth = 320
 				maxHeight = 10
@@ -421,7 +421,7 @@ guiTypes = {
 
 			gridBoxType = {
 				name = "games_grid"
-				position = { x=13 y =24}
+				position = { x=13 y =5}
 				size = { width =280 height = 400}
 				slotsize = { width = 280 height = 55 }
 				format = "UPPER_LEFT"
@@ -430,9 +430,9 @@ guiTypes = {
 		}
 
 		instantTextBoxType={
-			position = {x = 93 y = 450 }
+			position = {x = 93 y = 482 }
 			name = "filename_label"
-			font = "hoi_16mbs"
+			font = "aldrich_18_outline"
 			borderSize = {x = 8 y = 0}
 			maxWidth = 300
 			maxHeight = 18
@@ -442,10 +442,10 @@ guiTypes = {
 		}
 
 		editBoxType = {
-			position = { x = 115 y = 465 }
+			position = { x = 115 y = 487 }
 			name = "game_name"
-			font = "hoi_16mbs"
-			borderSize = { x = 4 y = 8 }
+			font = "aldrich_24_outline"
+			borderSize = { x = 4 y = 8  }
 			size = { x=260 y=42 }
 			text = ""
 			orientation = "UPPER_LEFT"
@@ -453,10 +453,11 @@ guiTypes = {
 
 		buttonType = {
 			name = "cancel"
-			position = { x = 100 y = 503 }
-			quadTextureSprite ="GFX_button_148x34"
+			position = { x = 113 y = 530 }
+			quadTextureSprite ="GFX_sort_button_100x29"
+			frame = 1
 			buttonText = "BACK"
-			buttonFont = "hoi_20b"
+			buttonFont = "aldrich_22_outline"
 			Orientation = "UPPER_LEFT"
 			clicksound = click_close
 			oversound = ui_menu_over
@@ -465,10 +466,11 @@ guiTypes = {
 
 		buttonType = {
 			name = "save"
-			position = { x = 245 y = 503 }
-			quadTextureSprite ="GFX_button_148x34"
+			position = { x = 280 y = 530 }
+			quadTextureSprite ="GFX_sort_button_100x29"
+			frame = 1
 			buttonText = "MENU_BAR_SAVE"
-			buttonFont = "hoi_20b"
+			buttonFont = "aldrich_22_outline"
 			Orientation = "UPPER_LEFT"
 			clicksound = click_close
 			oversound = ui_menu_over
@@ -478,7 +480,7 @@ guiTypes = {
 
 	containerWindowType = {
 		name ="savegame_item"
-		position = { x=0 y =0 }
+		position = { x = 5 y = 5 }
 		size = { width = 280 height = 50 }
 		clipping = no
 
@@ -490,28 +492,21 @@ guiTypes = {
 		iconType = {
 			name ="player_shield"
 			quadTextureSprite = "GFX_flag_small2_not_masked"
-			position = { x= 6 y = 14 }
+			position = { x= 7 y = 14 }
 			alwaystransparent = yes
 		}
 
 		iconType = {
-			name ="player_shield_overlay"
-			quadTextureSprite = "GFX_flag_small2_not_masked"
-			position = { x= 6 y = 14 }
-			alwaystransparent = yes
-		}
-
-		iconType = {
-			name ="player_shield_frame"
-			quadTextureSprite = "GFX_small_flag_frame_thin2"
-			position = { x= 1 y = 9 }
+			name = "country_flag_frame"
+			position = {x= 3 y = 9}
+			spriteType = "GFX_flag_frame_warscreen"
 			alwaystransparent = yes
 		}
 
 		instantTextBoxType={
-			position = {x = 55 y = 5 }
+			position = {x = 53 y = 7 }
 			name = "name"
-			font = "hoi_18mbs"
+			font = "aldrich_22_outline"
 			maxWidth = 224
 			maxHeight = 18
 			format = left
@@ -520,9 +515,9 @@ guiTypes = {
 		}
 
 		instantTextBoxType={
-			position = {x = 52 y = 24 }
+			position = {x = 47 y = 26 }
 			name = "date"
-			font = "hoi_18mbs"
+			font = "aldrich_22_outline"
 			maxWidth = 217
 			maxHeight = 18
 			format = left
@@ -550,15 +545,15 @@ guiTypes = {
 
 		buttonType = {
 			name = "delete"
-			position = { x=279 y=22 }
-			spriteType = "GFX_NV_btn_delete"
+			position = { x=275 y=11 }
+			spriteType = "GFX_crt_delete"
 			clicksound = disband
 		}
 
 		iconType = {
 			name ="missing_dlc_sign"
 			quadTextureSprite = "GFX_missing_dlc_warning_sign"
-			position = { x= 250 y = 20 }
+			position = { x = 260 y = 20 }
 		}
 	}
 }

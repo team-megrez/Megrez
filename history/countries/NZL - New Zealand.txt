@@ -1,382 +1,274 @@
-﻿capital = 284
-set_research_slots = 3
-set_stability = 0.8
-set_war_support = 0.3
-set_convoys = 70
+capital = 284
 
-set_cosmetic_tag = NZL_entente
+# Vacant
+# recruit_character = NZL_Generic_Vacant
+fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
+
+# recruit_character = NZL_Keith_Holyoake
+# recruit_character = NZL_Robert_Muldoon
+# recruit_character = NZL_Jack_Marshall
+# recruit_character = NZL_Brian_Talboys
+# recruit_character = NZL_Norman_Kirk
+# recruit_character = NZL_Hugh_Watt
+# recruit_character = NZL_Bob_Tizard
+# recruit_character = NZL_Colin_Moyle
+# recruit_character = NZL_Vernon_Cracknell
+
+oob = "NZL_1962"
+set_air_oob = "NZL_1962_air"
 
 set_technology = {
-	### Infantry ###
-	infantry_weapons = 1
-	infantry_weapons1 = 1
+	basic_train = 1
 
-	### Support ###
-	tech_support = 1
+	transport = 1
+	advanced_medium_tank = 1
+	advanced_light_tank = 1
+	infantry_weapons_1 = 1
+	night_vision_1 = 1
+	
+	infantry_kit_1 = 1
+	infantry_weapons_2 = 1
+	night_vision_2 = 1
+	infantry_kit_2 = 1
+	tech_support = 1	
 	tech_engineers = 1
 	tech_recon = 1
-
-	### Artillery ###
-	gw_artillery = 1
-	interwar_antiair = 1
-
-	### Industry ###
-	fuel_silos = 1
-
-	### Trains ###
-	basic_train = 1
+	motorized_infantry = 1
+	marines = 1
+	#
+	tech_special_forces = 1
+	artillery4 = 1
+	early_fighter = 1
+	fighter_1945 = 1
+	fighter_1950 = 1
+	interceptor_1945 = 1
+	interceptor_1950 = 1
+	CAS_1945 = 1
+	cv_1945_CAS = 1
+	CAS_1950 = 1
+	cv_1950_CAS = 1
+	very_early_helicopter = 1
+	early_helicopter = 1
+	strategic_bomber1 = 1
+	heavy_air_1945 = 1
+	heavy_air_1950 = 1
+	tac_bomber1 = 1
+	tac_air_1945 = 1
+	tac_air_1950 = 1
+	transport_air1 = 1
+	transport_air_1945 = 1
+	transport_air_1950 = 1
+	advanced_medium_tank = 1
+	mechanised_infantry3 = 1
+	advanced_light_tank = 1
+	APC_1950 = 1
+	APC_1960 = 1
+	IFV_1950 = 1
+	IFV_1960 = 1
+	MBT_1950 = 1
+	MBT_1960 = 1
+	AC_1945 = 1
+	AC_1950 = 1
+	AC_1960 = 1
+	artillery4 = 1
+	artillery_1950 = 1
+	artillery_1950_soft_attack = 1
+	SPART_1950 = 1
+	SPART_1950_soft_attack = 1
+	#SPART_1950_speed = 1
+	antiair5 = 1
+	antiair_1950 = 1
+	antiair_1950_air_attack = 1
+	SPAA_1950 = 1
+	SPAA_1950_air_attack = 1
+	#SPAA_1950_speed = 1
+	
+	electronic_mechanical_engineering = 1
+	radio = 1
+	radio_detection = 1
+	decimetric_radar = 1
+	centimetric_radar = 1
+	radar_1950 = 1
+	radar_1960 = 1
+	mechanical_computing = 1
+	computing_machine = 1
+	improved_computing_machine = 1
+	advanced_computing_machine = 1
+	computing_machine_1950 = 1
+	computing_machine_1960 = 1
+	basic_encryption = 1
+	improved_encryption = 1
+	advanced_encryption = 1
+	encryption_1950 = 1
+	encryption_1960 = 1
+	basic_decryption = 1
+	improved_decryption = 1
+	advanced_decryption = 1
+	decryption_1950 = 1
+	decryption_1960 = 1
+	
+	
+	helicopter_engines = 1
+	jet_engines = 1
+	jet_engines_bombers = 1
+	improved_jet_engines_1 = 1
+	improved_jet_engines_bombers_1 = 1
+	building_construction_1 = 1
+	production_unit_gain_1 = 1
+	
+	oil_processing = 1
+	administration_construction_1 = 1
+	prison_construction_1 = 1
+	infantry_weapons_1 = 1
+	night_vision_1 = 1
+	
+	infantry_kit_1 = 1
+	infantry_weapons_2 = 1
+	night_vision_2 = 1
+	infantry_kit_2 = 1
+	infantry_weapons_improvements_mine_1 = 1
+	infantry_kit_3 = 1
+	infantry_weapons_improvements_ammo_1 = 1
+	infantry_weapons_improvements_grenade_1 = 1
+	#
+	infantry_weapons_3 = 1
+	night_vision_3 = 1
+	infantry_kit_4 = 1
+	infantry_weapons_improvements_mine_2 = 1
+	basic_infantry_equipment = 1
+	support_weapons = 1
+	support_weapons_hmg_1 = 1
+	combat_support_equipment_1 = 1
+	
+	support_weapons_arty_1 = 1
+	support_weapons_hmg_2 = 1
+	combat_support_equipment_2 = 1
+	infantry_at = 1
+	infantry_at_upgrade_1 = 1
+	#
+	infantry_at2 = 1
+	infantry_at_upgrade_2 = 1
+	
+	
+	
+	
+	motorized_infantry_1 = 1
+	basic_frigate = 1
+	ww2_destroyer = 1
+	basic_destroyer = 1
+	improved_destroyer = 1
+	ww2_cruiser = 1
+	basic_cruiser = 1
+	improved_cruiser = 1
+	ww2_battleship = 1
+	ww2_submarine = 1
+	basic_submarine = 1
+	ww2_carrier = 1
+	early_carrier = 1
+	tech_engineers2 = 1
+	tech_engineers3 = 1
+	assault_weapons_1 = 1
+	assault_weapons_2 = 1
+	tech_recon2 = 1
+	tech_recon3 = 1
+	tech_military_police = 1
+	tech_maintenance_company = 1
+	tech_maintenance_company2 = 1
+	tech_field_hospital = 1
+	tech_field_hospital2 = 1
+	tech_logistics_company = 1
+	tech_logistics_company2 = 1
+	tech_signal_company = 1
+	tech_signal_company2 = 1
+	tech_signal_company3 = 1
 }
 
-### Planes - BBA ###
-if = {
-	limit = { has_dlc_bba = yes }
-	set_technology = {
-		aa_lmg = 1
-		engines_1 = 1
-		engines_2 = 1
-		early_bombs = 1
-		aircraft_construction = 1
-		iw_small_airframe = 1
-		iw_medium_airframe = 1
-		iw_large_airframe = 1
-		basic_medium_airframe = 1
-	}
-}
-
-### Planes - non BBA ###
-if = {
-	limit = { has_dlc_bba = no }
-	set_technology = {
-		early_fighter = 1
-		early_bomber = 1
-		naval_bomber1 = 1
-		cv_early_fighter = 1
-		cv_naval_bomber1 = 1
-		CAS1 = 1
-	}
-}
-
-### Tanks - NSB ###
-if = {
-	limit = { has_dlc_nsb = yes }
-	set_technology = { gwtank_chassis = 1 }
-}
-
-### Tanks - non NSB ###
-if = {
-	limit = { has_dlc_nsb = no }
-	set_technology = { gwtank = 1 }
-}
-
-### Navy - MtG ###
-if = {
-	limit = { has_dlc_mtg = yes }
-	set_technology = {
-		### Hulls ###
-		early_ship_hull_submarine = 1
-		early_ship_hull_light = 1
-		early_ship_hull_cruiser = 1
-		early_ship_hull_heavy = 1
-		early_ship_hull_carrier = 1
-
-		### Modules ###
-		basic_battery = 1
-		basic_torpedo = 1
-		basic_depth_charges = 1
-		basic_cruiser_armor_scheme = 1
-		basic_naval_mines = 1
-		submarine_mine_laying = 1
-
-		### Transport ###
-		mtg_transport = 1
-	}
-}
-
-### Navy - Non MtG ###
-if = {
-	limit = { has_dlc_mtg = no }
-	set_technology = {
-		### Hulls ###
-		early_submarine = 1
-		early_destroyer = 1
-		early_light_cruiser = 1
-		early_heavy_cruiser = 1
-		early_battlecruiser = 1
-		early_battleship = 1
-		early_carrier = 1
-
-		### Transport ###
-		transport = 1
-	}
-}
+set_research_slots = 3
+set_convoys = 300
+set_stability = 0.5
 
 set_politics = {
-	ruling_party = social_democrat
-	last_election = "1888.6.15"
-	election_frequency = 48
-	elections_allowed = no
+	ruling_party = conservative
+	last_election = "1960.11.26"
+	election_frequency = 36
+	elections_allowed = yes
 }
 
 set_popularities = {
-	totalist = 3
-	radical_socialist = 10
-	syndicalist = 15
-	social_democrat = 47
-	social_liberal = 11
-	market_liberal = 6
-	social_conservative = 5
-	authoritarian_democrat = 2
-	paternal_autocrat = 1
+	vanguardist = 0
 	national_populist = 0
+	socialist = 0
+	progressive =  46
+	ecologist = 2
+	liberal_liberal = 0
+	liberal = 52
+	conservative = 0
+	syndicalist = 0
+	anocrat = 0
+	
 }
 
-### Country Leaders ###
-recruit_character = NZL_alexander_galbraith
-recruit_character = NZL_john_alfred_alexander_lee
-recruit_character = NZL_elsie_violet_farrelly
-recruit_character = NZL_fintan_patrick_walsh
-recruit_character = NZL_michael_joseph_savage
-recruit_character = NZL_peter_fraser
-recruit_character = NZL_eruera_tihema_te_aika_tirikatene
-recruit_character = NZL_albert_ernest_davy
-recruit_character = NZL_adam_hamilton
-recruit_character = NZL_sidney_george_holland
-recruit_character = NZL_robert_campbell_begg
+set_stability = 0.6
+set_war_support = 0.6
 
-recruit_character = NZL_george_vere_arundel_monckton_arundell
+add_ideas = {
+	#Faction Status
+	OFN_Independent_Member
 
-### Advisors ###
-recruit_character = NZL_constance_alice_rawcliffe
-recruit_character = NZL_sidney_wilfred_scott
-recruit_character = NZL_arthur_cook
-recruit_character = NZL_arnold_henry_nordmeyer
-recruit_character = NZL_david_gervan_mcmillan
-recruit_character = NZL_frederick_nelson_jones
-recruit_character = NZL_james_roberts
-recruit_character = NZL_tapihana_paraire_paikea
-recruit_character = NZL_tiaki_omana
-recruit_character = NZL_ernest_richard_toop
-recruit_character = NZL_william_goodfellow
-recruit_character = NZL_william_john_polson
-recruit_character = NZL_joseph_gordon_coates
-recruit_character = NZL_berkeley_lionel_scudamore_dallard
-recruit_character = NZL_keith_lindsay_stewart
-recruit_character = NZL_lindsay_merritt_inglis
-recruit_character = NZL_will_lawson
-recruit_character = NZL_arthur_nelson_field
-recruit_character = NZL_nancy_grace_augusta_wake
+	NZL_Culture_War
+	NZL_Onto_World_Stage
+	NZL_Social_Fabric
+	NZL_Establishment
 
-### Generals ###
-recruit_character = NZL_john_evelyn_duigan
-recruit_character = NZL_bernard_cyril_freyberg
-recruit_character = NZL_william_george_stevens
-recruit_character = NZL_william_george_gentry
-recruit_character = NZL_james_hargest
-recruit_character = NZL_edward_puttick
-recruit_character = NZL_andrew_hamilton_russell
-recruit_character = NZL_harold_eric_barrowclough
+	##POLITICAL LAWS##
+	tno_political_parties_multiparty_system
+	tno_religious_rights_secularism
+	tno_trade_unions_nonsocialist_allowed
+	tno_immigration_quota_immigration
+	tno_slavery_penal_labor
+	tno_public_meetings_allowed
+	tno_press_rights_free_press
+	tno_vote_franchise_universal
 
-### Admirals ###
-recruit_character = NZL_james_william_rivett_carnac
-recruit_character = NZL_peter_phipps
-recruit_character = NZL_guy_charles_cecil_royle
-recruit_character = NZL_george_haines_faulkner
+	##MILITARY LAWS###
+	tno_conscription_limited_conscription
+	tno_military_supervision_rules_of_engagement
+	tno_training_basic_training
+	tno_draft_exemptions_educational_deferment
 
-### Military Staff ###
-recruit_character = NZL_howard_karl_kippenberger
-recruit_character = NZL_clive_lochiel_pleasants
-recruit_character = NZL_atwell_peregrine_macleod_lake
-recruit_character = NZL_ralph_alexander_cochrane
-recruit_character = NZL_robert_victor_goddard
-recruit_character = NZL_stanley_flamank_vincent
+	##SOCIAL LAWS##
+	tno_trade_laws_export_focus
+	tno_income_taxation_high_income_weighted
+	tno_minimum_wage_acceptable_minimum
+	tno_max_workhours_10_hour_work_day
+	tno_pensions_acceptable_pensions
+	tno_unemployment_low_subsidies
 
-### Theorists ###
-recruit_character = NZL_ronald_stuart_park
-recruit_character = NZL_henry_edward_horan
-recruit_character = NZL_leonard_monk_isitt
+	##ECONOMIC LAWS##
+	tno_health_care_universal_health_care
+	tno_education_subsidised_higher_education
+	tno_penal_system_rehabilitation
+	tno_gender_rights_women_in_the_workplace
+	tno_security_regulated_police
+	tno_regulations_strict_regulations
 
-### Move everyone to AST ###
-NZL_elsie_violet_farrelly = {
-	set_character_flag = NZL_character
-	set_nationality = AST
-}
-NZL_peter_fraser = {
-	set_character_flag = NZL_character
-	set_nationality = AST
-}
-NZL_sidney_george_holland = {
-	set_character_flag = NZL_character
-	set_nationality = AST
-}
-every_unit_leader = {
-	add_unit_leader_trait = AST_new_zealander
-	set_character_flag = NZL_character
-	set_nationality = AST
-}
-every_character = {
-	limit = {
-		OR = {
-			has_advisor_role = army_chief
-			has_advisor_role = navy_chief
-			has_advisor_role = air_chief
-			has_advisor_role = high_command
-			has_advisor_role = theorist
-		}
-	}
-	set_character_flag = NZL_character
-	set_nationality = AST
-}
+	##MISC LAWS##
+	tno_women_noncombat_only
+	tno_racial_integration_integrated_military
+	tno_refugees_skilled
+	tno_child_labor_illegal
+	tno_safety_excellent_regulations
+	tno_pollution_some_regulations
+	tno_lgbt_rights_lgbt_outlawed
+	tno_minorities_segregation
 
-### Templates ###
-division_template = {
-	name = "Cavalry Division"
-	division_names_group = NZL_CAV_01
-	regiments = {
-		cavalry = { x = 0 y = 0 }
-		cavalry = { x = 0 y = 1 }
-		cavalry = { x = 0 y = 2 }
-		cavalry = { x = 1 y = 0 }
-		cavalry = { x = 1 y = 1 }
-		cavalry = { x = 1 y = 2 }
-	}
+	##SOCIETAL DEVELOPMENT##
+	tno_academic_base_secondary_schooling
+	tno_research_facilities_modern
+	tno_agriculture_mass_mechanized
+	tno_healthcare_developed
+	tno_industrial_equipment_modern
+	tno_industrial_expertise_experienced
+	tno_army_professionalism_professional
+	tno_admin_efficiency_functional_administrative_systems
 }
-division_template = {
-	name = "District Force"
-	division_names_group = NZL_GAR_01
-	regiments = {
-		infantry = { x = 0 y = 0 }
-		infantry = { x = 0 y = 1 }
-		infantry = { x = 0 y = 2 }
-		infantry = { x = 1 y = 0 }
-		infantry = { x = 1 y = 1 }
-		infantry = { x = 1 y = 2 }
-	}
-}
-division_template = {
-	name = "Armoured Division"
-	division_names_group = NZL_ARM_01
-	regiments = {
-		light_armor = { x = 0 y = 0 }
-		light_armor = { x = 0 y = 1 }
-		cavalry = { x = 1 y = 0 }
-		cavalry = { x = 1 y = 1 }
-	}
-}
-
-### Variants ###
-
-### Submarines ###
-create_equipment_variant = {
-	name = "H/L Class" #WW1 submarines
-	type = ship_hull_submarine_1
-	name_group = AST_SS_HTYPE_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_torpedo_slot = ship_torpedo_sub_1
-		fixed_ship_engine_slot = sub_ship_engine_1
-		rear_1_custom_slot = empty
-	}
-	obsolete = yes
-}
-create_equipment_variant = {
-	name = "K Class" #equivalent to OTL S Class
-	type = ship_hull_submarine_1
-	name_group = AST_SS_KTYPE_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_torpedo_slot = ship_torpedo_sub_1
-		fixed_ship_engine_slot = sub_ship_engine_1
-		rear_1_custom_slot = ship_torpedo_sub_1
-	}
-}
-
-### Destroyers ###
-create_equipment_variant = {
-	name = "V/W Class" #WW1 destroyers
-	type = ship_hull_light_1
-	name_group = AST_GBR_DD_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_battery_slot = ship_light_battery_1
-		fixed_ship_anti_air_slot = ship_anti_air_1
-		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-		fixed_ship_radar_slot = empty
-		fixed_ship_engine_slot = light_ship_engine_1
-		fixed_ship_torpedo_slot = ship_torpedo_1
-		mid_1_custom_slot = empty
-		rear_1_custom_slot = ship_depth_charge_1
-	}
-	obsolete = yes
-}
-create_equipment_variant = {
-	name = "Warburton Class" #equivalent to OTL A, B, C, D classes
-	type = ship_hull_light_1
-	name_group = AST_DD_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_battery_slot = ship_light_battery_2
-		fixed_ship_anti_air_slot = empty
-		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-		fixed_ship_radar_slot = empty
-		fixed_ship_engine_slot = light_ship_engine_2
-		fixed_ship_torpedo_slot = ship_torpedo_1
-		mid_1_custom_slot = ship_torpedo_1
-		rear_1_custom_slot = ship_depth_charge_1
-	}
-}
-
-### Light Cruisers ###
-create_equipment_variant = {
-	name = "C-Class" #early WW1 cruisers
-	type = ship_hull_cruiser_1
-	name_group = AST_GBR_CL_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_battery_slot = ship_light_medium_battery_1
-		fixed_ship_anti_air_slot = ship_anti_air_1
-		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-		fixed_ship_radar_slot = empty
-		fixed_ship_engine_slot = cruiser_ship_engine_1
-		fixed_ship_armor_slot = ship_armor_cruiser_1
-		mid_1_custom_slot = ship_torpedo_1
-		mid_2_custom_slot = empty
-		rear_1_custom_slot = empty
-	}
-	obsolete = yes
-}
-create_equipment_variant = {
-	name = "Danae Class" #late WW1 cruisers
-	type = ship_hull_cruiser_1
-	name_group = AST_GBR_CL_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_battery_slot = ship_light_medium_battery_1
-		fixed_ship_anti_air_slot = ship_anti_air_1
-		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-		fixed_ship_radar_slot = empty
-		fixed_ship_engine_slot = cruiser_ship_engine_1
-		fixed_ship_armor_slot = ship_armor_cruiser_1
-		mid_1_custom_slot = ship_torpedo_1
-		mid_2_custom_slot = ship_torpedo_1
-		rear_1_custom_slot = empty
-	}
-	obsolete = yes
-}
-create_equipment_variant = {
-	name = "Bathurst Class" #equivalent to OTL Emerald
-	type = ship_hull_cruiser_1
-	name_group = AST_CL_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_battery_slot = ship_light_medium_battery_1
-		fixed_ship_anti_air_slot = ship_anti_air_1
-		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-		fixed_ship_radar_slot = empty
-		fixed_ship_engine_slot = cruiser_ship_engine_2
-		fixed_ship_armor_slot = ship_armor_cruiser_1
-		mid_1_custom_slot = ship_torpedo_1
-		mid_2_custom_slot = ship_torpedo_1
-		rear_1_custom_slot = ship_light_medium_battery_1
-	}
-}
-

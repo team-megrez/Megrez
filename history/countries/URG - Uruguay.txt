@@ -1,131 +1,345 @@
-﻿capital = 300
-oob = "URG"
-set_naval_oob = "URG_naval"
-set_research_slots = 3
-set_war_support = 0.1
-set_convoys = 5
-starting_train_buffer = 2
+capital = 1629
 
-set_technology = {
-	### Infantry ###
-	infantry_weapons = 1
+#econtype
+set_variable = { TNO_economy_subtype = token:Econ_Subtype_Dirigisme }
+set_variable = { TNO_economy_type = token:Econ_Type_Corporatism }
 
-	### Artillery ###
-	gw_artillery = 1
-	interwar_antiair = 1
+# Vacant
+# recruit_character = URG_Generic_Vacant
+# recruit_character = URG_Consejo_Nacional_de_Gobierno
+# recruit_character = URG_CENSURADO
+# recruit_character = URG_Cesar_Batlle_Pacheco
+# recruit_character = URG_Enrique_Erro
+# recruit_character = URG_Rodney_Arismendi
+# recruit_character = URG_Supreme_Corte_de_Justicia
+# recruit_character = URG_Gabriel_Terra_Ilarraz
+# recruit_character = URG_Echegoyen_and_Haedo
+# recruit_character = URG_Agorio_and_Bosch
+# recruit_character = URG_Raul_Sendic
+# recruit_character = URG_Mario_Echenique
+# recruit_character = URG_Domingo_Tortorelli
+# recruit_character = URG_Victor_Haedo
+# recruit_character = URG_Homero_Martinez
+# recruit_character = URG_Juan_Eduardo_Azzini
+# recruit_character = URG_Modesto_Rebollo
+# recruit_character = URG_Faustino_Harrison
+# recruit_character = URG_Luis_Batlle_Berres
+# recruit_character = URG_Oscar_Diego_Gestido
+# recruit_character = URG_Daniel_Fernandez_Crespo
+# recruit_character = URG_Alberto_Arocena
+# recruit_character = URG_Amilcar_Vasconcellos
+# recruit_character = URG_Manuel_Flores_Mora
+# recruit_character = URG_Jorge_Batlle
+# recruit_character = URG_Jorge_Pacheco_Areco
+# recruit_character = URG_Martin_Echegoyen
+# recruit_character = URG_Alberto_Gallinal_Heber
+# recruit_character = URG_Mario_Oscar_Aguerrondo
+# recruit_character = URG_Juan_Pedro_Ribas
+# recruit_character = URG_Alberto_Abdala
+# recruit_character = URG_Jose_Acquistapace
+# recruit_character = URG_Francisco_Forteza
+# recruit_character = URG_Arturo_Lezama
+# recruit_character = URG_Glauco_Segovia
+# recruit_character = URG_Augusto_Legnani
+# recruit_character = URG_Carlos_Manini_Rios
+# recruit_character = URG_Tabare_Berreta
+# recruit_character = URG_Cesar_Charlone
+# recruit_character = URG_Luis_Alberto_Brause
+# recruit_character = URG_Antonio_Francese
+# recruit_character = URG_Juan_Jose_Gari
+# recruit_character = URG_Francisco_Gilmet
+# recruit_character = URG_Nicolas_Storace_Arrosa
+# recruit_character = URG_Juan_Felipe_Yriart
+# recruit_character = URG_Dardo_Ortiz
+# recruit_character = URG_Washington_Beltran_Mullin
+# recruit_character = URG_Eduardo_Rodriguez_Larreta
+# recruit_character = URG_Alejandro_Zorilla_de_San_Martin
+# recruit_character = URG_Salvador_Ferrer_Serra
+# recruit_character = URG_Pablo_Moratorio
+# recruit_character = URG_Ventura_Rodriguez
+# recruit_character = URG_Omar_Diaz
+# recruit_character = URG_Aparicio_Mendez
+# recruit_character = URG_Juan_Carlos_Quagliotti
+# recruit_character = URG_Adolfo_Tejera
+# recruit_character = URG_Alberto_Demicheli
+# recruit_character = URG_Juan_Carlos_Blanco
+# recruit_character = URG_Tydeo_Larre_Borges
+# recruit_character = URG_Julio_Cesar_Ribas
+# recruit_character = URG_Armando_Acosta_y_Lara
+# recruit_character = URG_Mario_Garbarino
+# recruit_character = URG_Pilar_Barrios
 
-	### Trains ###
-	basic_train = 1
+URG_Consejo_Nacional_de_Gobierno = {
+	promote_character = conservatism_subtype
+}
+URG_CENSURADO = {
+	promote_character = fascism_falangism_subtype
+	promote_character = national_socialism_subtype
+	promote_character = ultranationalism_subtype
+}
+URG_Domingo_Tortorelli = {
+	promote_character = esoteric_nazism_subtype
+}
+URG_Cesar_Batlle_Pacheco = {
+	promote_character = yes
+}
+URG_Enrique_Erro = {
+	promote_character = yes
+}
+URG_Rodney_Arismendi = {
+	promote_character = yes
+}
+URG_Luis_Batlle_Berres = {
+	promote_character = yes
+}
+URG_Alberto_Abdala = {
+	promote_character = yes
+}
+URG_Daniel_Fernandez_Crespo = {
+	promote_character = yes
 }
 
-### Planes - BBA ###
-if = {
-	limit = { has_dlc_bba = yes }
-	set_air_oob = "URG_air_bba"
-	set_technology = {
-		iw_small_airframe = 1
-		aa_lmg = 1
-		engines_1 = 1
-	}
+oob = "URG_1962"
+
+add_ideas = {
+	#OFN Observer
+	OFN_Observer
+	#spirits
+	URG_switzerland_mirage_2
+	URG_the_lost_limb
+	URG_merchants_of_death
+	URG_the_enemy_within
+	#ministers
+	URG_Victor_Haedo_hog
+	URG_Homero_Martinez_for
+	URG_Juan_Eduardo_Azzini_eco
+	URG_Modesto_Rebollo_sec
+
+	## Policies ##
+	# Political #
+	tno_political_parties_multiparty_system
+	tno_religious_rights_secularism
+	tno_trade_unions_all_allowed
+	tno_immigration_open_immigration
+	tno_slavery_outlawed
+	tno_public_meetings_allowed
+	tno_press_rights_free_press
+	tno_vote_franchise_universal
+
+	# Military #
+	tno_conscription_volunteer_only
+	tno_military_supervision_rules_of_engagement
+	tno_training_basic_training
+	tno_draft_exemptions_none
+
+	# Economic #
+	tno_trade_laws_export_focus
+	tno_minimum_wage_acceptable_minimum
+	tno_income_taxation_high_income_weighted
+	tno_max_workhours_8_hour_work_day
+	tno_pensions_acceptable_pensions
+	tno_unemployment_moderate_subsidies
+
+	# Social #
+	tno_health_care_universal_health_care
+	tno_education_public_higher_education
+	tno_penal_system_incarceration
+	tno_gender_rights_gender_equality
+	tno_security_regulated_police
+	tno_regulations_moderate_regulations
+
+	# SocDevs
+	tno_academic_base_secondary_schooling
+	tno_research_facilities_modern
+	tno_agriculture_basic_mechanized
+	tno_healthcare_developed
+	tno_industrial_equipment_factory_complexes
+	tno_industrial_expertise_incompetent
+	tno_army_professionalism_professional
+	tno_admin_efficiency_deficient_administrative_systems
 }
 
-### Planes - non BBA ###
-if = {
-	limit = { has_dlc_bba = no }
-	set_air_oob = "URG_air_legacy"
-	set_technology = { early_fighter = 1 }
-}
-
-### Navy - MtG ###
-if = {
-	limit = { has_dlc_mtg = yes }
-	set_technology = {
-		### Hulls ###
-		early_ship_hull_light = 1
-
-		### Modules ###
-		basic_naval_mines = 1
-		basic_battery = 1
-		basic_torpedo = 1
-	}
-}
-
-### Navy - Non MtG ###
-if = {
-	limit = { has_dlc_mtg = no }
-	set_technology = { early_destroyer = 1 }
-}
+set_research_slots = 2
 
 set_politics = {
-	ruling_party = social_democrat
-	last_election = "1934.4.4"
+	ruling_party = conservative
+	last_election = "1958.11.30"
 	election_frequency = 48
 	elections_allowed = yes
 }
 
-set_popularities = {
-	totalist = 0
-	radical_socialist = 5
-	syndicalist = 5
-	social_democrat = 36
-	social_liberal = 8
-	market_liberal = 4
-	social_conservative = 30
-	authoritarian_democrat = 2
-	paternal_autocrat = 8
-	national_populist = 2
+BRA = {
+	give_guarantee = URG
 }
 
-country_event = { id = urg.20 days = 855 }
-country_event = { id = urg.30 days = 855 }
+USA = {
+	give_guarantee = URG
+}
 
-give_military_access = BRA
+set_technology = {
+	basic_train = 1
 
-add_ideas = URG_neutrality_idea
+	##INFANTRY##
+	infantry_weapons_1 = 1
+	night_vision_1 = 1
+	
+	infantry_kit_1 = 1
+	infantry_weapons_2 = 1
+	night_vision_2 = 1
+	infantry_kit_2 = 1
+	infantry_weapons_improvements_mine_1 = 1
+	infantry_kit_3 = 1
+	infantry_weapons_improvements_ammo_1 = 1
+	infantry_weapons_improvements_grenade_1 = 1
+	#
+	infantry_weapons_3 = 1
+	night_vision_3 = 1
+	infantry_kit_4 = 1
+	infantry_weapons_improvements_mine_2 = 1
+	basic_infantry_equipment = 1
+	support_weapons = 1
+	combat_support_equipment_1 = 1
+	
+	support_weapons_hmg_1 = 1
+	support_weapons_arty_1 = 1
+	combat_support_equipment_2 = 1
+	infantry_at = 1
+	infantry_at_upgrade_1 = 1
+	#
+	
+	motorized_infantry = 1
+	motorized_rocket_unit = 1
+	motorized_infantry_1 = 1
+	marines = 1
+	#
+	tech_special_forces = 1
+	marines2 = 2
+	tech_mountaineers = 1
+	#
+	tech_mountaineers2 = 1
+	tech_mountaineers3 = 1
+	paratroopers = 1
 
-### Country Leaders
-recruit_character = URG_council
+	##SUPPORT##
+	tech_support = 1
+	tech_engineers = 1
+	assault_weapons_1 = 1
+	tech_engineers2 = 1
+	assault_weapons_2 = 1
+	tech_engineers3 = 1
+	assault_weapons_3 = 1
+	tech_recon = 1
+	tech_recon2 = 1
+	tech_military_police = 1
+	tech_military_police2 = 1
+	tech_military_police3 = 1
+	tech_maintenance_company = 1
+	tech_maintenance_company2 = 1
+	tech_field_hospital = 1
+	tech_field_hospital2 = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	tech_signal_company2 = 1
+	tech_scout_helicopter_company = 1
+	tech_transport_helicopter_company = 1
+	
+	##ARMOR##
+	advanced_light_tank = 1
+	advanced_medium_tank = 1
+	mechanised_infantry3 = 1
+	APC_1950 = 1
+	APC_1950_basic_turret = 1
+	#APC_1950_basic_engine = 1
+	APC_1950_basic_armor = 1
+	APC_1960 = 1
+	MBT_1950 = 1
+	MBT_1950_basic_turret = 1
+	#MBT_1950_basic_engine = 1
+	MBT_1950_basic_armor = 1
+	AC_1945 = 1
+	
+	##ARTILLERY##
+	
+	antiair5 = 1
+	antiair_1950 = 1
+	light_SPAA_1950 = 1
+	light_SPAA_1960 = 1
+	SPAA_1950 = 1
+	artillery4 = 1
+	artillery_1950 = 1
+	light_SPART_1950 = 1
+	light_SPART_1950_soft_attack = 1
+	SPART_1950 = 1
+	SPART_1950_soft_attack = 1
 
-recruit_character = URG_hugo_fernandes
-recruit_character = URG_paulina_luisi
-recruit_character = URG_emilio_frugoni
-recruit_character = URG_gabriel_terra
-recruit_character = URG_juan_de_amezaga
-recruit_character = URG_cesar_battle_pacheco
-recruit_character = URG_luiz_conrado
-recruit_character = URG_luis_alberto_de_herrera
-recruit_character = URG_martin_echegoyen
-recruit_character = URG_joaquin_secco_illa
-recruit_character = URG_alfredo_baldomir_ferrari
-recruit_character = URG_fractured_leadership
+	###AERIAL###
 
-### Generals and Admirals
-recruit_character = URG_alfredo_campos
-recruit_character = URG_oscar_diego_gestido
-recruit_character = URG_tydeo_larre_borges
-recruit_character = URG_atilio_frigerio
+	early_fighter = 1
+	jet_engines = 1
+	jet_engines_bombers = 1
+	fighter_1945 = 1
+	cv_1945_fighter = 1
+	fighter_1950 = 1
+	cv_1950_fighter = 1
+	fighter_1960 = 1
+	interceptor_1945 = 1
+	interceptor_1950 = 1
+	CAS_1945 = 1
+	strategic_bomber1 = 1
+	heavy_air_1945 = 1
+	heavy_air_1950 = 1
+	tac_bomber1 = 1
+	tac_air_1945 = 1
+	tac_air_1950 = 1
+	transport_air1 = 1
+	transport_air_1945 = 1
+	transport_air_1950 = 1
+	transport_air_1960 = 1
+	scout_plane_1945 = 1
 
-### Military Advisors
-recruit_character = URG_andres_martinez_trueba
-recruit_character = URG_eduardo_rodriguez_larreta
-recruit_character = URG_julio_enrique
-recruit_character = URG_alberto_fermin
-recruit_character = URG_julio_cesar
-recruit_character = URG_liber_seregni
-recruit_character = URG_leonardo_cesareo
-recruit_character = URG_la_escuela_naval
-recruit_character = URG_academia_militar_de_uruguay
+	###HELICOPTERS##
 
-### Civilian advisors
-recruit_character = URG_leopoldo_carlos
-recruit_character = URG_leonardo_vilarino
-recruit_character = URG_feliciano_alberto
-recruit_character = URG_horacio_arredondo
-recruit_character = URG_alfeo_brum
-recruit_character = URG_tomas_berreta
-recruit_character = URG_alberto_guani
-recruit_character = URG_asamblea_general_de_uruguay
-recruit_character = URG_jose_pedro
-recruit_character = URG_liber_falco
+	very_early_helicopter = 1
+	early_helicopter = 1
+	scout_helicopter_1960 = 1
+	transport_helicopter_1960 = 1
 
-activate_advisor = URG_gabriel_terra_sic
+	###MISC###
+	helicopter_engines = 1
+
+	#### ENGINEERING ####
+	electronic_mechanical_engineering = 1
+
+	radio = 1
+	radio_detection = 1
+
+	decimetric_radar = 1
+	centimetric_radar = 1
+
+	mechanical_computing = 1
+	computing_machine = 1
+	improved_computing_machine = 1
+	advanced_computing_machine = 1
+
+	#### INDUSTRY ####
+
+	ww2_line_production = 1
+	building_construction_1 = 1
+	resource_extraction_methods = 1
+	excavation0 = 1
+	energy_technology_1 = 1
+	social_construction_1 = 1
+	military_construction_1 = 1
+
+}
+
+set_popularities = {
+	vanguardist = 3
+	socialist = 2
+	progressive =  22
+	ecologist = 9
+	liberal_liberal = 22
+	liberal = 25
+	conservative = 15
+	paternalist =  2
+}

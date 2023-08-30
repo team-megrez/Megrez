@@ -1,6 +1,6 @@
 # leader_traits contain a list of UnitLeaderTrait with the following structure:
 # trait_key = {
-# 	type = all # or either of field_marshal, corps_commander, navy
+#	type = all # or either of field_marshal, corps_commander, navy
 #	trait_type = basic_trait # or either of status_trait, personality_trait, assignable_trait, basic_terrain_trait, assignable_terrain_trait, exile
 #	attack_skill = 0 # integer
 #	defense_skill = 0 # integer
@@ -52,6 +52,7 @@
 #}
 leader_traits = {
 
+
 ##################################
 # Common Traits
 ##################################
@@ -69,17 +70,9 @@ leader_traits = {
 
 		new_commander_weight = {
 			factor = 1
-
-			modifier = {
-				FROM = { has_idea = best_of_the_best_spirit }
-				factor = 0
-			}
-			modifier = {
-				FROM = { has_idea = academy_scholarships_spirit }
-				factor = 0
-			}
 		}
 	}
+
 
 	brilliant_strategist = {
 		type = land
@@ -93,17 +86,9 @@ leader_traits = {
 
 		new_commander_weight = {
 			factor = 1
-
-			modifier = {
-				FROM = { has_idea = best_of_the_best_spirit }
-				factor = 0
-			}
-			modifier = {
-				FROM = { has_idea = academy_scholarships_spirit }
-				factor = 0
-			}
 		}
 	}
+
 
 	inflexible_strategist = {
 		type = land
@@ -117,21 +102,11 @@ leader_traits = {
 
 		new_commander_weight = {
 			factor = 1
-
-			modifier = {
-				is_army_leader = yes
-				FROM = { has_idea = best_of_the_best_spirit }
-				factor = 0
-			}
-			modifier = {
-				FROM = { has_idea = academy_scholarships_spirit }
-				factor = 0
-			}
 		}
 	}
 
 	politically_connected = {
-		type = land
+		type = { land navy }
 		trait_type = personality_trait
 
 		non_shared_modifier = {
@@ -141,19 +116,6 @@ leader_traits = {
 
 		new_commander_weight = {
 			factor = 1
-
-			modifier = {
-				FROM = { has_idea = best_of_the_best_spirit }
-				factor = 0
-			}
-			modifier = {
-				FROM = { has_idea = academy_scholarships_spirit }
-				factor = 0
-			}
-			modifier = {
-				FROM = { has_idea = naval_academy_scholarships_spirit }
-				factor = 0
-			}
 		}
 
 		planning_skill_factor = 1
@@ -186,15 +148,6 @@ leader_traits = {
 
 		new_commander_weight = {
 			factor = 1
-
-			modifier = {
-				FROM = { has_idea = best_of_the_best_spirit }
-				factor = 0
-			}
-			modifier = {
-				FROM = { has_idea = academy_scholarships_spirit }
-				factor = 0
-			}
 		}
 
 		planning_skill_factor = 1
@@ -210,22 +163,11 @@ leader_traits = {
 			wounded_chance_factor = -0.5
 		}
 
+
 		new_commander_weight = {
 			factor = 1
-
-			modifier = {
-				has_trait = trait_reckless
-				factor = 0
-			}
-			modifier = {
-				FROM = { has_idea = best_of_the_best_spirit }
-				factor = 0
-			}
-			modifier = {
-				FROM = { has_idea = academy_scholarships_spirit }
-				factor = 0
-			}
 		}
+
 
 		defense_skill_factor = 1
 		logistics_skill_factor = 1
@@ -242,19 +184,6 @@ leader_traits = {
 
 		new_commander_weight = {
 			factor = 1
-
-			modifier = {
-				has_trait = trait_cautious
-				factor = 0
-			}
-			modifier = {
-				FROM = { has_idea = best_of_the_best_spirit }
-				factor = 0
-			}
-			modifier = {
-				FROM = { has_idea = academy_scholarships_spirit }
-				factor = 0
-			}
 		}
 
 		attack_skill_factor = 1
@@ -275,15 +204,6 @@ leader_traits = {
 
 		new_commander_weight = {
 			factor = 1
-
-			modifier = {
-				FROM = { has_idea = best_of_the_best_spirit }
-				factor = 0
-			}
-			modifier = {
-				FROM = { has_idea = academy_scholarships_spirit }
-				factor = 0
-			}
 		}
 	}
 
@@ -299,15 +219,6 @@ leader_traits = {
 
 		new_commander_weight = {
 			factor = 1
-
-			modifier = {
-				FROM = { has_idea = best_of_the_best_spirit }
-				factor = 0
-			}
-			modifier = {
-				FROM = { has_idea = academy_scholarships_spirit }
-				factor = 0
-			}
 		}
 
 		attack_skill_factor = 1
@@ -332,46 +243,12 @@ leader_traits = {
 		type = land
 		trait_type = personality_trait
 
-		unit_trigger = {
-			OR = {
-				division_has_majority_template = infantry
-				division_has_majority_template = bicycle_battalion
-				division_has_majority_template = marine
-				division_has_majority_template = mountaineers
-				division_has_majority_template = paratrooper
-				owner = { has_idea = mass_assault_academy_spirit }
-			}
-			owner = {
-				NOT = {
-					has_idea = best_of_the_best_spirit
-					has_idea = academy_scholarships_spirit
-				}
-			}
-		}
-
 		trait_xp_factor = {
 			infantry_leader = 1     #+100%
 		}
 
 		new_commander_weight = {
 			factor = 1
-
-			modifier = {
-				FROM = { has_idea = mass_assault_academy_spirit }
-				factor = 2
-			}
-			modifier = {
-				FROM = { has_idea = best_of_the_best_spirit }
-				factor = 0
-			}
-			modifier = {
-				FROM = { has_idea = academy_scholarships_spirit }
-				factor = 0
-			}
-			modifier = {
-				has_dlc_bba = yes
-				factor = 0
-			}
 		}
 		defense_skill_factor = 1
 		planning_skill_factor = 1
@@ -381,47 +258,12 @@ leader_traits = {
 		type = land
 		trait_type = personality_trait
 
-		unit_type = {
-			type = cavalry
-			type = camelry
-			type = motorized
-			type = mechanized
-		}
-
-		unit_trigger = {
-			OR = {
-				division_has_majority_template = cavalry
-				division_has_majority_template = camelry
-				division_has_majority_template = motorized
-				division_has_majority_template = mechanized
-			}
-			owner = {
-				NOT = {
-					has_idea = best_of_the_best_spirit
-					has_idea = academy_scholarships_spirit
-				}
-			}
-		}
-
 		trait_xp_factor = {
 			cavalry_leader = 1     #+100%
 		}
 
 		new_commander_weight = {
 			factor = 1
-
-			modifier = {
-				FROM = { has_idea = best_of_the_best_spirit }
-				factor = 0
-			}
-			modifier = {
-				FROM = { has_idea = academy_scholarships_spirit }
-				factor = 0
-			}
-			modifier = {
-				has_dlc_bba = yes
-				factor = 0
-			}
 		}
 
 		attack_skill_factor = 1
@@ -435,42 +277,8 @@ leader_traits = {
 		trait_xp_factor = {
 			panzer_leader = 1     #+100%
 		}
-
-		unit_trigger = {
-			OR = {
-				division_has_majority_template = light_armor
-				division_has_majority_template = medium_armor
-				division_has_majority_template = heavy_armor
-				division_has_majority_template = super_heavy_armor
-				owner = { has_idea = mobile_warfare_academy_spirit }
-			}
-			owner = {
-				NOT = {
-					has_idea = best_of_the_best_spirit
-					has_idea = academy_scholarships_spirit
-				}
-			}
-		}
-
 		new_commander_weight = {
 			factor = 1
-
-			modifier = {
-				FROM = { has_idea = mobile_warfare_academy_spirit }
-				factor = 2
-			}
-			modifier = {
-				FROM = { has_idea = best_of_the_best_spirit }
-				factor = 0
-			}
-			modifier = {
-				FROM = { has_idea = academy_scholarships_spirit }
-				factor = 0
-			}
-			modifier = {
-				has_dlc_bba = yes
-				factor = 0
-			}
 		}
 		attack_skill_factor = 1
 		planning_skill_factor = 1
@@ -483,193 +291,26 @@ leader_traits = {
 		trait_xp_factor = {
 			trait_engineer = 1     #+100%
 		}
-
-		unit_trigger = {
-			OR = {
-				division_has_battalion_in_template = engineer
-				division_has_battalion_in_template = light_flame_tank
-				division_has_battalion_in_template = medium_flame_tank
-				division_has_battalion_in_template = heavy_flame_tank
-				owner = { has_idea = superior_firepower_academy_spirit }
-			}
-			owner = {
-				NOT = {
-					has_idea = best_of_the_best_spirit
-					has_idea = academy_scholarships_spirit
-				}
-			}
-		}
-
 		new_commander_weight = {
 			factor = 1
-
-			modifier = {
-				FROM = { has_idea = superior_firepower_academy_spirit }
-				factor = 2
-			}
-
-			modifier = {
-				FROM = { has_idea = best_of_the_best_spirit }
-				factor = 0
-			}
-			modifier = {
-				FROM = { has_idea = academy_scholarships_spirit }
-				factor = 0
-			}
-			modifier = {
-				has_dlc_bba = yes
-				factor = 0
-			}
 		}
 		attack_skill_factor = 1
 		planning_skill_factor = 1
 	}
 
-	irregulars_officer = {
-		type = corps_commander
-
+	special_forces_leader = {
+		type = land
 		trait_type = personality_trait
 
-		unit_type = {
-			type = cavalry
-			type = camelry
-			type = irregular_infantry
-		}
-
-		unit_trigger = {
-			OR = {
-				division_has_majority_template = cavalry
-				division_has_majority_template = camelry
-				division_has_majority_template = irregular_infantry
-			}
-			owner = {
-				NOT = {
-					has_idea = best_of_the_best_spirit
-					has_idea = academy_scholarships_spirit
-				}
-			}
-		}
-
 		modifier = {
-			modifier_army_sub_unit_irregular_infantry_attack_factor = 0.05
-			modifier_army_sub_unit_cavalry_speed_factor = 0.05
-			modifier_army_sub_unit_camelry_speed_factor = 0.05
-			out_of_supply_factor = -0.1
-			desert = {
-				movement = 0.1
-			}
+			special_forces_attack_factor = 0.25
+			special_forces_defence_factor = 0.2
 		}
-
-		new_commander_weight = {
-			base = 0
-			modifier = {
-				has_dlc_bba = yes
-				factor = 0
-			}
+		corps_commander_modifier = {
+			max_commander_army_size = -8
 		}
 
 		attack_skill_factor = 1
-		planning_skill_factor = 1
-	}
-
-	ascari_officer = {
-		type = corps_commander
-
-		trait_type = personality_trait
-
-		allowed = {
-			FROM = {
-				OR = {
-					original_tag = NFA
-					original_tag = MAF
-					original_tag = GEA
-					original_tag = DEI
-				}
-			}
-		}
-
-		unit_type = {
-			type = infantry
-			type = cavalry
-			type = camelry
-		}
-
-		unit_trigger = {
-			division_has_majority_template = infantry
-			owner = {
-				NOT = {
-					has_idea = best_of_the_best_spirit
-					has_idea = academy_scholarships_spirit
-				}
-			}
-		}
-
-		modifier = {
-			modifier_army_sub_unit_infantry_defence_factor = 0.05
-			modifier_army_sub_unit_cavalry_defence_factor = 0.05
-			modifier_army_sub_unit_camelry_defence_factor = 0.05
-			desert = {
-				defence = 0.05
-			}
-		}
-
-		new_commander_weight = {
-			base = 0
-			modifier = {
-				has_dlc_bba = yes
-				factor = 0
-			}
-		}
-
-		defense_skill_factor = 1
-		logistics_skill_factor = 1
-	}
-
-	militias_officer = {
-		type = corps_commander
-
-		trait_type = personality_trait
-
-		unit_type = {
-			type = militia
-		}
-
-		unit_trigger = {
-			division_has_majority_template = militia
-			owner = {
-				NOT = {
-					has_idea = best_of_the_best_spirit
-					has_idea = academy_scholarships_spirit
-				}
-			}
-		}
-
-		modifier = {
-			modifier_army_sub_unit_militia_defence_factor = 0.05
-			modifier_army_sub_unit_militia_speed_factor = 0.05
-			modifier_army_sub_unit_militia_max_org_factor = 0.05
-		}
-
-		new_commander_weight = {
-			base = 0
-			modifier = {
-				has_dlc_bba = yes
-				factor = 0
-			}
-		}
-
-		defense_skill_factor = 1
-		planning_skill_factor = 1
-	}
-
-	just_visiting = {
-		type = corps_commander
-		trait_type = personality_trait
-
-		modifier = {
-			promote_cost_factor = 100
-		}
-		new_commander_weight = { base = 0 }
 	}
 
 ##################################
@@ -687,7 +328,9 @@ leader_traits = {
 			supply_consumption_factor = -0.15
 		}
 		enable_ability = extra_suplies
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 		gui_row = 0
 		trait_type = assignable_trait
 		parent = organizer
@@ -705,15 +348,18 @@ leader_traits = {
 
 		attack_skill = 1
 
-		slot = army_chief
-		specialist_advisor_trait = KR_army_chief_offensive_1
-		expert_advisor_trait = KR_army_chief_offensive_2
-		genius_advisor_trait = KR_army_chief_offensive_3
+		#slot = army_chief
+		#specialist_advisor_trait = army_chief_offensive_1
+		#expert_advisor_trait = army_chief_offensive_2
+		#genius_advisor_trait = army_chief_offensive_3
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 		trait_type = assignable_trait
 		mutually_exclusive = defensive_doctrine
 		gui_row = 5
+
 	}
 
 	defensive_doctrine = {
@@ -725,12 +371,13 @@ leader_traits = {
 		field_marshal_modifier = {
 			max_dig_in_factor = 0.30
 		}
-		slot = army_chief
-		specialist_advisor_trait = KR_army_chief_entrenchment_1
-		expert_advisor_trait = KR_army_chief_entrenchment_2
-		genius_advisor_trait = KR_army_chief_entrenchment_3
-
-		ai_will_do = { factor = 1 }
+		#slot = army_chief
+		#specialist_advisor_trait = army_chief_entrenchment_1
+		#expert_advisor_trait = army_chief_entrenchment_2
+		#genius_advisor_trait = army_chief_entrenchment_3
+		ai_will_do = {
+			factor = 1
+		}
 		trait_type = assignable_trait
 		mutually_exclusive = offensive_doctrine
 		gui_row = 6
@@ -746,17 +393,20 @@ leader_traits = {
 			planning_speed = 0.25
 		}
 
-		slot = army_chief
-		specialist_advisor_trait = KR_army_chief_reform_1
-		expert_advisor_trait = KR_army_chief_reform_2
-		genius_advisor_trait = KR_army_chief_reform_3
+		#slot = army_chief
+		#specialist_advisor_trait = army_chief_reform_1
+		#expert_advisor_trait = army_chief_reform_2
+		#genius_advisor_trait = army_chief_reform_3
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 		gui_row = 1
 		parent = organizer
 		mutually_exclusive = thorough_planner
 		trait_type = assignable_trait
 	}
+
 
 	thorough_planner = {
 		type = field_marshal
@@ -768,17 +418,20 @@ leader_traits = {
 			max_planning = 0.1
 		}
 
-		slot = army_chief
-		specialist_advisor_trait = KR_army_chief_planning_1
-		expert_advisor_trait = KR_army_chief_planning_2
-		genius_advisor_trait = KR_army_chief_planning_3
+		#slot = army_chief
+		#specialist_advisor_trait = army_chief_planning_1
+		#expert_advisor_trait = army_chief_planning_2
+		#genius_advisor_trait = army_chief_planning_3
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 		gui_row = 2
 		parent = organizer
 		mutually_exclusive = fast_planner
 		trait_type = assignable_trait
 	}
+
 
 	unyielding_defender = {
 		type = field_marshal
@@ -796,17 +449,20 @@ leader_traits = {
 		}
 		custom_effect_tooltip = INCREASED_COUNTERATTACK_CHANCE
 
-		slot = army_chief
-		specialist_advisor_trait = KR_army_chief_defensive_1
-		expert_advisor_trait = KR_army_chief_defensive_2
-		genius_advisor_trait = KR_army_chief_defensive_3
+		#slot = army_chief
+		#specialist_advisor_trait = army_chief_defensive_1
+		#expert_advisor_trait = army_chief_defensive_2
+		#genius_advisor_trait = army_chief_defensive_3
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 		gui_row = 3
 		trait_type = assignable_trait
 		mutually_exclusive = aggressive_assaulter
 
 	}
+
 
 	aggressive_assaulter = {
 		type = field_marshal
@@ -822,12 +478,14 @@ leader_traits = {
 		}
 		custom_effect_tooltip = INCREASED_ASSAULT_AND_SHOCK_CHANCE
 
-		slot = army_chief
-		specialist_advisor_trait = KR_army_chief_manoeuvre_1
-		expert_advisor_trait = KR_army_chief_manoeuvre_2
-		genius_advisor_trait = KR_army_chief_manoeuvre_3
+		#slot = army_chief
+		#specialist_advisor_trait = army_chief_maneuver_1
+		#expert_advisor_trait = army_chief_maneuver_2
+		#genius_advisor_trait = army_chief_maneuver_3
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 		gui_row = 4
 		trait_type = assignable_trait
 		mutually_exclusive = unyielding_defender
@@ -844,12 +502,14 @@ leader_traits = {
 			land_reinforce_rate = 0.02
 		}
 
-		slot = army_chief
-		specialist_advisor_trait = KR_army_chief_organisational_1
-		expert_advisor_trait = KR_army_chief_organisational_2
-		genius_advisor_trait = KR_army_chief_organisational_3
+		#slot = army_chief
+		#specialist_advisor_trait = army_chief_organizational_1
+		#expert_advisor_trait = army_chief_organizational_2
+		#genius_advisor_trait = army_chief_organizational_3
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 		trait_type = assignable_trait
 
 		gui_row = 7
@@ -865,12 +525,14 @@ leader_traits = {
 			army_morale_factor = 0.10
 		}
 
-		slot = army_chief
-		specialist_advisor_trait = KR_army_chief_morale_1
-		expert_advisor_trait = KR_army_chief_morale_2
-		genius_advisor_trait = KR_army_chief_morale_3
+		#slot = army_chief
+		#specialist_advisor_trait = army_chief_morale_1
+		#expert_advisor_trait = army_chief_morale_2
+		#genius_advisor_trait = army_chief_morale_3
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 		trait_type = assignable_trait
 		gui_row = 8
 	}
@@ -886,16 +548,19 @@ leader_traits = {
 			max_army_group_size = 2
 		}
 
-		slot = army_chief
-		specialist_advisor_trait = KR_army_chief_drill_1
-		expert_advisor_trait = KR_army_chief_drill_2
-		genius_advisor_trait = KR_army_chief_drill_3
+		#slot = army_chief
+		#specialist_advisor_trait = army_chief_drill_1
+		#expert_advisor_trait = army_chief_drill_2
+		#genius_advisor_trait = army_chief_drill_3
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 		trait_type = assignable_trait
 		parent = skilled_staffer
-		gui_row = 16
+		gui_row = 15
 	}
+
 
 ##################################
 # Corps Commander traits.
@@ -913,12 +578,14 @@ leader_traits = {
 			planning_speed = 0.1
 		}
 
-		slot = high_command
-		specialist_advisor_trait = KR_MHC_army_regrouping_1
-		expert_advisor_trait = KR_MHC_army_regrouping_2
-		genius_advisor_trait = KR_MHC_army_regrouping_3
+		#slot = high_command
+		#specialist_advisor_trait = army_regrouping_1
+		#expert_advisor_trait = army_regrouping_2
+		#genius_advisor_trait = army_regrouping_3
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 
 		gui_row = 0
 	}
@@ -942,12 +609,14 @@ leader_traits = {
 			mechanized_attack_factor = 0.12
 		}
 
-		slot = high_command
-		specialist_advisor_trait = KR_MHC_cavalry_1
-		expert_advisor_trait = KR_MHC_cavalry_2
-		genius_advisor_trait = KR_MHC_cavalry_3
+		#slot = high_command
+		#specialist_advisor_trait = army_cavalry_1
+		#expert_advisor_trait = army_cavalry_2
+		#genius_advisor_trait = army_cavalry_3
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 
 		gui_row = 3
 	}
@@ -966,24 +635,26 @@ leader_traits = {
 			army_infantry_defence_factor = 0.13
 		}
 
-		slot = high_command
-		specialist_advisor_trait = KR_MHC_infantry_1
-		expert_advisor_trait = KR_MHC_infantry_2
-		genius_advisor_trait = KR_MHC_infantry_3
+		#slot = high_command
+		#specialist_advisor_trait = army_infantry_1
+		#expert_advisor_trait = army_infantry_2
+		#genius_advisor_trait = army_infantry_3
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 
-		gui_row = 7
+		gui_row = 6
 	}
 	skilled_staffer = {
 		type = corps_commander
 		gain_xp_leader = {
 			if = {
 				limit = { is_leading_army_group = yes }
-				check_variable = { num_units > 99 }
+				check_variable = { num_units > 29 }
 			}
 			else = {
-				check_variable = { num_units > 23 }
+				check_variable = { num_units > 11 }
 			}
 		}
 		custom_gain_xp_trigger_tooltip = fighting_with_enough_units
@@ -991,18 +662,20 @@ leader_traits = {
 		cost = 2000
 
 		corps_commander_modifier = {
-			max_commander_army_size = 6
+			max_commander_army_size = 4
 		}
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 		logistics_skill_factor = 2
 
-		gui_row = 16
+		gui_row = 15
 
-		slot = high_command
-		specialist_advisor_trait = KR_MHC_army_logistics_1
-		expert_advisor_trait = KR_MHC_army_logistics_2
-		genius_advisor_trait = KR_MHC_army_logistics_3
+		#slot = high_command
+		#specialist_advisor_trait = army_logistics_1
+		#expert_advisor_trait = army_logistics_2
+		#genius_advisor_trait = army_logistics_3
 	}
 	trickster = {
 		type = corps_commander
@@ -1019,10 +692,13 @@ leader_traits = {
 			recon_factor = 0.25
 		}
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 
-		gui_row = 14
+		gui_row = 13
 	}
+
 
 	winter_specialist = {
 		type = corps_commander
@@ -1034,7 +710,9 @@ leader_traits = {
 			winter_attrition_factor = -0.5
 		}
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 
 		trait_type = basic_terrain_trait
 		gui_row = 7
@@ -1052,7 +730,9 @@ leader_traits = {
 			acclimatization_hot_climate_gain_factor = 0.1
 		}
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 
 		trait_type = assignable_terrain_trait
 		gui_row = 3
@@ -1079,14 +759,18 @@ leader_traits = {
 		modifier = {
 			acclimatization_cold_climate_gain_factor = 0.40
 		}
+		enable_ability = requisition_winter_gear
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 
 		parent = winter_specialist
 
 		trait_type = assignable_terrain_trait
 		gui_row = 7
 	}
+
 
 	trait_engineer = {
 		type = corps_commander
@@ -1106,15 +790,18 @@ leader_traits = {
 			}
 		}
 
-		slot = high_command
-		specialist_advisor_trait = KR_MHC_entrenchment_1
-		expert_advisor_trait = KR_MHC_entrenchment_2
-		genius_advisor_trait = KR_MHC_entrenchment_3
+		#slot = high_command
+		#specialist_advisor_trait = army_entrenchment_1
+		#expert_advisor_trait = army_entrenchment_2
+		#genius_advisor_trait = army_entrenchment_3
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 
-		gui_row = 6
+		gui_row = 4
 	}
+
 
 	panzer_leader = {
 		type = corps_commander
@@ -1129,16 +816,18 @@ leader_traits = {
 			army_armor_speed_factor = 0.05
 			army_armor_attack_factor = 0.16
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 
 		attack_skill_factor = 2
 
 		gui_row = 1
 
-		slot = high_command
-		specialist_advisor_trait = KR_MHC_armoured_1
-		expert_advisor_trait = KR_MHC_armoured_2
-		genius_advisor_trait = KR_MHC_armoured_3
+		#slot = high_command
+		#specialist_advisor_trait = army_armored_1
+		#expert_advisor_trait = army_armored_2
+		#genius_advisor_trait = army_armored_3
 	}
 
 	commando = {
@@ -1156,23 +845,45 @@ leader_traits = {
 			out_of_supply_factor = -0.25
 		}
 
-		ai_will_do = { factor = 1 }
-		gui_row = 11
+		ai_will_do = {
+			factor = 1
+		}
+		gui_row = 10
 
-		slot = high_command
-		specialist_advisor_trait = KR_MHC_commando_1
-		expert_advisor_trait = KR_MHC_commando_2
-		genius_advisor_trait = KR_MHC_commando_3
+		#slot = high_command
+		#specialist_advisor_trait = army_commando_1
+		#expert_advisor_trait = army_commando_2
+		#genius_advisor_trait = army_commando_3
 	}
 
 	desert_fox = {
 		type = corps_commander
 		gain_xp = {
-			is_fighting_in_terrain = desert
+			OR = {
+				is_fighting_in_terrain = desert
+				is_fighting_in_terrain = steppe
+				is_fighting_in_terrain = desert_plateau
+				is_fighting_in_terrain = desert_hills
+			}
 		}
 		cost = 700
 		modifier = {
 			desert = {
+				movement = 0.05
+				attack = 0.1
+				defence = 0.1
+			}
+			steppe = {
+				movement = 0.05
+				attack = 0.1
+				defence = 0.1
+			}
+			desert_plateau = {
+				movement = 0.05
+				attack = 0.1
+				defence = 0.1
+			}
+			desert_hills = {
 				movement = 0.05
 				attack = 0.1
 				defence = 0.1
@@ -1186,7 +897,9 @@ leader_traits = {
 			#}
 		}
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 		trait_type = basic_terrain_trait
 		gui_row = 0
 	}
@@ -1205,7 +918,9 @@ leader_traits = {
 			}
 		}
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 		trait_type = basic_terrain_trait
 		gui_row = 1
 	}
@@ -1213,7 +928,10 @@ leader_traits = {
 	trait_mountaineer = {
 		type = corps_commander
 		gain_xp = {
-			is_fighting_in_terrain = mountain
+			OR = {
+				is_fighting_in_terrain = mountain
+				is_fighting_in_terrain = valleys
+			}
 		}
 		cost = 700
 		modifier = {
@@ -1222,9 +940,16 @@ leader_traits = {
 				attack = 0.1
 				defence = 0.1
 			}
+			valleys = {
+				movement = 0.05
+				attack = 0.1
+				defence = 0.1
+			}
 		}
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 		trait_type = basic_terrain_trait
 		gui_row = 3
 	}
@@ -1243,7 +968,9 @@ leader_traits = {
 			}
 		}
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 		trait_type = basic_terrain_trait
 		gui_row = 2
 	}
@@ -1262,7 +989,9 @@ leader_traits = {
 			}
 		}
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 		trait_type = basic_terrain_trait
 		gui_row = 6
 	}
@@ -1279,9 +1008,15 @@ leader_traits = {
 				attack = 0.1
 				defence = 0.1
 			}
+			savanna = {
+				attack = 0.05
+				defence = 0.05
+			}
 		}
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 		trait_type = basic_terrain_trait
 		gui_row = 5
 	}
@@ -1300,10 +1035,13 @@ leader_traits = {
 			}
 		}
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 		trait_type = basic_terrain_trait
 		gui_row = 4
 	}
+
 
 	naval_invader = {
 		type = corps_commander
@@ -1316,19 +1054,22 @@ leader_traits = {
 			invasion_preparation = -0.3
 		}
 
-		slot = high_command
-		specialist_advisor_trait = KR_MHC_amphibious_assault_1
-		expert_advisor_trait = KR_MHC_amphibious_assault_2
-		genius_advisor_trait = KR_MHC_amphibious_assault_3
+		#slot = high_command
+		#specialist_advisor_trait = navy_amphibious_assault_1
+		#expert_advisor_trait = navy_amphibious_assault_2
+		#genius_advisor_trait = navy_amphibious_assault_3
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 
-		gui_row = 9
+		gui_row = 8
 	}
 
 ##################################
 # Corps Commander assignable traits.
 ##################################
+
 
 	panzer_expert = {
 		type = corps_commander
@@ -1342,7 +1083,9 @@ leader_traits = {
 
 		custom_effect_tooltip = INCREASED_BLITZ_AND_ENCIRCLEMENT_CHANCE
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 
 		trait_type = assignable_trait
 		parent = panzer_leader
@@ -1366,12 +1109,14 @@ leader_traits = {
 
 		custom_effect_tooltip = INCREASED_BLITZ_AND_ENCIRCLEMENT_CHANCE
 
-		slot = high_command
-		specialist_advisor_trait = KR_MHC_CombinedArms_1
-		expert_advisor_trait = KR_MHC_CombinedArms_2
-		genius_advisor_trait = KR_MHC_CombinedArms_3
+		#slot = high_command
+		#specialist_advisor_trait = army_CombinedArms_1
+		#expert_advisor_trait = army_CombinedArms_2
+		#genius_advisor_trait = army_CombinedArms_3
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 
 		trait_type = assignable_trait
 		parent = cavalry_leader
@@ -1395,7 +1140,9 @@ leader_traits = {
 			cavalry_defence_factor = 0.10
 		}
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 
 		trait_type = assignable_trait
 		parent = cavalry_leader
@@ -1422,16 +1169,20 @@ leader_traits = {
 		}
 		enable_ability = siege_artillery
 
-		ai_will_do = { factor = 1 }
+		#slot = high_command
+		#specialist_advisor_trait = army_artillery_1
+		#expert_advisor_trait = army_artillery_2
+		#genius_advisor_trait = army_artillery_3
 
-		gui_row = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		gui_row = 4
 
 		trait_type = assignable_trait
 		parent = trait_engineer
-		parent = artillery_specialist
 		mutually_exclusive = scavenger
-		mutually_exclusive = artillery_expert
-		num_parents_needed = 1
 	}
 
 	scavenger = {
@@ -1444,14 +1195,15 @@ leader_traits = {
 			equipment_capture = 0.03
 		}
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 
 		trait_type = assignable_trait
 
-		gui_row = 6
+		gui_row = 5
 		parent = trait_engineer
 		mutually_exclusive = fortress_buster
-		mutually_exclusive = artillery_expert
 	}
 
 	infantry_expert = {
@@ -1464,13 +1216,15 @@ leader_traits = {
 			army_infantry_attack_factor = 0.10
 		}
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 
 		mutually_exclusive = ambusher
 
 		trait_type = assignable_trait
 		parent = infantry_leader
-		gui_row = 7
+		gui_row = 6
 	}
 
 	ambusher = {
@@ -1484,14 +1238,16 @@ leader_traits = {
 			recon_factor_while_entrenched = 0.25
 		}
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 
 		mutually_exclusive = infantry_expert
 
 		trait_type = assignable_trait
 		parent = infantry_leader
 
-		gui_row = 8
+		gui_row = 7
 	}
 	invader_ii = {
 		type = corps_commander
@@ -1505,12 +1261,14 @@ leader_traits = {
 
 		enable_ability = faster_naval_invasion_planning
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 
 		trait_type = assignable_trait
 		parent = naval_invader
 
-		gui_row = 9
+		gui_row = 8
 	}
 	naval_liason = {
 		type = corps_commander
@@ -1522,12 +1280,14 @@ leader_traits = {
 			shore_bombardment_bonus = 0.25
 		}
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 
 		trait_type = assignable_trait
 		parent = naval_invader
 
-		gui_row = 10
+		gui_row = 9
 	}
 
 	skirmisher = {
@@ -1539,14 +1299,16 @@ leader_traits = {
 		modifier = {
 		}
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 
 		enable_ability = probing_attack
 
 		trait_type = assignable_trait
 		parent = commando
 
-		gui_row = 11
+		gui_row = 10
 	}
 
 	paratrooper = {
@@ -1556,18 +1318,21 @@ leader_traits = {
 		}
 		cost = 500
 		modifier = {
-			extra_paratrooper_supply_grace = 240
+			special_forces_no_supply_grace = 240
 		}
 
 		enable_ability = glider_planes
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 
 		trait_type = assignable_trait
 		parent = commando
 
-		gui_row = 12
+		gui_row = 11
 	}
+
 
 	camouflage_expert = {
 		type = corps_commander
@@ -1580,17 +1345,19 @@ leader_traits = {
 			air_superiority_bonus_in_combat = -0.5
 		}
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 
-		slot = high_command
-		specialist_advisor_trait = KR_MHC_concealment_1
-		expert_advisor_trait = KR_MHC_concealment_2
-		genius_advisor_trait = KR_MHC_concealment_3
+		#slot = high_command
+		#specialist_advisor_trait = army_concealment_1
+		#expert_advisor_trait = army_concealment_2
+		#genius_advisor_trait = army_concealment_3
 
 		trait_type = assignable_trait
 		parent = commando
 
-		gui_row = 13
+		gui_row = 12
 	}
 
 	expert_improviser = {
@@ -1603,7 +1370,16 @@ leader_traits = {
 			desert = {
 				movement = 0.1
 			}
+			desert_hills = {
+				movement = 0.1
+			}
+			desert_plateau = {
+				movement = 0.1
+			}
 			hills = {
+				movement = 0.1
+			}
+			valleys = {
 				movement = 0.1
 			}
 			forest = {
@@ -1613,6 +1389,12 @@ leader_traits = {
 				movement = 0.1
 			}
 			plains = {
+				movement = 0.1
+			}
+			steppe = {
+				movement = 0.1
+			}
+			savanna = {
 				movement = 0.1
 			}
 			urban = {
@@ -1628,7 +1410,9 @@ leader_traits = {
 
 		override_effect_tooltip = expert_improviser_movement_bonus_on_land
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 
 		enable_ability = makeshift_bridges
 
@@ -1639,7 +1423,7 @@ leader_traits = {
 		}
 		custom_prerequisite_tooltip = needs_at_least_one_terrain
 
-		gui_row = 14
+		gui_row = 13
 	}
 
 	guerilla_fighter = {
@@ -1652,13 +1436,18 @@ leader_traits = {
 			dig_in_speed_factor = 0.5
 		}
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 
 		trait_type = assignable_trait
 		parent = trickster
 
-		gui_row = 15
+		gui_row = 14
 	}
+
+
+
 
 ##################################
 # Naval traits.
@@ -1675,12 +1464,14 @@ leader_traits = {
 		}
 		custom_gain_xp_trigger_tooltip = SEAWOLF_TRIGGER_TT
 
-		slot = high_command
-		specialist_advisor_trait = KR_MHC_anti_submarine_1
-		expert_advisor_trait = KR_MHC_anti_submarine_2
-		genius_advisor_trait = KR_MHC_anti_submarine_3
+		#slot = high_command
+		#specialist_advisor_trait = navy_anti_submarine_1
+		#expert_advisor_trait = navy_anti_submarine_2
+		#genius_advisor_trait = navy_anti_submarine_3
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 		gui_row = 1
 		gui_column = 0
 	}
@@ -1697,12 +1488,14 @@ leader_traits = {
 			screening_efficiency = 0.2
 		}
 
-		slot = high_command
-		specialist_advisor_trait = KR_MHC_screen_1
-		expert_advisor_trait = KR_MHC_screen_2
-		genius_advisor_trait = KR_MHC_screen_3
+		#slot = high_command
+		#specialist_advisor_trait = navy_screen_1
+		#expert_advisor_trait = navy_screen_2
+		#genius_advisor_trait = navy_screen_3
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 		gui_row = 3
 		gui_column = 0
 	}
@@ -1720,7 +1513,9 @@ leader_traits = {
 		}
 		custom_gain_xp_trigger_tooltip = BLOCKADE_RUNNER_TRIGGER_TT
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 		gui_row = 7
 		gui_column = 0
 	}
@@ -1736,12 +1531,14 @@ leader_traits = {
 		}
 		custom_gain_xp_trigger_tooltip = SUPERIOR_TACTICIAN_TRIGGER_TT
 
-		slot = navy_chief
-		specialist_advisor_trait = KR_navy_chief_manoeuvre_1
-		expert_advisor_trait = KR_navy_chief_manoeuvre_2
-		genius_advisor_trait = KR_navy_chief_manoeuvre_3
+		#slot = navy_chief
+		#specialist_advisor_trait = navy_chief_maneuver_1
+		#expert_advisor_trait = navy_chief_maneuver_2
+		#genius_advisor_trait = navy_chief_maneuver_3
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 		gui_row = 5
 		gui_column = 0
 	}
@@ -1758,7 +1555,9 @@ leader_traits = {
 		}
 		custom_gain_xp_trigger_tooltip = SPOTTER_TRIGGER_TT
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 		gui_row = 8
 		gui_column = 0
 	}
@@ -1774,12 +1573,14 @@ leader_traits = {
 		}
 		custom_gain_xp_trigger_tooltip = FLY_SWATTER_TRIGGER_TT
 
-		slot = high_command
-		specialist_advisor_trait = KR_MHC_naval_air_defence_1
-		expert_advisor_trait = KR_MHC_naval_air_defence_2
-		genius_advisor_trait = KR_MHC_naval_air_defence_3
+		#slot = high_command
+		#specialist_advisor_trait = navy_naval_air_defense_1
+		#expert_advisor_trait = navy_naval_air_defense_2
+		#genius_advisor_trait = navy_naval_air_defense_3
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 		gui_row = 4
 		gui_column = 0
 	}
@@ -1800,7 +1601,9 @@ leader_traits = {
 			navy_capital_ship_defence_factor = 0.1
 		}
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 		gui_row = 13
 		gui_column = 0
 	}
@@ -1819,10 +1622,13 @@ leader_traits = {
 			sortie_efficiency = 0.1
 		}
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 		gui_row = 10
 		gui_column = 0
 	}
+
 
 ##################################
 # naval assignable traits
@@ -1834,7 +1640,9 @@ leader_traits = {
 			naval_torpedo_reveal_chance_factor = -0.15
 		}
 
-		ai_will_do = { factor = 0 }
+		ai_will_do = {
+			factor = 0
+		}
 
 		trait_type = assignable_trait
 		parent = seawolf
@@ -1849,12 +1657,14 @@ leader_traits = {
 			naval_torpedo_hit_chance_factor = 0.1
 		}
 
-		slot = high_command
-		specialist_advisor_trait = KR_MHC_submarine_1
-		expert_advisor_trait = KR_MHC_submarine_2
-		genius_advisor_trait = KR_MHC_submarine_3
+		#slot = high_command
+		#specialist_advisor_trait = navy_submarine_1
+		#expert_advisor_trait = navy_submarine_2
+		#genius_advisor_trait = navy_submarine_3
 
-		ai_will_do = { factor = 0 }
+		ai_will_do = {
+			factor = 0
+		}
 
 		trait_type = assignable_trait
 		parent = silent_hunter
@@ -1868,7 +1678,9 @@ leader_traits = {
 			naval_torpedo_screen_penetration_factor = 0.25
 		}
 
-		ai_will_do = { factor = 0 }
+		ai_will_do = {
+			factor = 0
+		}
 
 		trait_type = assignable_trait
 		parent = seawolf
@@ -1899,7 +1711,9 @@ leader_traits = {
 				navy_visibility = -0.1
 			}
 		}
-		ai_will_do = { factor = 0 }
+		ai_will_do = {
+			factor = 0
+		}
 
 		trait_type = assignable_trait
 		parent = fleet_protector
@@ -1913,7 +1727,9 @@ leader_traits = {
 			naval_torpedo_cooldown_factor = -0.25
 		}
 
-		ai_will_do = { factor = 0 }
+		ai_will_do = {
+			factor = 0
+		}
 
 		trait_type = assignable_trait
 		num_parents_needed = 1
@@ -1931,7 +1747,9 @@ leader_traits = {
 			navy_submarine_attack_factor = 0.1
 		}
 
-		ai_will_do = { factor = 0 }
+		ai_will_do = {
+			factor = 0
+		}
 
 		trait_type = assignable_trait
 		parent = destroyer_leader
@@ -1955,7 +1773,9 @@ leader_traits = {
 				naval_speed_factor = 0.1
 			}
 		}
-		ai_will_do = { factor = 0 }
+		ai_will_do = {
+			factor = 0
+		}
 
 		trait_type = assignable_trait
 		parent = fly_swatter
@@ -1970,7 +1790,9 @@ leader_traits = {
 			spotting_chance = 0.2
 		}
 
-		ai_will_do = { factor = 0 }
+		ai_will_do = {
+			factor = 0
+		}
 
 		trait_type = assignable_trait
 		parent = cruiser_captain
@@ -1985,7 +1807,9 @@ leader_traits = {
 			naval_enemy_fleet_size_ratio_penalty_factor = 0.1
 		}
 
-		ai_will_do = { factor = 0 }
+		ai_will_do = {
+			factor = 0
+		}
 
 		trait_type = assignable_trait
 		parent = superior_tactician
@@ -2000,12 +1824,14 @@ leader_traits = {
 			navy_visibility = -0.2
 		}
 
-		ai_will_do = { factor = 0 }
+		ai_will_do = {
+			factor = 0
+		}
 
-		slot = navy_chief
-		specialist_advisor_trait = KR_navy_chief_commerce_raiding_1
-		expert_advisor_trait = KR_navy_chief_commerce_raiding_2
-		genius_advisor_trait = KR_navy_chief_commerce_raiding_3
+		#slot = navy_chief
+		#specialist_advisor_trait = navy_chief_commerce_raiding_1
+		#expert_advisor_trait = navy_chief_commerce_raiding_2
+		#genius_advisor_trait = navy_chief_commerce_raiding_3
 
 		trait_type = assignable_trait
 		parent = superior_tactician
@@ -2023,7 +1849,9 @@ leader_traits = {
 			naval_mines_effect_reduction = 0.25
 		}
 
-		ai_will_do = { factor = 0 }
+		ai_will_do = {
+			factor = 0
+		}
 
 		trait_type = assignable_trait
 		parent = spotter
@@ -2039,7 +1867,9 @@ leader_traits = {
 			mines_planting_by_fleets_factor = 0.25
 		}
 
-		ai_will_do = { factor = 0 }
+		ai_will_do = {
+			factor = 0
+		}
 
 		trait_type = assignable_trait
 		parent = spotter
@@ -2056,7 +1886,9 @@ leader_traits = {
 			naval_retreat_chance = 0.25
 		}
 
-		ai_will_do = { factor = 0 }
+		ai_will_do = {
+			factor = 0
+		}
 
 		trait_type = assignable_trait
 		parent = lone_wolf
@@ -2072,12 +1904,14 @@ leader_traits = {
 			navy_capital_ship_attack_factor = 0.15
 		}
 
-		slot = high_command
-		specialist_advisor_trait = KR_MHC_capital_ship_1
-		expert_advisor_trait = KR_MHC_capital_ship_2
-		genius_advisor_trait = KR_MHC_capital_ship_3
+		#slot = high_command
+		#specialist_advisor_trait = navy_capital_ship_1
+		#expert_advisor_trait = navy_capital_ship_2
+		#genius_advisor_trait = navy_capital_ship_3
 
-		ai_will_do = { factor = 0 }
+		ai_will_do = {
+			factor = 0
+		}
 
 		trait_type = assignable_trait
 		parent = ironside
@@ -2091,7 +1925,9 @@ leader_traits = {
 			shore_bombardment_bonus = 0.25
 		}
 
-		ai_will_do = { factor = 0 }
+		ai_will_do = {
+			factor = 0
+		}
 
 		trait_type = assignable_trait
 		parent = ironside
@@ -2105,12 +1941,14 @@ leader_traits = {
 			critical_receive_chance = -0.25
 		}
 
-		slot = navy_chief
-		specialist_advisor_trait = KR_navy_chief_reform_1
-		expert_advisor_trait = KR_navy_chief_reform_2
-		genius_advisor_trait = KR_navy_chief_reform_3
+		#slot = navy_chief
+		#specialist_advisor_trait = navy_chief_reform_1
+		#expert_advisor_trait = navy_chief_reform_2
+		#genius_advisor_trait = navy_chief_reform_3
 
-		ai_will_do = { factor = 0 }
+		ai_will_do = {
+			factor = 0
+		}
 
 		trait_type = assignable_trait
 		parent = ironside
@@ -2124,12 +1962,14 @@ leader_traits = {
 			naval_critical_score_chance_factor = 0.1
 		}
 
-		slot = navy_chief
-		specialist_advisor_trait = KR_navy_chief_decisive_battle_1
-		expert_advisor_trait = KR_navy_chief_decisive_battle_2
-		genius_advisor_trait = KR_navy_chief_decisive_battle_3
+		#slot = navy_chief
+		#specialist_advisor_trait = navy_chief_decisive_battle_1
+		#expert_advisor_trait = navy_chief_decisive_battle_2
+		#genius_advisor_trait = navy_chief_decisive_battle_3
 
-		ai_will_do = { factor = 0 }
+		ai_will_do = {
+			factor = 0
+		}
 
 		trait_type = assignable_trait
 		mutually_exclusive = crisis_magician
@@ -2144,7 +1984,9 @@ leader_traits = {
 			naval_critical_effect_factor = -0.5
 		}
 
-		ai_will_do = { factor = 0 }
+		ai_will_do = {
+			factor = 0
+		}
 
 		trait_type = assignable_trait
 		mutually_exclusive = marksman
@@ -2159,12 +2001,14 @@ leader_traits = {
 			sortie_efficiency = 0.1
 		}
 
-		slot = high_command
-		specialist_advisor_trait = KR_MHC_carrier_1
-		expert_advisor_trait = KR_MHC_carrier_2
-		genius_advisor_trait = KR_MHC_carrier_3
+		#slot = high_command
+		#specialist_advisor_trait = navy_carrier_1
+		#expert_advisor_trait = navy_carrier_2
+		#genius_advisor_trait = navy_carrier_3
 
-		ai_will_do = { factor = 0 }
+		ai_will_do = {
+			factor = 0
+		}
 
 		trait_type = assignable_trait
 
@@ -2179,7 +2023,9 @@ leader_traits = {
 			fighter_sortie_efficiency = 0.2
 		}
 
-		ai_will_do = { factor = 0 }
+		ai_will_do = {
+			factor = 0
+		}
 
 		trait_type = assignable_trait
 		mutually_exclusive = dive_bomber
@@ -2197,12 +2043,14 @@ leader_traits = {
 				air_mission_efficiency = 0.1
 			}
 		}
-		ai_will_do = { factor = 0 }
+		ai_will_do = {
+			factor = 0
+		}
 
-		slot = navy_chief
-		specialist_advisor_trait = KR_navy_chief_naval_aviation_1
-		expert_advisor_trait = KR_navy_chief_naval_aviation_2
-		genius_advisor_trait = KR_navy_chief_naval_aviation_3
+		#slot = navy_chief
+		#specialist_advisor_trait = navy_chief_naval_aviation_1
+		#expert_advisor_trait = navy_chief_naval_aviation_2
+		#genius_advisor_trait = navy_chief_naval_aviation_3
 
 		trait_type = assignable_trait
 		mutually_exclusive = fighter_director
@@ -2215,18 +2063,20 @@ leader_traits = {
 	torpedo_bomber = {
 		type = navy
 		sub_unit_modifiers = {
-			cv_nav_bomber = {
+			cv_cas = {
 				air_attack_factor = 0.1
 				air_mission_efficiency = 0.1
 			}
 		}
 
-		slot = high_command
-		specialist_advisor_trait = KR_MHC_naval_strike_1
-		expert_advisor_trait = KR_MHC_naval_strike_2
-		genius_advisor_trait = KR_MHC_naval_strike_3
+		#slot = high_command
+		#specialist_advisor_trait = air_naval_strike_1
+		#expert_advisor_trait = air_naval_strike_2
+		#genius_advisor_trait = air_naval_strike_3
 
-		ai_will_do = { factor = 0 }
+		ai_will_do = {
+			factor = 0
+		}
 
 		trait_type = assignable_trait
 		mutually_exclusive = fighter_director
@@ -2236,6 +2086,7 @@ leader_traits = {
 		gui_row = 11
 		gui_column = 2
 	}
+
 
 ##################################
 # navy terrain trait
@@ -2251,7 +2102,9 @@ leader_traits = {
 			naval_attrition = -0.08
 		}
 
-		ai_will_do = { factor = 0 }
+		ai_will_do = {
+			factor = 0
+		}
 
 		trait_type = basic_terrain_trait
 		gui_row = 1
@@ -2272,7 +2125,9 @@ leader_traits = {
 			}
 		}
 
-		ai_will_do = { factor = 0 }
+		ai_will_do = {
+			factor = 0
+		}
 
 		trait_type = basic_terrain_trait
 		gui_row = 2
@@ -2291,14 +2146,21 @@ leader_traits = {
 				movement = 0.1
 				defence = 0.1
 			}
+			water_southern_sea = {
+				attack = 0.05
+				movement = 0.05
+				defence = 0.05
+			}
 		}
 
-		slot = high_command
-		specialist_advisor_trait = KR_MHC_fleet_logistics_1
-		expert_advisor_trait = KR_MHC_fleet_logistics_2
-		genius_advisor_trait = KR_MHC_fleet_logistics_3
+		#slot = high_command
+		#specialist_advisor_trait = navy_fleet_logistics_1
+		#expert_advisor_trait = navy_fleet_logistics_2
+		#genius_advisor_trait = navy_fleet_logistics_3
 
-		ai_will_do = { factor = 0 }
+		ai_will_do = {
+			factor = 0
+		}
 
 		trait_type = basic_terrain_trait
 		gui_row = 3
@@ -2319,11 +2181,14 @@ leader_traits = {
 			}
 		}
 
-		ai_will_do = { factor = 0 }
+		ai_will_do = {
+			factor = 0
+		}
 
 		trait_type = basic_terrain_trait
 		gui_row = 4
 	}
+
 
 #  #  ##  #   #  ##  #       ###  ### ###   ##  ##  #  #  ##  #   ### ### #   #     ### ###   ##  ### ###  ##
 ## # #  # #   # #  # #       #  # #   #  # #   #  # ## # #  # #    #   #   # #       #  #  # #  #  #   #  #
@@ -2340,16 +2205,10 @@ leader_traits = {
 		}
 		new_commander_weight = {
 			factor = 1
-			modifier = {
-				FROM = { has_idea = best_of_the_best_naval_academy_spirit }
-				factor = 0
-			}
-			modifier = {
-				FROM = { has_idea = naval_academy_scholarships_spirit }
-				factor = 0
-			}
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 	}
 	gentlemanly = {
 		type = navy
@@ -2361,16 +2220,10 @@ leader_traits = {
 		}
 		new_commander_weight = {
 			factor = 1
-			modifier = {
-				FROM = { has_idea = best_of_the_best_naval_academy_spirit }
-				factor = 0
-			}
-			modifier = {
-				FROM = { has_idea = naval_academy_scholarships_spirit }
-				factor = 0
-			}
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 	}
 	gunnery_expert = {
 		type = navy
@@ -2384,16 +2237,10 @@ leader_traits = {
 		}
 		new_commander_weight = {
 			factor = 1
-			modifier = {
-				FROM = { has_idea = best_of_the_best_naval_academy_spirit }
-				factor = 0
-			}
-			modifier = {
-				FROM = { has_idea = naval_academy_scholarships_spirit }
-				factor = 0
-			}
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 	}
 	cuts_corners = {
 		type = navy
@@ -2405,16 +2252,10 @@ leader_traits = {
 		}
 		new_commander_weight = {
 			factor = 1
-			modifier = {
-				FROM = { has_idea = best_of_the_best_naval_academy_spirit }
-				factor = 0
-			}
-			modifier = {
-				FROM = { has_idea = naval_academy_scholarships_spirit }
-				factor = 0
-			}
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 	}
 	chief_engineer = {
 		type = navy
@@ -2425,16 +2266,10 @@ leader_traits = {
 		}
 		new_commander_weight = {
 			factor = 1
-			modifier = {
-				FROM = { has_idea = best_of_the_best_naval_academy_spirit }
-				factor = 0
-			}
-			modifier = {
-				FROM = { has_idea = naval_academy_scholarships_spirit }
-				factor = 0
-			}
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 	}
 	navy_media_personality = {
 		type = navy
@@ -2446,16 +2281,10 @@ leader_traits = {
 		}
 		new_commander_weight = {
 			factor = 1
-			modifier = {
-				FROM = { has_idea = best_of_the_best_naval_academy_spirit }
-				factor = 0
-			}
-			modifier = {
-				FROM = { has_idea = naval_academy_scholarships_spirit }
-				factor = 0
-			}
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 	}
 	bold = {
 		type = navy
@@ -2467,16 +2296,10 @@ leader_traits = {
 		}
 		new_commander_weight = {
 			factor = 1
-			modifier = {
-				FROM = { has_idea = best_of_the_best_naval_academy_spirit }
-				factor = 0
-			}
-			modifier = {
-				FROM = { has_idea = naval_academy_scholarships_spirit }
-				factor = 0
-			}
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 	}
 	navy_career_officer = {
 		type = navy
@@ -2487,16 +2310,10 @@ leader_traits = {
 		}
 		new_commander_weight = {
 			factor = 1
-			modifier = {
-				FROM = { has_idea = best_of_the_best_naval_academy_spirit }
-				factor = 0
-			}
-			modifier = {
-				FROM = { has_idea = naval_academy_scholarships_spirit }
-				factor = 0
-			}
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 	}
 	battleship_adherent = {
 		type = navy
@@ -2508,16 +2325,10 @@ leader_traits = {
 		}
 		new_commander_weight = {
 			factor = 1
-			modifier = {
-				FROM = { has_idea = best_of_the_best_naval_academy_spirit }
-				factor = 0
-			}
-			modifier = {
-				FROM = { has_idea = naval_academy_scholarships_spirit }
-				factor = 0
-			}
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 	}
 	aviation_enthusiast = {
 		type = navy
@@ -2531,16 +2342,10 @@ leader_traits = {
 		}
 		new_commander_weight = {
 			factor = 1
-			modifier = {
-				FROM = { has_idea = best_of_the_best_naval_academy_spirit }
-				factor = 0
-			}
-			modifier = {
-				FROM = { has_idea = naval_academy_scholarships_spirit }
-				factor = 0
-			}
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 	}
 	caustic_personality = {
 		type = navy
@@ -2551,16 +2356,10 @@ leader_traits = {
 		}
 		new_commander_weight = {
 			factor = 1
-			modifier = {
-				FROM = { has_idea = best_of_the_best_naval_academy_spirit }
-				factor = 0
-			}
-			modifier = {
-				FROM = { has_idea = naval_academy_scholarships_spirit }
-				factor = 0
-			}
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 	}
 	craven = {
 		type = navy
@@ -2572,16 +2371,10 @@ leader_traits = {
 		}
 		new_commander_weight = {
 			factor = 1
-			modifier = {
-				FROM = { has_idea = best_of_the_best_naval_academy_spirit }
-				factor = 0
-			}
-			modifier = {
-				FROM = { has_idea = naval_academy_scholarships_spirit }
-				factor = 0
-			}
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 	}
 	naval_lineage = {
 		type = navy
@@ -2593,16 +2386,10 @@ leader_traits = {
 		}
 		new_commander_weight = {
 			factor = 1
-			modifier = {
-				FROM = { has_idea = best_of_the_best_naval_academy_spirit }
-				factor = 0
-			}
-			modifier = {
-				FROM = { has_idea = naval_academy_scholarships_spirit }
-				factor = 0
-			}
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 	}
 
 ##################################
@@ -2667,10 +2454,13 @@ leader_traits = {
 	substance_addict = {
 		type = all
 		trait_type = status_trait
-
-		non_shared_modifier = {
-			skill_bonus_factor = -0.15
+		allowed = {
+			has_trait = substance_abuser
 		}
+		attack_skill = -2
+		defense_skill = -2
+		logistics_skill = -2
+		planning_skill = -2
 	}
 
 	hidden_sympathies = {
@@ -2687,6 +2477,22 @@ leader_traits = {
 		logistics_skill = -1
 		planning_skill = -1
 	}
+
+	# defective_geneseed = { #needs more code support, remove before launch
+	#	type = all
+	#	trait_type = status_trait
+	#	gain_xp = {
+	#		OR = {
+	#			has_division_template_spacemarine = yes
+	#			has_chaos_corruption = yes
+	#		}
+	#	}
+	#	cost = 400
+	#	modifier = {
+	#		geneseed_defect_factor = 1
+	#	}
+	# }
+
 
 	##################################
 	# Special trait for exiled leaders
@@ -2706,7 +2512,9 @@ leader_traits = {
 			own_exiled_divisions_defense_factor = 0.05
 		}
 
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 1
+		}
 		new_commander_weight = {
 			factor = 0
 		}
@@ -2736,7 +2544,7 @@ leader_traits = {
 			modifier = {
 				factor = 0.2
 				FROM = {
-					NOT = { has_done_agency_upgrade = upgrade_commando_training }
+					NOT = { has_done_agency_upgrade = upgrade_special_forces_training }
 				}
 			}
 		}
@@ -2744,7 +2552,7 @@ leader_traits = {
 		cost = 600
 		gain_xp_leader = {
 			ROOT = {
-				has_done_agency_upgrade = upgrade_commando_training
+				has_done_agency_upgrade = upgrade_special_forces_training
 			}
 		}
 
@@ -2831,8 +2639,7 @@ leader_traits = {
 		}
 
 		modifier = {
-			own_operative_detection_chance_factor = -0.1
-			operation_risk = -0.1
+			# something good
 		}
 	}
 
@@ -2904,14 +2711,13 @@ leader_traits = {
 		gain_xp_leader = {
 			OR = {
 				operative_leader_mission = propaganda
-				operative_leader_mission = boost_ideology
+				#operative_leader_mission = boost_ideology
 			}
 		}
 
 		cost = 400
 		modifier = {
-			intel_network_gain = 0.2
-			own_operative_forced_into_hiding_time_factor = -0.2
+			propaganda_mission_factor = 0.2
 		}
 	}
 
@@ -2944,5 +2750,5 @@ leader_traits = {
 			boost_resistance_factor = 0.25
 		}
 	}
-}
 
+}
