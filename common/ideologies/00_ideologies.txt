@@ -380,33 +380,6 @@ ideologies = {
 		ai_ideology_wanted_units_factor = 1.5
 	}
 
-	conspiracist = {
-		types = {
-			conspiracist_subtype = {}
-		}
-		dynamic_faction_names = {
-		}
-		color = { 120 70 70 }
-		rules = {
-			can_force_government = yes
-			can_puppet = no
-			can_join_factions = no
-			can_create_factions = no
-			can_send_volunteers = yes
-		}
-		can_host_government_in_exile = no
-		can_collaborate = yes
-		modifiers = {
-			civilian_intel_to_others = 20.0
-			army_intel_to_others = 5.0
-			navy_intel_to_others = 20.0
-			airforce_intel_to_others = 5
-		}
-		ai_neutral = yes
-		war_impact_on_world_tension = 1
-		ai_ideology_wanted_units_factor = 1.5
-	}
-
 	progressive = {
 		types = {
 			progressive_subtype = {}
@@ -617,6 +590,33 @@ ideologies = {
 			army_intel_to_others = 7.5
 			navy_intel_to_others = 12.5
 			airforce_intel_to_others = 7.5
+		}
+		ai_neutral = yes
+		war_impact_on_world_tension = 1
+		ai_ideology_wanted_units_factor = 1.5
+	}
+
+	conspiracist = {
+		types = {
+			conspiracist_subtype = {}
+		}
+		dynamic_faction_names = {
+		}
+		color = { 52 25 80 }
+		rules = {
+			can_force_government = yes
+			can_puppet = no
+			can_join_factions = no
+			can_create_factions = no
+			can_send_volunteers = yes
+		}
+		can_host_government_in_exile = no
+		can_collaborate = yes
+		modifiers = {
+			civilian_intel_to_others = 20.0
+			army_intel_to_others = 5.0
+			navy_intel_to_others = 20.0
+			airforce_intel_to_others = 5
 		}
 		ai_neutral = yes
 		war_impact_on_world_tension = 1
