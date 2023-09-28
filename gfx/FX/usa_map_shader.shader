@@ -59,6 +59,7 @@ VertexShader =
 			VS_OUTPUT Out;
 		   	Out.vPosition  = mul( WorldViewProjectionMatrix, v.vPosition );
 			Out.vTexCoord0  = v.vTexCoord;
+			Out.vTexCoord0.y = -Out.vTexCoord0.y;
 		
 			return Out;
 		}
@@ -86,105 +87,46 @@ PixelShader =
 		
 		float4 main( VS_OUTPUT v ) : PDX_COLOR
 		{
-			float value = CurrentState * 1000000.f;
-			float stateNumber = floor(value/10000.f);
-			float firstParty = floor(value / 1000.f) - (stateNumber * 10.f);
-			float secondParty = floor(value/100.f) - (stateNumber * 100.f) - (firstParty * 10.f);
-			float progress = floor(value - (stateNumber * 10000.f) - (firstParty * 1000.f) - (secondParty * 100.f));
-			if(progress == 99) {
-				secondParty += 1.f;
-				progress = 0.f;
+			float value = CurrentState * 100000.f;
+			float part1 = floor((value / 1000.f) + 0.5) * 1000.f;
+			float progress = value - part1;
+			float part2 = floor((part1 / 10000.f) + 0.5);
+			float part3 = (part1/10000.f) - part2;
+			if (part3 < 0) {
+				part2 = part2 - 1.f;
+				part3 = part3 + 1.f;
 			}
+			float firstParty = part2;
+			float secondParty = part3 * 10.f;
 			
-			float imageHeight = vSecondColor.g * 1000.f;
-			float pixelHeight = 1.f/imageHeight;
+			float4 firstPartyColour = tex2D(TextureTwo, float2(((firstParty / 8.f) - 0.001f), 0.0f));
+			float4 secondPartyColour = tex2D(TextureTwo, float2(((secondParty / 8.f) - 0.001f), 0.0f));
 			
-			float relativePixelPos = v.vTexCoord0.y * 100;
-			float pixelPos = (mod(relativePixelPos, 3.f)) * 100.f;
-			pixelPos = floor(pixelPos);
-			
-			float4 overlayColour = float4(0,0,0,0.06);
-			
-			if(v.vTexCoord0.y > 0.515) {
-				pixelPos -= 50.f;
-				if(pixelPos < 0) {
-					pixelPos += 300.f;
-				}
-			}
-			
-			if((pixelPos >= 0 && pixelPos <= 50) || (pixelPos >= 150 && pixelPos <= 200)) {
-				overlayColour.r = 1.f;
-			}
-			else if((pixelPos >= 50 && pixelPos <= 100) || (pixelPos >= 200 && pixelPos <= 250)) {
-				overlayColour.g = 1.f;
-			}
-			else if((pixelPos >= 100 && pixelPos <= 150) || (pixelPos >= 250 && pixelPos <= 300)) {
-				overlayColour.b = 1.f;
-			}else {
-			}
-			
-			if(v.vTexCoord0.y > 0.51 && v.vTexCoord0.y < 0.515) {
-				overlayColour = float4(0,0,1,0.06);
-			}
-			
-			float noOfRows = vFirstColor.r * 100.f;
-			float noOfColumns = vFirstColor.g * 100.f;
-			
-			float columnPos = floor((stateNumber - 1.f)/noOfRows);
-			float2 iconPos = float2((stateNumber - 1.f) - (columnPos * noOfRows), columnPos);
-			float2 iconSize = float2(1.f/noOfRows, 1.f/noOfColumns);
-			
-			float2 startPos = iconPos * iconSize;
-			
-			float4 firstPartyColour = tex2D(TextureTwo, float2(((firstParty / 8.f) - 0.01f), 0.0f));
-			float4 secondPartyColour = tex2D(TextureTwo, float2(((secondParty / 8.f) - 0.01f), 0.0f));
-			float4 Outcolour;
-			
-			float4 texColor =  tex2D( TextureOne, float2(startPos.x + (v.vTexCoord0.x * iconSize.x), ((columnPos + 1.f) * iconSize.y) - (v.vTexCoord0.y * iconSize.y)));
+			float4 texColor =  tex2D( TextureOne, v.vTexCoord0.xy );
 			if (texColor.a == 0) {
 				return float4(0, 0, 0, 0);
 			}
 			
 			float progVar = progress/100.f;
-			if (texColor.r == 0 && texColor.g == 0 && progVar > 0.13f) {
-				Outcolour = float4(secondPartyColour.r, secondPartyColour.g, secondPartyColour.b, 0.58f);
-			} else if (texColor.r == 0.2 && texColor.g == 0 && progVar > 0.28f) {
-				Outcolour = float4(secondPartyColour.r, secondPartyColour.g, secondPartyColour.b, 0.58f);
-			} else if (texColor.r == 0.4 && texColor.g == 0 && progVar > 0.38f) {
-				Outcolour = float4(secondPartyColour.r, secondPartyColour.g, secondPartyColour.b, 0.58f);
-			}else if (texColor.r == 0.6 && texColor.g == 0 && progVar > 0.48f) {
-				Outcolour = float4(secondPartyColour.r, secondPartyColour.g, secondPartyColour.b, 0.58f);
-			}else if (texColor.r == 0.8 && texColor.g == 0 && progVar > 0.58f) {
-				Outcolour = float4(secondPartyColour.r, secondPartyColour.g, secondPartyColour.b, 0.58f);
-			}else if (texColor.r == 1 && texColor.g == 0 && progVar > 0.68f) {
-				Outcolour = float4(secondPartyColour.r, secondPartyColour.g, secondPartyColour.b, 0.58f);
-			}else if (texColor.r == 0 && texColor.g == 0.2 && progVar > 0.78f) {
-				Outcolour = float4(secondPartyColour.r, secondPartyColour.g, secondPartyColour.b, 0.58f);
-			}else if (texColor.r == 0 && texColor.g == 0.4 && progVar > 0.88f) {
-				Outcolour = float4(secondPartyColour.r, secondPartyColour.g, secondPartyColour.b, 0.58f);
+			if (texColor.r == 0 && texColor.g == 0 && progVar > 0.149f) {
+				return float4(secondPartyColour.r, secondPartyColour.g, secondPartyColour.b, 0.58f);
+			} else if (texColor.r == 0.2 && texColor.g == 0 && progVar > 0.299f) {
+				return float4(secondPartyColour.r, secondPartyColour.g, secondPartyColour.b, 0.58f);
+			} else if (texColor.r == 0.4 && texColor.g == 0 && progVar > 0.399f) {
+				return float4(secondPartyColour.r, secondPartyColour.g, secondPartyColour.b, 0.58f);
+			}else if (texColor.r == 0.6 && texColor.g == 0 && progVar > 0.499f) {
+				return float4(secondPartyColour.r, secondPartyColour.g, secondPartyColour.b, 0.58f);
+			}else if (texColor.r == 0.8 && texColor.g == 0 && progVar > 0.599f) {
+				return float4(secondPartyColour.r, secondPartyColour.g, secondPartyColour.b, 0.58f);
+			}else if (texColor.r == 1 && texColor.g == 0 && progVar > 0.699f) {
+				return float4(secondPartyColour.r, secondPartyColour.g, secondPartyColour.b, 0.58f);
+			}else if (texColor.r == 0.0 && texColor.g == 0.2 && progVar > 0.799f) {
+				return float4(secondPartyColour.r, secondPartyColour.g, secondPartyColour.b, 0.58f);
+			}else if (texColor.r == 0.0 && texColor.g == 0.4 && progVar > 0.899f) {
+				return float4(secondPartyColour.r, secondPartyColour.g, secondPartyColour.b, 0.58f);
 			}else {
-				Outcolour = float4(firstPartyColour.r, firstPartyColour.g, firstPartyColour.b, 0.58f);
+				return float4(firstPartyColour.r, firstPartyColour.g, firstPartyColour.b, 0.58f);
 			}
-			
-			if (firstParty == 0 && secondParty == 0) {
-				Outcolour = float4 (0,0,0,1);
-			}
-			
-			if(noOfRows == 53 && noOfColumns == 1) {
-				Outcolour.rgb -= 0.15f;
-			}
-			
-			float4 finalColour = float4(0,0,0,0);
-			finalColour.a = 1.f - (1.f - Outcolour.a) * (1.f - overlayColour.a);
-			finalColour.r = (overlayColour.r * overlayColour.a / finalColour.a) + (Outcolour.r * Outcolour.a * (1 - overlayColour.a) / finalColour.a);
-			finalColour.g = (overlayColour.g * overlayColour.a / finalColour.a) + (Outcolour.g * Outcolour.a * (1 - overlayColour.a) / finalColour.a);
-			finalColour.b = (overlayColour.b * overlayColour.a / finalColour.a) + (Outcolour.b * Outcolour.a * (1 - overlayColour.a) / finalColour.a);
-			
-			if (texColor.b > 0.4) {
-				finalColour = texColor;
-			}
-			
-			return finalColour;
 		}
 		
 	]]
