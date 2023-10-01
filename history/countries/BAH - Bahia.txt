@@ -1,0 +1,59 @@
+﻿capital = 502
+set_research_slots = 2
+set_stability = 0.35
+set_war_support = 0.3
+
+BRA_splinter_templates = yes
+
+set_politics = {
+	ruling_party = social_democrat
+	last_election = "1836.6.15"
+	election_frequency = 100
+	elections_allowed = no
+}
+
+set_popularities = {
+	totalist = 0
+	radical_socialist = 12
+	syndicalist = 5
+	social_democrat = 29
+	social_liberal = 10
+	market_liberal = 2
+	social_conservative = 17
+	authoritarian_democrat = 8
+	paternal_autocrat = 5
+	national_populist = 12
+}
+
+### Integration ###
+ROOT = {
+	BRA = { enable_coring_at_fifty_compliance = yes }
+	PIR = { enable_coring_at_fifty_compliance = yes }
+	SPO = { enable_coring_at_fifty_compliance = yes }
+	VCR = { enable_coring_at_fifty_compliance = yes }
+	GRP = { enable_coring_at_fifty_compliance = yes }
+	GOY = { enable_coring_at_fifty_compliance = yes }
+	AMA = { enable_coring_at_fifty_compliance = yes }
+}
+
+### Characters ###
+recruit_character = BAH_carlos_marighella
+recruit_character = BAH_aliomar_baleeiro
+recruit_character = BAH_luis_viana_filho
+recruit_character = BAH_jurandir_bizarria_mamede
+recruit_character = BAH_artur_neiva
+
+recruit_character = BRA_mauricio_grabois
+recruit_character = BRA_jorge_leal_amado_de_faria
+recruit_character = BRA_otavio_mangabeira
+recruit_character = BRA_juracy_montenegro_magalhaes
+recruit_character = BRA_vital_henrique_batista_soares
+
+### Character Setup ###
+BRA_mauricio_grabois = { set_nationality = BRA }
+BRA_jorge_leal_amado_de_faria = { set_nationality = BRA }
+BRA_otavio_mangabeira = { set_nationality = BRA }
+BRA_juracy_montenegro_magalhaes = { set_nationality = BRA }
+BRA_vital_henrique_batista_soares = { set_nationality = BRA }
+
+BRA = { BRA_otavio_mangabeira = { promote_character = social_conservative_subtype } }

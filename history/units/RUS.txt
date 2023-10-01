@@ -1,0 +1,794 @@
+﻿### Division Templates ###
+division_template = {
+	name = "Pekhotnaya Diviziya"			# Rifle Division
+	division_names_group = RUS_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 } 	# Heavy Arty Regiment had 2x 122mm bn
+	}
+}
+
+division_template = {
+	name = "Gornostrelkovaya Diviziya"		# Mountain Division
+	division_names_group = RUS_MNT_01
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+		mountaineers = { x = 2 y = 0 }
+		mountaineers = { x = 2 y = 1 }
+		mountaineers = { x = 2 y = 2 }
+		mountaineers = { x = 3 y = 0 }
+		mountaineers = { x = 3 y = 1 }
+		mountaineers = { x = 3 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 		# Engineer bn
+		artillery = { x = 0 y = 1 } 	# Heavy Arty Regiment had 2x 122mm bn
+	}
+}
+
+division_template = {
+	name = "Motostrelkovaya Diviziya"		# Motor Rifle Division
+	division_names_group = RUS_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+	}
+}
+
+division_template = {
+	name = "Kavaleriyskaya Diviziya"		# Cavalry Division
+	division_names_group = RUS_CAV_01
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 0 y = 3 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+		cavalry = { x = 1 y = 3 }
+	}
+}
+
+division_template = {
+	name = "Tankovaya Diviziya" 	# Tank Division
+	division_names_group = RUS_ARM_01
+	regiments = {
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+		light_armor = { x = 0 y = 2 }
+		light_armor = { x = 0 y = 3 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+		motorized = { x = 1 y = 3 }
+	}
+}
+
+units = {
+	######################
+	### Karelian Front ###
+	######################
+	division = {
+		location = 9140 #Petsamo
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 3134 #Murmansk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 9195 #Kem
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 11159 #Petrozavodsk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+
+	#######################
+	### Petrograd Front ###
+	#######################
+	division = {
+		location = 3151 #border, north of Petrograd
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 3151 #border, north of Petrograd
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 3151 #border, north of Petrograd
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 149 #border, northeast of Petrograd
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 149 #border, northeast of Petrograd
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 149 #border, northeast of Petrograd
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 6174 #Petrograd
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 6174 #Petrograd
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+
+	####################
+	### Baltic Front ###
+	####################
+	division = {
+		location = 104 #border, facing Narva
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 126 #border, facing Narva
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 9120 #border, facing Narva
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 11202 #Pskov
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 415 #border, facing Dorpat
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 319 #border, north of Rezhitsa
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 222 #border, Rezhitsa
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 341 #border, south of Rezhitsa
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 310 #border, Dvinsk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 6459 #border, east of Dvinsk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+
+	########################
+	### Belarusian Front ###
+	########################
+	division = {
+		location = 3219 #border, west of Polotsk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 6326 #border, Polotsk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 6249 #border, east of Polotsk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 9323 #border, west of Vitebsk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 13380 #border, southwest of Vitebsk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 11220 #border, south of Vitebsk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 6354 #border, facing Mogilev
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 11271 #border, facing Mogilev
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 6233 #border, facing Mogilev
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 6344 #border, facing Gomel
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+
+	#######################
+	### Ukrainian Front ###
+	#######################
+	division = {
+		location = 11355 #border, facing Gomel
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 9371 #border, south of Krichev
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 9396 #border, southeast of Krichev
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 11383 #border, southeast of Krichev
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 398 #border, west of Bryansk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 3390 #border, west of Bryansk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 3335 #border, Bryansk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 3306 #border, south of Bryansk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 3364 #border, south of Bryansk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 288 #border, south of Bryansk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 6330 #border, south of Bryansk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 6254 #border, west of Kursk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 9542 #border, west of Kursk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 11526 #border, southwest of Kursk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 6543 #border, south of Kursk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 6481 #border, west of Belgorod
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 9449 #border, Belgorod
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 6517 #border, east of Belgorod
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 11500 #border, east of Belgorod
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 9424 #border, facing Starobyelsk state
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 3567 #border, facing Starobyelsk state
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 11412 #border, facing Starobyelsk state
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 6591 #border, facing Starobyelsk state
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 3540 #border, facing Starobyelsk state
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 3519 #border, facing Starobyelsk state
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 9488 #border, facing Starobyelsk state
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 9476 #border, facing Starobyelsk state
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 11450 #border, facing Lugansk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 11434 #border, facing Lugansk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 9446 #border, facing Lugansk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 6493 #border, facing Yuzovka
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 6445 #border, facing Mariupol
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 6741 #border, facing Kerch
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 6741 #border, facing Kerch
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+
+	########################
+	### Western Reserves ###
+	########################
+	division = {
+		location = 11349 #Rzhev
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 3215 #Tver
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 11241 #Vitebsk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 306 #Smolensk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 3335 #Bryansk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 6262 #Tula
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 11375 #Nizhny Novgorod
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 121 #Yaroslavl
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 9355 #Orel
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 3580 #Kursk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 413 #Voronezh
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 7375 #Perm
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 11225 #Samara
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+
+	########################
+	### Manchurian Front ###
+	########################
+	division = {
+		location = 4719 #border, south of Chita
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 12622 #border, east of Chita
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 10559 #border, northeast of Chita
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 7763 #border, Blagoveshchensk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 4725 #border, south of Blagoveshchensk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 10655 #border, south of Blagoveshchensk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 7801 #border, south of Blagoveshchensk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 10722 #border, west of Khabarovsk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 7672 #border, west of Khabarovsk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+
+	#######################
+	### Transamur Front ###
+	#######################
+	division = {
+		location = 4805 #border, facing Khabarovsk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 12192 #border, facing Khabarovsk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 12263 #border, facing Khabarovsk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 4290 #border, Nikolayevsk state
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 10571 #border, south of Nikolayevsk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 3664 #border, south of Nikolayevsk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 12559 #border, Nikolayevsk
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+	}
+
+	###############
+	### Cavalry ###
+	###############
+	division = {
+		location = 11418 #Novocherkassk
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 9417 #Rostov
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 11476 #Millerovo
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 9540 #Ust-Medvyeditsa
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 3734 #Ekaterinodar
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 3417 #Salsk
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 3668 #Petrovsk
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 6490 #Tsimlyansk
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 3529 #Tsaritsyn
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 3529 #Tsaritsyn
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 9753 #Astrakhan
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 6338 #Kazan
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 6338 #Kazan
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 9292 #Chelyabinsk
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 1821 #Yekaterinburg
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 10696 #Omsk
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 7274 #Novo-Nikolayevsk
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.2
+	}
+	division = {
+		location = 4724 #Krasnoyarsk
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.2
+	}
+
+	##############
+	### Armour ###
+	##############
+	division = {
+		location = 6380
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 6380 #Moscow
+		division_template = "Tankovaya Diviziya"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 6380 #Moscow
+		division_template = "Tankovaya Diviziya"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 6380 #Moscow
+		division_template = "Tankovaya Diviziya"
+		start_experience_factor = 0.3
+	}
+
+	####################
+	### Mountaineers ###
+	####################
+	division = {
+		location = 11614 #Nalchik
+		division_template = "Gornostrelkovaya Diviziya"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 9628 #Vladikavkaz
+		division_template = "Gornostrelkovaya Diviziya"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 3672 #Grozny
+		division_template = "Gornostrelkovaya Diviziya"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 1450 #Dagestan state
+		division_template = "Gornostrelkovaya Diviziya"
+		start_experience_factor = 0.3
+	}
+}
+
+### Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+		}
+		requested_factories = 7
+		progress = 0.1
+		efficiency = 50
+	}
+	add_equipment_production = {
+		equipment = {
+			type = artillery_equipment_1
+		}
+		requested_factories = 6
+		progress = 0.3
+		efficiency = 50
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+		}
+		requested_factories = 4
+		progress = 0.3
+		efficiency = 50
+	}
+	if = {
+		limit = { has_dlc_nsb = yes }
+		add_equipment_production = {
+			equipment = {
+				type = light_tank_chassis_2
+				version_name = "BT-7"
+			}
+			requested_factories = 3
+			progress = 0.4
+			efficiency = 50
+		}
+	}
+	else = {
+		add_equipment_production = {
+			equipment = {
+				type = light_tank_equipment_1
+			}
+			requested_factories = 5
+			progress = 0.4
+			efficiency = 50
+		}
+	}
+	add_equipment_production = {
+		equipment = {
+			type = motorized_equipment_1
+		}
+		requested_factories = 4
+		progress = 0.4
+		efficiency = 50
+	}
+}

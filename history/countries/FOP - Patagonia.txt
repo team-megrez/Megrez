@@ -1,0 +1,188 @@
+﻿capital = 512
+oob = "FOP"
+set_research_slots = 2
+set_war_support = 0.35
+set_stability = 0.25
+set_cosmetic_tag = FOP_WIN_ARG
+
+set_technology = {
+	### Infantry ###
+	infantry_weapons = 1
+	tech_mountaineers = 1
+
+	### Support ###
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+
+	### Artillery ###
+	gw_artillery = 1
+
+	### Trains ###
+	basic_train = 1
+}
+
+### Starting trains
+add_equipment_to_stockpile = {
+	type = train_equipment
+	amount = 15
+}
+
+### Planes - BBA ###
+if = {
+	limit = { has_dlc_bba = yes }
+	set_technology = {
+		iw_small_airframe = 1
+		aa_lmg = 1
+		engines_1 = 1
+	}
+}
+
+### Planes - non BBA ###
+if = {
+	limit = { has_dlc_bba = no }
+	set_technology = { early_fighter = 1 }
+}
+
+### Tanks - NSB ###
+if = {
+	limit = { has_dlc_nsb = yes }
+	set_technology = { gwtank_chassis = 1 }
+}
+
+### Tanks - non NSB ###
+if = {
+	limit = { has_dlc_nsb = no }
+	set_technology = { gwtank = 1 }
+}
+
+### Navy - MtG ###
+if = {
+	limit = { has_dlc_mtg = yes }
+	set_technology = {
+		### Hulls ###
+		early_ship_hull_submarine = 1
+
+		### Modules ###
+		basic_torpedo = 1
+	}
+}
+
+### Navy - non MtG ###
+if = {
+	limit = { has_dlc_mtg = no }
+	set_technology = {
+		### Hulls ###
+		early_submarine = 1
+	}
+}
+
+add_offsite_building = { type = dockyard level = 1 }
+set_variable = { fop_im_factor = 100 }
+
+set_politics = {
+	ruling_party = syndicalist
+	last_election = "1934.2.2"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+set_popularities = {
+	totalist = 20
+	radical_socialist = 24
+	syndicalist = 29
+	social_democrat = 12
+	social_liberal = 6
+	market_liberal = 6
+	social_conservative = 3
+	authoritarian_democrat = 0
+	paternal_autocrat = 0
+	national_populist = 0
+}
+
+set_variable = { country_intro_page_count = 2 }
+
+#FOP unique events
+country_event = { id = fop.6 days = 60 }                 # Guillermo Mac Hannaford idea
+country_event = { id = fop.104 days = 600 random_hours = 576 } # Author event
+country_event = { id = fop.39 months = 13 }              # Immigration events
+
+#FOP shared flavour events
+URG = { country_event = { id = arg_flavour.2 days = 415 } }
+country_event = { id = arg_flavour.2 days = 415 }   # Horacio Quiroga suicide
+country_event = { id = arg_flavour.3 days = 779 }   # Leopoldo Lugones death
+country_event = { id = arg_flavour.9 days = 888 }   # Alfonsina Storni death
+country_event = { id = arg_flavour.10 days = 1001 } # Lisandro de la Torre death
+country_event = { id = arg_flavour.11 days = 1145 } # New metro line opening
+country_event = { id = arg_flavour.13 days = 1430 } # 'The Life of Carlos Gardel' movie
+country_event = { id = arg_flavour.14 days = 1606 } # Football stadium opening
+country_event = { id = arg_flavour.15 days = 1706 } # 'The Invention of Morel' novel published
+country_event = { id = arg_flavour.19 days = 1905 } # 40th Anniversary of the Antarctic Expedition
+country_event = { id = arg_flavour.16 days = 2010 } # San Juan earthquake
+country_event = { id = arg_flavour.17 days = 2190 } # Augustin Justo death
+country_event = { id = arg_flavour.18 days = 2315 } # 'Gaucho Wars' movie
+# La Viña dam construction start is triggered by unification
+
+#The game will consider them in a civil war until the end of the FOP-ARG war
+add_civil_war_target = ARG
+
+### Ideas ###
+add_ideas = {
+	partial_economic_mobilisation
+	limited_conscription
+
+	FOP_patagonian_resistance
+	FOP_illegitimate_republic
+}
+
+recruit_character = FOP_rodolfo_ghioldi
+recruit_character = FOP_antonio_soto
+recruit_character = FOP_severino_di_giovanni
+recruit_character = FOP_baldomero_ugarte
+recruit_character = FOP_alfredo_palacios
+recruit_character = FOP_jacques_antoine_bernard
+
+### Generals ###
+recruit_character = FOP_liborio_justo
+recruit_character = FOP_paulina_mansurova
+recruit_character = FOP_miguel_roscigna
+recruit_character = FOP_marc_augier
+recruit_character = FOP_umberto_lanciotti
+recruit_character = FOP_kurt_gustav
+recruit_character = FOP_esteban_luchich
+recruit_character = FOP_micaela_feldman
+recruit_character = FOP_juan_moran
+recruit_character = FOP_luis_alberto_quesada
+recruit_character = FOP_guillermo_mac_hannaford
+
+##### Political advisors
+# Politics
+recruit_character = FOP_emilio_lopez_arango
+recruit_character = FOP_jose_fernando_penelon
+recruit_character = FOP_victorio_codovilla
+recruit_character = FOP_leonidas_barletta
+recruit_character = FOP_candido_testa
+recruit_character = FOP_alvaro_yunque
+recruit_character = FOP_rodolfo_gonzalez_pacheco
+recruit_character = FOP_roberto_noble
+# Economy
+recruit_character = FOP_geronimo_arnedo_alvarez
+recruit_character = FOP_diego_abad_de_santillan
+recruit_character = FOP_antonio_de_tomaso
+recruit_character = FOP_gregorio_bermann
+
+# Military advisors
+# Air and naval specialists as well as a lot of civilian ones are transferred from ARG during trial event (fop.230)
+
+### Character Setup ###
+FOP_jacques_antoine_bernard = { set_character_flag = is_monarch }
+
+every_character = {
+	limit = {
+		OR = {
+			is_advisor = yes
+			is_unit_leader = yes
+		}
+	}
+	set_character_flag = FOP_leader
+}

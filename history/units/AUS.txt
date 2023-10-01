@@ -1,0 +1,281 @@
+﻿division_template = {
+	name = "Infanteriedivision"
+	division_names_group = AUS_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+}
+division_template = {
+	name = "Alpenjägerdivision"
+	division_names_group = AUS_MTN_01
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+		mountaineers = { x = 2 y = 0 }
+		mountaineers = { x = 2 y = 1 }
+		mountaineers = { x = 2 y = 2 }
+	}
+	priority = 2
+}
+division_template = {
+	name = "Kavalleriedivision"
+	division_names_group = AUS_CAV_01
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+	}
+}
+division_template = {
+	name = "Kraftfahrjägerdivision"
+	division_names_group = AUS_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+	}
+}
+division_template = {
+	name = "Kampfwagendivision"
+	division_names_group = AUS_ARM_01
+	regiments = {
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+	}
+	priority = 2
+}
+
+units = {
+	division = {
+		location = 688
+		division_template = "Infanteriedivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		location = 9627
+		division_template = "Infanteriedivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		location = 11618
+		division_template = "Infanteriedivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		location = 11595
+		division_template = "Infanteriedivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		location = 665
+		division_template = "Infanteriedivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		location = 6626
+		division_template = "Infanteriedivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		location = 11666
+		division_template = "Infanteriedivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		location = 11666
+		division_template = "Infanteriedivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		location = 11634
+		division_template = "Infanteriedivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		location = 6680
+		division_template = "Infanteriedivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		location = 3703
+		division_template = "Infanteriedivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		location = 704
+		division_template = "Infanteriedivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		location = 9665
+		division_template = "Infanteriedivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		location = 688
+		division_template = "Infanteriedivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		location = 6626
+		division_template = "Infanteriedivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		location = 11735
+		division_template = "Infanteriedivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+
+	division = {
+		location = 13575
+		division_template = "Kraftfahrjägerdivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		location = 13575
+		division_template = "Kraftfahrjägerdivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+
+	division = {
+		location = 6673
+		division_template = "Alpenjägerdivision"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.7
+	}
+	division = {
+		location = 11618
+		division_template = "Alpenjägerdivision"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.7
+	}
+	division = {
+		location = 6675
+		division_template = "Alpenjägerdivision"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.7
+	}
+	division = {
+		location = 9598
+		division_template = "Alpenjägerdivision"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.7
+	}
+
+	division = {
+		location = 11666
+		division_template = "Kampfwagendivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 1
+	}
+	division = {
+		location = 11666
+		division_template = "Kampfwagendivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		location = 9627
+		division_template = "Kampfwagendivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.1
+	}
+	division = {
+		location = 9627
+		division_template = "Kampfwagendivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.1
+	}
+}
+
+### Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+		}
+		requested_factories = 4
+		progress = 0.82
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = artillery_equipment_1
+		}
+		requested_factories = 2
+		progress = 0.83
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+		}
+		requested_factories = 1
+		progress = 0.44
+		efficiency = 100
+	}
+	if = {
+		limit = { has_dlc_nsb = yes }
+		add_equipment_production = {
+			equipment = {
+				type = light_tank_chassis_1
+				version_name = "leKpfW M.35"
+			}
+			requested_factories = 1
+			progress = 0.59
+			efficiency = 100
+		}
+	}
+	else = {
+		add_equipment_production = {
+			equipment = {
+				type = light_tank_equipment_1
+			}
+			requested_factories = 1
+			progress = 0.59
+			efficiency = 100
+		}
+	}
+}

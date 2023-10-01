@@ -1,725 +1,274 @@
-load_focus_tree = ZZZ_national_focus #If you touch this the bookmark gets fucked
-capital = 1511
+﻿capital = 278
+oob = "ARG"
+set_naval_oob = "ARG_naval"
+set_research_slots = 3
+set_stability = 0.2
+set_war_support = 0.35
+set_convoys = 120
 
-# Vacant
-# recruit_character = ARG_Generic_Vacant
+set_technology = {
+	### Infantry ###
+	infantry_weapons = 1
+	tech_mountaineers = 1
+	marines = 1
 
+	### Support ###
+	tech_support = 1
+	tech_engineers = 1
 
-if = {
-	limit = { NOT = { has_dlc = "Man the Guns" } }
-	set_technology = {
+	### Artillery ###
+	gw_artillery = 1
+	interwar_antiair = 1
+
+	### Trains ###
 	basic_train = 1
-
-		ww2_submarine = 1
-		ww2_destroyer = 1
-		basic_destroyer = 1
-		ww2_frigate = 1
-		basic_frigate = 1
-		ww2_cruiser = 1
-		ww2_battleship = 1
-		transport = 1
-	}
-	set_naval_oob = "ARG_1962_naval"
 }
 
+### Starting trains (buffer doesn't work correctly due to DMB zones)
+add_equipment_to_stockpile = {
+	type = train_equipment
+	amount = 35
+	producer = ARG
+}
+
+### Planes - BBA ###
 if = {
-	limit = { has_dlc = "Man the Guns" }
+	limit = { has_dlc_bba = yes }
+	set_air_oob = "ARG_air_bba"
 	set_technology = {
-		basic_naval_mines = 1
-		submarine_mine_laying = 1
+		iw_small_airframe = 1
+		aa_lmg = 1
+		engines_1 = 1
+		early_bombs = 1
+	}
+}
 
-		early_ship_hull_very_light = 1
+### Planes - non BBA ###
+if = {
+	limit = { has_dlc_bba = no }
+	set_air_oob = "ARG_air_legacy"
+	set_technology = {
+		early_fighter = 1
+		CAS1 = 1
+	}
+}
 
-		early_ship_hull_more_light = 1
-		basic_ship_hull_more_light = 1
+### Tanks - NSB ###
+if = {
+	limit = { has_dlc_nsb = yes }
+	set_technology = { gwtank_chassis = 1 }
+}
 
+### Tanks - non NSB ###
+if = {
+	limit = { has_dlc_nsb = no }
+	set_technology = { gwtank = 1 }
+}
+
+### Navy - MtG ###
+if = {
+	limit = { has_dlc_mtg = yes }
+	set_technology = {
+		### Hulls ###
+		early_ship_hull_submarine = 1
+		basic_ship_hull_submarine = 1
 		early_ship_hull_light = 1
 		basic_ship_hull_light = 1
-
-		early_ship_hull_submarine = 1
-
 		early_ship_hull_cruiser = 1
-		basic_ship_hull_cruiser = 1
-
 		early_ship_hull_heavy = 1
+		coastal_defense_ships = 1
 
-		basic_battery = 1
-		basic_light_battery = 1
-		basic_secondary_battery = 1
-		improved_secondary_battery = 1
-		dp_secondary_battery = 1
-
-		basic_torpedo = 1
-
+		### Modules ###
 		basic_depth_charges = 1
+		basic_torpedo = 1
+		basic_battery = 1
+		basic_naval_mines = 1
 
-		basic_secondary_battery = 1
+		### Transports ###
 		mtg_transport = 1
-
-		antiair_1950 = 1
-
-		basic_fire_control_system = 1
-
-		sonar = 1
-
-	}
-	create_equipment_variant = {
-		name = "Clase Balao"
-		type = ship_hull_submarine_1
-		parent_version = 0
-		modules = {
-			fixed_ship_engine_slot = sub_ship_engine_1
-			fixed_ship_torpedo_slot = ship_torpedo_sub_1
-			rear_1_custom_slot = ship_torpedo_sub_1
-		}
-	}
-	create_equipment_variant = {
-		name = "Clase Flower Canadiense"
-		type = ship_hull_very_light_1
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_light_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
-			fixed_ship_radar_slot = ship_sonar_1
-			fixed_ship_torpedo_slot = empty
-			fixed_ship_engine_slot = light_ship_engine_1
-			mid_1_custom_slot = ship_depth_charge_1
-			rear_1_custom_slot = ship_depth_charge_1
-		}
-	}
-	create_equipment_variant = {
-		name = "Clase Muratore"
-		type = ship_hull_very_light_1
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_light_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
-			fixed_ship_torpedo_slot = empty
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = light_ship_engine_1
-			mid_1_custom_slot = ship_anti_air_1
-			rear_1_custom_slot = ship_mine_sweeper_1
-		}
-	}
-	create_equipment_variant = {
-		name = "Clase Mendoza"
-		type = ship_hull_light_1
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_light_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
-			fixed_ship_torpedo_slot = ship_torpedo_1
-			fixed_ship_engine_slot = light_ship_engine_2
-			fixed_ship_radar_slot = empty
-			mid_1_custom_slot = ship_anti_air_1
-			rear_1_custom_slot = ship_anti_air_1
-		}
-	}
-	create_equipment_variant = {
-		name = "Clase Churruca"
-		type = ship_hull_light_1
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_light_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
-			fixed_ship_radar_slot = empty
-			fixed_ship_torpedo_slot = ship_torpedo_1
-			fixed_ship_engine_slot = light_ship_engine_2
-			mid_1_custom_slot = ship_torpedo_1
-			rear_1_custom_slot = ship_depth_charge_1
-		}
-	}
-	create_equipment_variant = {
-		name = "Clase Buenos Aires"
-		type = ship_hull_light_1
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_light_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
-			fixed_ship_radar_slot = empty
-			fixed_ship_torpedo_slot = ship_torpedo_1
-			fixed_ship_engine_slot = light_ship_engine_1
-			mid_1_custom_slot = ship_torpedo_1
-			rear_1_custom_slot = ship_torpedo_1
-		}
-	}
-	create_equipment_variant = {
-		name = "Clase Brooklyn"
-		type = ship_hull_cruiser_1
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_medium_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
-			fixed_ship_radar_slot = ship_radar_1
-			fixed_ship_engine_slot = cruiser_ship_engine_2
-			fixed_ship_secondaries_slot = ship_secondaries_1
-			fixed_ship_armor_slot = ship_armor_cruiser_1
-			front_1_custom_slot = ship_secondaries_1
-			mid_1_custom_slot = ship_torpedo_1
-			rear_1_custom_slot = ship_anti_air_1
-		}
-	}
-	create_equipment_variant = {
-		name = "Clase Azopardo"
-		type = ship_hull_more_light_1
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_light_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
-			fixed_ship_radar_slot = ship_sonar_1
-			fixed_ship_engine_slot = light_ship_engine_1
-			fixed_ship_torpedo_slot = empty
-			mid_1_custom_slot = ship_depth_charge_1
-			rear_1_custom_slot = ship_anti_air_1
-		}
-	}
-	create_equipment_variant = {
-		name = "Clase Hercules EE.UU"
-		type = ship_hull_more_light_1
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = dp_light_battery
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
-			fixed_ship_radar_slot = ship_sonar_1
-			fixed_ship_engine_slot = light_ship_engine_1
-			fixed_ship_torpedo_slot = empty
-			mid_1_custom_slot = ship_depth_charge_1
-			rear_1_custom_slot = ship_anti_air_1
-		}
-	}
-	set_naval_oob = "ARG_1962_naval_mtg"
-}
-
-
-## POLITICAL GUI INIT
-oob = "ARG_1962"
-set_air_oob = "ARG_1962_air"
-
-#Starting Leaders
-# recruit_character = ARG_Arturo_Frondizi
-# recruit_character = ARG_Emilio_Hardoy
-# recruit_character = ARG_Arturo_Uanini
-# recruit_character = ARG_Jose_Luis_Romero
-# recruit_character = ARG_Raul_Matera
-# recruit_character = ARG_Raul_Poggi
-# recruit_character = ARG_Alberto_Ezcurra_Uriburu
-# recruit_character = ARG_Partido_Communista
-add_country_leader_role = {
-	character = ARG_Jose_Luis_Romero
-	country_leader = {
-		desc = "POLITICS_JLR_DESC"
-		expire = "1994.4.20"
-		ideology = progressivism_democratic_socialism_subtype
-		traits = { }
-		id = -1
-	}
-}
-add_country_leader_role = {
-	character = ARG_Jose_Luis_Romero
-	country_leader = {
-		desc = "POLITICS_JLR_DESC"
-		expire = "1994.4.20"
-		ideology = socialist_subtype
-		traits = { }
-		id = -1
 	}
 }
 
-#Leaders
-# recruit_character = ARG_Juan_Carlos_Ongania
-# recruit_character = ARG_Jose_Maria_Guido
-# recruit_character = ARG_Ricardo_Balbin
-# recruit_character = ARG_Arturo_Umberto_Illia
-# recruit_character = ARG_Rogelio_Julio_Frigerio
-# recruit_character = ARG_Carlos_Alberto_Perez_Companc
-# recruit_character = ARG_Vicente_Solano_Lima
-# recruit_character = ARG_Benjamin_Menendez
-# recruit_character = ARG_Rodolfo_Martinez
-# recruit_character = ARG_Alfredo_Palacios
-# recruit_character = ARG_Juan_Domingo_Peron
-# recruit_character = ARG_Roberto_Marcelo_Levingston
-# recruit_character = ARG_Alejandro_Agustin_Lanusse
-# recruit_character = ARG_Isabel_de_Peron
-# recruit_character = ARG_Rodolfo_Martinovic
-# recruit_character = ARG_Cirpriano_Reyes
-# recruit_character = ARG_Guillermo_Estevez_Boero
-# recruit_character = ARG_Emilio_Jofre
-# recruit_character = ARG_Isaac_Rojas
-# recruit_character = ARG_Julian_Licastro
-# recruit_character = ARG_Carlos_Menem
-# recruit_character = ARG_Manuel_de_Anchorena
-# recruit_character = ARG_Silvano_Santander
-# recruit_character = ARG_Jose_Emilio_Visca
-# recruit_character = ARG_Partido_Peronista
-# recruit_character = ARG_Mario_Amadeo
-# recruit_character = ARG_Hector_Jose_Campora
-# recruit_character = ARG_Jose_Lopez_Rega
-# recruit_character = ARG_Americo_Ghioldi
-# recruit_character = ARG_Julio_Cesar_Cueto_Rua
-# recruit_character = ARG_Miguel_Angel_Iniguez
-# recruit_character = ARG_Pedro_Eugenio_Aramburu
+### Navy - non MtG ###
+if = {
+	limit = { has_dlc_mtg = no }
+	set_technology = {
+		### Hulls ###
+		early_submarine = 1
+		early_destroyer = 1
+		early_light_cruiser = 1
+		early_heavy_cruiser = 1
+		early_battleship = 1
 
-#Starting Ministers
-# recruit_character = ARG_Alfredo_Roque_Vitolo
-# recruit_character = ARG_Miguel_Carcano
-# recruit_character = ARG_Alvaro_Alsogaray
-# recruit_character = ARG_Rosendo_Fraga
+		### Transports ###
+		transport = 1
+	}
+}
 
-#Ministers
-# recruit_character = ARG_Juan_Palmero
-# recruit_character = ARG_Miguel_Angel_Zavala_Ortiz
-# recruit_character = ARG_Juan_Carlos_Pugliese
-# recruit_character = ARG_Ignacio_Avalos
+add_ideas = {
+	ARG_carles_rule_idea_1
+	ARG_interservice_rivalry_navy_dominant
+	ARG_Military_Cliques
+	ARG_Military_Apparatus
+}
 
-# recruit_character = ARG_Carlos_Sanchez_Viamonte
-# recruit_character = ARG_Torcuato_S_Di_Tella
+unlock_national_focus = ARG_Woes_of_the_Christmas_Coup
 
-# recruit_character = ARG_Pablo_Gonzales_Berges
-# recruit_character = ARG_Adolfo_Vicchi
-# recruit_character = ARG_Raul_Prebisch
-# recruit_character = ARG_Rosendo_Fraga_hardoy
+set_variable = { country_intro_page_count = 1 }
 
-# recruit_character = ARG_Mariano_Grondona
-# recruit_character = ARG_Juan_E_Guglialmelli
-# recruit_character = ARG_Juan_C_Rosas
+# Country events
+country_event = { id = argbla.8 days = 441 }        # Patriotic loan introduction
+country_event = { id = argbla.9 days = 596 }        # Creation of La Junta Nacional de Granos
+country_event = { id = argbla.11 days = 688 }       # La Viña dam construction start
 
-# recruit_character = ARG_Ernesto_Sanmartino
-# recruit_character = ARG_Adolfo_Vicchi_ud_ii
-# recruit_character = ARG_Aldo_Ferrer
-# recruit_character = ARG_Eduardo_R_Castro_Sanchez
+#Immigration
+country_event = { id = argim.10 days = 365 random_days = 20 } #1936
+country_event = { id = argim.20 days = 730 random_days = 20 } #1937
+country_event = { id = argim.30 days = 1095 random_days = 20 } #1938
+country_event = { id = argim.40 days = 1460 random_days = 20 } #1939
+country_event = { id = argim.50 days = 1825 random_days = 20 } #1940
+country_event = { id = argim.60 days = 2190 random_days = 20 } #1941
+country_event = { id = argim.70 days = 2555 random_days = 20 } #1942
+country_event = { id = argim.80 days = 2920 random_days = 20 } #1943
+country_event = { id = argim.90 days = 3285 random_days = 20 } #1944
 
-# recruit_character = ARG_Eugenio_Conde
-# recruit_character = ARG_Victor_H_Martinez
-# recruit_character = ARG_Eduardo_Gamond
-# recruit_character = ARG_Osiris_Guillermo_Villegas
+#Military events
+country_event = { id = argmil.24 days = 1460 random_days = 180 } #Officer Alberte joins the GOU
+country_event = { id = argfor.16 days = 730 random_days = 5 } #Coup to depose the hesitant player
 
-# recruit_character = ARG_Alfredo_Bravo
-# recruit_character = ARG_Victor_Garcia_Costa
-# recruit_character = ARG_Leopoldo_Portnoy
+#ARG shared flavour events
+country_event = { id = arg_flavour.2 days = 415 }   # Horacio Quiroga suicide
+country_event = { id = arg_flavour.3 days = 779 }   # Leopoldo Lugones death
+country_event = { id = arg_flavour.9 days = 888 }   # Alfonsina Storni death
+country_event = { id = arg_flavour.10 days = 1001 } # Lisandro de la Torre death
+country_event = { id = arg_flavour.11 days = 1145 } # New metro line opening
+country_event = { id = arg_flavour.13 days = 1430 } # 'The Life of Carlos Gardel' movie
+country_event = { id = arg_flavour.14 days = 1606 } # Football stadium opening
+country_event = { id = arg_flavour.15 days = 1706 } # 'The Invention of Morel' novel published
+country_event = { id = arg_flavour.19 days = 1905 } # 40th Anniversary of the Antarctic Expedition
+country_event = { id = arg_flavour.16 days = 2010 } # San Juan earthquake
+country_event = { id = arg_flavour.17 days = 2190 } # Augustin Justo death
+country_event = { id = arg_flavour.18 days = 2315 } # 'Gaucho Wars' movie
 
-# recruit_character = ARG_Augusto_Vandor
-# recruit_character = ARG_Leopoldo_Bravo
-# recruit_character = ARG_Oreste_Popescu
+#AGR unique flavour events
+country_event = { id = arg_flavour.1 days = 288 }   # Buenos Aires obelisk
+country_event = { id = arg_flavour.12 days = 1295 } # Bairoletto death
+country_event = { id = argcar.47 days = 3950 }      # Carles death
 
-# recruit_character = ARG_Francisco_Gabrielli
-# recruit_character = ARG_Juan_Ramon_Aguirre_Lanari
-# recruit_character = ARG_Felipe_Yofre
-# recruit_character = ARG_Eduardo_Juan_Uriburu
-
-# recruit_character = ARG_Guillermo_Borda
-# recruit_character = ARG_Nicanor_Costa_Mendez
-# recruit_character = ARG_Adalbert_Krieger_Vassena
-# recruit_character = ARG_Eduardo_Senorans
-
-# recruit_character = ARG_Francisco_Manrique
-# recruit_character = ARG_Luis_Maria_de_Pablo_Pardo
-# recruit_character = ARG_Aldo_Ferrer_levingston
-# recruit_character = ARG_Jose_Rafael_Caceres_Monie
-
-# recruit_character = ARG_Arturo_Mor_Roig
-# recruit_character = ARG_Eduardo_Mc_Loughlin
-# recruit_character = ARG_Cayetano_Antonio_Licciardo
-# recruit_character = ARG_Ezequiel_Alfredo_Martinez
-
-# recruit_character = ARG_Mariano_Jose_Drago
-# recruit_character = ARG_Federico_Pinedo
-
-# recruit_character = ARG_Benjamin_Rattenbach
-
-# recruit_character = ARG_Alberto_Maria_Fonrouge
-# recruit_character = ARG_Manuel_Reimundes
-
-# recruit_character = ARG_Rodolfo_Decker
-
-# recruit_character = ARG_Roman_Subiza
-# recruit_character = ARG_Mario_Amadeo_peron
-# recruit_character = ARG_Jorge_Antonio
-
-# recruit_character = ARG_Italo_Luder
-# recruit_character = ARG_Antonio_Cafiero
-# recruit_character = ARG_Alvaro_Alsogaray_menem
-# recruit_character = ARG_Jorge_Carcagno
-
-# recruit_character = ARG_Alberto_Eduardo_Ottalagano
-# recruit_character = ARG_Oscar_Ivanissevich
-# recruit_character = ARG_Alfredo_Gomez_Morales
-# recruit_character = ARG_Fernando_Amadeo_Baldrich
-
-# recruit_character = ARG_Alberto_Vignes
-# recruit_character = ARG_Celestino_Rodrigo
-# recruit_character = ARG_Jorge_Rafael_Videla
-
-# recruit_character = ARG_Julio_Barbaro
-# recruit_character = ARG_Juan_Carlos_Puig
-# recruit_character = ARG_CTP
-# recruit_character = ARG_Jose_Luis_Fernandez_Valoni
-
-# recruit_character = ARG_Carlos_Alconada_Aramburu
-# recruit_character = ARG_Carlos_Humberto_Perrette
-# recruit_character = ARG_Raul_Prebisch_balbin
-# recruit_character = ARG_Hector_Hidalgo_Sola
-
-# recruit_character = ARG_Junta_Militar
-# recruit_character = ARG_Armando_P_Martineja
-# recruit_character = ARG_Adolfo_Vicchi_poggi
-# recruit_character = ARG_Carlos_Eugenio_Moori_Koening
-
-# recruit_character = ARG_Arturo_Mathov
-
-# recruit_character = ARG_Hector_Sandler
-# recruit_character = ARG_Americo_Ghioldi_aramburu
-# recruit_character = ARG_Raul_Ondarts
-# recruit_character = ARG_Bernardino_Labayru
-
-#Generals
-# recruit_character = ARG_Carlos_Toranzo_Montero
-# recruit_character = ARG_Cayo_Alsina
-# recruit_character = ARG_Enrique_Rauch
-
-set_variable = { trade_opinion_embargo@GER = 1 }
-set_variable = { trade_opinion_embargo@GGR = 1 }
-set_variable = { trade_opinion_embargo@BGR = 1 }
-set_variable = { trade_opinion_embargo@HGR = 1 }
-set_variable = { trade_opinion_embargo@SGR = 1 }
-set_variable = { trade_opinion_embargo@CZE = 1 }
-set_variable = { trade_opinion_embargo@GGN = 1 }
-set_variable = { trade_opinion_embargo@SLO = 1 }
-set_variable = { trade_opinion_embargo@UKR = 1 }
-set_variable = { trade_opinion_embargo@MCW = 1 }
-set_variable = { trade_opinion_embargo@OST = 1 }
-set_variable = { trade_opinion_embargo@COG = 1 }
-set_variable = { trade_opinion_embargo@CAU = 1 }
-set_variable = { trade_opinion_embargo@SER = 1 }
-set_variable = { trade_opinion_embargo@DEN = 1 }
-set_variable = { trade_opinion_embargo@HOL = 1 }
-set_variable = { trade_opinion_embargo@NOR = 1 }
-set_variable = { trade_opinion_embargo@CRN = 1 }
-set_variable = { trade_opinion_embargo@MAD = 1 }
-set_variable = { trade_opinion_embargo@GRO = 1 }
-set_variable = { trade_opinion_embargo@ANG = 1 }
-set_variable = { trade_opinion_embargo@HOL = 1 }
-set_variable = { trade_opinion_embargo@BRG = 1 }
-set_variable = { trade_opinion_embargo@BUL = 1 }
-set_variable = { trade_opinion_embargo@ENG = 1 }
-set_variable = { trade_opinion_embargo@FRA = 1 }
-set_variable = { trade_opinion_embargo@BRT = 1 }
-set_variable = { trade_opinion_embargo@IRE = 1 }
-
-set_variable = { trade_opinion_embargo@JAP = 1 }
-set_variable = { trade_opinion_embargo@CHI = 1 }
-set_variable = { trade_opinion_embargo@PHI = 1 }
-set_variable = { trade_opinion_embargo@INS = 1 }
-set_variable = { trade_opinion_embargo@BUR = 1 }
-set_variable = { trade_opinion_embargo@THA = 1 }
-set_variable = { trade_opinion_embargo@CAM = 1 }
-set_variable = { trade_opinion_embargo@LAO = 1 }
-set_variable = { trade_opinion_embargo@VIN = 1 }
-set_variable = { trade_opinion_embargo@GAN = 1 }
-set_variable = { trade_opinion_embargo@GUX = 1 }
-set_variable = { trade_opinion_embargo@MAN = 1 }
-set_variable = { trade_opinion_embargo@SIC = 1 }
-set_variable = { trade_opinion_embargo@GUZ = 1 }
-set_variable = { trade_opinion_embargo@SHX = 1 }
-set_variable = { trade_opinion_embargo@GNG = 1 }
-set_variable = { trade_opinion_embargo@YUN = 1 }
-set_variable = { trade_opinion_embargo@BHU = 1 }
+set_variable = { arg_im_factor = 100 }
 
 set_politics = {
-	ruling_party = conservative
-	last_election = "1958.2.23"
-	election_frequency = 72
-	elections_allowed = yes
+	ruling_party = national_populist
+	last_election = "1888.6.15"
+	election_frequency = 48
+	elections_allowed = no
 }
 
 set_popularities = {
-	vanguardist = 1
-	national_populist = 0
-	socialist = 3
-	progressive =  5
-	ecologist = 34
-	conspiracist = 6
-	liberal = 5
-	conservative = 27
-	syndicalist = 15
-	anocrat = 0
-	paternalist =  4
+	totalist = 4
+	radical_socialist = 4
+	syndicalist = 4
+	social_democrat = 10
+	social_liberal = 18
+	market_liberal = 21
+	social_conservative = 6
+	paternal_autocrat = 10
+	authoritarian_democrat = 4
+	national_populist = 19
 }
 
+#The game will consider them in a civil war until the end of the FOP-ARG war
+add_civil_war_target = FOP
 
-add_ideas = {
-	#Faction Status
-	TRI_Observer
-	#Spirits
-	ARG_the_death_of_discipline
-	ARG_structural_unhingement
-	ARG_greekback_lira_blues
-	ARG_juan_domingo_el_ausente
-	#Ministers
-	ARG_Alfredo_Roque_Vitolo_hog
-	ARG_Miguel_Carcano_for
-	ARG_Alvaro_Alsogaray_eco
-	ARG_Rosendo_Fraga_sec
-	#Military Command
-	ARG_Carlos_Toranzo_Montero_army_chief
-	ARG_Isaac_Rojas_navy_chief
-	ARG_Cayo_Alsina_air_chief
-	ARG_Raul_Poggi_high_command
-	ARG_Bernardino_Labayru_high_command
-	ARG_Enrique_Rauch_high_command
-	ARG_Armando_P_Martineja_theorist
-	#POLITICAL
-	tno_political_parties_multiparty_system
-	tno_religious_rights_secularism
-	tno_trade_unions_all_allowed
-	tno_immigration_encouraged_immigration
-	tno_slavery_outlawed
-	tno_public_meetings_allowed
-	tno_press_rights_free_press
-	tno_vote_franchise_universal
-	#MILITARY
-	tno_conscription_broadened_conscription
-	tno_military_supervision_rules_of_engagement
-	tno_training_combat_schooling
-	tno_draft_exemptions_none
-	#SOCIAL
-	tno_health_care_universal_health_care
-	tno_education_public_higher_education
-	tno_penal_system_incarceration
-	tno_gender_rights_gender_equality
-	tno_security_regulated_police
-	tno_regulations_token_regulations
-	#ECONOMIC
-	tno_trade_laws_export_focus
-	tno_income_taxation_high_income_weighted
-	tno_minimum_wage_good_minimum_wage
-	tno_max_workhours_8_hour_work_day
-	tno_pensions_acceptable_pensions
-	tno_unemployment_generous_subsidies
-	#MISC
-	tno_refugees_open
-	tno_women_noncombat_only
-	tno_racial_integration_not_applicable
-	tno_safety_excellent_regulations
-	tno_pollution_few_regulations
-	tno_lgbt_rights_lgbt_allowed
-	tno_minorities_equal_rights
-	tno_child_labor_illegal
-	#SOCIETAL DEVELOPMENT
-	tno_army_professionalism_political_interference
-	tno_industrial_expertise_nascent
-	tno_industrial_equipment_factory_complexes
-	tno_agriculture_mass_mechanized
-	tno_healthcare_developed
-	tno_research_facilities_modern
-	tno_academic_base_secondary_schooling
-	tno_admin_efficiency_deficient_administrative_systems
-}
+###Starting country leaders
 
-### Policy Effectiveness
+recruit_character = ARG_manuel_carles
+recruit_character = ARG_juan_domingo_peron
+recruit_character = ARG_pedro_pablo_ramirez
+recruit_character = ARG_roberto_ortiz
+recruit_character = ARG_ramon_antonio_castillo
+recruit_character = ARG_nicolas_repetto #also a radsoc
+recruit_character = ARG_angel_borlenghi
+recruit_character = ARG_jose_peter
 
-set_country_flag = tno_defined_startup_effectiveness
+### Field Marshals ###
 
-# ECONOMIC LAWS
-set_variable = { tno_trade_laws_effectiveness = 20 }
-set_variable = { tno_income_taxation_effectiveness = 60 }
-set_variable = { tno_minimum_wage_effectiveness = 70 }
-set_variable = { tno_max_workhours_effectiveness = 80 }
-set_variable = { tno_pensions_effectiveness = 70 }
-set_variable = { tno_unemployment_effectiveness = 60 }
+recruit_character = ARG_agustin_pedro_justo
+# ramirez gets recruited as a country leader
+recruit_character = ARG_juan_pistarini
+recruit_character = ARG_pedro_eugenio_aramburu
 
-# SOCIAL LAWS
-set_variable = { tno_health_care_effectiveness = 55 }
-set_variable = { tno_education_effectiveness = 70 }
-set_variable = { tno_penal_system_effectiveness = 70 }
-set_variable = { tno_gender_rights_effectiveness = 40 }
-set_variable = { tno_security_effectiveness = 60 }
-set_variable = { tno_regulations_effectiveness = 85 }
+### Corps Commanders ###
 
-# POLITICAL LAWS
-set_variable = { tno_political_parties_effectiveness = 50 }
-set_variable = { tno_religious_rights_effectiveness = 80 }
-set_variable = { tno_trade_unions_effectiveness = 100 }
-set_variable = { tno_immigration_effectiveness = 80 }
-set_variable = { tno_slavery_effectiveness = 100 }
-set_variable = { tno_public_meetings_effectiveness = 70 }
-set_variable = { tno_press_rights_effectiveness = 90 }
-set_variable = { tno_vote_franchise_effectiveness = 80 }
+recruit_character = ARG_enrique_mosconi
+### Peron gets recruited as a country leader
+recruit_character = ARG_edelmiro_julian_farrell
+recruit_character = ARG_manuel_savio
+recruit_character = ARG_humberto_sosa_molina
+recruit_character = ARG_arturo_rawson
+recruit_character = ARG_manuel_domecq_garcia
 
-# MILITARY LAWS
-set_variable = { tno_conscription_effectiveness = 65 }
-set_variable = { tno_military_supervision_effectiveness = 80 }
-set_variable = { tno_training_effectiveness = 60 }
-set_variable = { tno_draft_exemptions_effectiveness = 90 }
+### Admirals ###
+recruit_character = ARG_eleazar_videla
+recruit_character = ARG_isaac_francisco_rojas
 
-set_technology = {
-	##INFANTRY##
-	infantry_weapons_1 = 1
-	night_vision_1 = 1
-	
-	infantry_kit_1 = 1
-	infantry_weapons_2 = 1
-	night_vision_2 = 1
-	infantry_kit_2 = 1
-	infantry_weapons_improvements_mine_1 = 1
-	infantry_kit_3 = 1
-	infantry_weapons_improvements_ammo_1 = 1
-	infantry_weapons_improvements_grenade_1 = 1
-	#
-	infantry_weapons_3 = 1
-	night_vision_3 = 1
-	infantry_kit_4 = 1
-	infantry_weapons_improvements_mine_2 = 1
-	basic_infantry_equipment = 1
-	support_weapons = 1
-	combat_support_equipment_1 = 1
-	
-	support_weapons_hmg_1 = 1
-	support_weapons_arty_1 = 1
-	combat_support_equipment_2 = 1
-	infantry_at = 1
-	infantry_at_upgrade_1 = 1
-	#
-	
-	motorized_infantry = 1
-	motorized_rocket_unit = 1
-	motorized_infantry_1 = 1
-	marines = 1
-	#
-	tech_special_forces = 1
-	marines2 = 2
-	tech_mountaineers = 1
-	#
-	tech_mountaineers2 = 1
-	tech_mountaineers3 = 1
-	paratroopers = 1
+### Via event characters
+recruit_character = ARG_council_of_buenos_aires
+recruit_character = ARG_miguel_de_andrea
+recruit_character = ARG_elpidio_gonzalez
+recruit_character = ARG_jose_tamborini
+recruit_character = ARG_robustiano_costas
+recruit_character = ARG_alicia_moreau
+recruit_character = ARG_arturo_frondizi
+recruit_character = ARG_marcelo_alvear
+recruit_character = ARG_ricardo_balbin
+recruit_character = ARG_argentine_parliament
+recruit_character = ARG_bernardo_alberte
 
-	##SUPPORT##
-	tech_support = 1
-	tech_engineers = 1
-	assault_weapons_1 = 1
-	tech_engineers2 = 1
-	assault_weapons_2 = 1
-	tech_engineers3 = 1
-	assault_weapons_3 = 1
-	tech_recon = 1
-	tech_recon2 = 1
-	tech_military_police = 1
-	tech_military_police2 = 1
-	tech_military_police3 = 1
-	tech_maintenance_company = 1
-	tech_maintenance_company2 = 1
-	tech_field_hospital = 1
-	tech_field_hospital2 = 1
-	tech_logistics_company = 1
-	tech_signal_company = 1
-	tech_signal_company2 = 1
-	tech_scout_helicopter_company = 1
-	tech_transport_helicopter_company = 1
-	
-	##ARMOR##
-	advanced_light_tank = 1
-	advanced_medium_tank = 1
-	mechanised_infantry3 = 1
-	APC_1950 = 1
-	APC_1950_basic_turret = 1
-	#APC_1950_basic_engine = 1
-	APC_1950_basic_armor = 1
-	APC_1960 = 1
-	MBT_1950 = 1
-	MBT_1950_basic_turret = 1
-	#MBT_1950_basic_engine = 1
-	MBT_1950_basic_armor = 1
-	AC_1945 = 1
-	AC_1950 = 1
-	
-	##ARTILLERY##
-	
-	antiair5 = 1
-	antiair_1950 = 1
-	light_SPAA_1950 = 1
-	light_SPAA_1960 = 1
-	SPAA_1950 = 1
-	artillery4 = 1
-	artillery_1950 = 1
-	light_SPART_1950 = 1
-	light_SPART_1950_soft_attack = 1
-	SPART_1950 = 1
-	SPART_1950_soft_attack = 1
+##### Political advisors
+# Politics
+recruit_character = ARG_miguel_ortiz
+recruit_character = ARG_segundo_storni
+recruit_character = ARG_luis_costa
+recruit_character = ARG_juan_cooke
+recruit_character = ARG_eduardo_lonardi
+# Economy
+recruit_character = ARG_diego_mason
+recruit_character = ARG_carlos_begnis
+recruit_character = ARG_alberto_gilbert
+recruit_character = ARG_carlos_sanchez_viamonte
+recruit_character = ARG_jose_maria_sobral
+# Military staff - navy
+recruit_character = ARG_alberto_teisaire
+recruit_character = ARG_carlos_daireaux
+recruit_character = ARG_hector_vernengo_lima
+# Military staff - air
+recruit_character = ARG_antonio_parodi
+recruit_character = ARG_bartolome_de_la_colina
+recruit_character = ARG_pedro_castex_lainfor
+recruit_character = ARG_marcos_zar
 
-	###AERIAL###
-
-	early_fighter = 1
-	jet_engines = 1
-	jet_engines_bombers = 1
-	fighter_1945 = 1
-	cv_1945_fighter = 1
-	fighter_1950 = 1
-	cv_1950_fighter = 1
-	fighter_1960 = 1
-	interceptor_1945 = 1
-	interceptor_1950 = 1
-	CAS_1945 = 1
-	strategic_bomber1 = 1
-	heavy_air_1945 = 1
-	heavy_air_1950 = 1
-	tac_bomber1 = 1
-	tac_air_1945 = 1
-	tac_air_1950 = 1
-	transport_air1 = 1
-	transport_air_1945 = 1
-	transport_air_1950 = 1
-	transport_air_1960 = 1
-	scout_plane_1945 = 1
-
-	###HELICOPTERS##
-	very_early_helicopter = 1
-	early_helicopter = 1
-	scout_helicopter_1960 = 1
-	transport_helicopter_1960 = 1
-
-	###MISC###
-	helicopter_engines = 1
-
-	#### ENGINEERING ####
-	electronic_mechanical_engineering = 1
-
-	radio = 1
-	radio_detection = 1
-
-	decimetric_radar = 1
-	centimetric_radar = 1
-
-	mechanical_computing = 1
-	computing_machine = 1
-	improved_computing_machine = 1
-	advanced_computing_machine = 1
-
-	#### INDUSTRY ####
-
-	ww2_line_production = 1
-
-	building_construction_1 = 1
-
-	energy_technology_1 = 1
-	social_construction_1 = 1
-	administration_construction_1 = 1
-	military_construction_1 = 1
-
-	resource_extraction_methods = 1
-
-}
-set_research_slots = 4
-
-add_equipment_to_stockpile = {
-	type = convoy_1
-	amount = 24
-	producer = ARG
-}
+### Character Flags ###
+# event fop.230 - Civilian specialists approach FOP government
+ARG_jose_maria_sobral = { set_character_flag = ARG_can_join_FOP }
+ARG_luis_costa = { set_character_flag = ARG_can_join_FOP }
+ARG_juan_cooke = { set_character_flag = ARG_can_join_FOP }
+ARG_carlos_sanchez_viamonte = { set_character_flag = ARG_can_join_FOP }
+ARG_carlos_begnis = { set_character_flag = ARG_can_join_FOP }
+# Events
+ARG_alicia_moreau = { set_character_flag = ARG_can_join_FOP }
+ARG_nicolas_repetto = { set_character_flag = ARG_can_join_FOP }
+ARG_elpidio_gonzalez = { set_character_flag = ARG_can_join_FOP }
+ARG_robustiano_costas = { set_character_flag = ARG_can_join_FOP }
+ARG_arturo_frondizi = { set_character_flag = ARG_can_join_FOP }
+ARG_ricardo_balbin = { set_character_flag = ARG_can_join_FOP }
+# Focus tree - ARG characters that can be added to FOP roster via completing focuses
+ARG_juan_pistarini = { set_character_flag = ARG_can_join_FOP }
+ARG_enrique_mosconi = { set_character_flag = ARG_can_join_FOP }
+ARG_manuel_savio = { set_character_flag = ARG_can_join_FOP }
+ARG_humberto_sosa_molina = { set_character_flag = ARG_can_join_FOP }
+ARG_eleazar_videla = { set_character_flag = ARG_can_join_FOP }
+ARG_segundo_storni = { set_character_flag = ARG_can_join_FOP }
+ARG_isaac_francisco_rojas = { set_character_flag = ARG_can_join_FOP }
+ARG_bartolome_de_la_colina = { set_character_flag = ARG_can_join_FOP }
+ARG_pedro_castex_lainfor = { set_character_flag = ARG_can_join_FOP }

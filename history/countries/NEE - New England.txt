@@ -1,0 +1,318 @@
+﻿capital = 932
+set_convoys = 150
+set_research_slots = 4
+set_stability = 0.4
+set_war_support = 0.1
+
+USA_starting_techs = yes
+USA_starting_tank_variants = yes
+USA_starting_naval_variants = yes
+USA_starting_plane_variants = yes
+
+set_politics = {
+	ruling_party = market_liberal
+	last_election = "1888.6.15"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+set_popularities = {
+	totalist = 0
+	radical_socialist = 7
+	syndicalist = 8
+	social_democrat = 8
+	social_liberal = 27
+	market_liberal = 35
+	social_conservative = 7
+	authoritarian_democrat = 6
+	paternal_autocrat = 2
+	national_populist = 0
+}
+
+add_ai_strategy = {
+	type = ignore_claim
+	id = "USA"
+	value = 1
+}
+add_ai_strategy = {
+	type = ignore_claim
+	id = "CSA"
+	value = 1
+}
+add_ai_strategy = {
+	type = ignore_claim
+	id = "TEX"
+	value = 1
+}
+add_ai_strategy = {
+	type = ignore_claim
+	id = "PSA"
+	value = 1
+}
+
+### Dummy Leaders ###
+recruit_character = NEE_isadore_wofsy
+recruit_character = NEE_jasper_mclevy
+recruit_character = NEE_arnold_petersen
+recruit_character = NEE_frances_perkins
+recruit_character = NEE_roger_babson
+recruit_character = NEE_thomas_charles_obrien
+recruit_character = NEE_william_durward_connor
+recruit_character = NEE_ralph_owen_brewster
+
+### Country Leaders ###
+recruit_character = NEE_wilbur_cross
+recruit_character = NEE_joseph_martin_jr
+
+recruit_character = NEE_david_walsh
+recruit_character = NEE_charles_hurley
+recruit_character = NEE_maurice_tobin
+recruit_character = NEE_william_harriman
+recruit_character = NEE_chester_bowles
+
+recruit_character = NEE_lewis_barrows
+recruit_character = NEE_john_winant
+recruit_character = NEE_raymond_baldwin
+recruit_character = NEE_george_aiken
+recruit_character = NEE_thomas_dewey
+
+### Second in Command ###
+recruit_character = NEE_united_states_congress
+activate_advisor = NEE_united_states_congress_sic
+
+### Political Advisors ###
+recruit_character = NEE_charles_evans_hughes_sr
+recruit_character = NEE_dean_acherson
+#Eleanor Roosevelt defined in the CSA file
+recruit_character = NEE_francis_biddle
+recruit_character = NEE_henry_morgenthau_jr
+recruit_character = NEE_john_foster_dulles
+recruit_character = NEE_sinclair_weeks
+recruit_character = NEE_web_du_bois
+recruit_character = NEE_allen_dulles
+recruit_character = NEE_george_mead
+recruit_character = NEE_learned_hand
+
+#Ambassadors to Canada
+recruit_character = NEE_joseph_kennedy_sr
+recruit_character = NEE_jay_pierrepont_moffat
+recruit_character = NEE_ray_atherton
+recruit_character = NEE_charles_bohlen
+recruit_character = NEE_laurence_steinhardt
+recruit_character = NEE_charles_yost
+
+### Theorists ###
+recruit_character = NEE_vannevar_bush
+recruit_character = NEE_george_murray
+recruit_character = NEE_harold_lee_george
+
+add_ideas = {
+	NEE_reluctant_populace1
+	NEE_limited_recognation1
+	volunteer_only
+}
+
+set_variable = {
+	var = NEE_legitimacy
+	value = 0
+}
+
+set_variable = {
+	LL_gun_route = 50
+}
+set_variable = {
+	LL_people_route = 120
+}
+set_variable = {
+	CL_gun_route = 30
+}
+set_variable = {
+	CL_people_route = 110
+}
+set_variable = {
+	EL_gun_route = 40
+}
+set_variable = {
+	EL_people_route = 90
+}
+
+393 = { set_state_flag = blocked_route }
+391 = { set_state_flag = blocked_route }
+370 = { set_state_flag = blocked_route }
+369 = { set_state_flag = blocked_route }
+362 = { set_state_flag = blocked_route }
+364 = { set_state_flag = blocked_route }
+
+393 = { set_state_flag = blocked_route2 }
+391 = { set_state_flag = blocked_route2 }
+370 = { set_state_flag = blocked_route2 }
+369 = { set_state_flag = blocked_route2 }
+362 = { set_state_flag = blocked_route2 }
+364 = { set_state_flag = blocked_route2 }
+
+hidden_effect = {
+	country_event = { id = newengland.179 days = 57 }
+}
+
+### Field Marshals ###
+recruit_character = NEE_leslie_groves_jr
+
+### Generals ###
+recruit_character = NEE_merritt_edson
+recruit_character = NEE_mark_clark
+recruit_character = NEE_george_kenney
+recruit_character = NEE_willard_gordon_wyman
+recruit_character = NEE_lemuel_shepherd_jr
+recruit_character = NEE_cornelius_edward_ryan
+recruit_character = NEE_ernest_harmon
+
+### Admirals ###
+recruit_character = NEE_harold_stark
+recruit_character = NEE_allan_rockwell_mccann
+recruit_character = NEE_edward_ellsberg
+recruit_character = NEE_thomas_hart
+
+### Military Staff ###
+recruit_character = NEE_richmond_turner
+recruit_character = NEE_earle_partridge
+recruit_character = NEE_harold_buckley_willis
+recruit_character = NEE_harold_huston_george
+recruit_character = NEE_clarence_lionel_adcock
+
+### Character Setup ###
+NEE_harold_stark = { set_nationality = USA }
+NEE_jay_pierrepont_moffat = { retire = yes }
+NEE_ray_atherton = { retire = yes }
+NEE_charles_bohlen = { retire = yes }
+NEE_laurence_steinhardt = { retire = yes }
+NEE_charles_yost = { retire = yes }
+NEE_cornelius_edward_ryan = { retire = yes }
+NEE_ernest_harmon = { retire = yes }
+
+### Operatives ###
+if = {
+	limit = { has_dlc_lar = yes }
+	create_operative_leader = {
+		name = "Allen Dulles"
+		GFX = GFX_portrait_kr_allen_dulles
+		traits = {
+			operative_linguist
+			operative_well_groomed
+			operative_natural_orator
+		}
+		bypass_recruitment = no
+		available_to_spy_master = yes
+		nationalities = { CSA USA TEX PSA NEE }
+	}
+}
+
+### Templates ###
+division_template = {
+	name = "National Guard"
+	division_names_group = USA_GAR_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 3 y = 0 }
+		infantry = { x = 3 y = 1 }
+		infantry = { x = 3 y = 2 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 }
+	}
+	template_counter = 68
+}
+division_template = {
+	name = "Infantry Division"
+	division_names_group = USA_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 }
+	}
+	template_counter = 72
+}
+division_template = {
+	name = "Motorized Division"
+	division_names_group = USA_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+	}
+}
+division_template = {
+	name = "Cavalry Division"
+	division_names_group = USA_CAV_01
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+		cavalry = { x = 2 y = 0 }
+	}
+}
+division_template = {
+	name = "Marine Division"
+	division_names_group = USA_MAR_01
+	regiments = {
+		marine = { x = 0 y = 0 }
+		marine = { x = 0 y = 1 }
+		marine = { x = 0 y = 2 }
+		marine = { x = 1 y = 0 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+	}
+	priority = 2
+}
+division_template = {
+	name = "Mountain Division"
+	division_names_group = USA_MTN_01
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+	}
+}
+division_template = {
+	name = "Armored Cavalry Division"
+	division_names_group = USA_ARM_01
+	regiments = {
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+		light_armor = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+	}
+}

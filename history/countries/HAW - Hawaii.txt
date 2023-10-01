@@ -1,213 +1,92 @@
 ﻿capital = 629
+set_research_slots = 2
+set_convoys = 40
 
-# Vacant
-# recruit_character = HAI_Generic_Vacant
-
-# Characters
-# recruit_character = HAI_Francois_Duvalier
-# recruit_character = HAI_Rene_Theodore
-# recruit_character = HAI_Jean_Claude_Duvalier
-# recruit_character = HAI_Pierre_Joseph_Louis_Dejoie
-# recruit_character = HAI_Gerard_Lescot
-# recruit_character = HAI_Louis_Mars
-# recruit_character = HAI_Franck_Lavaud
-# recruit_character = HAI_Max_Hudicourt
-# recruit_character = HAI_Daniel_Fignole
-# recruit_character = HAI_Leon_Cantave
-# recruit_character = HAI_Elie_Lescot
-# recruit_character = HAI_Paul_Eugene_Magloire
-# recruit_character = HAI_Clement_Barbot
-
-oob = ""
+USA_starting_techs = yes
+USA_starting_tank_variants = yes
+USA_starting_naval_variants = yes
+USA_starting_plane_variants = yes
 
 set_politics = {
-	ruling_party = conservative
-	last_election = "1961.1.20"
-	election_frequency = 60
-	elections_allowed = yes
+	ruling_party = paternal_autocrat
+	last_election = "1888.6.15"
+	election_frequency = 48
+	elections_allowed = no
 }
 
 set_popularities = {
-	vanguardist = 21
-	socialist = 17
-	ecologist = 19
-	conspiracist = 24
-	conservative = 19
+	totalist = 0
+	syndicalist = 5
+	radical_socialist = 10
+	social_democrat = 15
+	social_liberal = 14
+	market_liberal = 26
+	social_conservative = 21
+	authoritarian_democrat = 3
+	paternal_autocrat = 6
+	national_populist = 0
 }
 
 add_ideas = {
-	# Ideas
-
-
-	# Faction Status
-	OFN_Dependent_Member
-	
-	## Policies ##
-	# Political #
-	tno_political_parties_controlled_opposition
-	tno_religious_rights_secularism
-	tno_trade_unions_nonsocialist_allowed
-	tno_immigration_open_immigration
-	tno_slavery_penal_labor
-	tno_public_meetings_regulated
-	tno_press_rights_censored_press
-	tno_vote_franchise_registered_voting
-
-	# Military #
-	tno_conscription_extensive_conscription
-	tno_military_supervision_no_supervision
-	tno_training_minimal_training
-	tno_draft_exemptions_none
-
-	# Economic #
-	tno_trade_laws_export_focus
-	tno_income_taxation_tax_havens
-	tno_minimum_wage_no_minimum_wage
-	tno_max_workhours_unlimited_work_day
-	tno_pensions_no_pensions
-	tno_unemployment_no_subsidies
-
-	# Social #
-	tno_health_care_no_government_support
-	tno_education_stratified_education
-	tno_penal_system_harsh_penal_code
-	tno_gender_rights_traditional_roles
-	tno_security_death_squads
-	tno_regulations_utterly_unregulated
-
-	# SocDevs
-	tno_academic_base_mass_illiteracy
-	tno_research_facilities_basic
-	tno_agriculture_centralized
-	tno_healthcare_rudimentary
-	tno_industrial_equipment_hand_tools
-	tno_industrial_expertise_pre_industrial
-	tno_army_professionalism_reluctant_conscripts
-	tno_admin_efficiency_illegitimate_administration
+	HAW_great_strike_idea
+	HAW_political_chaos_idea
 }
 
-set_country_flag = tno_defined_startup_effectiveness
+### Country Leaders ###
+recruit_character = HAW_jack_denichi_kimoto
+recruit_character = HAW_jack_wayne_hall
+recruit_character = HAW_arthur_abraham_rutledge
+recruit_character = HAW_john_henry_wilson
+recruit_character = HAW_samuel_wilder_king
+recruit_character = HAW_lawrence_mccully_judd
+recruit_character = HAW_henry_alexander_baldwin
+recruit_character = HAW_james_dole
 
-set_variable = { tno_political_parties_effectiveness = 60 }
-set_variable = { tno_religious_rights_effectiveness = 60 }
-set_variable = { tno_trade_unions_effectiveness = 30 }
-set_variable = { tno_immigration_effectiveness = 10 }
-set_variable = { tno_slavery_effectiveness = 50 }
-set_variable = { tno_public_meetings_effectiveness = 30 }
-set_variable = { tno_press_rights_effectiveness = 55 }
-set_variable = { tno_vote_franchise_effectiveness = 40 }
+recruit_character = HAW_lydia_liliuokalani_kawananakoa
 
-set_variable = { tno_conscription_effectiveness = 50 }
-set_variable = { tno_military_supervision_effectiveness = 100 }
-set_variable = { tno_training_effectiveness = 40 }
-set_variable = { tno_draft_exemptions_effectiveness = 100 }
+### Advisors ###
+recruit_character = HAW_ingram_macklin_stainback
+recruit_character = HAW_joseph_rider_farrington
+recruit_character = HAW_charles_atwood_rice
+recruit_character = HAW_charles_reed_hemenway
+recruit_character = HAW_robert_larimore_shivers
 
-set_variable = { tno_trade_laws_effectiveness = 50 }
-set_variable = { tno_income_taxation_effectiveness = 60 }
-set_variable = { tno_minimum_wage_effectiveness = 100 }
-set_variable = { tno_max_workhours_effectiveness = 100 }
-set_variable = { tno_pensions_effectiveness = 100 }
-set_variable = { tno_unemployment_effectiveness = 100 }
+### Field Marshals ###
+recruit_character = HAW_walter_campbell_short
+recruit_character = HAW_charles_douglas_herron
 
-set_variable = { tno_health_care_effectiveness = 100 }
-set_variable = { tno_education_effectiveness = 80 }
-set_variable = { tno_penal_system_effectiveness = 60 }
-set_variable = { tno_gender_rights_effectiveness = 60 }
-set_variable = { tno_security_effectiveness = 70 }
-set_variable = { tno_regulations_effectiveness = 100 }
+### Corps Commanders ###
+recruit_character = HAW_kendall_jordan_fielder
+recruit_character = HAW_delos_carleton_emmons
+recruit_character = HAW_robert_charlwood_richardson_jr
+recruit_character = HAW_joseph_taggart_mcnarney
 
-set_research_slots = 1
+### Admirals ###
+recruit_character = HAW_james_otto_richardson
+recruit_character = HAW_husband_edward_kimmel
+recruit_character = HAW_luke_mcnamee
+recruit_character = HAW_gordon_paiea_chung_hoon
+recruit_character = HAW_benjamin_vaughan_mccandlish
 
-set_technology = {
-	basic_train = 1
+### Military Staff ###
+recruit_character = HAW_ira_lafayette_kimes
+recruit_character = HAW_andrew_moses
+recruit_character = HAW_millard_fillmore_harmon_jr
 
-	##INFANTRY##
-	infantry_weapons_1 = 1
-	night_vision_1 = 1
-	
-	infantry_kit_1 = 1
-	infantry_weapons_2 = 1
-	night_vision_2 = 1
-	infantry_kit_2 = 1
-	infantry_weapons_improvements_mine_1 = 1
-	infantry_kit_3 = 1
-	infantry_weapons_improvements_ammo_1 = 1
-	infantry_weapons_improvements_grenade_1 = 1
-	infantry_weapons_3 = 1
-	night_vision_3 = 1
-	infantry_kit_4 = 1
-	infantry_weapons_improvements_mine_2 = 1
-	basic_infantry_equipment = 1
-	support_weapons = 1
-	support_weapons_hmg_1 = 1
-	
-	motorized_infantry = 1
+### Character Setup ###
+HAW_lydia_liliuokalani_kawananakoa = { set_character_flag = is_monarch }
 
-	##SUPPORT##
-	tech_support = 1
-	tech_engineers = 1
-	tech_recon = 1
-	tech_military_police = 1
-	
-	##ARMOR##
-	# See NSB section
-	
-	##ARTILLERY##
-	# See NSB section
+HAW_james_otto_richardson = { set_nationality = USA }
 
-	###AERIAL###
-	early_fighter = 1
-	fighter_1945 = 1
-	interceptor_1945 = 1
-	CAS_1945 = 1
-	strategic_bomber1 = 1
-	heavy_air_1945 = 1
-	tac_bomber1 = 1
-	transport_air1 = 1
-
-	#### ENGINEERING ####
-	electronic_mechanical_engineering = 1
-	radio = 1
-
-	mechanical_computing = 1
-
-	#### INDUSTRY ####
-	ww2_line_production = 1
-	building_construction_1 = 1
-
-	### DOCTRINE ###
-}
-
-# NSB tech #
-if = {
-	limit = {
-		NOT = { has_dlc = "No Step Back" }
-	}
-	set_technology = {
-		advanced_light_tank = 1
-		advanced_medium_tank = 1
-		mechanised_infantry3 = 1
-
-		antiair5 = 1
-		artillery4 = 1
+### Templates ###
+division_template = {
+	name = "Infantry Division"
+	division_names_group = USA_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+		infantry = { x = 0 y = 4 }
 	}
 }
-if = {
-	limit = {
-		has_dlc = "No Step Back"
-	}
-	set_technology = {
-		NSB_APC_1945 = 1
-
-		NSB_IFV_1945 = 1
-
-		NSB_MBT_1945 = 1
-
-		NSB_artillery_1945 = 1
-
-		NSB_antiair_1945 = 1
-	}
-}
-
-set_stability = 0.8
-set_war_support = 0.1

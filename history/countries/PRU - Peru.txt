@@ -1,111 +1,230 @@
-capital = 1689
-
-# Vacant
-# recruit_character = PRU_Generic_Vacant
-# recruit_character = PRU_Luis_Alberto_Flores
-# recruit_character = PRU_Ricardo_Perez_Godoy
-# recruit_character = PRU_Manuel_Arturo_Odria
-# recruit_character = PRU_Manuel_Prado_Ugarteche
-# recruit_character = PRU_Fernando_Belaunde_Terry
-# recruit_character = PRU_Luis_Bedoya_Reyes
-# recruit_character = PRU_Manuel_Seoane_Corrales
-# recruit_character = PRU_Different_Leaders
-# recruit_character = PRU_Jorge_del_Prado_Chavez
-# recruit_character = PRU_Carlos_Moreyra
-# recruit_character = PRU_Alvarado_Garrido
-# recruit_character = PRU_Gallo_Porras
-# recruit_character = PRU_Ricardo_Elias
-# recruit_character = PRU_Pedro_Beltran_Espantoso
-# recruit_character = PRU_Hector_Cornejo_Chavez
-
-
-oob = "PRU_1962"
-set_stability = 0.65
-set_war_support = 0.25
-
-add_ideas = {
-	##Ministers
-	PRU_Carlos_Moreyra_hog
-	PRU_Alvarado_Garrido_pol
-	PRU_Gallo_Porras_eco
-	PRU_Ricardo_Elias_sec
-
-	##National Spirits
-	PRU_idea_fake_democratic_dream
-	PRU_idea_silent_liberation
-	PRU_idea_two_super_powers_one_economy
-	PRU_idea_peru_diverse_problems
-}
-
-add_ideas = {
-	#political#
-	tno_political_parties_multiparty_system
-	tno_religious_rights_pluralism
-	tno_trade_unions_all_allowed
-	tno_immigration_quota_immigration
-	tno_slavery_outlawed
-	tno_public_meetings_allowed
-	tno_press_rights_free_press
-	tno_vote_franchise_universal
-	#military#
-	tno_conscription_service_by_requirement
-	tno_military_supervision_rules_of_engagement
-	tno_training_basic_training
-	tno_draft_exemptions_none
-	#economic#
-	tno_trade_laws_export_focus
-	tno_income_taxation_high_income_weighted
-	tno_minimum_wage_acceptable_minimum
-	tno_max_workhours_10_hour_work_day
-	tno_pensions_acceptable_pensions
-	tno_unemployment_moderate_subsidies
-	tno_regulations_moderate_regulations
-	#social#
-	tno_health_care_low_income_protections
-	tno_education_public_education
-	tno_penal_system_incarceration
-	tno_gender_rights_women_in_the_workplace
-	tno_security_regulated_police
-	#misc#
-	tno_pollution_some_regulations
-	tno_safety_acceptable_regulations
-	tno_child_labor_illegal
-	tno_refugees_skilled
-	tno_racial_integration_integrated_military
-	tno_women_military_assistance
-	tno_minorities_equal_rights
-	tno_lgbt_rights_lgbt_outlawed
-	#social development
-	
-	tno_army_professionalism_political_interference
-	tno_industrial_expertise_nascent
-	tno_industrial_equipment_power_tools
-	tno_admin_efficiency_functional_administrative_systems
-	tno_agriculture_basic_mechanized
-	tno_healthcare_nascent
-	tno_research_facilities_outdated
-	tno_academic_base_basic_literacy
-}
-
+﻿capital = 303
+oob = "PRU"
+set_naval_oob = "PRU_naval"
+set_convoys = 30
 set_research_slots = 3
+set_stability = 0.25
+set_war_support = 0.35
+
+set_technology = {
+	### Infantry ###
+	infantry_weapons = 1
+	tech_mountaineers = 1
+
+	### Artillery ###
+	gw_artillery = 1
+	interwar_antiair = 1
+
+	### Trains ###
+	basic_train = 1
+}
+
+### Starting trains. Not using train buffer since it doesn't add enough trains
+add_equipment_to_stockpile = {
+	type = train_equipment
+	amount = 20
+}
+
+### Planes - BBA ###
+if = {
+	limit = { has_dlc_bba = yes }
+	set_air_oob = "PRU_air_bba"
+	set_technology = {
+		iw_small_airframe = 1
+		aa_lmg = 1
+		engines_1 = 1
+		early_bombs = 1
+	}
+}
+
+### Planes - non BBA ###
+if = {
+	limit = { has_dlc_bba = no }
+	set_air_oob = "PRU_air_legacy"
+	set_technology = {
+		early_fighter = 1
+		early_bomber = 1
+	}
+}
+
+### Navy - MtG ###
+if = {
+	limit = { has_dlc_mtg = yes }
+	set_technology = {
+		### Hulls ###
+		early_ship_hull_submarine = 1
+		early_ship_hull_light = 1
+		early_ship_hull_cruiser = 1
+		coastal_defense_ships = 1
+
+		### Modules ###
+		basic_naval_mines = 1
+		basic_battery = 1
+		basic_torpedo = 1
+		basic_depth_charges = 1
+	}
+}
+
+### Navy - Non MtG ###
+if = {
+	limit = { has_dlc_mtg = no }
+	set_technology = {
+		### Hulls ###
+		early_submarine = 1
+		early_destroyer = 1
+		early_light_cruiser = 1
+	}
+}
 
 set_politics = {
-	ruling_party = conservative
-	last_election = "1957.06.17"
-	election_frequency = 72
-	elections_allowed = yes
+	ruling_party = authoritarian_democrat
+	election_frequency = 48
+	elections_allowed = no
 }
 
 set_popularities = {
-	vanguardist = 1
-	national_populist = 0
-	socialist = 4
-	progressive =  25
-	ecologist = 24
-	liberal = 21
-	conservative = 24
-	syndicalist = 0
-	anocrat = 1
+	totalist = 4
+	radical_socialist = 1
+	syndicalist = 7
+	social_democrat = 4
+	social_liberal = 6
+	market_liberal = 8
+	social_conservative = 12
+	authoritarian_democrat = 40
+	paternal_autocrat = 10
+	national_populist = 8
 }
 
+activate_targeted_decision = { target = CHL decision = BOL_kill_CHL }
 
+country_event = { id = pru.102 days = 10 random_days = 40 }
+country_event = { id = pru.103 days = 547 }
+country_event = { id = pru.113 days = 400 }
+country_event = { id = pru.114 days = 208 }
+country_event = { id = pru.115 days = 2375 }
+country_event = { id = pru.116 days = 168 }
+country_event = { id = pru.117 days = 426 }
+country_event = { id = pru.109 days = 4080 }
+
+set_variable = { ECU_PRU_tension = 0 }
+
+add_ideas = {
+	PRU_caudillo_rip
+	PRU_militant_socialists
+	PRU_guardia_monotera
+}
+
+recruit_character = PRU_gamaliel_churata
+recruit_character = PRU_victor_raul_haya_de_la_torre
+recruit_character = PRU_julio_alfredo_gonzalez_de_prada_y_verneuil
+recruit_character = PRU_luis_antonio_eguiguren_escudero
+recruit_character = PRU_jorge_prado_y_ugarteche
+recruit_character = PRU_manuel_vicente_villaran_godoy
+recruit_character = PRU_oscar_raimundo_benavides_larrea
+recruit_character = PRU_jose_de_la_riva_aguero_y_osma
+recruit_character = PRU_consejo_nacional
+
+recruit_character = PRU_pachacutec_ii
+
+### Advisors ###
+recruit_character = PRU_jose_matias_manzanilla_barrientos
+recruit_character = PRU_manuel_encarnacion_rodriguez_davila
+recruit_character = PRU_ernesto_montagne_markholz
+recruit_character = PRU_antonio_rodriguez_ramirez
+recruit_character = PRU_hector_boza_aizcorbe
+recruit_character = PRU_hector_felipe_mercado_silva
+recruit_character = PRU_carlos_concha_cardenas
+recruit_character = PRU_felipe_de_la_barra_ugarte
+recruit_character = PRU_carlos_manuel_cox_roose
+recruit_character = PRU_luis_emilio_heysen_inchaustegui
+recruit_character = PRU_hildebrando_castro_pozo
+recruit_character = PRU_luciano_castillo_colonna
+recruit_character = PRU_cristobal_de_losada_y_puga
+
+### Generals ###
+recruit_character = PRU_manuel_arturo_odria_amoretti
+recruit_character = PRU_eloy_gaspar_ureta_montehermoso
+recruit_character = PRU_carlos_miro_quesada_laos
+recruit_character = PRU_luis_alberto_flores_medina
+recruit_character = PRU_jose_agustin_haya_de_la_torre #socialist
+
+### Admirals ###
+recruit_character = PRU_grimaldo_bravo_arenas
+recruit_character = PRU_carlos_rotalde_gonzales_del_valle
+recruit_character = PRU_roque_augusto_saldias_maninat
+
+### Military Staff ###
+#Shared
+recruit_character = PRU_gustavo_adolfo_jimenez_saldias
+
+#Non-socialist
+recruit_character = PRU_cesar_augusto_de_la_fuente_alvarez
+recruit_character = PRU_federico_diaz_dulanto
+recruit_character = PRU_renan_elias_olivera
+recruit_character = PRU_ricardo_pio_perez_godoy
+recruit_character = PRU_manuel_maria_ponce_brousset
+recruit_character = PRU_fernando_sarmiento_ramirez
+recruit_character = PRU_jose_remigio_alzamora_freundt
+recruit_character = PRU_juan_bielovucic_cavalie
+
+#Socialist
+recruit_character = PRU_manuel_barretos_risco
+recruit_character = PRU_alfredo_tello_salavarria
+recruit_character = PRU_armando_revoredo_iglesias
+recruit_character = PRU_guillermo_cervantes_vasquez
+recruit_character = PRU_artidoro_aurelio_edmundo_garcia_godos_hurtado_de_mendoza
+recruit_character = PRU_segundo_remigio_morales_bermudez_sanchez
+recruit_character = PRU_apra_military_council
+
+### Character Flags ###
+PRU_oscar_raimundo_benavides_larrea = { set_character_flag = PRU_regular_military }
+PRU_manuel_arturo_odria_amoretti = { set_character_flag = PRU_regular_military }
+PRU_eloy_gaspar_ureta_montehermoso = { set_character_flag = PRU_regular_military }
+PRU_carlos_miro_quesada_laos = { set_character_flag = PRU_regular_military }
+PRU_luis_alberto_flores_medina = { set_character_flag = PRU_regular_military }
+PRU_manuel_encarnacion_rodriguez_davila = { set_character_flag = PRU_regular_military }
+PRU_felipe_de_la_barra_ugarte = { set_character_flag = PRU_regular_military }
+PRU_cesar_augusto_de_la_fuente_alvarez = { set_character_flag = PRU_regular_military }
+PRU_federico_diaz_dulanto = { set_character_flag = PRU_regular_military }
+PRU_renan_elias_olivera = { set_character_flag = PRU_regular_military }
+PRU_ricardo_pio_perez_godoy = { set_character_flag = PRU_regular_military }
+PRU_manuel_maria_ponce_brousset = { set_character_flag = PRU_regular_military }
+PRU_fernando_sarmiento_ramirez = { set_character_flag = PRU_regular_military }
+PRU_jose_remigio_alzamora_freundt = { set_character_flag = PRU_regular_military }
+PRU_juan_bielovucic_cavalie = { set_character_flag = PRU_regular_military }
+
+### Character Setup ###
+PRU_pachacutec_ii = { set_character_flag = is_monarch }
+
+PRU_jose_agustin_haya_de_la_torre = {
+	set_character_flag = PRU_aprist_military
+	retire = yes
+}
+PRU_manuel_barretos_risco = {
+	set_character_flag = PRU_aprist_military
+	retire = yes
+}
+PRU_alfredo_tello_salavarria = {
+	set_character_flag = PRU_aprist_military
+	retire = yes
+}
+PRU_armando_revoredo_iglesias = {
+	set_character_flag = PRU_aprist_military
+	retire = yes
+}
+PRU_guillermo_cervantes_vasquez = {
+	set_character_flag = PRU_aprist_military
+	retire = yes
+}
+PRU_artidoro_aurelio_edmundo_garcia_godos_hurtado_de_mendoza = {
+	set_character_flag = PRU_aprist_military
+	retire = yes
+}
+PRU_segundo_remigio_morales_bermudez_sanchez = {
+	set_character_flag = PRU_aprist_military
+	retire = yes
+}
+PRU_apra_military_council = {
+	set_character_flag = PRU_aprist_military
+	retire = yes
+}

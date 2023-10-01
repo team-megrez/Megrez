@@ -1,267 +1,141 @@
-capital = 615
-
-# Vacant
-# recruit_character = SHX_Generic_Vacant
-fill_empty_minister_nochecks = yes # Please remove if you're adding ministers.
-
-set_war_support = 0.70
-set_stability = 1.00
-add_manpower = 300000
-
-oob = "SHX_1962"
-
-# recruit_character = SHX_fu_zuoyi
-# recruit_character = SHX_su_tiren
-
-set_variable = { chi_influence = 0 }
+﻿capital = 1072
+oob = "SHX"
+set_research_slots = 2
+set_war_support = 0
 
 set_technology = {
-	basic_train = 1
+	### Infantry ###
+	infantry_weapons = 1
+	tech_irregulars = 1
+	tech_mountaineers = 1
 
-
-	##INFANTRY##
-	# infantry_equipment_0 = 1
-	infantry_weapons_1 = 1
-	night_vision_1 = 1
-	
-	infantry_kit_1 = 1
-	infantry_weapons_2 = 1
-	night_vision_2 = 1
-	infantry_kit_2 = 1
-	infantry_weapons_improvements_mine_1 = 1
-	infantry_kit_3 = 1
-	infantry_weapons_improvements_ammo_1 = 1
-	infantry_weapons_improvements_grenade_1 = 1
-	#
-	infantry_weapons_3 = 1
-	night_vision_3 = 1
-	infantry_kit_4 = 1
-	basic_infantry_equipment = 1
-	support_weapons = 1
-	support_weapons_hmg_1 = 1
-	combat_support_equipment_1 = 1
-	
-	support_weapons_arty_1 = 1
-	infantry_at = 1
-	infantry_at_upgrade_1 = 1
-	#
-	
-	motorized_infantry = 1
-	motorized_rocket_unit = 1
-	motorized_infantry_1 = 1
-	marines = 1
-	#
-	tech_special_forces = 1
-
-	artillery4 = 1
-
-	##SUPPORT##
+	### Support ###
 	tech_support = 1
-	tech_engineers = 1
-	assault_weapons_1 = 1
-	tech_engineers2 = 1
-	assault_weapons_2 = 1
-	tech_engineers3 = 1
-	assault_weapons_3 = 1
 	tech_recon = 1
-	tech_recon2 = 1
-	tech_military_police = 1
-	tech_military_police2 = 1
-	tech_military_police3 = 1
-	tech_maintenance_company = 1
-	tech_maintenance_company2 = 1
-	tech_field_hospital = 1
-	tech_field_hospital2 = 1
-	tech_logistics_company = 1
-	tech_signal_company = 1
-	tech_signal_company2 = 1
 
-	##ARMOR##
-	mechanised_infantry3 = 1
-	advanced_light_tank = 1
-	advanced_medium_tank = 1
+	### Artillery ###
+	gw_artillery = 1
+}
 
-	##HELICOPTERS##
-	helicopter_engines = 1
-	very_early_helicopter = 1
-	early_helicopter = 1
+add_ideas = {
+	SHX_strict_neutrality
+	SHX_underdeveloped_mountain_economy
+	SHX_dual_armies
+	SHX_unfinished_education
+	SHX_agriculture_reform
 
-	##LIGHT AIR##
-	early_fighter = 1
-	interceptor_1945 = 1
-	fighter_1945 = 1
-	CAS_1945 = 1
-	
-##HEAVY AIR##
-	tac_bomber1 = 1
-	tac_air_1945 = 1
-	strategic_bomber1 = 1
-	heavy_air_1945 = 1
-	transport_air1 = 1
-	transport_air_1945 = 1
-##ENGINEERING##
+	unequal_treaties_lesser
+}
+china_add_poor_army = yes
 
-	electronic_mechanical_engineering = 1
-	radio = 1
-	radio_detection = 1
-	decimetric_radar = 1
-	centimetric_radar = 1
-	mechanical_computing = 1
-	computing_machine = 1
-	basic_encryption = 1
-	basic_decryption = 1
-	improved_computing_machine = 1
-	improved_encryption = 1
-	improved_decryption = 1
-	advanced_computing_machine = 1
-	advanced_encryption = 1
-
-	##INDUSTRY##
-	ww2_line_production = 1
-	mass_production_1 = 1
-	building_construction_1 = 1
-	consumer_goods_reduction_1 = 1
-	
-	energy_technology_1 = 1
-	social_construction_1 = 1
-	resource_extraction_methods = 1
-	excavation0 = 1
-	military_construction_1 = 1
-	batch_production_1 = 1
+QIE = {
+	set_autonomy = {
+		target = ROOT
+		autonomy_state = kr_associated_governorate
+	}
 }
 
 set_politics = {
-	ruling_party = conservative
-	last_election = "1960.11.11"
-	election_frequency = 36
+	ruling_party = paternal_autocrat
+	last_election = "1888.6.15"
+	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	vanguardist = 6
-	national_populist = 0
-	socialist = 0
-	progressive =  0
-	ecologist = 14
-	liberal = 7
-	conservative = 16
-	syndicalist = 57
-	anocrat = 0
-	paternalist =  0
-	
+	totalist = 0.5
+	radical_socialist = 2
+	syndicalist = 0.5
+	social_democrat = 4
+	social_liberal = 5
+	market_liberal = 3
+	social_conservative = 5
+	authoritarian_democrat = 35
+	paternal_autocrat = 40
+	national_populist = 5
 }
 
-add_ideas = {
-	#Political
-	tno_political_parties_one_party_state
-	tno_religious_rights_secularism
-	tno_trade_unions_state_controlled
-	tno_immigration_open_immigration
-	tno_slavery_corvee
-	tno_public_meetings_regulated
-	tno_press_rights_censored_press
-	tno_vote_franchise_no_voting
+country_event = { id = shx.8 days = 40 } #All the Governor's Men
+country_event = { id = SHX.advisor.19 days = 2907 } #Death of Zhao Daiwen
 
-	#Military
-	tno_conscription_extensive_conscription
-	tno_military_supervision_rules_of_engagement
-	tno_training_basic_training
-	tno_draft_exemptions_none
+#The Leads
+recruit_character = SHX_feng_yuxiang
+activate_advisor = SHX_feng_yuxiang_sic
+recruit_character = SHX_yan_xishan
 
-	#Economic
-	tno_trade_laws_export_focus
-	tno_income_taxation_elite_tax_exemptions
-	tno_minimum_wage_no_minimum_wage
-	tno_max_workhours_unlimited_work_day
-	tno_pensions_no_pensions
-	tno_unemployment_no_subsidies
+#The Flavor Leaders
+recruit_character = SHX_qiao_jiacai
+recruit_character = SHX_pan_zili
+recruit_character = SHX_hu_jingtong
+recruit_character = SHX_wei_yechou
+recruit_character = SHX_zhao_pilian
+recruit_character = SHX_wang_xiang
+recruit_character = SHX_shang_zhen
+recruit_character = SHX_zhao_daiwen
+recruit_character = SHX_liang_huazhi
 
-	#Social
-	tno_health_care_support_for_emergencies
-	tno_education_stratified_education
-	tno_penal_system_incarceration
-	tno_gender_rights_traditional_roles
-	tno_security_regulated_police
-	tno_regulations_utterly_unregulated
+#The generals
+recruit_character = SHX_sun_yue
+recruit_character = SHX_hu_jingyi
+recruit_character = SHX_zhang_zizhong
+recruit_character = SHX_han_fuju
+recruit_character = SHX_sun_lianzhong
+recruit_character = SHX_xu_yongchang
+recruit_character = SHX_yang_hucheng
+recruit_character = SHX_fu_zuoyi
+recruit_character = SHX_gao_guizi
+recruit_character = SHX_zhao_chengshou
+recruit_character = SHX_wang_jingguo
+recruit_character = SHX_yang_aiyuan
+recruit_character = SHX_li_fuying
+recruit_character = SHX_feng_anbang
 
-	#MISC
-	tno_refugees_skilled
-	tno_women_military_assistance
-	tno_racial_integration_none
-	tno_child_labor_legal
-	tno_safety_no_regulations
-	tno_pollution_no_controls
-	tno_lgbt_rights_lgbt_outlawed
-	tno_minorities_oppression
+#The Advisors
+recruit_character = SHX_jia_jingde
+recruit_character = SHX_yu_xinqing
+recruit_character = SHX_chih_kung_jen
+recruit_character = SHX_lian_tianxiang
+recruit_character = SHX_su_tiren
+recruit_character = SHX_feng_sizhi
+recruit_character = SHX_bo_yibo
+recruit_character = SHX_komoto_daisaku
+recruit_character = SHX_military_technical_school
 
+#The High Command
 
-	#Societal Development
-	tno_army_professionalism_cronyism
-	tno_industrial_expertise_incompetent
-	tno_industrial_equipment_power_tools
-	tno_agriculture_centralized
-	tno_healthcare_rudimentary
-	tno_research_facilities_basic
-	tno_academic_base_mass_illiteracy
-	tno_admin_efficiency_deficient_administrative_systems
+recruit_character = SHX_zhu_shouguang
+recruit_character = SHX_zhang_zhijiang
+recruit_character = SHX_lu_zhonglin
+recruit_character = SHX_sun_chu
+recruit_character = SHX_han_duofeng
+recruit_character = SHX_song_zheyuan
+recruit_character = SHX_shi_jingting
+recruit_character = SHX_liu_yufen
 
-	#Sphere Status
-	Sphere_Chinese_Warlord
-	CHI_chinese_warlords
+#air Advisors
+recruit_character = SHX_cao_baoqing
+recruit_character = SHX_zhong_jihan
+recruit_character = SHX_an_chang_nam
+recruit_character = SHX_xie_wenda
+recruit_character = SHX_shen_dexie
+
+### Character Setup ###
+SHX_feng_yuxiang = { set_variable = { china_alignment = token:chinese_republican } }
+SHX_feng_anbang = {
+	set_character_flag = CHI_original_unit_leader #needed for transfer between tags
+	retire = yes
 }
+#advisors given by effect
+SHX_lu_zhonglin = { retire = yes }
+SHX_han_duofeng = { retire = yes }
+SHX_liu_yufen = { retire = yes }
 
-set_country_flag = tno_defined_startup_effectiveness
+## variables
+set_variable = { country_intro_page_count = 2 }
+set_variable = { SHX_QIE_influence_variable = 9 }
+set_variable = { SHX_pay_with_pp_small_variable = 25 }
+set_variable = { SHX_pay_with_pp_medium_variable = 50 }
+set_variable = { SHX_pay_with_pp_large_variable = 75 }
 
-# ECONOMIC LAWS
-set_variable = { tno_trade_laws_effectiveness = 50 }
-set_variable = { tno_income_taxation_effectiveness = 50 }
-set_variable = { tno_minimum_wage_effectiveness = 50 }
-set_variable = { tno_max_workhours_effectiveness = 50 }
-set_variable = { tno_pensions_effectiveness = 50 }
-set_variable = { tno_unemployment_effectiveness = 50 }
-set_variable = { tno_regulations_effectiveness = 50 }
-
-# SOCIAL LAWS
-set_variable = { tno_health_care_effectiveness = 0 }
-set_variable = { tno_education_effectiveness = 50 }
-set_variable = { tno_penal_system_effectiveness = 50 }
-set_variable = { tno_gender_rights_effectiveness = 50 }
-set_variable = { tno_security_effectiveness = 50 }
-
-# POLITICAL LAWS
-set_variable = { tno_political_parties_effectiveness = 50 }
-set_variable = { tno_religious_rights_effectiveness = 50 }
-set_variable = { tno_trade_unions_effectiveness = 50 }
-set_variable = { tno_immigration_effectiveness = 50 }
-set_variable = { tno_slavery_effectiveness = 50 }
-set_variable = { tno_public_meetings_effectiveness = 50 }
-set_variable = { tno_press_rights_effectiveness = 50 }
-set_variable = { tno_vote_franchise_effectiveness = 50 }
-
-# MILITARY LAWS
-set_variable = { tno_conscription_effectiveness = 50 }
-set_variable = { tno_military_supervision_effectiveness = 50 }
-set_variable = { tno_training_effectiveness = 50 }
-set_variable = { tno_draft_exemptions_effectiveness = 50 }
-
-add_equipment_to_stockpile = {
-	type = infantry_equipment_2
-	amount = 2000
-	producer = SHX
-}
-add_equipment_to_stockpile = {
-	type = artillery_equipment_2
-	amount = 1000
-	producer = SHX
-}
-add_equipment_to_stockpile = {
-	type = support_equipment_1
-	amount = 800
-	producer = SHX
-}
-add_equipment_to_stockpile = {
-	type = anti_tank_equipment_1
-	amount = 800
-	producer = SHX
-}
-
+#Locking Division Templates
+country_lock_all_division_template = yes
