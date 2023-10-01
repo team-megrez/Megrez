@@ -1,0 +1,125 @@
+﻿###########################
+# Dahomey Events
+###########################
+# By Dr. Njitram
+###########################
+
+add_namespace = dah
+
+country_event = { # Ask for French expertise
+	#maybe use add_offsite_building = { type = arms_factory level = 1 }?
+	id = dah.001
+	title = dah.001.t
+	desc = dah.001.d
+
+	is_triggered_only = yes
+
+	option = { #Help feeding our country
+		log = "[GetLogInfo]: event dah.001 option dah.001.a"
+		name = dah.001.a
+		add_ideas = DAH_french_food
+	}
+	option = { #Help building civil production
+		log = "[GetLogInfo]: event dah.001 option dah.001.b"
+		name = dah.001.b
+		add_ideas = DAH_french_civil
+	}
+	option = { #Help building war machines
+		log = "[GetLogInfo]: event dah.001 option dah.001.c"
+		name = dah.001.c
+		add_ideas = DAH_french_war
+	}
+}
+
+country_event = { #French Opinion
+	id = dah.005
+	title = dah.005.t
+	desc = dah.005.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event dah.005 option dah.005.a"
+		name = dah.005.a
+		add_political_power = 100
+	}
+}
+
+country_event = { #Getting Asked for Guns
+	id = dah.006
+	title = dah.006.t
+	desc = dah.006.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {
+		save_global_event_target_as = DAH_gun_target
+	}
+
+	option = { #yes
+		log = "[GetLogInfo]: event dah.006 option dah.006.a"
+		name = dah.006.a
+		ai_chance = { base = 20 }
+		send_equipment = {
+			target = DAH
+			type = infantry_equipment
+			amount = 1000
+		}
+		set_global_flag = DAH_gun_positive
+		DAH = {
+			country_event = dah.007
+		}
+	}
+	option = { #no
+		log = "[GetLogInfo]: event dah.006 option dah.006.b"
+		name = dah.006.b
+		ai_chance = { base = 30 }
+		set_global_flag = DAH_gun_negative
+		DAH = {
+			country_event = dah.007
+		}
+	}
+	option = { #meh
+		log = "[GetLogInfo]: event dah.006 option dah.006.c"
+		name = dah.006.c
+		ai_chance = { base = 50 }
+		send_equipment = {
+			target = DAH
+			type = infantry_equipment
+			amount = 500
+		}
+		set_global_flag = DAH_gun_positive
+		DAH = {
+			country_event = dah.007
+		}
+	}
+}
+
+country_event = { #Their response
+	id = dah.007
+	title = dah.007.t
+	desc = dah.007.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #yes.jpeg
+		log = "[GetLogInfo]: event dah.007 option dah.007.a"
+		name = dah.007.a
+		trigger = {
+			has_global_flag = DAH_gun_positive
+		}
+		clr_global_flag = DAH_gun_positive
+	}
+	option = { #oh no
+		log = "[GetLogInfo]: event dah.007 option dah.007.b"
+		name = dah.007.b
+		trigger = {
+			has_global_flag = DAH_gun_negative
+		}
+		clr_global_flag = DAH_gun_negative
+	}
+}
+

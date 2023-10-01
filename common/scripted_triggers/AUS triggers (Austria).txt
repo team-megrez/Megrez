@@ -1,0 +1,131 @@
+AUS_no_black_monday = {
+	custom_trigger_tooltip = {
+		tooltip = AUS_economy_ready_tooltip
+		NOT = {
+			has_idea = AUS_black_monday
+			has_idea = AUS_black_monday_cs-1
+			has_idea = AUS_black_monday_cs-2
+			has_idea = AUS_black_monday_cs-3
+			has_idea = AUS_black_monday_sdap-1
+			has_idea = AUS_black_monday_sdap-2
+			has_idea = AUS_black_monday_sdap-3
+		}
+	}
+}
+
+AUS_has_habsburgs = {
+	OR = {
+		can_be_country_leader = AUS_karl_von_habsburg
+		can_be_country_leader = AUS_otto_von_habsburg
+	}
+}
+
+AUS_is_habsburg_family_member = {
+	has_character_flag = AUS_habsburg
+}
+
+AUS_is_unified = {
+	OR = {
+		has_cosmetic_tag = AUS_danubia
+		has_cosmetic_tag = AUS_united_states
+	}
+}
+
+AUS_can_annex_german_lands = {
+	if = {
+		limit = { AUS_has_habsburgs = yes }
+		OR = {
+			has_completed_focus = AUS_status_quo
+			has_completed_focus = AUS_military_occupation
+		}
+	}
+	else = {
+		AUS_is_unified = no
+	}
+}
+
+AUS_can_have_danubian_annexations = {
+	if = {
+		limit = { tag = AUS }
+		OR = {
+			has_completed_focus = AUS_status_quo
+			has_completed_focus = AUS_embrace_pluralism
+			has_completed_focus = AUS_military_occupation
+			NOT = { has_cosmetic_tag = AUS_empire }
+		}
+	}
+}
+
+is_controlled_by_BP = {
+	controller = {
+		AUS_is_potential_fifth_balkan_war_participant = yes
+		OR = {
+			is_subject = no
+			overlord = { NOT = { has_war_with = AUS } }
+			overlord = { AUS_is_potential_fifth_balkan_war_participant = yes }
+		}
+		OR = {
+			is_in_faction = no
+			is_faction_leader = yes
+			faction_leader = { NOT = { has_war_with = PREV.PREV } }
+			faction_leader = { AUS_is_potential_fifth_balkan_war_participant = yes }
+		}
+	}
+}
+
+owns_belgrade_pact_claimed_state = {
+	any_owned_state = {
+		OR = {
+			AND = {
+				region = 144 #Transylvania
+				country_exists = ROM
+				ROM = {
+					has_country_flag = AUS_accepts_peace
+					OR = {
+						is_subject = no
+						is_subject_of = BUL
+					}
+					NOT = { has_war_with = ROOT }
+				}
+			}
+			AND = {
+				OR = {
+					region = 143 #Northern Balkans
+					state = 45 #Vojvodina
+				}
+				country_exists = SER
+				SER = {
+					has_country_flag = AUS_accepts_peace
+					is_subject = no
+					NOT = { has_war_with = ROOT }
+				}
+			}
+			AND = {
+				OR = {
+					region = 143 #Northern Balkans
+					state = 45 #Vojvodina
+				}
+				country_exists = BUL
+				BUL = {
+					has_completed_focus = BUL_hijack_yugoslavism
+					has_country_flag = AUS_accepts_peace
+					is_subject = no
+					NOT = { has_war_with = ROOT }
+				}
+			}
+		}
+	}
+}
+
+AUS_is_potential_fifth_balkan_war_participant = {
+	OR = {
+		original_tag = SER
+		original_tag = BUL
+		original_tag = ROM
+		original_tag = ITA
+		original_tag = VNC
+		original_tag = CRO
+		original_tag = CZE
+		original_tag = GAL
+	}
+}

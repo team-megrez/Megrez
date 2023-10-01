@@ -1,0 +1,590 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			BUL = {
+				# BUL starting coalition
+				set_temp_variable = { coalition_partner_var = token:social_conservative }
+				add_to_coalition = yes
+				# Promote kimon to the top
+				BUL_kimon_georgiev = { promote_character = yes }
+			}
+
+			# ROM resource rights
+			ROM = {
+				give_resource_rights = { state = 46 receiver = GER }
+			}
+		}
+	}
+
+	#ROOT is winner #FROM is loser
+	on_annex = {
+		effect = {
+			if = {
+				limit = { FROM = { tag = BUL } }
+				SER = { country_event = { id = serbia.23 days = 14 random_days = 7 } }
+				if = {
+					limit = { NOT = { has_global_flag = balkan_war_ended } }
+					set_global_flag = balkan_war_ended
+					FROM = {
+						set_country_flag = BUL_balkan_peace_loss
+						mark_focus_tree_layout_dirty = yes
+						unlock_national_focus = BUL_balkan_war_defeat
+						BUL_create_boris = yes
+						retire_character = BUL_ferdinand_sakskoburggotski
+						add_ideas = {
+							civilian_economy
+							volunteer_only
+						}
+						if = {
+							limit = {
+								has_idea = BUL_waning_hegemony
+							}
+							swap_ideas = {
+								remove_idea = BUL_waning_hegemony
+								add_idea = BUL_national_catastrophe
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = BUL_waning_hegemony_2
+							}
+							swap_ideas = {
+								remove_idea = BUL_waning_hegemony_2
+								add_idea = BUL_national_catastrophe
+							}
+						}
+						else = {
+							add_ideas = BUL_national_catastrophe
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = { FROM = { tag = MAC } }
+				SER = { country_event = serbia.3100 }
+			}
+			if = {
+				limit = {
+					FROM = { tag = event_target:chetnik_state }
+					event_target:BUL_chetnik_headquarters = {
+						is_owned_by = BUL
+						OR = {
+							state = 105
+							state = 108
+							state = 107
+						}
+					}
+					SER = { is_subject_of = BUL }
+				}
+				SER = { transfer_state = event_target:BUL_chetnik_headquarters }
+			}
+			if = {
+				limit = {
+					tag = ROM
+					FROM = {
+						OR = { tag = HUN tag = AUS tag = TRS }
+					}
+				}
+				country_event = romania.49 #Transylvania is ours
+			}
+			# end the Balkan War if peace event ignored/missed
+			if = {
+				limit = {
+					is_in_faction_with = SER
+					FROM = { tag = BUL }
+					SER = { has_country_flag = SER_founded_belgradepact }
+					has_global_flag = balkan_war_started
+					NOT = { has_global_flag = balkan_war_ended }
+				}
+				set_global_flag = balkan_war_ended
+			}
+			if = {
+				limit = {
+					tag = BUL
+					FROM = { tag = SER }
+					SER = { has_country_flag = SER_founded_belgradepact }
+					has_global_flag = balkan_war_started
+					NOT = { has_global_flag = balkan_war_ended }
+				}
+				set_global_flag = balkan_war_ended
+			}
+			if = {
+				limit = {
+					FROM = { is_in_tech_sharing_group = balkan_research }
+				}
+				FROM = { remove_from_tech_sharing_group = balkan_research }
+			}
+			if = {
+				limit = {
+					FROM = { has_idea = SER_balkan_research_idea }
+				}
+				FROM = { remove_ideas = SER_balkan_research_idea }
+			}
+			if = {
+				limit = {
+					FROM = { has_country_flag = belgrade_pact_major }
+				}
+				FROM = {
+					clr_country_flag = belgrade_pact_major
+					set_major = no
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						FROM = { original_tag = BUL }
+						FROM = { original_tag = TUR }
+					}
+				}
+				BUL = {
+					remove_relation_modifier = {
+						target = TUR
+						modifier = volunteer_limit_plus_three
+					}
+					TUR = {
+						remove_relation_modifier = {
+							target = BUL
+							modifier = volunteer_limit_plus_three
+						}
+					}
+				}
+			}
+			if = {
+				limit = { FROM = { has_country_flag = ALB_aligned } }
+				clr_country_flag = ALB_aligned
+			}
+		}
+	}
+
+	on_daily_SER = {
+		effect = {
+			if = {
+				limit = { has_idea = SER_konspiracija_idea }
+				SER_recalculate_konspiracija = yes
+				if = {
+					limit = {
+						has_country_flag = SER_enshrined_konspiracija_control_flag
+						national_populist < 0.11
+					}
+					set_temp_variable = { SER_natpop_gain_to_minimum = 0.11 }
+					subtract_from_temp_variable = { SER_natpop_gain_to_minimum = ROOT.party_popularity@national_populist }
+					add_popularity = {
+						ideology = national_populist
+						popularity = SER_natpop_gain_to_minimum
+					}
+				}
+				else_if = {
+					limit = {
+						has_country_flag = SER_curbed_konspiracija_control_flag
+						national_populist > 0.25
+					}
+					set_temp_variable = { SER_natpop_loss_to_maximum = ROOT.party_popularity@national_populist }
+					subtract_from_temp_variable = { SER_natpop_loss_to_maximum = 0.25 }
+					multiply_temp_variable = { SER_natpop_loss_to_maximum = -1 }
+					add_popularity = {
+						ideology = national_populist
+						popularity = SER_natpop_loss_to_maximum
+					}
+				}
+			}
+		}
+	}
+
+	#FROM is war target
+	on_declare_war = {
+		effect = {
+			# Remove from the Balkan Research Initiative
+			if = {
+				limit = {
+					FROM = {
+						OR = {
+							is_in_tech_sharing_group = balkan_research
+							has_idea = SER_balkan_research_idea
+						}
+					}
+				}
+				country_event = serbia.37
+			}
+
+			# Remove from the Balkan economic union
+			if = {
+				limit = {
+					is_in_array = { global.balkan_economic_union = ROOT }
+					is_in_array = { global.balkan_economic_union = FROM }
+				}
+				country_event = pact.305
+			}
+
+			#Fifth Balkan War
+			if = {
+				limit = {
+					NOT = { has_global_flag = fifth_balkan_war }
+					OR = {
+						tag = ROM
+						tag = SER
+					}
+					FROM = {
+						OR = {
+							tag = AUS
+							tag = HUN
+						}
+					}
+				}
+				set_global_flag = fifth_balkan_war
+				news_event = worldnews.449
+			}
+
+			#Sixth Balkan War
+			if = {
+				limit = {
+					OR = {
+						tag = ROM
+						tag = SER
+					}
+					FROM = {
+						OR = {
+							tag = ROM
+							tag = SER
+						}
+						is_subject = no
+					}
+				}
+				news_event = worldnews.450
+			}
+		}
+	}
+
+	on_ruling_party_change = {
+		effect = {
+			if = {
+				limit = { has_socialist_government = yes }
+				country_event = pact.305
+				if = {
+					limit = {
+						OR = {
+							original_tag = BUL
+							original_tag = TUR
+						}
+					}
+					BUL = {
+						remove_relation_modifier = {
+							target = TUR
+							modifier = volunteer_limit_plus_three
+						}
+						TUR = {
+							remove_relation_modifier = {
+								target = BUL
+								modifier = volunteer_limit_plus_three
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					original_tag = SER
+					SER_has_founded_yugoslavia = yes
+				}
+				if = {
+					limit = { has_left_democratic_government = yes }
+					488 = { enable_state_integration_80_compliance = yes } #Trieste
+				}
+				else = {
+					488 = { disable_state_integration = yes } #Trieste
+				}
+			}
+		}
+	}
+
+	#FROM is country getting invited.
+	on_offer_join_faction = {
+		effect = {
+			FROM = {
+				if = {
+					limit = {
+						OR = {
+							is_in_tech_sharing_group = balkan_research
+							has_idea = SER_balkan_research_idea
+						}
+						NOT = {
+							is_in_faction_with = SER
+							SER = { is_faction_leader = yes }
+						}
+					}
+					country_event = { id = serbia.37 days = 2 }
+				}
+				if = {
+					limit = {
+						OR = {
+							original_tag = ROM
+							original_tag = SER
+						}
+					}
+					clr_global_flag = SER_keeping_the_pact
+				}
+				if = {
+					limit = {
+						has_country_flag = SER_will_attack_austria
+						NOT = { ROOT = { is_ally_with = BPL } }
+					}
+					clr_country_flag = SER_will_attack_austria
+					remove_from_array = { SER.SER_will_attack_austria = THIS }
+				}
+				country_event = pact.101 #disable BP major status
+			}
+			### Logalyzer logging
+			if = {
+				limit = {
+					FROM = {
+						original_tag = GRE
+						is_subject = no
+					}
+				}
+				log = "KR_Event_Logging;GRE ALLIANCE - [ROOT.GetFactionName];[GetDateText]"
+			}
+			### ALB follows BUL and ROM into factions if aligned with them
+			if = {
+				limit = {
+					FROM = { has_country_flag = ALB_aligned }
+					ALB = {
+						is_subject = no
+						at_peace_or_same_enemies_as_ROOT = yes
+					}
+				}
+				add_to_faction = ALB
+			}
+		}
+	}
+
+	on_leave_faction = {
+		effect = {
+			log = "[GetDateText] [Root.GetName] on_leave_faction FROM = [From.GetName]"
+			if = {
+				limit = {
+					has_country_flag = ALB_aligned
+					ALB = {
+						is_puppet = no
+						is_in_faction_with = FROM
+						has_war = no
+					}
+				}
+				ALB = { leave_faction = yes }
+			}
+		}
+	}
+
+	on_new_term_election = {
+		effect = {
+			### Albania ###
+			if = {
+				limit = { tag = ALB }
+				country_event = albania.3
+				country_event = albania.30
+			}
+			### Bulgaria ###
+			else_if = {
+				limit = { tag = BUL }
+				country_event = bulgaria.28
+				country_event = bulgariaflavour.11
+			}
+			### Romania ###
+			else_if = {
+				limit = { tag = ROM }
+				country_event = romania.106
+				country_event = romania.133
+			}
+			### Serbia ###
+			else_if = {
+				limit = { tag = SER }
+				country_event = serbia.11 #1936
+				country_event = serbia.21 #Post-1936 (Serbia republic)
+				country_event = serbia.71 #Post-1936 (Serbia kingdom)
+				country_event = yugoslavia.1 #Yugoslavia
+			}
+		}
+	}
+
+	#ROOT is winner #FROM is loser
+	on_peaceconference_ended = {
+		effect = {
+			country_event = pact.101 #disabling major status during war
+			if = {
+				limit = { tag = ROM }
+				country_event = romania.49
+			}
+			else_if = {
+				limit = { tag = SER }
+				country_event = { id = serbia.23 days = 5 random_days = 7 }
+			}
+
+			if = {
+				limit = {
+					FROM = { tag = ROM }
+				}
+				for_each_scope_loop = {
+					array = TRS.core_states
+					clear_variable = ROM_transylvanian_resistance_target
+					clear_variable = ROM_transylvanian_resistance_activity
+					clear_variable = ROM_transylvanian_resistance_garrison
+					if = {
+						limit = {
+							has_dynamic_modifier = { modifier = ROM_transylvanian_resistance }
+						}
+						remove_dynamic_modifier = { modifier = ROM_transylvanian_resistance }
+					}
+					force_enable_resistance = { occupier = AUS occupied = TRS clear = yes }
+					force_enable_resistance = { occupier = HUN occupied = TRS clear = yes }
+					force_enable_resistance = { occupier = TRS occupied = TRS clear = yes }
+				}
+			}
+
+			if = {
+				limit = {
+					ROOT = { tag = BUL }
+					FROM = { tag = SER }
+				}
+				country_event = { id = bulgaria.54 days = 60 random_days = 7 }
+			}
+
+			# Do you want to keep the Pact?
+			if = {
+				limit = {
+					tag = ROM
+					owns_state = 84
+					is_ai = no
+					is_in_faction_with = SER
+				}
+				country_event = { id = pact.307 days = 5 }
+			}
+			else_if = {
+				limit = {
+					tag = SER
+					owns_state = 106
+					is_in_faction_with = ROM
+				}
+				country_event = { id = pact.307 days = 80 }
+			}
+		}
+	}
+
+	#ROOT is new controller #FROM is old controller #FROM.FROM is state ID
+	on_state_control_changed = {
+		effect = {
+			#Resistance in Alföld
+			if = {
+				limit = {
+					tag = ROM
+					FROM.FROM = { state = 154 }
+				}
+				country_event = { id = romania.231 days = 120 }
+			}
+		}
+	}
+
+	#ROOT = attacking side
+	#FROM = defending side
+	#fired when two countries end up at war with each other (on_war is fired when a country goes to war against anyone and is not fired again when it enters war against another country unless it went to peace first)
+	on_war_relation_added = {
+		effect = {
+			# Chetnik events
+			if = {
+				limit = { tag = SER }
+				FROM = { country_event = { id = serbia.998 hours = 2 } }
+			}
+			else_if = {
+				limit = { FROM = { tag = SER } }
+				country_event = { id = serbia.998 hours = 2 }
+			}
+
+			# Bulgarian events
+			if = {
+				limit = { tag = BUL }
+				country_event = { id = bulgariaflavour.27 days = 3 }
+			}
+			else_if = {
+				limit = { FROM = { tag = BUL } }
+				FROM = { country_event = { id = bulgariaflavour.27 days = 3 } }
+			}
+
+			# Fourth Balkan War event
+			SER = { country_event = { id = serflavor.60 days = 2 } }
+
+			# Transylvanian Revolt event
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							tag = ROM
+							FROM = { owns_state = 84 }
+						}
+						AND = {
+							owns_state = 84
+							FROM = { tag = ROM }
+						}
+					}
+				}
+				ROM = { country_event = { id = romania.48 days = 1 } }
+			}
+
+			# Remove from the Balkan economic union
+			if = {
+				limit = {
+					is_in_array = { global.balkan_economic_union = ROOT }
+					is_in_array = { global.balkan_economic_union = FROM }
+				}
+				country_event = pact.305
+			}
+			# ALB forpol stuff
+			if = {
+				limit = {
+					has_country_flag = ALB_aligned
+					FROM = { original_tag = ALB }
+				}
+				clr_country_flag = ALB_aligned
+			}
+			if = {
+				limit = {
+					original_tag = ALB
+					FROM = { has_country_flag = ALB_aligned }
+				}
+				FROM = { clr_country_flag = ALB_aligned }
+			}
+		}
+	}
+	on_war = {
+		effect = {
+			country_event = pact.100 #adding major status during war
+
+			#Spawn Chetniks
+			if = {
+				limit = { tag = BUL }
+				country_event = { id = bulgaria.57 days = 2 }
+			}
+		}
+	}
+
+	# FROM = country receiving volunteers, ROOT = country sending volunteers
+	on_send_volunteers = {
+		effect = {
+			if = {
+				limit = {
+					FROM = {
+						tag = BUL
+					}
+					ROOT = {
+						OR = {
+							tag = GER
+							tag = AUS
+							is_in_faction_with = GER
+							is_in_faction_with = AUS
+						}
+					}
+				}
+				FROM = {
+					set_country_flag = BUL_disabled_bulgoslavia
+				}
+			}
+		}
+	}
+}
+

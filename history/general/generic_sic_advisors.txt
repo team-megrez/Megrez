@@ -1,0 +1,69 @@
+﻿# For minor countries where advisors are not defined
+# Generate them from a generic template
+
+# Generic Political Advisors
+every_possible_country = {
+	limit = {
+		is_dynamic_country = no
+		NOT = { tag = XXA } #system tag
+		NOT = { any_character = { has_advisor_role = second_in_command } }
+	}
+
+	### this file doesn't accept scripted effects - make sure that the below are exactly the same as in generate_generic_sics
+	generate_character = {
+		token_base = empowered_legislative # token will be TAG_token_base
+		name = KR_generic_parliament_sic
+		advisor = {
+			slot = second_in_command
+			idea_token = sic
+			traits = { KR_parliament_sic }
+			cost = 0
+			can_be_fired = no
+		}
+		portraits = {
+			army = { small = GFX_idea_generic_empowered_legislature }
+		}
+	}
+	generate_character = {
+		token_base = empowered_executive # token will be TAG_token_base
+		name = KR_generic_authoritarian_sic
+		advisor = {
+			slot = second_in_command
+			idea_token = sic
+			traits = { KR_authoritarian_sic }
+			cost = 0
+			can_be_fired = no
+		}
+		portraits = {
+			army = { small = GFX_idea_generic_empowered_executive }
+		}
+	}
+	generate_character = {
+		token_base = empowered_trade_unions # token will be TAG_token_base
+		name = KR_generic_socialist_sic
+		advisor = {
+			slot = second_in_command
+			idea_token = sic
+			traits = { KR_socialist_sic }
+			cost = 0
+			can_be_fired = no
+		}
+		portraits = {
+			army = { small = GFX_idea_generic_empowered_trade_unions }
+		}
+	}
+	empowered_legislative = { set_character_flag = is_generic }
+	empowered_executive = { set_character_flag = is_generic }
+	empowered_trade_unions = { set_character_flag = is_generic }
+	if = {
+		limit = { has_socialist_government = yes }
+		activate_advisor = empowered_trade_unions_sic
+	}
+	else_if = {
+		limit = { has_authoritarian_government = yes }
+		activate_advisor = empowered_executive_sic
+	}
+	else = {
+		activate_advisor = empowered_legislative_sic
+	}
+}

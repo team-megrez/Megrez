@@ -1,0 +1,63 @@
+political_actions = {
+	PHI_join_faction = {
+		icon = generic_prepare_civil_war
+		allowed = { always = no }						# Activated by revolution event
+
+		available = {
+			at_peace_or_same_enemies_as_FROM = yes
+			surrender_progress < 0.2
+			FROM = { surrender_progress < 0.25 }
+		}
+
+		visible = {
+			is_subject = no
+			is_in_faction = no
+			FROM = { is_faction_leader = yes }
+			if = {
+				limit = { has_socialist_government = yes }
+				FROM = { has_socialist_government = yes }
+			}
+			controls_state = 623
+		}
+
+		cost = 0
+		fire_only_once = yes
+		cancel_if_not_visible = yes
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 1
+				FROM = { tag = INT }
+				has_game_rule = { rule = PHI_forpol option = PHI_FORPOL_INT }
+			}
+			modifier = {
+				add = 1
+				FROM = { tag = GER }
+				has_game_rule = { rule = PHI_forpol option = PHI_FORPOL_GER }
+			}
+			modifier = {
+				add = 1
+				FROM = { tag = ENT }
+				has_game_rule = { rule = PHI_forpol option = PHI_FORPOL_ENT }
+			}
+			modifier = {
+				add = 1
+				FROM = { tag = JAP }
+				has_game_rule = { rule = PHI_forpol option = PHI_FORPOL_JAP }
+			}
+			modifier = {
+				add = 1
+				FROM = { tag = HND }
+				has_game_rule = { rule = PHI_forpol option = PHI_FORPOL_HND }
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete PHI_join_faction target: [From.GetName]"
+			FROM = {
+				faction_leader = { ask_to_join_faction = yes }
+			}
+		}
+	}
+}

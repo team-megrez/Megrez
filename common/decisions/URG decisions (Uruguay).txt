@@ -1,0 +1,686 @@
+political_actions = {
+	URG_call_for_brazilian_aid = {
+		icon = hol_radio_oranje
+
+		allowed = { tag = URG }
+
+		visible = {
+			is_guaranteed_by = BRA
+			BRA = {
+				is_subject = no
+				is_in_faction = no
+				has_socialist_government = no
+				can_declare_war_on = FROM
+			}
+		}
+
+		available = {
+			NOT = { has_country_flag = URG_already_requesting_help }
+		}
+
+		target_array = enemies
+		target_root_trigger = { has_war = yes }
+		target_trigger = {
+			BRA = { can_declare_war_on = FROM }
+		}
+
+		days_remove = 10
+		fire_only_once = yes
+
+		ai_will_do = { base = 1000 }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete URG_call_for_brazilian_aid target: [From.GetName]"
+			set_country_flag = URG_already_requesting_help
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = 1000
+				producer = BRA
+			}
+			add_offsite_building = {
+				type = arms_factory
+				level = 1
+			}
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove URG_call_for_brazilian_aid target: [From.GetName]"
+			clr_country_flag = URG_already_requesting_help
+			FROM = { save_event_target_as = threatening_country }
+			BRA = { country_event = bra.125 }
+		}
+	}
+}
+
+URG_military_decisions = {
+	URG_invite_advisors = {
+		icon = GFX_decision_generic_army_support
+		allowed = { always = no }		# Activated by URG_mission_to_rio
+		available = {
+			has_war = yes
+			custom_trigger_tooltip = {
+				FROM = {
+					OR = {
+						has_socialist_government = no
+						NOT = {
+							has_government = national_populist
+							BRA = { has_completed_focus = BRA_i_am_the_senate }
+						}
+					}
+				}
+				tooltip = URG_brazil_not_hostile
+			}
+		}
+		visible = {
+			is_guaranteed_by = FROM
+		}
+		days_remove = 14
+		cost = 50
+		fire_only_once = yes
+		cancel_if_not_visible = yes
+		ai_will_do = { base = 100 }
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove URG_invite_advisors target: [From.GetName]"
+			add_timed_idea = {
+				idea = URG_military_mission
+				days = 365
+			}
+			hidden_effect = {
+				country_event = { id = urg.61 days = 365 }
+			}
+		}
+	}
+	URG_yankee_airplanes = {
+		icon = generic_air
+		allowed = { always = no }		# Activated by URG_buy_fighters
+		available = {
+			NOT = { has_war_with = USA }
+			NOT = { has_war_with = PSA }
+			NOT = { has_war_with = TEX }
+		}
+		cost = 100
+		fire_only_once = yes
+		ai_will_do = { base = 10 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete URG_yankee_airplanes"
+			add_equipment_to_stockpile = {
+				type = small_plane_airframe
+				amount = 200
+				producer = USA
+			}
+			add_timed_idea = {
+				idea = URG_yankee_airplanes_assembled
+				days = 365
+			}
+		}
+	}
+
+	# Forts #
+	URG_arg_fort_1 = {
+		icon = GFX_decision_fortress
+		allowed = { always = no }		# Activated by URG_rio_uruguay_project
+		highlight_states = {
+			highlight_provinces = { 10502 }
+		}
+		cost = 50
+		fire_only_once = yes
+		days_remove = 60
+		state_target = yes
+		ai_will_do = { base = 5 }
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove URG_arg_fort_1 target: [From.GetName]"
+			FROM = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 10502
+					instant_build = yes
+				}
+			}
+			activate_targeted_decision = { target = 300 decision = URG_arg_fort_2 }
+		}
+	}
+	URG_arg_fort_2 = {
+		icon = GFX_decision_generic_construction
+		allowed = { always = no }		# Activated by URG_rio_uruguay_project
+		highlight_states = {
+			highlight_provinces = { 10502 }
+		}
+		cost = 50
+		fire_only_once = yes
+		days_remove = 60
+		state_target = yes
+		ai_will_do = { base = 5 }
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove URG_arg_fort_2 target: [From.GetName]"
+			FROM = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 10502
+					instant_build = yes
+				}
+			}
+		}
+	}
+	URG_arg_fort_3 = {
+		icon = GFX_decision_fortress
+		allowed = { always = no }		# Activated by URG_rio_uruguay_project
+		highlight_states = {
+			highlight_provinces = { 12468 }
+		}
+		cost = 50
+		fire_only_once = yes
+		days_remove = 60
+		state_target = yes
+		ai_will_do = { base = 5 }
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove URG_arg_fort_3 target: [From.GetName]"
+			FROM = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 12468
+					instant_build = yes
+				}
+			}
+			activate_targeted_decision = { target = 300 decision = URG_arg_fort_4 }
+		}
+	}
+	URG_arg_fort_4 = {
+		icon = GFX_decision_generic_construction
+		allowed = { always = no }		# Activated by URG_rio_uruguay_project
+		highlight_states = {
+			highlight_provinces = { 12468 }
+		}
+		cost = 50
+		fire_only_once = yes
+		days_remove = 60
+		state_target = yes
+		ai_will_do = { base = 5 }
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove URG_arg_fort_4 target: [From.GetName]"
+			FROM = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 12468
+					instant_build = yes
+				}
+			}
+		}
+	}
+	URG_arg_fort_5 = {
+		icon = GFX_decision_fortress
+		allowed = { always = no }		# Activated by URG_rio_uruguay_project/URG_fortify_the_north
+		highlight_states = {
+			highlight_provinces = { 12440 }
+		}
+		cost = 50
+		fire_only_once = yes
+		days_remove = 60
+		state_target = yes
+		ai_will_do = { base = 5 }
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove URG_arg_fort_5 target: [From.GetName]"
+			FROM = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 12440
+					instant_build = yes
+				}
+			}
+			activate_targeted_decision = { target = 300 decision = URG_arg_fort_6 }
+		}
+	}
+	URG_arg_fort_6 = {
+		icon = GFX_decision_generic_construction
+		allowed = { always = no }		# Activated by URG_fortify_the_north
+		highlight_states = {
+			highlight_provinces = { 12440 }
+		}
+		cost = 50
+		fire_only_once = yes
+		days_remove = 60
+		state_target = yes
+		ai_will_do = { base = 5 }
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove URG_arg_fort_6 target: [From.GetName]"
+			FROM = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 12440
+					instant_build = yes
+				}
+			}
+		}
+	}
+	URG_arg_fort_7 = {
+		icon = GFX_decision_fortress
+		allowed = { always = no }		# Activated by URG_fortify_the_north
+		highlight_states = {
+			highlight_provinces = { 1626 }
+		}
+		cost = 50
+		fire_only_once = yes
+		days_remove = 60
+		state_target = yes
+		ai_will_do = { base = 5 }
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove URG_arg_fort_7 target: [From.GetName]"
+			FROM = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 1626
+					instant_build = yes
+				}
+			}
+			activate_targeted_decision = { target = 300 decision = URG_arg_fort_8 }
+		}
+	}
+	URG_arg_fort_8 = {
+		icon = GFX_decision_generic_construction
+		allowed = { always = no }		# Activated by URG_fortify_the_north
+		highlight_states = {
+			highlight_provinces = { 1626 }
+		}
+		cost = 50
+		fire_only_once = yes
+		days_remove = 60
+		state_target = yes
+		ai_will_do = { base = 5 }
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove URG_arg_fort_8 target: [From.GetName]"
+			FROM = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 10502
+					instant_build = yes
+				}
+			}
+		}
+	}
+	URG_arg_fort_9 = {
+		icon = GFX_decision_fortress
+		allowed = { always = no }		# Activated by URG_fortify_the_north
+		highlight_states = {
+			highlight_provinces = { 1641 }
+		}
+		cost = 50
+		fire_only_once = yes
+		days_remove = 60
+		state_target = yes
+		ai_will_do = { base = 5 }
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove URG_arg_fort_9 target: [From.GetName]"
+			FROM = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 1641
+					instant_build = yes
+				}
+			}
+			activate_targeted_decision = { target = 300 decision = URG_arg_fort_10 }
+		}
+	}
+	URG_arg_fort_10 = {
+		icon = GFX_decision_generic_construction
+		allowed = { always = no }		# Activated by URG_fortify_the_north
+		highlight_states = {
+			highlight_provinces = { 1641 }
+		}
+		cost = 50
+		fire_only_once = yes
+		days_remove = 60
+		state_target = yes
+		ai_will_do = { base = 5 }
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove URG_arg_fort_10 target: [From.GetName]"
+			FROM = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 1641
+					instant_build = yes
+				}
+			}
+		}
+	}
+	URG_arg_fort_11 = {
+		icon = GFX_decision_fortress
+		allowed = { always = no }		# Activated by URG_fortify_the_north
+		highlight_states = {
+			highlight_provinces = { 10347 }
+		}
+		cost = 50
+		fire_only_once = yes
+		days_remove = 60
+		state_target = yes
+		ai_will_do = { base = 5 }
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove URG_arg_fort_11 target: [From.GetName]"
+			FROM = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 10347
+					instant_build = yes
+				}
+			}
+			activate_targeted_decision = { target = 300 decision = URG_arg_fort_12 }
+		}
+	}
+	URG_arg_fort_12 = {
+		icon = GFX_decision_generic_construction
+		allowed = { always = no }		# Activated by URG_fortify_the_north
+		highlight_states = {
+			highlight_provinces = { 10347 }
+		}
+		cost = 50
+		fire_only_once = yes
+		days_remove = 60
+		state_target = yes
+		ai_will_do = { base = 5 }
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove URG_arg_fort_12 target: [From.GetName]"
+			FROM = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 10347
+					instant_build = yes
+				}
+			}
+		}
+	}
+	URG_arg_fort_13 = {
+		icon = GFX_decision_generic_construction
+		allowed = { always = no }		# Activated by URG_rio_uruguay_project
+		highlight_states = {
+			highlight_provinces = { 4457 12496 1654 12481 }
+		}
+		cost = 100
+		fire_only_once = yes
+		days_remove = 60
+		state_target = yes
+		ai_will_do = { base = 5 }
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove URG_arg_fort_13 target: [From.GetName]"
+			FROM = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 4457
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 12496
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 1654
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 12481
+					instant_build = yes
+				}
+			}
+			activate_targeted_decision = { target = 300 decision = URG_arg_fort_14 }
+			activate_targeted_decision = { target = 300 decision = URG_arg_fort_15 }
+		}
+	}
+	URG_arg_fort_14 = {
+		icon = GFX_decision_fortress
+		allowed = { always = no }		# Activated by URG_rio_uruguay_project
+		highlight_states = {
+			highlight_provinces = { 4457 12496 }
+		}
+		cost = 50
+		fire_only_once = yes
+		days_remove = 60
+		state_target = yes
+		ai_will_do = { base = 5 }
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove URG_arg_fort_14 target: [From.GetName]"
+			FROM = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 4457
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 12496
+					instant_build = yes
+				}
+			}
+		}
+	}
+	URG_arg_fort_15 = {
+		icon = GFX_decision_fortress
+		allowed = { always = no }		# Activated by URG_rio_uruguay_project
+		highlight_states = {
+			highlight_provinces = { 1654 12481 }
+		}
+		cost = 50
+		fire_only_once = yes
+		days_remove = 60
+		state_target = yes
+		ai_will_do = { base = 5 }
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove URG_arg_fort_15 target: [From.GetName]"
+			FROM = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 1654
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 12481
+					instant_build = yes
+				}
+			}
+		}
+	}
+}
+
+URG_economic_decisions = {
+	URG_improve_agriculture_dec = {
+		icon = GFX_decision_generic_agriculture
+		allowed = { always = no }
+		cost = 50
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 1
+			FROM = { is_controlled_by = owner }
+		}
+		visible = {
+			FROM = { is_owned_by_ROOT_or_ally = yes }
+		}
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+		days_remove = 150
+		fire_only_once = yes
+		state_target = yes
+
+		ai_will_do = { base = 40 }
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove URG_improve_agriculture_dec target: [From.GetName]"
+			FROM = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	URG_improve_cattle_ranches_dec = {
+		icon = GFX_decision_animal_husbandry
+		allowed = { always = no }
+		cost = 50
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			FROM = { is_controlled_by = owner }
+		}
+		visible = {
+			FROM = { is_owned_by_ROOT_or_ally = yes }
+		}
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		days_remove = 150
+		fire_only_once = yes
+		state_target = yes
+
+		ai_will_do = { base = 40 }
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove URG_improve_cattle_ranches_dec target: [From.GetName]"
+			FROM = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	URG_arms_industry_investments = {
+		icon = GFX_decision_generic_industry
+		allowed = { always = no }
+		cost = 50
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 1
+			FROM = { is_controlled_by = owner }
+		}
+		visible = {
+			FROM = { is_owned_by_ROOT_or_ally = yes }
+		}
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+		days_remove = 120
+		fire_only_once = yes
+		state_target = yes
+
+		ai_will_do = { factor = 25 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete URG_arms_industry_investments target: [From.GetName]"
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove URG_arms_industry_investments target: [From.GetName]"
+			FROM = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	URG_dockyards_dec = {
+		icon = GFX_decision_generic_merge_plant_ship
+		allowed = { always = no }
+		cost = 30
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			FROM = { is_controlled_by = owner }
+		}
+		visible = {
+			FROM = { is_owned_by_ROOT_or_ally = yes }
+		}
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		days_remove = 120
+		fire_only_once = yes
+		state_target = yes
+
+		ai_will_do = { base = 5 }
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove URG_dockyards_dec target: [From.GetName]"
+			FROM = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	URG_improve_resource_extraction_dec = {
+		icon = GFX_decision_cash_flow
+		allowed = { always = no }
+		cost = 30
+
+		available = {
+			has_tech = excavation3
+			num_of_civilian_factories_available_for_projects > 2
+			FROM = { is_controlled_by = owner }
+		}
+		visible = {
+			FROM = { is_owned_by_ROOT_or_ally = yes }
+		}
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		days_remove = 120
+		fire_only_once = yes
+		state_target = yes
+
+		ai_will_do = { base = 30 }
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove URG_improve_resource_extraction_dec target: [From.GetName]"
+			FROM = {
+				add_resource = {
+					type = oil
+					amount = 5
+				}
+				add_resource = {
+					type = steel
+					amount = 5
+				}
+			}
+		}
+	}
+}

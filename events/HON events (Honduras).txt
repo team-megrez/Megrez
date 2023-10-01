@@ -1,0 +1,633 @@
+﻿add_namespace = honduras
+
+## sea lions political events 1 - 74
+
+country_event = { #Black Monday strikes America - Banana Slump
+	id = honduras.100
+	title = honduras.100.t
+	desc = honduras.100.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event honduras.100 option honduras.100.a"
+		name = honduras.100.a
+		add_stability = -0.2
+		add_political_power = -100
+	}
+}
+
+country_event = { #America's at war, to hell with Monroe
+	id = honduras.101
+	title = honduras.101.t
+	desc = honduras.101.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event honduras.101 option honduras.101.a"
+		name = honduras.101.a
+		add_stability = -0.05
+		remove_ideas = CEN_monroe_doctrine
+	}
+}
+
+country_event = { #Troops protecting the railways begin to desert
+	id = honduras.2
+	title = honduras.2.t
+	desc = honduras.2.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event honduras.2 option honduras.2.a"
+		name = honduras.2.a
+		add_manpower = -1000
+		hidden_effect = {
+			country_event = { id = honduras.102 months = 1 }
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = -0.1
+		}
+	}
+}
+
+country_event = { #Railroad bombings in the west
+	id = honduras.102
+	title = honduras.102.t
+	desc = honduras.102.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event honduras.102 option honduras.102.a"
+		name = honduras.102.a
+		312 = {
+			damage_building = {
+				type = infrastructure
+				damage = 1
+			}
+		}
+		hidden_effect = {
+			country_event = { id = honduras.103 days = 40 }
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = -0.1
+		}
+	}
+}
+
+country_event = { #Skirmishes with militants
+	id = honduras.103
+	title = honduras.103.t
+	desc = honduras.103.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event honduras.103 option honduras.103.a"
+		name = honduras.103.a
+		hidden_effect = {
+			country_event = { id = honduras.104 days = 50 }
+		}
+	}
+}
+
+country_event = { #The militants base themselves in El Salvador
+	id = honduras.104
+	title = honduras.104.t
+	desc = honduras.104.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event honduras.104 option honduras.104.a"
+		name = honduras.104.a
+		hidden_effect = {
+			country_event = { id = honduras.105 days = 25 }
+		}
+		ELS = {
+			country_event = honduras.1040
+		}
+	}
+}
+
+country_event = { #The Honduran Army Violates our territory!
+	id = honduras.1040
+	title = honduras.1040.t
+	desc = honduras.1040.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event honduras.1040 option honduras.1040.a"
+		name = honduras.1040.a
+	}
+}
+
+country_event = { #Trigger the conflict
+	id = honduras.105
+	title = honduras.105.t
+	desc = honduras.105.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event honduras.105 option honduras.105.a"
+		name = honduras.105.a
+		start_border_war = {
+			change_state_after_war = no
+			attacker = {
+				state = 312
+				num_provinces = 4
+				on_win = honduras.106
+				on_lose = honduras.107
+				on_cancel = honduras.108
+			}
+			defender = {
+				state = 314
+				num_provinces = 4
+				on_win = honduras.106
+				on_lose = honduras.107
+				on_cancel = honduras.108
+			}
+		}
+		hidden_effect = {
+			activate_mission = HON_border_conflict_time_until_cancelled
+			ELS = {
+				activate_mission = HON_border_conflict_time_until_cancelled
+			}
+		}
+	}
+}
+
+country_event = { #A victory, we've learned something of our enemy
+	id = honduras.106
+	title = honduras.106.t
+	desc = honduras.106.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event honduras.106 option honduras.106.a"
+		name = honduras.106.a
+		trigger = {
+			original_tag = ELS
+		}
+		army_experience = 25
+		add_doctrine_cost_reduction = {
+			name = honduras.106.t
+			cost_reduction = 0.5
+			uses = 1
+			category = land_doctrine
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event honduras.106 option honduras.106.a"
+		name = honduras.106.a
+		trigger = {
+			original_tag = HON
+		}
+		add_political_power = 100
+		hidden_effect = {
+			HON = {
+				country_event = { id = honduras.109 days = 50 }
+			}
+		}
+	}
+}
+
+country_event = { #A defeat, we've lost credibility at home
+	id = honduras.107
+	title = honduras.107.t
+	desc = honduras.107.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event honduras.107 option honduras.107.a"
+		name = honduras.107.a
+		add_stability = -0.05
+		if = {
+			limit = { tag = HON }
+			hidden_effect = {
+				country_event = { id = honduras.110 days = 50 }
+			}
+		}
+	}
+}
+
+country_event = { #A stalemate
+	id = honduras.108
+	title = honduras.108.t
+	desc = honduras.108.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event honduras.108 option honduras.108.a"
+		name = honduras.108.a
+		if = {
+			limit = { tag = HON }
+			hidden_effect = {
+				country_event = { id = honduras.110 days = 50 }
+			}
+		}
+	}
+}
+
+country_event = { #The trial of the captured soldiers
+	id = honduras.109
+	title = honduras.109.t
+	desc = honduras.109.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event honduras.109 option honduras.109.a"
+		name = honduras.109.a
+		hidden_effect = {
+			country_event = { id = honduras.3 days = 20 }
+			country_event = { id = honduras.4 days = 40 }
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = -0.1
+		}
+	}
+}
+
+country_event = { #Asking El Salvador very politely...
+	id = honduras.110
+	title = honduras.110.t
+	desc = honduras.110.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event honduras.110 option honduras.110.a"
+		name = honduras.110.a
+		ELS = {
+			country_event = honduras.111
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = -0.1
+		}
+	}
+}
+
+country_event = { #El Salvador's response
+	id = honduras.111
+	title = honduras.111.t
+	desc = honduras.111.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event honduras.111 option honduras.111.a"
+		ai_chance = { base = 20 }
+		name = honduras.111.a
+		hidden_effect = {
+			HON = {
+				country_event = { id = honduras.112 days = 25 }
+				country_event = { id = honduras.1122 days = 40 }
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event honduras.111 option honduras.111.b"
+		name = honduras.111.b
+		ai_chance = { base = 80 }
+		hidden_effect = {
+			HON = {
+				country_event = { id = honduras.109 days = 50 }
+			}
+		}
+	}
+}
+
+country_event = { #Humilitated by El Salvador
+	id = honduras.112
+	title = honduras.112.t
+	desc = honduras.112.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event honduras.112 option honduras.112.a"
+		name = honduras.112.a
+		add_stability = -0.15
+		add_war_support = -0.15
+		hidden_effect = {
+			country_event = { id = honduras.3 days = 20 }
+			country_event = { id = honduras.4 days = 40 }
+		}
+	}
+}
+
+country_event = { #Formation of anti-Salvadorian groups
+	id = honduras.1122
+	title = honduras.1122.t
+	desc = honduras.1122.d
+
+	is_triggered_only = yes
+
+	option = { #its something
+		log = "[GetLogInfo]: event honduras.1122 option honduras.1122.a"
+		name = honduras.1122.a
+		add_ideas = HON_mancha_brava
+	}
+}
+country_event = { #Removing modifiers for hating NIC
+	id = honduras.113
+	title = honduras.113.t
+	desc = honduras.113.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event honduras.113 option honduras.113.a"
+		name = honduras.113.a
+		remove_opinion_modifier = {
+			target = NIC
+			modifier = NIC_revolutionary_threat
+		}
+	}
+}
+
+country_event = { #Totalists rally
+	id = honduras.3
+	title = honduras.3.t
+	desc = honduras.3.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event honduras.3 option honduras.3.a"
+		name = honduras.3.a
+		add_popularity = {
+			ideology = totalist
+			popularity = 0.1
+		}
+	}
+}
+
+country_event = { #PatAuts rally
+	id = honduras.4
+	title = honduras.4.t
+	desc = honduras.4.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event honduras.4 option honduras.4.a"
+		name = honduras.4.a
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.1
+		}
+		hidden_effect = {
+			country_event = { id = honduras.5 days = 30 }
+		}
+	}
+}
+
+country_event = { #A plea for democracy
+	id = honduras.5
+	title = honduras.5.t
+	desc = honduras.5.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event honduras.5 option honduras.5.a"
+		name = honduras.5.a
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.1
+		}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.1
+		}
+		hidden_effect = {
+			country_event = { id = honduras.6 days = 45 }
+		}
+	}
+}
+
+country_event = { #An emergency meeting
+	id = honduras.6
+	title = honduras.6.t
+	desc = honduras.6.d
+
+	is_triggered_only = yes
+
+	option = { #Rely on Castro's clique to put them down
+		log = "[GetLogInfo]: event honduras.6 option honduras.6.a"
+		name = honduras.6.a
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = HON_path option = HON_PATH_SOCCON }
+					has_game_rule = { rule = HON_path option = HON_PATH_SOCDEM }
+					has_game_rule = { rule = HON_path option = HON_PATH_TOTALIST }
+				}
+			}
+		}
+		add_war_support = 0.1
+		hidden_effect = {
+			country_event = { id = honduras.14 days = 10 }
+		}
+	}
+	option = { #C-Callejas what do we do?
+		log = "[GetLogInfo]: event honduras.6 option honduras.6.b"
+		name = honduras.6.b
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = HON_path option = HON_PATH_SOCCON }
+					has_game_rule = { rule = HON_path option = HON_PATH_SOCDEM }
+					has_game_rule = { rule = HON_path option = HON_PATH_NATPOP }
+				}
+			}
+		}
+		add_political_power = 50
+		hidden_effect = {
+			country_event = { id = honduras.13 days = 10 }
+		}
+	}
+	option = { #Start making plans for an election
+		log = "[GetLogInfo]: event honduras.6 option honduras.6.c"
+		name = honduras.6.c
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = HON_path option = HON_PATH_NATPOP }
+					has_game_rule = { rule = HON_path option = HON_PATH_TOTALIST }
+				}
+			}
+		}
+		add_stability = 0.1
+		hidden_effect = {
+			country_event = { id = honduras.11 days = 30 }
+		}
+	}
+}
+
+country_event = { #The election is organised
+	id = honduras.11
+	title = honduras.11.t
+	desc = honduras.11.d
+
+	is_triggered_only = yes
+
+	option = { #Morales and the Social Democrats
+		log = "[GetLogInfo]: event honduras.11 option honduras.11.a"
+		name = honduras.11.a
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				has_government = paternal_autocrat
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = HON_path option = HON_PATH_SOCCON }
+			}
+		}
+		set_politics = {
+			ruling_party = social_democrat
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.30
+		}
+	}
+	option = { #Galvez and the Social Conservatives
+		log = "[GetLogInfo]: event honduras.11 option honduras.11.b"
+		name = honduras.11.b
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				has_government = paternal_autocrat
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = HON_path option = HON_PATH_SOCDEM }
+			}
+		}
+		set_politics = {
+			ruling_party = social_conservative
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.30
+		}
+	}
+	option = { #Castro and the Military Junta
+		log = "[GetLogInfo]: event honduras.11 option honduras.11.c"
+		name = honduras.11.c
+		trigger = {
+			has_government = paternal_autocrat
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = HON_path option = HON_PATH_SOCCON }
+					has_game_rule = { rule = HON_path option = HON_PATH_SOCDEM }
+				}
+			}
+		}
+		set_politics = {
+			ruling_party = paternal_autocrat
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.30
+		}
+	}
+}
+
+country_event = { #The totalists assume power
+	id = honduras.13
+	title = honduras.13.t
+	desc = honduras.13.d
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			leave_faction = yes
+			separate_peace_all_wars = yes
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event honduras.13 option honduras.13.a"
+		name = honduras.13.a
+		set_politics = {
+			ruling_party = totalist
+		}
+		add_popularity = {
+			ideology = totalist
+			popularity = 0.30
+		}
+	}
+}
+
+country_event = { #The military assumes power
+	id = honduras.14
+	title = honduras.14.t
+	desc = honduras.14.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event honduras.14 option honduras.14.a"
+		name = honduras.14.a
+		set_politics = {
+			ruling_party = paternal_autocrat
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.30
+		}
+	}
+}
+
+## Sikorski's military events (no bulli) >honduras.200
+
+country_event = {
+	id = honduras.200
+	title = honduras.200.t
+	desc = honduras.200.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event honduras.200 option honduras.200.a"
+		name = honduras.200.a
+		army_experience = 10
+	}
+}

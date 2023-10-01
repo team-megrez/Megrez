@@ -1,0 +1,395 @@
+#################
+### Diplomacy ###
+#################
+ENG_hates_reichspakt = {
+	reversed = yes
+
+	enable_reverse = {
+		ENG = { has_socialist_government = yes }
+		GER = {
+			is_faction_leader = yes
+			has_socialist_government = no
+		}
+	}
+	enable = {
+		is_in_faction_with = GER
+	}
+	abort_when_not_enabled = yes
+
+	target_array = GER.faction_members
+
+	ai_strategy = {
+		type = antagonize
+		id = ENG
+		value = 1000
+	}
+}
+ENG_hates_entente = {
+	reversed = yes
+
+	enable_reverse = {
+		ENG = { has_socialist_government = yes }
+		ENT = {
+			is_faction_leader = yes
+			has_socialist_government = no
+		}
+	}
+	enable = {
+		is_in_faction_with = ENT
+	}
+	abort_when_not_enabled = yes
+
+	target_array = ENT.faction_members
+
+	ai_strategy = {
+		type = antagonize
+		id = ENG
+		value = 1000
+	}
+}
+
+################
+### Industry ###
+################
+ENG_build_up_civs_1 = {
+	allowed = {
+		original_tag = ENG
+	}
+
+	enable = {
+		date < 1938.1.1
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = industrial_complex
+		value = 49
+	}
+	ai_strategy = {
+		type = air_factory_balance
+		value = 20
+	}
+}
+
+ENG_build_up_civs_2 = {
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		date > 1938.1.1
+		threat < 0.6
+		has_war = no
+	}
+	abort = {
+		OR = {
+			threat > 0.6
+			has_war = yes
+		}
+	}
+
+	ai_strategy = {
+		type = added_military_to_civilian_factory_ratio
+		value = -60
+	}
+	ai_strategy = {
+		type = air_factory_balance
+		value = 55
+	}
+}
+
+ENG_build_up_mils_1 = {
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		OR = {
+			threat > 0.6
+			has_war = yes
+		}
+		num_of_military_factories < 150
+	}
+	abort = {
+		num_of_military_factories > 150
+	}
+
+	ai_strategy = {
+		type = added_military_to_civilian_factory_ratio
+		value = 50
+	}
+}
+
+ENG_build_up_mils_2 = {
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		num_of_military_factories > 150
+	}
+
+	ai_strategy = {
+		type = added_military_to_civilian_factory_ratio
+		value = 20
+	}
+}
+
+ENG_per_ardua_ad_astra_1 = {
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		always = yes
+	}
+
+	ai_strategy = {
+		type = equipment_production_factor
+		id = fighter
+		value = 50
+	}
+	ai_strategy = { type = unit_ratio id = fighter value = 60 }
+	ai_strategy = { type = unit_ratio id = cas value = 40 }
+}
+
+ENG_per_ardua_ad_astra_2 = {
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		date > 1938.6.1
+	}
+
+	ai_strategy = {
+		type = air_factory_balance
+		value = 125
+	}
+	ai_strategy = { type = unit_ratio id = fighter value = 60 }
+	ai_strategy = { type = unit_ratio id = cas value = 40 }
+}
+
+ENG_per_ardua_ad_astra_3 = {
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		has_war = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = air_factory_balance
+		value = 125
+	}
+	ai_strategy = { type = unit_ratio id = fighter value = 60 }
+	ai_strategy = { type = unit_ratio id = cas value = 40 }
+}
+
+ENG_the_wooden_wall = {
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		always = yes
+	}
+
+	ai_strategy = {
+		type = dockyard_to_military_factory_ratio
+		value = 20
+	}
+
+	ai_strategy = {
+		type = naval_invasion_focus
+		value = 80
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = marine
+		value = 10
+	}
+	ai_strategy = {
+		type = template_prio
+		id = marine
+		value = 100
+	}
+}
+
+ENG_produce_synthetic_oil = {
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		date > 1939.1.1
+	}
+
+	ai_strategy = {
+		type = building_target
+		id = synthetic_refinery
+		value = 8
+	}
+}
+
+################
+### Military ###
+################
+ENG_protect_our_coasts = {
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		always = yes
+	}
+
+	ai_strategy = {
+		type = garrison
+		value = 20
+	}
+
+	ai_strategy = {
+		type = theatre_distribution_demand_increase
+		id = 703 #Ascension
+		value = 1
+	}
+	ai_strategy = {
+		type = theatre_distribution_demand_increase
+		id = 704 #Saint Helena
+		value = 1
+	}
+}
+
+ENG_keep_out_of_the_baltic = {
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		has_war_with = GER
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 18 #English Channel
+	}
+	ai_strategy = {
+		type = naval_avoid_region
+		id = 9 #Northern Baltic
+		value = 100
+	}
+	ai_strategy = {
+		type = naval_avoid_region
+		id = 206 #Southern Baltic
+		value = 100
+	}
+	ai_strategy = {
+		type = naval_avoid_region
+		id = 147 #Danish Belts
+		value = 100
+	}
+}
+
+ENG_retreat_to_the_isles = {
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		has_war = yes
+		any_home_area_neighbor_country = { has_war_with = ROOT } #ENG has no home_area neighbours unless invaded
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		target = globally
+		value = 100
+	}
+}
+
+ENG_invade_ireland = {
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		has_war_with = IRE
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = IRE
+		value = 200
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = IRE
+		value = 40
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = IRE
+		value = 100
+	}
+}
+
+ENG_invade_iceland = {
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		has_war_with = ICE
+		OR = {
+			NOT = { has_war_with = IRE }
+			IRE = { has_capitulated = yes }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = ICE
+		value = 200
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = ICE
+		value = 25
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = ICE
+		value = 100
+	}
+}
+
+ENG_invade_canada = {
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		has_war_with = IMP #British Canada
+		OR = {
+			NOT = { has_war_with = IRE }
+			IRE = { has_capitulated = yes }
+		}
+		OR = {
+			NOT = { has_war_with = ICE }
+			ICE = { has_capitulated = yes }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = "IMP"
+		value = 200
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = IMP
+		value = 100
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = IMP
+		value = 100
+	}
+}

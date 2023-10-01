@@ -27,80 +27,78 @@ script_enum_equipment_bonus_type = {
 	medium_plane_scout_plane_airframe
 	large_plane_airframe
 	large_plane_maritime_patrol_plane_airframe
-	
 
 	fighter
 	cas
 	tactical_bomber
 	scout_plane
 
-	jet_interceptor_equipment
-	interceptor_equipment
-	strategic_bomber
-	light_stealth_equipment
-	strat_stealth_equipment
-
-	attack_helicopter_equipment
-	scout_helicopter_equipment
-	transport_helicopter_equipment
-	asw_helicopter_equipment
-
-	mca_equipment
-	cv_mca_equipment
-
 	## Land
 	infantry_equipment
 	support_equipment
 	artillery_equipment
+	rocket_artillery_equipment
 	anti_tank_equipment
 	anti_air_equipment
 	artillery
-	infantry
-	anti_tank
-	anti_air_shoulder_equipment
 
-	category_special_forces
-	marine
-	mountaineers
-	air_assault
-	recon
-
+	amphibious_mechanized_equipment
 	armored_car_equipment
+	mechanized_equipment
 	motorized_equipment
+	motorized_rocket_equipment
 	train_equipment
 	railway_gun_equipment
 
 	armor
+	light_tank_chassis
+	medium_tank_chassis
+	heavy_tank_chassis
+	super_heavy_tank_chassis
+	modern_tank_chassis
 	amphibious_tank_chassis
-	MBT_chassis
-	IFV_chassis
-	APC_chassis
 
-	MBT_artillery_equipment
-	IFV_artillery_equipment
+	light_tank_artillery_chassis
+	medium_tank_artillery_chassis
+	heavy_tank_artillery_chassis
+	super_heavy_tank_artillery_chassis
+	modern_tank_artillery_chassis
 
-	MBT_aa_equipment
-	IFV_aa_equipment
+	light_tank_destroyer_chassis
+	medium_tank_destroyer_chassis
+	heavy_tank_destroyer_chassis
+	super_heavy_tank_destroyer_chassis
+	modern_tank_destroyer_chassis
+
+	light_tank_aa_chassis
+	medium_tank_aa_chassis
+	heavy_tank_aa_chassis
+	super_heavy_tank_aa_chassis
+	modern_tank_aa_chassis
+
+	light_tank_amphibious_chassis
+	medium_tank_amphibious_chassis
+	heavy_tank_amphibious_chassis
+
+	light_tank_flame_chassis
+	medium_tank_flame_chassis
+	heavy_tank_flame_chassis
 
 	## Sea
-	ship_hull_submarine
-	ship_hull_very_light
-	ship_hull_more_light
 	ship_hull_light
-	ship_hull_cruiser
 	ship_hull_heavy
+	ship_hull_submarine
+	ship_hull_cruiser
 	ship_hull_carrier
+	ship_hull_super_heavy
+	ship_hull_super_heavy_1
 
 	convoy
 	submarine
-	corvette
-	frigate
 	destroyer
 	screen_ship
-	light_cruiser
-	heavy_cruiser
-	battleship
 	carrier
+	heavy_cruiser
 	capital_ship
 
 	ship_hull_cruiser_coastal_defense_ship
@@ -122,8 +120,15 @@ script_enum_advisor_slot_type = {
 	navy_chief
 	air_chief
 	political_advisor
-	head_of_government
-	economy_minister
-	foreign_minister
-	security_minister
+	second_in_command
+}
+
+script_enum_china_alignment_type = {
+	zhili
+	manchu_qing
+	fengtian
+	federalists
+	left_kuomintang
+	right_kuomintang
+	chinese_republican
 }

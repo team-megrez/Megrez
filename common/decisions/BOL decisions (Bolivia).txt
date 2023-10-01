@@ -1,0 +1,186 @@
+operations = {
+	BOL_kill_CHL = {
+		icon = GFX_decision_generic_nationalism
+		allowed = { always = no }
+		available = {
+			OR = {
+				FROM = { has_war_with = ARG }
+				has_global_flag = second_weltkrieg_has_started
+			}
+			if = {
+				limit = { tag = BOL }
+				1027 = { is_owned_and_controlled_by = ROOT }
+				688 = { is_owned_and_controlled_by = ROOT }
+			}
+		}
+		visible = {
+			is_subject = no
+			can_declare_war_on = FROM
+			if = {
+				limit = { ROOT = { has_socialist_government = yes } }
+				FROM = { has_socialist_government = no }
+			}
+			OR = {
+				506 = { is_owned_by = CHL }    ### Antofagasta
+				872 = { is_owned_by = CHL }    ### Arica
+				873 = { is_owned_by = CHL }    ### Tarapaca
+			}
+		}
+		cost = 0
+		days_remove = 25
+		fire_only_once = yes
+		cancel_if_not_visible = yes
+		war_with_target_on_remove = yes
+
+		ai_will_do = {
+			factor = 300
+			modifier = {
+				factor = 0
+				ROOT_is_threatened = yes
+			}
+			modifier = {
+				factor = 0
+				FROM = { is_stronger_than_ROOT_and_not_vulnerable = yes }
+			}
+			modifier = {
+				factor = 0
+				FROM = { overlord_is_stronger_than_ROOT_and_not_vulnerable = yes }
+			}
+			modifier = {
+				factor = 0
+				FROM = { faction_leader_is_stronger_than_ROOT_and_not_vulnerable = yes }
+			}
+			modifier = {
+				factor = 0
+				FROM = { guarantor_is_stronger_than_ROOT_and_not_vulnerable = yes }
+			}
+			modifier = {
+				factor = 0
+				FROM = {
+					if = {
+						limit = { has_war_with = ARG }
+						OR = {
+							FOP = { has_capitulated = no }
+							surrender_progress < 0.4
+						}
+					}
+				}
+			}
+		}
+
+		cancel_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision cancel BOL_kill_CHL target: [From.GetName]"
+			clear_decision_attack_AI = yes
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete BOL_kill_CHL target: [From.GetName]"
+			setup_decision_attack_AI = yes
+			FROM = { incoming_war_notification_effect = yes }
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove BOL_kill_CHL target: [From.GetName]"
+			clear_decision_attack_AI = yes
+			declare_war_on = {
+				target = FROM
+				type = annex_everything
+			}
+		}
+	}
+}
+
+foreign_politics = {
+	BOL_Join_Internationale = {
+		icon = GFX_decision_generic_nationalism
+		allowed = { always = no }
+		available = {
+			is_in_faction = no
+			is_subject = no
+			OR = {
+				PRU = { has_socialist_government = yes }
+				BRA = { has_socialist_government = yes }
+				CHL = { has_socialist_government = yes }
+				506 = { is_owned_and_controlled_by = ROOT }
+			}
+		}
+
+		visible = {
+			has_socialist_government = yes
+			FROM = {
+				is_faction_leader = yes
+				NOT = { has_war_with = ROOT }
+			}
+		}
+
+		cost = 0
+		fire_only_once = yes
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = FOP_path option = FOP_PATH_UGARTISTAS_SYNDIE }
+				has_game_rule = { rule = BOL_path option = BOL_PATH_SYNDIE }
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete BOL_Join_Internationale target: [From.GetName]"
+			FROM = {
+				country_event = bol.27
+			}
+		}
+	}
+}
+
+special_projects = {
+	BOL_diverge_resources_for_capital_ship = {
+		icon = generic_naval
+		allowed = { always = no }
+		fire_only_once = yes
+		days_remove = 365
+		cancel_trigger = {
+			has_navy_size = {
+				unit = battle_cruiser
+				size > 0
+			}
+		}
+
+		modifier = {
+			industrial_capacity_dockyard = 0.50
+			consumer_goods_factor = 0.05
+			political_power_cost = 0.20
+		}
+
+		ai_will_do = { base = 300 }
+	}
+
+	BOL_build_capital_ship = {
+		icon = generic_naval
+		allowed = { always = no } #manually activated
+		fire_only_once = yes
+		days_mission_timeout = 1095
+		is_good = no
+
+		available = {
+			has_navy_size = {
+				unit = battle_cruiser
+				size > 0
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete BOL_build_capital_ship"
+			add_war_support = 0.05
+			add_political_power = 50
+		}
+
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout BOL_build_capital_ship"
+			add_stability = -0.2
+			add_war_support = -0.2
+			add_political_power = -100
+		}
+	}
+}
+

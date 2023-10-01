@@ -1,0 +1,541 @@
+defined_text = {
+	name = CAN_king_full_name
+	text = {
+		trigger = { ENT_king_edward_viii = yes }
+		localization_key = CAN_king_edward_VIII
+	}
+	text = {
+		trigger = { ENT_king_albert_i = yes }
+		localization_key = CAN_king_albert_I
+	}
+	text = {
+		trigger = { ENT_king_henry_ix = yes }
+		localization_key = CAN_king_henry_IX
+	}
+	text = {
+		trigger = { ENT_king_george_vi = yes }
+		localization_key = CAN_king_george_VI
+	}
+	text = {
+		localization_key = CAN_king_george_V
+	}
+}
+
+defined_text = {
+	name = CAN_king_first_name
+	text = {
+		trigger = { ENT_king_edward_viii = yes }
+		localization_key = CAN_king_edward_first
+	}
+	text = {
+		trigger = { ENT_king_albert_i = yes }
+		localization_key = CAN_king_albert_first
+	}
+	text = {
+		trigger = { ENT_king_henry_ix = yes }
+		localization_key = CAN_king_henry_first
+	}
+	text = {
+		localization_key = CAN_king_george_first
+	}
+}
+
+defined_text = {
+	name = CAN_kings_influence
+	text = {
+		trigger = { tag = GBR }
+		localization_key = kings_influence_home
+	}
+	text = {
+		localization_key = kings_influence_exile
+	}
+}
+
+defined_text = {
+	name = CAN_war_idea
+	text = {
+		trigger = {
+			OR = {
+				has_war_with = USA
+				has_war_with = CSA
+				has_war_with = TEX
+				has_war_with = PSA
+			}
+		}
+		localization_key = CAN_war_of_1812_idea_1
+	}
+	text = {
+		localization_key = CAN_war_of_1812_idea_2
+	}
+}
+
+defined_text = {
+	name = CAN_king_popularity
+	text = {
+		trigger = {
+			check_variable = { king_popularity > 4 }
+		}
+		localization_key = CAN_king_popularity_5
+	}
+	text = {
+		trigger = {
+			check_variable = { king_popularity > 3 }
+		}
+		localization_key = CAN_king_popularity_4
+	}
+	text = {
+		trigger = {
+			check_variable = { king_popularity > 2 }
+		}
+		localization_key = CAN_king_popularity_3
+	}
+	text = {
+		trigger = {
+			check_variable = { king_popularity > 1 }
+		}
+		localization_key = CAN_king_popularity_2
+	}
+	text = {
+		trigger = {
+			check_variable = { king_popularity > 0 }
+		}
+		localization_key = CAN_king_popularity_1
+	}
+	text = {
+		localization_key = CAN_king_popularity_0
+	}
+}
+
+defined_text = {
+	name = CAN_king_influence
+	text = {
+		trigger = {
+			check_variable = { king_influence > 4 }
+		}
+		localization_key = CAN_king_influence_5
+	}
+	text = {
+		trigger = {
+			check_variable = { king_influence > 3 }
+		}
+		localization_key = CAN_king_influence_4
+	}
+	text = {
+		trigger = {
+			check_variable = { king_influence > 2 }
+		}
+		localization_key = CAN_king_influence_3
+	}
+	text = {
+		trigger = {
+			check_variable = { king_influence > 1 }
+		}
+		localization_key = CAN_king_influence_2
+	}
+	text = {
+		trigger = {
+			check_variable = { king_influence > 0 }
+		}
+		localization_key = CAN_king_influence_1
+	}
+	text = {
+		localization_key = CAN_king_influence_0
+	}
+}
+
+defined_text = {
+	name = GetBritishExilePM
+	text = {
+		trigger = { has_variable = GBR.GBR_prime_minister }
+		localization_key = "[?GBR.GBR_prime_minister.GetName]"
+	}
+	text = {
+		localization_key = "[GBR.GBR_houses_of_parliament.GetName]"
+	}
+}
+
+defined_text = {
+	name = CAN_iedc1
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num > 1 }
+		}
+		localization_key = CAN_iedc1_name
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 1 }
+		}
+		localization_key = CAN_iedc_none
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 2 }
+		}
+		localization_key = CAN_iedc1_last
+	}
+}
+
+defined_text = {
+	name = CAN_iedc2
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num > 2 }
+		}
+		localization_key = CAN_iedc2_name
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 2 }
+		}
+		localization_key = CAN_iedc_none
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 3 }
+		}
+		localization_key = CAN_iedc2_last
+	}
+}
+
+defined_text = {
+	name = CAN_iedc3
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num > 3 }
+		}
+		localization_key = CAN_iedc3_name
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 3 }
+		}
+		localization_key = CAN_iedc_none
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 4 }
+		}
+		localization_key = CAN_iedc3_last
+	}
+}
+
+defined_text = {
+	name = CAN_iedc4
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num > 4 }
+		}
+		localization_key = CAN_iedc4_name
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 4 }
+		}
+		localization_key = CAN_iedc_none
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 5 }
+		}
+		localization_key = CAN_iedc4_last
+	}
+}
+
+defined_text = {
+	name = CAN_iedc5
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num > 5 }
+		}
+		localization_key = CAN_iedc5_name
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 5 }
+		}
+		localization_key = CAN_iedc_none
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 6 }
+		}
+		localization_key = CAN_iedc5_last
+	}
+}
+
+defined_text = {
+	name = CAN_iedc6
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num > 6 }
+		}
+		localization_key = CAN_iedc6_name
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 6 }
+		}
+		localization_key = CAN_iedc_none
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 7 }
+		}
+		localization_key = CAN_iedc6_last
+	}
+}
+
+defined_text = {
+	name = CAN_iedc7
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num > 7 }
+		}
+		localization_key = CAN_iedc7_name
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 7 }
+		}
+		localization_key = CAN_iedc_none
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 8 }
+		}
+		localization_key = CAN_iedc7_last
+	}
+}
+
+defined_text = {
+	name = CAN_iedc8
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num > 8 }
+		}
+		localization_key = CAN_iedc8_name
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 8 }
+		}
+		localization_key = CAN_iedc_none
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 9 }
+		}
+		localization_key = CAN_iedc8_last
+	}
+}
+
+defined_text = {
+	name = CAN_iedc9
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num > 9 }
+		}
+		localization_key = CAN_iedc9_name
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 9 }
+		}
+		localization_key = CAN_iedc_none
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 10 }
+		}
+		localization_key = CAN_iedc9_last
+	}
+}
+
+defined_text = {
+	name = CAN_iedc10
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num > 10 }
+		}
+		localization_key = CAN_iedc10_name
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 10 }
+		}
+		localization_key = CAN_iedc_none
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 11 }
+		}
+		localization_key = CAN_iedc10_last
+	}
+}
+
+defined_text = {
+	name = CAN_iedc11
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num > 11 }
+		}
+		localization_key = CAN_iedc11_name
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 11 }
+		}
+		localization_key = CAN_iedc_none
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 12 }
+		}
+		localization_key = CAN_iedc11_last
+	}
+}
+
+defined_text = {
+	name = CAN_iedc12
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num > 12 }
+		}
+		localization_key = CAN_iedc12_name
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 12 }
+		}
+		localization_key = CAN_iedc_none
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 13 }
+		}
+		localization_key = CAN_iedc12_last
+	}
+}
+
+defined_text = {
+	name = CAN_iedc13
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num > 13 }
+		}
+		localization_key = CAN_iedc13_name
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 13 }
+		}
+		localization_key = CAN_iedc_none
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 14 }
+		}
+		localization_key = CAN_iedc13_last
+	}
+}
+
+defined_text = {
+	name = CAN_iedc14
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num > 14 }
+		}
+		localization_key = CAN_iedc14_name
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 14 }
+		}
+		localization_key = CAN_iedc_none
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 15 }
+		}
+		localization_key = CAN_iedc14_last
+	}
+}
+
+defined_text = {
+	name = CAN_iedc15
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num > 15 }
+		}
+		localization_key = CAN_iedc15_name
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 15 }
+		}
+		localization_key = CAN_iedc_none
+	}
+	text = {
+		trigger = {
+			check_variable = { global.iedc_members^num < 16 }
+		}
+		localization_key = CAN_iedc15_last
+	}
+}
+
+defined_text = {
+	name = GetConferenceLocation
+	text = {
+		trigger = {
+			CAN = {
+				tag = ENT
+				owns_state = 464 # Nova Scotia
+			}
+		}
+		localization_key = VICTORY_POINTS_7361_ENDONYM # Halifax
+	}
+	text = {
+		trigger = {
+			CAN = {
+				tag = ENT
+				owns_state = 832 # Quebec
+			}
+		}
+		localization_key = VICTORY_POINTS_4345_ENDONYM # Montreal
+	}
+	text = {
+		trigger = {
+			CAN = {
+				tag = ENT
+				owns_state = 331 			# Newfoundland
+			}
+		}
+		localization_key = VICTORY_POINTS_12505_ENDONYM # St. John's
+	}
+	text = {
+		localization_key = "[ENT.Capital.GetCapitalVictoryPointName]"
+	}
+}
+
+defined_text = { # Country
+	name = GetIEDCName
+	text = {
+		trigger = { tag = ENT }
+		localization_key = KR_IEDC_name_ENT
+	}
+	text = {
+		localization_key = KR_IEDC_name
+	}
+}
+
+defined_text = { # Country
+	name = GetIEDCDesc
+	text = {
+		trigger = { tag = ENT }
+		localization_key = KR_IEDC_desc_ENT
+	}
+	text = {
+		localization_key = KR_IEDC_desc
+	}
+}

@@ -1,0 +1,2681 @@
+﻿###########################
+# German Domestic Events
+###########################
+# By Levi, Zarasophos and Zankoas
+###########################
+
+add_namespace = gerdom
+add_namespace = gerfla
+
+country_event = { #BM trigger event (MTTH to avoid the timeout bug, donotlog)
+	id = gerdom.0
+	hidden = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		original_tag = GER
+	}
+
+	option = {
+		set_temp_variable = { days_to_event = 34 }
+		calculate_days_since_game_start = yes
+		country_event = { id = gerdom.5 days = days_to_event }
+	}
+}
+
+country_event = { # Hans von Seeckt dies
+	id = gerdom.2
+	title = gerdom.2.t
+	desc = gerdom.2.d
+	picture = GFX_report_event_europe_funeral
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.2 option gerdom.2.a"
+		name = gerdom.2.a
+		custom_effect_tooltip = GER_army_reform
+		retire_character = GER_august_von_mackensen
+	}
+}
+
+country_event = { # The Junker estates are lost!
+	id = gerdom.4
+	title = gerdom.4.t
+	desc = gerdom.4.d
+	picture = GFX_report_event_generic_farming
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = GER
+		NOT = {
+			12 = { controller = { is_ally_with = ROOT } }
+			202 = { controller = { is_ally_with = ROOT } }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 20
+	}
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.4 option gerdom.4.a"
+		name = gerdom.4.a
+		add_timed_idea = {
+			idea = GER_problems_with_grain_supply
+			days = 365
+		}
+	}
+}
+
+### Black Monday
+country_event = {
+	id = gerdom.5
+	title = gerdom.5.t
+	desc = gerdom.5.d
+	picture = GFX_report_event_generic_run_on_the_banks
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			add_ideas = GER_black_monday
+			add_stability = -0.1
+			add_named_threat = {
+				threat = 4
+				name = GER_black_monday_threat
+			}
+			fire_black_monday_events = yes
+			news_event = gerdom.10
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.5 option gerdom.5.a"
+		name = gerdom.5.a
+		effect_tooltip = {
+			add_ideas = GER_black_monday
+			add_stability = -0.1
+			add_named_threat = {
+				threat = 4
+				name = GER_black_monday_threat
+			}
+		}
+		hidden_effect = {
+			country_event = { id = gerdom.6 days = 2 }
+			country_event = { id = gerdom.8 days = 35 }
+			country_event = { id = gerdom.14 days = 30 }
+		}
+	}
+}
+
+### Run on the Banks
+country_event = {
+	id = gerdom.6
+	title = gerdom.6.t
+	desc = gerdom.6.d
+	picture = GFX_report_event_generic_run_on_the_banks
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.6 option gerdom.6.a"
+		name = gerdom.6.a
+		ai_chance = { base = 35 }
+		add_political_power = -100
+		add_stability = -0.15
+		hidden_effect = {
+			country_event = { id = gerdom.7 days = 5 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.6 option gerdom.6.b"
+		name = gerdom.6.b
+		ai_chance = { base = 35 }
+		add_political_power = -50
+		add_stability = -0.2
+		hidden_effect = {
+			country_event = { id = gerdom.7 days = 5 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.6 option gerdom.6.c"
+		name = gerdom.6.c
+		ai_chance = { base = 5 }
+		add_stability = -0.3
+		hidden_effect = {
+			country_event = { id = gerdom.7 days = 5 }
+		}
+	}
+}
+
+### End of the Black Week
+country_event = {
+	id = gerdom.7
+	title = gerdom.7.t
+	desc = gerdom.7.d
+	picture = GFX_report_event_GER_Blackweekover
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.7 option gerdom.7.a"
+		name = gerdom.7.a
+		add_stability = 0.05
+	}
+}
+
+### Financial Troubles in the Colonies
+country_event = {
+	id = gerdom.8
+	title = gerdom.8.t
+	desc = gerdom.8.d
+	picture = GFX_report_event_GER_colony_problems
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.8 option gerdom.8.a"
+		name = gerdom.8.a
+		custom_effect_tooltip = GER_colonial_resources_distribution_full_tt
+		add_political_power = -20
+		add_timed_idea = {
+			idea = GER_colonial_subsidies
+			days = 365
+		}
+		reverse_add_opinion_modifier = {
+			target = MAF
+			modifier = financial_help_granted
+		}
+		reverse_add_opinion_modifier = {
+			target = GEA
+			modifier = financial_help_granted
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.8 option gerdom.8.b"
+		name = gerdom.8.b
+		custom_effect_tooltip = GER_colonial_resources_distribution_partly_tt
+		add_political_power = -50
+		add_timed_idea = {
+			idea = GER_partial_colonial_subsidies
+			days = 260
+		}
+		reverse_add_opinion_modifier = {
+			target = MAF
+			modifier = financial_help_satisfactionary
+		}
+		reverse_add_opinion_modifier = {
+			target = GEA
+			modifier = financial_help_satisfactionary
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.8 option gerdom.8.c"
+		name = gerdom.8.c
+		add_political_power = -150
+		reverse_add_opinion_modifier = {
+			target = MAF
+			modifier = financial_help_denied
+		}
+		reverse_add_opinion_modifier = {
+			target = GEA
+			modifier = financial_help_denied
+		}
+	}
+}
+
+### War Stimulates the Economy
+country_event = {
+	id = gerdom.9
+	title = gerdom.9.t
+	desc = gerdom.9.d
+	picture = GFX_report_event_generic_towar
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		GER_has_black_monday = yes
+		any_enemy_country = { is_actual_major = yes }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.9 option gerdom.9.a"
+		name = gerdom.9.a
+		add_stability = 0.20
+	}
+}
+
+### Black Monday news event
+news_event = {
+	id = gerdom.10
+	immediate = { log = "[GetLogInfo]: event gerdom.10" }
+	title = gerdom.10.t
+	desc = gerdom.10.d
+	picture = GFX_news_event_GER_blackmonday1
+
+	is_triggered_only = yes
+	fire_for_sender = no
+
+	major = yes
+	show_major = {
+		NOT = {
+			tag = GEA
+			tag = MAF
+		}
+	}
+
+	option = {
+		name = gerdom.10.a
+		trigger = { has_socialist_government = no }
+		effect_tooltip = {
+			add_named_threat = {
+				threat = 4
+				name = GER_black_monday_threat
+			}
+		}
+	}
+	option = {
+		name = gerdom.10.b
+		trigger = { has_socialist_government = yes }
+		effect_tooltip = {
+			add_named_threat = {
+				threat = 4
+				name = GER_black_monday_threat
+			}
+		}
+	}
+}
+
+### Suffrage movement
+
+country_event = { # The increasing activity of the suffragist movement - triggered by CoF event
+	id = gerdom.12
+	title = gerdom.12.t
+	desc = gerdom.12.d
+	picture = GFX_report_event_GER_suffrags
+	is_triggered_only = yes
+
+	option = { # full
+		log = "[GetLogInfo]: event gerdom.12 option gerdom.12.a"
+		name = gerdom.12.a
+		ai_chance = { base = 5 }
+		set_country_flag = GER_women_suffrage_high
+		custom_effect_tooltip = GER_women_suffrage_high_tp
+		add_political_power = -50
+		reverse_add_opinion_modifier = {
+			target = ENG
+			modifier = women_yes
+		}
+		reverse_add_opinion_modifier = {
+			target = FRA
+			modifier = women_yes
+		}
+		reverse_add_opinion_modifier = {
+			target = USA
+			modifier = women_yes
+		}
+	}
+
+	option = { # promise
+		log = "[GetLogInfo]: event gerdom.12 option gerdom.12.b"
+		name = gerdom.12.b
+		ai_chance = { base = 70 }
+		set_country_flag = GER_women_suffrage_moderate
+		custom_effect_tooltip = GER_women_suffrage_tp
+		add_political_power = -25
+		reverse_add_opinion_modifier = {
+			target = ENG
+			modifier = women_maybe
+		}
+		reverse_add_opinion_modifier = {
+			target = FRA
+			modifier = women_maybe
+		}
+		reverse_add_opinion_modifier = {
+			target = USA
+			modifier = women_maybe
+		}
+	}
+	option = { # none
+		log = "[GetLogInfo]: event gerdom.12 option gerdom.12.c"
+		name = gerdom.12.c
+		ai_chance = { base = 10 }
+		reverse_add_opinion_modifier = {
+			target = ENG
+			modifier = women_no
+		}
+		reverse_add_opinion_modifier = {
+			target = FRA
+			modifier = women_no
+		}
+		reverse_add_opinion_modifier = {
+			target = USA
+			modifier = women_no
+		}
+	}
+}
+country_event = { # German women demand recognition for their war effort
+	id = gerdom.13
+	title = gerdom.13.t
+	desc = gerdom.13.d
+	picture = GFX_report_event_GER_women
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		controls_state = 64
+		controls_state = 51
+		controls_state = 52
+		NOT = {
+			country_exists = FRA
+			has_completed_focus = GER_women_suffrage
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.13 option gerdom.13.a"
+		name = gerdom.13.a
+		add_political_power = -50
+		set_country_flag = GER_women_recognized
+		custom_effect_tooltip = GER_women_suffrage_tp
+	}
+}
+
+### Gangs
+country_event = { #Halbstarke terrorize the cities
+	id = gerdom.14
+	title = gerdom.14.t
+	desc = gerdom.14.d
+	picture = GFX_report_event_GER_halbstarke
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.14 option gerdom.14.a"
+		name = gerdom.14.a
+		add_stability = -0.2
+		set_country_flag = GER_halbstarke
+	}
+}
+
+# The Kaiser learns of von Schleicher's affiliation with the DVLP
+
+country_event = {
+	id = gerdom.17
+	title = gerdom.17.t
+	desc = gerdom.17.d
+	picture = GFX_report_event_GER_schleicher
+
+	trigger = {
+		NOT = { has_completed_focus = GER_schleichers_kamarilla }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.17 option gerdom.17.a"
+		name = gerdom.17.a
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = GER_path option = GER_PATH_PATAUT }
+			}
+		}
+		add_political_power = 50
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			elections_allowed = no
+		}
+		activate_advisor = GER_franz_von_papen_sic
+	}
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.17 option gerdom.17.b"
+		name = gerdom.17.b
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = GER_path option = GER_PATH_PATAUT }
+			}
+		}
+		add_political_power = 25
+		set_politics = {
+			ruling_party = social_democrat
+			elections_allowed = no
+		}
+		set_temp_variable = { coalition_partner_var = token:social_liberal }
+		add_to_coalition = yes
+		activate_advisor = GER_hans_vogel_sic
+	}
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.17 option gerdom.17.c"
+		name = gerdom.17.c
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = GER_path option = GER_PATH_PATAUT }
+			}
+		}
+		add_political_power = 25
+		set_politics = {
+			ruling_party = social_conservative
+			elections_allowed = no
+		}
+		activate_advisor = GER_heinrich_bruning_sic
+	}
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.17 option gerdom.17.e"
+		name = gerdom.17.e
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 100
+				has_game_rule = { rule = GER_path option = GER_PATH_PATAUT }
+			}
+		}
+		add_political_power = -100
+	}
+}
+
+### Elections
+
+country_event = { # 1937 elections
+	id = gerdom.27
+	title = gerdom.27.t
+	desc = gerdom.27.d
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		tag = GER
+		date > 1937.1.1
+		date < 1938.1.1
+		NOT = {
+			has_war_with = FRA
+			has_country_flag = GER_1937_elections_cancelled
+			has_completed_focus = GER_schleichers_kamarilla
+		}
+	}
+
+	option = { # SPD-Realist FVP
+		log = "[GetLogInfo]: event gerdom.27 option gerdom.27.a"
+		name = gerdom.27.a
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = GER_path option = GER_PATH_MARLIB }
+					has_game_rule = { rule = GER_path option = GER_PATH_AUTDEM }
+				}
+			}
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.1
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.1
+		}
+		add_political_power = -20
+		if = {
+			limit = {
+				OR = {
+					has_completed_focus = GER_restore_bundesrat
+					has_completed_focus = GER_finalise_centralisation
+				}
+			}
+			set_politics = {
+				ruling_party = social_democrat
+				election_frequency = 60
+				elections_allowed = yes
+			}
+			set_temp_variable = { coalition_partner_var = token:social_liberal }
+			add_to_coalition = yes
+			activate_advisor = GER_otto_wels_sic
+			else = {
+				country_event = { id = gerdom.28 days = 1 }
+			}
+		}
+	}
+
+	option = { # Neue große Koalition
+		log = "[GetLogInfo]: event gerdom.27 option gerdom.27.b"
+		name = gerdom.27.b
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = GER_path option = GER_PATH_SOCDEM }
+					has_game_rule = { rule = GER_path option = GER_PATH_AUTDEM }
+				}
+			}
+		}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.2
+		}
+		add_political_power = 40
+		if = {
+			limit = {
+				OR = {
+					has_completed_focus = GER_restore_bundesrat
+					has_completed_focus = GER_finalise_centralisation
+				}
+			}
+			set_politics = {
+				ruling_party = market_liberal
+				election_frequency = 60
+				elections_allowed = yes
+			}
+			set_temp_variable = { coalition_partner_var = token:social_liberal }
+			add_to_coalition = yes
+			activate_advisor = GER_paul_von_lettow_vorbeck_sic
+			else = {
+				country_event = { id = gerdom.29 days = 1 }
+			}
+		}
+	}
+
+	option = { # DKP-Zentrum
+		log = "[GetLogInfo]: event gerdom.27 option gerdom.27.c"
+		name = gerdom.27.c
+		ai_chance = {
+			base = 35
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = GER_path option = GER_PATH_SOCDEM }
+					has_game_rule = { rule = GER_path option = GER_PATH_MARLIB }
+				}
+			}
+		}
+		add_political_power = 50
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.1
+		}
+
+		if = {
+			limit = {
+				OR = {
+					has_completed_focus = GER_restore_bundesrat
+					has_completed_focus = GER_finalise_centralisation
+				}
+			}
+			set_politics = {
+				ruling_party = authoritarian_democrat
+				election_frequency = 60
+				elections_allowed = yes
+			}
+			set_temp_variable = { coalition_partner_var = token:social_conservative }
+			add_to_coalition = yes
+			else = {
+				country_event = { id = gerdom.30 days = 1 }
+			}
+		}
+	}
+}
+
+country_event = { # SPD-FVP Reichskanzler?
+	id = gerdom.28
+	title = gerdom.28.t
+	desc = gerdom.28.d
+	picture = GFX_report_event_GER_reichstag
+
+	is_triggered_only = yes
+
+	option = { # Otto Wels
+		log = "[GetLogInfo]: event gerdom.28 option gerdom.28.a"
+		name = gerdom.28.a
+		ai_chance = {
+			base = 45
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = GER_path option = GER_PATH_PATAUT }
+			}
+		}
+		add_political_power = 60
+		set_politics = {
+			ruling_party = social_democrat
+			election_frequency = 60
+			elections_allowed = yes
+		}
+		set_temp_variable = { coalition_partner_var = token:social_liberal }
+		add_to_coalition = yes
+		activate_advisor = GER_otto_wels_sic
+	}
+
+	option = { # Current one is fine
+		log = "[GetLogInfo]: event gerdom.28 option gerdom.28.b"
+		name = gerdom.28.b
+		ai_chance = {
+			base = 35
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = GER_path option = GER_PATH_SOCDEM }
+					has_game_rule = { rule = GER_path option = GER_PATH_PATAUT }
+				}
+			}
+		}
+		add_political_power = -40
+	}
+
+	option = { # Kurt von Schleicher
+		log = "[GetLogInfo]: event gerdom.28 option gerdom.28.c"
+		name = gerdom.28.c
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = GER_path option = GER_PATH_SOCDEM }
+			}
+		}
+		add_political_power = -100
+		set_politics = {
+			ruling_party = paternal_autocrat
+			election_frequency = 60
+			elections_allowed = yes
+		}
+		hidden_effect = {
+			set_party_name = {
+				ideology = paternal_autocrat
+				long_name = GER_KAI_paternal_autocrat_party_long
+				name = GER_KAI_paternal_autocrat_party
+			}
+		}
+		activate_advisor = GER_kurt_von_schleicher_sic
+	}
+}
+
+country_event = { # Neue grosse Koalition Reichskanzler?
+	id = gerdom.29
+	title = gerdom.29.t
+	desc = gerdom.29.d
+	picture = GFX_report_event_GER_reichstag
+	is_triggered_only = yes
+
+	option = { # Paul von Lettow-Vorbeck
+		log = "[GetLogInfo]: event gerdom.29 option gerdom.29.a"
+		name = gerdom.29.a
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = GER_path option = GER_PATH_PATAUT }
+			}
+		}
+		add_political_power = 60
+		set_politics = {
+			ruling_party = market_liberal
+			election_frequency = 60
+			elections_allowed = yes
+		}
+		set_temp_variable = { coalition_partner_var = token:social_liberal }
+		add_to_coalition = yes
+		activate_advisor = GER_paul_von_lettow_vorbeck_sic
+	}
+
+	option = { # Paul von Lettow-Vorbeck, demand concessions
+		log = "[GetLogInfo]: event gerdom.29 option gerdom.29.b"
+		name = gerdom.29.b
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = GER_path option = GER_PATH_PATAUT }
+			}
+		}
+		add_political_power = 20
+		set_politics = {
+			ruling_party = market_liberal
+			election_frequency = 60
+			elections_allowed = yes
+		}
+		set_temp_variable = { coalition_partner_var = token:social_liberal }
+		add_to_coalition = yes
+		activate_advisor = GER_paul_von_lettow_vorbeck_sic
+	}
+
+	option = { # Current one is fine
+		log = "[GetLogInfo]: event gerdom.29 option gerdom.29.c"
+		name = gerdom.29.c
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = GER_path option = GER_PATH_MARLIB }
+					has_game_rule = { rule = GER_path option = GER_PATH_PATAUT }
+				}
+			}
+		}
+		add_political_power = -40
+	}
+
+	option = { # Kurt von Schleicher
+		log = "[GetLogInfo]: event gerdom.29 option gerdom.29.e"
+		name = gerdom.29.e
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = GER_path option = GER_PATH_MARLIB }
+			}
+		}
+		add_political_power = -100
+		set_politics = {
+			ruling_party = paternal_autocrat
+			election_frequency = 60
+			elections_allowed = yes
+		}
+		hidden_effect = {
+			set_party_name = {
+				ideology = paternal_autocrat
+				long_name = GER_KAI_paternal_autocrat_party_long
+				name = GER_KAI_paternal_autocrat_party
+			}
+		}
+		activate_advisor = GER_kurt_von_schleicher_sic
+	}
+}
+
+country_event = { # DKP-Zentrum Reichskanzler?
+	id = gerdom.30
+	title = gerdom.30.t
+	desc = gerdom.30.d
+	picture = GFX_report_event_GER_reichstag
+	is_triggered_only = yes
+
+	option = { # von Papen is doing a good job
+		log = "[GetLogInfo]: event gerdom.30 option gerdom.30.a"
+		name = gerdom.30.a
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = GER_path option = GER_PATH_PATAUT }
+			}
+		}
+		add_political_power = 60
+	}
+
+	option = { # Time to replace him
+		log = "[GetLogInfo]: event gerdom.30 option gerdom.30.b"
+		name = gerdom.30.b
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = GER_path option = GER_PATH_PATAUT }
+			}
+		}
+		add_political_power = 20
+		set_temp_variable = { coalition_partner_var = token:social_conservative }
+		add_to_coalition = yes
+		activate_advisor = GER_heinrich_bruning_sic
+	}
+
+	option = { # Kurt von Schleicher
+		log = "[GetLogInfo]: event gerdom.30 option gerdom.30.c"
+		name = gerdom.30.c
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = GER_path option = GER_PATH_AUTDEM }
+			}
+		}
+		add_political_power = -100
+		hidden_effect = {
+			set_party_name = {
+				ideology = paternal_autocrat
+				long_name = GER_KAI_paternal_autocrat_party_long
+				name = GER_KAI_paternal_autocrat_party
+			}
+		}
+		set_politics = {
+			ruling_party = paternal_autocrat
+			election_frequency = 60
+			elections_allowed = yes
+		}
+		activate_advisor = GER_kurt_von_schleicher_sic
+	}
+}
+
+country_event = { # Elections cancelled
+	id = gerdom.32
+	title = gerdom.32.t
+	desc = gerdom.32.d
+	picture = GFX_report_event_GER_reichstag2
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		tag = GER
+		date > 1937.1.1
+		date < 1938.1.1
+		has_war_with = FRA
+		NOT = {
+			has_completed_focus = GER_schleichers_kamarilla
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.32 option gerdom.32.a"
+		name = gerdom.32.a
+		add_political_power = -20
+		set_country_flag = GER_1937_elections_cancelled
+	}
+}
+
+country_event = { # 1942 elections
+	id = gerdom.33
+	title = gerdom.33.t
+	desc = gerdom.33.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		tag = GER
+		date > 1942.1.1
+		date < 1943.1.1
+		NOT = {
+			has_war_with = FRA
+			has_country_flag = GER_1942_elections_cancelled
+			has_completed_focus = GER_schleichers_kamarilla
+		}
+	}
+
+	option = { # SPD-Realist FVP
+		log = "[GetLogInfo]: event gerdom.33 option gerdom.33.a"
+		name = gerdom.33.a
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = GER_path option = GER_PATH_MARLIB }
+					has_game_rule = { rule = GER_path option = GER_PATH_AUTDEM }
+				}
+			}
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.1
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.1
+		}
+		add_political_power = -20
+		if = {
+			limit = {
+				OR = {
+					has_completed_focus = GER_restore_bundesrat
+					has_completed_focus = GER_finalise_centralisation
+				}
+			}
+			set_politics = {
+				ruling_party = social_democrat
+				election_frequency = 60
+				elections_allowed = yes
+			}
+			set_temp_variable = { coalition_partner_var = token:social_liberal }
+			add_to_coalition = yes
+			activate_advisor = GER_hans_vogel_sic
+			else = {
+				country_event = { id = gerdom.34 days = 1 }
+			}
+		}
+	}
+
+	option = { # Neue große Koalition
+		log = "[GetLogInfo]: event gerdom.33 option gerdom.33.b"
+		name = gerdom.33.b
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = GER_path option = GER_PATH_SOCDEM }
+					has_game_rule = { rule = GER_path option = GER_PATH_AUTDEM }
+				}
+			}
+		}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.2
+		}
+		add_political_power = 40
+		if = {
+			limit = {
+				OR = {
+					has_completed_focus = GER_restore_bundesrat
+					has_completed_focus = GER_finalise_centralisation
+				}
+			}
+			set_politics = {
+				ruling_party = market_liberal
+				election_frequency = 60
+				elections_allowed = yes
+			}
+			set_temp_variable = { coalition_partner_var = token:social_liberal }
+			add_to_coalition = yes
+			activate_advisor = GER_paul_von_lettow_vorbeck_sic
+			else = {
+				country_event = { id = gerdom.35 days = 1 }
+			}
+		}
+	}
+
+	option = { # DKP-Zentrum
+		log = "[GetLogInfo]: event gerdom.33 option gerdom.33.c"
+		name = gerdom.33.c
+		ai_chance = {
+			base = 35
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = GER_path option = GER_PATH_SOCDEM }
+					has_game_rule = { rule = GER_path option = GER_PATH_MARLIB }
+				}
+			}
+		}
+		add_political_power = 50
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.1
+		}
+
+		if = {
+			limit = {
+				OR = {
+					has_completed_focus = GER_restore_bundesrat
+					has_completed_focus = GER_finalise_centralisation
+				}
+			}
+			set_politics = {
+				ruling_party = authoritarian_democrat
+				election_frequency = 60
+				elections_allowed = yes
+			}
+			else = {
+				country_event = { id = gerdom.36 days = 1 }
+			}
+		}
+	}
+}
+
+country_event = { # SPD-FVP Reichskanzler?
+	id = gerdom.34
+	title = gerdom.34.t
+	desc = gerdom.34.d
+	picture = GFX_report_event_GER_reichstag
+
+	is_triggered_only = yes
+
+	option = { # Hans Vogel
+		log = "[GetLogInfo]: event gerdom.34 option gerdom.34.a"
+		name = gerdom.34.a
+		ai_chance = { base = 65 }
+		add_political_power = 60
+		set_politics = {
+			ruling_party = social_democrat
+			election_frequency = 60
+			elections_allowed = yes
+		}
+		set_temp_variable = { coalition_partner_var = token:social_liberal }
+		add_to_coalition = yes
+		activate_advisor = GER_hans_vogel_sic
+	}
+
+	option = { # Current one is fine
+		log = "[GetLogInfo]: event gerdom.34 option gerdom.34.b"
+		name = gerdom.34.b
+		ai_chance = { base = 35 }
+		trigger = {
+			GER_hans_vogel = { is_second_in_command = no }
+		}
+		add_political_power = -40
+	}
+}
+
+country_event = { # Neue grosse Koalition Reichskanzler?
+	id = gerdom.35
+	title = gerdom.35.t
+	desc = gerdom.35.d
+	picture = GFX_report_event_GER_reichstag
+	is_triggered_only = yes
+
+	option = { # Paul von Lettow-Vorbeck
+		log = "[GetLogInfo]: event gerdom.35 option gerdom.35.a"
+		name = gerdom.35.a
+		ai_chance = { base = 40 }
+		add_political_power = 60
+		set_politics = {
+			ruling_party = market_liberal
+			election_frequency = 60
+			elections_allowed = yes
+		}
+		set_temp_variable = { coalition_partner_var = token:social_liberal }
+		add_to_coalition = yes
+		activate_advisor = GER_paul_von_lettow_vorbeck_sic
+	}
+
+	option = { # Paul von Lettow-Vorbeck, demand concessions
+		log = "[GetLogInfo]: event gerdom.35 option gerdom.35.b"
+		name = gerdom.35.b
+		ai_chance = { base = 40 }
+		add_political_power = 20
+		set_politics = {
+			ruling_party = market_liberal
+			election_frequency = 60
+			elections_allowed = yes
+		}
+		set_temp_variable = { coalition_partner_var = token:social_liberal }
+		add_to_coalition = yes
+		activate_advisor = GER_paul_von_lettow_vorbeck_sic
+	}
+
+	option = { # Current one is fine
+		log = "[GetLogInfo]: event gerdom.35 option gerdom.35.c"
+		name = gerdom.35.c
+		ai_chance = { base = 20 }
+		trigger = {
+			GER_paul_von_lettow_vorbeck = { is_second_in_command = no }
+		}
+		add_political_power = -40
+	}
+}
+
+country_event = { # DKP-Zentrum Reichskanzler?
+	id = gerdom.36
+	title = gerdom.36.t
+	desc = gerdom.36.d
+	picture = GFX_report_event_GER_reichstag
+	is_triggered_only = yes
+
+	option = { # von Papen
+		log = "[GetLogInfo]: event gerdom.36 option gerdom.36.a"
+		name = gerdom.36.a
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			elections_allowed = yes
+		}
+
+		ai_chance = { base = 40 }
+		add_political_power = 60
+		activate_advisor = GER_franz_von_papen_sic
+	}
+
+	option = { # Brüning instead
+		log = "[GetLogInfo]: event gerdom.36 option gerdom.36.b"
+		name = gerdom.36.b
+
+		set_politics = {
+			ruling_party = social_conservative
+			elections_allowed = yes
+		}
+		set_temp_variable = { coalition_partner_var = token:authoritarian_democrat }
+		add_to_coalition = yes
+		ai_chance = { base = 40 }
+		add_political_power = 20
+		activate_advisor = GER_heinrich_bruning_sic
+	}
+
+	option = { # Current one is fine
+		log = "[GetLogInfo]: event gerdom.36 option gerdom.36.c"
+		name = gerdom.36.c
+		ai_chance = { base = 20 }
+		trigger = {
+			GER_franz_von_papen = { is_second_in_command = no }
+			GER_heinrich_bruning = { is_second_in_command = no }
+		}
+		add_political_power = -40
+	}
+}
+
+country_event = { # Elections cancelled
+	id = gerdom.37
+	title = gerdom.37.t
+	desc = gerdom.37.d
+	picture = GFX_report_event_GER_reichstag2
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		tag = GER
+		date > 1942.1.1
+		date < 1943.1.1
+		has_war_with = FRA
+		NOT = {
+			has_completed_focus = GER_schleichers_kamarilla
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.37 option gerdom.37.a"
+		name = gerdom.37.a
+		add_political_power = -20
+		set_country_flag = GER_1942_elections_cancelled
+	}
+}
+
+### Reichskanzler events
+
+country_event = { # The first SPD Reichskanzler is dead!
+	id = gerdom.40
+	title = gerdom.40.t
+	desc = gerdom.40.d
+	picture = GFX_report_event_GER_reichstag
+
+	trigger = {
+		GER_otto_wels = { is_second_in_command = yes }
+	}
+
+	is_triggered_only = yes
+
+	option = { # Hans Vogel
+		log = "[GetLogInfo]: event gerdom.40 option gerdom.40.a"
+		name = gerdom.40.a
+		trigger = {
+			OR = {
+				has_completed_focus = GER_restore_bundesrat
+				has_completed_focus = GER_finalise_centralisation
+			}
+		}
+		retire_character = GER_otto_wels
+		activate_advisor = GER_hans_vogel_sic
+	}
+
+	option = { # Hans Vogel
+		log = "[GetLogInfo]: event gerdom.40 option gerdom.40.b"
+		name = gerdom.40.b
+		trigger = {
+			NOT = {
+				has_completed_focus = GER_restore_bundesrat
+				has_completed_focus = GER_finalise_centralisation
+			}
+		}
+		ai_chance = { base = 30 }
+		retire_character = GER_otto_wels
+		activate_advisor = GER_hans_vogel_sic
+		add_stability = 0.04
+	}
+	option = { #Heinrich Brüning
+		log = "[GetLogInfo]: event gerdom.40 option gerdom.40.c"
+		name = gerdom.40.c
+		trigger = {
+			NOT = {
+				has_completed_focus = GER_restore_bundesrat
+				has_completed_focus = GER_finalise_centralisation
+			}
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = GER_path option = GER_PATH_SOCDEM }
+			}
+		}
+		retire_character = GER_otto_wels
+		activate_advisor = GER_heinrich_bruning_sic
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.1
+		}
+		add_stability = -0.04
+
+		set_politics = {
+			ruling_party = social_conservative
+			election_frequency = 60
+			elections_allowed = yes
+		}
+	}
+	option = { #Von Papen
+		log = "[GetLogInfo]: event gerdom.40 option gerdom.40.e"
+		name = gerdom.40.e
+		trigger = {
+			NOT = {
+				has_completed_focus = GER_restore_bundesrat
+				has_completed_focus = GER_finalise_centralisation
+			}
+		}
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = GER_path option = GER_PATH_SOCDEM }
+			}
+		}
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			election_frequency = 60
+			elections_allowed = yes
+		}
+		retire_character = GER_otto_wels
+		activate_advisor = GER_franz_von_papen_sic
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.1
+		}
+		add_stability = -0.10
+	}
+	option = { #Kurt von Schleicher
+		log = "[GetLogInfo]: event gerdom.40 option gerdom.40.f"
+		name = gerdom.40.f
+		trigger = {
+			NOT = {
+				has_completed_focus = GER_restore_bundesrat
+				has_completed_focus = GER_finalise_centralisation
+			}
+		}
+		ai_chance = {
+			base = 45
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = GER_path option = GER_PATH_SOCDEM }
+			}
+		}
+		set_politics = {
+			ruling_party = paternal_autocrat
+			election_frequency = 60
+			elections_allowed = yes
+		}
+		hidden_effect = {
+			set_party_name = {
+				ideology = paternal_autocrat
+				long_name = GER_KAI_paternal_autocrat_party_long
+				name = GER_KAI_paternal_autocrat_party
+			}
+		}
+		retire_character = GER_otto_wels
+		activate_advisor = GER_kurt_von_schleicher_sic
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.1
+		}
+		add_stability = -0.12
+	}
+}
+
+country_event = { #Otto Wels dies
+	id = gerdom.41
+	title = gerdom.41.t
+	desc = gerdom.41.d
+	picture = GFX_report_event_europe_funeral
+
+	trigger = {
+		GER_otto_wels = { is_second_in_command = no }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.41 option gerdom.41.a"
+		name = gerdom.41.a
+		retire_character = GER_otto_wels
+	}
+}
+
+country_event = { # Crown Prince given army command
+	id = gerdom.42
+	title = gerdom.42.t
+	desc = gerdom.42.d
+	picture = GFX_report_event_GER_remove_france
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_country_leader = { character = GER_wilhelm_iii } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.42 option gerdom.42.a"
+		name = gerdom.42.a
+		add_war_support = 0.02
+		show_unit_leaders_tooltip = GER_wilhelm_iii #TODO: revert when bug with country_leader variable is fixed
+		GER_wilhelm_iii = { set_character_flag = show_unit_leader_role }
+		hidden_effect = {
+			country_event = { id = gerdom.44 days = 15 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event gerdom.42 option gerdom.42.b"
+		name = gerdom.42.b
+	}
+}
+
+country_event = { #Relations with Italy
+	id = gerdom.43
+	title = gerdom.43.t
+	desc = gerdom.43.d
+	picture = GFX_report_event_PAP_vatican
+
+	trigger = {
+		GER_heinrich_bruning = { is_second_in_command = yes }
+	}
+
+	is_triggered_only = yes
+
+	option = { #cordial
+		log = "[GetLogInfo]: event gerdom.43 option gerdom.43.a"
+		name = gerdom.43.a
+		ai_chance = { base = 35 }
+		add_opinion_modifier = {
+			target = PAP
+			modifier = ITA_COR
+		}
+	}
+	option = { #pope
+		log = "[GetLogInfo]: event gerdom.43 option gerdom.43.b"
+		name = gerdom.43.b
+		ai_chance = { base = 35 }
+		add_opinion_modifier = {
+			target = PAP
+			modifier = ITA_SUP
+		}
+		add_political_power = -20
+	}
+	option = { #support
+		log = "[GetLogInfo]: event gerdom.43 option gerdom.43.c"
+		name = gerdom.43.c
+		ai_chance = { base = 30 }
+		add_opinion_modifier = {
+			target = PAP
+			modifier = ITA_SUP
+		}
+		add_political_power = -70
+		52 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+}
+
+country_event = { # King Rupprecht given army command
+	id = gerdom.44
+	title = gerdom.44.t
+	desc = gerdom.44.d
+	picture = GFX_report_event_GER_remove_france
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.44 option gerdom.42.a"
+		name = gerdom.42.a
+		add_war_support = 0.02
+		show_unit_leaders_tooltip = GER_rupprecht_von_bayern #TODO: revert when bug with country_leader variable is fixed
+		GER_rupprecht_von_bayern = { set_character_flag = show_unit_leader_role }
+	}
+}
+
+country_event = { #hidden event to trigger Wilhelm's death even if GER is dead
+	id = gerdom.4700
+
+	hidden = yes
+	fire_only_once = yes
+
+	trigger = {
+		tag = 64.owner #this needs to be a MTTH due to the variance in GER scenarios
+		date > 1941.6.4
+	}
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.4700 option 1"
+		if = {
+			limit = { has_character = GER_wilhelm_ii }
+			country_event = gerdom.47
+			news_event = { id = worldnews.235 days = 1 }
+		}
+		else_if = {
+			limit = {
+				country_exists = MAF
+				MAF = { has_character = GER_wilhelm_ii }
+			}
+			MAF = {
+				country_event = gerdom.47
+				news_event = { id = worldnews.235 days = 1 }
+			}
+		}
+		else = {
+			GER_wilhelm_ii_dies = yes
+		}
+	}
+}
+
+country_event = { #Death of Wilhelm II
+	id = gerdom.47
+	title = gerdom.47.t
+	desc = {
+		text = gerdom.47.d_GER
+		trigger = {
+			tag = GER
+		}
+	}
+	desc = {
+		text = gerdom.47.d_GEX
+		trigger = {
+			tag = MAF
+		}
+	}
+	picture = GFX_report_event_GER_willy_dead
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.47 option gerdom.47.a"
+		name = gerdom.47.a
+		GER_wilhelm_ii_dies = yes
+		country_event = { id = gerdom.84 days = 5 }
+	}
+}
+
+country_event = { # ban parties
+	id = gerdom.51
+	title = gerdom.51.t
+	desc = gerdom.51.d
+	picture = GFX_report_event_GER_two_years_later
+	fire_only_once = yes
+
+	trigger = {
+		tag = GER
+		has_war_with = FRA
+		OR = {
+			GER_franz_von_papen = { is_second_in_command = yes }
+			GER_kurt_von_schleicher = { is_second_in_command = yes }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 30
+	}
+
+	option = { #ban
+		log = "[GetLogInfo]: event gerdom.51 option gerdom.51.a"
+		name = gerdom.51.a
+		ai_chance = {
+			base = 70
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = GER_path option = GER_PATH_SOCDEM }
+			}
+		}
+		add_political_power = -30
+		if = {
+			limit = {
+				has_government = social_democrat
+			}
+			set_politics = {
+				ruling_party = authoritarian_democrat
+				election_frequency = 60
+				elections_allowed = yes
+			}
+		}
+	}
+	option = { #allow
+		log = "[GetLogInfo]: event gerdom.51 option gerdom.51.b"
+		name = gerdom.51.b
+		ai_chance = { base = 30 }
+		add_war_support = -0.02
+	}
+}
+
+### FAUD
+
+country_event = { # The Free Workers Union of Germany
+	id = gerdom.52
+	title = gerdom.52.t
+	desc = gerdom.52.d
+	picture = GFX_report_event_generic_workers
+
+	trigger = {
+		NOT = {
+			has_global_flag = GER_SYNDIE_SWF
+			has_global_flag = GER_SYNDIE_CSA
+			has_global_flag = GER_SYNDIE_RUS
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = { # Ban
+		log = "[GetLogInfo]: event gerdom.52 option gerdom.52.a"
+		name = gerdom.52.a
+		ai_chance = { base = 65 }
+		set_country_flag = FAUD_ban
+		add_political_power = -100
+		FRA = {
+			country_event = { id = gerdom.53 days = 7 }
+		}
+		custom_effect_tooltip = FAUD_ban1
+		hidden_effect = {
+			country_event = { id = gerdom.54 days = 30 }
+		}
+	}
+
+	option = { # Allow
+		log = "[GetLogInfo]: event gerdom.52 option gerdom.52.b"
+		name = gerdom.52.b
+		ai_chance = { base = 25 }
+		add_political_power = -150
+		custom_effect_tooltip = FAUD_allow1
+	}
+}
+
+country_event = { #Germany bans the FAUD
+	id = gerdom.53
+	title = gerdom.53.t
+	desc = gerdom.53.d
+	is_triggered_only = yes
+	option = { #peace
+		log = "[GetLogInfo]: event gerdom.53 option gerdom.53.a"
+		name = gerdom.53.a
+		ai_chance = { base = 30 }
+	}
+	option = { #war
+		log = "[GetLogInfo]: event gerdom.53 option gerdom.53.b"
+		name = gerdom.53.b
+		ai_chance = {
+			base = 70
+			modifier = {
+				factor = 0
+				date < 1939.6.1
+				has_game_rule = { rule = wk2_begin_options option = RESTRICTED }
+			}
+			modifier = {
+				factor = 0.2
+				date < 1939.6.1
+				has_game_rule = { rule = wk2_begin_options option = RARE }
+			}
+		}
+		declare_war_on = {
+			target = GER
+			type = annex_everything
+		}
+	}
+}
+
+country_event = { #Unrest in the Rhineland
+	id = gerdom.54
+	title = gerdom.54.t
+	desc = gerdom.54.d
+	picture = GFX_report_event_GER_Blackweekover
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.54 option gerdom.54.a"
+		name = gerdom.54.a
+		add_political_power = -25
+		add_ideas = GER_rhineland_workers_strike
+		FRA = {
+			country_event = { id = gerdom.55 days = 7 }
+		}
+	}
+}
+
+country_event = { #Worker's Unrest in the Rhineland
+	id = gerdom.55
+	title = gerdom.55.t
+	desc = gerdom.55.d
+	picture = GFX_report_event_GER_Blackweekover
+	is_triggered_only = yes
+	option = { #help
+		log = "[GetLogInfo]: event gerdom.55 option gerdom.55.a"
+		name = gerdom.55.a
+		ai_chance = { base = 10 }
+		add_manpower = -1000
+		GER = {
+			country_event = { id = gerdom.56 days = 10 }
+		}
+	}
+	option = { #no help
+		log = "[GetLogInfo]: event gerdom.55 option gerdom.55.b"
+		name = gerdom.55.b
+		ai_chance = { base = 90 }
+		add_political_power = -40
+		GER = {
+			country_event = { id = gerdom.57 days = 50 }
+		}
+	}
+}
+country_event = { #General Strike in the Rhineland
+	id = gerdom.56
+	title = gerdom.56.t
+	desc = gerdom.56.d
+	picture = GFX_report_event_generic_strike
+	is_triggered_only = yes
+	option = { #suppress
+		log = "[GetLogInfo]: event gerdom.56 option gerdom.56.a"
+		name = gerdom.56.a
+		ai_chance = { base = 10 }
+		add_political_power = -100
+		country_event = { id = gerdom.60 days = 40 }
+		add_ideas = GER_rhineland_workers_suppressed
+	}
+	option = { #negotiation
+		log = "[GetLogInfo]: event gerdom.56 option gerdom.56.b"
+		name = gerdom.56.b
+		ai_chance = { base = 90 }
+		add_political_power = 40
+		country_event = { id = gerdom.58 days = 5 }
+	}
+}
+
+country_event = { #The Rhineland Strikers Cave In
+	id = gerdom.57
+	title = gerdom.57.t
+	desc = gerdom.57.d
+	picture = GFX_report_event_generic_strike
+	is_triggered_only = yes
+	option = {
+		log = "[GetLogInfo]: event gerdom.57 option gerdom.57.a"
+		name = gerdom.57.a
+		add_political_power = 25
+		remove_ideas = GER_rhineland_workers_strike
+	}
+}
+country_event = { #Negotiating with the strikers
+	id = gerdom.58
+	title = gerdom.58.t
+	desc = gerdom.58.d
+	picture = GFX_report_event_generic_diplomacy2
+	is_triggered_only = yes
+	option = { #crush
+		log = "[GetLogInfo]: event gerdom.58 option gerdom.58.a"
+		name = gerdom.58.a
+		ai_chance = { base = 40 }
+		country_event = { id = gerdom.60 days = 40 }
+		add_ideas = GER_rhineland_workers_suppressed
+		add_political_power = -50
+	}
+	option = { #partial
+		log = "[GetLogInfo]: event gerdom.58 option gerdom.58.b"
+		name = gerdom.58.b
+		ai_chance = { base = 50 }
+		add_political_power = -25
+		add_timed_idea = {
+			idea = GER_strike_negot
+			days = 60
+		}
+		country_event = { id = gerdom.59 days = 3 }
+	}
+	option = { #full
+		log = "[GetLogInfo]: event gerdom.58 option gerdom.58.c"
+		name = gerdom.58.c
+		ai_chance = { base = 10 }
+		add_political_power = 20
+		add_timed_idea = {
+			idea = GER_strike_negot
+			days = 120
+		}
+		country_event = { id = gerdom.59 days = 3 }
+	}
+}
+country_event = { #factories return to work
+	id = gerdom.59
+	title = gerdom.59.t
+	desc = gerdom.59.d
+	picture = GFX_report_event_generic_economic_policy
+	is_triggered_only = yes
+	option = {
+		log = "[GetLogInfo]: event gerdom.59 option gerdom.59.a"
+		name = gerdom.59.a
+		remove_ideas = GER_rhineland_workers_strike
+		country_event = { id = gerdom.61 days = 7 }
+	}
+}
+country_event = { #factories return to work
+	id = gerdom.60
+	title = gerdom.60.t
+	desc = gerdom.60.d
+	picture = GFX_report_event_generic_economic_policy
+	is_triggered_only = yes
+	option = {
+		log = "[GetLogInfo]: event gerdom.60 option gerdom.60.a"
+		name = gerdom.60.a
+		remove_ideas = GER_rhineland_workers_strike
+		country_event = { id = gerdom.61 days = 7 }
+	}
+}
+
+country_event = { #Syndicalist Involvement in the General Strike
+	id = gerdom.61
+	title = gerdom.61.t
+	desc = gerdom.61.d
+	picture = GFX_report_event_GER_reichstag
+	is_triggered_only = yes
+	option = { #smash france
+		log = "[GetLogInfo]: event gerdom.61 option gerdom.61.a"
+		name = gerdom.61.a
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0.25
+				date < 1939.6.1
+				has_game_rule = { rule = wk2_begin_options option = RARE }
+			}
+			modifier = {
+				factor = 0
+				date < 1939.6.1
+				has_game_rule = { rule = wk2_begin_options option = RESTRICTED }
+			}
+		}
+		add_political_power = -50
+		declare_war_on = {
+			target = FRA
+			type = annex_everything
+		}
+	}
+	option = { #not that
+		log = "[GetLogInfo]: event gerdom.61 option gerdom.61.b"
+		name = gerdom.61.b
+		ai_chance = { base = 50 }
+		add_political_power = -90
+	}
+}
+
+### Stuff
+
+country_event = { #coronation of wilhelm III
+	id = gerdom.84
+	title = gerdom.84.t
+	desc = gerdom.84.d
+	picture = GFX_report_event_GER_coronation
+	is_triggered_only = yes
+	option = {
+		log = "[GetLogInfo]: event gerdom.84 option gerdom.84.a"
+		name = gerdom.84.a
+		add_political_power = 30
+	}
+}
+
+country_event = { #Germany bans french organisations
+	id = gerdom.85
+	title = gerdom.85.t
+	desc = gerdom.85.d
+	picture = GFX_report_event_GER_hungry_people
+	is_triggered_only = yes
+	option = {
+		log = "[GetLogInfo]: event gerdom.85 option gerdom.85.a"
+		name = gerdom.85.a
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+				date < 1939.6.1
+				has_game_rule = { rule = wk2_begin_options option = RESTRICTED }
+			}
+			modifier = {
+				factor = 0.25
+				date < 1939.6.1
+				has_game_rule = { rule = wk2_begin_options option = RARE }
+			}
+		}
+		declare_war_on = {
+			target = GER
+			type = annex_everything
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event gerdom.85 option gerdom.85.b"
+		name = gerdom.85.b
+		ai_chance = { base = 50 }
+		GER = {
+			set_country_flag = french_support
+		}
+		add_manpower = -1000
+		add_political_power = 20
+	}
+	option = {
+		log = "[GetLogInfo]: event gerdom.85 option gerdom.85.c"
+		name = gerdom.85.c
+		ai_chance = { base = 20 }
+		GER = {
+			country_event = { id = gerdom.86 days = 3 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event gerdom.85 option gerdom.85.e"
+		name = gerdom.85.e
+		ai_chance = { base = 1 }
+		add_political_power = -80
+	}
+}
+
+country_event = { #International community condemns us!
+	id = gerdom.86
+	title = gerdom.86.t
+	desc = gerdom.86.d
+	picture = GFX_report_event_GER_reichstag
+	is_triggered_only = yes
+	option = {
+		log = "[GetLogInfo]: event gerdom.86 option gerdom.86.a"
+		name = gerdom.86.a
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				date < 1939.6.1
+				has_game_rule = { rule = wk2_begin_options option = RESTRICTED }
+			}
+			modifier = {
+				factor = 0.25
+				date < 1939.6.1
+				has_game_rule = { rule = wk2_begin_options option = RARE }
+			}
+		}
+		declare_war_on = {
+			target = FRA
+			type = annex_everything
+		}
+		every_country = {
+			limit = {
+				exists = yes
+				OR = {
+					tag = HOL
+					tag = BEL
+					tag = AUS
+					tag = CZE
+					tag = POL
+					tag = LIT
+					tag = BAT
+					tag = RUS
+					tag = SOV
+				}
+			}
+			add_opinion_modifier = { target = ROOT modifier = condem }
+		}
+		add_political_power = -150
+	}
+	option = {
+		log = "[GetLogInfo]: event gerdom.86 option gerdom.86.b"
+		name = gerdom.86.b
+		ai_chance = { base = 70 }
+		every_country = {
+			limit = {
+				exists = yes
+				OR = {
+					tag = HOL
+					tag = BEL
+					tag = AUS
+					tag = CZE
+					tag = POL
+					tag = LIT
+					tag = BAT
+					tag = RUS
+					tag = SOV
+				}
+			}
+			add_opinion_modifier = { target = ROOT modifier = condem }
+		}
+		add_political_power = -30
+	}
+	option = {
+		log = "[GetLogInfo]: event gerdom.86 option gerdom.86.c"
+		name = gerdom.86.c
+		ai_chance = { base = 70 }
+		clr_country_flag = surpress_french
+	}
+}
+
+country_event = { #military mission arrives - triggered by Germany_Foreign event
+	id = gerdom.91
+	title = gerdom.91.t
+	desc = gerdom.91.d
+	picture = GFX_report_event_GER_march
+	is_triggered_only = yes
+	option = {
+		log = "[GetLogInfo]: event gerdom.91 option gerdom.91.a"
+		name = gerdom.91.a
+		add_ideas = GER_mil_mis
+		add_manpower = 200
+		army_experience = 50
+	}
+}
+
+country_event = { # The Great Crusade
+	id = gerdom.101
+	title = gerdom.101.t
+	desc = gerdom.101.d
+	picture = GFX_report_event_GER_remove_france
+
+	trigger = {
+		has_war_with = FRA
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.101 option gerdom.101.a"
+		name = gerdom.101.a
+		add_political_power = 100
+		add_manpower = 100000
+	}
+}
+
+### Improve Security Chain
+
+country_event = { #Germany Suppresses its French Population!
+	id = gerdom.105
+	title = gerdom.105.t
+	desc = gerdom.105.d
+	picture = GFX_report_event_GER_cons
+	is_triggered_only = yes
+	option = {
+		log = "[GetLogInfo]: event gerdom.105 option gerdom.105.a"
+		name = gerdom.105.a
+		add_political_power = 20
+		add_manpower = 5000
+	}
+}
+country_event = { #Further increasing our internal security
+	id = gerdom.106
+	title = gerdom.106.t
+	desc = gerdom.106.d
+	picture = GFX_report_event_GER_cons
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_subject = no
+		has_country_flag = surpress_french
+		country_exists = FRA
+		FRA = {
+			NOT = { has_war_with = GER }
+		}
+	}
+
+	option = { #Current security measures are sufficient!
+		log = "[GetLogInfo]: event gerdom.106 option gerdom.106.a"
+		name = gerdom.106.a
+		ai_chance = { base = 30 }
+		add_political_power = -20
+	}
+
+	option = { #It's the time to ban all French organisations in Germany!
+		log = "[GetLogInfo]: event gerdom.106 option gerdom.106.b"
+		name = gerdom.106.b
+		ai_chance = { base = 50 }
+		add_political_power = -40
+		FRA = {
+			country_event = { id = gerdom.85 days = 1 }
+		}
+	}
+
+	option = { #This plan was madness from the beginning, abandon it....
+		log = "[GetLogInfo]: event gerdom.106 option gerdom.106.c"
+		name = gerdom.106.c
+		ai_chance = { base = 20 }
+		add_political_power = -40
+		clr_country_flag = surpress_french
+	}
+}
+
+### Syndicalist volunteers from the Rhineland
+
+# Rhenish Syndicalists are going abroad
+country_event = {
+	id = gerdom.200
+	title = gerdom.200.t
+	desc = gerdom.200.d
+	picture = GFX_report_event_GER_bertolt_brecht
+
+	trigger = {
+		tag = GER
+		OR = {
+			AND = { # America
+				country_exists = CSA
+				american_civil_war = yes
+			}
+			AND = { # Soviets
+				country_exists = SOV
+				russian_civil_war = yes
+			}
+			AND = { # Spain
+				country_exists = SWF
+				spanish_civil_war = yes
+			}
+		}
+		has_war = no
+		has_socialist_government = no
+	}
+
+	mean_time_to_happen = {
+		months = 5
+	}
+
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.200 option gerdom.200.aa"
+		name = gerdom.200.aa
+		ai_chance = { base = 70 }
+		trigger = {
+			american_civil_war = yes
+			country_exists = CSA
+		}
+		hidden_effect = {
+			CSA = {
+				country_event = { id = gerdom.201 days = 10 }
+			}
+		}
+		set_global_flag = GER_SYNDIE_CSA
+		add_political_power = 20
+		hidden_effect = {
+			country_event = { id = gerdom.205 days = 30 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.200 option gerdom.200.ad"
+		name = gerdom.200.ad
+		ai_chance = { base = 70 }
+		trigger = {
+			russian_civil_war = yes
+			country_exists = SOV
+		}
+		SOV = {
+			country_event = { id = gerdom.203 days = 10 }
+		}
+		set_global_flag = GER_SYNDIE_RUS
+		add_political_power = 20
+		hidden_effect = {
+			country_event = { id = gerdom.205 days = 30 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.200 option gerdom.200.ae"
+		name = gerdom.200.ae
+		ai_chance = { base = 70 }
+		trigger = {
+			has_global_flag = spanish_civil_war
+			country_exists = SWF
+		}
+		SWF = {
+			country_event = { id = gerdom.204 days = 10 }
+		}
+		set_global_flag = GER_SYNDIE_SWF
+		add_political_power = 20
+		hidden_effect = {
+			country_event = { id = gerdom.205 days = 30 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.200 option gerdom.200.af"
+		name = gerdom.200.af
+		ai_chance = { base = 30 }
+		add_political_power = -60
+	}
+}
+
+# German volunteers arrive in America
+
+country_event = {
+	id = gerdom.201
+	title = gerdom.201.t
+	desc = gerdom.201.d
+	picture = GFX_report_event_GER_syndie_volunteers
+
+	trigger = {
+		NOT = { has_global_flag = USA_civil_war_over_flag }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.201 option gerdom.201.a"
+		name = gerdom.201.a
+		add_manpower = 10000
+		GER_spawn_volunteer_divisions = yes
+	}
+}
+
+# gerdom.202 removed
+
+# German volunteers arrive in Russia
+
+country_event = {
+	id = gerdom.203
+	title = gerdom.203.t
+	desc = gerdom.203.d
+	picture = GFX_report_event_GER_syndie_volunteers
+
+	trigger = {
+		has_war_with = RUS
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.203 option gerdom.203.a"
+		name = gerdom.203.a
+		add_manpower = 10000
+		GER_spawn_volunteer_divisions = yes
+	}
+}
+
+# German volunteers arrive in Spain
+
+country_event = {
+	id = gerdom.204
+	title = gerdom.204.t
+	desc = gerdom.204.d
+	picture = GFX_report_event_GER_syndie_volunteers
+
+	trigger = {
+		has_civil_war = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.204 option gerdom.204.a"
+		name = gerdom.204.a
+		add_manpower = 10000
+		GER_spawn_volunteer_divisions = yes
+	}
+}
+
+# The Rhineland is silent
+
+country_event = {
+	id = gerdom.205
+	title = gerdom.205.t
+	desc = gerdom.205.d
+	picture = GFX_report_event_GER_syndie_volunteers
+	is_triggered_only = yes
+
+	trigger = {
+		has_war = no
+	}
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.205 option gerdom.205.a"
+		name = gerdom.205.a
+		add_political_power = 40
+	}
+}
+
+# Volunteers try to return
+
+country_event = {
+	id = gerdom.206
+	title = gerdom.206.t
+	desc = gerdom.206.d
+	picture = GFX_report_event_GER_syndie_volunteers
+
+	trigger = {
+		OR = {
+			AND = {
+				has_global_flag = GER_SYNDIE_CSA
+				NOT = { country_exists = CSA }
+			}
+			AND = {
+				has_global_flag = GER_SYNDIE_SWF
+				NOT = { country_exists = SWF }
+			}
+			AND = {
+				has_global_flag = GER_SYNDIE_RUS
+				NOT = { country_exists = SOV }
+			}
+		}
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.206 option gerdom.206.a"
+		name = gerdom.206.a
+		ai_chance = { base = 0 }
+		add_political_power = -40
+		add_manpower = 2500
+		army_experience = 10
+		clr_global_flag = GER_SYNDIE_SWF
+		clr_global_flag = GER_SYNDIE_CSA
+		clr_global_flag = GER_SYNDIE_RUS
+	}
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.206 option gerdom.206.b"
+		name = gerdom.206.b
+		ai_chance = { base = 0 }
+		add_political_power = -20
+		clr_global_flag = GER_SYNDIE_SWF
+		clr_global_flag = GER_SYNDIE_CSA
+		clr_global_flag = GER_SYNDIE_RUS
+	}
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.206 option gerdom.206.c"
+		name = gerdom.206.c
+		clr_global_flag = GER_SYNDIE_SWF
+		clr_global_flag = GER_SYNDIE_CSA
+		clr_global_flag = GER_SYNDIE_RUS
+		hidden_effect = {
+			INT = {
+				country_event = { id = gerdom.209 days = 20 random_days = 60 }
+			}
+		}
+	}
+}
+
+# The International Brigades offer their service to the International
+
+country_event = {
+	id = gerdom.209
+	title = gerdom.209.t
+	desc = gerdom.209.d
+	picture = GFX_report_event_GER_syndie_volunteers
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.209 option gerdom.209.a"
+		name = gerdom.209.a
+		add_political_power = 20
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = -500
+		}
+		division_template = {
+			name = "German Militia Division"
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 1 y = 2 }
+				infantry = { x = 2 y = 0 }
+				infantry = { x = 2 y = 1 }
+				infantry = { x = 2 y = 2 }
+			}
+			support = {
+				engineer = { x = 0 y = 0 }
+			}
+		}
+		random_owned_controlled_state = {
+			limit = { valid_state_for_spawning_friendly_unit = yes }
+			create_unit = {
+				division = "name = \"I. International Division\" division_template = \"German Militia Division\" start_experience_factor = 0.2 start_equipment_factor = 0.8"
+				owner = PREV
+			}
+			create_unit = {
+				division = "name = \"II. International Division\" division_template = \"German Militia Division\" start_experience_factor = 0.2 start_equipment_factor = 0.8"
+				owner = PREV
+			}
+		}
+		custom_effect_tooltip = GER_angry_socialists
+	}
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.209 option gerdom.209.b"
+		name = gerdom.209.b
+		ai_chance = { base = 0 }
+		add_political_power = -40
+	}
+}
+
+country_event = { # resetting elections
+	id = gerdom.210
+	trigger = {
+		tag = GER
+		has_war = no
+		OR = {
+			has_country_flag = GER_1937_elections_cancelled
+			has_country_flag = GER_1942_elections_cancelled
+		}
+	}
+
+	fire_only_once = yes
+	hidden = yes
+	option = {
+		log = "[GetLogInfo]: event gerdom.210 option 1"
+		clr_country_flag = GER_1937_elections_cancelled
+		clr_country_flag = GER_1942_elections_cancelled
+	}
+}
+
+country_event = { #Germany Increases Support for Mitteleuropa
+	id = gerdom.300
+	title = gerdom.300.t
+	desc = gerdom.300.d
+	picture = GFX_report_event_GER_march
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event gerdom.300 option gerdom.300.a"
+		name = gerdom.300.a
+		add_ideas = GER_paul_lejeune_jung_effect
+	}
+}
+
+### Flavour Events ###
+
+# Sedan Day
+country_event = {
+	id = gerfla.1
+	title = gerfla.1.t
+	desc = gerfla.1.d
+	picture = GFX_report_event_GER_sedan
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event gerfla.1 option gerfla.1.a"
+		name = gerfla.1.a
+		add_political_power = 10
+		hidden_effect = {
+			country_event = { id = gerfla.1 days = 365 }
+		}
+	}
+}
+
+### Luise Hoffmann
+
+# Trans-pacific flight
+news_event = {
+	id = gerfla.2
+	immediate = { log = "[GetLogInfo]: event gerfla.2" }
+	title = gerfla.2.t
+	desc = gerfla.2.d
+	picture = GFX_news_event_GER_hoffmann
+
+	is_triggered_only = yes
+
+	option = {
+		name = gerfla.2.a
+	}
+}
+
+# Begin
+news_event = {
+	id = gerfla.3
+	immediate = { log = "[GetLogInfo]: event gerfla.3" }
+	title = gerfla.3.t
+	desc = gerfla.3.d
+	picture = GFX_news_event_GER_hoffmann_richthofen
+
+	trigger = {
+		965 = {
+			controller = { is_ally_with = GER }
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = gerfla.3.a
+		hidden_effect = {
+			random_list = {
+				50 = {
+					GER = {
+						news_event = {
+							id = gerfla.4
+							days = 4
+						}
+					}
+				}
+				50 = {
+					GER = {
+						news_event = {
+							id = gerfla.5
+							days = 4
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# Hoffmann wins
+news_event = {
+	id = gerfla.4
+	immediate = { log = "[GetLogInfo]: event gerfla.4" }
+	title = gerfla.4.t
+	desc = gerfla.4.d
+	picture = GFX_news_event_GER_hoffmann_richthofen
+
+	is_triggered_only = yes
+
+	option = {
+		name = gerfla.4.a
+		set_country_flag = GER_hoffmann_wins
+		custom_effect_tooltip = GER_women_suffrage_tp
+	}
+}
+
+# Richthofen wins
+
+news_event = {
+	id = gerfla.5
+	immediate = { log = "[GetLogInfo]: event gerfla.5" }
+	title = gerfla.5.t
+	desc = gerfla.5.d
+	picture = GFX_news_event_GER_hoffmann_richthofen
+
+	is_triggered_only = yes
+
+	option = {
+		name = gerfla.5.a
+	}
+}
+
+# Ludendorff dies
+
+country_event = {
+	id = gerfla.6
+	title = gerfla.6.t
+	desc = gerfla.6.d
+	picture = GFX_report_event_europe_funeral
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event gerfla.6 option gerfla.6.a"
+		name = gerfla.6.a
+	}
+}
+
+# Michaelis dies
+
+country_event = {
+	id = gerfla.7
+	title = gerfla.7.t
+	desc = gerfla.7.d
+	picture = GFX_report_event_europe_funeral
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event gerfla.7 option gerfla.7.a"
+		name = gerfla.7.a
+	}
+}
+
+# Groener dies
+
+country_event = {
+	id = gerfla.8
+	title = gerfla.8.t
+	desc = gerfla.8.d
+	picture = GFX_report_event_europe_funeral
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event gerfla.8 option gerfla.8.a"
+		name = gerfla.8.a
+		retire_character = GER_wilhelm_groener
+	}
+}
+
+# Cosmetic Change for GEX
+country_event = {
+	id = gerfla.11
+	title = gerfla.11.t
+	desc = gerfla.11.d
+	picture = GFX_report_event_german_reichstag_gathering
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = GEX
+		NOT = { has_cosmetic_tag = MAF_germany }
+		OR = {
+			64 = { is_owned_and_controlled_by = ROOT } #Brandenburg - Berlin
+			55 = { is_owned_and_controlled_by = ROOT } #Hessen - Frankfurt
+			59 = { is_owned_and_controlled_by = ROOT } #Hannover - Hamburg
+			51 = { is_owned_and_controlled_by = ROOT } #Ostrheinland - Essen
+			52 = { is_owned_and_controlled_by = ROOT } #Upper Bavaria - Munich
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 3
+	}
+
+	option = {
+		log = "[GetLogInfo]: event gerfla.11 option gerfla.11.a"
+		name = gerfla.11.a
+		remove_ideas = MAF_on_borrowed_time
+		add_political_power = 50
+		add_stability = 0.2
+		set_cosmetic_tag = MAF_germany
+		if = {
+			limit = {
+				64 = {
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+			set_capital = { state = 64 remember_old_capital = no }
+		}
+		else_if = {
+			limit = {
+				55 = {
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+			set_capital = { state = 55 remember_old_capital = no }
+		}
+		else_if = {
+			limit = {
+				59 = {
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+			set_capital = { state = 59 remember_old_capital = no }
+		}
+		else_if = {
+			limit = {
+				51 = {
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+			set_capital = { state = 51 remember_old_capital = no }
+		}
+		else = {
+			set_capital = { state = 52 remember_old_capital = no }
+		}
+		if = {
+			limit = { is_in_array = { global.african_tags_array = ROOT } }
+			remove_from_array = { global.african_tags_array = ROOT }
+			add_to_array = { global.european_tags_array = ROOT }
+		}
+		every_state = {
+			limit = {
+				is_core_of = ROOT
+				is_on_continent = africa
+			}
+			remove_core_of = ROOT
+			add_claim_by = ROOT
+		}
+	}
+}
+
+country_event = {
+	id = gerfla.12
+	title = gerfla.12.t
+	desc = gerfla.12.d
+	picture = GFX_report_event_german_reichstag_gathering
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = GEX
+		has_cosmetic_tag = MAF_germany
+		has_war = no
+		owns_state = 64
+		NOT = {
+			capital_scope = {
+				state = 64
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 3
+	}
+
+	option = {
+		log = "[GetLogInfo]: event gerfla.12 option gerfla.12.a"
+		name = gerfla.12.a
+		add_political_power = 50
+		add_stability = 0.05
+		set_capital = { state = 64 remember_old_capital = no }
+		if = {
+			limit = { is_in_array = { global.african_tags_array = GEX } }
+			remove_from_array = { global.african_tags_array = GEX }
+			add_to_array = { global.european_tags_array = GEX }
+		}
+	}
+}
+country_event = { #Germans Fund the Government
+	id = gerfla.13
+	title = gerfla.13.t
+	desc = gerfla.13.d
+	picture = GFX_report_event_POL_german_officer
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event gerfla.13 option gerfla.13.a"
+		name = gerfla.13.a
+		set_temp_variable = { POL.POL_influence_change = 10 }
+		POL_add_ruling_influence = yes
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.05
+		}
+	}
+}

@@ -1,0 +1,5036 @@
+﻿###########################
+# United Kingdom Events
+###########################
+
+add_namespace = uk
+
+#####################################
+#	The Restoration of the UK		#
+#####################################
+
+country_event = { # Liberation of the UK
+	id = uk.1
+	title = uk.1.t
+	desc = uk.1.d
+	picture = GFX_report_event_GBR_country_parliament
+
+	is_triggered_only = yes
+
+	option = { # Switch to the UK
+		log = "[GetLogInfo]: event uk.1 option uk.1.a"
+		name = uk.1.a
+		trigger = {
+			tag = CAN
+			is_ai = no
+		}
+
+		add_political_power = 200
+		custom_effect_tooltip = CAN_release_GBR
+
+		hidden_effect = {
+			random_other_country = { news_event = worldnews.185 }
+			GBR = { transfer_technology = yes }
+			CAN_create_uk_cores = yes
+			CAN_release_uk = yes
+		}
+
+		if = {
+			limit = {
+				OR = {
+					tag = ENT
+					is_in_faction_with = ENT
+				}
+			}
+			ENT = { add_to_faction = GBR }
+		}
+
+		hidden_effect = {
+			GBR = {
+				set_capital = { state = 126 remember_old_capital = no }
+				set_major = yes
+				load_oob = "GBR_naval"
+				country_event = { id = uk.3 days = 1 }
+				country_event = { id = uk.6 days = 1 }
+				CAN_setup_uk_government = yes
+				CAN_create_monarchy = yes
+				CAN_transfer_king_base = yes
+				CAN_add_returning_king = yes
+				if = {
+					limit = { is_in_faction_with = ENT }
+					add_to_tech_sharing_group = entente_research
+				}
+			}
+			if = {
+				limit = {
+					GBR = { is_in_faction_with = CAN }
+				}
+				GBR = {
+					country_event = { id = canada.302 days = 6 }
+					add_timed_idea = {
+						idea = CAN_british_arrivals
+						days = 365
+					}
+				}
+				CAN = {
+					country_event = { id = canada.300 days = 1 }
+					country_event = { id = assyria_events.30 days = 7 random_days = 21 }
+				}
+			}
+		}
+
+		if = {
+			limit = { tag = CAN }
+			every_country = {
+				limit = {
+					is_subject_of = CAN
+					is_in_north_america = no
+				}
+				get_current_government_type = yes
+				GBR = {
+					set_autonomy = {
+						target = PREV
+						autonomy_state = kr_default_puppet
+						end_wars = no
+					}
+				}
+				restore_previous_government_type = yes
+			}
+		}
+
+		if = {
+			limit = {
+				tag = CAN
+				CAN = {
+					has_full_control_of_state = 119
+				}
+			}
+			GBR = {
+				transfer_state = 119
+				add_state_core = 119
+			}
+		}
+
+		GBR = { change_tag_from = ROOT }
+	}
+	option = { # Stay as Canada
+		log = "[GetLogInfo]: event uk.1 option uk.1.b"
+		name = uk.1.b
+
+		add_political_power = 200
+		custom_effect_tooltip = CAN_release_GBR
+
+		hidden_effect = {
+			random_other_country = { news_event = worldnews.185 }
+			GBR = { transfer_technology = yes }
+			CAN_create_uk_cores = yes
+			CAN_release_uk = yes
+		}
+
+		if = {
+			limit = {
+				OR = {
+					tag = ENT
+					is_in_faction_with = ENT
+				}
+			}
+			ENT = { add_to_faction = GBR }
+		}
+
+		hidden_effect = {
+			GBR = {
+				set_capital = { state = 126 remember_old_capital = no }
+				set_major = yes
+				load_oob = "GBR_naval"
+				country_event = { id = uk.3 days = 1 }
+				country_event = { id = uk.6 days = 1 }
+				CAN_setup_uk_government = yes
+				CAN_create_monarchy = yes
+				CAN_transfer_king_base = yes
+				CAN_add_returning_king = yes
+				if = {
+					limit = { is_in_faction_with = ENT }
+					add_to_tech_sharing_group = entente_research
+				}
+			}
+			if = {
+				limit = {
+					GBR = { is_in_faction_with = CAN }
+				}
+				GBR = {
+					country_event = { id = canada.302 days = 6 }
+					add_timed_idea = {
+						idea = CAN_british_arrivals
+						days = 365
+					}
+				}
+				CAN = {
+					country_event = { id = canada.300 days = 1 }
+					country_event = { id = assyria_events.30 days = 7 random_days = 21 }
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				tag = CAN
+				is_ai = yes
+			}
+			every_country = {
+				limit = {
+					is_subject_of = CAN
+					is_in_north_america = no
+				}
+				get_current_government_type = yes
+				GBR = {
+					set_autonomy = {
+						target = PREV
+						autonomy_state = kr_default_puppet
+						end_wars = no
+					}
+				}
+				restore_previous_government_type = yes
+			}
+		}
+
+		if = {
+			limit = {
+				tag = CAN
+				CAN = {
+					has_full_control_of_state = 119
+				}
+			}
+			GBR = {
+				transfer_state = 119
+			}
+		}
+	}
+}
+
+country_event = { # The Royal Restoration
+	id = uk.3
+	title = uk.3.t
+	desc = uk.3.d
+	picture = GFX_report_event_GBR_abbey2
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			GBR_recalculate_postwar_devastation = yes
+			GBR_recalculate_legacy_revolution = yes
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uk.3 option uk.3.a"
+		name = uk.3.a
+		add_dynamic_modifier = { modifier = GBR_postwar_devastation }
+		add_dynamic_modifier = { modifier = GBR_legacy_revolution }
+		add_ideas = GBR_military_chaos_1
+		hidden_effect = {
+			every_country = {
+				limit = { has_socialist_government = yes }
+				embargo_ROOT = yes
+			}
+			country_event = { id = uk.4 days = 3 } #first Liberty Day
+		}
+	}
+}
+
+country_event = { # Liberty Day!
+	id = uk.4
+	title = uk.4.t
+	desc = uk.4.d
+	picture = GFX_report_event_GBR_abbey1
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			news_event = { id = uk.5 days = 365 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uk.4 option uk.4.a"
+		name = uk.4.a
+		add_political_power = 10
+	}
+}
+
+news_event = { # Liberty Day! (after the first)
+	id = uk.5
+	immediate = { log = "[GetLogInfo]: event uk.5" }
+	title = uk.5.t
+	desc = uk.5.d
+	picture = GFX_news_event_royal_visit
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			news_event = { id = uk.5 days = 365 }
+		}
+	}
+
+	option = {
+		name = uk.5.a
+		add_political_power = 10
+	}
+}
+
+country_event = { # The British Army
+	id = uk.6
+	title = uk.6.t
+	picture = GFX_report_event_CAN_army3
+
+	desc = {
+		text = uk.6.d.canada
+		trigger = {
+			is_in_faction_with = CAN
+		}
+	}
+	desc = {
+		text = uk.6.d.other
+		trigger = {
+			NOT = {
+				is_in_faction_with = CAN
+			}
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.6 option uk.6.a"
+		name = uk.6.a
+		custom_effect_tooltip = UK_loyaloob_tt
+		hidden_effect = {
+			GBR_add_infantry_templates = yes
+			GBR_add_cavalry_templates = yes
+
+			### ROYAL GUARDS INFANTRY ###
+			random_owned_controlled_state = {
+				prioritize = { 126 } #London
+				limit = {
+					is_core_of = ROOT
+					valid_state_for_spawning_friendly_unit = yes
+				}
+				GBR_spawn_royal_guard_infantry_division = yes
+			}
+			random_owned_controlled_state = {
+				prioritize = { 127 } #Sussex
+				limit = {
+					is_core_of = ROOT
+					valid_state_for_spawning_friendly_unit = yes
+				}
+				GBR_spawn_royal_guard_infantry_division = yes
+			}
+			random_owned_controlled_state = {
+				prioritize = { 338 } #Gloucestershire
+				limit = {
+					is_core_of = ROOT
+					valid_state_for_spawning_friendly_unit = yes
+				}
+				GBR_spawn_royal_guard_infantry_division = yes
+			}
+			random_owned_controlled_state = {
+				prioritize = { 123 } #Cornwall
+				limit = {
+					is_core_of = ROOT
+					valid_state_for_spawning_friendly_unit = yes
+				}
+				GBR_spawn_royal_guard_infantry_division = yes
+			}
+			random_owned_controlled_state = {
+				prioritize = { 125 } #East Anglia
+				limit = {
+					is_core_of = ROOT
+					valid_state_for_spawning_friendly_unit = yes
+				}
+				GBR_spawn_royal_guard_infantry_division = yes
+			}
+			random_owned_controlled_state = {
+				prioritize = { 132 } #Lancashire
+				limit = {
+					is_core_of = ROOT
+					valid_state_for_spawning_friendly_unit = yes
+				}
+				GBR_spawn_royal_guard_infantry_division = yes
+			}
+			random_owned_controlled_state = {
+				prioritize = { 131 } #Northern England
+				limit = {
+					is_core_of = ROOT
+					valid_state_for_spawning_friendly_unit = yes
+				}
+				GBR_spawn_royal_guard_infantry_division = yes
+			}
+			random_owned_controlled_state = {
+				prioritize = { 121 } #Lothian
+				limit = {
+					is_core_of = ROOT
+					valid_state_for_spawning_friendly_unit = yes
+				}
+				GBR_spawn_royal_guard_infantry_division = yes
+			}
+			random_owned_controlled_state = {
+				prioritize = { 133 } #Lanark
+				limit = {
+					is_core_of = ROOT
+					valid_state_for_spawning_friendly_unit = yes
+				}
+				GBR_spawn_royal_guard_infantry_division = yes
+			}
+			random_owned_controlled_state = {
+				prioritize = { 122 } #South Wales
+				limit = {
+					is_core_of = ROOT
+					valid_state_for_spawning_friendly_unit = yes
+				}
+				GBR_spawn_royal_guard_infantry_division = yes
+			}
+
+			### ROYAL GUARDS CAVALRY ###
+			random_owned_controlled_state = {
+				prioritize = { 129 } #East Midlands
+				limit = {
+					is_core_of = ROOT
+					valid_state_for_spawning_friendly_unit = yes
+				}
+				GBR_spawn_royal_guard_cavalry_division = yes
+			}
+			random_owned_controlled_state = {
+				prioritize = { 127 } #West Midlands
+				limit = {
+					is_core_of = ROOT
+					valid_state_for_spawning_friendly_unit = yes
+				}
+				GBR_spawn_royal_guard_cavalry_division = yes
+			}
+
+			### HOME GUARD ###
+			random_owned_controlled_state = {
+				prioritize = { 120 } #Scottish Highlands
+				limit = {
+					is_core_of = ROOT
+					valid_state_for_spawning_friendly_unit = yes
+				}
+				GBR_spawn_home_guard_division = yes
+			}
+			random_owned_controlled_state = {
+				prioritize = { 136 } #Aberdeenshire
+				limit = {
+					is_core_of = ROOT
+					valid_state_for_spawning_friendly_unit = yes
+				}
+				GBR_spawn_home_guard_division = yes
+			}
+			random_owned_controlled_state = {
+				prioritize = { 130 } #Yorkshire
+				limit = {
+					is_core_of = ROOT
+					valid_state_for_spawning_friendly_unit = yes
+				}
+				GBR_spawn_home_guard_division = yes
+			}
+			random_owned_controlled_state = {
+				prioritize = { 957 } #North Wales
+				limit = {
+					is_core_of = ROOT
+					valid_state_for_spawning_friendly_unit = yes
+				}
+				GBR_spawn_home_guard_division = yes
+			}
+			random_owned_controlled_state = {
+				prioritize = { 121 } #Lothian
+				limit = {
+					is_core_of = ROOT
+					valid_state_for_spawning_friendly_unit = yes
+				}
+				GBR_spawn_home_guard_division = yes
+			}
+			random_owned_controlled_state = {
+				prioritize = { 126 } #London
+				limit = {
+					is_core_of = ROOT
+					valid_state_for_spawning_friendly_unit = yes
+				}
+				GBR_spawn_home_guard_division = yes
+			}
+			random_owned_controlled_state = {
+				prioritize = { 132 } #Lancashire
+				limit = {
+					is_core_of = ROOT
+					valid_state_for_spawning_friendly_unit = yes
+				}
+				GBR_spawn_home_guard_division = yes
+			}
+		}
+		if = {
+			limit = { is_in_faction_with = CAN }
+			add_manpower = 200000
+			CAN = {
+				add_manpower = -100000
+				send_equipment = {
+					target = GBR
+					type = infantry_equipment
+					amount = 2500
+				}
+			}
+		}
+		ENG = {
+			ENG_ronald_scobie = { set_nationality = GBR }
+			ENG_percy_hobart = { set_nationality = GBR }
+			ENG_bernard_warburton_lee = { set_nationality = GBR }
+		}
+		CAN = {
+			every_unit_leader = {
+				limit = { has_trait = GBR_british_exile_trait }
+				remove_unit_leader_trait = GBR_british_exile_trait
+				set_nationality = GBR
+			}
+		}
+	}
+}
+
+country_event = { # Ally helping UK out
+	id = uk.7
+	title = uk.7.t
+	desc = uk.7.d
+	picture = GFX_report_event_generic_food
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.7 option uk.7.a"
+		name = uk.7.a #We can donate more!
+		trigger = { has_political_power > 50 }
+		ai_chance = {
+			base = 80
+			modifier = {
+				factor = 0
+				has_political_power < 100
+			}
+		}
+		set_variable = { GBR_help = 100 }
+		add_political_power = -50
+		GBR = { country_event = uk.8 }
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.7 option uk.7.b"
+		name = uk.7.b #This is enough
+		ai_chance = { base = 20 }
+		GBR = { country_event = uk.8 }
+	}
+}
+
+country_event = { # UK informed of help
+	id = uk.8
+	title = uk.8.t
+	picture = GFX_report_event_generic_diplomacy3
+
+	desc = {
+		text = uk.8.d
+		trigger = { check_variable = { FROM.GBR_help = 50 } }
+	}
+	desc = {
+		text = uk.8.d.more
+		trigger = { check_variable = { FROM.GBR_help = 100 } }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.8 option uk.8.a"
+		name = uk.8.a
+		add_political_power = FROM.GBR_help?50
+		FROM = { clear_variable = GBR_help }
+		add_opinion_modifier = { target = FROM modifier = KR_pleased }
+	}
+}
+
+### The British reconstruction Authority
+
+# PM announces Reconstruction Authority creation (fired by focus)
+country_event = {
+	id = uk.10
+	title = uk.10.t
+	desc = uk.10.d
+	picture = GFX_report_event_GBR_devastation
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.10 option uk.10.a"
+		name = uk.10.a
+		set_party_name = {
+			ideology = paternal_autocrat
+			name = GBR_bra_party
+			long_name = GBR_bra_party_long
+		}
+		if = {
+			limit = {
+				NOT = { has_government = paternal_autocrat }
+			}
+			set_politics = {
+				ruling_party = paternal_autocrat
+				elections_allowed = no
+			}
+		}
+		hidden_effect = {
+			country_event = { id = uk.11 days = 4 }
+		}
+	}
+}
+
+# Exiles encounter resistance
+country_event = {
+	id = uk.11
+	title = uk.11.t
+	desc = uk.11.d
+	picture = GFX_report_event_CAN_fleeing
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.11 option uk.11.a"
+		name = uk.11.a
+		hidden_effect = {
+			country_event = { id = uk.12 days = 5 }
+		}
+	}
+}
+
+# Syndicalist militia active
+country_event = {
+	id = uk.12
+	title = uk.12.t
+	desc = uk.12.d
+	picture = GFX_report_event_CSA_militia
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.12 option uk.12.a"
+		name = uk.12.a
+		hidden_effect = {
+			set_variable = { GBR_synd_unrest = 1 }
+			GBR_recalculate_syndicalist_resistance = yes
+			country_event = { id = uk.13 days = 3 random_days = 3 }
+		}
+		add_dynamic_modifier = { modifier = GBR_syndicalist_resistance }
+	}
+}
+
+# Union soldiers asking for help
+country_event = {
+	id = uk.13
+	title = uk.13.t
+	desc = uk.13.d
+	picture = GFX_report_event_NOR_black_monday_2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.13 option uk.13.a"
+		name = uk.13.a #We won't support traitors
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ELECTED_AUTDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_SOCCON }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_MARLIB }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_GAITSKELL_SOCDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ATTLEE_SOCDEM }
+				}
+			}
+		}
+		add_political_power = 50
+		add_to_variable = { GBR_synd_unrest = 2 }
+		hidden_effect = {
+			GBR_recalculate_syndicalist_resistance = yes
+			country_event = { id = uk.14 days = 5 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.13 option uk.13.b"
+		name = uk.13.b #They'll receive limited help, but no stipend
+		ai_chance = {
+			base = 35
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ELECTED_AUTDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_SOCCON }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_MARLIB }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_GAITSKELL_SOCDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ATTLEE_SOCDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_GUIDED_AUTDEM }
+				}
+			}
+		}
+		add_political_power = -50
+		add_to_variable = { GBR_synd_unrest = 1 }
+		hidden_effect = {
+			GBR_recalculate_syndicalist_resistance = yes
+			country_event = { id = uk.14 days = 5 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.13 option uk.13.c"
+		name = uk.13.c #They were only doing as they were told - give them full support
+		ai_chance = {
+			base = 15
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = GBR_path option = GBR_PATH_GUIDED_AUTDEM }
+			}
+		}
+		add_political_power = -100
+		add_manpower = 25000
+		hidden_effect = {
+			country_event = { id = uk.14 days = 5 }
+		}
+	}
+}
+
+# Mountbatten's relief efforts
+country_event = {
+	id = uk.14
+	title = uk.14.t
+	desc = uk.14.d
+	picture = GFX_report_event_HOL_black_monday
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.14 option uk.14.a"
+		name = uk.14.a
+		hidden_effect = {
+			country_event = { id = uk.15 days = 3 random_days = 3 }
+		}
+	}
+}
+
+# Third bankruptcy declared
+country_event = {
+	id = uk.15
+	title = uk.15.t
+	desc = uk.15.d
+	picture = GFX_report_event_generic_economic_policy
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.15 option uk.15.a"
+		name = uk.15.a
+	}
+}
+
+# BRA begins operation in Parliament (fired by focus)
+country_event = {
+	id = uk.16
+	title = uk.16.t
+	desc = uk.16.d
+	picture = GFX_report_event_GBR_country_parliament
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.16 option uk.16.a"
+		name = uk.16.a
+		add_popularity = { ideology = paternal_autocrat popularity = 0.10 }
+		hidden_effect = {
+			country_event = { id = uk.17 days = 3 }
+			country_event = { id = uk.18 days = 12 random_days = 3 }
+			country_event = { id = uk.19 days = 45 }
+		}
+	}
+}
+
+# Reconstruction projects begin
+country_event = {
+	id = uk.17
+	title = uk.17.t
+	desc = uk.17.d
+	picture = GFX_report_event_IRE_factory_construction
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.17 option uk.17.a"
+		name = uk.17.a
+		add_stability = 0.05
+	}
+}
+
+# Arthur Horner surrenders to police
+country_event = {
+	id = uk.18
+	title = uk.18.t
+	desc = uk.18.d
+	picture = GFX_report_event_generic_reporters
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.18 option uk.18.a"
+		name = uk.18.a
+		add_popularity = { ideology = syndicalist popularity = 0.05 }
+	}
+}
+
+# Wartime Rationing ends
+country_event = {
+	id = uk.19
+	title = uk.19.t
+	desc = uk.19.d
+	picture = GFX_report_event_generic_food
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.19 option uk.19.a"
+		name = uk.19.a
+		add_stability = 0.05
+	}
+}
+
+# Fate of the unions (fired by focus)
+country_event = {
+	id = uk.21
+	title = uk.21.t
+	desc = uk.21.d
+	picture = GFX_report_event_AST_parliament1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.21 option uk.21.a"
+		name = uk.21.a #Allow the unions to continue
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = GBR_path option = GBR_PATH_GUIDED_AUTDEM }
+			}
+			modifier = {
+				factor = 0
+				GBR_henry_page_croft = { is_second_in_command = yes }
+			}
+		}
+		set_country_flag = GBR_unions_allowed
+		add_political_power = -100
+		add_popularity = { ideology = social_democrat popularity = 0.05 }
+		hidden_effect = {
+			country_event = { id = uk.22 days = 3 }
+			country_event = { id = uk.24 days = 13 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.21 option uk.21.b"
+		name = uk.21.b #Set up government-controlled unions, ban the rest
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 2
+				GBR_anthony_eden = { is_second_in_command = yes }
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ELECTED_AUTDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_SOCCON }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_MARLIB }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_GAITSKELL_SOCDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ATTLEE_SOCDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_GUIDED_AUTDEM }
+				}
+			}
+		}
+		set_country_flag = GBR_unions_controlled
+		add_political_power = -50
+		add_to_variable = { GBR_synd_unrest = 3 }
+		hidden_effect = {
+			GBR_recalculate_syndicalist_resistance = yes
+			country_event = { id = uk.23 days = 3 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.21 option uk.21.c"
+		name = uk.21.c #We'll have no unions in Britain - ban them all!
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 2
+				GBR_henry_page_croft = { is_second_in_command = yes }
+			}
+			modifier = {
+				factor = 0
+				GBR_robert_gascoyne_cecil = { is_second_in_command = yes }
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ELECTED_AUTDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_SOCCON }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_MARLIB }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_GAITSKELL_SOCDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ATTLEE_SOCDEM }
+				}
+			}
+		}
+		set_country_flag = GBR_unions_banned
+		add_political_power = 50
+		add_popularity = { ideology = syndicalist popularity = -0.05 }
+		add_popularity = { ideology = social_democrat popularity = -0.03 }
+		add_to_variable = { GBR_synd_unrest = 5 }
+		hidden_effect = {
+			GBR_recalculate_syndicalist_resistance = yes
+			country_event = { id = uk.23 days = 3 }
+		}
+	}
+}
+
+# Objections to unions continuing
+country_event = {
+	id = uk.22
+	title = uk.22.t
+	desc = uk.22.d
+	picture = GFX_report_event_CAN_commission
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.22 option uk.22.a"
+		name = uk.22.a
+		add_political_power = -50
+		add_popularity = { ideology = paternal_autocrat popularity = -0.05 }
+	}
+}
+
+# Protests against banning/controlling unions
+country_event = {
+	id = uk.23
+	title = uk.23.t
+	picture = GFX_report_event_AST_protest1
+
+	desc = {
+		text = uk.23.d.control
+		trigger = { has_country_flag = GBR_unions_controlled }
+	}
+	desc = {
+		text = uk.23.d.ban
+		trigger = { has_country_flag = GBR_unions_banned }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.23 option uk.23.a"
+		name = uk.23.a #Give them their unions, before this escalates
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0.1
+				GBR_henry_page_croft = { is_second_in_command = yes }
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = GBR_path option = GBR_PATH_GUIDED_AUTDEM }
+			}
+		}
+		custom_effect_tooltip = GBR_protests_will_fade
+		if = {
+			limit = { has_country_flag = GBR_unions_controlled }
+			clr_country_flag = GBR_unions_controlled
+			set_country_flag = GBR_unions_allowed
+			subtract_from_variable = { GBR_synd_unrest = 2 }
+			add_political_power = -100
+		}
+		else = {
+			clr_country_flag = GBR_unions_banned
+			set_country_flag = GBR_unions_allowed
+			subtract_from_variable = { GBR_synd_unrest = 4 }
+			add_political_power = -250
+		}
+		hidden_effect = {
+			GBR_recalculate_syndicalist_resistance = yes
+			country_event = { id = uk.24 days = 10 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.23 option uk.23.b"
+		name = uk.23.b #We're not backing down
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0.5
+				GBR_anthony_eden = { is_second_in_command = yes }
+			}
+			modifier = {
+				factor = 0.1
+				GBR_robert_gascoyne_cecil = { is_second_in_command = yes }
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ELECTED_AUTDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_SOCCON }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_MARLIB }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_GAITSKELL_SOCDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ATTLEE_SOCDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_GUIDED_AUTDEM }
+				}
+			}
+		}
+		add_political_power = -50
+		add_stability = -0.05
+		hidden_effect = {
+			country_event = { id = uk.25 days = 10 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.23 option uk.23.c"
+		name = uk.23.c #Suppress the protest immediately
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				GBR_henry_page_croft = { is_second_in_command = no }
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ELECTED_AUTDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_SOCCON }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_MARLIB }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_GAITSKELL_SOCDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ATTLEE_SOCDEM }
+				}
+			}
+		}
+		custom_effect_tooltip = GBR_protests_will_increase
+		add_to_variable = { GBR_synd_unrest = 5 }
+		add_stability = -0.10
+		GBR_recalculate_syndicalist_resistance = yes
+	}
+}
+
+# Protests over new union leadership
+country_event = {
+	id = uk.24
+	title = uk.24.t
+	desc = uk.24.d
+	picture = GFX_report_event_AST_protest2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.24 option uk.24.a"
+		name = uk.24.a
+		add_stability = -0.02
+		add_to_variable = { GBR_synd_unrest = 1 }
+		GBR_recalculate_syndicalist_resistance = yes
+	}
+}
+
+# More protests over union bans
+country_event = {
+	id = uk.25
+	title = uk.25.t
+	desc = uk.25.d
+	picture = GFX_report_event_AST_protest2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.25 option uk.25.a"
+		name = uk.25.a
+		add_stability = -0.04
+		add_to_variable = { GBR_synd_unrest = 1 }
+		GBR_recalculate_syndicalist_resistance = yes
+	}
+}
+
+# Syndicalist Trials Begin (fired by focus)
+country_event = {
+	id = uk.26
+	title = uk.26.t
+	desc = uk.26.d
+	picture = GFX_report_event_generic_trial
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.26 option uk.26.a"
+		name = uk.26.a #Make sure the sentences are not harsh
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = GBR_path option = GBR_PATH_GUIDED_AUTDEM }
+			}
+			modifier = {
+				factor = 0.1
+				GBR_henry_page_croft = { is_second_in_command = yes }
+			}
+		}
+		add_political_power = -50
+		add_stability = 0.05
+		hidden_effect = {
+			country_event = { id = uk.27 days = 3 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.26 option uk.26.b"
+		name = uk.26.b #They must all be made examples
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0.1
+				GBR_robert_gascoyne_cecil = { is_second_in_command = yes }
+			}
+			modifier = {
+				factor = 0.5
+				GBR_anthony_eden = { is_second_in_command = yes }
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ELECTED_AUTDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_SOCCON }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_MARLIB }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_GAITSKELL_SOCDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ATTLEE_SOCDEM }
+				}
+			}
+		}
+		add_political_power = 50
+		hidden_effect = {
+			country_event = { id = uk.28 days = 3 }
+		}
+	}
+}
+
+# Protests over trials
+country_event = {
+	id = uk.27
+	title = uk.27.t
+	desc = uk.27.d
+	picture = GFX_report_event_AST_protest2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.27 option uk.27.a"
+		name = uk.27.a
+		add_popularity = { ideology = paternal_autocrat popularity = -0.05 }
+		add_to_variable = { GBR_synd_unrest = 1 }
+		GBR_recalculate_syndicalist_resistance = yes
+	}
+}
+
+# Old Bailey bombed
+country_event = {
+	id = uk.28
+	title = uk.28.t
+	desc = uk.28.d
+	picture = GFX_report_event_GBR_bombing
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.28 option uk.27.a"
+		name = uk.27.a
+		add_to_variable = { GBR_synd_unrest = 5 }
+		GBR_recalculate_syndicalist_resistance = yes
+	}
+}
+
+# The Question of Labour (fired by focus)
+# TODO: comments can be removed when UoB rework done
+country_event = {
+	id = uk.29
+	title = uk.29.t
+	desc = uk.29.d.notinpower
+	picture = GFX_report_event_GBR_country_parliament
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.29 option uk.29.a"
+		name = uk.29.a #Pardon the Labour Party
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = GBR_path option = GBR_PATH_GUIDED_AUTDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_GAITSKELL_SOCDEM }
+				}
+			}
+		}
+		add_political_power = -100
+		add_stability = 0.05
+		subtract_from_variable = { GBR_synd_unrest = 1 }
+		GBR_recalculate_syndicalist_resistance = yes
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.29 option uk.29.b"
+		name = uk.29.b #Labour can stay, but Attlee has to go
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0.5
+				GBR_robert_gascoyne_cecil = { is_second_in_command = yes }
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ELECTED_AUTDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_SOCCON }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_MARLIB }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ATTLEE_SOCDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_GUIDED_AUTDEM }
+				}
+			}
+		}
+		add_political_power = -50
+		set_country_flag = GBR_labour_leader_gaitskell
+		add_to_variable = { GBR_synd_unrest = 1 }
+		GBR_recalculate_syndicalist_resistance = yes
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.29 option uk.29.c"
+		name = uk.29.c #Ban the Labour party
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 0.1
+				GBR_robert_gascoyne_cecil = { is_second_in_command = yes }
+			}
+			modifier = {
+				factor = 0.5
+				GBR_anthony_eden = { is_second_in_command = yes }
+			}
+			modifier = {
+				factor = 2
+				GBR_henry_page_croft = { is_second_in_command = yes }
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ELECTED_AUTDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_SOCCON }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_MARLIB }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_GAITSKELL_SOCDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ATTLEE_SOCDEM }
+				}
+			}
+		}
+		set_country_flag = GBR_labour_banned
+		add_political_power = 50
+		add_stability = -0.10
+		add_to_variable = { GBR_synd_unrest = 5 }
+		GBR_recalculate_syndicalist_resistance = yes
+		hidden_effect = {
+			country_event = { id = uk.30 days = 3 random_days = 3 }
+		}
+	}
+}
+
+# Massive Protests
+country_event = {
+	id = uk.30
+	title = uk.30.t
+	desc = uk.30.d
+	picture = GFX_report_event_BEL_Protest
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.30 option uk.27.a"
+		name = uk.27.a
+		add_stability = -0.05
+		add_to_variable = { GBR_synd_unrest = 10 }
+		GBR_recalculate_syndicalist_resistance = yes
+	}
+}
+
+# The Returning Aritocracy (fired by focus)
+country_event = {
+	id = uk.31
+	title = uk.31.t
+	desc = uk.31.d
+	picture = GFX_report_event_WAL_Ardenne_Castle
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.31 option uk.31.a"
+		name = uk.31.a #What was theirs should be restored, as it was illegally taken
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				GBR_robert_gascoyne_cecil = { is_second_in_command = yes }
+			}
+			modifier = {
+				factor = 0.5
+				GBR_anthony_eden = { is_second_in_command = yes }
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ELECTED_AUTDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_SOCCON }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_MARLIB }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_GAITSKELL_SOCDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ATTLEE_SOCDEM }
+				}
+			}
+		}
+		add_popularity = { ideology = paternal_autocrat popularity = 0.05 }
+		add_stability = -0.05
+		add_to_variable = { GBR_synd_unrest = 5 }
+		GBR_recalculate_syndicalist_resistance = yes
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.31 option uk.31.b"
+		name = uk.31.b #They current owners should be compensated, but they must still give it up
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0.5
+				GBR_anthony_eden = { is_second_in_command = yes }
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ELECTED_AUTDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_SOCCON }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_MARLIB }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_GAITSKELL_SOCDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ATTLEE_SOCDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_GUIDED_AUTDEM }
+				}
+			}
+		}
+		add_political_power = -50
+		add_to_variable = { GBR_synd_unrest = 2 }
+		GBR_recalculate_syndicalist_resistance = yes
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.31 option uk.31.c"
+		name = uk.31.c #The aristocracy will be compensated for their losses
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0
+				GBR_henry_page_croft = { is_second_in_command = yes }
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = GBR_path option = GBR_PATH_GUIDED_AUTDEM }
+			}
+		}
+		add_political_power = -100
+		add_popularity = { ideology = paternal_autocrat popularity = -0.05 }
+	}
+}
+
+# New elections announced (fired by focus)
+country_event = {
+	id = uk.32
+	title = uk.32.t
+	desc = uk.32.d
+	picture = GFX_report_event_generic_happy_crowd
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.32 option uk.32.a"
+		name = uk.32.a
+		add_stability = 0.10
+	}
+}
+
+# Free Elections held (fired by focus)
+country_event = {
+	id = uk.33
+	title = uk.33.t
+	desc = uk.33.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			set_variable = { var = bra_supp value = party_popularity@paternal_autocrat }
+			set_variable = { var = new_pataut value = bra_supp }
+			multiply_variable = { var = new_pataut value = -1 }
+			set_party_name = {
+				ideology = paternal_autocrat
+				name = GBR_military_government_party
+				long_name = GBR_military_government_party_long
+			}
+			set_party_name = {
+				ideology = authoritarian_democrat
+				name = GBR_auth_tories_party
+				long_name = GBR_auth_tories_party_long
+			}
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uk.33 option uk.33.a"
+		name = uk.33.a #Conservatives
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0.75
+				NOT = { has_country_flag = GBR_labour_leader_gaitskell }
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = GBR_path option = GBR_PATH_MARLIB }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_GAITSKELL_SOCDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ATTLEE_SOCDEM }
+				}
+			}
+		}
+		if = {
+			limit = { has_global_flag = GBR_cons_leader_croft }
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = authoritarian_democrat
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 48
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+		}
+		else = {
+			meta_effect = {
+				text = {
+					set_politics = {
+						ruling_party = social_conservative
+						last_election = "[CURRENT_DATE]"
+						election_frequency = 48
+						elections_allowed = yes
+					}
+				}
+				CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+			}
+		}
+		if = {
+			limit = { has_global_flag = GBR_cons_leader_cecil }
+			activate_advisor = GBR_robert_gascoyne_cecil_second_in_command
+		}
+		else_if = {
+			limit = { has_global_flag = GBR_cons_leader_eden }
+			activate_advisor = GBR_anthony_eden_second_in_command
+		}
+		else_if = {
+			limit = { has_global_flag = GBR_cons_leader_croft }
+			activate_advisor = GBR_henry_page_croft_second_in_command
+		}
+		else = {
+			activate_advisor = GBR_robert_vansittart_second_in_command
+		}
+		hidden_effect = {
+			add_popularity = { ideology = paternal_autocrat popularity = new_pataut }
+			if = {
+				limit = { has_global_flag = GBR_cons_leader_croft }
+				add_popularity = { ideology = authoritarian_democrat popularity = bra_supp }
+			}
+			else = {
+				add_popularity = { ideology = social_conservative popularity = bra_supp }
+			}
+			clear_variable = new_pataut
+			clear_variable = bra_supp
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.33 option uk.33.b"
+		name = uk.33.b #Liberals
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ELECTED_AUTDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_SOCCON }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_GAITSKELL_SOCDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ATTLEE_SOCDEM }
+				}
+			}
+		}
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = market_liberal
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 48
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		activate_advisor = GBR_john_simon_sic
+		hidden_effect = {
+			add_popularity = { ideology = paternal_autocrat popularity = new_pataut }
+			add_popularity = { ideology = market_liberal popularity = bra_supp }
+			clear_variable = new_pataut
+			clear_variable = bra_supp
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.33 option uk.33.c"
+		name = uk.33.c #Labour
+		trigger = {
+			NOT = { has_country_flag = GBR_labour_banned }
+		}
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0.5
+				has_country_flag = GBR_labour_leader_gaitskell
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ELECTED_AUTDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_SOCCON }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_MARLIB }
+				}
+			}
+		}
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = social_democrat
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 48
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		custom_effect_tooltip = GBR_improve_resistance_effect_5
+		subtract_from_variable = { GBR_synd_unrest = 5 }
+		GBR_recalculate_syndicalist_resistance = yes
+		if = {
+			limit = { has_country_flag = GBR_labour_leader_gaitskell }
+			activate_advisor = GBR_hugh_gaitskell_sic
+		}
+		else = {
+			activate_advisor = GBR_clement_attlee_sic
+		}
+		hidden_effect = {
+			add_popularity = { ideology = paternal_autocrat popularity = new_pataut }
+			add_popularity = { ideology = social_democrat popularity = bra_supp }
+			clear_variable = new_pataut
+			clear_variable = bra_supp
+		}
+	}
+}
+
+# Future elections (fired by on_new_election)
+country_event = {
+	id = uk.34
+	title = uk.34.t
+	desc = uk.34.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.34 option uk.33.a"
+		name = uk.33.a #Conservatives
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0.75
+				NOT = { has_country_flag = GBR_labour_leader_gaitskell }
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = GBR_path option = GBR_PATH_MARLIB }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_GAITSKELL_SOCDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ATTLEE_SOCDEM }
+				}
+			}
+		}
+		if = {
+			limit = { has_global_flag = GBR_cons_leader_croft }
+			add_popularity = { ideology = authoritarian_democrat popularity = 0.10 }
+			set_politics = {
+				ruling_party = authoritarian_democrat
+				election_frequency = 48
+				elections_allowed = yes
+			}
+		}
+		else = {
+			add_popularity = { ideology = social_conservative popularity = 0.10 }
+			set_politics = {
+				ruling_party = social_conservative
+				election_frequency = 48
+				elections_allowed = yes
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = { has_global_flag = GBR_cons_leader_cecil }
+				activate_advisor = GBR_robert_gascoyne_cecil_second_in_command
+			}
+			else_if = {
+				limit = { has_global_flag = GBR_cons_leader_eden }
+				activate_advisor = GBR_anthony_eden_second_in_command
+			}
+			else_if = {
+				limit = { has_global_flag = GBR_cons_leader_croft }
+				activate_advisor = GBR_henry_page_croft_second_in_command
+			}
+			else = {
+				activate_advisor = GBR_robert_vansittart_second_in_command
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.34 option uk.33.b"
+		name = uk.33.b #Liberals
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ELECTED_AUTDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_SOCCON }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_GAITSKELL_SOCDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ATTLEE_SOCDEM }
+				}
+			}
+		}
+		add_popularity = { ideology = market_liberal popularity = 0.10 }
+		set_politics = {
+			ruling_party = market_liberal
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		activate_advisor = GBR_john_simon_sic
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.34 option uk.33.c"
+		name = uk.33.c #Labour
+		trigger = {
+			NOT = { has_country_flag = GBR_labour_banned }
+		}
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0.5
+				has_country_flag = GBR_labour_leader_gaitskell
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = GBR_path option = GBR_PATH_ELECTED_AUTDEM }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_SOCCON }
+					has_game_rule = { rule = GBR_path option = GBR_PATH_MARLIB }
+				}
+			}
+		}
+		add_popularity = { ideology = social_democrat popularity = 0.10 }
+		set_politics = {
+			ruling_party = social_democrat
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		if = {
+			limit = { has_dynamic_modifier = { modifier = GBR_syndicalist_resistance } }
+			custom_effect_tooltip = GBR_improve_resistance_effect_5
+			subtract_from_variable = { GBR_synd_unrest = 5 }
+			GBR_recalculate_syndicalist_resistance = yes
+		}
+		if = {
+			limit = { has_country_flag = GBR_labour_leader_gaitskell }
+			activate_advisor = GBR_hugh_gaitskell_sic
+		}
+		else = {
+			activate_advisor = GBR_clement_attlee_sic
+		}
+	}
+}
+
+# Free elections cancelled (fired by focus)
+country_event = {
+	id = uk.35
+	title = uk.35.t
+	desc = uk.35.d
+	picture = GFX_report_event_AST_riot1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.35 option uk.32.a"
+		name = uk.32.a
+		add_stability = -0.10
+		hidden_effect = {
+			country_event = { id = uk.36 days = 7 }
+		}
+	}
+}
+
+# New Revolt barely put down
+country_event = {
+	id = uk.36
+	title = uk.36.t
+	desc = uk.36.d
+	picture = GFX_report_event_USA_Riots
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_subject = no
+		has_government = authoritarian_democrat
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uk.36 option uk.36.a"
+		name = uk.36.a
+		add_to_variable = { GBR_synd_unrest = 5 }
+		GBR_recalculate_syndicalist_resistance = yes
+		set_temp_variable = { ideology_change_var = -0.1 }
+		change_ruling_party_popularity = yes
+		add_timed_idea = {
+			idea = GBR_under_suppression
+			days = 365
+		}
+	}
+}
+
+# Beveridge Report completed
+country_event = {
+	id = uk.37
+	title = uk.37.t
+	desc = uk.37.d
+	picture = GFX_report_event_CAN_cabinet2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.37 option uk.37.a"
+		name = uk.37.a
+		set_country_flag = GBR_beveridge_report_received
+		set_temp_variable = { ideology_change_var = 0.05 }
+		change_ruling_party_popularity = yes
+	}
+}
+
+# Pigou Report completed
+country_event = {
+	id = uk.38
+	title = uk.38.t
+	desc = uk.38.d
+	picture = GFX_report_event_CAN_cabinet2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.38 option uk.38.a"
+		name = uk.38.a
+		set_country_flag = GBR_pigou_report_received
+		set_temp_variable = { ideology_change_var = -0.05 }
+		change_ruling_party_popularity = yes
+	}
+}
+
+### Military
+
+# Clemency for Syndicalist Soldiers (fired by focus)
+country_event = {
+	id = uk.54
+	title = uk.54.t
+	desc = uk.54.d
+	picture = GFX_report_event_CAN_army3
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.54 option uk.54.a"
+		name = uk.54.a #We won't take on syndicalist soldiers
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				has_manpower < 50000
+			}
+		}
+		add_political_power = 50
+		add_ideas = GBR_pure_recruits
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.54 option uk.54.b"
+		name = uk.54.b #We'll take some, after careful screening
+		ai_chance = { base = 30 }
+		add_political_power = -50
+		add_manpower = 50000
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.54 option uk.54.c"
+		name = uk.54.c #We need the manpower - take as many as want to re-enlist
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0.5
+				has_manpower > 50000
+			}
+			modifier = {
+				factor = 0
+				has_manpower > 150000
+			}
+			modifier = {
+				factor = 0
+				has_political_power < 0
+			}
+		}
+		add_political_power = -100
+		add_stability = -0.05
+		add_manpower = 125000
+	}
+}
+
+# National Arms Deal (fired by focus)
+country_event = {
+	id = uk.55
+	title = uk.55.t
+	desc = uk.55.d
+	picture = GFX_report_event_generic_lend_lease
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.55 option uk.55.a"
+		name = uk.55.a #Webley & Scott
+		add_ideas = UK_webley_scott
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.55 option uk.55.b"
+		name = uk.55.b #Birmingham Small Arms
+		add_ideas = UK_bsa
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.55 option uk.55.c"
+		name = uk.55.c #Morris Motors
+		add_ideas = UK_morris
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.55 option uk.55.e"
+		name = uk.55.e #Sterling Armaments Company
+		add_ideas = UK_sterling
+	}
+}
+
+# UK Requests Return of Fleets (fired by focus)
+country_event = {
+	id = uk.56
+	title = uk.56.t
+	desc = uk.56.d
+	picture = GFX_report_event_ast_navy
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.56 option uk.56.a"
+		name = uk.56.a
+		reverse_add_opinion_modifier = { target = FROM modifier = KR_pleased }
+		effect_tooltip = {
+			transfer_units_fraction = {
+				target = FROM
+				army_ratio = 0
+				stockpile_ratio = 0
+				navy_ratio = 0.8
+				air_ratio = 0
+				keep_unit_leaders_trigger = { always = yes }
+			}
+		}
+		FROM = { country_event = uk.57 }
+		hidden_effect = {
+			if = {
+				limit = { check_variable = { num_ships_with_type@carrier > 0 } }
+				set_temp_variable = { count = num_ships_with_type@carrier }
+				for_loop_effect = {
+					end = count
+					transfer_ship = { type = carrier target = FROM exclude_refitting = yes }
+				}
+			}
+			if = {
+				limit = { check_variable = { num_ships_with_type@battleship > 0 } }
+				set_temp_variable = { count = num_ships_with_type@battleship }
+				for_loop_effect = {
+					end = count
+					transfer_ship = { type = battleship target = FROM exclude_refitting = yes }
+				}
+			}
+			if = {
+				limit = { check_variable = { num_ships_with_type@battle_cruiser > 0 } }
+				set_temp_variable = { count = num_ships_with_type@battle_cruiser }
+				for_loop_effect = {
+					end = count
+					transfer_ship = { type = battle_cruiser target = FROM exclude_refitting = yes }
+				}
+			}
+			if = {
+				limit = { check_variable = { num_ships_with_type@heavy_cruiser > 0 } }
+				set_temp_variable = { count = num_ships_with_type@heavy_cruiser }
+				multiply_temp_variable = { count = 0.8 }
+				for_loop_effect = {
+					end = count
+					transfer_ship = { type = heavy_cruiser target = FROM exclude_refitting = yes }
+				}
+			}
+			if = {
+				limit = { check_variable = { num_ships_with_type@light_cruiser > 0 } }
+				set_temp_variable = { count = num_ships_with_type@light_cruiser }
+				multiply_temp_variable = { count = 0.8 }
+				for_loop_effect = {
+					end = count
+					transfer_ship = { type = light_cruiser target = FROM exclude_refitting = yes }
+				}
+			}
+			if = {
+				limit = { check_variable = { num_ships_with_type@destroyer > 0 } }
+				set_temp_variable = { count = num_ships_with_type@destroyer }
+				multiply_temp_variable = { count = 0.7 }
+				for_loop_effect = {
+					end = count
+					transfer_ship = { type = destroyer target = FROM exclude_refitting = yes }
+				}
+			}
+			if = {
+				limit = { check_variable = { num_ships_with_type@submarine > 0 } }
+				set_temp_variable = { count = num_ships_with_type@submarine }
+				multiply_temp_variable = { count = 0.7 }
+				for_loop_effect = {
+					end = count
+					transfer_ship = { type = submarine target = FROM exclude_refitting = yes }
+				}
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.56 option uk.56.b"
+		name = uk.56.b
+		trigger = { is_ai = no }
+		reverse_add_opinion_modifier = { target = ROOT modifier = KR_hates_govt }
+		FROM = { country_event = uk.58 }
+	}
+}
+
+# Country returns fleet
+country_event = {
+	id = uk.57
+	title = uk.57.t
+	desc = uk.57.d
+	picture = GFX_report_event_ast_navy
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.57 option uk.57.a"
+		name = uk.57.a
+		effect_tooltip = {
+			add_opinion_modifier = { target = FROM modifier = KR_pleased }
+			FROM = {
+				transfer_units_fraction = {
+					target = FROM
+					army_ratio = 0
+					stockpile_ratio = 0
+					navy_ratio = 0.8
+					air_ratio = 0
+					keep_unit_leaders_trigger = { always = yes }
+				}
+			}
+		}
+	}
+}
+
+# Country does not returns fleet
+country_event = {
+	id = uk.58
+	title = uk.58.t
+	desc = uk.58.d
+	picture = GFX_report_event_ast_navy
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.58 option uk.58.a"
+		name = uk.58.a
+		effect_tooltip = {
+			add_opinion_modifier = { target = FROM modifier = KR_hates_govt }
+		}
+	}
+}
+
+# UK Requests Formal Control of the Entente (fired by focus)
+country_event = {
+	id = uk.59
+	title = uk.59.t
+	desc = uk.59.d
+	picture = GFX_report_event_generic_conference1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.59 option uk.59.a"
+		name = uk.59.a
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0
+				is_american_tag = yes
+			}
+		}
+		if = {
+			limit = { has_idea = CAN_iedc_main }
+			effect_tooltip = { remove_ideas = CAN_iedc_main }
+			FROM = {
+				effect_tooltip = {
+					add_ideas = CAN_iedc_main
+					set_faction_leader = yes
+				}
+				save_event_target_as = entente_transfer_to
+				country_event = uk.60
+			}
+		}
+		else = {
+			FROM = {
+				effect_tooltip = { set_faction_leader = yes }
+				save_event_target_as = entente_transfer_to
+				country_event = uk.60
+			}
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uk.59 option uk.59.b"
+		name = uk.59.b
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 100
+				is_american_tag = yes
+			}
+		}
+		FROM = { country_event = uk.60 }
+		reverse_add_opinion_modifier = {
+			target = FROM
+			modifier = KR_hates_govt
+		}
+	}
+}
+
+# UK Requests Formal Control of the Entente response event
+country_event = {
+	id = uk.60
+
+	title = {
+		text = uk.60.accepted.t
+		trigger = { has_event_target = entente_transfer_to }
+	}
+	title = {
+		text = uk.60.refused.t
+		trigger = { NOT = { has_event_target = entente_transfer_to } }
+	}
+
+	desc = {
+		text = uk.60.accepted.d
+		trigger = { has_event_target = entente_transfer_to }
+	}
+	desc = {
+		text = uk.60.refused.d
+		trigger = { NOT = { has_event_target = entente_transfer_to } }
+	}
+
+	picture = GFX_report_event_generic_conference1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.60 option uk.60.accepted.a"
+		name = uk.60.accepted.a
+		trigger = { has_event_target = entente_transfer_to }
+		CAN_transfer_entente_leader = yes
+		every_other_country = {
+			limit = {
+				is_in_faction_with = ROOT
+				NOT = { tag = FROM.FROM }
+			}
+			country_event = uk.61
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uk.60 option uk.60.refused.a"
+		name = uk.60.refused.a
+		trigger = { NOT = { has_event_target = entente_transfer_to } }
+		effect_tooltip = {
+			add_opinion_modifier = {
+				target = FROM
+				modifier = KR_hates_govt
+			}
+		}
+	}
+}
+
+# UK reclaims leadership of the Entente (fired by focus)
+country_event = {
+	id = uk.61
+	title = uk.61.t
+	desc = uk.61.d
+	picture = GFX_report_event_generic_conference1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.61 option uk.61.a"
+		trigger = { NOT = { tag = IRE } }
+		name = uk.61.a
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.61 option uk.61.b"
+		trigger = { tag = IRE }
+		name = uk.61.b
+	}
+}
+
+# UK begins Five Eyes Programme (fired by focus/decision)
+country_event = {
+	id = uk.62
+	title = uk.62.t
+	desc = uk.62.d
+	picture = GFX_report_event_generic_conference1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.62 option uk.62.a"
+		name = uk.62.a #Agree
+		ai_chance = { base = 95 }
+		add_political_power = -25
+		if = {
+			limit = { has_dlc_lar = yes }
+			add_ideas = GBR_five_eyes_idea_lar
+		}
+		else = {
+			add_ideas = GBR_five_eyes_idea
+		}
+		if = {
+			limit = {
+				has_dlc_lar = yes
+				has_intelligence_agency = no
+			}
+			create_intelligence_agency = yes
+		}
+		else_if = {
+			limit = {
+				has_dlc_lar = yes
+				has_intelligence_agency = yes
+				NOT = { has_done_agency_upgrade = upgrade_form_department }
+			}
+			upgrade_intelligence_agency = upgrade_form_department
+			hidden_effect = {
+				GBR = { add_political_power = 25 }
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.62 option uk.62.b"
+		name = uk.62.b #Refuse
+		ai_chance = {
+			base = 5
+			modifier = {
+				factor = 20
+				has_political_power < 0
+			}
+			modifier = {
+				factor = 0
+				has_political_power > 50
+			}
+		}
+		add_political_power = 20
+	}
+}
+
+# UK begins Imperial Preference (fired by focus)
+country_event = {
+	id = uk.63
+	title = uk.63.t
+	desc = uk.63.d
+	picture = GFX_report_event_generic_conference2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.63 option uk.63.a"
+		name = uk.63.a
+		add_political_power = 50
+		add_ideas = GBR_imperial_preference_idea
+		every_other_country = {
+			limit = {
+				OR = {
+					CAN_is_commonwealth_tag = yes
+					is_subject_of = ROOT
+				}
+				is_in_faction_with = ROOT
+			}
+			country_event = uk.64
+		}
+		hidden_effect = {
+			every_other_country = {
+				limit = {
+					OR = {
+						CAN_is_commonwealth_tag = yes
+						is_subject_of = GBR
+					}
+				}
+				ROOT = {
+					add_opinion_modifier = { target = PREV modifier = GBR_imperial_preference_op }
+				}
+			}
+		}
+	}
+}
+
+# UK invites a Commonwealth Country into Imperial Preference
+country_event = {
+	id = uk.64
+	title = uk.64.t
+	desc = uk.64.d
+	picture = GFX_report_event_generic_conference2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.64 option uk.64.a"
+		name = uk.64.a #Agree
+		add_political_power = 50
+		FROM = { add_political_power = 25 }
+		add_ideas = GBR_imperial_preference_idea
+		hidden_effect = {
+			every_other_country = {
+				limit = {
+					OR = {
+						CAN_is_commonwealth_tag = yes
+						is_subject_of = GBR
+					}
+				}
+				ROOT = {
+					add_opinion_modifier = { target = PREV modifier = GBR_imperial_preference_op }
+				}
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.64 option uk.64.b"
+		name = uk.64.b #Refuse
+		ai_chance = { base = 0 }
+		add_political_power = 25
+		FROM = {
+			add_political_power = -25
+			add_opinion_modifier = { target = ROOT modifier = KR_disapproves_of_govt }
+		}
+	}
+}
+
+# The British-French Relationship (fired by focus)
+country_event = {
+	id = uk.65
+	title = uk.65.t
+	desc = uk.65.d
+	picture = GFX_report_event_generic_conference2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.65 option uk.65.a"
+		name = uk.65.a #Naturally
+		trigger = { tag = GBR }
+		effect_tooltip = {
+			add_political_power = 50
+			add_opinion_modifier = { target = NFA modifier = KR_close_allies }
+			reverse_add_opinion_modifier = { target = NFA modifier = KR_close_allies }
+		}
+		every_owned_state = {
+			limit = {
+				is_french_colonial_claim = yes
+				is_claim_or_core_of_ROOT = no
+			}
+			add_claim_by = NFA
+			transfer_state_to = NFA
+		}
+		hidden_effect = {
+			every_state = {
+				limit = {
+					is_british_colonial_claim = yes
+					NOT = {
+						is_core_of = owner
+						is_claimed_by = owner
+					}
+					owner = {
+						is_in_faction_with = ROOT
+						NOT = { tag = NFA }
+						NOT = { tag = GBR }
+					}
+				}
+				save_event_target_as = return_state
+				state_event = { id = uk.67 trigger_for = owner }
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.65 option uk.65.b"
+		name = uk.65.b #Of course we agree!
+		trigger = { tag = NFA }
+		add_political_power = 50
+		hidden_effect = { GBR = { add_political_power = 50 } }
+		add_opinion_modifier = { target = GBR modifier = KR_close_allies }
+		reverse_add_opinion_modifier = { target = GBR modifier = KR_close_allies }
+		every_owned_state = {
+			limit = {
+				is_british_colonial_claim = yes
+				is_claim_or_core_of_ROOT = no
+			}
+			add_claim_by = GBR
+			transfer_state_to = GBR
+		}
+		hidden_effect = {
+			every_state = {
+				limit = {
+					is_french_colonial_claim = yes
+					NOT = {
+						is_core_of = owner
+						is_claimed_by = owner
+					}
+					owner = {
+						is_in_faction_with = ROOT
+						NOT = { tag = GBR }
+						NOT = { tag = NFA }
+					}
+				}
+				save_event_target_as = return_state
+				state_event = { id = uk.67 trigger_for = owner }
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.65 option uk.65.c"
+		name = uk.65.c #We're not interested in this
+		trigger = {
+			tag = NFA
+			is_ai = no
+		}
+		GBR = { country_event = uk.66 }
+	}
+}
+
+# The French refuse
+country_event = {
+	id = uk.66
+	title = uk.66.t
+	desc = uk.66.d
+	picture = GFX_report_event_generic_diplomacy4
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.66 option uk.66.a"
+		name = uk.66.a
+		add_political_power = -25
+		add_opinion_modifier = { target = NFA modifier = KR_disapproves_of_govt }
+		reverse_add_opinion_modifier = { target = NFA modifier = KR_disapproves_of_govt }
+	}
+}
+
+# State event: returning British/French territory
+state_event = {
+	id = uk.67
+	title = uk.67.t
+	desc = uk.67.d
+	picture = GFX_report_event_generic_diplomacy4
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.67 option uk.67.a"
+		name = uk.67.a #Agree
+		ai_chance = {
+			base = 90
+			modifier = {
+				factor = 0.3
+				owner = { tag = CAN }
+				event_target:return_state = { state = 730 }
+			}
+		}
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						tag = WIF
+						tag = GYA
+					}
+				}
+				event_target:return_state = { is_core_of = ROOT }
+			}
+			event_target:return_state = { remove_core_of = ROOT }
+		}
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						tag = WIF
+						tag = GYA
+					}
+				}
+				event_target:return_state = { is_claimed_by = ROOT }
+			}
+			event_target:return_state = { remove_claim_by = ROOT }
+		}
+		if = {
+			limit = {
+				owner = { tag = AST }
+				event_target:return_state = { is_claimed_by = ROOT }
+			}
+			event_target:return_state = { remove_claim_by = ROOT }
+		}
+		if = {
+			limit = {
+				owner = { tag = CAN }
+				event_target:return_state = { state = 730 } #St. Pierre
+			}
+			hidden_effect = {
+				event_target:return_state = { add_core_of = FROM }
+			}
+		}
+		set_temp_variable = { target = FROM }
+		event_target:return_state = { transfer_state_during_war = yes }
+		FROM = { country_event = nfa.193 }
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.67 option uk.67.b"
+		name = uk.67.b #Refuse
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 60
+				owner = { tag = CAN }
+				event_target:return_state = { state = 730 }
+			}
+		}
+		trigger = {
+			OR = {
+				owner = { is_ai = no }
+				AND = {
+					event_target:return_state = { state = 730 }
+					owner = { tag = CAN }
+				}
+			}
+		}
+		FROM = { country_event = nfa.194 }
+	}
+}
+
+# UK builds Victoria status in Canada
+country_event = {
+	id = uk.68
+	title = uk.68.t
+	desc = uk.68.d
+	picture = GFX_report_event_CAN_statue
+
+	is_triggered_only = yes
+	major = yes
+
+	show_major = {
+		OR = {
+			tag = CAN
+			tag = GBR
+			is_in_faction_with = GBR
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uk.68 option uk.68.a"
+		name = uk.68.a
+		trigger = { tag = CAN }
+		add_political_power = 100
+		add_ideas = GBR_victoria_idea
+		add_opinion_modifier = { target = GBR modifier = KR_close_allies }
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.68 option uk.68.b"
+		name = uk.68.b
+		trigger = { tag = GBR }
+		add_opinion_modifier = { target = CAN modifier = KR_close_allies }
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.68 option uk.68.c"
+		name = uk.68.c
+		trigger = {
+			NOT = {
+				tag = CAN
+				tag = GBR
+			}
+			is_in_faction_with = GBR
+		}
+	}
+}
+
+# Westminster Declaration
+news_event = {
+	id = uk.69
+	immediate = { log = "[GetLogInfo]: event uk.69" }
+	title = uk.69.t
+	picture = GFX_news_event_canadian_soldiers
+
+	desc = {
+		text = uk.69.d.allthree
+		trigger = {
+			CAN = {
+				is_subject = no
+				is_in_faction_with = GBR
+			}
+			AST = {
+				is_subject = no
+				is_in_faction_with = GBR
+			}
+			SAF = {
+				is_subject = no
+				is_in_faction_with = GBR
+			}
+		}
+	}
+	desc = {
+		text = uk.69.d.canast
+		trigger = {
+			CAN = {
+				is_subject = no
+				is_in_faction_with = GBR
+			}
+			AST = {
+				is_subject = no
+				is_in_faction_with = GBR
+			}
+			NOT = {
+				SAF = {
+					is_subject = no
+					is_in_faction_with = GBR
+				}
+			}
+		}
+	}
+	desc = {
+		text = uk.69.d.cansaf
+		trigger = {
+			CAN = {
+				is_subject = no
+				is_in_faction_with = GBR
+			}
+			SAF = {
+				is_subject = no
+				is_in_faction_with = GBR
+			}
+			NOT = {
+				AST = {
+					is_subject = no
+					is_in_faction_with = GBR
+				}
+			}
+		}
+	}
+	desc = {
+		text = uk.69.d.astsaf
+		trigger = {
+			AST = {
+				is_subject = no
+				is_in_faction_with = GBR
+			}
+			SAF = {
+				is_subject = no
+				is_in_faction_with = GBR
+			}
+			NOT = {
+				CAN = {
+					is_subject = no
+					is_in_faction_with = GBR
+				}
+			}
+		}
+	}
+	desc = {
+		text = uk.69.d.can
+		trigger = {
+			CAN = {
+				is_subject = no
+				is_in_faction_with = GBR
+			}
+			NOT = {
+				AST = {
+					is_subject = no
+					is_in_faction_with = GBR
+				}
+				SAF = {
+					is_subject = no
+					is_in_faction_with = GBR
+				}
+			}
+		}
+	}
+	desc = {
+		text = uk.69.d.ast
+		trigger = {
+			AST = {
+				is_subject = no
+				is_in_faction_with = GBR
+			}
+			NOT = {
+				CAN = {
+					is_subject = no
+					is_in_faction_with = GBR
+				}
+				SAF = {
+					is_subject = no
+					is_in_faction_with = GBR
+				}
+			}
+		}
+	}
+	desc = {
+		text = uk.69.d.saf
+		trigger = {
+			SAF = {
+				is_subject = no
+				is_in_faction_with = GBR
+			}
+			NOT = {
+				CAN = {
+					is_subject = no
+					is_in_faction_with = GBR
+				}
+				AST = {
+					is_subject = no
+					is_in_faction_with = GBR
+				}
+			}
+		}
+	}
+
+	is_triggered_only = yes
+	major = yes
+
+	show_major = {
+		OR = {
+			tag = GBR
+			tag = CAN
+			tag = AST
+			tag = SAF
+			is_in_faction_with = GBR
+			regional_north_america_news = yes
+			regional_europe_news = yes
+		}
+	}
+
+	option = {
+		name = uk.69.a
+		trigger = { tag = GBR }
+	}
+	option = {
+		name = uk.69.b
+		trigger = {
+			CAN_is_commonwealth_tag = yes
+			NOT = { tag = GBR }
+			is_subject = no
+			is_in_faction_with = GBR
+		}
+		effect_tooltip = { add_political_power = 50 }
+	}
+	option = {
+		name = uk.69.c
+		trigger = {
+			NOT = {
+				tag = GBR
+				AND = {
+					CAN_is_commonwealth_tag = yes
+					NOT = { tag = GBR }
+					is_subject = no
+					is_in_faction_with = GBR
+				}
+			}
+		}
+	}
+}
+
+### Foreign
+
+# Do we claim Northern Ireland?
+country_event = {
+	id = uk.99
+	title = uk.99.t
+	picture = GFX_report_event_IRE_loyalist_rally
+
+	desc = {
+		text = uk.99.d.promise
+		trigger = {
+			OR = {
+				has_country_flag = CAN_promised_ireland_ind
+				has_global_flag = ENT_britain_agree_northire
+			}
+		}
+	}
+	desc = {
+		text = uk.99.d
+		trigger = {
+			NOT = {
+				has_country_flag = CAN_promised_ireland_ind
+				has_global_flag = ENT_britain_agree_northire
+			}
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.99 option uk.99.a"
+		name = uk.99.a #Yes
+		trigger = {
+			NOT = {
+				has_country_flag = CAN_promised_ireland_ind
+				has_global_flag = ENT_britain_agree_northire
+			}
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				has_left_democratic_government = yes
+				IRE = {
+					NOT = {
+						is_subject_of = ROOT
+					}
+				}
+			}
+			modifier = {
+				add = -25
+				is_in_faction_with = IRE
+				IRE = {
+					NOT = {
+						is_subject_of = ROOT
+					}
+				}
+			}
+			modifier = {
+				add = -25
+				has_government = market_liberal
+				IRE = {
+					NOT = {
+						is_subject_of = ROOT
+					}
+				}
+			}
+			modifier = {
+				add = -8
+				has_authoritarian_government = yes
+				is_in_faction_with = IRE
+			}
+		}
+		add_political_power = 50
+		add_stability = -0.02
+		119 = { add_claim_by = GBR }
+		if = {
+			limit = {
+				IRE = {
+					owns_state = 119
+					has_socialist_government = no
+					NOT = { has_war_with = ROOT }
+					OR = {
+						is_subject = no
+						is_subject_of = ROOT
+						is_in_faction_with = ROOT
+					}
+				}
+			}
+			unlock_decision_tooltip = GBR_demand_northern_ireland
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.99 option uk.99.a"
+		name = uk.99.a #Abandon promise
+		trigger = {
+			OR = {
+				has_country_flag = CAN_promised_ireland_ind
+				has_global_flag = ENT_britain_agree_northire
+			}
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				has_elected_government = yes
+			}
+			modifier = {
+				add = -15
+				is_in_faction_with = IRE
+			}
+		}
+		add_political_power = -200
+		add_stability = -0.08
+		119 = { add_claim_by = GBR }
+		if = {
+			limit = { has_country_flag = CAN_promised_ireland_ind }
+			clr_country_flag = CAN_promised_ireland_ind
+			IRE = {
+				add_opinion_modifier = { target = ROOT modifier = KR_outraged }
+			}
+		}
+		if = {
+			limit = { has_global_flag = ENT_britain_agree_northire }
+			clr_global_flag = GER_stay_out_france_uk
+			clr_global_flag = ENT_britain_agree_northire
+			clr_global_flag = ENT_agree_colonies
+			if = {
+				limit = { has_global_flag = ENT_france_agree_mittel }
+				clr_global_flag = ENT_france_agree_mittel
+				NFA = {
+					GER_leave_mitteleuropa = yes
+					clr_country_flag = CAN_refused_iedc
+				}
+			}
+			if = {
+				limit = { has_global_flag = ENT_france_agree_alsace }
+				clr_global_flag = ENT_france_agree_alsace
+				28 = { add_claim_by = NFA }
+			}
+			every_country = {
+				limit = { is_in_faction_with = GER }
+				country_event = entente.324
+			}
+		}
+		if = {
+			limit = {
+				IRE = {
+					owns_state = 119
+					has_socialist_government = no
+					NOT = { has_war_with = ROOT }
+					OR = {
+						is_subject = no
+						is_subject_of = ROOT
+						is_in_faction_with = ROOT
+					}
+				}
+			}
+			unlock_decision_tooltip = GBR_demand_northern_ireland
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.99 option uk.99.b"
+		name = uk.99.b #No
+		trigger = {
+			NOT = {
+				has_country_flag = CAN_promised_ireland_ind
+				has_global_flag = ENT_britain_agree_northire
+			}
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 15
+				OR = {
+					has_government = social_liberal
+					has_government = market_liberal
+				}
+				IRE = {
+					NOT = {
+						is_subject_of = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 0.1
+				has_authoritarian_government = yes
+			}
+			modifier = {
+				add = 25
+				is_in_faction_with = IRE
+				IRE = {
+					NOT = {
+						is_subject_of = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				IRE = {
+					is_subject_of = ROOT
+				}
+			}
+		}
+		add_political_power = -100
+		add_stability = 0.02
+		set_cosmetic_tag = GBR_britain
+		hidden_effect = {
+			news_event = uk.104
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.99 option uk.99.c"
+		name = uk.99.c #Keep our promises
+		trigger = {
+			OR = {
+				has_country_flag = CAN_promised_ireland_ind
+				has_global_flag = ENT_britain_agree_northire
+			}
+		}
+		ai_chance = {
+			base = 40
+			modifier = {
+				add = 25
+				is_in_faction_with = IRE
+			}
+		}
+		add_political_power = -50
+		add_stability = 0.05
+		set_cosmetic_tag = GBR_britain
+		hidden_effect = {
+			news_event = uk.104
+		}
+	}
+}
+
+# Approaching Ireland over Northern Ireland
+country_event = {
+	id = uk.100
+	title = uk.100.t
+	desc = uk.100.d
+	picture = GFX_report_event_IRE_loyalist_rally
+
+	is_triggered_only = yes
+
+	trigger = {
+		owns_state = 119
+		NOT = { has_war_with = FROM }
+	}
+
+	immediate = {
+		set_country_flag = GBR_asked_northern_ireland
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uk.100 option uk.100.a"
+		name = uk.100.a #Absolutely not!
+		trigger = {
+			NOT = {
+				is_subject_of = GBR
+				AND = {
+					is_subject = yes
+					is_in_faction_with = GBR
+				}
+			}
+		}
+		ai_chance = {
+			base = 75
+			modifier = {
+				factor = 0
+				is_in_faction = no
+				GBR = {
+					OR = {
+						has_government = social_conservative
+						has_government = authoritarian_democrat
+					}
+				}
+			}
+		}
+		add_stability = -0.05
+		add_political_power = 50
+		if = {
+			limit = { is_in_faction_with = FROM }
+			custom_effect_tooltip = GBR_Ireland_leave_Entente
+			hidden_effect = {
+				every_other_country = {
+					limit = {
+						is_in_faction_with = ROOT
+						NOT = { tag = FROM }
+					}
+					country_event = uk.102
+				}
+			}
+			leave_faction = yes
+			separate_peace_all_wars = yes
+		}
+		FROM = {
+			add_opinion_modifier = { target = ROOT modifier = KR_outraged }
+			country_event = uk.103
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.100 option uk.100.b"
+		name = uk.100.b #If this will keep the peace, so be it
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_in_faction = yes
+			}
+			modifier = {
+				factor = 0
+				has_dictatorship_government = yes
+				NOT = {
+					has_country_leader = { character = IRE_michael_collins }
+				}
+			}
+		}
+		add_stability = 0.10
+		add_political_power = -200
+		FROM = {
+			effect_tooltip = { transfer_state = 119 }
+			add_opinion_modifier = { target = ROOT modifier = KR_returned_land }
+			country_event = uk.101
+		}
+	}
+}
+
+# Northern Ireland returned
+country_event = {
+	id = uk.101
+	title = uk.101.t
+	desc = uk.101.d
+	picture = GFX_report_event_generic_diplomacy3
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.101 option uk.101.a"
+		name = uk.101.a
+		transfer_state = 119
+	}
+}
+
+# Notice to faction members: Ireland left faction due to conflict with GBR
+country_event = {
+	id = uk.102
+	title = uk.102.t
+	desc = uk.102.d
+	picture = GFX_report_event_generic_diplomacy4
+
+	is_triggered_only = yes
+
+	trigger = { is_ai = no }
+
+	option = {
+		log = "[GetLogInfo]: event uk.102 option uk.102.a"
+		name = uk.102.a
+	}
+}
+
+# Ireland refuses
+country_event = {
+	id = uk.103
+	title = uk.103.t
+	picture = GFX_report_event_generic_diplomacy4
+
+	desc = {
+		text = uk.103.d.faction
+		trigger = {
+			IRE = {
+				is_in_faction = yes
+				is_faction_leader = no
+			}
+			NOT = {
+				USA = {
+					is_in_faction_with = ROOT
+				}
+				PSA = {
+					is_in_faction_with = ROOT
+				}
+				TEX = {
+					is_in_faction_with = ROOT
+				}
+				AND = {
+					NEE = {
+						is_in_faction_with = ROOT
+						is_faction_leader = no
+					}
+					NEE_war_is_truly_over = yes
+				}
+			}
+		}
+	}
+	desc = {
+		text = uk.103.d.factionamerica
+		trigger = {
+			IRE = {
+				is_in_faction = yes
+				is_faction_leader = no
+			}
+			OR = {
+				USA = {
+					is_in_faction_with = ROOT
+				}
+				PSA = {
+					is_in_faction_with = ROOT
+				}
+				TEX = {
+					is_in_faction_with = ROOT
+				}
+				AND = {
+					NEE = {
+						is_in_faction_with = ROOT
+						is_faction_leader = no
+					}
+					NEE_war_is_truly_over = yes
+				}
+			}
+		}
+	}
+	desc = {
+		text = uk.103.d.nofaction
+		trigger = {
+			IRE = {
+				OR = {
+					is_in_faction = no
+					is_faction_leader = yes
+				}
+			}
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.103 option uk.103.a"
+		name = uk.103.a #Appeal to their faction leader
+		trigger = {
+			IRE = {
+				is_in_faction = yes
+				is_faction_leader = no
+			}
+			OR = {
+				USA = {
+					is_in_faction_with = ROOT
+				}
+				PSA = {
+					is_in_faction_with = ROOT
+				}
+				TEX = {
+					is_in_faction_with = ROOT
+				}
+				AND = {
+					NEE = {
+						is_in_faction_with = ROOT
+						is_faction_leader = no
+					}
+					NEE_war_is_truly_over = yes
+				}
+			}
+		}
+		ai_chance = { base = 100 }
+		var:IRE.faction_leader = {
+			country_event = { id = uk.105 days = 3 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.103 option uk.103.b"
+		name = uk.103.b #Drop our claim
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0.5
+				IRE = { is_in_faction = no }
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					has_government = social_liberal
+					has_government = market_liberal
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_government = social_conservative
+					has_authoritarian_government = yes
+				}
+			}
+		}
+		119 = { remove_claim_by = GBR }
+		add_political_power = -100
+		add_stability = -0.05
+		set_cosmetic_tag = GBR_britain
+		hidden_effect = {
+			news_event = uk.104
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.103 option uk.103.c"
+		name = uk.103.c #It is time to take matters into our own hands
+		trigger = {
+			OR = {
+				AND = {
+					IRE = {
+						is_in_faction = yes
+						is_faction_leader = no
+					}
+					NOT = {
+						USA = {
+							is_in_faction_with = ROOT
+						}
+						PSA = {
+							is_in_faction_with = ROOT
+						}
+						TEX = {
+							is_in_faction_with = ROOT
+						}
+						AND = {
+							NEE = {
+								is_in_faction_with = ROOT
+							}
+							NEE_war_is_truly_over = yes
+						}
+					}
+				}
+				IRE = {
+					OR = {
+						is_in_faction = no
+						is_faction_leader = yes
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 75
+			modifier = {
+				factor = 0
+				has_government = social_democrat
+			}
+		}
+		set_country_flag = GBR_may_attack_ireland
+		unlock_decision_tooltip = GBR_invade_ireland
+		add_war_support = -0.10
+	}
+}
+
+# News: Britain abandons claim to Northern Ireland
+news_event = {
+	id = uk.104
+	immediate = { log = "[GetLogInfo]: event uk.104" }
+	title = uk.104.t
+	desc = uk.104.d
+	picture = GFX_news_event_GBR_parliament
+
+	is_triggered_only = yes
+	major = yes
+
+	trigger = {
+		wants_world_news = yes
+	}
+
+	show_major = {
+		OR = {
+			regional_europe_news = yes
+			is_in_faction_with = GBR
+			tag = IRE
+			tag = GBR
+		}
+	}
+
+	option = {
+		name = uk.104.a
+		trigger = { tag = GBR }
+	}
+	option = {
+		name = uk.104.b
+		trigger = { tag = IRE }
+	}
+	option = {
+		name = uk.104.c
+		trigger = {
+			NOT = {
+				tag = GBR
+				tag = IRE
+			}
+		}
+	}
+}
+
+# Britain appeals to Ireland's faction leader
+country_event = {
+	id = uk.105
+	title = uk.105.t
+	desc = uk.105.d
+	picture = GFX_report_event_generic_diplomacy4
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_faction_leader = yes
+		is_in_faction_with = IRE
+		IRE = { owns_state = 119 }
+		NOT = { has_war_with = GBR }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uk.105 option uk.105.a"
+		name = uk.105.a #We support Ireland unreservedly
+		ai_chance = {
+			base = 100
+			modifier = {
+				add = -50
+				surrender_progress > 0.75
+			}
+		}
+		IRE = {
+			add_opinion_modifier = { target = ROOT modifier = KR_pleased }
+		}
+		FROM = {
+			add_opinion_modifier = { target = ROOT modifier = KR_hates_govt }
+			country_event = { id = uk.109 days = 3 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.105 option uk.105.b"
+		name = uk.105.b #Pressure the Irish to give in
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 12.5
+				has_war = yes
+			}
+			modifier = {
+				add = 25
+				surrender_progress > 0.50
+			}
+		}
+		FROM = {
+			add_opinion_modifier = { target = ROOT modifier = KR_pleased }
+		}
+		IRE = {
+			add_opinion_modifier = { target = ROOT modifier = KR_hates_govt }
+			country_event = { id = uk.106 days = 3 }
+		}
+	}
+}
+
+# Faction leader attempts to pressure Ireland
+country_event = {
+	id = uk.106
+	title = uk.106.t
+	desc = uk.106.d
+	picture = GFX_report_event_generic_diplomacy4
+
+	is_triggered_only = yes
+
+	trigger = {
+		FROM = { is_faction_leader = yes }
+		is_in_faction_with = FROM
+		owns_state = 119
+		NOT = { has_war_with = GBR }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uk.106 option uk.100.a"
+		name = uk.100.a #Absolutely not!
+		trigger = {
+			NOT = {
+				is_subject_of = FROM
+			}
+		}
+		ai_chance = {
+			base = 60
+			modifier = {
+				factor = 1.5
+				has_dictatorship_government = yes
+				NOT = {
+					has_country_leader = { character = IRE_michael_collins }
+				}
+			}
+		}
+		add_stability = -0.05
+		add_political_power = 50
+		custom_effect_tooltip = GBR_Ireland_leave_faction
+		if = {
+			limit = { is_in_faction_with = FROM }
+			leave_faction = yes
+			separate_peace_all_wars = yes
+		}
+		FROM = {
+			add_opinion_modifier = { target = ROOT modifier = KR_outraged }
+			country_event = uk.107
+		}
+		GBR = {
+			country_event = uk.108
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.106 option uk.100.b"
+		name = uk.100.b #If this will keep the peace, so be it
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 1.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 1.5
+				OR = {
+					has_dictatorship_government = no
+					has_country_leader = { character = IRE_michael_collins }
+				}
+			}
+		}
+		add_stability = 0.10
+		add_political_power = -200
+		GBR = {
+			effect_tooltip = { transfer_state = 119 }
+			add_opinion_modifier = { target = ROOT modifier = KR_returned_land }
+			country_event = uk.101
+		}
+	}
+}
+
+# Ireland refuses to be pressured - drops out of faction
+country_event = {
+	id = uk.107
+	title = uk.107.t
+	desc = uk.107.d
+	picture = GFX_report_event_generic_diplomacy4
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.107 option uk.107.a"
+		name = uk.107.a
+	}
+}
+
+# Appealing to faction leader just lead to IRE leaving their faction
+country_event = {
+	id = uk.108
+	title = uk.108.t
+	desc = uk.108.d
+	picture = GFX_report_event_generic_diplomacy4
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.108 option uk.108.b"
+		name = uk.108.b #Drop our claim
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 2
+				OR = {
+					has_government = social_liberal
+					has_government = market_liberal
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_government = social_conservative
+					has_authoritarian_government = yes
+				}
+			}
+		}
+		119 = { remove_claim_by = GBR }
+		add_political_power = -100
+		add_stability = -0.05
+		set_cosmetic_tag = GBR_britain
+		hidden_effect = {
+			news_event = uk.104
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.108 option uk.108.c"
+		name = uk.108.c #It is time to take matters into our own hands
+		ai_chance = {
+			base = 75
+			modifier = {
+				factor = 0
+				has_government = social_democrat
+			}
+		}
+		set_country_flag = GBR_may_attack_ireland
+		unlock_decision_tooltip = GBR_invade_ireland
+		add_war_support = -0.10
+	}
+}
+
+# Faction leader supports Ireland
+country_event = {
+	id = uk.109
+	title = uk.109.t
+	desc = uk.109.d
+	picture = GFX_report_event_generic_diplomacy4
+
+	is_triggered_only = yes
+
+	trigger = {
+		FROM = { is_faction_leader = yes }
+		IRE = {
+			is_in_faction_with = FROM
+			owns_state = 119
+			NOT = { has_war_with = GBR }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uk.109 option uk.109.b"
+		name = uk.109.b #Drop our claim
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 2
+				OR = {
+					has_government = social_liberal
+					has_government = market_liberal
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_government = social_conservative
+					has_authoritarian_government = yes
+				}
+			}
+		}
+		119 = { remove_claim_by = GBR }
+		add_political_power = -100
+		add_stability = -0.05
+		set_cosmetic_tag = GBR_britain
+		hidden_effect = {
+			news_event = uk.104
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.109 option uk.109.c"
+		name = uk.109.c #It is time to take matters into our own hands
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				has_government = social_democrat
+			}
+		}
+		set_country_flag = GBR_may_attack_ireland
+		unlock_decision_tooltip = GBR_invade_ireland
+	}
+}
+
+# Ulster wishes to rejoin the UK (fired by decision)
+country_event = {
+	id = uk.111
+	title = uk.111.t
+	desc = uk.111.d
+	picture = GFX_report_event_IRE_loyalist_rally
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.111 option uk.111.a"
+		name = uk.111.a
+		add_political_power = 50
+		if = {
+			limit = { NOT = { 119 = { is_core_of = ROOT } } }
+			add_state_claim = 119
+		}
+		annex_country = { target = FROM transfer_troops = yes }
+	}
+}
+
+# Do we claim Gibraltar?
+country_event = {
+	id = uk.112
+	title = uk.112.t
+	picture = GFX_report_event_generic_diplomacy2
+
+	desc = {
+		text = uk.112.d.spanish
+		trigger = {
+			event_target:gibraltar_owner = { original_tag = SPA }
+		}
+	}
+	desc = {
+		text = uk.112.d
+		trigger = {
+			NOT = { event_target:gibraltar_owner = { original_tag = SPA } }
+		}
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			random_country = {
+				limit = { owns_state = 118 }
+				save_event_target_as = gibraltar_owner
+			}
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uk.112 option uk.112.a"
+		name = uk.112.a #Gibraltar is ours by right
+		ai_chance = {
+			base = 70
+			modifier = {
+				factor = 0.5
+				has_government = social_democrat
+			}
+		}
+		add_political_power = -50
+		add_war_support = 0.05
+		118 = { add_claim_by = GBR }
+		unlock_decision_tooltip = GBR_demand_gibraltar
+		event_target:gibraltar_owner = {
+			add_opinion_modifier = { target = ROOT modifier = KR_outraged }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.112 option uk.112.b"
+		name = uk.112.b #It's a pointless claim
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 2
+				has_government = social_liberal
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					has_government = social_conservative
+					has_authoritarian_government = yes
+				}
+			}
+		}
+		add_political_power = 50
+		add_war_support = -0.05
+	}
+}
+
+# Do we claim the Falkland Islands?
+country_event = {
+	id = uk.113
+	title = uk.113.t
+	picture = GFX_report_event_generic_diplomacy2
+
+	desc = {
+		text = uk.113.d.arg
+		trigger = {
+			var:299.owner = {
+				OR = {
+					tag = ARG
+					tag = FOP
+				}
+			}
+		}
+	}
+	desc = {
+		text = uk.113.d.ally
+		trigger = {
+			var:299.owner = {
+				is_in_faction_with = ROOT
+				NOT = {
+					tag = ARG
+					tag = FOP
+				}
+			}
+		}
+	}
+	desc = {
+		text = uk.113.d
+		trigger = {
+			var:299.owner = {
+				NOT = {
+					is_in_faction_with = ROOT
+					tag = ARG
+					tag = FOP
+				}
+			}
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.113 option uk.113.a"
+		name = uk.113.a #The Falklands are ours by right
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0.5
+				has_government = social_democrat
+			}
+		}
+		add_political_power = -25
+		add_war_support = 0.03
+		unlock_decision_tooltip = GBR_demand_falklands
+		add_state_claim = 299
+		add_state_claim = 720
+		if = {
+			limit = {
+				var:299.owner = {
+					OR = {
+						tag = ARG
+						tag = FOP
+						NOT = { is_in_faction_with = ROOT }
+					}
+				}
+			}
+			var:299.owner = {
+				add_opinion_modifier = { target = ROOT modifier = KR_outraged }
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.113 option uk.113.b"
+		name = uk.113.b #It's a pointless claim
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				var:299.owner = {
+					NOT = {
+						tag = ARG
+						tag = FOP
+					}
+					is_in_faction_with = ROOT
+				}
+			}
+			modifier = {
+				factor = 2
+				has_government = social_liberal
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					has_government = social_conservative
+					has_authoritarian_government = yes
+				}
+			}
+		}
+		add_political_power = 25
+		add_war_support = -0.03
+	}
+}
+
+# Sending demand for territory
+country_event = {
+	id = uk.115
+	picture = GFX_report_event_generic_diplomacy2
+
+	title = {
+		text = uk.115.t
+		trigger = { NOT = { is_in_faction_with = FROM } }
+	}
+	title = {
+		text = uk.115.t.ally
+		trigger = { is_in_faction_with = FROM }
+	}
+	desc = {
+		text = uk.115.d
+		trigger = { NOT = { is_in_faction_with = FROM } }
+	}
+	desc = {
+		text = uk.115.d.ally
+		trigger = { is_in_faction_with = FROM }
+	}
+
+	is_triggered_only = yes
+
+	trigger = {
+		owns_state = event_target:demand_state
+		NOT = { has_war_with = FROM }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uk.115 option uk.115.a"
+		name = uk.115.a #Agree
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+				event_target:demand_state = { is_core_of = ROOT }
+			}
+			modifier = {
+				factor = 10
+				is_in_faction_with = FROM
+			}
+			modifier = {
+				factor = 2
+				is_in_faction = no
+			}
+		}
+		if = {
+			limit = { event_target:demand_state = { is_core_of = ROOT } }
+			add_political_power = -100
+		}
+		else_if = {
+			limit = { event_target:demand_state = { is_claimed_by = ROOT } }
+			add_political_power = -50
+		}
+		else = {
+			add_political_power = -25
+		}
+		FROM = {
+			add_opinion_modifier = { target = ROOT modifier = KR_pleased }
+			effect_tooltip = { transfer_state = event_target:demand_state }
+			country_event = uk.116
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.115 option uk.115.b"
+		name = uk.115.b #Refuse
+		ai_chance = {
+			base = 90
+			modifier = {
+				factor = 0.1
+				is_subject_of = FROM
+			}
+			modifier = {
+				factor = 0.5
+				is_in_faction_with = FROM
+			}
+			modifier = {
+				factor = 0.5
+				event_target:demand_state = { is_claim_or_core_of_ROOT = no }
+			}
+			modifier = {
+				factor = 0.1
+				is_in_faction_with = FROM
+				event_target:demand_state = { state = 299 }
+			}
+		}
+		FROM = {
+			add_opinion_modifier = { target = ROOT modifier = KR_disapproves_of_govt }
+			country_event = uk.117
+		}
+	}
+}
+
+# They Agreed
+country_event = {
+	id = uk.116
+	title = uk.116.t
+	picture = GFX_report_event_generic_diplomacy2
+
+	desc = {
+		text = uk.116.d
+		trigger = { NOT = { is_in_faction_with = FROM } }
+	}
+	desc = {
+		text = uk.116.d.ally
+		trigger = { is_in_faction_with = FROM }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.116 option uk.116.a"
+		name = uk.116.a
+		add_political_power = 25
+		transfer_state = event_target:demand_state
+		if = {
+			limit = {
+				720 = {
+					is_owned_by = FROM
+					is_claimed_by = ROOT
+				}
+			}
+			transfer_state = 720
+		}
+	}
+}
+
+# They Refused
+country_event = {
+	id = uk.117
+	title = uk.117.t
+	desc = uk.117.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.117 option uk.117.a"
+		name = uk.117.a #We are not amused
+		ai_chance = { base = 70 }
+		add_war_support = 0.05
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.117 option uk.117.b"
+		name = uk.117.b #Then we are left with no alternative
+		trigger = {
+			can_declare_war_on = FROM
+		}
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 2
+				event_target:demand_state = { state = 118 }
+			}
+			modifier = {
+				factor = 0
+				is_in_faction = yes
+				any_allied_country = { is_actual_major = yes }
+			}
+		}
+		add_war_support = 0.05
+		declare_war_on = {
+			target = FROM
+			type = annex_everything
+		}
+	}
+}
+
+# Asking for control over subject
+country_event = {
+	id = uk.118
+	title = uk.118.t
+	desc = uk.118.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_in_faction_with = FROM
+		has_subject = event_target:colony_country
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uk.118 option uk.118.a"
+		name = uk.118.a #Agree
+		ai_chance = {
+			base = 90
+			modifier = {
+				factor = 0
+				tag = GEX
+				event_target:colony_country = {
+					NOT = {
+						tag = NIR
+						tag = WLS
+						tag = SCO
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				CAN_is_commonwealth_tag = no
+			}
+		}
+		clr_country_flag = GBR_requested_control
+		FROM = {
+			add_opinion_modifier = { target = ROOT modifier = KR_pleased }
+			effect_tooltip = { puppet = event_target:colony_country }
+			country_event = uk.119
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.118 option uk.118.b"
+		name = uk.118.b #Refuse
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+				NOT = {
+					tag = GEX
+					tag = SAF
+				}
+			}
+			modifier = {
+				factor = 0
+				event_target:colony_country = {
+					OR = {
+						tag = NIR
+						tag = WLS
+						tag = SCO
+					}
+				}
+			}
+			modifier = {
+				factor = 20
+				tag = SAF
+			}
+		}
+		FROM = {
+			add_opinion_modifier = { target = ROOT modifier = KR_disapproves_of_govt }
+			country_event = uk.120
+		}
+	}
+}
+
+# They Agreed
+country_event = {
+	id = uk.119
+	title = uk.119.t
+	desc = uk.119.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.119 option uk.119.a"
+		name = uk.119.a
+		add_political_power = 25
+		set_temp_variable = { target = event_target:colony_country }
+		puppet_country_without_changing_government = yes
+	}
+}
+
+# They Refused
+country_event = {
+	id = uk.120
+	title = uk.120.t
+	desc = uk.120.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.120 option uk.120.a"
+		name = uk.120.a
+		add_political_power = -25
+		if = {
+			limit = {
+				event_target:colony_country = {
+					is_on_continent = central_america
+				}
+			}
+			every_state = {
+				limit = {
+					is_core_of = event_target:colony_country
+					is_claim_or_core_of_ROOT = no
+				}
+				add_claim_by = ROOT
+			}
+		}
+	}
+}
+
+# Asking for return of colonies
+country_event = {
+	id = uk.121
+	picture = GFX_report_event_generic_diplomacy2
+
+	title = {
+		text = uk.121.t.ally
+		trigger = { is_in_faction_with = FROM }
+	}
+	title = {
+		text = uk.121.t
+		trigger = { NOT = { is_in_faction_with = FROM } }
+	}
+	desc = {
+		text = uk.121.d.ally
+		trigger = { is_in_faction_with = FROM }
+	}
+	desc = {
+		text = uk.121.d
+		trigger = { NOT = { is_in_faction_with = FROM } }
+	}
+
+	is_triggered_only = yes
+
+	trigger = {
+		any_owned_state = {
+			has_variable = ambition_area_@FROM
+			is_british_colonial_claim = yes
+			is_claim_or_core_of_ROOT = no
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uk.121 option uk.121.a"
+		name = uk.121.a #Agree
+		trigger = { is_subject = no }
+		ai_chance = {
+			base = 90
+			modifier = {
+				factor = 0
+				tag = GEX
+			}
+			modifier = {
+				factor = 0.5
+				is_in_faction_with = FROM
+				CAN_is_commonwealth_tag = no
+			}
+			modifier = {
+				factor = 0.1
+				is_in_faction = yes
+				NOT = { is_in_faction_with = GBR }
+				NOT = { alliance_strength_ratio < 1.0 }
+			}
+			modifier = {
+				factor = 0.1
+				is_in_faction = no
+				alliance_strength_ratio > 1.0
+			}
+		}
+		clr_country_flag = GBR_refused_colony_transfer
+		effect_tooltip = {
+			every_state = {
+				limit = {
+					has_variable = ambition_area_@FROM
+					is_british_colonial_claim = yes
+					is_claim_or_core_of_ROOT = no
+					OR = {
+						is_owned_by = ROOT
+						owner = { is_subject_of = ROOT }
+					}
+				}
+				FROM = {
+					transfer_state = PREV
+				}
+			}
+		}
+		FROM = {
+			if = {
+				limit = { is_in_faction_with = ROOT }
+				add_opinion_modifier = { target = ROOT modifier = KR_pleased }
+			}
+			else = {
+				add_opinion_modifier = { target = ROOT modifier = KR_returned_land }
+			}
+			country_event = uk.122
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.121 option uk.121.b"
+		name = uk.121.b #Refuse
+		trigger = { is_subject = no }
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+				NOT = { tag = GEX }
+				is_in_faction_with = FROM
+			}
+			modifier = {
+				factor = 10
+				is_in_faction = yes
+				NOT = { is_in_faction_with = GBR }
+				NOT = { alliance_strength_ratio < 1.0 }
+			}
+			modifier = {
+				factor = 10
+				is_in_faction = no
+				alliance_strength_ratio > 1.0
+			}
+		}
+		FROM = {
+			if = {
+				limit = { is_in_faction_with = ROOT }
+				add_opinion_modifier = { target = ROOT modifier = KR_disapproves_of_govt }
+			}
+			else = {
+				add_opinion_modifier = { target = ROOT modifier = KR_outraged }
+			}
+			country_event = uk.123
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.121 option uk.121.c"
+		name = uk.121.c #Inform overlord
+		trigger = { is_subject = yes }
+		overlord = { country_event = uk.140 }
+	}
+}
+
+# They Agreed
+country_event = {
+	id = uk.122
+	title = uk.122.t
+	desc = uk.122.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.122 option uk.122.a"
+		name = uk.122.a
+		every_state = {
+			limit = {
+				has_variable = ambition_area_@ROOT
+				is_british_colonial_claim = yes
+				is_claim_or_core_of_FROM = no
+				OR = {
+					is_owned_by = FROM
+					owner = { is_subject_of = FROM }
+				}
+			}
+			ROOT = {
+				transfer_state = PREV
+			}
+		}
+	}
+}
+
+# They Refused
+country_event = {
+	id = uk.123
+	title = uk.123.t
+	desc = uk.123.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.123 option uk.123.a"
+		name = uk.123.a #How disappointing
+		ai_chance = { base = 50 }
+		add_political_power = -25
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.123 option uk.123.b"
+		name = uk.123.b #They leave us with little choice
+		trigger = {
+			can_declare_war_on = FROM
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				FROM = { tag = GEX }
+			}
+			modifier = {
+				factor = 0
+				FROM = {
+					is_in_faction = yes
+					any_allied_country = { is_actual_major = yes }
+				}
+			}
+		}
+		declare_war_on = {
+			target = FROM
+			type = annex_everything
+		}
+	}
+}
+
+# UK decides the fate of WIF
+country_event = {
+	id = uk.124
+	title = uk.124.t
+	desc = uk.124.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.124 option uk.124.a"
+		name = uk.124.a #Time to dissolve the federation
+		trigger = {
+			WIF = { is_ai = yes }
+		}
+		ai_chance = { base = 70 }
+		if = {
+			limit = {
+				is_in_faction_with = NFA
+				OR = {
+					694 = { is_owned_by = WIF } #French Caribbean
+					310 = { is_owned_by = WIF } #French Guyana
+					1037 = { is_owned_by = WIF } #French Guyana Jungle
+					694 = { is_owned_by = ROOT } #French Caribbean
+					310 = { is_owned_by = ROOT } #French Guyana
+					1037 = { is_owned_by = ROOT } #French Guyana Jungle
+				}
+			}
+			every_state = {
+				limit = {
+					OR = {
+						is_owned_by = WIF
+						is_owned_by = ROOT
+					}
+					OR = {
+						state = 310 #East Guyana
+						state = 694 #French Caribbean
+						state = 1037 #Inini Territory
+					}
+				}
+				effect_tooltip = {
+					transfer_state_to = NFA
+				}
+			}
+			NFA = {
+				add_opinion_modifier = { target = ROOT modifier = KR_returned_land }
+				hidden_effect = { country_event = uk.125 }
+			}
+		}
+		hidden_effect = {
+			WIF = {
+				every_core_state = {
+					limit = {
+						NOT = { is_core_of = CUB }
+						NOT = { is_core_of = DOM }
+						NOT = { is_core_of = HAI }
+						NOT = { is_core_of = PUE }
+						NOT = { state = 310 } #East Guyana
+						NOT = { state = 694 } #French Caribbean
+						NOT = { state = 1037 } #Inini Territory
+					}
+					add_claim_by = ROOT
+				}
+			}
+		}
+		annex_country = { target = WIF transfer_troops = yes }
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.124 option uk.124.b"
+		name = uk.124.b #It can remain under our control
+		trigger = {
+			WIF = { is_subject_of = ROOT }
+		}
+		ai_chance = { base = 20 }
+		WIF = {
+			country_event = uk.126
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.124 option uk.124.c"
+		name = uk.124.c #It should be placed under our control
+		trigger = {
+			WIF = { is_subject = no }
+		}
+		ai_chance = { base = 20 }
+		WIF = {
+			country_event = uk.127
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.124 option uk.124.e"
+		name = uk.124.e #Leave it independent
+		trigger = {
+			WIF = { is_subject = no }
+		}
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 10
+				WIF = { is_ai = no }
+			}
+		}
+		WIF = {
+			add_opinion_modifier = { target = ROOT modifier = KR_close_allies }
+			country_event = uk.128
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.124 option uk.124.f"
+		name = uk.124.f #Grant it independence
+		trigger = {
+			WIF = { is_subject_of = ROOT }
+		}
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 10
+				WIF = { is_ai = no }
+			}
+		}
+		effect_tooltip = {
+			set_autonomy = {
+				target = WIF
+				autonomy_state = autonomy_free
+			}
+		}
+		WIF = {
+			add_opinion_modifier = { target = ROOT modifier = KR_close_allies }
+			country_event = uk.129
+		}
+	}
+}
+
+# French Caribbean returned to NFA
+country_event = {
+	id = uk.125
+	title = uk.125.t
+	desc = uk.125.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.125 option uk.125.a"
+		name = uk.125.a
+		every_state = {
+			limit = {
+				OR = {
+					is_owned_by = WIF
+					is_owned_by = FROM
+				}
+				OR = {
+					state = 694 #French Caribbean
+					state = 310 #East Guyana
+					state = 1037 #French Guyana Jungle
+				}
+			}
+			hidden_effect = { add_claim_by = ROOT }
+			transfer_state_to = ROOT
+		}
+	}
+}
+
+# WIF to remain UK puppet
+country_event = {
+	id = uk.126
+	title = uk.126.t
+	desc = uk.126.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.126 option uk.126.a"
+		name = uk.126.a
+	}
+}
+
+# WIF to become UK puppet
+country_event = {
+	id = uk.127
+	title = uk.127.t
+	desc = uk.127.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.127 option uk.127.a"
+		name = uk.127.a #Agreed
+		set_temp_variable = { target = ROOT }
+		FROM = { puppet_country_without_changing_government = yes }
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.127 option uk.127.b"
+		name = uk.127.b #Refuse
+		ai_chance = { base = 0 }
+		leave_faction = yes
+		peace_out_non_neighbours_after_leaving_faction = yes
+		FROM = {
+			create_wargoal = {
+				type = annex_everything
+				target = ROOT
+			}
+		}
+	}
+}
+
+# WIF to remain independent
+country_event = {
+	id = uk.128
+	title = uk.128.t
+	desc = uk.128.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.128 option uk.128.a"
+		name = uk.128.a
+	}
+}
+
+# WIF granted independence
+country_event = {
+	id = uk.129
+	title = uk.129.t
+	desc = uk.129.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.129 option uk.129.a"
+		name = uk.129.a
+		add_political_power = 100
+		FROM = {
+			set_autonomy = {
+				target = ROOT
+				autonomy_state = autonomy_free
+			}
+		}
+	}
+}
+
+# The Imperial Argument (fired by focus)
+country_event = {
+	id = uk.130
+	title = uk.130.t
+	picture = GFX_report_event_GBR_country_parliament
+
+	desc = {
+		text = uk.130.d.promise
+		trigger = { has_global_flag = ENT_agree_colonies }
+	}
+	desc = {
+		text = uk.130.d.nopromise
+		trigger = { NOT = { has_global_flag = ENT_agree_colonies } }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.130 option uk.130.a"
+		name = uk.130.a #It is time to decolonize
+		ai_chance = { base = 80 }
+		set_country_flag = GBR_decolonize
+		add_political_power = 100
+		add_stability = 0.10
+		set_temp_variable = { ideology_change_var = 0.1 }
+		change_ruling_party_popularity = yes
+		hidden_effect = {
+			every_state = {
+				limit = {
+					has_variable = ambition_area_@ROOT
+					is_british_colonial_claim = yes
+				}
+				clear_variable = ambition_area_@ROOT
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.130 option uk.130.b"
+		name = uk.130.b #We will restore the empire - but not German lands
+		trigger = { has_global_flag = ENT_agree_colonies }
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				has_government = social_democrat
+			}
+		}
+		add_political_power = -100
+		add_stability = -0.10
+		set_temp_variable = { ideology_change_var = -0.1 }
+		change_ruling_party_popularity = yes
+		custom_effect_tooltip = GBR_regain_colonies_no_ger
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.130 option uk.130.c"
+		name = uk.130.c #We will restore the ENTIRE empire
+		trigger = { has_global_flag = ENT_agree_colonies }
+		ai_chance = { base = 0 }
+		set_country_flag = GBR_rebuild_empire
+		add_political_power = -300
+		add_stability = -0.20
+		set_temp_variable = { ideology_change_var = -0.2 }
+
+		clr_global_flag = GER_stay_out_france_uk
+		clr_global_flag = ENT_britain_agree_northire
+		clr_global_flag = ENT_agree_colonies
+		if = {
+			limit = { has_global_flag = ENT_france_agree_mittel }
+			clr_global_flag = ENT_france_agree_mittel
+			NFA = {
+				GER_leave_mitteleuropa = yes
+				clr_country_flag = CAN_refused_iedc
+			}
+		}
+		if = {
+			limit = { has_global_flag = ENT_france_agree_alsace }
+			clr_global_flag = ENT_france_agree_alsace
+			28 = { add_claim_by = NFA }
+		}
+		every_country = {
+			limit = { is_in_faction_with = GER }
+			country_event = entente.324
+		}
+		custom_effect_tooltip = GBR_regain_colonies
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.130 option uk.130.e"
+		name = uk.130.e #We shall rebuild the British Empire
+		trigger = { NOT = { has_global_flag = ENT_agree_colonies } }
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				has_government = social_democrat
+			}
+		}
+		set_country_flag = GBR_rebuild_empire
+		add_political_power = -100
+		add_stability = -0.10
+		set_temp_variable = { ideology_change_var = -0.1 }
+		change_ruling_party_popularity = yes
+		custom_effect_tooltip = GBR_regain_colonies
+	}
+}
+
+# UK asks for Malta's return
+country_event = {
+	id = uk.131
+	title = uk.131.t
+	desc = uk.131.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	trigger = {
+		owns_state = event_target:demand_state
+		NOT = { has_war_with = FROM }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uk.131 option uk.115.a"
+		name = uk.115.a #Agree
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				OR = {
+					original_tag = MLT
+					is_italian_tag = yes
+				}
+			}
+		}
+		remove_state_claim = 116
+		clr_country_flag = MLT_CONQ
+		116 = { clear_occupy_state = yes }
+		FROM = {
+			add_opinion_modifier = { target = ROOT modifier = KR_pleased }
+			effect_tooltip = {
+				if = {
+					limit = { country_exists = MLT }
+					annex_country = { target = MLT }
+				}
+				else = {
+					transfer_state = event_target:demand_state
+				}
+			}
+			country_event = uk.116
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.131 option uk.115.b"
+		name = uk.115.b #Refuse
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 1
+				OR = {
+					original_tag = MLT
+					is_italian_tag = yes
+				}
+			}
+		}
+		FROM = {
+			add_opinion_modifier = { target = ROOT modifier = KR_disapproves_of_govt }
+			country_event = uk.117
+		}
+	}
+}
+
+# Asking for return of integral state
+country_event = {
+	id = uk.132
+	title = uk.132.t
+	picture = GFX_report_event_generic_diplomacy2
+
+	desc = {
+		text = uk.132.d.puppet
+		trigger = {
+			has_subject = event_target:return_country
+		}
+	}
+	desc = {
+		text = uk.132.d
+		trigger = {
+			tag = event_target:return_country
+		}
+	}
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_subject = event_target:return_country
+			tag = event_target:return_country
+		}
+		NOT = { has_war_with = FROM }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uk.132 option uk.132.a"
+		name = uk.132.a #Agree
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0.5
+				alliance_strength_ratio > 2.0
+			}
+			modifier = {
+				factor = 0.5
+				tag = GER
+				has_war = no
+			}
+		}
+		FROM = {
+			effect_tooltip = { annex_country = { target = event_target:return_country } }
+			country_event = uk.133
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.132 option uk.132.b"
+		name = uk.132.b #Refuse
+		ai_chance = {
+			base = 60
+			modifier = {
+				factor = 0
+				tag = NIR
+			}
+			modifier = {
+				factor = 0.5
+				alliance_strength_ratio < 1.0
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { tag = event_target:return_country }
+				has_war = yes
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { tag = event_target:return_country }
+				surrender_progress > 0.10
+			}
+		}
+		FROM = {
+			country_event = uk.134
+		}
+	}
+}
+
+# They Agreed
+country_event = {
+	id = uk.133
+	title = uk.133.t
+	desc = uk.133.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.133 option uk.133.a"
+		name = uk.133.a
+		annex_country = { target = event_target:return_country }
+	}
+}
+
+# They Refused
+country_event = {
+	id = uk.134
+	title = uk.134.t
+	desc = uk.134.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.134 option uk.134.a"
+		name = uk.134.a #Damn you!
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0.5
+				alliance_strength_ratio > 2.0
+			}
+			modifier = {
+				factor = 0.01
+				FROM = { is_in_faction = no }
+			}
+		}
+		add_opinion_modifier = { target = FROM modifier = KR_outraged }
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.134 option uk.134.b"
+		name = uk.134.b #War it is
+		trigger = {
+			can_declare_war_on = event_target:return_country
+		}
+		ai_chance = {
+			base = 75
+			modifier = {
+				factor = 0.5
+				FROM = { tag = GER }
+			}
+			modifier = {
+				factor = 0.5
+				alliance_strength_ratio < 1.0
+			}
+		}
+		declare_war_on = {
+			target = event_target:return_country
+			type = annex_everything
+		}
+	}
+}
+
+# Asking for return of British states
+country_event = {
+	id = uk.135
+	title = uk.135.t
+	desc = uk.135.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	trigger = {
+		any_owned_state = {
+			is_core_of = GBR
+			is_great_britain = yes
+			is_claim_or_core_of_ROOT = no
+		}
+		NOT = {
+			has_war_with = FROM
+			is_in_faction_with = FROM
+			is_subject_of = FROM
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uk.135 option uk.135.a"
+		name = uk.135.a #Agree
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+		effect_tooltip = {
+			every_owned_state = {
+				limit = {
+					is_core_of = GBR
+					is_great_britain = yes
+					is_claim_or_core_of_ROOT = no
+				}
+				transfer_state_to = FROM
+			}
+		}
+		FROM = {
+			add_opinion_modifier = { target = ROOT modifier = KR_returned_land }
+			country_event = uk.136
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.135 option uk.135.b"
+		name = uk.135.b #Refuse
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+		}
+		FROM = {
+			add_opinion_modifier = { target = ROOT modifier = KR_outraged }
+			country_event = uk.137
+		}
+	}
+}
+
+# They Agreed
+country_event = {
+	id = uk.136
+	title = uk.136.t
+	desc = uk.136.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.136 option uk.136.a"
+		name = uk.136.a
+		FROM = {
+			every_owned_state = {
+				limit = {
+					is_core_of = GBR
+					is_great_britain = yes
+					is_claim_or_core_of_PREV = no
+				}
+				transfer_state_to = ROOT
+			}
+		}
+	}
+}
+
+# They Refused
+country_event = {
+	id = uk.137
+	title = uk.137.t
+	desc = uk.137.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.137 option uk.137.a"
+		name = uk.137.a #How disappointing
+		ai_chance = { base = 10 }
+		add_opinion_modifier = { target = FROM modifier = KR_outraged }
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.137 option uk.137.b"
+		name = uk.137.b #They leave us with little choice
+		trigger = {
+			can_declare_war_on = FROM
+		}
+		ai_chance = {
+			base = 90
+			modifier = {
+				factor = 0
+				FROM = { is_in_faction = no }
+			}
+		}
+		declare_war_on = {
+			target = FROM
+			type = annex_everything
+		}
+	}
+}
+
+# Overlord informed of UK's demand
+country_event = {
+	id = uk.140
+	title = uk.140.t
+	desc = uk.140.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.140 option uk.140.b"
+		name = uk.140.b #Tell them to refuse
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				NOT = { tag = GEX }
+				is_in_faction_with = GBR
+			}
+			modifier = {
+				factor = 4
+				is_in_faction = yes
+				NOT = { is_in_faction_with = GBR }
+				NOT = { alliance_strength_ratio < 1.0 }
+			}
+		}
+		FROM = { country_event = uk.141 }
+	}
+	option = {
+		log = "[GetLogInfo]: event uk.140 option uk.140.a"
+		name = uk.140.a #Tell them to agree
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				tag = GEX
+			}
+			modifier = {
+				factor = 0.5
+				is_in_faction_with = GBR
+				CAN_is_commonwealth_tag = no
+			}
+			modifier = {
+				factor = 4
+				alliance_strength_ratio < 1.0
+			}
+		}
+		FROM = { country_event = uk.142 }
+	}
+}
+
+# Puppet told to refuse
+country_event = {
+	id = uk.141
+	title = uk.141.t
+	desc = uk.141.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.141 option uk.141.a"
+		name = uk.141.a
+		GBR = {
+			if = {
+				limit = { is_in_faction_with = ROOT }
+				add_opinion_modifier = { target = ROOT modifier = KR_disapproves_of_govt }
+			}
+			else = {
+				add_opinion_modifier = { target = ROOT modifier = KR_outraged }
+			}
+			country_event = uk.123
+		}
+	}
+}
+
+# Puppet told to agree
+country_event = {
+	id = uk.142
+	title = uk.142.t
+	desc = uk.142.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.142 option uk.142.a"
+		name = uk.142.a
+		clr_country_flag = GBR_refused_colony_transfer
+		effect_tooltip = {
+			every_owned_state = {
+				limit = {
+					has_variable = ambition_area_@GBR
+					is_british_colonial_claim = yes
+					is_claim_or_core_of_ROOT = no
+				}
+				transfer_state_to = GBR
+			}
+		}
+		GBR = {
+			if = {
+				limit = { is_in_faction_with = ROOT }
+				add_opinion_modifier = { target = ROOT modifier = KR_pleased }
+			}
+			else = {
+				add_opinion_modifier = { target = ROOT modifier = KR_returned_land }
+			}
+			country_event = uk.122
+		}
+	}
+}
+
+# Ulster wants to join the Entente
+country_event = {
+	id = uk.143
+	title = uk.143.t
+	desc = uk.143.d
+	picture = GFX_report_event_IRE_loyalist_rally
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uk.143 option uk.143.a"
+		name = uk.143.a #Of course!
+		add_to_faction = FROM
+	}
+}

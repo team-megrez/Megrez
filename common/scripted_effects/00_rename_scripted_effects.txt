@@ -1,0 +1,34 @@
+rename_state_effect = {
+	XXA = {
+		random_character = {
+			limit = { is_country_leader = yes }
+			meta_effect = {
+				text = { set_character_name = [STATE_NAME] }
+				STATE_NAME = "STATE_[PREV.PREV.GetId]_ENDONYM"
+			}
+		}
+	}
+	meta_effect = {
+		text = { set_state_name = "[STATE_NAME]" }
+		STATE_NAME = "[XXA.GetLeader]"
+	}
+	for_each_loop = {
+		array = state_victory_points
+		XXA = {
+			random_character = {
+				limit = { is_country_leader = yes }
+				meta_effect = {
+					text = { set_character_name = "[VP_NAME]" }
+					VP_NAME = "VICTORY_POINTS_[?v]_ENDONYM"
+				}
+			}
+		}
+		meta_effect = {
+			text = {
+				set_province_name = { id = [VP_ID] name = "[VP_NAME]" }
+			}
+			VP_ID = "[?v]"
+			VP_NAME = "[XXA.GetLeader]"
+		}
+	}
+}

@@ -1,0 +1,469 @@
+##############################################
+# Yunnan Scripted effects					 #
+# By Drozdovite, Wrealith Noel and Angry Bird#
+##############################################
+end_of_yunnan_civil_war = {
+	remove_ideas = YUN_chaos_army
+	every_owned_state = { set_demilitarized_zone = no }
+
+	if = {
+		limit = { NOT = { has_template = "Hun Cheng Lu" } }
+		division_template = {
+			name = "Hun Cheng Lu" # Combined Arms Brigade
+			division_names_group = "YUN_INF_01"
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+			}
+			support = {
+				artillery = { x = 0 y = 0 }
+			}
+		}
+	}
+	if = {
+		limit = { NOT = { has_template = "Bu Bing Shi" } }
+		division_template = {
+			name = "Bu Bing Shi" # Inf division
+			division_names_group = "YUN_INF_01"
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+			}
+		}
+	}
+	if = {
+		limit = { NOT = { has_template = "Bian Fang Shi" } }
+		division_template = {
+			name = "Bian Fang Shi" # Border Defense division
+			division_names_group = "YUN_INF_01"
+			regiments = {
+				irregular_infantry = { x = 0 y = 0 }
+				irregular_infantry = { x = 0 y = 1 }
+				irregular_infantry = { x = 1 y = 0 }
+				irregular_infantry = { x = 1 y = 1 }
+			}
+		}
+	}
+	if = {
+		limit = { NOT = { has_template = "Qibing Shi" } }
+		division_template = {
+			name = "Qibing Shi"
+			division_names_group = "YUN_CAV_01"
+			regiments = {
+				cavalry = { x = 0 y = 0 }
+				cavalry = { x = 0 y = 1 }
+				cavalry = { x = 1 y = 0 }
+				cavalry = { x = 1 y = 1 }
+			}
+		}
+	}
+	if = {
+		limit = { NOT = { has_template = "Shandi Shi" } }
+		division_template = {
+			name = "Shandi Shi"
+			division_names_group = "YUN_MTN_01"
+			regiments = {
+				mountaineers = { x = 0 y = 0 }
+				mountaineers = { x = 0 y = 1 }
+				mountaineers = { x = 1 y = 0 }
+				mountaineers = { x = 1 y = 1 }
+			}
+		}
+	}
+	random_owned_controlled_state = {
+		prioritize = { 325 } #Kunming
+		limit = { valid_state_for_spawning_friendly_unit = yes }
+		create_unit = {
+			division = "division_template = \"Hun Cheng Lu\" start_experience_factor = 0.8"
+			owner = PREV
+		}
+		create_unit = {
+			division = "division_template = \"Hun Cheng Lu\" start_experience_factor = 0.4"
+			owner = PREV
+		}
+		create_unit = {
+			division = "division_template = \"Bu Bing Shi\" start_experience_factor = 0.8"
+			owner = PREV
+		}
+		create_unit = {
+			division = "division_template = \"Bu Bing Shi\" start_experience_factor = 0.4"
+			owner = PREV
+			count = 3
+		}
+		create_unit = {
+			division = "division_template = \"Bu Bing Shi\" start_experience_factor = 0.1"
+			owner = PREV
+			count = 3
+		}
+	}
+	random_owned_controlled_state = {
+		prioritize = { 816 } #Dali
+		limit = { valid_state_for_spawning_friendly_unit = yes }
+		create_unit = {
+			division = "division_template = \"Bian Fang Shi\" start_experience_factor = 0.1"
+			owner = PREV
+			count = 2
+		}
+		create_unit = {
+			division = "division_template = \"Shandi Shi\" start_experience_factor = 0.5"
+			owner = PREV
+		}
+		create_unit = {
+			division = "division_template = \"Bu Bing Shi\" start_experience_factor = 0.4"
+			owner = PREV
+		}
+	}
+	random_owned_controlled_state = {
+		prioritize = { 603 } #Qianzhong
+		limit = { valid_state_for_spawning_friendly_unit = yes }
+		create_unit = {
+			division = "division_template = \"Bu Bing Shi\" start_experience_factor = 0.8"
+			owner = PREV
+		}
+		create_unit = {
+			division = "division_template = \"Bu Bing Shi\" start_experience_factor = 0.4"
+			owner = PREV
+		}
+		create_unit = {
+			division = "division_template = \"Bu Bing Shi\" start_experience_factor = 0.3"
+			owner = PREV
+		}
+	}
+	random_owned_controlled_state = {
+		prioritize = { 1051 } #Guixi
+		limit = { valid_state_for_spawning_friendly_unit = yes }
+		create_unit = {
+			division = "division_template = \"Shandi Shi\" start_experience_factor = 0.5"
+			owner = PREV
+		}
+		create_unit = {
+			division = "division_template = \"Bu Bing Shi\" start_experience_factor = 0.4"
+			owner = PREV
+		}
+	}
+}
+
+YUN_black_monday_recovery_left_first = {
+
+	if = {
+		limit = {
+			has_country_flag = YUN_left_first_set_flag
+		}
+		if = {
+			limit = { has_idea = YUN_black_monday }
+			swap_ideas = {
+				remove_idea = YUN_black_monday
+				add_idea = YUN_black_monday_left_1
+			}
+		}
+		else_if = {
+			limit = { has_idea = YUN_black_monday_left_1 }
+			swap_ideas = {
+				remove_idea = YUN_black_monday_left_1
+				add_idea = YUN_black_monday_left_2
+			}
+		}
+		else_if = {
+			limit = { has_idea = YUN_black_monday_left_2 }
+			swap_ideas = {
+				remove_idea = YUN_black_monday_left_2
+				add_idea = YUN_black_monday_left_3
+			}
+		}
+		else_if = {
+			limit = { has_idea = YUN_black_monday_left_3 }
+			swap_ideas = {
+				remove_idea = YUN_black_monday_left_3
+				add_idea = YUN_black_monday_left_4
+			}
+		}
+		else_if = {
+			limit = { has_idea = YUN_black_monday_left_4 }
+			swap_ideas = {
+				remove_idea = YUN_black_monday_left_4
+				add_idea = YUN_black_monday_left_5
+			}
+		}
+		else_if = {
+			limit = { has_idea = YUN_black_monday_left_5 }
+			swap_ideas = {
+				remove_idea = YUN_black_monday_left_5
+				add_idea = YUN_black_monday_left_6
+			}
+			clr_country_flag = YUN_left_first_set_flag
+			set_country_flag = YUN_left_first_set_flag_finished
+		}
+	}
+	if = {
+		limit = { has_country_flag = YUN_right_first_set_flag_finished }
+		if = {
+			limit = { has_idea = YUN_black_monday_right_6 }
+			swap_ideas = {
+				remove_idea = YUN_black_monday_right_6
+				add_idea = YUN_black_monday_right_7
+			}
+		}
+		else_if = {
+			limit = { has_idea = YUN_black_monday_right_7 }
+			swap_ideas = {
+				remove_idea = YUN_black_monday_right_7
+				add_idea = YUN_black_monday_right_8
+			}
+		}
+		else_if = {
+			limit = { has_idea = YUN_black_monday_right_8 }
+			swap_ideas = {
+				remove_idea = YUN_black_monday_right_8
+				add_idea = YUN_black_monday_right_9
+			}
+		}
+		else_if = {
+			limit = { has_idea = YUN_black_monday_right_9 }
+			swap_ideas = {
+				remove_idea = YUN_black_monday_right_9
+				add_idea = YUN_black_monday_right_10
+			}
+		}
+		else_if = {
+			limit = { has_idea = YUN_black_monday_right_10 }
+			swap_ideas = {
+				remove_idea = YUN_black_monday_right_10
+				add_idea = YUN_black_monday_right_11
+			}
+			clr_country_flag = YUN_right_first_set_flag
+			clr_country_flag = YUN_right_first_set_flag_finished
+			clr_country_flag = YUN_left_first_set_flag
+			clr_country_flag = YUN_left_first_set_flag_finished
+		}
+	}
+}
+
+YUN_black_monday_recovery_right_first = {
+
+	if = {
+		limit = {
+			has_country_flag = YUN_right_first_set_flag
+		}
+		if = {
+			limit = { has_idea = YUN_black_monday }
+			swap_ideas = {
+				remove_idea = YUN_black_monday
+				add_idea = YUN_black_monday_right_1
+			}
+		}
+		else_if = {
+			limit = { has_idea = YUN_black_monday_right_1 }
+			swap_ideas = {
+				remove_idea = YUN_black_monday_right_1
+				add_idea = YUN_black_monday_right_2
+			}
+		}
+		else_if = {
+			limit = { has_idea = YUN_black_monday_right_2 }
+			swap_ideas = {
+				remove_idea = YUN_black_monday_right_2
+				add_idea = YUN_black_monday_right_3
+			}
+		}
+		else_if = {
+			limit = { has_idea = YUN_black_monday_right_3 }
+			swap_ideas = {
+				remove_idea = YUN_black_monday_right_3
+				add_idea = YUN_black_monday_right_4
+			}
+		}
+		else_if = {
+			limit = { has_idea = YUN_black_monday_right_4 }
+			swap_ideas = {
+				remove_idea = YUN_black_monday_right_4
+				add_idea = YUN_black_monday_right_5
+			}
+		}
+		else_if = {
+			limit = { has_idea = YUN_black_monday_right_5 }
+			swap_ideas = {
+				remove_idea = YUN_black_monday_right_5
+				add_idea = YUN_black_monday_right_6
+			}
+			clr_country_flag = YUN_right_first_set_flag
+			set_country_flag = YUN_right_first_set_flag_finished
+		}
+	}
+	if = {
+		limit = { has_country_flag = YUN_left_first_set_flag_finished }
+		if = {
+			limit = { has_idea = YUN_black_monday_left_6 }
+			swap_ideas = {
+				remove_idea = YUN_black_monday_left_6
+				add_idea = YUN_black_monday_left_7
+			}
+		}
+		else_if = {
+			limit = { has_idea = YUN_black_monday_left_7 }
+			swap_ideas = {
+				remove_idea = YUN_black_monday_left_7
+				add_idea = YUN_black_monday_left_8
+			}
+		}
+		else_if = {
+			limit = { has_idea = YUN_black_monday_left_8 }
+			swap_ideas = {
+				remove_idea = YUN_black_monday_left_8
+				add_idea = YUN_black_monday_left_9
+			}
+		}
+		else_if = {
+			limit = { has_idea = YUN_black_monday_left_9 }
+			swap_ideas = {
+				remove_idea = YUN_black_monday_left_9
+				add_idea = YUN_black_monday_left_10
+			}
+		}
+		else_if = {
+			limit = { has_idea = YUN_black_monday_left_10 }
+			swap_ideas = {
+				remove_idea = YUN_black_monday_left_10
+				add_idea = YUN_black_monday_left_11
+			}
+			clr_country_flag = YUN_right_first_set_flag
+			clr_country_flag = YUN_right_first_set_flag_finished
+			clr_country_flag = YUN_left_first_set_flag
+			clr_country_flag = YUN_left_first_set_flag_finished
+		}
+	}
+}
+
+YUN_tang_turns_federalist = {
+	set_country_flag = YUN_federalists_chosen
+	add_country_leader_role = {
+		character = YUN_tang_jiyao
+		promote_leader = yes
+		country_leader = { ideology = authoritarian_democrat_subtype }
+	}
+	set_politics = {
+		ruling_party = authoritarian_democrat
+		elections_allowed = no
+		name = YUN_Tang_Federalist_party
+		long_name = YUN_Tang_Federalist_party_long
+	}
+	add_popularity = {
+		ideology = paternal_autocrat
+		popularity = -0.4
+	}
+	add_popularity = {
+		ideology = authoritarian_democrat
+		popularity = 0.5
+	}
+}
+
+YUN_add_ten_percent_integration = {
+	effect_tooltip = {
+		add_state_modifier = {
+			modifier = { local_non_core_manpower = 0.1 }
+		}
+	}
+	YUN_add_integration = yes
+	add_to_variable = { YUN_integration_var = 0.1 }
+}
+
+YUN_add_thirty_percent_integration = {
+	effect_tooltip = {
+		add_state_modifier = {
+			modifier = { local_non_core_manpower = 0.3 }
+		}
+	}
+	YUN_add_integration = yes
+	add_to_variable = { YUN_integration_var = 0.3 }
+}
+
+YUN_add_fifty_percent_integration = {
+	effect_tooltip = {
+		add_state_modifier = {
+			modifier = { local_non_core_manpower = 0.5 }
+		}
+	}
+	YUN_add_integration = yes
+	add_to_variable = { YUN_integration_var = 0.5 }
+}
+
+YUN_add_integration = {
+	hidden_effect = {
+		if = {
+			limit = { NOT = { has_dynamic_modifier = { modifier = YUN_integration_dynamic_modifier } } }
+			add_dynamic_modifier = { modifier = YUN_integration_dynamic_modifier }
+		}
+	}
+}
+
+YUN_remove_integration = {
+	hidden_effect = {
+		clear_variable = YUN_integration_var
+		if = {
+			limit = { has_dynamic_modifier = { modifier = YUN_integration_dynamic_modifier } }
+			remove_dynamic_modifier = { modifier = YUN_integration_dynamic_modifier }
+		}
+	}
+}
+
+RKMT_set_leadership_effect = {
+	if = {
+		limit = {
+			GXC = {
+				exists = yes
+				is_subject = no
+				has_civil_war = no
+				has_capitulated = no
+				NOT = { any_enemy_country = { is_ally_with = YUN } }
+				china_is_aligned_with_right_kmt = yes
+			}
+			YUN = {
+				exists = yes
+				is_subject = no
+				has_civil_war = no
+				has_capitulated = no
+				NOT = { any_enemy_country = { is_ally_with = GXC } }
+				china_is_aligned_with_right_kmt = yes
+			}
+		}
+		if = {
+			limit = {
+				GXC = { is_ai = yes }
+				YUN = { is_ai = no }
+			}
+			YUN = {
+				set_temp_variable = { target = GXC }
+				china_puppet_TARGET_effect = yes #GXC will puppet YUN
+				set_potential_national_government = yes
+			}
+		}
+		else = {
+			GXC = {
+				set_temp_variable = { target = YUN }
+				china_puppet_TARGET_effect = yes #GXC will puppet YUN
+				set_potential_national_government = yes
+			}
+		}
+	}
+}
+
+YUN_enable_alliance_decisions = { #available for Tang's Federalists
+	add_to_array = { china_possible_allies_array = SZC }
+	add_to_array = { china_possible_allies_array = HNN }
+	add_to_array = { china_possible_allies_array = GXC }
+	add_to_array = { china_possible_allies_array = SHX }
+	add_to_array = { china_possible_allies_array_northwest = XSM }
+	add_to_array = { china_possible_allies_array_northwest = SIK }
+}
+
+#character scope
+YUN_general_joins_ROOT = {
+	hidden_effect = {
+		remove_unit_leader_trait = hidden_sympathies
+		demote_leader = yes
+	}
+	set_nationality = ROOT
+}

@@ -1,0 +1,42 @@
+is_generic_character = {
+	has_character_flag = is_generic
+}
+
+is_generic_advisor = {
+	has_character_flag = is_generic
+}
+
+is_dead = {
+	custom_trigger_tooltip = {
+		tooltip = is_dead
+		has_character_flag = is_dead
+	}
+}
+
+is_second_in_command = {
+	custom_trigger_tooltip = {
+		tooltip = is_second_in_command
+		has_advisor_role = second_in_command
+		is_hired_as_advisor = yes
+
+		#make sure they're not just hired as another slot
+		NOT = { not_already_hired_except_as = political_advisor }
+		NOT = { not_already_hired_except_as = army_chief }
+		NOT = { not_already_hired_except_as = navy_chief }
+		NOT = { not_already_hired_except_as = air_chief }
+		NOT = { not_already_hired_except_as = high_command }
+		NOT = { not_already_hired_except_as = theorist }
+	}
+}
+
+has_free_political_advisor_slot = {
+	amount_taken_ideas = { amount < 3 slots = { political_advisor } }
+}
+
+has_two_political_advisors = {
+	amount_taken_ideas = { amount > 1 slots = { political_advisor } }
+}
+
+has_any_political_advisor = {
+	amount_taken_ideas = { amount > 0 slots = { political_advisor } }
+}

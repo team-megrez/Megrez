@@ -1,0 +1,217 @@
+﻿MAF_INF_01 = {
+	name = "Infantry Divisions"
+
+	for_countries = { MAF }
+
+	division_types = { "infantry" "mechanized" "paratrooper" "marine" }
+
+	fallback_name = "%s. Wehrbezirkskommando"
+
+	link_numbering_with = { MAF_CAV_01 MAF_MOT_01 }
+
+	ordered = {
+		1 = { "%s. Wehrbezirkskommando" }
+		2 = { "%s. Wehrbezirkskommando" }
+		3 = { "%s. Wehrbezirkskommando" }
+		4 = { "%s. Wehrbezirkskommando" }
+		5 = { "%s. Wehrbezirkskommando" }
+		6 = { "%s. Wehrbezirkskommando" }
+		7 = { "%s. Wehrbezirkskommando" }
+		8 = { "%s. Wehrbezirkskommando" }
+		9 = { "%s. Wehrbezirkskommando" }
+		10 = { "%s. Wehrbezirkskommando" }
+	}
+}
+
+MAF_CAV_01 = {
+	name = "Cavalry Divisions"
+
+	for_countries = { MAF }
+
+	division_types = { "cavalry" }
+
+	fallback_name = "%s. Wehrbezirkskommando bertt."
+
+	link_numbering_with = { MAF_INF_01 MAF_MOT_01 }
+
+	# Names with numbers (only one number per entry)
+	ordered = {
+		1 = { "%s. Wehrbezirkskommando bertt." }
+		2 = { "%s. Wehrbezirkskommando bertt." }
+		3 = { "%s. Wehrbezirkskommando bertt." }
+		4 = { "%s. Wehrbezirkskommando bertt." }
+		5 = { "%s. Wehrbezirkskommando bertt." }
+		6 = { "%s. Wehrbezirkskommando bertt." }
+		7 = { "%s. Wehrbezirkskommando bertt." }
+		8 = { "%s. Wehrbezirkskommando bertt." }
+		9 = { "%s. Wehrbezirkskommando bertt." }
+		10 = { "%s. Wehrbezirkskommando bertt." }
+	}
+}
+
+MAF_MOT_01 = {
+	name = "Motor Divisions"
+
+	for_countries = { MAF }
+
+	division_types = { "motorized" }
+
+	fallback_name = "%s. Wehrbezirkskommando mot."
+
+	link_numbering_with = { MAF_INF_01 MAF_CAV_01 }
+
+	# Names with numbers (only one number per entry)
+	ordered = {
+		1 = { "%s. Wehrbezirkskommando mot." }
+		2 = { "%s. Wehrbezirkskommando mot." }
+		3 = { "%s. Wehrbezirkskommando mot." }
+		4 = { "%s. Wehrbezirkskommando mot." }
+		5 = { "%s. Wehrbezirkskommando mot." }
+		6 = { "%s. Wehrbezirkskommando mot." }
+		7 = { "%s. Wehrbezirkskommando mot." }
+		8 = { "%s. Wehrbezirkskommando mot." }
+		9 = { "%s. Wehrbezirkskommando mot." }
+		10 = { "%s. Wehrbezirkskommando mot." }
+	}
+}
+
+MAF_MOB_01 = {
+	name = "Armored Divisions"
+
+	for_countries = { MAF }
+
+	division_types = { "light_armor" "medium_armor" "heavy_armor" "modern_armor" }
+
+	fallback_name = "%d. Panzer-Brigade"
+
+	# Names with numbers (only one number per entry)
+	ordered = {
+		1 = { "%d. Panzer-Brigade" }
+		2 = { "%d. Panzer-Brigade" }
+		3 = { "%d. Panzer-Brigade" }
+		4 = { "%d. Panzer-Brigade" }
+		5 = { "%d. Panzer-Brigade" }
+		6 = { "%d. Panzer-Brigade" }
+		7 = { "%d. Panzer-Brigade" }
+		8 = { "%d. Panzer-Brigade" }
+		9 = { "%d. Panzer-Brigade" }
+		10 = { "%d. Panzer-Brigade" }
+	}
+}
+
+MAF_MOB_02 = {
+	name = "Mobile Divisions"
+
+	for_countries = { MAF }
+
+	division_types = { "mechanized" "motorized" }
+
+	fallback_name = "%d. Askari Motorisierte Division"
+
+	# Names with numbers (only one number per entry)
+	ordered = {
+		1 = { "%d. Askari Motorisierte Division" }
+		2 = { "%d. Askari Motorisierte Division" }
+		3 = { "%d. Askari Motorisierte Division" }
+		4 = { "%d. Askari Motorisierte Division" }
+		5 = { "%d. Askari Motorisierte Division" }
+		6 = { "%d. Askari Motorisierte Division" }
+		7 = { "%d. Askari Motorisierte Division" }
+		8 = { "%d. Askari Motorisierte Division" }
+		9 = { "%d. Askari Motorisierte Division" }
+		10 = { "%d. Askari Motorisierte Division" }
+	}
+}
+
+MAF_MTNINF_01 = {
+	name = "Mountain Divisions"
+
+	for_countries = { MAF }
+
+	division_types = { "mountaineers" }
+
+	fallback_name = "%d. Askari Gebirgsjäger Division"
+
+	# Names with numbers (only one number per entry)
+	ordered = {
+		1 = { "%d. Askari Gebirgsjäger Division" }
+		2 = { "%d. Askari Gebirgsjäger Division" }
+		3 = { "%d. Askari Gebirgsjäger Division" }
+		4 = { "%d. Askari Gebirgsjäger Division" }
+		5 = { "%d. Askari Gebirgsjäger Division" }
+		6 = { "%d. Askari Gebirgsjäger Division" }
+		7 = { "%d. Askari Gebirgsjäger Division" }
+		8 = { "%d. Askari Gebirgsjäger Division" }
+		9 = { "%d. Askari Gebirgsjäger Division" }
+		10 = { "%d. Askari Gebirgsjäger Division" }
+	}
+}
+
+MAF_MILINF_01 = {
+	name = "Militia Divisions"
+
+	for_countries = { MAF }
+
+	division_types = { "infantry" }
+
+	fallback_name = "%d. Leichte Infanterie-Brigade"
+
+	# Names with numbers (only one number per entry)
+	ordered = {
+		1 = { "%d. Leichte Infanterie-Brigade" }
+		2 = { "%d. Leichte Infanterie-Brigade" }
+		3 = { "%d. Leichte Infanterie-Brigade" }
+		4 = { "%d. Leichte Infanterie-Brigade" }
+		5 = { "%d. Leichte Infanterie-Brigade" }
+		6 = { "%d. Leichte Infanterie-Brigade" }
+		7 = { "%d. Leichte Infanterie-Brigade" }
+		8 = { "%d. Leichte Infanterie-Brigade" }
+		9 = { "%d. Leichte Infanterie-Brigade" }
+		10 = { "%d. Leichte Infanterie-Brigade" }
+		11 = { "%d. Leichte Infanterie-Brigade" }
+		12 = { "%d. Leichte Infanterie-Brigade" }
+		13 = { "%d. Leichte Infanterie-Brigade" }
+		14 = { "%d. Leichte Infanterie-Brigade" }
+		15 = { "%d. Leichte Infanterie-Brigade" }
+		16 = { "%d. Leichte Infanterie-Brigade" }
+		17 = { "%d. Leichte Infanterie-Brigade" }
+		18 = { "%d. Leichte Infanterie-Brigade" }
+		19 = { "%d. Leichte Infanterie-Brigade" }
+		20 = { "%d. Leichte Infanterie-Brigade" }
+	}
+}
+
+MAF_MILGAR_01 = {
+	name = "Garrison Divisions"
+
+	for_countries = { MAF }
+
+	division_types = { "infantry" }
+
+	fallback_name = "%d. Askari-Division"
+
+	# Names with numbers (only one number per entry)
+	ordered = {
+		1 = { "%d. Askari-Division" }
+		2 = { "%d. Askari-Division" }
+		3 = { "%d. Askari-Division" }
+		4 = { "%d. Askari-Division" }
+		5 = { "%d. Askari-Division" }
+		6 = { "%d. Askari-Division" }
+		7 = { "%d. Askari-Division" }
+		8 = { "%d. Askari-Division" }
+		9 = { "%d. Askari-Division" }
+		10 = { "%d. Askari-Division" }
+		11 = { "%d. Askari-Division" }
+		12 = { "%d. Askari-Division" }
+		13 = { "%d. Askari-Division" }
+		14 = { "%d. Askari-Division" }
+		15 = { "%d. Askari-Division" }
+		16 = { "%d. Askari-Division" }
+		17 = { "%d. Askari-Division" }
+		18 = { "%d. Askari-Division" }
+		19 = { "%d. Askari-Division" }
+		20 = { "%d. Askari-Division" }
+	}
+}
+

@@ -1,0 +1,1360 @@
+###########################
+# Oman Focus Tree
+# By Roparex
+###########################
+
+focus_tree = {
+	id = oman_focus
+
+	country = {
+		factor = 0
+
+		modifier = {
+			add = 10
+			tag = OMA
+		}
+	}
+
+	default = no
+	continuous_focus_position = { x = 2150 y = 600 }
+
+	##### INTERNAL AFFAIRS
+
+	focus = {
+		id = OMA_defense_of_the_realm
+		icon = GFX_focus_rom_royal_dictatorship
+		cost = 8
+
+		x = 5
+		y = 0
+
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_defense_of_the_realm"
+			army_experience = 15
+			navy_experience = 15
+			air_experience = 15
+			add_war_support = 0.05
+		}
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_AIR_XP FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = OMA_royal_navy
+		icon = GFX_goal_OMA_Navy
+		cost = 8
+
+		relative_position_id = OMA_defense_of_the_realm
+		x = -4
+		y = 1
+
+		prerequisite = {
+			focus = OMA_defense_of_the_realm
+		}
+
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_royal_navy"
+			navy_experience = 25
+		}
+		search_filters = { FOCUS_FILTER_NAVY_XP }
+	}
+
+	focus = {
+		id = OMA_muscat_royal_dockyard
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 8
+
+		relative_position_id = OMA_defense_of_the_realm
+		x = -4
+		y = 2
+
+		prerequisite = {
+			focus = OMA_royal_navy
+		}
+		available = {
+			controls_state = 294
+		}
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_muscat_royal_dockyard"
+			294 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = OMA_omani_trade_fleet
+		icon = GFX_goal_generic_buy_ships
+		cost = 8
+
+		relative_position_id = OMA_defense_of_the_realm
+		x = -5
+		y = 3
+
+		prerequisite = {
+			focus = OMA_muscat_royal_dockyard
+		}
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_omani_trade_fleet"
+			add_equipment_to_stockpile = { type = convoy_1 amount = 20 producer = OMA }
+		}
+	}
+
+	focus = {
+		id = OMA_foreign_naval_officers
+		icon = GFX_goal_navy_hat_ships
+		cost = 8
+
+		relative_position_id = OMA_defense_of_the_realm
+		x = -3
+		y = 3
+
+		prerequisite = {
+			focus = OMA_muscat_royal_dockyard
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_foreign_naval_officers"
+			add_doctrine_cost_reduction = {
+				name = OMA_foreign_naval_officers
+				cost_reduction = 0.5
+				uses = 1
+				category = naval_doctrine
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = OMA_royal_army_reform
+		icon = GFX_goal_OMA_Army
+		cost = 8
+
+		relative_position_id = OMA_defense_of_the_realm
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = OMA_defense_of_the_realm
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_royal_army_reform"
+			army_experience = 30
+			add_doctrine_cost_reduction = {
+				name = OMA_royal_army_reform
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = OMA_the_saudi_threat
+		icon = GFX_goal_skull_fortification
+		cost = 8
+
+		relative_position_id = OMA_defense_of_the_realm
+		x = -1
+		y = 2
+
+		prerequisite = {
+			focus = OMA_royal_army_reform
+		}
+		available = {
+			1024 = { is_owned_and_controlled_by = ROOT }
+			294 = { is_owned_and_controlled_by = ROOT }
+			859 = { is_owned_and_controlled_by = ROOT }
+		}
+		bypass = {
+			NOT = {
+				AND = {
+					1024 = { is_owned_by = ROOT }
+					294 = { is_owned_by = ROOT }
+					859 = { is_owned_by = ROOT }
+				}
+			}
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_the_saudi_threat"
+			1024 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 2059
+					instant_build = yes
+				}
+			}
+			859 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 13749
+					instant_build = yes
+				}
+			}
+			294 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 4993
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 10760
+					instant_build = yes
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = OMA_muscat_armament_plan
+		icon = GFX_focus_generic_military_equipment
+		cost = 8
+
+		relative_position_id = OMA_defense_of_the_realm
+		x = 1
+		y = 2
+
+		prerequisite = {
+			focus = OMA_royal_army_reform
+		}
+		available = {
+			controls_state = 294
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_muscat_armament_plan"
+			294 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = OMA_artillery_purchases
+		icon = GFX_goal_GEO_Artillery_Tactics
+		cost = 8
+
+		relative_position_id = OMA_defense_of_the_realm
+		x = -1
+		y = 3
+
+		prerequisite = {
+			focus = OMA_the_saudi_threat
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_artillery_purchases"
+			add_tech_bonus = {
+				name = OMA_artillery_purchases
+				bonus = 1
+				uses = 1
+				category = artillery
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = OMA_infantry_equipment_reorganization
+		icon = GFX_goal_generic_small_arms
+		cost = 8
+
+		relative_position_id = OMA_defense_of_the_realm
+		x = 1
+		y = 3
+
+		prerequisite = {
+			focus = OMA_muscat_armament_plan
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_infantry_equipment_reorganization"
+			add_tech_bonus = {
+				name = OMA_infantry_equipment_reorganization
+				bonus = 1
+				uses = 1
+				category = infantry_weapons
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = OMA_dealing_with_tribal_militias
+		icon = GFX_goal_Settling_Nomads
+		cost = 8
+
+		relative_position_id = OMA_defense_of_the_realm
+		x = -2
+		y = 4
+
+		prerequisite = {
+			focus = OMA_artillery_purchases
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_dealing_with_tribal_militias"
+			remove_ideas = OMA_tribal_army
+		}
+	}
+
+	focus = {
+		id = OMA_regular_regiments
+		icon = GFX_goal_generic_army_cooperation
+		cost = 8
+
+		relative_position_id = OMA_defense_of_the_realm
+		x = 0
+		y = 4
+
+		prerequisite = {
+			focus = OMA_artillery_purchases
+		}
+		prerequisite = {
+			focus = OMA_infantry_equipment_reorganization
+		}
+
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_regular_regiments"
+			add_manpower = 5000
+			add_ideas = OMA_DiCT
+		}
+		search_filters = { FOCUS_FILTER_ARMY_BONUS FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = OMA_hierarchy_reorganization
+		icon = GFX_goal_generic_army_high_command
+		cost = 8
+
+		relative_position_id = OMA_defense_of_the_realm
+		x = 2
+		y = 4
+
+		prerequisite = {
+			focus = OMA_infantry_equipment_reorganization
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_hierarchy_reorganization"
+			add_doctrine_cost_reduction = {
+				name = OMA_hierarchy_reorganization
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = OMA_indian_advisors
+		icon = GFX_PRF_integrate_RAJ
+		cost = 8
+
+		relative_position_id = OMA_defense_of_the_realm
+		x = -1
+		y = 5
+
+		prerequisite = {
+			focus = OMA_hierarchy_reorganization
+		}
+		prerequisite = {
+			focus = OMA_regular_regiments
+		}
+		prerequisite = {
+			focus = OMA_dealing_with_tribal_militias
+		}
+		mutually_exclusive = {
+			focus = OMA_persian_advisors
+		}
+		available = {
+			RAJ = {
+				exists = yes
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_indian_advisors"
+			add_ideas = OMA_indian_idea
+		}
+	}
+
+	focus = {
+		id = OMA_persian_advisors
+		icon = GFX_goal_Desert_Officers_2
+		cost = 8
+
+		relative_position_id = OMA_defense_of_the_realm
+		x = 1
+		y = 5
+
+		prerequisite = {
+			focus = OMA_hierarchy_reorganization
+		}
+		prerequisite = {
+			focus = OMA_regular_regiments
+		}
+		prerequisite = {
+			focus = OMA_dealing_with_tribal_militias
+		}
+		mutually_exclusive = {
+			focus = OMA_indian_advisors
+		}
+		available = {
+			PER = {
+				exists = yes
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_persian_advisors"
+			add_ideas = OMA_persian_idea
+		}
+		search_filters = { FOCUS_FILTER_ARMY_BONUS }
+	}
+
+	focus = {
+		id = OMA_royal_airforce
+		icon = GFX_goal_OMA_Airforce
+		cost = 8
+
+		relative_position_id = OMA_defense_of_the_realm
+		x = 4
+		y = 1
+
+		prerequisite = {
+			focus = OMA_defense_of_the_realm
+		}
+
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_royal_airforce"
+			air_experience = 25
+		}
+		search_filters = { FOCUS_FILTER_AIR_XP }
+	}
+
+	focus = {
+		id = OMA_anti_aircraft_defenses
+		icon = GFX_goal_anti_air
+		cost = 8
+
+		relative_position_id = OMA_defense_of_the_realm
+		x = 4
+		y = 2
+
+		prerequisite = {
+			focus = OMA_royal_airforce
+		}
+
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_anti_aircraft_defenses"
+			add_tech_bonus = {
+				name = OMA_anti_aircraft_defenses
+				bonus = 1
+				uses = 1
+				technology = interwar_antiair
+				technology = antiair1
+				technology = antiair2
+				technology = antiair3
+				technology = antiair4
+				technology = antiair5
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = OMA_aerial_training
+		icon = GFX_goal_ELS_Basic_Fighter_Development
+		cost = 8
+
+		relative_position_id = OMA_defense_of_the_realm
+		x = 3
+		y = 3
+
+		prerequisite = {
+			focus = OMA_anti_aircraft_defenses
+		}
+
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_aerial_training"
+			add_doctrine_cost_reduction = {
+				name = OMA_aerial_training
+				cost_reduction = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = OMA_foreign_fighter_purchases
+		icon = GFX_goal_ELS_Plane_Lease
+		cost = 8
+
+		relative_position_id = OMA_defense_of_the_realm
+		x = 5
+		y = 3
+
+		prerequisite = {
+			focus = OMA_anti_aircraft_defenses
+		}
+
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_foreign_fighter_purchases"
+			add_tech_bonus = {
+				name = OMA_foreign_fighter_purchases
+				bonus = 1
+				uses = 1
+				category = light_fighter
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = OMA_administrative_reform
+		icon = GFX_goal_POR_royal_edicts
+		cost = 8
+
+		x = 12
+		y = 0
+
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_administrative_reform"
+			add_political_power = -40
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = OMA_tax_reform
+		icon = GFX_goal_generic_deals
+		cost = 8
+
+		x = 16
+		y = 0
+
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_tax_reform"
+			add_stability = 0.1
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = OMA_economical_reform_planning
+		icon = GFX_goal_OTT_Land_Reform
+		cost = 8
+
+		x = 20
+		y = 0
+
+		available = {
+			controls_state = 294
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_economical_reform_planning"
+			294 = {
+				increase_state_category_by_one_level = yes
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = OMA_education_reform
+		icon = GFX_goal_OTT_Islamic_Education
+		cost = 8
+
+		relative_position_id = OMA_tax_reform
+		x = -4
+		y = 1
+
+		prerequisite = {
+			focus = OMA_administrative_reform
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_education_reform"
+			add_research_slot_until_five = yes
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = OMA_muscat_airport
+		icon = GFX_goal_new_airforce
+		cost = 8
+
+		relative_position_id = OMA_tax_reform
+		x = -4
+		y = 2
+
+		prerequisite = {
+			focus = OMA_education_reform
+		}
+		available = {
+			controls_state = 294
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_muscat_airport"
+			294 = { add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = OMA_foreign_blueprints
+		icon = GFX_goal_generic_scientific_exchange
+		cost = 8
+
+		relative_position_id = OMA_tax_reform
+		x = -4
+		y = 3
+
+		prerequisite = {
+			focus = OMA_muscat_airport
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_foreign_blueprints"
+			add_research_slot_until_five = yes
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = OMA_incorporate_the_hinterlands
+		icon = GFX_goal_generic_government_deals
+		cost = 8
+
+		relative_position_id = OMA_tax_reform
+		x = -2
+		y = 1
+
+		prerequisite = {
+			focus = OMA_administrative_reform
+		}
+		prerequisite = {
+			focus = OMA_tax_reform
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_incorporate_the_hinterlands"
+			add_manpower = 5000
+			add_war_support = 0.05
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = OMA_taxate_the_hinterlands
+		icon = GFX_goal_generic_seize_money
+		cost = 8
+
+		relative_position_id = OMA_tax_reform
+		x = -2
+		y = 2
+
+		prerequisite = {
+			focus = OMA_incorporate_the_hinterlands
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_taxate_the_hinterlands"
+			add_ideas = OMA_tax_idea
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = OMA_call_banners_from_the_hinterlands
+		icon = GFX_goal_mass_concentration_of_army
+		cost = 8
+
+		relative_position_id = OMA_tax_reform
+		x = -2
+		y = 3
+
+		prerequisite = {
+			focus = OMA_taxate_the_hinterlands
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_call_banners_from_the_hinterlands"
+			remove_ideas = OMA_army_of_muscat
+		}
+	}
+
+	focus = {
+		id = OMA_loyalty_to_the_imam
+		icon = GFX_focus_generic_monarchy_2
+		cost = 8
+
+		relative_position_id = OMA_tax_reform
+		x = -3
+		y = 4
+
+		prerequisite = {
+			focus = OMA_call_banners_from_the_hinterlands
+		}
+		prerequisite = {
+			focus = OMA_foreign_blueprints
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_loyalty_to_the_imam"
+			remove_ideas = OMA_imamate_of_oman
+		}
+	}
+
+	focus = {
+		id = OMA_budget_recovery
+		icon = GFX_goal_OTT_Tithe
+		cost = 8
+
+		relative_position_id = OMA_tax_reform
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = OMA_tax_reform
+		}
+		available = {
+			has_idea = OMA_black_monday
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_budget_recovery"
+			swap_ideas = {
+				remove_idea = OMA_black_monday
+				add_idea = OMA_black_monday_2
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = OMA_budget_rebalancing
+		icon = GFX_goal_generic_price_controls
+		cost = 8
+
+		relative_position_id = OMA_tax_reform
+		x = 0
+		y = 2
+
+		prerequisite = {
+			focus = OMA_budget_recovery
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_budget_rebalancing"
+			remove_ideas = OMA_black_monday_2
+		}
+	}
+
+	focus = {
+		id = OMA_budget_restructuring
+		icon = GFX_goal_generic_foreign_investments
+		cost = 8
+
+		relative_position_id = OMA_tax_reform
+		x = 0
+		y = 3
+
+		prerequisite = {
+			focus = OMA_budget_rebalancing
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_budget_restructuring"
+			add_ideas = OMA_modern_budget
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = OMA_muscat_railway_company
+		icon = GFX_goal_generic_railroad
+		cost = 8
+
+		relative_position_id = OMA_tax_reform
+		x = 2
+		y = 1
+
+		prerequisite = {
+			focus = OMA_tax_reform
+		}
+		prerequisite = {
+			focus = OMA_economical_reform_planning
+		}
+		available = {
+			controls_state = 294
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_muscat_railway_company"
+			294 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			build_railway = {
+				path = { 10760 13748 13749 2048 }
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = OMA_dhofar_railway
+		icon = GFX_goal_generic_railway_construction
+		cost = 8
+
+		relative_position_id = OMA_tax_reform
+		x = 2
+		y = 2
+
+		prerequisite = {
+			focus = OMA_muscat_railway_company
+		}
+		available = {
+			controls_state = 294
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_dhofar_railway"
+			294 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			build_railway = {
+				path = { 10760 13748 1947 8002 2103 }
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = OMA_port_of_muscat
+		icon = GFX_goal_generic_shipyard
+		cost = 8
+
+		relative_position_id = OMA_tax_reform
+		x = 2
+		y = 3
+
+		prerequisite = {
+			focus = OMA_dhofar_railway
+		}
+		available = {
+			controls_state = 294
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_port_of_muscat"
+			294 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = OMA_local_manufactury_incentives
+		icon = GFX_focus_generic_industry_1
+		cost = 8
+
+		relative_position_id = OMA_tax_reform
+		x = 4
+		y = 1
+
+		prerequisite = {
+			focus = OMA_economical_reform_planning
+		}
+		available = {
+			controls_state = 294
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_local_manufactury_incentives"
+			294 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = OMA_commerce_industrialization_plan
+		icon = GFX_focus_generic_treaty
+		cost = 8
+
+		relative_position_id = OMA_tax_reform
+		x = 4
+		y = 2
+
+		prerequisite = {
+			focus = OMA_local_manufactury_incentives
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_commerce_industrialization_plan"
+			add_ideas = OMA_industrialisation_boost
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = OMA_intensify_administration_plan
+		icon = GFX_goal_generic_loans
+		cost = 8
+
+		relative_position_id = OMA_tax_reform
+		x = 4
+		y = 3
+
+		prerequisite = {
+			focus = OMA_commerce_industrialization_plan
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_intensify_administration_plan"
+			add_ideas = OMA_industrialisation_boost_2
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = OMA_finish_economical_plan
+		icon = GFX_goal_generic_improve_industry
+		cost = 8
+
+		relative_position_id = OMA_tax_reform
+		x = 2
+		y = 4
+
+		prerequisite = {
+			focus = OMA_budget_restructuring
+		}
+		prerequisite = {
+			focus = OMA_port_of_muscat
+		}
+		prerequisite = {
+			focus = OMA_intensify_administration_plan
+		}
+		available = {
+			controls_state = 294
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_finish_economical_plan"
+			294 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+
+	focus = {
+		id = OMA_compromises_for_our_independence
+		icon = GFX_goal_generic_dangerous_deal
+		cost = 4
+
+		x = 25
+		y = 0
+
+		ai_will_do = { factor = 10000 }
+		available = {
+			has_war_with = SAU
+			is_subject = no
+			country_exists = OTT
+			NOT = { has_war_with = OTT }
+		}
+		bypass = {
+			OR = {
+				NOT = { country_exists = OTT }
+				has_war_with = OTT
+				is_subject = yes
+			}
+		}
+		continue_if_invalid = yes
+		select_effect = {
+			log = "[GetDateText]: [Root.GetName]: Select Focus OMA_compromises_for_our_independence"
+			OTT = { country_event = { id = ottfor.34 days = 3 } }
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_compromises_for_our_independence"
+			custom_effect_tooltip = tooltip_immediate_effect_upon_focus_start
+			effect_tooltip = { OTT = { country_event = ottfor.34 } }
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = tooltip_effect_upon_focus_completion
+			add_stability = 0.2
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+	}
+
+	focus = {
+		id = OMA_call_upon_the_raj
+		icon = GFX_focus_RAJ_indianisation_of_army
+		cost = 8
+
+		relative_position_id = OMA_compromises_for_our_independence
+		x = -2
+		y = 1
+
+		prerequisite = {
+			focus = OMA_compromises_for_our_independence
+		}
+		mutually_exclusive = {
+			focus = OMA_porte_assistance
+		}
+		available = {
+			has_war = no
+			is_subject = no
+			is_in_faction = no
+			is_guaranteed_by = RAJ
+			ENT = { is_in_faction_with = RAJ }
+		}
+		bypass = {
+			is_in_faction_with = ENT
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_call_upon_the_raj"
+			RAJ = {
+				country_event = ottfor.42
+				effect_tooltip = {
+					set_autonomy = {
+						target = ROOT
+						autonomy_state = kr_nominal_puppet
+						end_wars = no
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = OMA_indian_business_ties
+		icon = GFX_goal_generic_foreign_investments
+		cost = 8
+
+		relative_position_id = OMA_call_upon_the_raj
+		x = -1
+		y = 1
+
+		prerequisite = {
+			focus = OMA_call_upon_the_raj
+		}
+		available = {
+			is_subject_of = RAJ
+		}
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_indian_business_ties"
+			add_offsite_building = { type = industrial_complex level = 1 }
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = OMA_royal_navy_cooperation
+		icon = GFX_GBR_royal_navy
+		cost = 8
+
+		relative_position_id = OMA_call_upon_the_raj
+		x = 1
+		y = 1
+
+		prerequisite = {
+			focus = OMA_call_upon_the_raj
+		}
+		available = {
+			is_subject_of = RAJ
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_royal_navy_cooperation"
+			add_offsite_building = { type = dockyard level = 1 }
+		}
+	}
+
+	focus = {
+		id = OMA_a_special_relationship
+		icon = GFX_focus_eng_the_sun_never_sets
+		cost = 8
+
+		relative_position_id = OMA_call_upon_the_raj
+		x = 0
+		y = 2
+
+		prerequisite = {
+			focus = OMA_indian_business_ties
+		}
+		prerequisite = {
+			focus = OMA_royal_navy_cooperation
+		}
+		available = {
+			is_subject_of = RAJ
+			country_exists = GBR
+			NOT = {
+				country_exists = HND
+				country_exists = PRF
+			}
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_a_special_relationship"
+			add_war_support = 0.05
+			overlord = {
+				set_autonomy = {
+					target = ROOT
+					autonomy_state = autonomy_free
+				}
+			}
+			if = {
+				limit = { is_in_faction = no }
+				separate_peace_all_wars = yes
+			}
+		}
+		search_filters = { FOCUS_FILTER_TFV_AUTONOMY }
+	}
+
+	focus = {
+		id = OMA_porte_assistance
+		icon = GFX_goal_OTT_Military_Mission
+		cost = 8
+
+		relative_position_id = OMA_compromises_for_our_independence
+		x = 2
+		y = 1
+
+		prerequisite = {
+			focus = OMA_compromises_for_our_independence
+		}
+		mutually_exclusive = {
+			focus = OMA_call_upon_the_raj
+		}
+		available = {
+			has_war = no
+			is_subject = no
+			is_in_faction = no
+			is_guaranteed_by = OTT
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_porte_assistance"
+			OTT = {
+				country_event = ottfor.42
+				effect_tooltip = {
+					set_autonomy = {
+						target = ROOT
+						autonomy_state = kr_nominal_puppet
+						end_wars = no
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = OMA_military_reform
+		icon = GFX_focus_chi_army_reform
+		cost = 8
+
+		relative_position_id = OMA_porte_assistance
+		x = -1
+		y = 1
+
+		prerequisite = {
+			focus = OMA_porte_assistance
+		}
+		available = {
+			is_subject_of = OTT
+		}
+		ai_will_do = { factor = 500 }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_military_reform"
+			if = {
+				limit = { NOT = { has_idea = ott_army_training } }
+				add_ideas = ott_army_training
+			}
+			add_doctrine_cost_reduction = {
+				name = OMA_military_reform
+				category = land_doctrine
+				cost_reduction = 0.5
+				uses = 2
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = OMA_revise_budget
+		icon = GFX_goal_agency
+		cost = 8
+
+		relative_position_id = OMA_porte_assistance
+		x = 1
+		y = 1
+
+		prerequisite = {
+			focus = OMA_porte_assistance
+		}
+		available = {
+			is_subject_of = OTT
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_revise_budget"
+			add_political_power = 100
+			add_stability = -0.05
+		}
+	}
+
+	focus = {
+		id = OMA_freedom_once_more
+		icon = GFX_goal_Fight_for_Freedom
+		cost = 8
+
+		relative_position_id = OMA_porte_assistance
+		x = 0
+		y = 2
+
+		prerequisite = {
+			focus = OMA_military_reform
+		}
+		prerequisite = {
+			focus = OMA_revise_budget
+		}
+		available = {
+			is_subject_of = OTT
+			OTT_cairo_pact_defeated = yes
+		}
+		ai_will_do = { factor = 500 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus OMA_freedom_once_more"
+			add_war_support = 0.05
+			overlord = {
+				set_autonomy = {
+					target = ROOT
+					autonomy_state = autonomy_free
+				}
+			}
+			if = {
+				limit = { is_in_faction = no }
+				separate_peace_all_wars = yes
+			}
+		}
+		search_filters = { FOCUS_FILTER_TFV_AUTONOMY }
+	}
+}
+
