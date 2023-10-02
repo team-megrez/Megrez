@@ -1,0 +1,109 @@
+﻿instant_effect = {
+	### Production ###
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+		}
+		requested_factories = 1
+		progress = 0.58
+		efficiency = 50
+	}
+	add_equipment_production = {
+		equipment = {
+			type = artillery_equipment_1
+		}
+		requested_factories = 1
+		progress = 0.33
+		efficiency = 50
+	}
+}
+
+division_template = {
+	name = "Infanterie Divisie"
+	division_names_group = HOL_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+}
+division_template = {
+	name = "Regiment Huzaren"
+	division_names_group = HOL_CAV_01
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 0 y = 3 }
+		cavalry = { x = 0 y = 4 }
+	}
+}
+division_template = {
+	name = "Regiment Korps Mariniers"
+	division_names_group = HOL_MAR_01
+	regiments = {
+		marine = { x = 0 y = 0 }
+		marine = { x = 0 y = 1 }
+		marine = { x = 1 y = 0 }
+		marine = { x = 1 y = 1 }
+	}
+	priority = 2
+}
+division_template = {
+	name = "Koloniale Garnizoen"
+	division_names_group = HOL_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+	}
+	priority = 0
+}
+
+units = {
+	division = {
+		location = 391
+		division_template = "Infanterie Divisie"
+		start_experience_factor = 0.1
+	}
+	division = {
+		location = 391
+		division_template = "Infanterie Divisie"
+		start_experience_factor = 0.1
+	}
+	division = {
+		location = 9498
+		division_template = "Infanterie Divisie"
+		start_experience_factor = 0.1
+	}
+	division = {
+		location = 9498
+		division_template = "Infanterie Divisie"
+		start_experience_factor = 0.1
+	}
+	division = {
+		location = 9363
+		division_template = "Infanterie Divisie"
+		start_experience_factor = 0.1
+	}
+	division = {
+		location = 9363
+		division_template = "Infanterie Divisie"
+		start_experience_factor = 0.1
+	}
+	division = {
+		location = 6336
+		division_template = "Infanterie Divisie"
+		start_experience_factor = 0.1
+	}
+	division = {
+		location = 6336
+		division_template = "Infanterie Divisie"
+		start_experience_factor = 0.1
+	}
+}

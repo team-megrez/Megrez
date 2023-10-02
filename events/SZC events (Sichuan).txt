@@ -1,0 +1,8145 @@
+﻿####################
+## Sichuan Events ##
+## By Alpinia     ##
+####################
+
+add_namespace = sichuan
+
+### System Events ###
+
+country_event = { #fire new CIFRC events
+	id = sichuan.1000
+	hidden = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_dynamic_modifier = { modifier = SZC_major_famine }
+	}
+
+	immediate = {
+		#Weekly loop
+		country_event = { id = sichuan.1000 days = 4 random_hours = 144 }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.1000 option 1"
+		ai_chance = { base = 1 }
+		add_to_variable = { SZC.SZC_famine_PP = 30 }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.1000 option 2"
+		ai_chance = { base = 2 }
+		add_to_variable = { SZC.SZC_famine_PP = 20 }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.1000 option 3"
+		ai_chance = { base = 3 }
+		add_to_variable = { SZC.SZC_famine_PP = 10 }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.1000 option 4"
+		ai_chance = { base = 4 }
+		add_to_variable = { SZC.SZC_famine_PP = 5 }
+	}
+	option = {
+		log = "[GetLogInfo]: event sichuan.1000 option 5"
+		ai_chance = { base = 10 }
+	}
+}
+
+country_event = { #fire opium events
+	id = sichuan.1001
+	hidden = yes
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_country_flag = SZC_opium_crisis_solved }
+		SZC_opium_corruption_active = yes
+	}
+
+	immediate = {
+		#Monthly loop
+		country_event = { id = sichuan.1001 days = 20 random_hours = 240 }
+	}
+
+	option = { #Civil Service Corruption
+		log = "[GetLogInfo]: event sichuan.1001 option 1"
+		trigger = {
+			NOT = { has_country_flag = SZC_civil_corruption_event }
+		}
+		ai_chance = { base = 2 }
+		set_country_flag = SZC_civil_corruption_event
+		country_event = sichuan.208
+	}
+
+	option = { #Army Corruption
+		log = "[GetLogInfo]: event sichuan.1001 option 2"
+		trigger = {
+			NOT = { has_country_flag = SZC_army_corruption_event }
+		}
+		ai_chance = { base = 2 }
+		set_country_flag = SZC_army_corruption_event
+		country_event = sichuan.209
+	}
+
+	option = { #Smugglers in the Administration
+		log = "[GetLogInfo]: event sichuan.1001 option 3"
+		trigger = {
+			NOT = { has_country_flag = SZC_smugglers_administration_event }
+		}
+		ai_chance = { base = 2 }
+		set_country_flag = SZC_smugglers_administration_event
+		country_event = sichuan.210
+	}
+
+	option = { #Smugglers in the Administration
+		log = "[GetLogInfo]: event sichuan.1001 option 4"
+		trigger = {
+			NOT = { has_country_flag = SZC_opium_corruption_event }
+			has_country_flag = SZC_civil_corruption_event
+			OR = {
+				has_country_flag = SZC_army_corruption_event
+				has_country_flag = SZC_smugglers_administration_event
+			}
+		}
+		ai_chance = { base = 2 }
+		set_country_flag = SZC_opium_corruption_event
+		country_event = sichuan.211
+	}
+
+	option = { #Political Murders
+		log = "[GetLogInfo]: event sichuan.1001 option 5"
+		trigger = {
+			NOT = { has_country_flag = SZC_assassinations_event }
+			OR = {
+				has_idea = SZC_opium_corruption_3
+				has_idea = SZC_opium_corruption_4
+				has_idea = SZC_opium_corruption_5
+			}
+		}
+		ai_chance = { base = 10 }
+		set_country_flag = SZC_assassinations_event
+		country_event = sichuan.212
+	}
+
+	option = { #Tax Evasion Discovered
+		log = "[GetLogInfo]: event sichuan.1001 option 6"
+		trigger = {
+			has_country_flag = SZC_monopoly_path
+			NOT = { has_country_flag = SZC_first_tax_evasion_event }
+		}
+		ai_chance = { base = 3 }
+		set_country_flag = SZC_first_tax_evasion_event
+		country_event = sichuan.215
+	}
+
+	option = { #Extensive Tax Evasion
+		log = "[GetLogInfo]: event sichuan.1001 option 7"
+		trigger = {
+			has_country_flag = SZC_monopoly_path
+			NOT = { has_country_flag = SZC_second_tax_evasion_event }
+		}
+		ai_chance = { base = 3 }
+		set_country_flag = SZC_second_tax_evasion_event
+		country_event = sichuan.216
+	}
+
+	option = { #Merchants Revolt Against Monopoly
+		log = "[GetLogInfo]: event sichuan.1001 option 8"
+		trigger = {
+			has_country_flag = SZC_monopoly_path
+			NOT = { has_country_flag = SZC_merchant_resistance_event }
+		}
+		ai_chance = { base = 2 }
+		set_country_flag = SZC_merchant_resistance_event
+		country_event = sichuan.217
+	}
+
+	option = { #Illegal Production Continues to Increase
+		log = "[GetLogInfo]: event sichuan.1001 option 9"
+		trigger = {
+			has_country_flag = SZC_monopoly_path
+			NOT = { has_country_flag = SZC_illegal_production_event }
+		}
+		ai_chance = { base = 2 }
+		set_country_flag = SZC_illegal_production_event
+		country_event = sichuan.219
+	}
+
+	option = { #generic corruption events
+		log = "[GetLogInfo]: event sichuan.1001 option 10"
+		ai_chance = { base = 3 }
+		random_list = {
+			20 = { set_country_flag = { flag = SZC_corruption_event_delays days = 2 value = 1 } }
+			20 = { set_country_flag = { flag = SZC_corruption_event_bribes days = 2 value = 1 } }
+			20 = { set_country_flag = { flag = SZC_corruption_event_no_enforcement days = 2 value = 1 } }
+		}
+		country_event = sichuan.206
+	}
+
+	option = { #generic corruption event
+		log = "[GetLogInfo]: event sichuan.1001 option 11"
+		ai_chance = { base = 1 }
+		country_event = sichuan.221
+	}
+
+	option = { #nothing
+		log = "[GetLogInfo]: event sichuan.1001 option 12"
+		ai_chance = { base = 3 }
+	}
+}
+
+country_event = { #fire famine flavour events
+	id = sichuan.1002
+	hidden = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_dynamic_modifier = { modifier = SZC_major_famine }
+	}
+
+	immediate = {
+		#Monthly loop
+		country_event = { id = sichuan.1002 days = 21 random_hours = 168 }
+	}
+
+	option = { #Dujiangyan, Damaged
+		log = "[GetLogInfo]: event sichuan.1002 option 1"
+		trigger = {
+			has_country_flag = SZC_baopingkou_flooded
+			NOT = { has_country_flag = SZC_dujiangyan_damaged_event }
+		}
+		ai_chance = { base = 9000 }
+		clr_country_flag = SZC_baopingkou_flooded
+		set_country_flag = SZC_dujiangyan_damaged_event
+		country_event = sichuan.175
+	}
+
+	option = { #Y.C. James Yen's Donation
+		log = "[GetLogInfo]: event sichuan.1002 option 2"
+		trigger = {
+			NOT = { has_country_flag = SZC_james_yen_event }
+		}
+		ai_chance = { base = 3 }
+		set_country_flag = SZC_james_yen_event
+		country_event = sichuan.176
+	}
+
+	option = { #The Clay Eaters
+		log = "[GetLogInfo]: event sichuan.1002 option 3"
+		trigger = {
+			NOT = { has_country_flag = SZC_clay_eaters_event }
+		}
+		ai_chance = { base = 1 }
+		set_country_flag = SZC_clay_eaters_event
+		country_event = sichuan.160
+	}
+
+	option = { #Rice Riots
+		log = "[GetLogInfo]: event sichuan.1002 option 4"
+		trigger = {
+			NOT = { has_country_flag = SZC_rice_riots_event }
+		}
+		ai_chance = { base = 1 }
+		set_country_flag = { flag = SZC_rice_riots_event days = 60 value = 1 }
+		country_event = sichuan.161
+	}
+
+	option = { #Violence in the Markets
+		log = "[GetLogInfo]: event sichuan.1002 option 5"
+		trigger = {
+			NOT = { has_country_flag = SZC_market_violence_event }
+		}
+		ai_chance = { base = 1 }
+		set_country_flag = { flag = SZC_market_violence_event days = 75 value = 1 }
+		country_event = sichuan.162
+	}
+
+	option = { #Unusual Solutions
+		log = "[GetLogInfo]: event sichuan.1002 option 6"
+		trigger = {
+			NOT = { has_country_flag = SZC_unusual_solutions_event }
+		}
+		ai_chance = { base = 1 }
+		set_country_flag = SZC_unusual_solutions_event
+		country_event = sichuan.163
+	}
+
+	option = { #Child Poverty Rises
+		log = "[GetLogInfo]: event sichuan.1002 option 7"
+		trigger = {
+			NOT = { has_country_flag = SZC_child_poverty_event }
+		}
+		ai_chance = { base = 1 }
+		set_country_flag = SZC_child_poverty_event
+		country_event = sichuan.165
+	}
+
+	option = { #Refugees Flee the Province
+		log = "[GetLogInfo]: event sichuan.1002 option 8"
+		trigger = {
+			NOT = { has_country_flag = SZC_refugees_event }
+		}
+		ai_chance = { base = 1 }
+		set_country_flag = SZC_refugees_event
+		country_event = sichuan.168
+	}
+
+	option = { #Corruption Shows Its Face
+		log = "[GetLogInfo]: event sichuan.1002 option 9"
+		trigger = {
+			NOT = { has_country_flag = SZC_first_corruption_event }
+		}
+		ai_chance = { base = 1 }
+		set_country_flag = SZC_first_corruption_event
+		country_event = sichuan.170
+	}
+
+	option = { #Corruption Delays Relief Efforts
+		log = "[GetLogInfo]: event sichuan.1002 option 10"
+		trigger = {
+			has_country_flag = SZC_first_corruption_event
+			NOT = { has_country_flag = SZC_corruption_event }
+		}
+		ai_chance = { base = 1 }
+		set_country_flag = { flag = SZC_corruption_event days = 32 value = 1 }
+		country_event = sichuan.171
+	}
+
+	option = { #Black Market on Foodstuffs
+		log = "[GetLogInfo]: event sichuan.1002 option 11"
+		trigger = {
+			NOT = { has_country_flag = SZC_black_market_event }
+		}
+		ai_chance = { base = 1 }
+		set_country_flag = SZC_black_market_event
+		country_event = sichuan.172
+	}
+
+	option = { #Left KMT Raids Food Shipments
+		log = "[GetLogInfo]: event sichuan.1002 option 12"
+		trigger = {
+			country_exists = CHI
+			NOT = {
+				has_country_flag = SZC_left_kmt_raids_event
+				has_government = social_democrat
+				has_government = social_liberal
+			}
+		}
+		ai_chance = { base = 1 }
+		set_country_flag = SZC_left_kmt_raids_event
+		country_event = sichuan.173
+	}
+
+	option = { #Prayers for Rain
+		log = "[GetLogInfo]: event sichuan.1002 option 13"
+		trigger = {
+			OR = {
+				has_idea = SZC_civil_war_idea
+				has_government = paternal_autocrat
+			}
+			NOT = { has_country_flag = SZC_xiangs_prayers_event }
+		}
+		ai_chance = { base = 4 }
+		set_country_flag = SZC_xiangs_prayers_event
+		country_event = sichuan.174
+	}
+
+	option = { #none
+		log = "[GetLogInfo]: event sichuan.1002 option 14"
+		ai_chance = { base = 2 }
+	}
+}
+
+country_event = { #Hidden event to move remnants
+	id = sichuan.1003
+	hidden = yes
+
+	trigger = {
+		SZC_zhili_in_exile = yes
+		XXA = { any_character = { has_character_flag = QIE_zhili_leader } }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.1003 option 1"
+		XXA = {
+			random_character = {
+				limit = { has_character_flag = QIE_zhili_leader }
+				set_nationality = SZC
+				unit_leader_event = sichuan.273
+			}
+		}
+		country_event = { id = sichuan.1003 days = 20 random_hours = 480 }
+	}
+}
+
+country_event = {
+	id = sichuan.1005
+
+	hidden = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.1005 option 1"
+		if = {
+			limit = {
+				country_exists = QIE
+				QIE = {
+					china_is_aligned_with_zhili = yes
+					NOT = { has_country_flag = SZC_refused_armament }
+				}
+			}
+			QIE = { country_event = sichuan.16 }
+		}
+		else_if = {
+			limit = {
+				country_exists = ANQ
+				ANQ = {
+					china_is_aligned_with_zhili = yes
+					NOT = { has_country_flag = SZC_refused_armament }
+				}
+			}
+			ANQ = { country_event = sichuan.16 }
+		}
+		else_if = {
+			limit = {
+				country_exists = LEP
+				LEP = {
+					NOT = { has_country_flag = SZC_refused_armament }
+				}
+			}
+			LEP = { country_event = sichuan.16 }
+		}
+	}
+}
+
+country_event = {
+	id = sichuan.1006
+
+	hidden = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.1006 option 1"
+		if = {
+			limit = {
+				country_exists = YUN
+				YUN = {
+					NOT = {
+						has_country_flag = SZC_refused_baoding
+						has_idea = YUN_chaos_army
+					}
+				}
+			}
+			YUN = { country_event = sichuan.17 }
+		}
+		else_if = {
+			limit = {
+				country_exists = CHI
+				CHI = {
+					NOT = { has_country_flag = SZC_refused_baoding }
+				}
+			}
+			CHI = { country_event = sichuan.17 }
+		}
+		else_if = {
+			limit = {
+				country_exists = FNG
+				FNG = {
+					NOT = { has_country_flag = SZC_refused_baoding }
+				}
+			}
+			FNG = { country_event = sichuan.17 }
+		}
+	}
+}
+
+country_event = {
+	id = sichuan.1007
+
+	hidden = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.1007 option 1"
+		if = {
+			limit = {
+				any_country_with_original_tag = {
+					original_tag_to_check = GXC
+					exists = yes
+					GXC_has_guangxi_government = yes
+					china_is_aligned_with_zhili = no
+					NOT = { has_country_flag = SZC_refused_xiang }
+				}
+			}
+			random_country_with_original_tag = {
+				original_tag_to_check = GXC
+				limit = {
+					exists = yes
+					GXC_has_guangxi_government = yes
+					china_is_aligned_with_zhili = no
+					NOT = { has_country_flag = SZC_refused_xiang }
+				}
+				country_event = sichuan.18
+			}
+		}
+		else_if = {
+			limit = {
+				country_exists = ANQ
+				ANQ = {
+					china_is_aligned_with_zhili = no
+					NOT = { has_country_flag = SZC_refused_xiang }
+				}
+			}
+			ANQ = { country_event = sichuan.18 }
+		}
+		else_if = {
+			limit = {
+				country_exists = FNG
+				FNG = {
+					NOT = { has_country_flag = SZC_refused_xiang }
+				}
+			}
+			FNG = { country_event = sichuan.18 }
+		}
+	}
+}
+
+country_event = {
+	id = sichuan.1008
+
+	hidden = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.1008 option 1"
+		if = {
+			limit = {
+				any_country_with_original_tag = {
+					original_tag_to_check = GXC
+					exists = yes
+					OR = {
+						GXC_has_federalist_government = yes
+						GXC_has_KMT_government = yes
+					}
+					NOT = { has_country_flag = SZC_refused_officers }
+				}
+			}
+			random_country_with_original_tag = {
+				original_tag_to_check = GXC
+				limit = {
+					exists = yes
+					OR = {
+						GXC_has_federalist_government = yes
+						GXC_has_KMT_government = yes
+					}
+					NOT = { has_country_flag = SZC_refused_officers }
+				}
+				country_event = sichuan.19
+			}
+		}
+		else_if = {
+			limit = {
+				country_exists = CHI
+				CHI = {
+					NOT = { has_country_flag = SZC_refused_officers }
+				}
+			}
+			CHI = { country_event = sichuan.19 }
+		}
+		else_if = {
+			limit = {
+				country_exists = YUN
+				YUN = {
+					NOT = {
+						has_country_flag = SZC_refused_officers
+						has_country_leader = { character = YUN_long_yun }
+					}
+				}
+			}
+			YUN = { country_event = sichuan.19 }
+		}
+	}
+}
+
+country_event = {
+	id = sichuan.1009
+
+	hidden = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.1009 option 1"
+		if = {
+			limit = {
+				country_exists = YUN
+				YUN = {
+					NOT = {
+						has_country_flag = SZC_refused_wenhui
+						has_idea = YUN_chaos_army
+					}
+				}
+			}
+			YUN = { country_event = sichuan.20 }
+		}
+		else_if = {
+			limit = {
+				any_country_with_original_tag = {
+					original_tag_to_check = GXC
+					exists = yes
+					OR = {
+						GXC_has_federalist_government = yes
+						GXC_has_KMT_government = yes
+					}
+					NOT = { has_country_flag = SZC_refused_wenhui }
+				}
+			}
+			random_country_with_original_tag = {
+				original_tag_to_check = GXC
+				limit = {
+					exists = yes
+					OR = {
+						GXC_has_federalist_government = yes
+						GXC_has_KMT_government = yes
+					}
+					NOT = { has_country_flag = SZC_refused_wenhui }
+				}
+				country_event = sichuan.20
+			}
+		}
+		else_if = {
+			limit = {
+				country_exists = CHI
+				CHI = {
+					NOT = { has_country_flag = SZC_refused_wenhui }
+				}
+			}
+			CHI = { country_event = sichuan.20 }
+		}
+	}
+}
+
+### General Events ###
+
+country_event = { #Unrest in the South (triggered by LEP)
+	id = sichuan.5
+	title = sichuan.5.t
+	desc = sichuan.5.d
+	picture = GFX_report_event_CHI_protest
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.5 option sichuan.5.a"
+		name = sichuan.5.a
+		add_stability = -0.02
+	}
+}
+
+country_event = { #Sun Chuanfang shot! (triggered by LEP)
+	id = sichuan.6
+	title = sichuan.6.t
+	desc = sichuan.6.d
+	picture = GFX_report_event_CHI_riot
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.6 option sichuan.6.a"
+		name = sichuan.6.a
+		add_stability = -0.02
+	}
+}
+
+country_event = { #Chaos in the South (triggered by QIE)
+	id = sichuan.7
+	title = sichuan.7.t
+
+	desc = {
+		text = sichuan.7.d.intervention
+		trigger = {
+			QIE = {
+				OR = {
+					has_country_flag = wu_intervenes_proLEP
+					has_country_flag = wu_intervenes_proANQ
+				}
+			}
+		}
+	}
+
+	desc = {
+		text = sichuan.7.d.no_intervention
+		trigger = {
+			QIE = {
+				has_country_flag = wu_no_intervene
+			}
+		}
+	}
+
+	picture = GFX_report_event_CHI_riot
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.7 option sichuan.7.a"
+		name = sichuan.7.a
+		add_stability = -0.03
+		hidden_effect = {
+			country_event = { id = sichuan.8 days = 2 random_hours = 24 }
+		}
+	}
+}
+
+country_event = { #Liu Xiang Mobilises Against Us
+	id = sichuan.8
+	title = sichuan.8.t
+	desc = sichuan.8.d
+	picture = GFX_report_event_SZC_liu_xiang
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.8 option sichuan.8.a"
+		name = sichuan.8.a
+		add_stability = -0.03
+		650 = { set_demilitarized_zone = yes }
+		if = {
+			limit = { is_ai = yes }
+			delete_units = { division_template = "Shiye Tuan Bubing Shi" disband = yes }
+			delete_units = { division_template = "Shiye Tuan Jingying Shi" disband = yes }
+		}
+		else = {
+			delete_units = { division_template = "Shiye Tuan Bubing Shi" }
+			delete_units = { division_template = "Shiye Tuan Jingying Shi" }
+		}
+		hidden_effect = {
+			country_event = { id = sichuan.9 days = 1 random_hours = 28 }
+		}
+	}
+}
+
+country_event = { #War in Sichuan
+	id = sichuan.9
+	title = sichuan.9.t
+	desc = sichuan.9.d
+	picture = GFX_report_event_CHI_militia
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.9 option sichuan.9.a"
+		name = sichuan.9.a
+		trigger = { NOT = { has_global_flag = QIE_manchu_restoration } }
+		swap_ideas = {
+			remove_idea = SZC_internal_divisions
+			add_idea = SZC_civil_war_idea
+		}
+		QIE = { country_event = sichuan.50 }
+		custom_effect_tooltip = tooltip_white_line
+		effect_tooltip = { every_country_division = { custom_effect_tooltip = will_be_disbanded } }
+		hidden_effect = {
+			if = {
+				limit = { is_ai = yes }
+				delete_unit = { disband = yes }
+			}
+			else = {
+				delete_unit = { disband = no }
+			}
+
+			set_country_flag = { flag = SZC_armament_defeats value = 0 }
+
+			#Officer Support
+			YUN = { country_event = { id = sichuan.53 days = 2 } }
+
+			#Battles
+			country_event = { id = sichuan.101 days = 4 }
+			country_event = { id = sichuan.55 days = 7 }
+			country_event = { id = sichuan.59 days = 18 }
+			country_event = { id = sichuan.63 days = 28 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.9 option sichuan.9.b"
+		name = sichuan.9.b
+		trigger = { has_global_flag = QIE_manchu_restoration }
+		swap_ideas = {
+			remove_idea = SZC_internal_divisions
+			add_idea = SZC_civil_war_idea
+		}
+		hidden_effect = {
+			if = {
+				limit = { is_ai = yes }
+				delete_unit = { disband = yes }
+			}
+			else = {
+				delete_unit = { disband = no }
+			}
+			set_country_flag = { flag = SZC_armament_defeats value = 0 }
+
+			#QIE informed
+			QIE = { country_event = { id = qiefor.108 hours = 8 } }
+
+			#Officer Support
+			YUN = { country_event = { id = sichuan.53 days = 2 } }
+
+			#Battles
+			country_event = { id = sichuan.101 days = 4 }
+			country_event = { id = sichuan.55 days = 7 }
+			country_event = { id = sichuan.59 days = 18 }
+			country_event = { id = sichuan.63 days = 28 }
+		}
+	}
+}
+
+country_event = { #Sichuan wants to join a faction
+	id = sichuan.10
+	title = sichuan.10.t
+	desc = sichuan.10.d
+	picture = GFX_report_event_generic_diplomacy3
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.10 option sichuan.10.a"
+		name = sichuan.10.a
+		effect_tooltip = { china_puppet_FROM_effect = yes }
+		FROM = { country_event = { id = sichuan.11 days = 2 } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.10 option sichuan.10.b"
+		name = sichuan.10.b
+		ai_chance = { base = 0 }
+		set_country_flag = china_refused_alliance_@FROM
+		FROM = {
+			set_country_flag = china_refused_alliance_@ROOT
+			if = {
+				limit = { china_same_alignment_as_FROM = yes }
+				var:FROM.country_leader = { clear_variable = china_alignment }
+			}
+			country_event = { id = sichuan.12 days = 2 }
+		}
+	}
+}
+
+country_event = { #Country accepts
+	id = sichuan.11
+	title = sichuan.11.t
+	desc = sichuan.11.d
+	picture = GFX_report_event_generic_diplomacy1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.11 option sichuan.11.a"
+		name = sichuan.11.a
+		add_political_power = 25
+		FROM = { china_puppet_ROOT_effect = yes }
+	}
+}
+
+country_event = { #Country refuses
+	id = sichuan.12
+	title = sichuan.12.t
+	desc = sichuan.12.d
+	picture = GFX_report_event_generic_diplomacy1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.12 option sichuan.12.b"
+		name = sichuan.12.b
+		add_political_power = -25
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_hates_govt
+		}
+	}
+}
+
+country_event = { #Propose peace to Sichuan/Tibet?
+	id = sichuan.13
+	title = sichuan.13.t
+
+	desc = {
+		text = sichuan.13.d.SZC
+		trigger = { tag = SZC }
+	}
+	desc = {
+		text = sichuan.13.d.TIB
+		trigger = { tag = TIB }
+	}
+
+	picture = GFX_report_event_TIB_army
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		TIB = {
+			owns_state = 693 #Chamdo
+			has_war_with = SZC
+			is_valid_peace_target = yes
+		}
+		SZC = {
+			owns_state = 601
+			china_is_independent_or_allied_to_chinese_tag = yes
+		}
+		if = {
+			limit = { tag = TIB }
+			OR = {
+				surrender_progress > 0.25
+				SZC = {
+					controls_state = 693 #Chamdo
+					controls_state = 748 #Bome
+				}
+			}
+			SZC = { surrender_progress < 0.1 }
+		}
+		else = {
+			OR = {
+				surrender_progress > 0.2
+				NOT = {
+					controls_state = 601 #Xikang
+					controls_state = 788 #Aba
+				}
+			}
+			TIB = { surrender_progress < 0.1 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.13 option sichuan.13.a"
+		name = sichuan.13.a #Offer terms to FROM
+		random_enemy_country = {
+			limit = {
+				OR = {
+					tag = TIB
+					tag = SZC
+				}
+			}
+			country_event = { id = sichuan.14 days = 2 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event sichuan.13 option sichuan.13.b"
+		name = sichuan.13.b #We will never surrender
+		ai_chance = { base = 0 }
+		add_political_power = -200
+	}
+}
+
+country_event = { #FROM offers terms
+	id = sichuan.14
+	title = sichuan.14.t
+
+	desc = {
+		text = sichuan.14.d.SZC
+		trigger = { tag = SZC }
+	}
+	desc = {
+		text = sichuan.14.d.TIB
+		trigger = { tag = TIB }
+	}
+
+	picture = GFX_report_event_TIB_german_mission_tibet
+
+	trigger = {
+		has_war_with = FROM
+		TIB = { is_valid_peace_target = yes }
+		SZC = { china_is_independent_or_allied_to_chinese_tag = yes }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.14 option sichuan.14.a"
+		name = sichuan.14.a #Yes, let's end this
+		add_political_power = 50
+		if = {
+			limit = {
+				NOT = { owns_state = 601 } #Xikang
+			}
+			transfer_state = 601
+		}
+		if = {
+			limit = {
+				NOT = { owns_state = 693 } #Chamdo
+			}
+			transfer_state = 693
+		}
+		if = {
+			limit = {
+				NOT = { owns_state = 748 } #Chamdo
+				748 = { is_claimed_by = ROOT }
+			}
+			transfer_state = 748
+		}
+		FROM = { white_peace_with_ROOT = yes }
+	}
+	option = {
+		log = "[GetLogInfo]: event sichuan.14 option sichuan.14.b"
+		name = sichuan.14.b #This is not over yet!
+		ai_chance = { base = 0 }
+		add_political_power = -200
+		FROM = { country_event = sichuan.15 }
+	}
+}
+
+country_event = { #FROM refuses peace
+	id = sichuan.15
+	title = sichuan.15.t
+
+	desc = {
+		text = sichuan.15.d.SZC
+		trigger = { tag = SZC }
+	}
+	desc = {
+		text = sichuan.15.d.TIB
+		trigger = { tag = TIB }
+	}
+
+	picture = GFX_report_event_TIB_army_2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.15 option sichuan.15.a"
+		name = sichuan.15.a
+		add_stability = 0.10
+		add_war_support = 0.10
+	}
+}
+
+country_event = { #Armament Department Flees Sichuan (QIE->ANQ->LEP)
+	id = sichuan.16
+	title = sichuan.16.t
+	desc = sichuan.16.d
+	picture = GFX_report_event_QIE_soldiers_planning
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.16 option sichuan.16.a"
+		name = sichuan.16.a
+		if = {
+			limit = { is_ai = no }
+			add_political_power = -15
+		}
+		SZC = {
+			SZC_yang_sen = { set_nationality = ROOT }
+			SZC_liu_cunhou = { set_nationality = ROOT }
+			SZC_fan_shaozeng = { set_nationality = ROOT }
+			SZC_he_guoguang = { set_nationality = ROOT }
+			SZC_wang_lingji = {
+				if = {
+					limit = { has_character_flag = SZC_armament_leader }
+					set_nationality = ROOT
+				}
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event sichuan.16 option sichuan.16.b"
+		name = sichuan.16.b
+		ai_chance = { base = 0 }
+		add_political_power = 15
+		set_country_flag = SZC_refused_armament
+		hidden_effect = {
+			country_event = { id = sichuan.1005 days = 8 random_hours = 288 }
+		}
+	}
+}
+
+country_event = { #Baoding Department Flees Sichuan  (GXC->YUN->CHI->FNG)
+	id = sichuan.17
+	title = sichuan.17.t
+	desc = sichuan.17.d
+	picture = GFX_report_event_SZC_deng_xihou
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.17 option sichuan.17.a"
+		name = sichuan.17.a
+		if = {
+			limit = { is_ai = no }
+			add_political_power = -15
+		}
+		if = {
+			limit = {
+				original_tag = GXC
+				NOT = { has_global_flag = GXC_civil_war_over }
+			}
+			SZC_deng_xihou = {
+				set_nationality = ROOT
+				add_unit_leader_trait = GXC_guangdong_clique_officer
+			}
+			SZC_wang_zuanxu = {
+				set_nationality = ROOT
+				add_unit_leader_trait = GXC_guangdong_clique_officer
+			}
+			SZC_li_jiayu = {
+				set_nationality = ROOT
+				add_unit_leader_trait = GXC_guangdong_clique_officer
+			}
+		}
+		else = {
+			SZC = {
+				SZC_deng_xihou = { set_nationality = ROOT }
+				SZC_wang_zuanxu = { set_nationality = ROOT }
+				SZC_li_jiayu = { set_nationality = ROOT }
+			}
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.17 option sichuan.17.b"
+		name = sichuan.17.b
+		ai_chance = { base = 0 }
+		add_political_power = 15
+		set_country_flag = SZC_refused_baoding
+		hidden_effect = {
+			country_event = { id = sichuan.1006 days = 8 random_hours = 288 }
+		}
+	}
+}
+
+country_event = { #Liu Xiang Flees Sichuan (GXC->ANQ->FNG)
+	id = sichuan.18
+	title = sichuan.18.t
+	desc = sichuan.18.d
+	picture = GFX_report_event_SZC_liu_xiang
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.18 option sichuan.18.a"
+		name = sichuan.18.a
+		if = {
+			limit = { is_ai = no }
+			add_political_power = -15
+		}
+		if = {
+			limit = {
+				original_tag = GXC
+				NOT = { has_global_flag = GXC_civil_war_over }
+			}
+			SZC = {
+				SZC_liu_xiang = {
+					clr_character_flag = SZC_industrial_leader
+					set_nationality = ROOT
+					add_unit_leader_trait = GXC_guangxi_clique_officer
+				}
+				SZC_tang_shizun = {
+					clr_character_flag = SZC_industrial_leader
+					set_nationality = ROOT
+					add_unit_leader_trait = GXC_guangxi_clique_officer
+				}
+				SZC_pan_wenhua = {
+					if = {
+						limit = { has_character_flag = SZC_industrial_leader }
+						clr_character_flag = SZC_industrial_leader
+						set_nationality = ROOT
+						add_unit_leader_trait = GXC_guangxi_clique_officer
+					}
+				}
+				SZC_guo_xunqi = {
+					if = {
+						limit = { has_character_flag = SZC_industrial_leader }
+						clr_character_flag = SZC_industrial_leader
+						set_nationality = ROOT
+						add_unit_leader_trait = GXC_guangxi_clique_officer
+					}
+				}
+			}
+		}
+		else = {
+			SZC = {
+				SZC_liu_xiang = {
+					clr_character_flag = SZC_industrial_leader
+					set_nationality = ROOT
+				}
+				SZC_tang_shizun = {
+					clr_character_flag = SZC_industrial_leader
+					set_nationality = ROOT
+				}
+				SZC_pan_wenhua = {
+					if = {
+						limit = { has_character_flag = SZC_industrial_leader }
+						clr_character_flag = SZC_industrial_leader
+						set_nationality = ROOT
+					}
+				}
+				SZC_guo_xunqi = {
+					if = {
+						limit = { has_character_flag = SZC_industrial_leader }
+						clr_character_flag = SZC_industrial_leader
+						set_nationality = ROOT
+					}
+				}
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event sichuan.18 option sichuan.18.b"
+		name = sichuan.18.b
+		ai_chance = { base = 0 }
+		add_political_power = 15
+		set_country_flag = SZC_refused_xiang
+		hidden_effect = {
+			country_event = { id = sichuan.1007 days = 8 random_hours = 288 }
+		}
+	}
+}
+
+country_event = { #Officer Department Flees Sichuan (GXC->CHI->YUN)
+	id = sichuan.19
+	title = sichuan.19.t
+	desc = sichuan.19.d
+	picture = GFX_report_event_CHI_chiang_wei_kuo
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.19 option sichuan.19.a"
+		name = sichuan.19.a
+		if = {
+			limit = { is_ai = no }
+			add_political_power = -15
+		}
+		if = {
+			limit = {
+				original_tag = GXC
+				NOT = { has_global_flag = GXC_civil_war_over }
+			}
+			SZC = {
+				SZC_xiong_kewu = {
+					clr_character_flag = SZC_officer_leader
+					set_nationality = ROOT
+					add_unit_leader_trait = GXC_guangdong_clique_officer
+				}
+				SZC_lu_chao = {
+					clr_character_flag = SZC_officer_leader
+					set_nationality = ROOT
+					add_unit_leader_trait = GXC_guangdong_clique_officer
+				}
+				SZC_liu_bocheng = {
+					clr_character_flag = SZC_officer_leader
+					set_nationality = ROOT
+					add_unit_leader_trait = GXC_guangdong_clique_officer
+				}
+				SZC_pan_wenhua = {
+					if = {
+						limit = { has_character_flag = SZC_officer_leader }
+						clr_character_flag = SZC_officer_leader
+						set_nationality = ROOT
+						add_unit_leader_trait = GXC_guangdong_clique_officer
+					}
+				}
+				SZC_guo_xunqi = {
+					if = {
+						limit = { has_character_flag = SZC_officer_leader }
+						clr_character_flag = SZC_officer_leader
+						set_nationality = ROOT
+						add_unit_leader_trait = GXC_guangdong_clique_officer
+					}
+				}
+			}
+		}
+		else = {
+			SZC = {
+				SZC_xiong_kewu = {
+					clr_character_flag = SZC_officer_leader
+					set_nationality = ROOT
+				}
+				SZC_lu_chao = {
+					clr_character_flag = SZC_officer_leader
+					set_nationality = ROOT
+				}
+				SZC_liu_bocheng = {
+					clr_character_flag = SZC_officer_leader
+					set_nationality = ROOT
+				}
+				SZC_pan_wenhua = {
+					if = {
+						limit = { has_character_flag = SZC_officer_leader }
+						clr_character_flag = SZC_officer_leader
+						set_nationality = ROOT
+					}
+				}
+				SZC_guo_xunqi = {
+					if = {
+						limit = { has_character_flag = SZC_officer_leader }
+						clr_character_flag = SZC_officer_leader
+						set_nationality = ROOT
+					}
+				}
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event sichuan.19 option sichuan.19.b"
+		name = sichuan.19.b
+		ai_chance = { base = 0 }
+		add_political_power = 15
+		set_country_flag = SZC_refused_officers
+		hidden_effect = {
+			country_event = { id = sichuan.1008 days = 8 random_hours = 288 }
+		}
+	}
+}
+
+country_event = { #Liu Wenhui Flees Sichuan (YUN->GXC->CHI)
+	id = sichuan.20
+	title = sichuan.20.t
+	desc = sichuan.20.d
+	picture = GFX_report_event_SZC_liu_wenhui
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.20 option sichuan.20.a"
+		name = sichuan.20.a
+		if = {
+			limit = { is_ai = no }
+			add_political_power = -15
+		}
+		if = {
+			limit = {
+				original_tag = GXC
+				NOT = { has_global_flag = GXC_civil_war_over }
+			}
+			SZC = {
+				SZC_liu_wenhui = {
+					set_nationality = ROOT
+					add_unit_leader_trait = GXC_guangdong_clique_officer
+				}
+			}
+		}
+		else = {
+			SZC = { SZC_liu_wenhui = { set_nationality = ROOT } }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event sichuan.20 option sichuan.20.b"
+		name = sichuan.20.b
+		ai_chance = { base = 0 }
+		add_political_power = 15
+		set_country_flag = SZC_refused_wenhui
+		hidden_effect = {
+			country_event = { id = sichuan.1009 days = 8 random_hours = 288 }
+		}
+	}
+}
+
+country_event = { #FROM Mobilises Against Us!
+	id = sichuan.21
+	title = sichuan.21.t
+	desc = sichuan.21.d
+	picture = GFX_report_event_QIE_zhili_battle
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.21 option sichuan.21.a"
+		name = sichuan.21.a
+	}
+}
+
+### Civil War Events ###
+
+country_event = { #Yang Sen Requests Support
+	id = sichuan.50
+	title = sichuan.50.t
+	desc = sichuan.50.d
+	picture = GFX_report_event_QIE_soldiers_planning
+
+	trigger = {
+		FROM = { has_idea = SZC_civil_war_idea }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.50 option sichuan.50.a"
+		name = sichuan.50.a
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SZC_path option = SZC_PATH_SOCDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_SOCLIB }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_PATAUT_NPA }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_PATAUT_FNG }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_PATAUT_INDEPENDENT }
+				}
+			}
+		}
+		add_political_power = -25
+		add_manpower = -5000
+		SZC = { country_event = { id = sichuan.51 days = 5 } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.50 option sichuan.50.b"
+		name = sichuan.50.b
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SZC_path option = SZC_PATH_YANG_AUTDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_LIU_AUTDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_ZHILI_AUTDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_ZHILI_PATAUT }
+				}
+			}
+		}
+		SZC = { country_event = { id = sichuan.52 days = 5 } }
+	}
+}
+
+country_event = { #Wu Peifu Sends Support
+	id = sichuan.51
+	title = sichuan.51.t
+	desc = sichuan.51.d
+	picture = GFX_report_event_CHI_warlords
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.51 option sichuan.51.a"
+		name = sichuan.51.a
+		set_country_flag = SZC_zhili_supports_armament
+		add_political_power = 25
+		hidden_effect = {
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = social_conservative
+				popularity = -0.02
+			}
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			}
+		}
+	}
+}
+
+country_event = { #Wu Peifu Abandons Us
+	id = sichuan.52
+	title = sichuan.52.t
+	desc = sichuan.52.d
+	picture = GFX_report_event_CHI_ambassador_announcement
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.52 option sichuan.52.a"
+		name = sichuan.52.a
+	}
+}
+
+country_event = { #Officer Department asks for Support
+	id = sichuan.53
+	title = sichuan.53.t
+	desc = sichuan.53.d
+	picture = GFX_report_event_CHI_beijing_beiyang_flag
+
+	trigger = {
+		FROM = { has_idea = SZC_civil_war_idea }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.53 option sichuan.53.a"
+		name = sichuan.53.a
+		ai_chance = { base = 10 }
+		add_political_power = -25
+		add_manpower = -5000
+		SZC = { country_event = { id = sichuan.54 days = 5 } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.53 option sichuan.53.b"
+		name = sichuan.53.b
+		ai_chance = { base = 10 }
+		add_political_power = -25
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = -800
+		}
+		SZC = { country_event = { id = sichuan.54 days = 5 } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.53 option sichuan.53.c"
+		name = sichuan.53.c
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SZC_path option = SZC_PATH_SOCDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_SOCLIB }
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Yunnan Supports the Officer Department
+	id = sichuan.54
+	title = sichuan.54.t
+	desc = sichuan.54.d
+	picture = GFX_report_event_GXC_federalist_troops_mountains
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.54 option sichuan.54.a"
+		name = sichuan.54.a
+		set_country_flag = SZC_yunnan_supports_officers
+		hidden_effect = {
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.03
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.06
+			}
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = social_conservative
+				popularity = -0.03
+			}
+		}
+	}
+}
+
+country_event = { #Industrial Corps Approaches Suining
+	id = sichuan.55
+	title = sichuan.55.t
+	desc = sichuan.55.d
+	picture = GFX_report_event_CHI_warlord_observer
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+		has_government = authoritarian_democrat
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.55 option sichuan.55.a"
+		name = sichuan.55.a #retreat north
+		ai_chance = {
+			base = 1
+			modifier = {
+				add = party_popularity@market_liberal
+			}
+			modifier = {
+				add = party_popularity@social_conservative
+			}
+			modifier = {
+				add = party_popularity@authoritarian_democrat
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SZC_path option = SZC_PATH_SOCCON }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_MARLIB }
+				}
+			}
+		}
+		custom_effect_tooltip = SZC_battle_suining_santai
+		hidden_effect = {
+			country_event = { id = sichuan.56 days = 3 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.55 option sichuan.55.b"
+		name = sichuan.55.b #retreat west
+		ai_chance = {
+			base = 1
+			modifier = {
+				add = party_popularity@social_democrat
+			}
+			modifier = {
+				add = party_popularity@social_liberal
+			}
+			modifier = {
+				add = party_popularity@paternal_autocrat
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SZC_path option = SZC_PATH_YANG_AUTDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_LIU_AUTDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_ZHILI_AUTDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_ZHILI_PATAUT }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_SOCDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_SOCLIB }
+				}
+			}
+		}
+		custom_effect_tooltip = SZC_battle_suining_chengdu
+		hidden_effect = {
+			country_event = { id = sichuan.57 days = 3 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.55 option sichuan.55.c"
+		name = sichuan.55.c #attempt to hold
+		ai_chance = {
+			base = 1
+			modifier = {
+				add = party_popularity@social_democrat
+			}
+			modifier = {
+				add = party_popularity@social_liberal
+			}
+			modifier = {
+				add = party_popularity@paternal_autocrat
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SZC_path option = SZC_PATH_YANG_AUTDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_LIU_AUTDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_ZHILI_AUTDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_ZHILI_PATAUT }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_SOCDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_SOCLIB }
+				}
+			}
+		}
+		custom_effect_tooltip = SZC_battle_suining_hold
+		hidden_effect = {
+			country_event = { id = sichuan.58 days = 3 }
+		}
+	}
+}
+
+country_event = { #Flight to the North
+	id = sichuan.56
+	title = sichuan.56.t
+	desc = sichuan.56.d
+	picture = GFX_report_event_CHI_train_bombing
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+		has_government = authoritarian_democrat
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.56 option sichuan.56.a"
+		name = sichuan.56.a
+		army_experience = 10
+		SZC_armament_victory = yes
+	}
+}
+
+country_event = { #Battle in Jianyang
+	id = sichuan.57
+	title = sichuan.57.t
+	desc = sichuan.57.d
+	picture = GFX_report_event_CHI_warlord_battle
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+		has_government = authoritarian_democrat
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.57 option sichuan.57.a"
+		name = sichuan.57.a
+		army_experience = 5
+		SZC_armament_defeat = yes
+		SZC_armament_collapse = yes
+	}
+}
+
+country_event = { #Encircled in Suining
+	id = sichuan.58
+	title = sichuan.58.t
+	desc = sichuan.58.d
+	picture = GFX_report_event_SQI_zongchang_military_1
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+		has_government = authoritarian_democrat
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.58 option sichuan.58.a"
+		name = sichuan.58.a
+		army_experience = 5
+		SZC_armament_defeat = yes
+		SZC_armament_collapse = yes
+	}
+}
+
+country_event = { #Neijiang Under Assault
+	id = sichuan.59
+	title = sichuan.59.t
+	desc = sichuan.59.d
+	picture = GFX_report_event_CHI_militia
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+		has_government = authoritarian_democrat
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.59 option sichuan.59.a"
+		name = sichuan.59.a #defend the bridgeheads
+		ai_chance = {
+			base = 1
+			modifier = {
+				add = party_popularity@social_democrat
+			}
+			modifier = {
+				add = party_popularity@social_liberal
+			}
+			modifier = {
+				add = party_popularity@paternal_autocrat
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SZC_path option = SZC_PATH_YANG_AUTDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_LIU_AUTDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_ZHILI_AUTDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_ZHILI_PATAUT }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_SOCDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_SOCLIB }
+				}
+			}
+		}
+		custom_effect_tooltip = SZC_battle_neijiang_defend
+		hidden_effect = {
+			country_event = { id = sichuan.60 days = 3 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.59 option sichuan.59.b"
+		name = sichuan.59.b #blow the bridges
+		ai_chance = {
+			base = 1
+			modifier = {
+				add = party_popularity@market_liberal
+			}
+			modifier = {
+				add = party_popularity@social_conservative
+			}
+			modifier = {
+				add = party_popularity@authoritarian_democrat
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SZC_path option = SZC_PATH_SOCCON }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_MARLIB }
+				}
+			}
+		}
+		custom_effect_tooltip = SZC_battle_neijiang_blow
+		hidden_effect = {
+			country_event = { id = sichuan.61 days = 3 }
+		}
+	}
+}
+
+country_event = { #Neijiang Overrun By Enemy Forces
+	id = sichuan.60
+	title = sichuan.60.t
+	desc = sichuan.60.d
+	picture = GFX_report_event_CHI_warlord_battle
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+		has_government = authoritarian_democrat
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.60 option sichuan.60.a"
+		name = sichuan.60.a
+		army_experience = 5
+		SZC_armament_defeat = yes
+		SZC_armament_collapse = yes
+	}
+}
+
+country_event = { #Battle of the Bridges
+	id = sichuan.61
+	title = sichuan.61.t
+	desc = sichuan.61.d
+	picture = GFX_report_event_GXC_federalist_troops_atgun
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+		has_government = authoritarian_democrat
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.61 option sichuan.61.a"
+		name = sichuan.61.a
+		army_experience = 10
+		SZC_armament_victory = yes
+		605 = {
+			damage_building = {
+				type = infrastructure
+				damage = 1.0
+			}
+		}
+	}
+}
+
+country_event = { #Deng Xihou Takes Chengdu
+	id = sichuan.62
+	title = sichuan.62.t
+	desc = sichuan.62.d
+	picture = GFX_report_event_SZC_deng_xihou
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+		has_government = authoritarian_democrat
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.62 option sichuan.62.a"
+		name = sichuan.62.a
+		remove_ideas = SZC_baoding_influence
+		set_politics = {
+			ruling_party = social_conservative
+			elections_allowed = no
+		}
+		clr_country_flag = SZC_armament_defeats
+		delete_unit_template_and_units = { division_template = "Wubei Xi Bubing Shi" }
+		hidden_effect = {
+			set_temp_variable = { coalition_partner_var = token:market_liberal }
+			add_to_coalition = yes
+			set_political_party = { ideology = authoritarian_democrat popularity = 0 }
+			SZC_armament_department_flees = yes
+			load_focus_tree = Sichuan_Clique_Baoding
+		}
+		SZC_deng_xihou = { promote_leader = yes }
+	}
+}
+
+country_event = { #The Siege of Chengdu
+	id = sichuan.63
+	title = sichuan.63.t
+	desc = sichuan.63.d
+	picture = GFX_report_event_CHI_riot
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { has_government = authoritarian_democrat }
+				country_event = { id = sichuan.64 days = 3 }
+			}
+			else = {
+				country_event = { id = sichuan.82 days = 3 }
+			}
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.63 option sichuan.63.a"
+		name = sichuan.63.a
+		army_experience = 5
+	}
+}
+
+### Armament in charge
+
+country_event = { #Choosing a Plan of Attack
+	id = sichuan.64
+	title = sichuan.64.t
+	desc = sichuan.64.d
+	picture = GFX_report_event_GXC_federalist_troops_march
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.64 option sichuan.64.a"
+		name = sichuan.64.a #to Jianyang
+		ai_chance = {
+			base = 2
+			modifier = {
+				add = 2
+				has_country_flag = SZC_yunnan_supports_officers
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SZC_path option = SZC_PATH_PATAUT_NPA }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_PATAUT_FNG }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_PATAUT_INDEPENDENT }
+				}
+			}
+		}
+		custom_effect_tooltip = SZC_troop_mobilisation_jianyang
+		hidden_effect = {
+			country_event = { id = sichuan.65 days = 3 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.64 option sichuan.64.b"
+		name = sichuan.64.b #to Chongqing
+		ai_chance = {
+			base = 2
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SZC_path option = SZC_PATH_YANG_AUTDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_LIU_AUTDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_ZHILI_AUTDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_ZHILI_PATAUT }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_SOCDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_SOCLIB }
+				}
+			}
+		}
+		custom_effect_tooltip = SZC_troop_mobilisation_chongqing
+		hidden_effect = {
+			country_event = { id = sichuan.75 days = 6 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.64 option sichuan.64.c"
+		name = sichuan.64.c #split and attack both
+		ai_chance = {
+			base = 2
+			modifier = {
+				add = -1
+				has_country_flag = SZC_zhili_supports_armament
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SZC_path option = SZC_PATH_YANG_AUTDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_LIU_AUTDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_ZHILI_AUTDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_ZHILI_PATAUT }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_SOCDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_SOCLIB }
+				}
+			}
+		}
+		custom_effect_tooltip = SZC_troop_mobilisation_split
+		hidden_effect = {
+			country_event = { id = sichuan.80 days = 4 }
+		}
+	}
+}
+
+country_event = { #Yang Sen's Gambit
+	id = sichuan.65
+	title = sichuan.65.t
+	desc = sichuan.65.d
+	picture = GFX_report_event_QIE_soldiers_planning
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.65 option sichuan.65.a"
+		name = sichuan.65.a
+		army_experience = 10
+		hidden_effect = {
+			country_event = { id = sichuan.66 days = 3 }
+		}
+	}
+}
+
+country_event = { #The Tides Turn
+	id = sichuan.66
+	title = sichuan.66.t
+	desc = sichuan.66.d
+	picture = GFX_report_event_SQI_zongchang_military_1
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.66 option sichuan.66.a"
+		name = sichuan.66.a
+		hidden_effect = {
+			country_event = { id = sichuan.67 days = 3 }
+		}
+	}
+}
+
+country_event = { #Pan Wenhua's Betrayal
+	id = sichuan.67
+	title = sichuan.67.t
+	desc = sichuan.67.d
+	picture = GFX_report_event_CHI_successful_northern_expedition_flag
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.67 option sichuan.67.a"
+		name = sichuan.67.a
+		hidden_effect = {
+			SZC_pan_wenhua = {
+				clr_character_flag = SZC_industrial_leader
+				set_character_flag = SZC_officer_leader
+			}
+			SZC_guo_xunqi = { #made him defect as well seeing as he seemed to had leftist connections from at least the 20's
+				clr_character_flag = SZC_industrial_leader
+				set_character_flag = SZC_officer_leader
+			}
+			country_event = { id = sichuan.68 days = 4 }
+		}
+	}
+}
+
+country_event = { #The Industrial Corps Disintegrates
+	id = sichuan.68
+	title = sichuan.68.t
+	desc = sichuan.68.d
+	picture = GFX_report_event_SZC_liu_xiang
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.68 option sichuan.68.a"
+		name = sichuan.68.a
+		delete_unit_template_and_units = { division_template = "Shiye Tuan Bubing Shi" }
+		delete_unit_template_and_units = { division_template = "Shiye Tuan Jingying Shi" }
+		hidden_effect = {
+			country_event = { id = sichuan.69 days = 4 }
+			set_political_party = { ideology = paternal_autocrat popularity = 0 }
+		}
+	}
+}
+
+country_event = { #Chongqing Under The Officers
+	id = sichuan.69
+	title = sichuan.69.t
+	desc = sichuan.69.d
+	picture = GFX_report_event_CHI_new_era
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.69 option sichuan.69.a"
+		name = sichuan.69.a
+		hidden_effect = {
+			country_event = { id = sichuan.70 days = 3 }
+		}
+	}
+}
+
+country_event = { #Clashes in Ziliujing
+	id = sichuan.70
+	title = sichuan.70.t
+	desc = sichuan.70.d
+	picture = GFX_report_event_CHI_warlord_observer
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.70 option sichuan.70.a"
+		name = sichuan.70.a
+		ai_chance = {
+			base = 1
+			modifier = {
+				add = party_popularity@social_democrat
+			}
+			modifier = {
+				add = party_popularity@social_liberal
+			}
+			modifier = {
+				add = 1
+				has_country_flag = SZC_yunnan_supports_officers
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SZC_path option = SZC_PATH_YANG_AUTDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_LIU_AUTDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_ZHILI_AUTDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_ZHILI_PATAUT }
+				}
+			}
+		}
+		custom_effect_tooltip = SZC_ziliujing_defense
+		hidden_effect = {
+			country_event = { id = sichuan.71 days = 3 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event sichuan.70 option sichuan.70.b"
+		name = sichuan.70.b
+		ai_chance = {
+			base = 1
+			modifier = {
+				add = party_popularity@authoritarian_democrat
+			}
+			modifier = {
+				add = 1
+				has_country_flag = SZC_yunnan_supports_officers
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SZC_path option = SZC_PATH_YANG_AUTDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_LIU_AUTDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_ZHILI_AUTDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_ZHILI_PATAUT }
+				}
+			}
+		}
+		custom_effect_tooltip = SZC_ziliujing_attack_wenhua
+		set_country_flag = SZC_ziliujing_pincer
+		hidden_effect = {
+			country_event = { id = sichuan.71 days = 4 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event sichuan.70 option sichuan.70.c"
+		name = sichuan.70.c
+		ai_chance = {
+			base = 1
+			modifier = {
+				add = party_popularity@authoritarian_democrat
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SZC_path option = SZC_PATH_SOCDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_SOCLIB }
+				}
+			}
+		}
+		custom_effect_tooltip = SZC_ziliujing_feign_withdraw
+		hidden_effect = {
+			country_event = { id = sichuan.73 days = 4 }
+		}
+	}
+}
+
+country_event = { #Stalemate in Ziliujing/The Tongnan Pincer
+	id = sichuan.71
+
+	title = {
+		text = sichuan.71.t.pincer
+		trigger = {
+			has_country_flag = SZC_ziliujing_pincer
+		}
+	}
+	title = {
+		text = sichuan.71.t.stalemate
+		trigger = {
+			NOT = { has_country_flag = SZC_ziliujing_pincer }
+		}
+	}
+
+	desc = {
+		text = sichuan.71.d.pincer
+		trigger = {
+			has_country_flag = SZC_ziliujing_pincer
+		}
+	}
+	desc = {
+		text = sichuan.71.d.stalemate
+		trigger = {
+			NOT = { has_country_flag = SZC_ziliujing_pincer }
+		}
+	}
+	picture = GFX_report_event_CHI_warlord_battle
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			country_event = { id = sichuan.72 days = 4 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.71 option sichuan.71.a.pincer"
+		name = sichuan.71.a.pincer
+		trigger = {
+			has_country_flag = SZC_ziliujing_pincer
+		}
+		clr_country_flag = SZC_ziliujing_pincer
+		army_experience = 5
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.71 option sichuan.71.a.stalemate"
+		name = sichuan.71.a.stalemate
+		trigger = {
+			NOT = { has_country_flag = SZC_ziliujing_pincer }
+		}
+		army_experience = 5
+	}
+}
+
+country_event = { #Fall of Chengdu, Officer Victory
+	id = sichuan.72
+	title = sichuan.72.t
+	desc = sichuan.72.d
+	picture = GFX_report_event_GXC_federalist_party_3
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.72 option sichuan.72.a"
+		name = sichuan.72.a
+		SZC_officer_department_wins_civil_war = yes
+		hidden_effect = {
+			set_political_party = { ideology = authoritarian_democrat popularity = 0 }
+		}
+	}
+}
+
+country_event = { #Clash of Two Minds
+	id = sichuan.73
+	title = sichuan.73.t
+	desc = sichuan.73.d
+	picture = GFX_report_event_GXC_federalist_troops_bandoliers
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.73 option sichuan.73.a"
+		name = sichuan.73.a
+		army_experience = 15
+		hidden_effect = {
+			country_event = { id = sichuan.74 days = 4 }
+		}
+	}
+}
+
+country_event = { #Fall of Chongqing, Armament Victory
+	id = sichuan.74
+	title = sichuan.74.t
+	desc = sichuan.74.d
+	picture = GFX_report_event_CHI_riot
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.74 option sichuan.74.a"
+		name = sichuan.74.a
+		SZC_armament_department_wins_civil_war = yes
+		650 = {
+			damage_building = {
+				type = infrastructure
+				damage = 0.5
+			}
+			damage_building = {
+				type = industrial_complex
+				damage = 0.7
+			}
+			damage_building = {
+				type = arms_factory
+				damage = 0.9
+			}
+		}
+		hidden_effect = {
+			set_political_party = { ideology = social_liberal popularity = 0 }
+			set_political_party = { ideology = social_democrat popularity = 0 }
+		}
+	}
+}
+
+country_event = { #Approaching Chongqing
+	id = sichuan.75
+	title = sichuan.75.t
+	desc = sichuan.75.d
+	picture = GFX_report_event_CHI_militia
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.75 option sichuan.75.a"
+		name = sichuan.75.a
+		ai_chance = {
+			base = 1
+			modifier = {
+				add = party_popularity@authoritarian_democrat
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SZC_path option = SZC_PATH_PATAUT_NPA }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_PATAUT_FNG }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_PATAUT_INDEPENDENT }
+				}
+			}
+		}
+		custom_effect_tooltip = SZC_chongqing_hills
+		hidden_effect = {
+			country_event = { id = sichuan.77 days = 2 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event sichuan.75 option sichuan.75.b"
+		name = sichuan.75.b
+		ai_chance = {
+			base = 1
+			modifier = {
+				add = party_popularity@paternal_autocrat
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SZC_path option = SZC_PATH_YANG_AUTDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_LIU_AUTDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_ZHILI_AUTDEM }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_ZHILI_PATAUT }
+				}
+			}
+		}
+		custom_effect_tooltip = SZC_chongqing_assault
+		hidden_effect = {
+			country_event = { id = sichuan.76 days = 2 }
+		}
+	}
+}
+
+country_event = { #Defeat in Chongqing
+	id = sichuan.76
+	title = sichuan.76.t
+	desc = sichuan.76.d
+	picture = GFX_report_event_CHI_warlord_battle
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.76 option sichuan.76.a"
+		name = sichuan.76.a
+		army_experience = 5
+		hidden_effect = {
+			country_event = { id = sichuan.81 days = 4 }
+		}
+	}
+}
+
+country_event = { #The Fall of Chongqing
+	id = sichuan.77
+	title = sichuan.77.t
+	desc = sichuan.77.d
+	picture = GFX_report_event_CHI_riot
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.77 option sichuan.77.a"
+		name = sichuan.77.a
+		army_experience = 10
+		hidden_effect = {
+			country_event = { id = sichuan.78 days = 2 }
+		}
+		650 = {
+			damage_building = {
+				type = infrastructure
+				damage = 0.5
+			}
+			damage_building = {
+				type = industrial_complex
+				damage = 0.7
+			}
+			damage_building = {
+				type = arms_factory
+				damage = 0.9
+			}
+		}
+	}
+}
+
+country_event = { #The Industrial Corps Begins to Disintegrate
+	id = sichuan.78
+	title = sichuan.78.t
+	desc = sichuan.78.d
+	picture = GFX_report_event_SQI_zongchang_military_1
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.78 option sichuan.78.a"
+		name = sichuan.78.a
+		hidden_effect = {
+			country_event = { id = sichuan.79 days = 2 }
+		}
+	}
+}
+
+country_event = { #Liu Xiang Escapes, Armament Victory
+	id = sichuan.79
+	title = sichuan.79.t
+	desc = sichuan.79.d
+	picture = GFX_report_event_SZC_liu_xiang
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.79 option sichuan.79.a"
+		name = sichuan.79.a
+		SZC_armament_department_wins_civil_war = yes
+		hidden_effect = {
+			set_political_party = { ideology = paternal_autocrat popularity = 0 }
+		}
+	}
+}
+
+country_event = { #Defeat in Detail
+	id = sichuan.80
+	title = sichuan.80.t
+	desc = sichuan.80.d
+	picture = GFX_report_event_CHI_warlord_battle
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		SZC_wang_lingji = {
+			clr_character_flag = SZC_armament_leader
+			set_character_flag = SZC_industrial_leader
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.80 option sichuan.80.a"
+		name = sichuan.80.a
+		army_experience = 5
+		save_event_target_as = SZC_chengdu_surrender
+		hidden_effect = {
+			country_event = { id = sichuan.81 days = 3 }
+		}
+	}
+}
+
+country_event = { #The Surrender of Chengdu, Industrial Victory
+	id = sichuan.81
+	picture = GFX_report_event_CHI_militia
+
+	title = {
+		text = sichuan.81.t.battle
+		trigger = {
+			NOT = { has_event_target = SZC_chengdu_surrender }
+		}
+	}
+	title = {
+		text = sichuan.81.t.sapped
+		trigger = {
+			has_event_target = SZC_chengdu_surrender
+		}
+	}
+
+	desc = {
+		text = sichuan.81.d.battle
+		trigger = {
+			NOT = { has_event_target = SZC_chengdu_surrender }
+		}
+	}
+	desc = {
+		text = sichuan.81.d.sapped
+		trigger = {
+			has_event_target = SZC_chengdu_surrender
+		}
+	}
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = { remove_ideas = SZC_civil_war_idea }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.81 option sichuan.81.a"
+		name = sichuan.81.a
+		SZC_industrial_corps_wins_civil_war = yes
+		hidden_effect = {
+			set_political_party = { ideology = authoritarian_democrat popularity = 0 }
+			set_political_party = { ideology = social_conservative popularity = 0 }
+		}
+	}
+}
+
+### Baoding in charge
+
+country_event = { #Mobilising the Xikang Troops
+	id = sichuan.82
+	title = sichuan.82.t
+	desc = sichuan.82.d
+	picture = GFX_report_event_QIE_warlord_soldiers
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.82 option sichuan.82.a"
+		name = sichuan.82.a #Send them towards Jianyang
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SZC_path option = SZC_PATH_PATAUT_NPA }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_PATAUT_FNG }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_PATAUT_INDEPENDENT }
+				}
+			}
+		}
+		custom_effect_tooltip = SZC_xikang_troops_jianyang
+		hidden_effect = {
+			country_event = { id = sichuan.83 days = 3 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.82 option sichuan.82.b"
+		name = sichuan.82.b #Send them towards Chongqing
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SZC_path option = SZC_PATH_SOCCON }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_MARLIB }
+				}
+			}
+		}
+		custom_effect_tooltip = SZC_xikang_troops_chongqing
+		hidden_effect = {
+			country_event = { id = sichuan.92 days = 4 }
+		}
+	}
+}
+
+country_event = { #Guanxian Under Heavy Attack
+	id = sichuan.83
+	title = sichuan.83.t
+	desc = sichuan.83.d
+	picture = GFX_report_event_QIE_soldiers_planning
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.83 option sichuan.83.a"
+		name = sichuan.83.a #Attack during the night
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SZC_path option = SZC_PATH_PATAUT_NPA }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_PATAUT_FNG }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_PATAUT_INDEPENDENT }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_SOCCON }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_MARLIB }
+				}
+			}
+		}
+		if = {
+			limit = { has_country_flag = { flag = SZC_armament_defeats value > 1 } }
+			custom_effect_tooltip = SZC_guanxian_night_attack_failure
+			hidden_effect = { country_event = { id = sichuan.85 days = 3 } }
+		}
+		else = {
+			custom_effect_tooltip = SZC_guanxian_night_attack_success
+			hidden_effect = { country_event = { id = sichuan.84 days = 3 } }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.83 option sichuan.83.b"
+		name = sichuan.83.b #Fortify the Er Wang Temple
+		ai_chance = {
+			base = 1
+			modifier = {
+				add = party_popularity@market_liberal
+			}
+			modifier = {
+				add = party_popularity@social_conservative
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SZC_path option = SZC_PATH_SOCCON }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_MARLIB }
+				}
+			}
+		}
+		custom_effect_tooltip = SZC_guanxian_fortify_er_wang
+		hidden_effect = {
+			country_event = { id = sichuan.85 days = 3 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.83 option sichuan.83.c"
+		name = sichuan.83.c #Block the Baopingkou Channel
+		ai_chance = {
+			base = 1
+			modifier = {
+				add = party_popularity@social_democrat
+			}
+			modifier = {
+				add = party_popularity@social_liberal
+			}
+			modifier = {
+				add = party_popularity@paternal_autocrat
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SZC_path option = SZC_PATH_PATAUT_NPA }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_PATAUT_FNG }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_PATAUT_INDEPENDENT }
+				}
+			}
+		}
+		custom_effect_tooltip = SZC_guanxian_flood_baopingkou
+		set_country_flag = SZC_baopingkou_flooded
+		hidden_effect = {
+			country_event = { id = sichuan.84 days = 3 }
+		}
+	}
+}
+
+country_event = { #The Defence of Guanxian/The Baopingkou Floods
+	id = sichuan.84
+
+	title = {
+		text = sichuan.84.t.victory
+		trigger = {
+			NOT = { has_country_flag = SZC_baopingkou_flooded }
+		}
+	}
+	title = {
+		text = sichuan.84.t.flood
+		trigger = {
+			has_country_flag = SZC_baopingkou_flooded
+		}
+	}
+
+	desc = {
+		text = sichuan.84.d.victory
+		trigger = {
+			NOT = { has_country_flag = SZC_baopingkou_flooded }
+		}
+	}
+	desc = {
+		text = sichuan.84.d.flood
+		trigger = {
+			has_country_flag = SZC_baopingkou_flooded
+		}
+	}
+
+	picture = GFX_report_event_GXC_federalist_troops_mountains
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			country_event = { id = sichuan.86 days = 3 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.84 option sichuan.84.a"
+		name = sichuan.84.a
+		army_experience = 10
+		SZC_baoding_victory = yes
+		if = {
+			limit = {
+				has_country_flag = SZC_baopingkou_flooded
+			}
+			605 = {
+				damage_building = {
+					type = infrastructure
+					damage = 1.0
+				}
+				damage_building = {
+					type = industrial_complex
+					damage = 0.2
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Guanxian Defenses Collapse
+	id = sichuan.85
+	title = sichuan.85.t
+	desc = sichuan.85.d
+	picture = GFX_report_event_CHI_train_bombing
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = SZC_guanxian_defeat
+		hidden_effect = {
+			country_event = { id = sichuan.86 days = 3 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.85 option sichuan.85.a"
+		name = sichuan.85.a
+		army_experience = 5
+		SZC_baoding_defeat = yes
+	}
+}
+
+country_event = { #Reckoning in Meishan
+	id = sichuan.86
+	title = sichuan.86.t
+
+	desc = {
+		text = sichuan.86.d.success
+		trigger = {
+			NOT = { has_country_flag = SZC_guanxian_defeat }
+		}
+	}
+	desc = {
+		text = sichuan.86.d.failure
+		trigger = {
+			has_country_flag = SZC_guanxian_defeat
+		}
+	}
+
+	picture = GFX_report_event_CHI_warlord_observer
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.86 option sichuan.86.a"
+		name = sichuan.86.a
+		trigger = {
+			NOT = { has_country_flag = SZC_guanxian_defeat }
+		}
+		hidden_effect = {
+			country_event = { id = sichuan.87 days = 3 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.86 option sichuan.86.b"
+		name = sichuan.86.b
+		trigger = {
+			has_country_flag = SZC_guanxian_defeat
+		}
+		clr_country_flag = SZC_guanxian_defeat
+		hidden_effect = {
+			country_event = { id = sichuan.98 days = 3 }
+		}
+	}
+}
+
+country_event = { #Battle of Longquanyi
+	id = sichuan.87
+	title = sichuan.87.t
+	desc = sichuan.87.d
+	picture = GFX_report_event_CHI_warlord_battle
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.87 option sichuan.87.a"
+		name = sichuan.87.a
+		army_experience = 5
+		hidden_effect = {
+			country_event = { id = sichuan.88 days = 3 }
+		}
+	}
+}
+
+country_event = { #Liu Xiang Disappears
+	id = sichuan.88
+	title = sichuan.88.t
+	desc = sichuan.88.d
+	picture = GFX_report_event_SZC_liu_xiang
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.88 option sichuan.88.a"
+		name = sichuan.88.a
+		hidden_effect = {
+			country_event = { id = sichuan.89 days = 3 }
+		}
+	}
+}
+
+country_event = { #Pan Wenhua's Betrayal
+	id = sichuan.89
+	title = sichuan.89.t
+	desc = sichuan.89.d
+	picture = GFX_report_event_CHI_successful_northern_expedition_flag
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.89 option sichuan.89.a"
+		name = sichuan.89.a
+		hidden_effect = {
+			SZC_pan_wenhua = {
+				clr_character_flag = SZC_industrial_leader
+				set_character_flag = SZC_officer_leader
+			}
+			SZC_guo_xunqi = { #made him defect as well seeing as he seemed to had leftist connections from at least the 20's
+				clr_character_flag = SZC_industrial_leader
+				set_character_flag = SZC_officer_leader
+			}
+			country_event = { id = sichuan.90 days = 3 }
+		}
+	}
+}
+
+country_event = { #The Officer Department Captures Chongqing
+	id = sichuan.90
+	title = sichuan.90.t
+	desc = sichuan.90.d
+	picture = GFX_report_event_CHI_new_era
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.90 option sichuan.90.a"
+		name = sichuan.90.a
+		delete_unit_template_and_units = { division_template = "Shiye Tuan Bubing Shi" }
+		delete_unit_template_and_units = { division_template = "Shiye Tuan Jingying Shi" }
+		hidden_effect = {
+			country_event = { id = sichuan.91 days = 2 }
+			set_political_party = { ideology = paternal_autocrat popularity = 0 }
+		}
+	}
+}
+
+country_event = { #An Offer from an Old Friend
+	id = sichuan.91
+	title = sichuan.91.t
+	desc = sichuan.91.d
+	picture = GFX_report_event_GXC_federalist_party_2
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.91 option sichuan.91.a"
+		name = sichuan.91.a
+		SZC_baoding_department_wins_civil_war = yes
+	}
+}
+
+country_event = { #The Race For Chongqing
+	id = sichuan.92
+	title = sichuan.92.t
+	desc = sichuan.92.d
+	picture = GFX_report_event_GXC_federalist_troops_march
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.92 option sichuan.92.a"
+		name = sichuan.92.a
+		hidden_effect = {
+			country_event = { id = sichuan.93 days = 3 }
+		}
+	}
+}
+
+country_event = { #The Officer Department
+	id = sichuan.93
+	title = sichuan.93.t
+	desc = sichuan.93.d
+	picture = GFX_report_event_CHI_infiltration
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.93 option sichuan.93.a"
+		name = sichuan.93.a #Accept his offer
+		ai_chance = {
+			base = 1
+			modifier = {
+				add = party_popularity@social_democrat
+			}
+			modifier = {
+				add = party_popularity@social_liberal
+			}
+			modifier = {
+				add = party_popularity@market_liberal
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SZC_path option = SZC_PATH_PATAUT_NPA }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_PATAUT_FNG }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_PATAUT_INDEPENDENT }
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = { id = sichuan.94 days = 3 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.93 option sichuan.93.b"
+		name = sichuan.93.b #Reject his offer
+		ai_chance = {
+			base = 1
+			modifier = {
+				add = party_popularity@social_conservative
+			}
+			modifier = {
+				add = party_popularity@paternal_autocrat
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SZC_path option = SZC_PATH_SOCCON }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_MARLIB }
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = { id = sichuan.98 days = 3 }
+		}
+	}
+}
+
+country_event = { #The Baoding-Officer Alliance
+	id = sichuan.94
+	title = sichuan.94.t
+	desc = sichuan.94.d
+	picture = GFX_report_event_GXC_federalist_party_3
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.94 option sichuan.94.a"
+		name = sichuan.94.a
+		hidden_effect = {
+			country_event = { id = sichuan.95 days = 2 }
+		}
+	}
+}
+
+country_event = { #Officer Guerillas Delay Xiang's Army
+	id = sichuan.95
+	title = sichuan.95.t
+	desc = sichuan.95.d
+	picture = GFX_report_event_CHI_militia
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.95 option sichuan.95.a"
+		name = sichuan.95.a
+		army_experience = 5
+		hidden_effect = {
+			country_event = { id = sichuan.96 days = 4 random_hours = 24 }
+		}
+	}
+}
+
+country_event = { #The Fall of Chongqing
+	id = sichuan.96
+	title = sichuan.96.t
+	desc = sichuan.96.d
+	picture = GFX_report_event_CHI_beijing_beiyang_flag
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.96 option sichuan.96.a"
+		name = sichuan.96.a
+		army_experience = 5
+		hidden_effect = {
+			country_event = { id = sichuan.97 days = 4 }
+		}
+	}
+}
+
+country_event = { #Collapse of the Industrial Corps, Baoding-Officer Victory
+	id = sichuan.97
+	title = sichuan.97.t
+	desc = sichuan.97.d
+	picture = GFX_report_event_SZC_liu_xiang
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.97 option sichuan.97.a"
+		name = sichuan.97.a
+		SZC_baoding_department_wins_civil_war = yes
+		hidden_effect = {
+			set_political_party = { ideology = paternal_autocrat popularity = 0 }
+		}
+	}
+}
+
+country_event = { #Disaster in Beipei
+	id = sichuan.98
+	title = sichuan.98.t
+	desc = sichuan.98.d
+	picture = GFX_report_event_YUN_artillery_fire
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.98 option sichuan.98.a"
+		name = sichuan.98.a
+		army_experience = 5
+		hidden_effect = {
+			country_event = { id = sichuan.99 days = 3 }
+		}
+	}
+}
+
+country_event = { #Liu Wenhui Retreats to Xikang
+	id = sichuan.99
+	title = sichuan.99.t
+	desc = sichuan.99.d
+	picture = GFX_report_event_SIK_scenery_3
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.99 option sichuan.99.a"
+		name = sichuan.99.a
+		hidden_effect = {
+			country_event = { id = sichuan.100 days = 3 }
+		}
+	}
+}
+
+country_event = { #Deng Xihou Surrenders, Industrial Victory
+	id = sichuan.100
+	title = sichuan.100.t
+	desc = sichuan.100.d
+	picture = GFX_report_event_GXC_federalist_troops_rally
+
+	trigger = {
+		has_idea = SZC_civil_war_idea
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.100 option sichuan.100.a"
+		name = sichuan.100.a
+		SZC_industrial_corps_wins_civil_war = yes
+		hidden_effect = {
+			set_political_party = { ideology = social_conservative popularity = 0 }
+		}
+	}
+}
+
+### Invasion of Enshi events
+
+country_event = { #Industrial Corps Occupies Enshi (SZC)
+	id = sichuan.101
+	title = sichuan.101.t
+	desc = sichuan.101.d
+	picture = GFX_report_event_GXC_federalist_troops_march
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.101 option sichuan.101.a"
+		name = sichuan.101.a
+		hidden_effect = {
+			transfer_state = 1049
+			1049 = {
+				set_demilitarized_zone = yes
+			}
+			HNN = {
+				country_event = sichuan.102
+			}
+		}
+	}
+}
+
+country_event = { #Industrial Corps Occupies Enshi (HNN)
+	id = sichuan.102
+	title = sichuan.102.t
+	desc = sichuan.102.d
+	picture = GFX_report_event_GXC_federalist_troops_march
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.102 option sichuan.102.a"
+		name = sichuan.102.a
+		ai_chance = { base = 100 }
+		add_political_power = -50
+		add_stability = -0.05
+		hidden_effect = {
+			country_event = { id = sichuan.103 days = 2 }
+			random_list = {
+				30 = { country_event = { id = sichuan.104 days = 10 } }
+				70 = { country_event = { id = sichuan.105 days = 10 } }
+			}
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.102 option sichuan.102.b"
+		name = sichuan.102.b
+		ai_chance = { base = 0 }
+		add_political_power = -100
+		hidden_effect = {
+			1049 = {
+				remove_claim_by = HNN
+				set_demilitarized_zone = no
+			}
+		}
+	}
+}
+
+country_event = { #Battle of Enshi (SZC/HNN)
+	id = sichuan.103
+	title = sichuan.103.t
+
+	desc = {
+		text = sichuan.103.d.HNN
+		trigger = { tag = HNN }
+	}
+	desc = {
+		text = sichuan.103.d.SZC
+		trigger = { tag = SZC }
+	}
+
+	picture = GFX_report_event_CHI_machinegun_fighting
+
+	is_triggered_only = yes
+
+	major = yes
+	show_major = {
+		OR = {
+			tag = SZC
+			tag = HNN
+		}
+	}
+
+	option = { #Let's see how this works out...
+		log = "[GetLogInfo]: event sichuan.103 option sichuan.103.a"
+		name = sichuan.103.a
+	}
+}
+
+country_event = { #Hunan defeats Industrial Corps (SZC/HNN)
+	id = sichuan.104
+	title = sichuan.104.t
+
+	desc = {
+		text = sichuan.104.d.HNN
+		trigger = { tag = HNN }
+	}
+	desc = {
+		text = sichuan.104.d.SZC
+		trigger = { tag = SZC }
+	}
+
+	picture = GFX_report_event_GXC_federalist_troops_atgun
+
+	is_triggered_only = yes
+
+	major = yes
+	show_major = {
+		OR = {
+			tag = SZC
+			tag = HNN
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.104 option sichuan.104.a"
+		name = sichuan.104.a
+		trigger = { tag = HNN }
+		add_political_power = 50
+		add_stability = 0.05
+		add_manpower = -1200
+		transfer_state = 1049
+		1049 = {
+			add_core_of = ROOT
+			set_demilitarized_zone = no
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.104 option sichuan.104.b"
+		name = sichuan.104.b
+		trigger = { tag = SZC }
+		if = {
+			limit = { has_government = authoritarian_democrat }
+			SZC_armament_victory = yes
+		}
+		else = {
+			SZC_baoding_victory = yes
+		}
+	}
+}
+
+country_event = { #Industrial Corps defeats Hunan (SZC/HNN)
+	id = sichuan.105
+	title = sichuan.105.t
+
+	desc = {
+		text = sichuan.105.d.HNN
+		trigger = { tag = HNN }
+	}
+	desc = {
+		text = sichuan.105.d.SZC
+		trigger = { tag = SZC }
+	}
+
+	picture = GFX_report_event_GXC_federalist_troops_atgun
+
+	is_triggered_only = yes
+
+	major = yes
+	show_major = {
+		OR = {
+			tag = SZC
+			tag = HNN
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.105 option sichuan.105.a"
+		name = sichuan.105.a
+		trigger = { tag = HNN }
+		add_political_power = -50
+		add_manpower = -3000
+		remove_state_claim = 1049
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.105 option sichuan.105.b"
+		name = sichuan.105.b
+		trigger = { tag = SZC }
+		if = {
+			limit = {
+				has_government = authoritarian_democrat
+			}
+			add_political_power = -10
+			add_manpower = -3000
+		}
+		else = {
+			SZC_baoding_defeat = yes
+		}
+	}
+}
+
+### Major Famine Events ###
+
+country_event = { #Drought?
+	id = sichuan.120
+	title = sichuan.120.t
+	desc = sichuan.120.d
+	picture = GFX_report_event_YUN_countryside
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.120 option sichuan.120.a"
+		name = sichuan.120.a
+		hidden_effect = {
+			country_event = { id = sichuan.121 days = 12 random_hours = 192 }
+		}
+	}
+}
+country_event = { #Transport Links Severed
+	id = sichuan.121
+	title = sichuan.121.t
+	desc = sichuan.121.d
+	picture = GFX_report_event_SIK_scenery_3
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.121 option sichuan.121.a"
+		name = sichuan.121.a
+		hidden_effect = {
+			country_event = { id = sichuan.122 days = 12 random_hours = 192 }
+		}
+	}
+}
+country_event = { #Rice Prices Continue to Increase
+	id = sichuan.122
+	title = sichuan.122.t
+	desc = sichuan.122.d
+	picture = GFX_report_event_JAP_rice_farmers
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.122 option sichuan.122.a"
+		name = sichuan.122.a
+		hidden_effect = {
+			country_event = { id = sichuan.123 days = 6 random_hours = 48 }
+		}
+	}
+}
+
+country_event = { #Famine
+	id = sichuan.123
+	title = sichuan.123.t
+	desc = sichuan.123.d
+	picture = GFX_report_event_JAP_lost_decade
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.123 option sichuan.123.a"
+		name = sichuan.123.a
+		custom_effect_tooltip = SZC_swap_to_major_famine
+		set_temp_variable = {
+			SZC_famine_monthly_population = -2
+			tooltip = monthly_population_tooltip
+		}
+		set_temp_variable = {
+			SZC_famine_conscription_factor = -0.3
+			tooltip = conscription_factor_tooltip
+		}
+		set_temp_variable = {
+			SZC_famine_consumer_goods_factor = 0.25
+			tooltip = consumer_goods_tooltip
+		}
+		set_temp_variable = {
+			SZC_famine_stability_factor = -0.1
+			tooltip = stability_tooltip
+		}
+		set_temp_variable = {
+			SZC_famine_war_support_factor = -1
+			tooltip = war_support_tooltip
+		}
+		set_temp_variable = {
+			SZC_famine_industrial_capacity_factory = -0.2
+			tooltip = factory_output_tooltip
+		}
+		hidden_effect = {
+			remove_ideas = SZC_looming_agricultural_crisis
+			add_dynamic_modifier = { modifier = SZC_major_famine }
+			set_variable = { SZC_famine_PP = 0 }
+
+			#decisions
+			activate_targeted_decision = { decision = SZC_Service_For_Food target = THIS }
+			activate_targeted_decision = { decision = SZC_Labour_Relief target = THIS }
+			activate_targeted_decision = { decision = SZC_Allocate_More_Government_Funds target = THIS }
+			activate_targeted_decision = { decision = SZC_Enact_Price_Controls target = THIS }
+			activate_targeted_decision = { decision = SZC_Increase_Relief_Efforts target = THIS }
+			activate_targeted_decision = { decision = SZC_Food_Banks target = THIS }
+			activate_targeted_decision = { decision = SZC_Subsidise_Food_Production target = THIS }
+			activate_targeted_decision = { decision = SZC_International_Famine_Relief target = THIS }
+
+			activate_targeted_decision = { decision = SZC_Request_Aid target = QIE }
+			activate_targeted_decision = { decision = SZC_Request_Aid target = FNG }
+			activate_targeted_decision = { decision = SZC_Request_Aid target = GXC }
+			activate_targeted_decision = { decision = SZC_Request_Aid target = LEC }
+
+			activate_targeted_decision = { decision = SZC_Import_Grain target = USA }
+			activate_targeted_decision = { decision = SZC_Import_Grain target = GEA }
+			activate_targeted_decision = { decision = SZC_Import_Grain target = GXC }
+			activate_targeted_decision = { decision = SZC_Import_Grain target = AST }
+			activate_targeted_decision = { decision = SZC_Import_Grain target = CAN }
+
+			#dynamic modifier and variables
+			set_variable = { SZC_famine_monthly_population = -2 }
+			set_variable = { SZC_famine_stability_factor = -0.25 }
+			set_variable = { SZC_famine_war_support_factor = -1 }
+			set_variable = { SZC_famine_consumer_goods_factor = 0.25 }
+			set_variable = { SZC_famine_industrial_capacity_factory = -0.2 }
+			set_variable = { SZC_famine_conscription_factor = -0.3 }
+
+			#system event
+			country_event = { id = sichuan.1002 days = 20 random_hours = 144 }
+
+			#news event
+			news_event = { id = sichuan.124 days = 5 random_hours = 48 }
+		}
+	}
+}
+
+news_event = { #Famine Breaks Out in Sichuan
+	id = sichuan.124
+	immediate = { log = "[GetLogInfo]: event sichuan.124" }
+	title = sichuan.124.t
+	desc = sichuan.124.d
+	picture = GFX_news_event_SZC_famine
+
+	is_triggered_only = yes
+	fire_for_sender = no
+	major = yes
+
+	trigger = {
+		wants_world_news = yes
+	}
+
+	show_major = {
+		regional_china_news = yes
+	}
+
+	option = {
+		name = sichuan.124.a
+	}
+}
+
+country_event = { #The Rains Return
+	id = sichuan.125
+	title = sichuan.125.t
+	desc = sichuan.125.d
+	picture = GFX_report_event_SIK_scenery_3
+
+	trigger = {
+		has_dynamic_modifier = { modifier = SZC_major_famine }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.125 option sichuan.125.a"
+		name = sichuan.125.a
+		custom_effect_tooltip = SZC_modify_major_famine
+		add_to_variable = {
+			SZC_famine_monthly_population = 0.4
+			tooltip = monthly_population_tooltip
+		}
+		add_to_variable = {
+			SZC_famine_stability_factor = 0.04
+			tooltip = stability_tooltip
+		}
+		add_to_variable = {
+			SZC_famine_war_support_factor = 0.16
+			tooltip = war_support_tooltip
+		}
+		add_to_variable = {
+			SZC_famine_consumer_goods_factor = -0.04
+			tooltip = consumer_goods_tooltip
+		}
+		SZC_end_famine = yes
+		custom_effect_tooltip = tooltip_white_line
+		activate_mission = SZC_Fading_Famine
+	}
+}
+
+country_event = { #The Famine Fades
+	id = sichuan.127
+	title = sichuan.127.t
+	desc = sichuan.127.d
+	picture = GFX_report_event_CHI_economic
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.127 option sichuan.127.a"
+		name = sichuan.127.a
+		clr_country_flag = SZC_chose_famine_relief_labour
+		effect_tooltip = {
+			remove_dynamic_modifier = { modifier = SZC_major_famine }
+			if = {
+				limit = { has_country_flag = SZC_chose_famine_relief_labour }
+				add_timed_idea = {
+					idea = SZC_recovering_from_the_famine_1
+					days = 1095
+				}
+			}
+			else = {
+				add_timed_idea = {
+					idea = SZC_recovering_from_the_famine_2
+					days = 1095
+				}
+			}
+		}
+	}
+}
+
+### Beijing's response ###
+
+country_event = { #Sichuan petitions Beijing (QIE)
+	id = sichuan.128
+	title = sichuan.128.t
+	desc = {
+		text = sichuan.128.d.manchu
+		trigger = {
+			NOT = {
+				has_government = authoritarian_democrat
+				has_government = paternal_autocrat
+			}
+		}
+	}
+	desc = {
+		text = sichuan.128.d.zhili
+		trigger = {
+			OR = {
+				has_government = authoritarian_democrat
+				has_government = paternal_autocrat
+			}
+		}
+	}
+
+	picture = GFX_report_event_YUN_general_speech
+
+	is_triggered_only = yes
+
+	trigger = {
+		SZC = { has_dynamic_modifier = { modifier = SZC_major_famine } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.128 option sichuan.128.a"
+		name = sichuan.128.a #Order the government to take care of it
+		ai_chance = { base = 80 }
+		add_political_power = -20
+		hidden_effect = {
+			country_event = { id = sichuan.129 days = 7 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event sichuan.128 option sichuan.128.b"
+		name = sichuan.128.b #We have other concerns
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				SZC = { has_government = authoritarian_democrat }
+			}
+		}
+		add_stability = -0.05
+		SZC = { country_event = { id = sichuan.132 days = 7 } }
+		hidden_effect = {
+			if = {
+				limit = { has_government = authoritarian_democrat }
+				country_event = { id = sichuan.134 days = 1 } #NCERA protests
+			}
+		}
+	}
+}
+
+country_event = { #Ministerial infighting (QIE)
+	id = sichuan.129
+	title = sichuan.129.t
+	desc = sichuan.129.d
+	picture = GFX_report_event_CHI_beijing_beiyang_flag
+
+	is_triggered_only = yes
+
+	trigger = {
+		SZC = { has_dynamic_modifier = { modifier = SZC_major_famine } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.129 option sichuan.129.a"
+		name = sichuan.129.a
+		hidden_effect = {
+			country_event = { id = sichuan.130 days = 10 }
+		}
+	}
+}
+
+country_event = { #Continued ministerial infighting (QIE)
+	id = sichuan.130
+	title = sichuan.130.t
+	desc = {
+		text = sichuan.130.d.manchu
+		trigger = {
+			NOT = {
+				has_government = authoritarian_democrat
+				has_government = paternal_autocrat
+			}
+		}
+	}
+	desc = {
+		text = sichuan.130.d.zhili
+		trigger = {
+			OR = {
+				has_government = authoritarian_democrat
+				has_government = paternal_autocrat
+			}
+		}
+	}
+
+	picture = GFX_report_event_CHI_successful_northern_expedition_people
+
+	is_triggered_only = yes
+
+	trigger = {
+		SZC = { has_dynamic_modifier = { modifier = SZC_major_famine } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.130 option sichuan.130.a"
+		name = sichuan.130.a #Pressure the ministries to start working
+		ai_chance = { base = 70 }
+		add_political_power = -15
+		SZC = { country_event = { id = sichuan.131 days = 11 random_hours = 284 } }
+		hidden_effect = {
+			if = {
+				limit = { QIE = { has_character = QIE_wu_peifu } }
+				country_event = { id = sichuan.133 days = 2 } #NCERA pleased
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event sichuan.130 option sichuan.130.b"
+		name = sichuan.130.b #Let them fight
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 0
+				SZC = { has_government = authoritarian_democrat }
+			}
+		}
+		SZC = { country_event = { id = sichuan.132 days = 2 } }
+		hidden_effect = {
+			if = {
+				limit = { has_character = QIE_wu_peifu }
+				country_event = { id = sichuan.134 days = 4 } #NCERA protests
+			}
+		}
+	}
+}
+
+country_event = { #Central government sends relief
+	id = sichuan.131
+	title = sichuan.131.t
+	desc = sichuan.131.d
+	picture = GFX_report_event_CHI_economic
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_dynamic_modifier = { modifier = SZC_major_famine }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.131 option sichuan.131.a"
+		name = sichuan.131.a
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_approves_of_govt
+		}
+		add_to_variable = {
+			SZC_famine_PP = 100
+			tooltip = SZC_famine_PP_tooltip
+		}
+	}
+}
+
+country_event = { #Central government refuses relief
+	id = sichuan.132
+	title = sichuan.132.t
+	desc = {
+		text = sichuan.132.d.manchu
+		trigger = {
+			NOT = { has_government = authoritarian_democrat }
+		}
+	}
+	desc = {
+		text = sichuan.132.d.zhili
+		trigger = {
+			has_government = authoritarian_democrat
+		}
+	}
+
+	picture = GFX_report_event_CHI_chiang_wei_kuo
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_dynamic_modifier = { modifier = SZC_major_famine }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.132 option sichuan.132.a"
+		name = sichuan.132.a
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_hates_govt
+		}
+	}
+}
+
+country_event = { #NCERA happy with government response (QIE)
+	id = sichuan.133
+	title = sichuan.133.t
+	desc = sichuan.133.d
+	picture = GFX_report_event_CHI_warlords
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.133 option sichuan.133.a"
+		name = sichuan.133.a
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.01
+		}
+		add_political_power = 25
+		add_stability = 0.01
+	}
+}
+
+country_event = { #NCERA criticises government incompetence (QIE)
+	id = sichuan.134
+	title = sichuan.134.t
+	desc = sichuan.134.d
+	picture = GFX_report_event_CHI_official_announcement
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.134 option sichuan.134.a"
+		name = sichuan.134.a
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.05
+		}
+		add_political_power = -50
+		add_stability = -0.03
+	}
+}
+
+### CIFRC ###
+
+country_event = { #The China International Famine Relief Commission
+	id = sichuan.135
+	title = sichuan.135.t
+	desc = sichuan.135.d
+	picture = GFX_report_event_JAP_rice_farmers
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_dynamic_modifier = { modifier = SZC_major_famine }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.135 option sichuan.135.a"
+		name = sichuan.135.a
+		add_to_variable = {
+			SZC_famine_PP = 30
+			tooltip = SZC_famine_PP_tooltip
+		}
+		custom_effect_tooltip = SZC_relief_commission_tooltip
+		hidden_effect = {
+			country_event = { id = sichuan.1000 days = 7 }
+		}
+	}
+}
+
+### Fengtian's response ###
+
+country_event = { #Send Aid to Sichuan? (FNG)
+	id = sichuan.138
+	title = sichuan.138.t
+
+	desc = {
+		text = sichuan.138.d.no_soy
+		trigger = {
+			NOT = { has_global_flag = soy_initiative_on }
+		}
+	}
+	desc = {
+		text = sichuan.138.d.soy
+		trigger = {
+			has_global_flag = soy_initiative_on
+		}
+	}
+
+	picture = GFX_report_event_JAP_lost_decade
+
+	trigger = {
+		SZC = { has_dynamic_modifier = { modifier = SZC_major_famine } }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.138 option sichuan.138.a"
+		name = sichuan.138.a
+		add_political_power = -50
+		hidden_effect = {
+			country_event = { id = sichuan.139 days = 14 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.138 option sichuan.138.b"
+		name = sichuan.138.b
+		set_temp_variable = { RLPOP = -3 }
+		FNG_RLPOP = yes
+		set_temp_variable = { ZCPOP = -3 }
+		FNG_ZCPOP = yes
+		FROM = { country_event = { id = sichuan.1390 days = 3 } }
+	}
+}
+
+country_event = { #Preparing the grain shipments (FNG)
+	id = sichuan.139
+	title = sichuan.139.t
+	desc = sichuan.139.d
+	picture = GFX_report_event_JAP_rice_farmers
+
+	is_triggered_only = yes
+
+	trigger = {
+		SZC = { has_dynamic_modifier = { modifier = SZC_major_famine } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.139 option sichuan.139.a"
+		name = sichuan.139.a
+		save_event_target_as = SZC_fengtian_grain_origin
+		hidden_effect = {
+			JAP = { country_event = { id = sichuan.140 days = 2 } }
+		}
+	}
+}
+
+country_event = { #Fengtian refuses relief
+	id = sichuan.1390
+	title = sichuan.1390.t
+	desc = sichuan.1390.d
+
+	picture = GFX_report_event_CHI_chiang_wei_kuo
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_dynamic_modifier = { modifier = SZC_major_famine }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.1390 option sichuan.1390.a"
+		name = sichuan.1390.a
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_hates_govt
+		}
+	}
+}
+
+country_event = { #Fengtian preparing famine relief for Sichuan (JAP)
+	id = sichuan.140
+	title = sichuan.140.t
+	desc = sichuan.140.d
+	picture = GFX_report_event_generic_food
+
+	is_triggered_only = yes
+
+	trigger = {
+		SZC = { has_dynamic_modifier = { modifier = SZC_major_famine } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.140 option sichuan.140.a"
+		name = sichuan.140.a #Pressure them to sail under our flag
+		ai_chance = { base = 70 }
+		FNG = { country_event = { id = sichuan.141 days = 3 } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.140 option sichuan.140.b"
+		name = sichuan.140.b #Wish them good luck
+		ai_chance = { base = 30 }
+		hidden_effect = {
+			QIE = { country_event = { id = sichuan.143 days = 15 } }
+		}
+	}
+}
+
+country_event = { #Japan protests our decision (FNG)
+	id = sichuan.141
+	title = sichuan.141.t
+	desc = sichuan.141.d
+	picture = GFX_report_event_JAP_ultimatum
+
+	is_triggered_only = yes
+
+	trigger = {
+		SZC = { has_dynamic_modifier = { modifier = SZC_major_famine } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.141 option sichuan.141.a"
+		name = sichuan.141.a #They have a point...
+		ai_chance = { base = 40 }
+		JAP = { save_event_target_as = SZC_fengtian_grain_origin }
+		add_political_power = -25
+		set_temp_variable = { CAPOP = 3 }
+		FNG_CAPOP = yes
+		hidden_effect = {
+			JAP = { country_event = { id = sichuan.142 days = 1 } }
+			QIE = { country_event = { id = sichuan.143 days = 12 } }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.141 option sichuan.141.b"
+		name = sichuan.141.b #Use our own flag
+		ai_chance = { base = 30 }
+		set_temp_variable = { CAPOP = -3 }
+		FNG_CAPOP = yes
+		hidden_effect = {
+			JAP = { country_event = { id = sichuan.142 days = 1 } }
+			QIE = { country_event = { id = sichuan.143 days = 12 } }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.141 option sichuan.141.c"
+		name = sichuan.141.c #Use their flag to bypass Wuhan, then switch
+		ai_chance = { base = 30 }
+		JAP = { save_event_target_as = SZC_fengtian_grain_origin }
+		save_event_target_as = SZC_fengtian_grain_flag_switch
+		set_temp_variable = { CAPOP = 1 }
+		FNG_CAPOP = yes
+		hidden_effect = {
+			JAP = { country_event = { id = sichuan.142 days = 1 } }
+			QIE = { country_event = { id = sichuan.143 days = 12 } }
+		}
+	}
+}
+
+country_event = { #Fengtian's response (JAP)
+	id = sichuan.142
+
+	title = {
+		text = sichuan.142.t.japan
+		trigger = {
+			event_target:SZC_fengtian_grain_origin = { tag = JAP }
+		}
+	}
+	title = {
+		text = sichuan.142.t.fengtian
+		trigger = {
+			NOT = { event_target:SZC_fengtian_grain_origin = { tag = JAP } }
+		}
+	}
+
+	desc = {
+		text = sichuan.142.d.japan
+		trigger = {
+			event_target:SZC_fengtian_grain_origin = { tag = JAP }
+		}
+	}
+	desc = {
+		text = sichuan.142.d.fengtian
+		trigger = {
+			NOT = { event_target:SZC_fengtian_grain_origin = { tag = JAP } }
+		}
+	}
+
+	picture = GFX_report_event_JAP_officer_phone
+
+	is_triggered_only = yes
+
+	trigger = {
+		SZC = { has_dynamic_modifier = { modifier = SZC_major_famine } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.142 option sichuan.142.a"
+		name = sichuan.142.a #Excellent
+		trigger = {
+			event_target:SZC_fengtian_grain_origin = { tag = JAP }
+		}
+		add_political_power = 25
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.142 option sichuan.142.b"
+		name = sichuan.142.b #So be it
+		trigger = {
+			NOT = { event_target:SZC_fengtian_grain_origin = { tag = JAP } }
+		}
+	}
+}
+
+country_event = { #Fengtian/Japanese ships on the Yangtze (QIE)
+	id = sichuan.143
+	title = sichuan.143.t
+
+	desc = {
+		text = sichuan.143.d.japan
+		trigger = {
+			event_target:SZC_fengtian_grain_origin = { tag = JAP }
+		}
+	}
+	desc = {
+		text = sichuan.143.d.fengtian
+		trigger = {
+			NOT = { event_target:SZC_fengtian_grain_origin = { tag = JAP } }
+		}
+	}
+
+	picture = GFX_report_event_CHI_new_era
+
+	is_triggered_only = yes
+
+	trigger = {
+		SZC = { has_dynamic_modifier = { modifier = SZC_major_famine } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.143 option sichuan.143.a"
+		name = sichuan.143.a #Order them to stop and allow a search
+		trigger = {
+			event_target:SZC_fengtian_grain_origin = { tag = JAP }
+		}
+		ai_chance = { base = 50 }
+		hidden_effect = {
+			country_event = { id = sichuan.144 hours = 10 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.143 option sichuan.143.b"
+		name = sichuan.143.b #Seize them!
+		trigger = {
+			NOT = { event_target:SZC_fengtian_grain_origin = { tag = JAP } }
+		}
+		ai_chance = { base = 80 }
+		hidden_effect = {
+			country_event = { id = sichuan.145 hours = 10 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.143 option sichuan.143.c"
+		name = sichuan.143.c #Let them pass peacefully
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = -30
+				NOT = { event_target:SZC_fengtian_grain_origin = { tag = JAP } }
+			}
+		}
+		add_political_power = -20
+		if = {
+			limit = { has_event_target = SZC_fengtian_grain_flag_switch }
+			FNG = { save_event_target_as = SZC_fengtian_grain_origin }
+		}
+		hidden_effect = {
+			SZC = { country_event = { id = sichuan.147 days = 4 } }
+		}
+	}
+}
+
+country_event = { #Japan defies our blockade (QIE)
+	id = sichuan.144
+	title = sichuan.144.t
+	desc = sichuan.144.d
+	picture = GFX_report_event_JAP_ultimatum
+
+	is_triggered_only = yes
+
+	trigger = {
+		SZC = { has_dynamic_modifier = { modifier = SZC_major_famine } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.144 option sichuan.144.a"
+		name = sichuan.144.a
+		add_stability = -0.02
+		add_political_power = -20
+		if = {
+			limit = { has_event_target = SZC_fengtian_grain_flag_switch }
+			FNG = { save_event_target_as = SZC_fengtian_grain_origin }
+		}
+		hidden_effect = {
+			SZC = { country_event = { id = sichuan.147 days = 4 } }
+		}
+	}
+}
+
+country_event = { #The Fengtian grain shipments (QIE)
+	id = sichuan.145
+	title = sichuan.145.t
+	desc = sichuan.145.d
+	picture = GFX_report_event_FNG_hiroshima_package
+
+	is_triggered_only = yes
+
+	trigger = {
+		SZC = { has_dynamic_modifier = { modifier = SZC_major_famine } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.145 option sichuan.145.a"
+		name = sichuan.145.a #Release the ships
+		ai_chance = { base = 40 }
+		add_political_power = -20
+		hidden_effect = {
+			SZC = { country_event = { id = sichuan.147 days = 4 } }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.145 option sichuan.145.b"
+		name = sichuan.145.b #Seize the cargo and send it under our flag
+		ai_chance = { base = 60 }
+		add_political_power = 25
+		hidden_effect = {
+			save_event_target_as = SZC_fengtian_grain_origin
+			FNG = { country_event = { id = sichuan.146 days = 3 } }
+			JAP = { country_event = { id = sichuan.146 days = 3 } }
+			SZC = { country_event = { id = sichuan.147 days = 4 } }
+		}
+	}
+}
+
+country_event = { #Grain shipments seized! (FNG)
+	id = sichuan.146
+
+	title = {
+		text = sichuan.146.t.japan
+		trigger = { tag = JAP }
+	}
+	title = {
+		text = sichuan.146.t.fengtian
+		trigger = {
+			NOT = { tag = JAP }
+		}
+	}
+
+	desc = {
+		text = sichuan.146.d.japan
+		trigger = { tag = JAP }
+	}
+	desc = {
+		text = sichuan.146.d.fengtian
+		trigger = {
+			NOT = { tag = JAP }
+		}
+	}
+
+	picture = GFX_report_event_CHI_ambassador_announcement
+
+	is_triggered_only = yes
+
+	trigger = {
+		SZC = { has_dynamic_modifier = { modifier = SZC_major_famine } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.146 option sichuan.146.a"
+		name = sichuan.146.a
+		trigger = { NOT = { tag = JAP } }
+		add_political_power = -20
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.146 option sichuan.146.b"
+		name = sichuan.146.b
+		trigger = { tag = JAP }
+	}
+}
+
+country_event = { #Fengtian/"Zhili"/"Japan" sends relief (SZC)
+	id = sichuan.147
+	title = sichuan.147.t
+
+	desc = {
+		text = sichuan.147.d.zhili
+		trigger = {
+			event_target:SZC_fengtian_grain_origin = { tag = QIE }
+		}
+	}
+	desc = {
+		text = sichuan.147.d.japan
+		trigger = {
+			event_target:SZC_fengtian_grain_origin = { tag = JAP }
+		}
+	}
+	desc = {
+		text = sichuan.147.d.fengtian
+		trigger = {
+			event_target:SZC_fengtian_grain_origin = {
+				NOT = {
+					tag = QIE
+					tag = JAP
+				}
+			}
+		}
+	}
+
+	picture = GFX_report_event_FNG_hiroshima_package
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_dynamic_modifier = { modifier = SZC_major_famine }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.147 option sichuan.147.a"
+		name = sichuan.147.a
+		add_to_variable = {
+			SZC_famine_PP = 100
+			tooltip = SZC_famine_PP_tooltip
+		}
+		add_opinion_modifier = {
+			target = event_target:SZC_fengtian_grain_origin
+			modifier = KR_approves_of_govt
+		}
+		hidden_effect = {
+			if = {
+				limit = { event_target:SZC_fengtian_grain_origin = { tag = JAP } }
+				FNG = { country_event = { id = sichuan.148 days = 4 } }
+			}
+			else = {
+				event_target:SZC_fengtian_grain_origin = { country_event = { id = sichuan.148 days = 4 } }
+			}
+		}
+	}
+}
+
+country_event = { #A Job Well Done (FNG/QIE)
+	id = sichuan.148
+	title = sichuan.148.t
+
+	desc = {
+		text = sichuan.148.d.default
+		trigger = {
+			NOT = { event_target:SZC_fengtian_grain_origin = { tag = JAP } }
+		}
+	}
+	desc = {
+		text = sichuan.148.d.JAP_steals_credit
+		trigger = {
+			event_target:SZC_fengtian_grain_origin = { tag = JAP }
+		}
+	}
+
+	picture = GFX_report_event_CHI_successful_northern_expedition_people
+
+	is_triggered_only = yes
+
+	trigger = {
+		SZC = { has_dynamic_modifier = { modifier = SZC_major_famine } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.148 option sichuan.148.a"
+		name = sichuan.148.a
+		trigger = {
+			NOT = { event_target:SZC_fengtian_grain_origin = { tag = JAP } }
+		}
+		add_stability = 0.01
+		add_political_power = 25
+		if = {
+			limit = { tag = FNG }
+			set_temp_variable = { RLPOP = 3 }
+			FNG_RLPOP = yes
+			set_temp_variable = { ZCPOP = 3 }
+			FNG_ZCPOP = yes
+		}
+		hidden_effect = {
+			if = {
+				limit = { has_event_target = SZC_fengtian_grain_flag_switch }
+				JAP = { country_event = { id = sichuan.149 days = 4 } }
+			}
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.148 option sichuan.148.b"
+		name = sichuan.148.b
+		trigger = {
+			event_target:SZC_fengtian_grain_origin = { tag = JAP }
+		}
+		add_stability = 0.01
+		add_political_power = 10
+		set_temp_variable = { CAPOP = 3 }
+		FNG_CAPOP = yes
+	}
+}
+
+country_event = { #Fengtian abuses our flag (JAP)
+	id = sichuan.149
+	title = sichuan.149.t
+	desc = sichuan.149.d
+	picture = GFX_report_event_FNG_hiroshima_package
+
+	is_triggered_only = yes
+
+	trigger = {
+		SZC = { has_dynamic_modifier = { modifier = SZC_major_famine } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.149 option sichuan.149.a"
+		name = sichuan.149.a
+		add_political_power = -20
+		hidden_effect = {
+			FNG = { country_event = { id = sichuan.150 days = 4 } }
+		}
+	}
+}
+
+country_event = { #Japan angered by flag switch (FNG)
+	id = sichuan.150
+	title = sichuan.150.t
+	desc = sichuan.150.d
+	picture = GFX_report_event_JAP_ultimatum
+
+	is_triggered_only = yes
+
+	trigger = {
+		SZC = { has_dynamic_modifier = { modifier = SZC_major_famine } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.150 option sichuan.150.a"
+		name = sichuan.150.a
+		add_stability = -0.02
+		add_political_power = -20
+	}
+}
+
+### Liangguang's response ###
+
+country_event = { #Famine in the North (GXC)
+	id = sichuan.151
+	title = sichuan.151.t
+	desc = sichuan.151.d
+	picture = GFX_report_event_JAP_lost_decade
+
+	is_triggered_only = yes
+
+	trigger = {
+		SZC = { has_dynamic_modifier = { modifier = SZC_major_famine } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.151 option sichuan.151.a"
+		name = sichuan.151.a
+		hidden_effect = {
+			country_event = { id = sichuan.152 days = 2 random_hours = 24 }
+		}
+	}
+}
+
+country_event = { #Assembly Begins Discussing Relief (GXC)
+	id = sichuan.152
+	title = sichuan.152.t
+	desc = sichuan.152.d
+	picture = GFX_report_event_CHI_tiger_room
+
+	is_triggered_only = yes
+
+	trigger = {
+		SZC = { has_dynamic_modifier = { modifier = SZC_major_famine } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.152 option sichuan.152.a"
+		name = sichuan.152.a
+		hidden_effect = {
+			country_event = { id = sichuan.153 days = 2 random_hours = 24 }
+		}
+	}
+}
+
+country_event = { #Chen Lianbo Pressures the Assembly (GXC)
+	id = sichuan.153
+	title = sichuan.153.t
+	desc = sichuan.153.d
+	picture = GFX_report_event_FNG_mukden
+
+	is_triggered_only = yes
+
+	trigger = {
+		SZC = { has_dynamic_modifier = { modifier = SZC_major_famine } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.153 option sichuan.153.a"
+		name = sichuan.153.a
+		if = {
+			limit = { has_government = market_liberal }
+			add_political_power = -20
+			hidden_effect = {
+				country_event = { id = sichuan.156 days = 2 random_hours = 24 }
+			}
+		}
+		else = {
+			hidden_effect = {
+				country_event = { id = sichuan.155 days = 2 random_hours = 24 }
+			}
+		}
+		hidden_effect = {
+			SZC = { country_event = { id = sichuan.154 days = 6 random_hours = 72 } }
+		}
+	}
+}
+
+country_event = { #Chen Lianbo's Personal Donation
+	id = sichuan.154
+	title = sichuan.154.t
+	desc = sichuan.154.d
+	picture = GFX_report_event_generic_food
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_dynamic_modifier = { modifier = SZC_major_famine }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.154 option sichuan.154.a"
+		name = sichuan.154.a
+		add_to_variable = {
+			SZC_famine_PP = 50
+			tooltip = SZC_famine_PP_tooltip
+		}
+	}
+}
+
+country_event = { #Pressure The Assembly? (GXC)
+	id = sichuan.155
+	title = sichuan.155.t
+	desc = sichuan.155.d
+	picture = GFX_report_event_GXC_guangzhou_government_building
+
+	is_triggered_only = yes
+
+	trigger = {
+		SZC = { has_dynamic_modifier = { modifier = SZC_major_famine } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.155 option sichuan.155.a"
+		name = sichuan.155.a #We need this done
+		add_political_power = -20
+		country_event = { id = sichuan.156 days = 2 random_hours = 24 }
+	}
+	option = {
+		log = "[GetLogInfo]: event sichuan.155 option sichuan.155.b"
+		name = sichuan.155.b #Don't interfere
+		add_stability = 0.02
+		random_list = {
+			60 = { country_event = { id = sichuan.156 days = 2 random_hours = 24 } }
+			40 = { country_event = { id = sichuan.157 days = 2 random_hours = 24 } }
+		}
+	}
+}
+
+country_event = { #Assembly Votes Yes (GXC)
+	id = sichuan.156
+	title = sichuan.156.t
+	desc = sichuan.156.d
+	picture = GFX_report_event_GER_cons
+
+	is_triggered_only = yes
+
+	trigger = {
+		SZC = { has_dynamic_modifier = { modifier = SZC_major_famine } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.156 option sichuan.156.a"
+		name = sichuan.156.a
+		add_stability = 0.01
+		add_political_power = 30
+		SZC = { country_event = { id = sichuan.158 days = 4 random_hours = 96 } }
+	}
+}
+
+country_event = { #Assembly Votes No (GXC)
+	id = sichuan.157
+	title = sichuan.157.t
+	desc = sichuan.157.d
+	picture = GFX_report_event_JAP_diet
+
+	is_triggered_only = yes
+
+	trigger = {
+		SZC = { has_dynamic_modifier = { modifier = SZC_major_famine } }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.157 option sichuan.157.a"
+		name = sichuan.157.a
+		add_stability = -0.02
+		add_political_power = -20
+		SZC = { country_event = { id = sichuan.159 days = 4 random_hours = 96 } }
+	}
+}
+
+country_event = { #Aid Arrives From Liangguang
+	id = sichuan.158
+	title = sichuan.158.t
+	desc = sichuan.158.d
+	picture = GFX_report_event_FNG_hiroshima_package
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_dynamic_modifier = { modifier = SZC_major_famine }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.158 option sichuan.158.a"
+		name = sichuan.158.a
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_approves_of_govt
+		}
+		add_to_variable = {
+			SZC_famine_PP = 100
+			tooltip = SZC_famine_PP_tooltip
+		}
+	}
+}
+
+country_event = { #Liangguang doesn't send aid
+	id = sichuan.159
+	title = sichuan.159.t
+	desc = sichuan.159.d
+	picture = GFX_report_event_CHI_chiang_wei_kuo
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_dynamic_modifier = { modifier = SZC_major_famine }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.159 option sichuan.159.a"
+		name = sichuan.159.a
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_hates_govt
+		}
+	}
+}
+
+### Minor Famine Events ###
+
+country_event = { #The Clay Eaters
+	id = sichuan.160
+	title = sichuan.160.t
+	desc = sichuan.160.d
+	picture = GFX_report_event_JAP_lost_decade
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.160 option sichuan.160.a"
+		name = sichuan.160.a
+		add_manpower = -5000
+		SZC_increase_famine_small = yes
+	}
+}
+
+country_event = { #Rice Riots
+	id = sichuan.161
+	title = sichuan.161.t
+	desc = sichuan.161.d
+	picture = GFX_report_event_YUN_peasants
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.161 option sichuan.161.a"
+		name = sichuan.161.a
+		add_manpower = -7200
+		add_stability = -0.01
+	}
+}
+
+country_event = { #Violence in the Markets
+	id = sichuan.162
+	title = sichuan.162.t
+	desc = sichuan.162.d
+	picture = GFX_report_event_FNG_protest
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.162 option sichuan.162.a"
+		name = sichuan.162.a
+		add_manpower = -10000
+		add_stability = -0.02
+	}
+}
+
+country_event = { #Unusual Solutions
+	id = sichuan.163
+	title = sichuan.163.t
+	desc = sichuan.163.d
+	picture = GFX_report_event_YUN_countryside
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.163 option sichuan.163.a"
+		name = sichuan.163.a
+		SZC_reduce_famine_small = yes
+		hidden_effect = {
+			country_event = { id = sichuan.164 days = 12 random_hours = 144 }
+		}
+	}
+}
+
+country_event = { #Spike in Poisoning Cases
+	id = sichuan.164
+	title = sichuan.164.t
+	desc = sichuan.164.d
+	picture = GFX_report_event_CHI_chiang_wei_kuo
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.164 option sichuan.164.a"
+		name = sichuan.164.a
+		add_manpower = -12000
+		SZC_increase_famine_medium_large = yes
+	}
+}
+
+country_event = { #Child Poverty Rises
+	id = sichuan.165
+	title = sichuan.165.t
+	desc = sichuan.165.d
+	picture = GFX_report_event_CHI_worker
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.165 option sichuan.165.a"
+		name = sichuan.165.a
+		add_manpower = -6000
+		hidden_effect = {
+			country_event = { id = sichuan.166 days = 12 random_hours = 1200 }
+		}
+	}
+}
+
+country_event = { #The Abandoned Children
+	id = sichuan.166
+	title = sichuan.166.t
+	desc = sichuan.166.d
+	picture = GFX_report_event_YUN_peasants
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_dynamic_modifier = { modifier = SZC_major_famine }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.166 option sichuan.166.a"
+		name = sichuan.166.a
+		add_manpower = -10000
+		activate_targeted_decision = { decision = SZC_Child_Protection_Programme target = THIS }
+	}
+}
+
+country_event = { #Sichuan Child Welfare Association
+	id = sichuan.167
+	title = sichuan.167.t
+	desc = sichuan.167.d
+	picture = GFX_report_event_GXC_federalist_party_2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.167 option sichuan.167.a"
+		name = sichuan.167.a
+		add_stability = 0.1
+		set_temp_variable = { ideology_change_var = 5 }
+		change_ruling_party_popularity = yes
+	}
+}
+
+country_event = { #Refugees Flee the Province
+	id = sichuan.168
+	title = sichuan.168.t
+	desc = sichuan.168.d
+	picture = GFX_report_event_YUN_Army_marches_home
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.168 option sichuan.168.a"
+		name = sichuan.168.a
+		add_timed_idea = {
+			idea = SZC_refugee_wave
+			days = 90
+		}
+		hidden_effect = {
+			QIE = { country_event = { id = sichuan.169 days = 10 random_hours = 960 } }
+			XSM = { country_event = { id = sichuan.169 days = 10 random_hours = 960 } }
+			HNN = { country_event = { id = sichuan.169 days = 10 random_hours = 960 } }
+			YUN = {
+				if = {
+					limit = { NOT = { has_idea = YUN_chaos_army } }
+					country_event = { id = sichuan.169 days = 10 random_hours = 960 }
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Refugees From Sichuan (QIE/HNN/XSM/YUN)
+	id = sichuan.169
+	title = sichuan.169.t
+
+	desc = {
+		text = sichuan.169.d.QIE
+		trigger = { tag = QIE }
+	}
+	desc = {
+		text = sichuan.169.d.XSM
+		trigger = { tag = XSM }
+	}
+	desc = {
+		text = sichuan.169.d.HNN
+		trigger = { tag = HNN }
+	}
+	desc = {
+		text = sichuan.169.d.YUN_Tang
+		trigger = {
+			tag = YUN
+			has_country_leader = { character = YUN_tang_jiyao }
+		}
+	}
+	desc = {
+		text = sichuan.169.d.YUN
+		trigger = {
+			tag = YUN
+			NOT = {
+				has_country_leader = { character = YUN_tang_jiyao }
+			}
+		}
+	}
+
+	picture = GFX_report_event_YUN_peasants
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.169 option sichuan.169.a"
+		name = sichuan.169.a #Try to help them
+		if = {
+			limit = { YUN = { has_idea = YUN_chaos_army } }
+			add_timed_idea = {
+				idea = SZC_refugees_from_sichuan_2
+				days = 90
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = SZC_refugees_from_sichuan_1
+				days = 90
+			}
+		}
+	}
+}
+
+country_event = { #Corruption Shows Its Face
+	id = sichuan.170
+	title = sichuan.170.t
+	desc = sichuan.170.d
+	picture = GFX_report_event_CHI_intelligence
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.170 option sichuan.170.a"
+		name = sichuan.170.a
+		SZC_increase_famine_small = yes
+		custom_effect_tooltip = tooltip_white_line
+		add_manpower = -4000
+	}
+}
+
+country_event = { #Corruption Delays Relief Efforts
+	id = sichuan.171
+	title = sichuan.171.t
+	desc = sichuan.171.d
+	picture = GFX_report_event_CHI_chiang_wei_kuo
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.171 option sichuan.171.a"
+		name = sichuan.171.a
+		SZC_increase_famine_small = yes
+		custom_effect_tooltip = tooltip_white_line
+		add_manpower = -6000
+	}
+}
+
+country_event = { #Black Market on Foodstuffs
+	id = sichuan.172
+	title = sichuan.172.t
+	desc = sichuan.172.d
+	picture = GFX_report_event_YUN_outskirts
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.172 option sichuan.172.a"
+		name = sichuan.172.a
+		add_political_power = -10
+	}
+}
+
+country_event = { #Left KMT Raids Food Shipments
+	id = sichuan.173
+	title = sichuan.173.t
+	desc = sichuan.173.d
+	picture = GFX_report_event_YUN_KMT_soldier
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.173 option sichuan.173.a"
+		name = sichuan.173.a
+		SZC_increase_famine_small = yes
+		custom_effect_tooltip = tooltip_white_line
+		add_manpower = -3000
+	}
+}
+
+country_event = { #Prayers for Rain
+	id = sichuan.174
+	title = sichuan.174.t
+	desc = sichuan.174.d
+	picture = GFX_report_event_SZC_liu_xiang
+
+	trigger = {
+		has_country_leader = { character = SZC_liu_xiang }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.174 option sichuan.174.a"
+		name = sichuan.174.a
+		add_political_power = 10
+	}
+}
+
+country_event = { #Dujiangyan, Damaged
+	id = sichuan.175
+	title = sichuan.175.t
+	desc = sichuan.175.d
+	picture = GFX_report_event_SIK_scenery_3
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.175 option sichuan.175.a"
+		name = sichuan.175.a
+		SZC_increase_famine_medium = yes
+		custom_effect_tooltip = tooltip_white_line
+		set_temp_variable = { ideology_change_var = -5 }
+		change_ruling_party_popularity = yes
+	}
+}
+
+country_event = { #Y.C. James Yen Makes a Personal Donation
+	id = sichuan.176
+	title = sichuan.176.t
+	desc = sichuan.176.d
+	picture = GFX_report_event_CHI_official_announcement
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.176 option sichuan.176.a"
+		name = sichuan.176.a
+		add_to_variable = {
+			SZC_famine_PP = 30
+			tooltip = SZC_famine_PP_tooltip
+		}
+	}
+}
+
+### Economy Events ###
+
+country_event = { #Affairs of the Red Basin
+	id = sichuan.200
+	title = sichuan.200.t
+	desc = sichuan.200.d
+	picture = GFX_report_event_YUN_countryside
+
+	trigger = {
+		NOT = { has_country_flag = SZC_opium_crisis_solved }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.200 option sichuan.200.a"
+		name = sichuan.200.a
+		ai_chance = {
+			base = 10
+			#Xiang is pro-opium
+			modifier = {
+				factor = 0
+				has_focus_tree = Sichuan_Clique_Industrial
+			}
+			#Armament is pro-opium
+			modifier = {
+				factor = 0.5
+				has_focus_tree = Sichuan_Clique_Armament
+			}
+			#Military Zhili are pro-opium
+			modifier = {
+				factor = 0
+				has_completed_focus = SZC_Continue_Military_Primacy
+			}
+			#Tian Songyao/Liu Wenhui favour opium
+			modifier = {
+				set_temp_variable = { SZC_opium_removal_desire_tian = party_popularity@authoritarian_democrat }
+				multiply_temp_variable = { SZC_opium_removal_desire_tian = -10 }
+				add = SZC_opium_removal_desire_tian
+
+				has_focus_tree = Sichuan_Clique_Baoding
+				has_character = SZC_tian_songyao
+			}
+			modifier = {
+				set_temp_variable = { SZC_opium_removal_desire_liu = party_popularity@market_liberal }
+				multiply_temp_variable = { SZC_opium_removal_desire_liu = -10 }
+				add = SZC_opium_removal_desire_liu
+
+				has_focus_tree = Sichuan_Clique_Baoding
+			}
+			#Deng Xihou/Xiong Kewu dislike opium
+			modifier = {
+				set_temp_variable = { SZC_opium_removal_desire_deng = party_popularity@social_conservative }
+				multiply_temp_variable = { SZC_opium_removal_desire_deng = 10 }
+				add = SZC_opium_removal_desire_deng
+
+				has_focus_tree = Sichuan_Clique_Baoding
+			}
+			modifier = {
+				set_temp_variable = { SZC_opium_removal_desire_xiong = party_popularity@social_liberal }
+				multiply_temp_variable = { SZC_opium_removal_desire_xiong = 10 }
+				add = SZC_opium_removal_desire_xiong
+
+				has_focus_tree = Sichuan_Clique_Baoding
+			}
+		}
+		custom_effect_tooltip = SZC_opium_removal_tooltip
+		hidden_effect = {
+			country_event = { id = sichuan.201 days = 10 } #Assessing the Spread of Opium
+			country_event = { id = sichuan.202 days = 45 } #The Scale of Corruption
+			country_event = { id = sichuan.203 days = 64 } #Addiction to Opium
+			country_event = { id = sichuan.205 days = 82 } #Rise of the Black Market
+			country_event = { id = sichuan.1001 days = 90 random_hours = 720 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.200 option sichuan.200.b"
+		name = sichuan.200.b
+		ai_chance = {
+			base = 10
+			#Armament is pro-opium
+			modifier = {
+				factor = 2
+				has_focus_tree = Sichuan_Clique_Armament
+			}
+			#Federalists are anti-opium
+			modifier = {
+				factor = 0
+				has_focus_tree = Sichuan_Clique_Federalist
+			}
+			#Officers are anti-opium
+			modifier = {
+				factor = 0
+				has_focus_tree = Sichuan_Clique_Officer
+			}
+			#Civilian Zhili are anti-opium
+			modifier = {
+				factor = 0
+				has_completed_focus = SZC_Embrace_The_Civilian_Wing
+			}
+			#Tian Songyao/Liu Wenhui favour opium
+			modifier = {
+				set_temp_variable = { SZC_opium_removal_desire_tian = party_popularity@authoritarian_democrat }
+				multiply_temp_variable = { SZC_opium_removal_desire_tian = 10 }
+				add = SZC_opium_removal_desire_tian
+
+				has_focus_tree = Sichuan_Clique_Baoding
+				has_character = SZC_tian_songyao
+			}
+			modifier = {
+				set_temp_variable = { SZC_opium_removal_desire_liu = party_popularity@market_liberal }
+				multiply_temp_variable = { SZC_opium_removal_desire_liu = 10 }
+				add = SZC_opium_removal_desire_liu
+
+				has_focus_tree = Sichuan_Clique_Baoding
+			}
+			#Deng Xihou/Xiong Kewu dislike opium
+			modifier = {
+				set_temp_variable = { SZC_opium_removal_desire_deng = party_popularity@social_conservative }
+				multiply_temp_variable = { SZC_opium_removal_desire_deng = -10 }
+				add = SZC_opium_removal_desire_deng
+
+				has_focus_tree = Sichuan_Clique_Baoding
+			}
+			modifier = {
+				set_temp_variable = { SZC_opium_removal_desire_xiong = party_popularity@social_liberal }
+				multiply_temp_variable = { SZC_opium_removal_desire_xiong = -10 }
+				add = SZC_opium_removal_desire_xiong
+
+				has_focus_tree = Sichuan_Clique_Baoding
+			}
+		}
+		custom_effect_tooltip = SZC_opium_monopoly_tooltip
+		hidden_effect = {
+			country_event = { id = sichuan.220 days = 30 } #The Bureau Takes Action
+			country_event = { id = sichuan.202 days = 40 } #The Scale of Corruption
+			country_event = { id = sichuan.218 days = 52 } #Smuggling
+		}
+	}
+}
+
+country_event = { #Assessing the Spread of Opium
+	id = sichuan.201
+	title = sichuan.201.t
+	desc = sichuan.201.d
+	picture = GFX_report_event_FNG_farmers
+
+	trigger = {
+		NOT = { has_country_flag = SZC_opium_crisis_solved }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.201 option sichuan.201.a"
+		name = sichuan.201.a
+		add_ideas = SZC_opium_spread_1
+		country_event = { id = sichuan.204 days = 20 } #A Plan Against Opium
+	}
+}
+
+country_event = { #The Scale of Corruption
+	id = sichuan.202
+	title = sichuan.202.t
+	desc = sichuan.202.d
+	picture = GFX_report_event_CHI_intelligence
+
+	trigger = {
+		NOT = { has_country_flag = SZC_opium_crisis_solved }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.202 option sichuan.202.a"
+		name = sichuan.202.a
+		add_ideas = SZC_opium_corruption_1
+		if = {
+			limit = { has_country_flag = SZC_monopoly_path }
+			activate_targeted_decision = { decision = SZC_Combat_Corruption target = THIS }
+		}
+		else = {
+			activate_targeted_decision = { decision = SZC_Anti_Corruption_Campaigns target = THIS }
+			activate_targeted_decision = { decision = SZC_Purge_The_Administration target = THIS }
+		}
+	}
+}
+
+country_event = { #Addiction to Opium
+	id = sichuan.203
+	title = sichuan.203.t
+	desc = sichuan.203.d
+	picture = GFX_report_event_YUN_peasants
+
+	trigger = {
+		NOT = { has_country_flag = SZC_opium_crisis_solved }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.203 option sichuan.203.a"
+		name = sichuan.203.a
+		add_ideas = SZC_opium_addiction_1
+		activate_targeted_decision = { decision = SZC_Set_Up_Treatment_Clinics target = THIS }
+	}
+}
+
+country_event = { #A Plan Against Opium
+	id = sichuan.204
+	title = sichuan.204.t
+	desc = sichuan.204.d
+	picture = GFX_report_event_GXC_federalist_party_2
+
+	trigger = {
+		NOT = { has_country_flag = SZC_opium_crisis_solved }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.204 option sichuan.204.a"
+		name = sichuan.204.a
+		add_stability = 0.02
+		add_political_power = 20
+		set_variable = { SZC_opium_spread = 0.6 }
+		set_country_flag = SZC_removal_path
+		activate_targeted_decision = { decision = SZC_Poppy_Burning_Campaign target = THIS }
+		activate_targeted_decision = { decision = SZC_Promote_Crop_Production target = THIS }
+		hidden_effect = {
+			activate_targeted_decision = { decision = SZC_Prohibitionist_Victory target = THIS }
+		}
+	}
+}
+
+country_event = { #Rise of the Black Market
+	id = sichuan.205
+	title = sichuan.205.t
+	desc = sichuan.205.d
+	picture = GFX_report_event_LEC_shanghai_lane
+
+	trigger = {
+		NOT = { has_country_flag = SZC_opium_crisis_solved }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.205 option sichuan.205.a"
+		name = sichuan.205.a
+		add_ideas = SZC_opium_smuggling_1
+		activate_targeted_decision = { decision = SZC_Anti_Smuggling_Measures target = THIS }
+		activate_targeted_decision = { decision = SZC_Break_The_Black_Market target = THIS }
+	}
+}
+
+country_event = { #Corruption Events
+	id = sichuan.206
+
+	title = {
+		text = sichuan.206.t.delays
+		trigger = { has_country_flag = SZC_corruption_event_delays }
+	}
+	title = {
+		text = sichuan.206.t.bribery
+		trigger = { has_country_flag = SZC_corruption_event_bribes }
+	}
+	title = {
+		text = sichuan.206.t.no_enforcement
+		trigger = { has_country_flag = SZC_corruption_event_no_enforcement }
+	}
+
+	desc = {
+		text = sichuan.206.d.delays
+		trigger = { has_country_flag = SZC_corruption_event_delays }
+	}
+	desc = {
+		text = sichuan.206.d.bribery
+		trigger = { has_country_flag = SZC_corruption_event_bribes }
+	}
+	desc = {
+		text = sichuan.206.d.no_enforcement
+		trigger = { has_country_flag = SZC_corruption_event_no_enforcement }
+	}
+
+	picture = GFX_report_event_CHI_chiang_wei_kuo
+
+	trigger = {
+		NOT = { has_country_flag = SZC_opium_crisis_solved }
+		SZC_opium_corruption_active = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.206 option sichuan.206.a"
+		name = sichuan.206.a
+		add_stability = -0.02
+		add_political_power = -10
+	}
+}
+
+country_event = { #Corruption Investigations Begin
+	id = sichuan.207
+	title = sichuan.207.t
+	desc = sichuan.207.d
+	picture = GFX_report_event_CHI_speech
+
+	trigger = {
+		NOT = { has_country_flag = SZC_opium_crisis_solved }
+		SZC_opium_corruption_active = yes
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.207 option sichuan.207.a"
+		name = sichuan.207.a
+		add_stability = 0.02
+	}
+}
+
+country_event = { #Civil Service Corruption
+	id = sichuan.208
+	title = sichuan.208.t
+	desc = sichuan.208.d
+	picture = GFX_report_event_GXC_guangzhou_government_building
+
+	trigger = {
+		NOT = { has_country_flag = SZC_opium_crisis_solved }
+		SZC_opium_corruption_active = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.208 option sichuan.208.a"
+		name = sichuan.208.a
+		add_political_power = -10
+	}
+}
+
+country_event = { #Army Corruption
+	id = sichuan.209
+	title = sichuan.209.t
+	desc = sichuan.209.d
+	picture = GFX_report_event_FNG_troops
+
+	trigger = {
+		NOT = { has_country_flag = SZC_opium_crisis_solved }
+		SZC_opium_corruption_active = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.209 option sichuan.209.a"
+		name = sichuan.209.a
+		add_political_power = -10
+	}
+}
+
+country_event = { #Smugglers in the Administration
+	id = sichuan.210
+	title = sichuan.210.t
+	desc = sichuan.210.d
+	picture = GFX_report_event_FNG_kempeitai
+
+	trigger = {
+		NOT = { has_country_flag = SZC_opium_crisis_solved }
+		SZC_opium_corruption_active = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.210 option sichuan.210.a"
+		name = sichuan.210.a
+		add_stability = -0.01
+		add_political_power = -10
+	}
+}
+
+country_event = { #Scandal in the Opium Committee/Sales Bureau
+	id = sichuan.211
+
+	title = {
+		text = sichuan.211.t.committee
+		trigger = {
+			NOT = { has_country_flag = SZC_monopoly_path }
+		}
+	}
+	title = {
+		text = sichuan.211.t.bureau
+		trigger = {
+			has_country_flag = SZC_monopoly_path
+		}
+	}
+	desc = {
+		text = sichuan.211.d.committee
+		trigger = {
+			NOT = { has_country_flag = SZC_monopoly_path }
+		}
+	}
+	desc = {
+		text = sichuan.211.d.bureau
+		trigger = {
+			has_country_flag = SZC_monopoly_path
+		}
+	}
+
+	picture = GFX_report_event_generic_scandal
+
+	trigger = {
+		NOT = { has_country_flag = SZC_opium_crisis_solved }
+		SZC_opium_corruption_active = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.211 option sichuan.211.a"
+		name = sichuan.211.a
+		add_stability = -0.02
+		add_political_power = -20
+	}
+}
+
+country_event = { #Political Murders
+	id = sichuan.212
+	title = sichuan.212.t
+	desc = sichuan.212.d
+	picture = GFX_report_event_CHI_train_bombing
+
+	trigger = {
+		NOT = { has_country_flag = SZC_opium_crisis_solved }
+		SZC_opium_corruption_active = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.212 option sichuan.212.a"
+		name = sichuan.212.a
+		add_stability = -0.03
+		add_political_power = -15
+	}
+}
+
+country_event = { #Opium Begins to Disappear
+	id = sichuan.213
+	title = sichuan.213.t
+	desc = sichuan.213.d
+	picture = GFX_report_event_YUN_countryside
+
+	trigger = {
+		NOT = { has_country_flag = SZC_opium_crisis_solved }
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.213 option sichuan.213.a"
+		name = sichuan.213.a
+		add_stability = 0.08
+	}
+}
+
+country_event = { #Growth of Grain Production
+	id = sichuan.214
+	title = sichuan.214.t
+	desc = sichuan.214.d
+	picture = GFX_report_event_FNG_farmers
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.214 option sichuan.214.a"
+		name = sichuan.214.a
+		if = {
+			limit = { has_idea = SZC_recovering_from_the_famine_1 }
+			remove_ideas = SZC_recovering_from_the_famine_1
+		}
+		else_if = {
+			limit = { has_idea = SZC_recovering_from_the_famine_2 }
+			remove_ideas = SZC_recovering_from_the_famine_2
+		}
+	}
+}
+
+country_event = { #Tax Evasion Discovered
+	id = sichuan.215
+	title = sichuan.215.t
+	desc = sichuan.215.d
+	picture = GFX_report_event_LEC_xiangshen
+
+	trigger = {
+		NOT = { has_country_flag = SZC_opium_crisis_solved }
+	}
+
+	immediate = {
+		hidden_effect = {
+			country_event = { id = sichuan.216 days = 20 random_hours = 240 }
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.215 option sichuan.215.a"
+		name = sichuan.215.a
+		set_temp_variable = { SZC_opium_control_change = -5 }
+		SZC_increase_opium_control = yes
+	}
+}
+
+country_event = { #Extensive Tax Evasion
+	id = sichuan.216
+	title = sichuan.216.t
+	desc = sichuan.216.d
+	picture = GFX_report_event_CHI_chiang_wei_kuo
+
+	trigger = {
+		NOT = { has_country_flag = SZC_opium_crisis_solved }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.216 option sichuan.216.a"
+		name = sichuan.216.a
+		set_temp_variable = { SZC_opium_control_change = -5 }
+		SZC_increase_opium_control = yes
+	}
+}
+
+country_event = { #Merchants Revolt Against Monopoly
+	id = sichuan.217
+	title = sichuan.217.t
+	desc = sichuan.217.d
+	picture = GFX_report_event_CHI_worker
+
+	trigger = {
+		NOT = { has_country_flag = SZC_opium_crisis_solved }
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.217 option sichuan.217.a"
+		name = sichuan.217.a
+		add_timed_idea = {
+			idea = SZC_merchant_resistance
+			days = 90
+		}
+		set_temp_variable = { SZC_opium_control_change = -5 }
+		SZC_increase_opium_control = yes
+	}
+}
+
+country_event = { #Smugglers Cut Into Our Profits
+	id = sichuan.218
+	title = sichuan.218.t
+	desc = sichuan.218.d
+	picture = GFX_report_event_LEC_shanghai_lane
+
+	trigger = {
+		NOT = { has_country_flag = SZC_opium_crisis_solved }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.218 option sichuan.218.a"
+		name = sichuan.218.a
+		add_ideas = SZC_opium_smuggling_1
+		activate_targeted_decision = { decision = SZC_Combat_Smuggling target = THIS }
+	}
+}
+
+country_event = { #Illegal Production Continues to Increase
+	id = sichuan.219
+	title = sichuan.219.t
+	desc = sichuan.219.d
+	picture = GFX_report_event_YUN_landscape
+
+	trigger = {
+		NOT = { has_country_flag = SZC_opium_crisis_solved }
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.219 option sichuan.219.a"
+		name = sichuan.219.a
+		set_temp_variable = { SZC_opium_control_change = -2.5 }
+		SZC_increase_opium_control = yes
+	}
+}
+
+country_event = { #The Bureau Takes Action
+	id = sichuan.220
+	title = sichuan.220.t
+	desc = sichuan.220.d
+	picture = GFX_report_event_GXC_federalist_party_2
+
+	trigger = {
+		NOT = { has_country_flag = SZC_opium_crisis_solved }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.220 option sichuan.220.a"
+		name = sichuan.220.a
+		add_stability = 0.02
+		add_political_power = 20
+		set_country_flag = SZC_monopoly_path
+		set_variable = { SZC_opium_control = 0 }
+		activate_targeted_decision = { decision = SZC_Bureaucratic_Reforms target = THIS }
+		activate_targeted_decision = { decision = SZC_Buy_Out_Merchants target = THIS }
+		activate_targeted_decision = { decision = SZC_Forced_Acquisitions target = THIS }
+		activate_targeted_decision = { decision = SZC_Tax_Harvesting_Scheme target = THIS }
+		activate_targeted_decision = { decision = SZC_Transit_Tariffs target = THIS }
+		activate_targeted_decision = { decision = SZC_Farmer_Licensing target = THIS }
+		hidden_effect = {
+			activate_targeted_decision = { decision = SZC_Uncontested_Monopoly target = THIS }
+		}
+	}
+}
+
+country_event = { #Taxation Hampered By Corruption
+	id = sichuan.221
+	title = sichuan.221.t
+	desc = sichuan.221.d
+	picture = GFX_report_event_CHI_chiang_wei_kuo
+
+	trigger = {
+		NOT = { has_country_flag = SZC_opium_crisis_solved }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.221 option sichuan.221.a"
+		name = sichuan.221.a
+		add_political_power = -20
+	}
+}
+
+country_event = { #Increasing Opium Profits
+	id = sichuan.222
+	title = sichuan.222.t
+	desc = sichuan.222.d
+	picture = GFX_report_event_FNG_farmers
+
+	trigger = {
+		NOT = { has_country_flag = SZC_opium_crisis_solved }
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.222 option sichuan.222.a"
+		name = sichuan.222.a
+		add_political_power = 100
+	}
+}
+
+country_event = { #The Army Crushes Smugglers
+	id = sichuan.223
+	title = sichuan.223.t
+	desc = sichuan.223.d
+	picture = GFX_report_event_FNG_troops
+
+	trigger = {
+		NOT = { has_country_flag = SZC_opium_crisis_solved }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.223 option sichuan.223.a"
+		name = sichuan.223.a
+		army_experience = 10
+		add_political_power = 40
+		add_stability = 0.04
+		add_manpower = -800
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 200
+		}
+		set_temp_variable = { SZC_opium_spread_change = -3 }
+		SZC_reduce_opium_spread = yes
+		SZC_reduce_smuggling = yes
+	}
+}
+
+country_event = { #The Army Fights Smugglers
+	id = sichuan.224
+	title = sichuan.224.t
+	desc = sichuan.224.d
+	picture = GFX_report_event_YUN_inspection
+
+	trigger = {
+		NOT = { has_country_flag = SZC_opium_crisis_solved }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.224 option sichuan.224.a"
+		name = sichuan.224.a
+		army_experience = 5
+		add_manpower = -1200
+		set_temp_variable = { SZC_opium_spread_change = -2 }
+		SZC_reduce_opium_spread = yes
+	}
+}
+
+country_event = { #The Army Struggles Against Smugglers
+	id = sichuan.225
+	title = sichuan.225.t
+	desc = sichuan.225.d
+	picture = GFX_report_event_GXC_federalist_troops_bandoliers
+
+	trigger = {
+		NOT = { has_country_flag = SZC_opium_crisis_solved }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.225 option sichuan.225.a"
+		name = sichuan.225.a
+		add_manpower = -2000
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = -200
+		}
+		set_temp_variable = { SZC_opium_spread_change = -1 }
+		SZC_reduce_opium_spread = yes
+	}
+}
+
+country_event = { #Army Crushed Against Smugglers
+	id = sichuan.226
+	title = sichuan.226.t
+	desc = sichuan.226.d
+	picture = GFX_report_event_CHI_warlord_battle
+
+	trigger = {
+		NOT = { has_country_flag = SZC_opium_crisis_solved }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.226 option sichuan.226.a"
+		name = sichuan.226.a
+		add_political_power = -20
+		add_stability = -0.02
+		add_manpower = -2000
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = -400
+		}
+		set_temp_variable = { SZC_opium_spread_change = 3 }
+		SZC_reduce_opium_spread = yes
+	}
+}
+
+### Political Events ###
+
+country_event = { #Tian Songyao expands into Xiang's territory
+	id = sichuan.250
+	title = sichuan.250.t
+	desc = sichuan.250.d
+	picture = GFX_report_event_LEP_sun_chuanfang_troops
+
+	trigger = {
+		SZC_has_armament_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.250 option sichuan.250.a"
+		name = sichuan.250.a
+	}
+}
+
+country_event = { #Liu Cunhou expands into Officer territory
+	id = sichuan.251
+	title = sichuan.251.t
+	desc = sichuan.251.d
+	picture = GFX_report_event_FNG_troops
+
+	trigger = {
+		SZC_has_armament_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.251 option sichuan.251.a"
+		name = sichuan.251.a
+	}
+}
+
+country_event = { #Shadowy Meetings
+	id = sichuan.252
+	title = sichuan.252.t
+	desc = sichuan.252.d
+	picture = GFX_report_event_CHI_intelligence
+
+	trigger = {
+		SZC_has_armament_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.252 option sichuan.252.a"
+		name = sichuan.252.a
+	}
+}
+
+country_event = { #Baoding brings order to the south
+	id = sichuan.253
+	title = sichuan.253.t
+	desc = sichuan.253.d
+	picture = GFX_report_event_CHI_militia
+
+	trigger = {
+		SZC_has_armament_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.253 option sichuan.253.a"
+		name = sichuan.253.a
+	}
+}
+
+country_event = { #Tian Songyao pledges allegiance to Liu Cunhou
+	id = sichuan.254
+	title = sichuan.254.t
+	desc = sichuan.254.d
+	picture = GFX_report_event_CHI_ambassador_announcement
+
+	trigger = {
+		SZC_has_armament_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.254 option sichuan.254.a"
+		name = sichuan.254.a
+		hidden_effect = {
+			country_event = { id = sichuan.255 days = 3 }
+		}
+	}
+}
+
+country_event = { #A Meeting with Deng Xihou
+	id = sichuan.255
+	title = sichuan.255.t
+	desc = sichuan.255.d
+	picture = GFX_report_event_SZC_deng_xihou
+
+	trigger = {
+		SZC_has_armament_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.255 option sichuan.255.a"
+		name = sichuan.255.a #Meet with Deng Xihou
+		hidden_effect = {
+			country_event = { id = sichuan.256 days = 6 }
+		}
+	}
+}
+
+country_event = { #Baoding's demands
+	id = sichuan.256
+	title = sichuan.256.t
+	desc = sichuan.256.d
+	picture = GFX_report_event_generic_diplomacy3
+
+	trigger = {
+		SZC_has_armament_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.256 option sichuan.256.a"
+		name = sichuan.256.a #It's an acceptable offer
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = SZC_path option = SZC_PATH_LIU_AUTDEM }
+			}
+		}
+		add_political_power = -20
+		swap_ideas = {
+			remove_idea = SZC_baoding_influence
+			add_idea = SZC_baoding_alliance
+		}
+		hidden_effect = {
+			country_event = { id = sichuan.257 days = 3 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.256 option sichuan.256.b"
+		name = sichuan.256.b #We can't trust them
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = SZC_path option = SZC_PATH_YANG_AUTDEM }
+			}
+		}
+		hidden_effect = {
+			country_event = { id = sichuan.258 days = 3 }
+		}
+	}
+}
+
+country_event = { #Plots in the Dark
+	id = sichuan.257
+	title = sichuan.257.t
+	desc = sichuan.257.d
+	picture = GFX_report_event_CHI_intelligence
+
+	trigger = {
+		SZC_has_armament_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.257 option sichuan.257.a"
+		name = sichuan.257.a
+		set_country_flag = SZC_yangs_trap
+		hidden_effect = {
+			country_event = { id = sichuan.259 hours = 102 }
+		}
+	}
+}
+
+country_event = { #Baoding Declares Neutrality
+	id = sichuan.258
+	title = sichuan.258.t
+	desc = sichuan.258.d
+	picture = GFX_report_event_GXC_federalist_troops_mountains
+
+	trigger = {
+		SZC_has_armament_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.258 option sichuan.258.a"
+		name = sichuan.258.a
+		set_country_flag = SZC_lius_coup
+		hidden_effect = {
+			country_event = { id = sichuan.259 hours = 102 }
+		}
+	}
+}
+
+country_event = { #Fires in the Garrison
+	id = sichuan.259
+	title = sichuan.259.t
+
+	desc = {
+		text = sichuan.259.d.trap
+		trigger = { has_country_flag = SZC_yangs_trap }
+	}
+	desc = {
+		text = sichuan.259.d.coup
+		trigger = { has_country_flag = SZC_lius_coup }
+	}
+
+	trigger = {
+		SZC_has_armament_government = yes
+	}
+
+	picture = GFX_report_event_CHI_riot
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.259 option sichuan.259.a"
+		trigger = { has_country_flag = SZC_yangs_trap }
+		name = sichuan.259.a
+		clr_country_flag = SZC_yangs_trap
+		hidden_effect = {
+			country_event = { id = sichuan.260 hours = 6 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.259 option sichuan.259.b"
+		trigger = { has_country_flag = SZC_lius_coup }
+		name = sichuan.259.b
+		clr_country_flag = SZC_lius_coup
+		hidden_effect = {
+			country_event = { id = sichuan.261 hours = 6 }
+		}
+	}
+}
+
+country_event = { #The Countercoup
+	id = sichuan.260
+	title = sichuan.260.t
+	desc = sichuan.260.d
+	picture = GFX_report_event_FNG_kempeitai
+
+	trigger = {
+		SZC_has_armament_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.260 option sichuan.260.a"
+		name = sichuan.260.a #A traitor's death
+		add_stability = -0.03
+		retire_character = SZC_liu_cunhou
+		retire_character = SZC_tian_songyao
+		complete_national_focus = SZC_Bring_Peace_to_Sichuan
+		hidden_effect = {
+			SZC_liu_cunhou = { kill_character = yes }
+			SZC_tian_songyao = { kill_character = yes }
+			unlock_national_focus = SZC_Yang_Sens_Ambition
+		}
+	}
+}
+
+country_event = { #Liu Cunhou Assumes Leadership
+	id = sichuan.261
+	title = sichuan.261.t
+	desc = sichuan.261.d
+	picture = GFX_report_event_FNG_kempeitai
+
+	trigger = {
+		SZC_has_armament_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.261 option sichuan.261.a"
+		name = sichuan.261.a
+		add_stability = -0.2
+		retire_character = SZC_yang_sen
+		retire_character = SZC_fan_shaozeng
+		promote_character = SZC_liu_cunhou
+		hidden_effect = {
+			SZC_yang_sen = { kill_character = yes }
+			SZC_fan_shaozeng = { kill_character = yes }
+			set_party_name = {
+				ideology = authoritarian_democrat
+				name = SZC_authoritarian_democrat_party
+				long_name = SZC_Liu_Cunhou_party_long
+			}
+		}
+		complete_national_focus = SZC_Bring_Peace_to_Sichuan
+		hidden_effect = { unlock_national_focus = SZC_Liu_Cunhous_Tradition }
+	}
+}
+
+country_event = { #Sichuan Declares for the Zhili
+	id = sichuan.262
+	title = sichuan.262.t
+	desc = sichuan.262.d
+	picture = GFX_report_event_QIE_soldiers_mobilize
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.262 option sichuan.262.a"
+		name = sichuan.262.a
+		china_puppet_FROM_effect = yes
+	}
+}
+
+country_event = { #Notify LEP of Sichuan support
+	id = sichuan.263
+	title = sichuan.263.t
+	desc = sichuan.263.d
+	picture = GFX_report_event_QIE_soldiers_mobilize
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.263 option sichuan.263.a"
+		name = sichuan.263.a
+		add_political_power = 25
+	}
+}
+
+country_event = { #Jiang Baili Arrives in Sichuan
+	id = sichuan.264
+	title = sichuan.264.t
+	desc = sichuan.264.d
+	picture = GFX_report_event_QIE_jiang_baili
+
+	trigger = {
+		SZC_has_armament_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.264 option sichuan.264.a"
+		name = sichuan.264.a
+		add_political_power = 200
+		QIE = {
+			QIE_jiang_baili = { set_nationality = ROOT }
+			QIE_zhang_qihuang = { set_nationality = ROOT }
+			QIE_bai_jianwu = { set_nationality = ROOT }
+		}
+		if = {
+			limit = { is_subject = yes }
+			overlord = {
+				set_autonomy = {
+					target = ROOT
+					autonomy_state = autonomy_free
+				}
+			}
+		}
+		hidden_effect = {
+			every_owned_state = {
+				limit = { is_demilitarized_zone = yes }
+				set_demilitarized_zone = no
+			}
+			QIE = {
+				every_character = {
+					limit = {
+						OR = {
+							is_character = QIE_wellington_koo
+							is_character = QIE_hu_shih
+							is_character = QIE_yan_huiqing
+						}
+					}
+					set_nationality = ROOT
+				}
+				country_event = sichuan.265
+			}
+			load_focus_tree = {
+				tree = Sichuan_Clique_Zhili
+				keep_completed = yes
+			}
+			complete_national_focus = SZC_The_Zhilis_Last_Stand
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.264 option sichuan.264.b"
+		name = sichuan.264.b
+		ai_chance = { base = 0 }
+		add_stability = -0.2
+		add_political_power = -200
+	}
+}
+
+country_event = { #Jiang Baili Resurfaces
+	id = sichuan.265
+	title = sichuan.265.t
+	desc = sichuan.265.d
+	picture = GFX_report_event_QIE_jiang_baili
+
+	trigger = {
+		SZC = { SZC_zhili_in_exile = yes }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.265 option sichuan.265.a"
+		name = sichuan.265.a
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.265 option sichuan.265.b"
+		name = sichuan.265.b
+		ai_chance = { base = 0 }
+		SZC = { change_tag_from = ROOT }
+	}
+}
+
+country_event = { #Growing Rifts
+	id = sichuan.266
+	title = sichuan.266.t
+	desc = sichuan.266.d
+	picture = GFX_report_event_GXC_federalist_party_1
+
+	trigger = {
+		SZC_zhili_in_exile = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.266 option sichuan.266.a"
+		name = sichuan.266.a
+		add_political_power = -5
+	}
+}
+
+country_event = { #The Civilian Wing Dominant
+	id = sichuan.267
+	title = sichuan.267.t
+	desc = sichuan.267.d
+	picture = GFX_report_event_CHI_new_government
+
+	trigger = {
+		SZC_zhili_in_exile = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.267 option sichuan.267.a"
+		name = sichuan.267.a
+		add_political_power = 30
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			elections_allowed = no
+		}
+		promote_character = QIE_yan_huiqing
+		set_temp_variable = { coalition_partner_var = token:paternal_autocrat }
+		add_to_coalition = yes
+	}
+}
+
+country_event = { #The Military Retains Control
+	id = sichuan.268
+	title = sichuan.268.t
+	desc = sichuan.268.d
+	picture = GFX_report_event_GXC_federalist_troops_rally
+
+	trigger = {
+		SZC_zhili_in_exile = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.268 option sichuan.268.a"
+		name = sichuan.268.a
+		army_experience = 30
+		set_politics = {
+			ruling_party = paternal_autocrat
+			elections_allowed = no
+		}
+		promote_character = QIE_jiang_baili
+		set_temp_variable = { coalition_partner_var = token:authoritarian_democrat }
+		add_to_coalition = yes
+	}
+}
+
+country_event = { #Modernising the Zhili Officer Corps
+	id = sichuan.269
+	title = sichuan.269.t
+	desc = sichuan.269.d
+	picture = GFX_report_event_QIE_soldiers_planning
+
+	trigger = {
+		SZC_zhili_in_exile = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.269 option sichuan.269.a"
+		name = sichuan.269.a
+		QIE_recruit_new_zhili_generals = yes
+	}
+}
+
+country_event = { #Pro-Zhili faction invited to alliance
+	id = sichuan.270
+	title = sichuan.270.t
+	desc = sichuan.270.d
+	picture = GFX_report_event_generic_diplomacy3
+
+	trigger = {
+		SZC = { SZC_zhili_in_exile = yes }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.270 option sichuan.270.a"
+		name = sichuan.270.a
+		ai_chance = { base = 100 }
+		FROM = {
+			set_country_flag = SZC_allied_@ROOT
+			effect_tooltip = { china_puppet_ROOT_effect = yes }
+			country_event = { id = sichuan.271 hours = 8 random_hours = 16 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event sichuan.270 option sichuan.270.b"
+		name = sichuan.270.b
+		ai_chance = { base = 0 }
+		FROM = {
+			country_event = { id = sichuan.271 hours = 8 random_hours = 16 }
+		}
+	}
+}
+
+country_event = { #Country responds
+	id = sichuan.271
+
+	title = {
+		text = sichuan.271.t.accept
+		trigger = { has_country_flag = SZC_allied_@FROM }
+	}
+	title = {
+		text = sichuan.271.t.refuse
+		trigger = { NOT = { has_country_flag = SZC_allied_@FROM } }
+	}
+
+	desc = {
+		text = sichuan.271.d.accept
+		trigger = { has_country_flag = SZC_allied_@FROM }
+	}
+	desc = {
+		text = sichuan.271.d.refuse
+		trigger = { NOT = { has_country_flag = SZC_allied_@FROM } }
+	}
+
+	picture = GFX_report_event_generic_diplomacy1
+
+	trigger = {
+		SZC_zhili_in_exile = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.271 option sichuan.271.a"
+		name = sichuan.271.a
+		trigger = {
+			has_country_flag = SZC_allied_@FROM
+		}
+		add_political_power = 25
+		china_puppet_FROM_effect = yes
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.271 option sichuan.271.b"
+		name = sichuan.271.b
+		trigger = {
+			NOT = { has_country_flag = SZC_allied_@FROM }
+		}
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_disapproves_of_govt
+		}
+	}
+}
+
+news_event = { #The Zhili Clique Returns
+	id = sichuan.272
+	immediate = { log = "[GetLogInfo]: event sichuan.272" }
+	title = sichuan.272.t
+	desc = sichuan.272.d
+	picture = GFX_news_event_QIE_jiang_baili
+
+	trigger = {
+		wants_world_news = yes
+	}
+
+	is_triggered_only = yes
+
+	major = yes
+	fire_for_sender = no
+	show_major = {
+		is_tag_in_china_area = yes
+	}
+
+	option = {
+		name = sichuan.272.a
+		trigger = { tag = QIE }
+	}
+	option = {
+		name = sichuan.272.b
+		trigger = { NOT = { tag = QIE } }
+	}
+}
+
+unit_leader_event = { #A Remnant Arrives
+	id = sichuan.273
+	title = sichuan.273.t
+	desc = sichuan.273.d
+	picture = GFX_report_event_QIE_warlord_soldiers
+
+	trigger = {
+		SZC_zhili_in_exile = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.273 option sichuan.273.a"
+		name = sichuan.273.a
+		army_experience = 5
+		add_political_power = 10
+	}
+}
+
+country_event = { #Luoyang Retaken
+	id = sichuan.274
+	title = sichuan.274.t
+	desc = sichuan.274.d
+	picture = GFX_report_event_CHI_militia
+
+	trigger = {
+		SZC_zhili_in_exile = yes
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.274 option sichuan.274.a"
+		name = sichuan.274.a
+		add_political_power = 15
+	}
+}
+
+country_event = { #Wuhan Retaken
+	id = sichuan.275
+	title = sichuan.275.t
+	desc = sichuan.275.d
+	picture = GFX_report_event_CHI_riot
+
+	trigger = {
+		SZC_zhili_in_exile = yes
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.275 option sichuan.275.a"
+		name = sichuan.275.a
+		add_war_support = 0.05
+		add_political_power = 15
+	}
+}
+
+country_event = { #Beijing Retaken
+	id = sichuan.276
+	title = sichuan.276.t
+	desc = sichuan.276.d
+	picture = GFX_report_event_CHI_beijing_beiyang_flag
+
+	trigger = {
+		SZC_zhili_in_exile = yes
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.276 option sichuan.276.a"
+		name = sichuan.276.a
+		add_war_support = 0.1
+		add_political_power = 25
+	}
+}
+
+country_event = { #Fall of the Manchu
+	id = sichuan.277
+	title = sichuan.277.t
+	desc = sichuan.277.d
+	picture = GFX_report_event_QIE_puyi_family
+
+	trigger = {
+		SZC_zhili_in_exile = yes
+		owns_state = 608
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.277 option sichuan.277.a"
+		name = sichuan.277.a
+		add_stability = 0.1
+		add_war_support = 0.1
+		add_political_power = 20
+		set_temp_variable = { ideology_change_var = 8 }
+		change_ruling_party_popularity = yes
+		hidden_effect = {
+			remove_ideas = SZC_behind_manchu_lines_idea
+			set_party_name = {
+				ideology = totalist
+				name = QIE_totalist_party
+				long_name = QIE_totalist_party_long
+			}
+			set_party_name = {
+				ideology = syndicalist
+				name = QIE_syndicalist_party
+				long_name = QIE_syndicalist_party_long
+			}
+			set_party_name = {
+				ideology = radical_socialist
+				name = QIE_radical_socialist_party
+				long_name = QIE_radical_socialist_party_long
+			}
+			set_party_name = {
+				ideology = social_democrat
+				name = QIE_social_democrat_party
+				long_name = QIE_social_democrat_party_long
+			}
+			set_party_name = {
+				ideology = social_liberal
+				name = QIE_social_liberal_party
+				long_name = QIE_social_liberal_party_long
+			}
+			set_party_name = {
+				ideology = market_liberal
+				name = QIE_market_liberal_party
+				long_name = QIE_market_liberal_party_long
+			}
+			set_party_name = {
+				ideology = social_conservative
+				name = QIE_social_conservative_party
+				long_name = QIE_social_conservative_party_long
+			}
+			set_party_name = {
+				ideology = authoritarian_democrat
+				name = QIE_authoritarian_democrat_party
+				long_name = QIE_authoritarian_democrat_party_long
+			}
+			set_party_name = {
+				ideology = paternal_autocrat
+				name = QIE_paternal_autocrat_party
+				long_name = QIE_paternal_autocrat_party_long
+			}
+			set_party_name = {
+				ideology = national_populist
+				name = QIE_national_populist_party
+				long_name = QIE_national_populist_party_long
+			}
+			country_event = { id = sichuan.278 days = 10 random_hours = 720 }
+		}
+	}
+}
+
+country_event = { #Remembering the Jade Marshal
+	id = sichuan.278
+	title = sichuan.278.t
+	desc = sichuan.278.d
+	picture = GFX_report_event_QIE_wu_peifu_shrine
+
+	trigger = {
+		SZC_zhili_in_exile = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.278 option sichuan.278.a"
+		name = sichuan.278.a
+		add_political_power = 10
+	}
+}
+
+country_event = { #Tian Songyao Rejoins the Department
+	id = sichuan.350
+	title = sichuan.350.t
+	desc = sichuan.350.d
+
+	trigger = {
+		SZC_has_baoding_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.350 option sichuan.350.a"
+		name = sichuan.350.a
+		ai_chance = {
+			base = 20
+			modifier = {
+				add = -10
+				has_government = market_liberal
+			}
+		}
+		add_political_power = 20
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.350 option sichuan.350.b"
+		name = sichuan.350.b
+		ai_chance = {
+			base = 20
+			modifier = {
+				add = 10
+				has_government = market_liberal
+			}
+		}
+		if = {
+			limit = { QIE = { has_character = SZC_yang_sen } }
+			SZC_tian_songyao = { set_nationality = QIE }
+		}
+		else = {
+			SZC_tian_songyao = { set_character_flag = SZC_armament_leader }
+			retire_character = SZC_tian_songyao
+		}
+	}
+}
+
+country_event = { #Order Restored in Chongqing
+	id = sichuan.351
+	title = sichuan.351.t
+	desc = sichuan.351.d
+	picture = GFX_report_event_CHI_worker
+
+	trigger = {
+		SZC_has_baoding_government = yes
+		650 = { is_demilitarized_zone = yes }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.351 option sichuan.351.a"
+		name = sichuan.351.a
+		add_stability = 0.05
+		650 = { set_demilitarized_zone = no }
+	}
+}
+
+country_event = { #The Diarchy/Returning Control
+	id = sichuan.352
+	title = sichuan.352.t
+	desc = sichuan.352.d
+
+	trigger = {
+		SZC_has_baoding_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.352 option sichuan.352.a"
+		name = sichuan.352.a
+		hidden_effect = {
+			set_party_name = {
+				ideology = social_liberal
+				name = SZC_Gang_Of_Nine_party
+				long_name = SZC_Gang_Of_Nine_party
+			}
+			set_party_name = {
+				ideology = market_liberal
+				name = SZC_Liu_Clique_party
+				long_name = SZC_Liu_Clique_party_long
+			}
+			set_party_name = {
+				ideology = social_conservative
+				name = SZC_Deng_Clique_party
+				long_name = SZC_Deng_Clique_party_long
+			}
+			if = {
+				limit = { has_character = SZC_tian_songyao }
+				set_party_name = {
+					ideology = authoritarian_democrat
+					name = SZC_Tian_Clique_party
+					long_name = SZC_Tian_Clique_party_long
+				}
+				SZC_tian_songyao = {
+					remove_all_country_leader_roles = yes
+					add_country_leader_role = {
+						country_leader = {
+							desc = SZC_tian_songyao_leader_desc
+							ideology = authoritarian_democrat_subtype
+						}
+						promote_leader = yes
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_government = market_liberal
+			}
+			add_ideas = SZC_diarchy_wenhui_2
+		}
+		else = {
+			add_ideas = SZC_diarchy_neutral
+		}
+	}
+}
+
+country_event = { #Liu Wenhui Dominates the Department
+	id = sichuan.353
+	title = sichuan.353.t
+	desc = sichuan.353.d
+
+	trigger = {
+		has_government = social_conservative
+		OR = {
+			has_idea = SZC_diarchy_wenhui_1
+			has_idea = SZC_diarchy_wenhui_2
+			has_idea = SZC_diarchy_wenhui_3
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.353 option sichuan.353.a"
+		name = sichuan.353.a
+		set_politics = {
+			ruling_party = market_liberal
+			elections_allowed = no
+		}
+		set_temp_variable = { coalition_partner_var = token:social_conservative }
+		add_to_coalition = yes
+		hidden_effect = {
+			activate_advisor = empowered_executive_sic
+		}
+	}
+}
+
+country_event = { #Deng Xihou Reasserts Control
+	id = sichuan.354
+	title = sichuan.354.t
+	desc = sichuan.354.d
+	picture = GFX_report_event_SZC_deng_xihou
+
+	trigger = {
+		has_government = market_liberal
+		OR = {
+			has_idea = SZC_diarchy_xihou_1
+			has_idea = SZC_diarchy_xihou_2
+			has_idea = SZC_diarchy_xihou_3
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.354 option sichuan.354.a"
+		name = sichuan.354.a
+		set_politics = {
+			ruling_party = social_conservative
+			elections_allowed = no
+		}
+		set_temp_variable = { coalition_partner_var = token:market_liberal }
+		add_to_coalition = yes
+		hidden_effect = {
+			activate_advisor = empowered_executive_sic
+		}
+	}
+}
+
+country_event = { #Wenhui protests against our military focus
+	id = sichuan.355
+	title = sichuan.355.t
+	desc = sichuan.355.d
+	picture = GFX_report_event_CHI_riot_police
+
+	trigger = {
+		SZC_has_baoding_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.355 option sichuan.355.a"
+		name = sichuan.355.a
+		add_political_power = -20
+		add_timed_idea = {
+			idea = SZC_administrative_unrest
+			days = 25
+		}
+		custom_effect_tooltip = SZC_increase_wenhui_popularity
+		hidden_effect = {
+			swap_ideas = {
+				remove_idea = SZC_diarchy_xihou_3
+				add_idea = SZC_diarchy_xihou_1
+			}
+		}
+	}
+}
+
+country_event = { #Xihou protests against our administrative focus
+	id = sichuan.356
+	title = sichuan.356.t
+	desc = sichuan.356.d
+	picture = GFX_report_event_CHI_protest
+
+	trigger = {
+		SZC_has_baoding_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.356 option sichuan.356.a"
+		name = sichuan.356.a
+		add_political_power = -20
+		add_timed_idea = {
+			idea = SZC_military_unrest
+			days = 25
+		}
+		custom_effect_tooltip = SZC_increase_xihou_popularity
+		hidden_effect = {
+			swap_ideas = {
+				remove_idea = SZC_diarchy_wenhui_3
+				add_idea = SZC_diarchy_wenhui_1
+			}
+		}
+	}
+}
+
+country_event = { #The Warlord of Xikang
+	id = sichuan.400
+	title = sichuan.400.t
+	desc = sichuan.400.d
+	picture = GFX_report_event_SZC_liu_wenhui
+
+	trigger = {
+		SZC_has_industrial_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.400 option sichuan.400.a"
+		name = sichuan.400.a
+	}
+}
+
+country_event = { #A Question of Family
+	id = sichuan.401
+	title = sichuan.401.t
+	desc = sichuan.401.d
+	picture = GFX_report_event_generic_diplomacy1
+
+	trigger = {
+		SZC_has_industrial_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.401 option sichuan.401.a"
+		name = sichuan.401.a #Our interests align - offer him an alliance
+		ai_chance = { base = 60 }
+		add_political_power = -25
+		custom_effect_tooltip = SZC_wenhui_alliance
+		hidden_effect = {
+			country_event = { id = sichuan.402 days = 3 random_hours = 72 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event sichuan.401 option sichuan.401.b"
+		name = sichuan.401.b #He will submit, like all the others
+		ai_chance = { base = 40 }
+		hidden_effect = {
+			country_event = { id = sichuan.404 days = 3 random_hours = 168 }
+		}
+	}
+}
+
+country_event = { #A Letter From Xikang
+	id = sichuan.402
+	title = sichuan.402.t
+	desc = sichuan.402.d
+	picture = GFX_report_event_generic_diplomacy3
+
+	trigger = {
+		SZC_has_industrial_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.402 option sichuan.402.a"
+		name = sichuan.402.a #Very well, an acceptable price
+		ai_chance = { base = 80 }
+		custom_effect_tooltip = SZC_wenhui_alliance_final
+		add_political_power = -50
+		hidden_effect = {
+			country_event = { id = sichuan.403 days = 10 random_hours = 240 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event sichuan.402 option sichuan.402.b"
+		name = sichuan.402.b #Who does he think he is!?
+		ai_chance = { base = 20 }
+		hidden_effect = {
+			country_event = { id = sichuan.404 days = 3 random_hours = 168 }
+		}
+	}
+}
+
+country_event = { #Alliance of Two Lius
+	id = sichuan.403
+	title = sichuan.403.t
+	desc = sichuan.403.d
+	picture = GFX_report_event_YUN_general_speech
+
+	trigger = {
+		SZC_has_industrial_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.403 option sichuan.403.a"
+		name = sichuan.403.a
+		unlock_national_focus = SZC_Family_Matters
+		SZC_political_recovery = yes
+		add_stability = 0.15
+		SZC_liu_wenhui = { set_nationality = ROOT }
+		SZC_unlock_mountaineer_template = yes
+		set_temp_variable = { coalition_partner_var = token:market_liberal }
+		add_to_coalition = yes
+		601 = {
+			set_demilitarized_zone = no
+			effect_tooltip = {
+				create_unit = {
+					division = "division_template = \"Xikang Shandi Shi\" start_experience_factor = 0.1"
+					owner = ROOT
+					count = 3
+				}
+			}
+			hidden_effect = {
+				create_unit = {
+					division = "division_template = \"Xikang Shandi Shi\" start_experience_factor = 0.1"
+					prioritize_location = 10726
+					owner = ROOT
+				}
+				create_unit = {
+					division = "division_template = \"Xikang Shandi Shi\" start_experience_factor = 0.1"
+					prioritize_location = 8104
+					owner = ROOT
+				}
+				create_unit = {
+					division = "division_template = \"Xikang Shandi Shi\" start_experience_factor = 0.1"
+					prioritize_location = 12724
+					owner = ROOT
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Xikang's Defiance
+	id = sichuan.404
+	title = sichuan.404.t
+	desc = sichuan.404.d
+	picture = GFX_report_event_YUN_landscape
+
+	trigger = {
+		SZC_has_industrial_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.404 option sichuan.404.a"
+		name = sichuan.404.a #Have him assassinated
+		hidden_effect = {
+			country_event = { id = sichuan.405 days = 4 random_hours = 120 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event sichuan.404 option sichuan.404.b"
+		name = sichuan.404.b #Send in the troops
+		hidden_effect = {
+			country_event = { id = sichuan.407 days = 4 random_hours = 96 }
+		}
+	}
+}
+
+country_event = { #A Bullet, Narrowly Missed
+	id = sichuan.405
+	title = sichuan.405.t
+	desc = sichuan.405.d
+	picture = GFX_report_event_CHI_intelligence
+
+	trigger = {
+		SZC_has_industrial_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.405 option sichuan.405.a"
+		name = sichuan.405.a #Drat
+		add_political_power = -15
+		hidden_effect = {
+			country_event = { id = sichuan.406 days = 5 random_hours = 120 }
+		}
+	}
+}
+
+country_event = { #Liu Wenhui Invades the Basin
+	id = sichuan.406
+	title = sichuan.406.t
+	desc = sichuan.406.d
+	picture = GFX_report_event_LEP_sun_chuanfang_troops
+
+	trigger = {
+		SZC_has_industrial_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.406 option sichuan.406.a"
+		name = sichuan.406.a #It's war, then
+		hidden_effect = {
+			country_event = { id = sichuan.408 days = 2 }
+		}
+	}
+}
+
+country_event = { #Liu Wenhui Blocks Entry into Xikang
+	id = sichuan.407
+	title = sichuan.407.t
+	desc = sichuan.407.d
+	picture = GFX_report_event_CHI_machinegun_fighting
+
+	trigger = {
+		SZC_has_industrial_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.407 option sichuan.407.a"
+		name = sichuan.407.a #It's war, then
+		hidden_effect = {
+			country_event = { id = sichuan.408 days = 2 }
+		}
+	}
+}
+
+country_event = { #Two Lius' War
+	id = sichuan.408
+	title = sichuan.408.t
+	desc = sichuan.408.d
+	picture = GFX_report_event_GXC_federalist_troops_atgun
+
+	trigger = {
+		SZC_has_industrial_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.408 option sichuan.408.a"
+		name = sichuan.408.a
+		add_stability = -0.03
+		add_ideas = SZC_two_lius_war
+		hidden_effect = {
+			set_variable = { SZC_liu_wenhui_support = 0 }
+			YUN = { country_event = { id = sichuan.409 days = 10 random_hours = 360 } }
+			HNN = { country_event = { id = sichuan.409 days = 10 random_hours = 360 } }
+			QIE = { country_event = { id = sichuan.409 days = 10 random_hours = 360 } }
+			XSM = { country_event = { id = sichuan.409 days = 10 random_hours = 360 } }
+			country_event = { id = sichuan.410 days = 15 random_hours = 240 }
+			country_event = { id = sichuan.411 days = 30 }
+		}
+	}
+}
+
+country_event = { #Two Liu's War (YUN/HNN/QIE/XSM)
+	id = sichuan.409
+	title = sichuan.409.t
+	desc = sichuan.409.d
+	picture = GFX_report_event_GXC_federalist_troops_bandoliers
+
+	trigger = {
+		SZC_has_industrial_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.409 option sichuan.409.a"
+		name = sichuan.409.a
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 3
+				tag = QIE
+				NOT = { has_global_flag = QIE_manchu_restoration }
+			}
+			modifier = {
+				factor = 0
+				tag = QIE
+				has_global_flag = QIE_manchu_restoration
+			}
+		}
+		add_political_power = -20
+		add_to_variable = { SZC.SZC_liu_wenhui_support = 1 }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.409 option sichuan.409.b"
+		name = sichuan.409.b
+		ai_chance = { base = 70 }
+	}
+}
+
+country_event = { #Tian Songyao Sides With Liu Wenhui
+	id = sichuan.410
+	title = sichuan.410.t
+	desc = sichuan.410.d
+	picture = GFX_report_event_FNG_troops
+
+	trigger = {
+		SZC_has_industrial_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.410 option sichuan.410.a"
+		name = sichuan.410.a
+		add_to_variable = { SZC_liu_wenhui_support = 1 }
+	}
+}
+
+country_event = { #Two Liu's War
+	id = sichuan.411
+	title = sichuan.411.t
+	desc = sichuan.411.d
+	picture = GFX_report_event_CHI_warlord_battle
+
+	trigger = {
+		SZC_has_industrial_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.411 option sichuan.411.a"
+		name = sichuan.411.a #Storm the city
+		ai_chance = {
+			base = 80
+			modifier = {
+				set_temp_variable = { SZC_xiang_win_chance = 0.8 }
+				multiply_temp_variable = { SZC_xiang_win_chance = SZC_liu_wenhui_support }
+				factor = SZC_xiang_win_chance
+			}
+		}
+		custom_effect_tooltip = SZC_meishan_assault
+		clear_variable = SZC_liu_wenhui_support
+		hidden_effect = {
+			country_event = { id = sichuan.412 days = 3 random_hours = 48 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.411 option sichuan.411.b"
+		name = sichuan.411.b #Wait for reiforcements
+		ai_chance = {
+			base = 20
+			modifier = {
+				set_temp_variable = { SZC_wenhui_win_chance = 1.2 }
+				multiply_temp_variable = { SZC_wenhui_win_chance = SZC_liu_wenhui_support }
+				factor = SZC_wenhui_win_chance
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = SZC_path option = SZC_PATH_PATAUT_NPA }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_PATAUT_FNG }
+					has_game_rule = { rule = SZC_path option = SZC_PATH_PATAUT_INDEPENDENT }
+				}
+			}
+		}
+		custom_effect_tooltip = SZC_meishan_reinforce
+		clear_variable = SZC_liu_wenhui_support
+		hidden_effect = {
+			country_event = { id = sichuan.413 days = 3 random_hours = 48 }
+		}
+	}
+}
+
+country_event = { #The Assault on Meishan
+	id = sichuan.412
+	title = sichuan.412.t
+	desc = sichuan.412.d
+	picture = GFX_report_event_YUN_artillery_fire
+
+	trigger = {
+		SZC_has_industrial_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.412 option sichuan.412.a"
+		name = sichuan.412.a
+		add_stability = 0.05
+		add_manpower = -24000
+		unlock_national_focus = SZC_Family_Matters
+		SZC_political_recovery = yes
+		remove_ideas = SZC_two_lius_war
+		601 = { set_demilitarized_zone = no }
+		SZC_unlock_mountaineer_template = yes
+		hidden_effect = {
+			SZC_liu_wenhui_flees = yes
+			retire_character = SZC_tian_songyao
+		}
+	}
+}
+
+country_event = { #The Xikang Rout
+	id = sichuan.413
+	title = sichuan.413.t
+	desc = sichuan.413.d
+	picture = GFX_report_event_QIE_zhili_battle
+
+	trigger = {
+		SZC_has_industrial_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.413 option sichuan.413.a"
+		name = sichuan.413.a
+		add_stability = -0.05
+		add_manpower = -24000
+		remove_ideas = SZC_two_lius_war
+		601 = { set_demilitarized_zone = no }
+		set_politics = {
+			ruling_party = market_liberal
+			elections_allowed = no
+		}
+		set_temp_variable = { coalition_partner_var = token:social_conservative }
+		add_to_coalition = yes
+		SZC_deng_xihou = {
+			set_nationality = ROOT
+			hidden_effect = {
+				remove_unit_leader_trait = GXC_guangdong_clique_officer
+				remove_all_country_leader_roles = yes
+				add_country_leader_role = {
+					country_leader = {
+						desc = SZC_deng_xihou_leader_desc
+						ideology = social_conservative_subtype
+					}
+					promote_leader = yes
+				}
+			}
+		}
+		SZC_wang_zuanxu = {
+			set_nationality = ROOT
+			hidden_effect = { remove_unit_leader_trait = GXC_guangdong_clique_officer }
+		}
+		SZC_wang_zuanxu = { set_nationality = ROOT }
+		hidden_effect = {
+			load_focus_tree = {
+				tree = Sichuan_Clique_Baoding
+				keep_completed = yes
+			}
+			remove_ideas = {
+				SZC_aggressive_modernisation_1
+				SZC_aggressive_modernisation_2
+				SZC_aggressive_modernisation_3
+				SZC_aggressive_modernisation_4
+				SZC_aggressive_modernisation_5
+				SZC_aggressive_modernisation_6
+				SZC_aggressive_modernisation_7
+				SZC_aggressive_modernisation_8
+				SZC_aggressive_modernisation_9
+				SZC_aggressive_modernisation_10
+				SZC_industrial_army_1
+				SZC_industrial_army_2
+				SZC_industrial_army_3
+				SZC_industrial_army_4
+				SZC_industrial_army_5
+				SZC_industrial_army_6
+				SZC_industrial_army_7
+				SZC_industrial_army_8
+				SZC_industrial_army_9
+				SZC_industrial_army_10
+				SZC_industrial_army_11
+				SZC_industrial_army_12
+				SZC_industrial_army_13
+				SZC_industrial_army_14
+				SZC_industrial_army_15
+				SZC_industrial_army_16
+			}
+			unlock_national_focus = SZC_A_Victory_From_Baoding
+			SZC_industrial_corps_flees = yes
+			SZC_liu_wenhui = {
+				set_nationality = ROOT
+				remove_unit_leader_trait = GXC_guangdong_clique_officer
+				remove_all_country_leader_roles = yes
+				add_country_leader_role = {
+					country_leader = {
+						desc = SZC_liu_wenhui_leader_desc
+						ideology = market_liberal_subtype
+					}
+					promote_leader = yes
+				}
+			}
+		}
+	}
+}
+
+country_event = { #First Naval Exercises
+	id = sichuan.414
+	title = sichuan.414.t
+	picture = GFX_report_event_HOL_rhine_ships
+
+	desc = {
+		text = sichuan.414.d.landlocked
+		trigger = {
+			NOT = {
+				any_owned_state = { is_coastal = yes }
+			}
+		}
+	}
+	desc = {
+		text = sichuan.414.d.not_landlocked
+		trigger = {
+			any_owned_state = { is_coastal = yes }
+		}
+	}
+
+	trigger = {
+		SZC_has_industrial_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.414 option sichuan.414.a"
+		name = sichuan.414.a
+		add_political_power = -5
+		navy_experience = -5
+	}
+}
+
+country_event = { #Planes Arrive
+	id = sichuan.415
+	title = sichuan.415.t
+	desc = sichuan.415.d
+	picture = GFX_report_event_CUB_airforce2
+
+	trigger = {
+		SZC_has_industrial_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.415 option sichuan.415.a"
+		name = sichuan.415.a
+		add_equipment_to_stockpile = {
+			type = small_plane_airframe
+			amount = 6
+			producer = NFA
+		}
+		add_equipment_to_stockpile = {
+			type = small_plane_airframe
+			amount = 6
+			producer = CAN
+		}
+		add_equipment_to_stockpile = {
+			type = small_plane_airframe
+			amount = 4
+			producer = GER
+		}
+		air_experience = 5
+		hidden_effect = {
+			country_event = { id = sichuan.416 days = 40 random_hours = 1200 }
+		}
+	}
+}
+
+country_event = { #The Air Parade
+	id = sichuan.416
+	title = sichuan.416.t
+	desc = sichuan.416.d
+	picture = GFX_report_event_CUB_airforce
+
+	trigger = {
+		SZC_has_industrial_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.416 option sichuan.416.a"
+		name = sichuan.416.a
+		add_equipment_to_stockpile = {
+			type = small_plane_airframe
+			amount = -1
+		}
+		add_manpower = -2
+		add_political_power = -5
+		air_experience = -5
+	}
+}
+
+country_event = { #Successful Civil Service Reforms
+	id = sichuan.500
+	title = sichuan.500.t
+	desc = sichuan.500.d
+	picture = GFX_report_event_CHI_successful_northern_expedition_flag
+
+	trigger = {
+		OR = {
+			SZC_has_officer_government = yes
+			SZC_federalists_in_exile = yes
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.500 option sichuan.500.a"
+		name = sichuan.500.a
+		add_political_power = 100
+		swap_ideas = {
+			remove_idea = SZC_civilian_dominance_8
+			add_idea = SZC_civilian_dominance_9
+		}
+	}
+}
+
+country_event = { #Land Reform Shows Results
+	id = sichuan.501
+	title = sichuan.501.t
+	desc = sichuan.501.d
+	picture = GFX_report_event_FNG_farmers
+
+	trigger = {
+		OR = {
+			SZC_has_officer_government = yes
+			SZC_federalists_in_exile = yes
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.501 option sichuan.501.a"
+		name = sichuan.501.a
+		add_stability = 0.05
+		if = {
+			limit = { has_idea = SZC_civilian_dominance_11 }
+			swap_ideas = {
+				remove_idea = SZC_civilian_dominance_11
+				add_idea = SZC_civilian_dominance_12
+			}
+		}
+		else = {
+			swap_ideas = {
+				remove_idea = SZC_civilian_dominance_9
+				add_idea = SZC_civilian_dominance_10
+			}
+		}
+	}
+}
+
+country_event = { #A New Currency for Sichuan
+	id = sichuan.502
+	title = sichuan.502.t
+	desc = sichuan.502.d
+	picture = GFX_report_event_CHI_new_government
+
+	trigger = {
+		OR = {
+			SZC_has_officer_government = yes
+			SZC_federalists_in_exile = yes
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.502 option sichuan.502.a"
+		name = sichuan.502.a
+		add_stability = 0.05
+		if = {
+			limit = { has_idea = SZC_civilian_dominance_10 }
+			swap_ideas = {
+				remove_idea = SZC_civilian_dominance_10
+				add_idea = SZC_civilian_dominance_12
+			}
+		}
+		else = {
+			swap_ideas = {
+				remove_idea = SZC_civilian_dominance_9
+				add_idea = SZC_civilian_dominance_11
+			}
+		}
+	}
+}
+
+country_event = { #A Blow Against Corruption
+	id = sichuan.503
+	title = sichuan.503.t
+	desc = sichuan.503.d
+	picture = GFX_report_event_CHI_chiang_wei_kuo
+
+	trigger = {
+		OR = {
+			SZC_has_officer_government = yes
+			SZC_federalists_in_exile = yes
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.503 option sichuan.503.a"
+		name = sichuan.503.a
+		add_stability = 0.2
+	}
+}
+
+country_event = { #First Session of the Assembly
+	id = sichuan.504
+	title = sichuan.504.t
+	desc = sichuan.504.d
+	picture = GFX_report_event_JAP_diet
+
+	trigger = {
+		OR = {
+			SZC_has_officer_government = yes
+			SZC_federalists_in_exile = yes
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.504 option sichuan.504.a"
+		name = sichuan.504.a
+		add_political_power = 20
+		swap_ideas = {
+			remove_idea = SZC_civilian_dominance_7
+			add_idea = SZC_civilian_dominance_8
+		}
+		activate_advisor = empowered_legislative_sic
+		hidden_effect = {
+			country_event = { id = sichuan.508 days = 20 random_hours = 240 }
+		}
+	}
+}
+
+country_event = { #Zhongchuan Military Act
+	id = sichuan.505
+	title = sichuan.505.t
+	desc = sichuan.505.d
+	picture = GFX_report_event_YUN_KMT_soldier
+
+	trigger = {
+		OR = {
+			SZC_has_officer_government = yes
+			SZC_federalists_in_exile = yes
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.505 option sichuan.505.a"
+		name = sichuan.505.a
+		add_stability = 0.05
+		add_war_support = 0.05
+		add_political_power = 40
+		add_timed_idea = {
+			idea = SZC_ongoing_army_reform
+			days = 300
+		}
+		custom_effect_tooltip = SZC_army_reform_tooltip
+		effect_tooltip = { army_experience = 50 }
+	}
+}
+
+country_event = { #Army Reform Successful
+	id = sichuan.506
+	title = sichuan.506.t
+	desc = sichuan.506.d
+	picture = GFX_report_event_YUN_KMT_Army
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.506 option sichuan.506.a"
+		name = sichuan.506.a
+		army_experience = 50
+		if = {
+			limit = {
+				OR = {
+					has_completed_focus = SZC_Military_Affairs_Commission
+					has_completed_focus = SZC_Military_Affairs_Commission_2
+				}
+				OR = {
+					has_completed_focus = SZC_The_Guofangjun_Model
+					has_completed_focus = SZC_The_Guofangjun_Model_2
+				}
+			}
+			add_ideas = SZC_sichuan_provincial_army_4
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_completed_focus = SZC_The_Guofangjun_Model
+					has_completed_focus = SZC_The_Guofangjun_Model_2
+				}
+			}
+			add_ideas = SZC_sichuan_provincial_army_3
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_completed_focus = SZC_Military_Affairs_Commission
+					has_completed_focus = SZC_Military_Affairs_Commission_2
+				}
+			}
+			add_ideas = SZC_sichuan_provincial_army_2
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_completed_focus = SZC_The_Sichuan_Provincial_Army
+					has_completed_focus = SZC_The_Sichuan_Provincial_Army_2
+				}
+			}
+			add_ideas = SZC_sichuan_provincial_army_1
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_completed_focus = SZC_Recruit_NRA_Veterans
+					has_completed_focus = SZC_Recruit_NRA_Veterans_2
+				}
+				OR = {
+					has_completed_focus = SZC_Form_Minjun
+					has_completed_focus = SZC_Form_Minjun_2
+				}
+			}
+			add_ideas = SZC_regional_militias_3
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_completed_focus = SZC_Form_Minjun
+					has_completed_focus = SZC_Form_Minjun_2
+				}
+			}
+			add_ideas = SZC_regional_militias_2
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_completed_focus = SZC_Recruit_NRA_Veterans
+					has_completed_focus = SZC_Recruit_NRA_Veterans_2
+				}
+			}
+			add_ideas = SZC_regional_militias_1
+		}
+	}
+}
+
+country_event = { #The End of Banditry
+	id = sichuan.507
+	title = sichuan.507.t
+	desc = sichuan.507.d
+	picture = GFX_report_event_YUN_KMT_march
+
+	trigger = {
+		OR = {
+			SZC_has_officer_government = yes
+			SZC_federalists_in_exile = yes
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.507 option sichuan.507.a"
+		name = sichuan.507.a
+		add_stability = 0.15
+	}
+}
+
+country_event = { #Parties Begin to Form
+	id = sichuan.508
+	title = sichuan.508.t
+	desc = sichuan.508.d
+	picture = GFX_report_event_GXC_federalist_party_3
+
+	trigger = {
+		SZC_has_officer_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.508 option sichuan.508.a"
+		name = sichuan.508.a
+		add_political_power = 10
+		add_stability = 0.05
+		set_party_name = {
+			ideology = social_democrat
+			name = SZC_Three_Principles_Party
+			long_name = SZC_Three_Principles_Party_long
+		}
+		set_party_name = {
+			ideology = social_liberal
+			name = SZC_Self_Government_Party
+			long_name = SZC_Self_Government_Party_long
+		}
+		hidden_effect = {
+			country_event = { id = sichuan.509 days = 20 random_hours = 240 }
+		}
+	}
+}
+
+country_event = { #The First Provincial Elections
+	id = sichuan.509
+	title = sichuan.509.t
+	desc = sichuan.509.d
+	picture = GFX_report_event_CHI_vote
+
+	trigger = {
+		SZC_has_officer_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.509 option sichuan.509.a"
+		name = sichuan.509.a
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = SZC_path option = SZC_PATH_SOCLIB }
+			}
+		}
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = social_democrat
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 24
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.1
+		}
+		set_temp_variable = { coalition_partner_var = token:social_liberal }
+		add_to_coalition = yes
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.509 option sichuan.509.b"
+		name = sichuan.509.b
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = SZC_path option = SZC_PATH_SOCDEM }
+			}
+		}
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = social_liberal
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 24
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.1
+		}
+		set_temp_variable = { coalition_partner_var = token:social_democrat }
+		add_to_coalition = yes
+	}
+}
+
+country_event = { #The [GetYear] Provincial Elections
+	id = sichuan.510
+	title = sichuan.510.t
+	desc = sichuan.510.d
+	picture = GFX_report_event_CHI_vote
+
+	trigger = {
+		SZC_has_officer_government = yes
+		SZC_federalists_in_exile = no
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.510 option sichuan.509.a"
+		name = sichuan.509.a
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = SZC_path option = SZC_PATH_SOCDEM }
+			}
+		}
+		set_politics = {
+			ruling_party = social_democrat
+			elections_allowed = yes
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.1
+		}
+		set_temp_variable = { coalition_partner_var = token:social_liberal }
+		add_to_coalition = yes
+	}
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.510 option sichuan.509.b"
+		name = sichuan.509.b
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = SZC_path option = SZC_PATH_SOCDEM }
+			}
+		}
+		set_politics = {
+			ruling_party = social_liberal
+			elections_allowed = yes
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.1
+		}
+		set_temp_variable = { coalition_partner_var = token:social_democrat }
+		add_to_coalition = yes
+	}
+}
+
+country_event = { #Chen Jiongming Arrives in Sichuan
+	id = sichuan.511
+	title = sichuan.511.t
+	desc = sichuan.511.d
+	picture = GFX_report_event_GXC_chen_jiongming
+
+	trigger = {
+		is_subject = no
+		has_elected_government = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event sichuan.511 option sichuan.511.a"
+		name = sichuan.511.a
+		add_political_power = 200
+		GXC_move_federalist_generals = yes
+		event_target:original_liangguang = {
+			GXC_chen_jiongming = {
+				if = {
+					limit = { has_ideology = social_liberal_subtype }
+					promote_character = social_liberal_subtype
+				}
+				else = {
+					add_country_leader_role = {
+						country_leader = {
+							desc = GXC_chen_jiongming_leader_desc
+							ideology = social_liberal_subtype
+						}
+						promote_leader = yes
+					}
+				}
+				if = {
+					limit = { has_ideology = social_democrat_subtype }
+					promote_character = social_democrat_subtype
+				}
+				else = {
+					add_country_leader_role = {
+						country_leader = {
+							desc = GXC_chen_jiongming_leader_desc
+							ideology = social_democrat_subtype
+						}
+						promote_leader = yes
+					}
+				}
+			}
+		}
+		set_politics = {
+			ruling_party = social_democrat
+			elections_allowed = no
+		}
+		set_temp_variable = { coalition_partner_var = token:social_liberal }
+		add_to_coalition = yes
+		hidden_effect = {
+			set_potential_national_government = yes
+			remove_ideas = {
+				SZC_diarchy_wenhui_3
+				SZC_diarchy_wenhui_2
+				SZC_diarchy_wenhui_1
+				SZC_diarchy_neutral
+				SZC_diarchy_xihou_1
+				SZC_diarchy_xihou_2
+				SZC_diarchy_xihou_3
+				SZC_social_welfare_1
+				SZC_social_welfare_2
+				SZC_social_welfare_3
+				SZC_social_welfare_4
+				SZC_social_welfare_5
+				SZC_social_welfare_6
+				SZC_social_welfare_7
+				SZC_social_welfare_8
+				SZC_social_welfare_9
+				SZC_social_welfare_10
+				SZC_social_welfare_11
+				SZC_social_welfare_12
+				SZC_social_welfare_13
+				SZC_social_welfare_14
+				SZC_social_welfare_15
+				SZC_social_welfare_16
+				SZC_social_welfare_17
+			}
+			if = {
+				limit = { has_completed_focus = SZC_Restructure_The_Army }
+				set_country_flag = SZC_Restructure_The_Army_completed
+			}
+			if = {
+				limit = { has_completed_focus = SZC_Recruit_NRA_Veterans }
+				set_country_flag = SZC_Recruit_NRA_Veterans_completed
+			}
+			if = {
+				limit = { has_completed_focus = SZC_Form_Minjun }
+				set_country_flag = SZC_Form_Minjun_completed
+			}
+			if = {
+				limit = { has_completed_focus = SZC_The_Sichuan_Provincial_Army }
+				set_country_flag = SZC_The_Sichuan_Provincial_Army_completed
+			}
+			if = {
+				limit = { has_completed_focus = SZC_Military_Affairs_Commission }
+				set_country_flag = SZC_Military_Affairs_Commission_completed
+			}
+			if = {
+				limit = { has_completed_focus = SZC_The_Guofangjun_Model }
+				set_country_flag = SZC_The_Guofangjun_Model_completed
+			}
+			if = {
+				limit = { has_completed_focus = SZC_Civil_Service_Reform }
+				set_country_flag = SZC_Civil_Service_Reform_completed
+			}
+			if = {
+				limit = { has_completed_focus = SZC_First_Steps_Of_Land_Reform }
+				set_country_flag = SZC_First_Steps_Of_Land_Reform_completed
+			}
+			if = {
+				limit = { has_completed_focus = SZC_Create_A_New_Currency }
+				set_country_flag = SZC_Create_A_New_Currency_completed
+			}
+			if = {
+				limit = { has_completed_focus = SZC_Land_Value_Tax }
+				set_country_flag = SZC_Land_Value_Tax_completed
+			}
+			if = {
+				limit = { has_completed_focus = SZC_Judicial_Renewal }
+				set_country_flag = SZC_Judicial_Renewal_completed
+			}
+			load_focus_tree = {
+				tree = Sichuan_Clique_Federalist
+				keep_completed = yes
+			}
+			complete_national_focus = SZC_The_Last_Bastion_Of_Federalism
+			if = {
+				limit = { has_country_flag = SZC_Restructure_The_Army_completed }
+				clr_country_flag = SZC_Restructure_The_Army_completed
+				unlock_national_focus = SZC_Restructure_The_Army_2
+			}
+			if = {
+				limit = { has_country_flag = SZC_Recruit_NRA_Veterans_completed }
+				clr_country_flag = SZC_Recruit_NRA_Veterans_completed
+				unlock_national_focus = SZC_Recruit_NRA_Veterans_2
+			}
+			if = {
+				limit = { has_country_flag = SZC_Form_Minjun_completed }
+				clr_country_flag = SZC_Form_Minjun_completed
+				unlock_national_focus = SZC_Form_Minjun_2
+			}
+			if = {
+				limit = { has_country_flag = SZC_The_Sichuan_Provincial_Army_completed }
+				clr_country_flag = SZC_The_Sichuan_Provincial_Army_completed
+				unlock_national_focus = SZC_The_Sichuan_Provincial_Army_2
+			}
+			if = {
+				limit = { has_country_flag = SZC_Military_Affairs_Commission_completed }
+				clr_country_flag = SZC_Military_Affairs_Commission_completed
+				unlock_national_focus = SZC_Military_Affairs_Commission_2
+			}
+			if = {
+				limit = { has_country_flag = SZC_The_Guofangjun_Model_completed }
+				clr_country_flag = SZC_The_Guofangjun_Model_completed
+				unlock_national_focus = SZC_The_Guofangjun_Model_2
+			}
+			if = {
+				limit = { has_country_flag = SZC_Civil_Service_Reform_completed }
+				clr_country_flag = SZC_Civil_Service_Reform_completed
+				unlock_national_focus = SZC_Civil_Service_Reform_2
+			}
+			if = {
+				limit = { has_country_flag = SZC_First_Steps_Of_Land_Reform_completed }
+				clr_country_flag = SZC_First_Steps_Of_Land_Reform_completed
+				unlock_national_focus = SZC_First_Steps_Of_Land_Reform_2
+			}
+			if = {
+				limit = { has_country_flag = SZC_Create_A_New_Currency_completed }
+				clr_country_flag = SZC_Create_A_New_Currency_completed
+				unlock_national_focus = SZC_Create_A_New_Currency_2
+			}
+			if = {
+				limit = { has_country_flag = SZC_Land_Value_Tax_completed }
+				clr_country_flag = SZC_Land_Value_Tax_completed
+				unlock_national_focus = SZC_Land_Value_Tax_2
+			}
+			if = {
+				limit = { has_country_flag = SZC_Judicial_Renewal_completed }
+				clr_country_flag = SZC_Judicial_Renewal_completed
+				unlock_national_focus = SZC_Judicial_Renewal_2
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event sichuan.511 option sichuan.511.b"
+		name = sichuan.511.b
+		trigger = {
+			is_ai = no
+			NOT = { has_government = social_liberal }
+		}
+	}
+}
+

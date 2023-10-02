@@ -1,0 +1,869 @@
+### Liangguang decisions
+GXC_border_raid_decisions = {
+	GXC_raid_german_indochina = {
+		icon = infiltrate_state
+
+		allowed = { always = no }
+
+		available = {
+			NOT = {
+				has_country_flag = raiding_in_progress
+				GEA = { has_country_flag = secured_border_with_GXC }
+			}
+		}
+		visible = {
+			has_government = paternal_autocrat
+			is_subject = no
+			GEA = {
+				owns_state = 671
+				is_neighbor_of = ROOT
+				NOT = { is_ally_with = ROOT }
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = { state = 857 }
+		}
+
+		cost = 25
+
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.75
+				}
+			}
+			modifier = {
+				factor = 0
+				has_war = yes
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete GXC_raid_german_indochina target: [From.GetName]"
+			country_event = lngraids.1
+			set_country_flag = raiding_in_progress
+		}
+		days_remove = 30
+		days_re_enable = 31
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove GXC_raid_german_indochina target: [From.GetName]"
+			clr_country_flag = raiding_in_progress
+		}
+	}
+	GXC_raid_indochina = {
+		icon = infiltrate_state
+
+		allowed = { always = no }
+
+		available = {
+			NOT = {
+				has_country_flag = raiding_in_progress
+				INC = { has_country_flag = secured_border_with_GXC }
+			}
+		}
+		visible = {
+			has_government = paternal_autocrat
+			is_subject = no
+			is_neighbor_of = INC
+			INC = {
+				is_neighbor_of = ROOT
+				NOT = { is_ally_with = ROOT }
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = { state = 857 }
+		}
+
+		cost = 25
+
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.75
+				}
+			}
+			modifier = {
+				factor = 0
+				has_war = yes
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete GXC_raid_indochina target: [From.GetName]"
+			country_event = lngraids.2
+			set_country_flag = raiding_in_progress
+		}
+		days_remove = 30
+		days_re_enable = 31
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove GXC_raid_indochina target: [From.GetName]"
+			clr_country_flag = raiding_in_progress
+		}
+	}
+	GXC_raid_yunnan = {
+		icon = infiltrate_state
+
+		allowed = { always = no }
+
+		available = {
+			NOT = {
+				has_country_flag = raiding_in_progress
+				YUN = { has_country_flag = secured_border_with_GXC }
+			}
+		}
+		visible = {
+			has_government = paternal_autocrat
+			is_subject = no
+			YUN = {
+				is_neighbor_of = ROOT
+				NOT = { is_ally_with = ROOT }
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = { state = 325 }
+		}
+
+		cost = 25
+
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.75
+				}
+			}
+			modifier = {
+				factor = 0
+				has_war = yes
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete GXC_raid_yunnan target: [From.GetName]"
+			country_event = lngraids.3
+			set_country_flag = raiding_in_progress
+		}
+		days_remove = 30
+		days_re_enable = 31
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove GXC_raid_yunnan target: [From.GetName]"
+			clr_country_flag = raiding_in_progress
+		}
+	}
+	GXC_raid_hunan = {
+		icon = infiltrate_state
+
+		allowed = { always = no }
+
+		available = {
+			NOT = {
+				has_country_flag = raiding_in_progress
+				HNN = { has_country_flag = secured_border_with_GXC }
+			}
+		}
+		visible = {
+			has_government = paternal_autocrat
+			is_subject = no
+			HNN = {
+				is_neighbor_of = ROOT
+				NOT = { is_ally_with = ROOT }
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = { state = 602 }
+		}
+
+		cost = 25
+
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.75
+				}
+			}
+			modifier = {
+				factor = 0
+				has_war = yes
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete GXC_raid_hunan target: [From.GetName]"
+			country_event = lngraids.4
+			set_country_flag = raiding_in_progress
+		}
+		days_remove = 30
+		days_re_enable = 31
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove GXC_raid_hunan target: [From.GetName]"
+			clr_country_flag = raiding_in_progress
+		}
+	}
+	GXC_raid_kmt = {
+		icon = infiltrate_state
+
+		allowed = { always = no }
+
+		available = {
+			NOT = {
+				has_country_flag = raiding_in_progress
+				CHI = { has_country_flag = secured_border_with_GXC }
+			}
+		}
+		visible = {
+			has_government = paternal_autocrat
+			is_subject = no
+			CHI = {
+				is_neighbor_of = ROOT
+				NOT = { is_ally_with = ROOT }
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = { state = 1046 }
+		}
+
+		cost = 25
+
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.75
+				}
+			}
+			modifier = {
+				factor = 0
+				has_war = yes
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete GXC_raid_kmt target: [From.GetName]"
+			country_event = lngraids.5
+			set_country_flag = raiding_in_progress
+		}
+		days_remove = 30
+		days_re_enable = 31
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove GXC_raid_kmt target: [From.GetName]"
+			clr_country_flag = raiding_in_progress
+		}
+	}
+	GXC_raid_lep = {
+		icon = infiltrate_state
+
+		allowed = { always = no }
+
+		available = {
+			NOT = {
+				has_country_flag = raiding_in_progress
+				LEP = { has_country_flag = secured_border_with_GXC }
+			}
+		}
+		visible = {
+			has_government = paternal_autocrat
+			is_subject = no
+			owns_state = 800
+			LEP = {
+				owns_state = 600
+				is_neighbor_of = ROOT
+				NOT = { is_ally_with = ROOT }
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = { state = 600 }
+		}
+
+		cost = 25
+
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.75
+				}
+			}
+			modifier = {
+				factor = 0
+				has_war = yes
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete GXC_raid_lep target: [From.GetName]"
+			country_event = lngraids.6
+			set_country_flag = raiding_in_progress
+		}
+		days_remove = 30
+		days_re_enable = 31
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove GXC_raid_lep target: [From.GetName]"
+			clr_country_flag = raiding_in_progress
+		}
+	}
+	GXC_raid_lec = {
+		icon = infiltrate_state
+
+		allowed = { always = no }
+
+		available = {
+			NOT = {
+				has_country_flag = raiding_in_progress
+				LEC = { has_country_flag = secured_border_with_GXC }
+			}
+		}
+		visible = {
+			has_government = paternal_autocrat
+			is_subject = no
+			LEC = {
+				is_neighbor_of = ROOT
+				NOT = { is_ally_with = ROOT }
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = { state = 326 }
+		}
+
+		cost = 25
+
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.75
+				}
+			}
+			modifier = {
+				factor = 0
+				has_war = yes
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete GXC_raid_lec target: [From.GetName]"
+			country_event = lngraids.7
+			set_country_flag = raiding_in_progress
+		}
+		days_remove = 30
+		days_re_enable = 31
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove GXC_raid_lec target: [From.GetName]"
+			clr_country_flag = raiding_in_progress
+		}
+	}
+	GXC_raid_aog = {
+		icon = infiltrate_state
+
+		allowed = { always = no }
+
+		available = {
+			NOT = {
+				has_country_flag = raiding_in_progress
+				GEA = { has_country_flag = secured_border_with_GXC }
+			}
+		}
+		visible = {
+			has_government = paternal_autocrat
+			is_subject = no
+			GEA = {
+				is_neighbor_of = ROOT
+				NOT = { is_ally_with = ROOT }
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = { state = 592 }
+		}
+
+		cost = 25
+
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.75
+				}
+			}
+			modifier = {
+				factor = 0
+				has_war = yes
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete GXC_raid_aog target: [From.GetName]"
+			country_event = lngraids.8
+			set_country_flag = raiding_in_progress
+		}
+		days_remove = 30
+		days_re_enable = 31
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove GXC_raid_aog target: [From.GetName]"
+			clr_country_flag = raiding_in_progress
+		}
+	}
+}
+
+GXC_anti_banditry_decisions = {
+	GXC_GEA_secure_border = {
+		icon = infiltrate_state
+
+		allowed = { always = no }
+
+		available = {
+			divisions_in_state = {
+				state = 857
+				size > 1
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = { state = 857 }
+		}
+
+		fire_only_once = yes
+
+		cost = 50
+
+		ai_will_do = { factor = 100 }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete GXC_GEA_secure_border"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove GXC_GEA_secure_border"
+			set_country_flag = secured_border_with_GXC
+			custom_effect_tooltip = securing_border_with_GXC_tt
+		}
+		days_remove = 20
+	}
+	GXC_INC_secure_border = {
+		icon = infiltrate_state
+
+		allowed = { always = no }
+
+		available = {
+			divisions_in_state = {
+				state = 857
+				size > 1
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = { state = 857 }
+		}
+
+		fire_only_once = yes
+
+		cost = 50
+
+		ai_will_do = { factor = 100 }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete GXC_INC_secure_border"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove GXC_INC_secure_border"
+			set_country_flag = secured_border_with_GXC
+			custom_effect_tooltip = securing_border_with_GXC_tt
+		}
+		days_remove = 20
+	}
+	GXC_YUN_secure_border = {
+		icon = infiltrate_state
+
+		allowed = { always = no }
+
+		available = {
+			divisions_in_state = {
+				state = 325
+				size > 1
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = { state = 325 }
+		}
+
+		fire_only_once = yes
+
+		cost = 50
+
+		ai_will_do = { factor = 100 }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete GXC_YUN_secure_border"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove GXC_YUN_secure_border"
+			set_country_flag = secured_border_with_GXC
+			custom_effect_tooltip = securing_border_with_GXC_tt
+		}
+		days_remove = 20
+	}
+	GXC_HNN_secure_border = {
+		icon = infiltrate_state
+
+		allowed = { always = no }
+
+		available = {
+			divisions_in_state = {
+				state = 602
+				size > 1
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = { state = 602 }
+		}
+
+		fire_only_once = yes
+
+		cost = 50
+
+		ai_will_do = { factor = 100 }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete GXC_HNN_secure_border"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove GXC_HNN_secure_border"
+			set_country_flag = secured_border_with_GXC
+			custom_effect_tooltip = securing_border_with_GXC_tt
+		}
+		days_remove = 20
+	}
+	GXC_KMT_secure_border = {
+		icon = infiltrate_state
+
+		allowed = { always = no }
+
+		available = {
+			divisions_in_state = {
+				state = 1046
+				size > 1
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = { state = 1046 }
+		}
+
+		fire_only_once = yes
+
+		cost = 50
+
+		ai_will_do = { factor = 100 }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete GXC_KMT_secure_border"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove GXC_KMT_secure_border"
+			set_country_flag = secured_border_with_GXC
+			custom_effect_tooltip = securing_border_with_GXC_tt
+		}
+		days_remove = 20
+	}
+	GXC_LEP_secure_border = {
+		icon = infiltrate_state
+
+		allowed = { always = no }
+
+		available = {
+			divisions_in_state = {
+				state = 600
+				size > 1
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = { state = 600 }
+		}
+
+		fire_only_once = yes
+
+		cost = 50
+
+		ai_will_do = { factor = 100 }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete GXC_LEP_secure_border"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove GXC_LEP_secure_border"
+			set_country_flag = secured_border_with_GXC
+			custom_effect_tooltip = securing_border_with_GXC_tt
+		}
+		days_remove = 20
+	}
+	GXC_LEC_secure_border = {
+		icon = infiltrate_state
+
+		allowed = { always = no }
+
+		available = {
+			divisions_in_state = {
+				state = 326
+				size > 1
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = { state = 326 }
+		}
+
+		fire_only_once = yes
+
+		cost = 50
+
+		ai_will_do = { factor = 100 }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete GXC_LEC_secure_border"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove GXC_LEC_secure_border"
+			set_country_flag = secured_border_with_GXC
+			custom_effect_tooltip = securing_border_with_GXC_tt
+		}
+		days_remove = 20
+	}
+}
+
+GXC_finding_backers = {
+	GXC_align_with_zhili = {
+		icon = generic_agreement
+
+		allowed = { always = no }
+
+		available = {
+			at_peace_or_same_enemies_as_FROM = yes
+		}
+
+		visible = {
+			has_government = paternal_autocrat
+			FROM = {
+				china_is_aligned_with_zhili = yes
+				china_is_valid_government_to_join = yes
+			}
+		}
+
+		target_trigger = {
+			FROM = {
+				china_is_aligned_with_zhili = yes
+				china_is_valid_government_to_join = yes
+			}
+		}
+
+		cost = 0
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				FROM = { surrender_progress > 0.3 }
+				NOT = {
+					has_game_rule = { rule = GXC_path option = GXC_PATH_PATAUT_QIE }
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = GXC_path option = GXC_PATH_NPA }
+					has_game_rule = { rule = GXC_path option = GXC_PATH_EXPANSIONISM }
+				}
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete GXC_align_with_zhili target: [From.GetName]"
+			FROM = { country_event = lng.7 }
+		}
+	}
+	GXC_align_with_japan = {
+		icon = generic_agreement
+
+		allowed = { always = no }
+
+		available = {
+			at_peace_or_same_enemies_as_FROM = yes
+		}
+
+		visible = {
+			has_government = market_liberal
+			is_in_faction = no
+			is_subject = no
+			china_is_potential_government = no
+			NOT = { has_war_with = FROM }
+			FROM = { is_faction_leader = yes }
+		}
+
+		target_trigger = {
+			is_in_faction = no
+			is_subject = no
+			NOT = { has_war_with = FROM }
+			FROM = { is_faction_leader = yes }
+		}
+
+		cost = 0
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				FROM = { surrender_progress > 0.1 }
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = GXC_path option = GXC_PATH_NPA }
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete GXC_align_with_japan target: [From.GetName]"
+			FROM = { country_event = lng.8 }
+		}
+	}
+}
+
+GXC_guangdong_guangxi_war_decisions = {
+	GXC_mobilize_merchant_corps = {
+		icon = generic_army_support
+
+		allowed = { always = no }
+
+		fire_only_once = yes
+
+		cost = 25
+
+		ai_will_do = { factor = 100 }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete GXC_mobilize_merchant_corps"
+			hidden_effect = {
+				if = {
+					limit = { has_template = "Shang Tuan Minbing" }
+					delete_unit_template_and_units = { division_template = "Shang Tuan Minbing" disband = yes } #no cheating
+				}
+			}
+			division_template = {
+				name = "Shang Tuan Minbing"
+				division_names_group = "GXC_INF_01"
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+				}
+			}
+			if = {
+				limit = { has_country_flag = GXC_favoured_gentry }
+				random_owned_controlled_state = {
+					prioritize = { 592 593 }
+					limit = { is_in_home_area = yes }
+					create_unit = {
+						division = "division_template = \"Shang Tuan Minbing\" start_experience_factor = 0.2"
+						owner = ROOT
+						count = 2
+					}
+				}
+			}
+			else = {
+				random_owned_controlled_state = {
+					prioritize = { 592 593 }
+					limit = { is_in_home_area = yes }
+					create_unit = {
+						division = "division_template = \"Shang Tuan Minbing\" start_experience_factor = 0.2"
+						owner = ROOT
+					}
+				}
+			}
+		}
+	}
+	GXC_mobilize_gentry_militia = {
+		icon = generic_prepare_civil_war
+
+		allowed = { always = no }
+
+		cost = 25
+		fire_only_once = yes
+
+		ai_will_do = { factor = 100 }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision complete GXC_mobilize_gentry_militia"
+			hidden_effect = {
+				if = {
+					limit = { has_template = "Nongcun Minbing" }
+					delete_unit_template_and_units = { division_template = "Nongcun Minbing" disband = yes } #no cheating
+				}
+			}
+			division_template = {
+				name = "Nongcun Minbing"
+				division_names_group = "GXC_INF_01"
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+				}
+			}
+			if = {
+				limit = { has_country_flag = GXC_favoured_gentry }
+				random_owned_controlled_state = {
+					prioritize = { 592 593 }
+					limit = { is_in_home_area = yes }
+					create_unit = {
+						division = "division_template = \"Nongcun Minbing\" start_experience_factor = 0.1"
+						owner = ROOT
+						count = 2
+					}
+				}
+			}
+			else = {
+				random_owned_controlled_state = {
+					prioritize = { 592 593 }
+					limit = { is_in_home_area = yes }
+					create_unit = {
+						division = "division_template = \"Nongcun Minbing\" start_experience_factor = 0.1"
+						owner = ROOT
+						count = 3
+					}
+				}
+			}
+		}
+	}
+}

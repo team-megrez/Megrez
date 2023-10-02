@@ -15,14 +15,12 @@ should_activate_active_crypto_bonuses = {
 	always = no
 }
 
-
 # called if the ai decides activating bonuses. you can override that decision by returning true here.
 should_not_activate_active_crypto_bonuses = {
 	always = no
 }
 
 #--------------------------------------------------------
-
 
 #~~ Used for checking if resistance should be enabled in a certain state
 
@@ -36,25 +34,12 @@ should_not_activate_active_crypto_bonuses = {
 # can be specialized for states by using should_initiate_resistance_STATEID1_STATEID2 = { }
 # those will override default should_initiate_resistance
 should_initiate_resistance = {
+	impassable = no
 	OR = {
 		check_variable = { core_countries^num > 0 } # have no cores
-		#AND = {
-		#	has_state_flag = SPR_original_core
-		#	FROM = {
-		#		original_tag = SPR
-		#	}
-		#	has_global_flag = scw_over
-		#}
+		occupied_country_tag = XXA
 	}
 	NOT = { is_core_of = FROM } # never for our cores
-}
-
-should_initiate_resistance_101_686_685 = { #US outer possessions
-	NOT = { FROM = { tag = USA } }
-}
-
-should_initiate_resistance_690_693_703_704_720_299_1729_696_1322 = { #Canadian Atlantic Posesesions
-	NOT = { FROM = { tag = CAN } }
 }
 
 #should_initiate_resistance_5 = {
@@ -72,9 +57,9 @@ should_initiate_resistance_690_693_703_704_720_299_1729_696_1322 = { #Canadian A
 #	# for facsist Germany, these state always has resistance
 #	# since there are no other cores, the resistor will be Germany
 #	if = {
-#		limit = { 
-#			FROM = { 
-#				tag = GER 
+#		limit = {
+#			FROM = {
+#				tag = GER
 #				has_government = fascism
 #			}
 #		}

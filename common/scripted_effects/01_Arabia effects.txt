@@ -1,0 +1,2038 @@
+ARA_core_hail = {
+	if = {
+		limit = {
+			NOT = { 915 = { is_core_of = ROOT } }
+		}
+		add_state_core = 915 #Ha'il
+	}
+	if = {
+		limit = {
+			NOT = { 994 = { is_core_of = ROOT } }
+		}
+		add_state_core = 994 #Jawf
+	}
+	if = {
+		limit = {
+			NOT = { 1035 = { is_core_of = ROOT } }
+		}
+		add_state_core = 1035 #Anizzah
+	}
+}
+
+ARA_core_nejd = {
+	if = {
+		limit = {
+			NOT = { 292 = { is_core_of = ROOT } }
+		}
+		add_state_core = 292 #Najd
+	}
+	if = {
+		limit = {
+			NOT = { 656 = { is_core_of = ROOT } }
+		}
+		add_state_core = 656 #Al-Hasa
+	}
+	if = {
+		limit = {
+			NOT = { 675 = { is_core_of = ROOT } }
+		}
+		add_state_core = 675 #Qassim
+	}
+	if = {
+		limit = {
+			NOT = { 678 = { is_core_of = ROOT } }
+		}
+		add_state_core = 678 #Rub Al Khali
+	}
+	if = {
+		limit = {
+			NOT = { 991 = { is_core_of = ROOT } }
+		}
+		add_state_core = 991 #Summan
+	}
+}
+
+ARA_core_trucial_states = {
+	if = {
+		limit = {
+			NOT = { 658 = { is_core_of = ROOT } }
+		}
+		add_state_core = 658 #Abu Dhabi
+	}
+	if = {
+		limit = {
+			NOT = { 907 = { is_core_of = ROOT } }
+		}
+		add_state_core = 907 #Bahrain
+	}
+	if = {
+		limit = {
+			NOT = { 993 = { is_core_of = ROOT } }
+		}
+		add_state_core = 993 #Qatar
+	}
+}
+
+ARA_core_yemen = {
+	if = {
+		limit = {
+			NOT = { 981 = { is_core_of = ROOT } }
+		}
+		add_state_core = 981 #Najran
+	}
+	if = {
+		limit = {
+			NOT = { 982 = { is_core_of = ROOT } }
+		}
+		add_state_core = 982 #Asir
+	}
+}
+
+SAU_ikhwan_raid_reward = {
+	add_manpower = 300
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 200
+		producer = TUR
+	}
+}
+
+JBS_Decrease_Ulemma_Support = {
+	custom_effect_tooltip = tooltip_white_line
+	custom_effect_tooltip = JBS_ulemma_decrease_support_tt
+	if = {
+		limit = {
+			JBS_ulemma_influence = {
+				has_trait = JBS_Ulemma_Very_Happy
+			}
+		}
+		hidden_effect = {
+			JBS_ulemma_influence = {
+				remove_trait = {
+					trait = JBS_Ulemma_Very_Happy
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Ulemma_Happy
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Ulemma_Very_Happy
+				add_idea = JBS_Ulemma_Happy
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_ulemma_influence = {
+				has_trait = JBS_Ulemma_Happy
+			}
+		}
+		hidden_effect = {
+			JBS_ulemma_influence = {
+				remove_trait = {
+					trait = JBS_Ulemma_Happy
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Ulemma_Pleased
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Ulemma_Happy
+				add_idea = JBS_Ulemma_Pleased
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_ulemma_influence = {
+				has_trait = JBS_Ulemma_Pleased
+			}
+		}
+		hidden_effect = {
+			JBS_ulemma_influence = {
+				remove_trait = {
+					trait = JBS_Ulemma_Pleased
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Ulemma_Neutral
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Ulemma_Pleased
+				add_idea = JBS_Ulemma_Neutral
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_ulemma_influence = {
+				has_trait = JBS_Ulemma_Neutral
+			}
+		}
+		hidden_effect = {
+			JBS_ulemma_influence = {
+				remove_trait = {
+					trait = JBS_Ulemma_Neutral
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Ulemma_Discontent
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Ulemma_Neutral
+				add_idea = JBS_Ulemma_Discontent
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_ulemma_influence = {
+				has_trait = JBS_Ulemma_Discontent
+			}
+		}
+		hidden_effect = {
+			JBS_ulemma_influence = {
+				remove_trait = {
+					trait = JBS_Ulemma_Discontent
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Ulemma_Unhappy
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Ulemma_Discontent
+				add_idea = JBS_Ulemma_Unhappy
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_ulemma_influence = {
+				has_trait = JBS_Ulemma_Unhappy
+			}
+		}
+		hidden_effect = {
+			JBS_ulemma_influence = {
+				remove_trait = {
+					trait = JBS_Ulemma_Unhappy
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Ulemma_Very_Unhappy
+					slot = political_advisor
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_idea = JBS_unbridled_fratricide
+						has_idea = JBS_looming_invasion
+					}
+				}
+				country_event = { id = jbs.9 days = 10 }
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Ulemma_Unhappy
+				add_idea = JBS_Ulemma_Very_Unhappy
+			}
+		}
+	}
+}
+JBS_Increase_Ulemma_Support = {
+	custom_effect_tooltip = tooltip_white_line
+	custom_effect_tooltip = JBS_ulemma_increase_support_tt
+	if = {
+		limit = {
+			JBS_ulemma_influence = {
+				has_trait = JBS_Ulemma_Very_Unhappy
+			}
+		}
+		hidden_effect = {
+			JBS_ulemma_influence = {
+				remove_trait = {
+					trait = JBS_Ulemma_Very_Unhappy
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Ulemma_Unhappy
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Ulemma_Very_Unhappy
+				add_idea = JBS_Ulemma_Unhappy
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_ulemma_influence = {
+				has_trait = JBS_Ulemma_Unhappy
+			}
+		}
+		hidden_effect = {
+			JBS_ulemma_influence = {
+				remove_trait = {
+					trait = JBS_Ulemma_Unhappy
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Ulemma_Discontent
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Ulemma_Unhappy
+				add_idea = JBS_Ulemma_Discontent
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_ulemma_influence = {
+				has_trait = JBS_Ulemma_Discontent
+			}
+		}
+		hidden_effect = {
+			JBS_ulemma_influence = {
+				remove_trait = {
+					trait = JBS_Ulemma_Discontent
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Ulemma_Neutral
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Ulemma_Discontent
+				add_idea = JBS_Ulemma_Neutral
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_ulemma_influence = {
+				has_trait = JBS_Ulemma_Neutral
+			}
+		}
+		hidden_effect = {
+			JBS_ulemma_influence = {
+				remove_trait = {
+					trait = JBS_Ulemma_Neutral
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Ulemma_Pleased
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Ulemma_Neutral
+				add_idea = JBS_Ulemma_Pleased
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_ulemma_influence = {
+				has_trait = JBS_Ulemma_Pleased
+			}
+		}
+		hidden_effect = {
+			JBS_ulemma_influence = {
+				remove_trait = {
+					trait = JBS_Ulemma_Pleased
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Ulemma_Happy
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Ulemma_Pleased
+				add_idea = JBS_Ulemma_Happy
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_ulemma_influence = {
+				has_trait = JBS_Ulemma_Happy
+			}
+		}
+		hidden_effect = {
+			JBS_ulemma_influence = {
+				remove_trait = {
+					trait = JBS_Ulemma_Happy
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Ulemma_Very_Happy
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Ulemma_Happy
+				add_idea = JBS_Ulemma_Very_Happy
+			}
+		}
+	}
+}
+
+JBS_Decrease_Bedouin_Support = {
+	custom_effect_tooltip = tooltip_white_line
+	custom_effect_tooltip = JBS_bedouin_decrease_support_tt
+	if = {
+		limit = {
+			JBS_bedouin_influence = {
+				has_trait = JBS_Bedouin_Very_Happy
+			}
+		}
+		hidden_effect = {
+			JBS_bedouin_influence = {
+				remove_trait = {
+					trait = JBS_Bedouin_Very_Happy
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Bedouin_Happy
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Bedouin_Very_Happy
+				add_idea = JBS_Bedouin_Happy
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_bedouin_influence = {
+				has_trait = JBS_Bedouin_Happy
+			}
+		}
+		hidden_effect = {
+			JBS_bedouin_influence = {
+				remove_trait = {
+					trait = JBS_Bedouin_Happy
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Bedouin_Pleased
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Bedouin_Happy
+				add_idea = JBS_Bedouin_Pleased
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_bedouin_influence = {
+				has_trait = JBS_Bedouin_Pleased
+			}
+		}
+		hidden_effect = {
+			JBS_bedouin_influence = {
+				remove_trait = {
+					trait = JBS_Bedouin_Pleased
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Bedouin_Neutral
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Bedouin_Pleased
+				add_idea = JBS_Bedouin_Neutral
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_bedouin_influence = {
+				has_trait = JBS_Bedouin_Neutral
+			}
+		}
+		hidden_effect = {
+			JBS_bedouin_influence = {
+				remove_trait = {
+					trait = JBS_Bedouin_Neutral
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Bedouin_Discontent
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Bedouin_Neutral
+				add_idea = JBS_Bedouin_Discontent
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_bedouin_influence = {
+				has_trait = JBS_Bedouin_Discontent
+			}
+		}
+		hidden_effect = {
+			JBS_bedouin_influence = {
+				remove_trait = {
+					trait = JBS_Bedouin_Discontent
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Bedouin_Unhappy
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Bedouin_Discontent
+				add_idea = JBS_Bedouin_Unhappy
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_bedouin_influence = {
+				has_trait = JBS_Bedouin_Unhappy
+			}
+		}
+		hidden_effect = {
+			JBS_bedouin_influence = {
+				remove_trait = {
+					trait = JBS_Bedouin_Unhappy
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Bedouin_Very_Unhappy
+					slot = political_advisor
+				}
+			}
+			country_event = { id = jbs.6 days = 10 }
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Bedouin_Unhappy
+				add_idea = JBS_Bedouin_Very_Unhappy
+			}
+		}
+	}
+}
+JBS_Increase_Bedouin_Support = {
+	custom_effect_tooltip = tooltip_white_line
+	custom_effect_tooltip = JBS_bedouin_increase_support_tt
+	if = {
+		limit = {
+			JBS_bedouin_influence = {
+				has_trait = JBS_Bedouin_Very_Unhappy
+			}
+		}
+		hidden_effect = {
+			JBS_bedouin_influence = {
+				remove_trait = {
+					trait = JBS_Bedouin_Very_Unhappy
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Bedouin_Unhappy
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Bedouin_Very_Unhappy
+				add_idea = JBS_Bedouin_Unhappy
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_bedouin_influence = {
+				has_trait = JBS_Bedouin_Unhappy
+			}
+		}
+		hidden_effect = {
+			JBS_bedouin_influence = {
+				remove_trait = {
+					trait = JBS_Bedouin_Unhappy
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Bedouin_Discontent
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Bedouin_Unhappy
+				add_idea = JBS_Bedouin_Discontent
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_bedouin_influence = {
+				has_trait = JBS_Bedouin_Discontent
+			}
+		}
+		hidden_effect = {
+			JBS_bedouin_influence = {
+				remove_trait = {
+					trait = JBS_Bedouin_Discontent
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Bedouin_Neutral
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Bedouin_Discontent
+				add_idea = JBS_Bedouin_Neutral
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_bedouin_influence = {
+				has_trait = JBS_Bedouin_Neutral
+			}
+		}
+		hidden_effect = {
+			JBS_bedouin_influence = {
+				remove_trait = {
+					trait = JBS_Bedouin_Neutral
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Bedouin_Pleased
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Bedouin_Neutral
+				add_idea = JBS_Bedouin_Pleased
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_bedouin_influence = {
+				has_trait = JBS_Bedouin_Pleased
+			}
+		}
+		hidden_effect = {
+			JBS_bedouin_influence = {
+				remove_trait = {
+					trait = JBS_Bedouin_Pleased
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Bedouin_Happy
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Bedouin_Pleased
+				add_idea = JBS_Bedouin_Happy
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_bedouin_influence = {
+				has_trait = JBS_Bedouin_Happy
+			}
+		}
+		hidden_effect = {
+			JBS_bedouin_influence = {
+				remove_trait = {
+					trait = JBS_Bedouin_Happy
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Bedouin_Very_Happy
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Bedouin_Happy
+				add_idea = JBS_Bedouin_Very_Happy
+			}
+		}
+	}
+}
+
+JBS_Decrease_Urban_Nobility_Support = {
+	custom_effect_tooltip = tooltip_white_line
+	custom_effect_tooltip = JBS_urban_nobility_decrease_support_tt
+	if = {
+		limit = {
+			JBS_urban_nobility_influence = {
+				has_trait = JBS_Urban_Nobility_Very_Happy
+			}
+		}
+		hidden_effect = {
+			JBS_urban_nobility_influence = {
+				remove_trait = {
+					trait = JBS_Urban_Nobility_Very_Happy
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Urban_Nobility_Happy
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Urban_Nobility_Very_Happy
+				add_idea = JBS_Urban_Nobility_Happy
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_urban_nobility_influence = {
+				has_trait = JBS_Urban_Nobility_Happy
+			}
+		}
+		hidden_effect = {
+			JBS_urban_nobility_influence = {
+				remove_trait = {
+					trait = JBS_Urban_Nobility_Happy
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Urban_Nobility_Pleased
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Urban_Nobility_Happy
+				add_idea = JBS_Urban_Nobility_Pleased
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_urban_nobility_influence = {
+				has_trait = JBS_Urban_Nobility_Pleased
+			}
+		}
+		hidden_effect = {
+			JBS_urban_nobility_influence = {
+				remove_trait = {
+					trait = JBS_Urban_Nobility_Pleased
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Urban_Nobility_Neutral
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Urban_Nobility_Pleased
+				add_idea = JBS_Urban_Nobility_Neutral
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_urban_nobility_influence = {
+				has_trait = JBS_Urban_Nobility_Neutral
+			}
+		}
+		hidden_effect = {
+			JBS_urban_nobility_influence = {
+				remove_trait = {
+					trait = JBS_Urban_Nobility_Neutral
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Urban_Nobility_Discontent
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Urban_Nobility_Neutral
+				add_idea = JBS_Urban_Nobility_Discontent
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_urban_nobility_influence = {
+				has_trait = JBS_Urban_Nobility_Discontent
+			}
+		}
+		hidden_effect = {
+			JBS_urban_nobility_influence = {
+				remove_trait = {
+					trait = JBS_Urban_Nobility_Discontent
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Urban_Nobility_Unhappy
+					slot = political_advisor
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_idea = JBS_unbridled_fratricide
+						has_idea = JBS_looming_invasion
+					}
+					has_completed_focus = JBS_curb_authorities
+				}
+				country_event = { id = jbs.19 days = 30 }
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Urban_Nobility_Discontent
+				add_idea = JBS_Urban_Nobility_Unhappy
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_urban_nobility_influence = {
+				has_trait = JBS_Urban_Nobility_Unhappy
+			}
+		}
+		hidden_effect = {
+			JBS_urban_nobility_influence = {
+				remove_trait = {
+					trait = JBS_Urban_Nobility_Unhappy
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Urban_Nobility_Very_Unhappy
+					slot = political_advisor
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_idea = JBS_unbridled_fratricide
+						has_idea = JBS_looming_invasion
+					}
+				}
+				country_event = { id = jbs.19 days = 30 }
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Urban_Nobility_Unhappy
+				add_idea = JBS_Urban_Nobility_Very_Unhappy
+			}
+		}
+	}
+}
+JBS_Increase_Urban_Nobility_Support = {
+	custom_effect_tooltip = tooltip_white_line
+	custom_effect_tooltip = JBS_urban_nobility_increase_support_tt
+	if = {
+		limit = {
+			JBS_urban_nobility_influence = {
+				has_trait = JBS_Urban_Nobility_Very_Unhappy
+			}
+		}
+		hidden_effect = {
+			JBS_urban_nobility_influence = {
+				remove_trait = {
+					trait = JBS_Urban_Nobility_Very_Unhappy
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Urban_Nobility_Unhappy
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Urban_Nobility_Very_Unhappy
+				add_idea = JBS_Urban_Nobility_Unhappy
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_urban_nobility_influence = {
+				has_trait = JBS_Urban_Nobility_Unhappy
+			}
+		}
+		hidden_effect = {
+			JBS_urban_nobility_influence = {
+				remove_trait = {
+					trait = JBS_Urban_Nobility_Unhappy
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Urban_Nobility_Discontent
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Urban_Nobility_Unhappy
+				add_idea = JBS_Urban_Nobility_Discontent
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_urban_nobility_influence = {
+				has_trait = JBS_Urban_Nobility_Discontent
+			}
+		}
+		hidden_effect = {
+			JBS_urban_nobility_influence = {
+				remove_trait = {
+					trait = JBS_Urban_Nobility_Discontent
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Urban_Nobility_Neutral
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Urban_Nobility_Discontent
+				add_idea = JBS_Urban_Nobility_Neutral
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_urban_nobility_influence = {
+				has_trait = JBS_Urban_Nobility_Neutral
+			}
+		}
+		hidden_effect = {
+			JBS_urban_nobility_influence = {
+				remove_trait = {
+					trait = JBS_Urban_Nobility_Neutral
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Urban_Nobility_Pleased
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Urban_Nobility_Neutral
+				add_idea = JBS_Urban_Nobility_Pleased
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_urban_nobility_influence = {
+				has_trait = JBS_Urban_Nobility_Pleased
+			}
+		}
+		hidden_effect = {
+			JBS_urban_nobility_influence = {
+				remove_trait = {
+					trait = JBS_Urban_Nobility_Pleased
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Urban_Nobility_Happy
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Urban_Nobility_Pleased
+				add_idea = JBS_Urban_Nobility_Happy
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			JBS_urban_nobility_influence = {
+				has_trait = JBS_Urban_Nobility_Happy
+			}
+		}
+		hidden_effect = {
+			JBS_urban_nobility_influence = {
+				remove_trait = {
+					trait = JBS_Urban_Nobility_Happy
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = JBS_Urban_Nobility_Very_Happy
+					slot = political_advisor
+				}
+			}
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = JBS_Urban_Nobility_Happy
+				add_idea = JBS_Urban_Nobility_Very_Happy
+			}
+		}
+	}
+}
+
+JBS_update_HEJ_leader = {
+	hidden_effect = {
+		JBS = { JBS_remove_HEJ_dummy_leaders = yes }
+		if = {
+			limit = {
+				has_subject = HEJ
+				has_completed_focus = JBS_Constituent_Assembly
+				has_variable = country_leader:JBS_hejaz_dummy_leader
+			}
+			var:country_leader:JBS_hejaz_dummy_leader = {
+				set_nationality = HEJ
+				add_country_leader_role_to_all_non_socialist_ideologies = yes
+			}
+		}
+	}
+}
+
+JBS_remove_HEJ_dummy_leaders = {
+	if = {
+		limit = { has_character = HEJ_abdallah_ibn_talal_al_rashid }
+		HEJ_abdallah_ibn_talal_al_rashid = {
+			set_nationality = PREV.PREV
+			remove_all_country_leader_roles = yes
+			retire = yes
+		}
+	}
+	if = {
+		limit = { has_character = HEJ_abdallah_ibn_mitab_ibn_abd_al_aziz_al_rashid }
+		HEJ_abdallah_ibn_mitab_ibn_abd_al_aziz_al_rashid = {
+			set_nationality = PREV.PREV
+			remove_all_country_leader_roles = yes
+			retire = yes
+		}
+	}
+	if = {
+		limit = { has_character = HEJ_muhammad_ibn_talil_al_rashid }
+		HEJ_muhammad_ibn_talil_al_rashid = {
+			set_nationality = PREV.PREV
+			remove_all_country_leader_roles = yes
+			retire = yes
+		}
+	}
+	if = {
+		limit = { has_character = HEJ_saud_al_subhan }
+		HEJ_saud_al_subhan = {
+			set_nationality = PREV.PREV
+			remove_all_country_leader_roles = yes
+			retire = yes
+		}
+	}
+}
+
+YEM_increase_integration = {
+	effect_tooltip = {
+		swap_ideas = {
+			remove_idea = YEM_arabian_integration_1
+			add_idea = YEM_arabian_integration_2
+		}
+	}
+	hidden_effect = {
+		if = {
+			limit = { has_idea = YEM_arabian_integration_1 }
+			swap_ideas = {
+				remove_idea = YEM_arabian_integration_1
+				add_idea = YEM_arabian_integration_2
+			}
+		}
+		else_if = {
+			limit = { has_idea = YEM_arabian_integration_2 }
+			swap_ideas = {
+				remove_idea = YEM_arabian_integration_2
+				add_idea = YEM_arabian_integration_3
+			}
+		}
+		else_if = {
+			limit = { has_idea = YEM_arabian_integration_3 }
+			swap_ideas = {
+				remove_idea = YEM_arabian_integration_3
+				add_idea = YEM_arabian_integration_4
+			}
+		}
+		else_if = {
+			limit = { has_idea = YEM_arabian_integration_4 }
+			swap_ideas = {
+				remove_idea = YEM_arabian_integration_4
+				add_idea = YEM_arabian_integration_5
+			}
+		}
+		else_if = {
+			limit = { has_idea = YEM_arabian_integration_5 }
+			swap_ideas = {
+				remove_idea = YEM_arabian_integration_5
+				add_idea = YEM_arabian_integration_6
+			}
+		}
+	}
+}
+
+#scripted effect to remove the generals JBS gets from its decisions
+JBS_remove_tribal_generals = {
+	#Sa'adun loses his unit leader role and sent back to IRQ
+	if = {
+		limit = { has_character = IRQ_ajami_al_saadun }
+		IRQ_ajami_al_saadun = { set_nationality = IRQ }
+	}
+	#while the rest get retired
+	if = {
+		limit = { has_character = JBS_dulaim_ibn_barrak }
+		retire_character = JBS_dulaim_ibn_barrak
+	}
+	if = {
+		limit = { has_character = IKH_zaidan_ibn_hithlain }
+		IKH_zaidan_ibn_hithlain = { set_nationality = IKH }
+	}
+	if = {
+		limit = { has_character = JBS_abd_al_rahman_ibn_rubayin }
+		retire_character = JBS_abd_al_rahman_ibn_rubayin
+	}
+}
+
+JBS_create_saud_bin_abd_al_aziz = {
+	JBS = {
+		JBS_saud_bin_abd_al_aziz = {
+			character_becomes_leader_of_ruling_party_effect_tooltip = yes
+			hidden_effect = {
+				set_nationality = PREV.PREV
+				add_country_leader_role_to_all_non_socialist_ideologies = yes
+				promote_to_field_marshal = yes
+			}
+		}
+		JBS_update_HEJ_leader = yes
+	}
+}
+
+JBS_create_abdallah_ibn_talal = {
+	JBS = {
+		JBS_abdallah_ibn_talal_al_rashid = {
+			character_becomes_leader_of_ruling_party_effect_tooltip = yes
+			hidden_effect = {
+				set_nationality = PREV.PREV
+				add_country_leader_role_to_all_non_socialist_ideologies = yes
+				promote_to_field_marshal = yes
+			}
+		}
+		JBS_update_HEJ_leader = yes
+	}
+}
+
+JBS_create_abdallah_ibn_mitab = {
+	JBS = {
+		JBS_abdallah_ibn_mitab_ibn_abd_al_aziz_al_rashid = {
+			character_becomes_leader_of_ruling_party_effect_tooltip = yes
+			hidden_effect = {
+				set_nationality = PREV.PREV
+				add_country_leader_role_to_all_non_socialist_ideologies = yes
+				promote_to_field_marshal = yes
+			}
+		}
+		JBS_update_HEJ_leader = yes
+	}
+}
+
+JBS_create_muhammad_ibn_talil_al_rashid = {
+	JBS = {
+		JBS_muhammad_ibn_talil_al_rashid = {
+			character_becomes_leader_of_ruling_party_effect_tooltip = yes
+			hidden_effect = {
+				set_nationality = PREV.PREV
+				add_country_leader_role_to_all_non_socialist_ideologies = yes
+				promote_to_field_marshal = yes
+			}
+		}
+		JBS_update_HEJ_leader = yes
+	}
+}
+
+JBS_create_saud_al_subhan = {
+	JBS = {
+		JBS_saud_al_subhan = {
+			character_becomes_leader_of_ruling_party_effect_tooltip = yes
+			hidden_effect = {
+				set_nationality = PREV.PREV
+				add_country_leader_role_to_all_non_socialist_ideologies = yes
+				promote_to_field_marshal = yes
+			}
+		}
+		JBS_update_HEJ_leader = yes
+	}
+}
+
+JBS_remove_rashids = {
+	if = {
+		limit = { has_cosmetic_tag = JBS_ARA }
+		set_cosmetic_tag = JBS_subhan_ARA
+	}
+	else_if = {
+		limit = { NOT = { has_cosmetic_tag = JBS_HEJ } }
+		set_cosmetic_tag = JBS_subhan
+	}
+	set_party_name = {
+		ideology = authoritarian_democrat
+		long_name = JBS_subhan_party
+		name = JBS_subhan_party
+	}
+	set_party_name = {
+		ideology = paternal_autocrat
+		long_name = JBS_subhan_party
+		name = JBS_subhan_party
+	}
+	set_party_name = {
+		ideology = national_populist
+		long_name = JBS_subhan_party
+		name = JBS_subhan_party
+	}
+	JBS_create_saud_al_subhan = yes
+	if = {
+		limit = { has_character = JBS_saud_bin_abd_al_aziz }
+		JBS_saud_bin_abd_al_aziz = {
+			hidden_effect = { remove_all_country_leader_roles = yes }
+			retire = yes
+		}
+	}
+	if = {
+		limit = { has_character = JBS_abdallah_ibn_talal_al_rashid }
+		JBS_abdallah_ibn_talal_al_rashid = {
+			hidden_effect = { remove_all_country_leader_roles = yes }
+			retire = yes
+		}
+	}
+	if = {
+		limit = { has_character = JBS_abdallah_ibn_mitab_ibn_abd_al_aziz_al_rashid }
+		JBS_abdallah_ibn_mitab_ibn_abd_al_aziz_al_rashid = {
+			hidden_effect = { remove_all_country_leader_roles = yes }
+			retire = yes
+		}
+	}
+	if = {
+		limit = { has_character = JBS_muhammad_ibn_talil_al_rashid }
+		JBS_muhammad_ibn_talil_al_rashid = {
+			hidden_effect = { remove_all_country_leader_roles = yes }
+			retire = yes
+		}
+	}
+}
+
+JBS_restore_rashids = {
+	if = {
+		limit = { has_cosmetic_tag = JBS_subhan_ARA }
+		set_cosmetic_tag = JBS_ARA
+	}
+	else_if = {
+		limit = { has_cosmetic_tag = JBS_subhan }
+		drop_cosmetic_tag = yes
+	}
+	set_party_name = {
+		ideology = authoritarian_democrat
+		long_name = JBS_subhan_party
+		name = JBS_rashid_party
+	}
+	set_party_name = {
+		ideology = paternal_autocrat
+		long_name = JBS_subhan_party
+		name = JBS_rashid_party
+	}
+	set_party_name = {
+		ideology = national_populist
+		long_name = JBS_subhan_party
+		name = JBS_rashid_party
+	}
+	if = {
+		limit = { JBS = { JBS_saud_bin_abd_al_aziz = { is_dead = no } } }
+		JBS_create_saud_bin_abd_al_aziz = yes
+	}
+	else_if = {
+		limit = { JBS = { JBS_abdallah_ibn_talal_al_rashid = { is_dead = no } } }
+		JBS_create_abdallah_ibn_talal = yes
+	}
+	else_if = {
+		limit = { JBS = { JBS_abdallah_ibn_mitab_ibn_abd_al_aziz_al_rashid = { is_dead = no } } }
+		JBS_create_abdallah_ibn_mitab = yes
+	}
+	else_if = {
+		limit = { JBS = { JBS_muhammad_ibn_talil_al_rashid = { is_dead = no } } }
+		JBS_create_muhammad_ibn_talil_al_rashid = yes
+	}
+	custom_effect_tooltip = tooltip_white_line
+	if = {
+		limit = { has_character = JBS_saud_al_subhan }
+		JBS_saud_al_subhan = {
+			hidden_effect = {
+				remove_all_country_leader_roles = yes
+				demote_leader = yes
+			}
+			retire = yes
+		}
+	}
+}
+
+SAU_create_saud_bin_abdulaziz_al_saud = {
+	SAU = {
+		SAU_saud_bin_abdulaziz_al_saud = {
+			character_becomes_leader_of_ruling_party_effect_tooltip = yes
+			hidden_effect = {
+				set_nationality = PREV.PREV
+				add_country_leader_role_to_all_non_socialist_ideologies = yes
+				promote_to_field_marshal = yes
+			}
+		}
+	}
+}
+
+IKH_start_rebellion = {
+	hidden_effect = {
+		news_event = worldnews.440
+		IKH = {
+			#State
+			add_state_core = 991
+			transfer_state = 991
+			add_state_core = 675
+			transfer_state = 675
+			set_capital = { state = 991 }
+			drop_cosmetic_tag = yes
+
+			### Politics
+			if = {
+				limit = { NOT = { has_character = IKH_faisal_al_duwaish } }
+				SAU = { IKH_faisal_al_duwaish = { set_nationality = IKH } }
+				IKH_faisal_al_duwaish = {
+					promote_leader = yes
+					remove_trait = { trait = recently_promoted }
+					if = {
+						limit = { has_ideology = paternal_autocrat_subtype }
+						promote_character = paternal_autocrat_subtype
+					}
+					else = {
+						add_country_leader_role = {
+							country_leader = { ideology = paternal_autocrat_subtype }
+							promote_leader = yes
+						}
+					}
+				}
+			}
+			set_popularities = {
+				totalist = 0
+				radical_socialist = 0
+				syndicalist = 0
+				social_democrat = 0
+				social_liberal = 0
+				market_liberal = 0
+				social_conservative = 0
+				authoritarian_democrat = 0
+				paternal_autocrat = 100
+				national_populist = 0
+			}
+			set_party_name = {
+				ideology = paternal_autocrat
+				long_name = "al Dawish"
+				name = "al Dawish"
+			}
+			set_politics = {
+				ruling_party = paternal_autocrat
+				elections_allowed = no
+			}
+
+			#War
+			declare_war_on = {
+				target = ROOT
+				type = annex_everything
+			}
+
+			#Provinces
+			set_province_controller = 5099
+			set_province_controller = 12316
+
+			#Units
+			division_template = {
+				name = "Ikhwan"
+				division_names_group = SAU_CAV_01
+				is_locked = yes
+				regiments = {
+					cavalry = { x = 0 y = 0 }
+					cavalry = { x = 0 y = 1 }
+					cavalry = { x = 0 y = 2 }
+				}
+			}
+			1035 = {
+				create_unit = {
+					division = "name = \"Ruwala\" division_template = \"Ikhwan\" start_experience_factor = 0.3"
+					allow_spawning_on_enemy_provs = yes
+					owner = PREV
+					prioritize_location = 5099
+				}
+			}
+			675 = {
+				create_unit = {
+					division = "name = \"Utaibah\" division_template = \"Ikhwan\" start_experience_factor = 0.3"
+					allow_spawning_on_enemy_provs = yes
+					owner = PREV
+					prioritize_location = 10892
+				}
+			}
+			991 = {
+				create_unit = {
+					division = "name = \"Mutasir\" division_template = \"Ikhwan\" start_experience_factor = 0.3"
+					allow_spawning_on_enemy_provs = yes
+					owner = PREV
+					prioritize_location = 10850
+				}
+				create_unit = {
+					division = "name = \"Mutasir\" division_template = \"Ikhwan\" start_experience_factor = 0.3"
+					allow_spawning_on_enemy_provs = yes
+					owner = PREV
+					prioritize_location = 10850
+				}
+			}
+			add_ideas = IKH_ikhwan_revolt
+		}
+		if = {
+			limit = { tag = SAU }
+			add_ideas = SAU_Saudi_revolt
+		}
+		else = {
+			add_ideas = JBS_fighting_revolt
+		}
+	}
+}
+
+#scripted effect for what happens when IKH wins that revolt and splits
+IKH_Split_into_four = {
+	delete_unit_template_and_units = { division_template = "Ikhwan" }
+	IKH = { # Riyadh
+		### Politics
+		set_popularities = {
+			totalist = 0
+			radical_socialist = 0
+			syndicalist = 0
+			social_democrat = 0
+			social_liberal = 0
+			market_liberal = 0
+			social_conservative = 0
+			authoritarian_democrat = 0
+			paternal_autocrat = 100
+			national_populist = 0
+		}
+		set_party_name = {
+			ideology = paternal_autocrat
+			name = IKH_al_dawish
+			long_name = IKH_al_dawish
+		}
+		set_politics = {
+			ruling_party = paternal_autocrat
+			elections_allowed = no
+		}
+		set_cosmetic_tag = IKH_duwaishi
+
+		#Units
+		if = {
+			limit = { has_template = "Ikhwan" }
+			set_division_template_lock = {
+				division_template = "Ikhwan"
+				is_locked = no
+			}
+		}
+		else = {
+			division_template = {
+				name = "Ikhwan"
+				division_names_group = SAU_CAV_01
+				is_locked = no
+				regiments = {
+					cavalry = { x = 0 y = 0 }
+					cavalry = { x = 0 y = 1 }
+					cavalry = { x = 1 y = 0 }
+					cavalry = { x = 1 y = 1 }
+				}
+			}
+		}
+		292 = {
+			create_unit = {
+				division = "name = \"Mutasir\" division_template = \"Ikhwan\" start_experience_factor = 0.3"
+				allow_spawning_on_enemy_provs = yes
+				owner = PREV
+				prioritize_location = 4974
+			}
+			create_unit = {
+				division = "name = \"Mutasir\" division_template = \"Ikhwan\" start_experience_factor = 0.3"
+				allow_spawning_on_enemy_provs = yes
+				owner = PREV
+				prioritize_location = 12727
+			}
+			create_unit = {
+				division = "name = \"Mutasir\" division_template = \"Ikhwan\" start_experience_factor = 0.3"
+				allow_spawning_on_enemy_provs = yes
+				owner = PREV
+				prioritize_location = 5093
+			}
+		}
+	}
+	create_dynamic_country = {	#Utaibah
+		original_tag = IKH
+		copy_tag = IKH
+
+		#State
+		transfer_state = 675
+
+		### Leader
+		IKH = { IKH_sultan_ibn_humaid_ibn_bijad = { set_nationality = PREV.PREV } }
+		IKH_sultan_ibn_humaid_ibn_bijad = {
+			promote_leader = yes
+			remove_trait = { trait = recently_promoted }
+			if = {
+				limit = { has_ideology = paternal_autocrat_subtype }
+				promote_character = paternal_autocrat_subtype
+			}
+			else = {
+				add_country_leader_role = {
+					country_leader = { ideology = paternal_autocrat_subtype }
+					promote_leader = yes
+				}
+			}
+		}
+
+		### Politics
+		set_popularities = {
+			totalist = 0
+			radical_socialist = 0
+			syndicalist = 0
+			social_democrat = 0
+			social_liberal = 0
+			market_liberal = 0
+			social_conservative = 0
+			authoritarian_democrat = 0
+			paternal_autocrat = 100
+			national_populist = 0
+		}
+		set_party_name = {
+			ideology = paternal_autocrat
+			name = IKH_ibn_bijad
+			long_name = IKH_ibn_bijad
+		}
+		set_politics = {
+			ruling_party = paternal_autocrat
+			elections_allowed = no
+		}
+		set_cosmetic_tag = IKH_bijadi
+
+		#Units
+		if = {
+			limit = { has_template = "Ikhwan" }
+			set_division_template_lock = {
+				division_template = "Ikhwan"
+				is_locked = no
+			}
+		}
+		else = {
+			division_template = {
+				name = "Ikhwan"
+				division_names_group = SAU_CAV_01
+				is_locked = no
+				regiments = {
+					cavalry = { x = 0 y = 0 }
+					cavalry = { x = 0 y = 1 }
+					cavalry = { x = 1 y = 0 }
+					cavalry = { x = 1 y = 1 }
+				}
+			}
+		}
+		675 = {
+			create_unit = {
+				division = "name = \"Utaibah\" division_template = \"Ikhwan\" start_experience_factor = 0.3"
+				allow_spawning_on_enemy_provs = yes
+				owner = PREV
+				prioritize_location = 10923
+			}
+			create_unit = {
+				division = "name = \"Utaibah\" division_template = \"Ikhwan\" start_experience_factor = 0.3"
+				allow_spawning_on_enemy_provs = yes
+				owner = PREV
+				prioritize_location = 8004
+			}
+		}
+
+		#Event Target
+		save_global_event_target_as = buraida
+	}
+	create_dynamic_country = {	#al-Hasa
+		original_tag = IKH
+		copy_tag = IKH
+
+		#State
+		if = {
+			limit = { ROOT = { owns_state = 656 } }
+			transfer_state = 656
+			set_cosmetic_tag = IKH_hithlaini_hasa
+			set_temp_variable = { IKH_state_target = 656.id }
+		}
+		else = {
+			set_cosmetic_tag = IKH_hithlaini_summan
+			set_temp_variable = { IKH_state_target = 991.id }
+		}
+		transfer_state = 991
+
+		### Leader
+		IKH = { IKH_zaidan_ibn_hithlain = { set_nationality = PREV.PREV } }
+		IKH_zaidan_ibn_hithlain = {
+			promote_leader = yes
+			remove_trait = { trait = recently_promoted }
+			if = {
+				limit = { has_ideology = paternal_autocrat_subtype }
+				promote_character = paternal_autocrat_subtype
+			}
+			else = {
+				add_country_leader_role = {
+					country_leader = { ideology = paternal_autocrat_subtype }
+					promote_leader = yes
+				}
+			}
+		}
+
+		### Politics
+		set_popularities = {
+			totalist = 0
+			radical_socialist = 0
+			syndicalist = 0
+			social_democrat = 0
+			social_liberal = 0
+			market_liberal = 0
+			social_conservative = 0
+			authoritarian_democrat = 0
+			paternal_autocrat = 100
+			national_populist = 0
+		}
+		set_party_name = {
+			ideology = paternal_autocrat
+			name = IKH_ibn_hithlain
+			long_name = IKH_ibn_hithlain
+		}
+		set_politics = {
+			ruling_party = paternal_autocrat
+			elections_allowed = no
+		}
+
+		#Units
+		if = {
+			limit = { has_template = "Ikhwan" }
+			set_division_template_lock = {
+				division_template = "Ikhwan"
+				is_locked = no
+			}
+		}
+		else = {
+			division_template = {
+				name = "Ikhwan"
+				division_names_group = SAU_CAV_01
+				is_locked = no
+				regiments = {
+					cavalry = { x = 0 y = 0 }
+					cavalry = { x = 0 y = 1 }
+					cavalry = { x = 1 y = 0 }
+					cavalry = { x = 1 y = 1 }
+				}
+			}
+		}
+		var:IKH_state_target = {
+			create_unit = {
+				division = "name = \"Ajman\" division_template = \"Ikhwan\" start_experience_factor = 0.3"
+				allow_spawning_on_enemy_provs = yes
+				owner = PREV
+				prioritize_location = 10791
+			}
+			create_unit = {
+				division = "name = \"Ajman\" division_template = \"Ikhwan\" start_experience_factor = 0.3"
+				allow_spawning_on_enemy_provs = yes
+				owner = PREV
+				prioritize_location = 1955
+			}
+		}
+
+		#Event Target
+		save_global_event_target_as = al_hasa
+	}
+	create_dynamic_country = {	#Ha'il
+		original_tag = IKH
+		copy_tag = IKH
+
+		#State
+		transfer_state = 915
+		transfer_state = 1035
+		transfer_state = 994
+
+		### Leader
+		IKH = { IKH_nida_ibn_nuhair = { set_nationality = PREV.PREV } }
+		IKH_nida_ibn_nuhair = {
+			promote_leader = yes
+			remove_trait = { trait = recently_promoted }
+			if = {
+				limit = { has_ideology = paternal_autocrat_subtype }
+				promote_character = paternal_autocrat_subtype
+			}
+			else = {
+				add_country_leader_role = {
+					country_leader = { ideology = paternal_autocrat_subtype }
+					promote_leader = yes
+				}
+			}
+		}
+
+		### Politics
+		set_popularities = {
+			totalist = 0
+			radical_socialist = 0
+			syndicalist = 0
+			social_democrat = 0
+			social_liberal = 0
+			market_liberal = 0
+			social_conservative = 0
+			authoritarian_democrat = 0
+			paternal_autocrat = 100
+			national_populist = 0
+		}
+		set_party_name = {
+			ideology = paternal_autocrat
+			name = IKH_ibn_nuhair
+			long_name = IKH_ibn_nuhair
+		}
+		set_politics = {
+			ruling_party = paternal_autocrat
+			elections_allowed = no
+		}
+		set_cosmetic_tag = IKH_nuhairi
+
+		#Units
+		if = {
+			limit = { has_template = "Ikhwan" }
+			set_division_template_lock = {
+				division_template = "Ikhwan"
+				is_locked = no
+			}
+		}
+		else = {
+			division_template = {
+				name = "Ikhwan"
+				division_names_group = SAU_CAV_01
+				is_locked = no
+				regiments = {
+					cavalry = { x = 0 y = 0 }
+					cavalry = { x = 0 y = 1 }
+					cavalry = { x = 1 y = 0 }
+					cavalry = { x = 1 y = 1 }
+				}
+			}
+		}
+		915 = {
+			create_unit = {
+				division = "name = \"Utaibah\" division_template = \"Ikhwan\" start_experience_factor = 0.3"
+				allow_spawning_on_enemy_provs = yes
+				owner = PREV
+				prioritize_location = 7934
+			}
+			create_unit = {
+				division = "name = \"Utaibah\" division_template = \"Ikhwan\" start_experience_factor = 0.3"
+				allow_spawning_on_enemy_provs = yes
+				owner = PREV
+				prioritize_location = 13666
+			}
+		}
+
+		#Event Target
+		save_global_event_target_as = hail
+	}
+	## War declarations
+	IKH = {
+		for_each_scope_loop = {
+			array = core_states
+			add_core_of = event_target:buraida
+			add_core_of = event_target:hail
+			add_core_of = event_target:al_hasa
+		}
+	}
+	every_country_with_original_tag = {
+		original_tag_to_check = IKH
+		if = {
+			limit = { can_declare_war_on = IKH }
+			declare_war_on = {
+				target = IKH
+				type = annex_everything
+			}
+		}
+		if = {
+			limit = { can_declare_war_on = event_target:buraida }
+			declare_war_on = {
+				target = event_target:buraida
+				type = annex_everything
+			}
+		}
+		if = {
+			limit = { can_declare_war_on = event_target:hail }
+			declare_war_on = {
+				target = event_target:hail
+				type = annex_everything
+			}
+		}
+		if = {
+			limit = { can_declare_war_on = event_target:al_hasa }
+			declare_war_on = {
+				target = event_target:al_hasa
+				type = annex_everything
+			}
+		}
+	}
+	set_global_flag = rumble_in_the_dunes
+}
+
+JBS_SAU_Remove_Power_Struggle_Decisions = { #get removed via hidden event 26 days after war starts since has_decision didn't work
+	JBS = {
+		remove_targeted_decision = { target = 915 decision = JBS_Sway_Harb }
+		remove_targeted_decision = { target = 994 decision = JBS_Sway_Hutaim }
+		remove_targeted_decision = { target = 291 decision = JBS_Sway_Muntafiq }
+		remove_targeted_decision = { target = 1035 decision = JBS_Sway_Anizzah }
+		remove_targeted_decision = { target = 991 decision = JBS_Sway_Mutair_Dawish }
+		remove_targeted_decision = { target = 675 decision = JBS_Sway_Mutair_Busayis }
+		remove_targeted_decision = { target = 991 decision = JBS_Sway_Ajman }
+		remove_targeted_decision = { target = 675 decision = JBS_Sway_Utaibah }
+		remove_targeted_decision = { target = 656 decision = JBS_Sway_Awazim }
+	}
+	SAU = {
+		remove_targeted_decision = { target = 1035 decision = SAU_Sway_Ruwala }
+		remove_targeted_decision = { target = 1035 decision = SAU_Sway_Anizzah }
+		remove_targeted_decision = { target = 1035 decision = SAU_Sway_Dhafir }
+		remove_targeted_decision = { target = 675 decision = SAU_Sway_Mutair_Busayis }
+		remove_targeted_decision = { target = 675 decision = SAU_Sway_Utaibah_Ikh }
+		remove_targeted_decision = { target = 675 decision = SAU_Sway_Utaibah }
+		remove_targeted_decision = { target = 292 decision = SAU_Sway_Duwasir }
+	}
+}
+
+JBS_readd_claims_after_puppeting = {
+	hidden_effect = {
+		every_state = {
+			limit = {
+				is_arabia = yes
+				is_owned_by = OTT
+				NOT = {
+					is_core_of = OTT
+					is_claimed_by = OTT
+				}
+			}
+			add_claim_by = JBS
+		}
+	}
+}
+
+YEM_puppet_setup = {
+	hidden_effect = {
+		if = {
+			limit = { NOT = { is_subject_of = OTT } }
+			remove_ideas = {
+				YEM_Ottoman_Rule
+				YEM_Ottoman_Rule_weak
+				YEM_Ottoman_Rule_Split
+				YEM_Anarchy
+				YEM_Anarchy_2
+				YEM_ToughGuy
+				YEM_PostalService
+				YEM_NiceGuy
+			}
+		}
+		if = {
+			limit = { has_socialist_government = yes }
+			remove_ideas = {
+				YEM_Purges
+				YEM_Yemen_On_Fire
+				YEM_Nepotism
+				YEM_Devotion
+				YEM_Humane
+				YEM_disloyal_vassal
+				YEM_Common_Law
+				YEM_President
+			}
+		}
+		remove_ideas = {
+			YEM_arabian_integration_1
+			YEM_arabian_integration_2
+			YEM_arabian_integration_3
+			YEM_arabian_integration_4
+			YEM_arabian_integration_5
+			YEM_arabian_integration_6
+			YEM_arabian_spirit
+		}
+	}
+}
+
+OMA_puppet_setup = {
+	hidden_effect = {
+		if = {
+			limit = { has_socialist_government = yes }
+			remove_ideas = {
+				OMA_army_of_muscat
+				OMA_imamate_of_oman
+			}
+		}
+		if = {
+			limit = {
+				NOT = { is_subject_of = RAJ }
+				NOT = { is_in_faction_with = RAJ }
+			}
+			remove_ideas = OMA_indian_idea
+		}
+		if = {
+			limit = {
+				NOT = { is_subject_of = PER }
+				NOT = { is_in_faction_with = PER }
+			}
+			remove_ideas = OMA_persian_idea
+		}
+	}
+}
+
+IRQ_remove_all_guarantees = {
+	if = {
+		limit = { is_in_faction = yes }
+		leave_faction = yes
+	}
+	EGY = {
+		if = {
+			limit = { has_guaranteed = ROOT }
+			diplomatic_relation = {
+				country = ROOT
+				relation = guarantee
+				active = no
+			}
+		}
+	}
+	SAU = {
+		if = {
+			limit = { has_guaranteed = ROOT }
+			diplomatic_relation = {
+				country = ROOT
+				relation = guarantee
+				active = no
+			}
+		}
+	}
+	SYR = {
+		if = {
+			limit = { has_guaranteed = ROOT }
+			diplomatic_relation = {
+				country = ROOT
+				relation = guarantee
+				active = no
+			}
+		}
+	}
+	JBS = {
+		if = {
+			limit = { has_guaranteed = ROOT }
+			diplomatic_relation = {
+				country = ROOT
+				relation = guarantee
+				active = no
+			}
+		}
+	}
+	YEM = {
+		if = {
+			limit = { has_guaranteed = ROOT }
+			diplomatic_relation = {
+				country = ROOT
+				relation = guarantee
+				active = no
+			}
+		}
+	}
+	HEJ = {
+		if = {
+			limit = { has_guaranteed = ROOT }
+			diplomatic_relation = {
+				country = ROOT
+				relation = guarantee
+				active = no
+			}
+		}
+	}
+}

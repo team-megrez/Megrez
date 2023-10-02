@@ -1,15 +1,18 @@
 run_generic_operation = {
+	allowed = {
+		has_dlc_lar = yes
+	}
 	enable = {
 		NOT = { check_variable = { generic_operation_target = 0 } }
 		NOT = { check_variable = { generic_operation_type_to_run = 0 } }
-		
+
 		var:generic_operation_target = {
 			exists = yes
 			has_capitulated = no
 			NOT = { is_ally_with = PREV }
 		}
 	}
-	
+
 	abort_when_not_enabled = yes
 
 	ai_strategy = {
@@ -18,12 +21,12 @@ run_generic_operation = {
 		value = 900
 		operation_target = var:generic_operation_target
 	}
-	
+
 	ai_strategy = {
 		type = operation_equipment_priority
 		value = 100
 	}
-	
+
 	ai_strategy = {
 		type = operative_mission
 		mission = build_intel_network
@@ -33,10 +36,13 @@ run_generic_operation = {
 }
 
 run_generic_operation_add_more_operatives = {
+	allowed = {
+		has_dlc_lar = yes
+	}
 	enable = {
 		NOT = { check_variable = { generic_operation_target = 0 } }
 		NOT = { check_variable = { generic_operation_type_to_run = 0 } }
-		
+
 		var:generic_operation_target = {
 			exists = yes
 			has_capitulated = no
@@ -44,10 +50,9 @@ run_generic_operation_add_more_operatives = {
 		}
 		num_of_operatives > 4
 	}
-	
+
 	abort_when_not_enabled = yes
 
-	
 	ai_strategy = {
 		type = operative_mission
 		mission = build_intel_network
@@ -57,12 +62,14 @@ run_generic_operation_add_more_operatives = {
 	}
 }
 
-
 run_generic_rescue_operation = {
+	allowed = {
+		has_dlc_lar = yes
+	}
 	enable = {
 		NOT = { check_variable = { rescue_operative_from = 0 } }
 	}
-	
+
 	abort_when_not_enabled = yes
 
 	ai_strategy = {
@@ -71,12 +78,12 @@ run_generic_rescue_operation = {
 		value = 1000
 		operation_target = var:rescue_operative_from
 	}
-	
+
 	ai_strategy = {
 		type = operation_equipment_priority
 		value = 100
 	}
-	
+
 	ai_strategy = {
 		type = operative_mission
 		mission = build_intel_network

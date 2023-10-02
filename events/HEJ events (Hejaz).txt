@@ -1,0 +1,385 @@
+﻿###########################
+# Hejaz - By TheFallenHero / DarkyDu
+###########################
+
+add_namespace = hejaz
+
+#######################
+# GREAT HEJAZI REVOLT #
+#######################
+add_namespace = hejrev
+
+country_event = {	#Hejaz joins the revolt
+	id = hejrev.1
+	immediate = {
+		log = "KR_Event_Logging;Hejaz REVOLTS AGAINST OTT;[GetDateText]"
+	}
+	title = hejrev.1.t
+	desc = hejrev.1.d
+
+	trigger = {
+		has_war_with = EGY
+	}
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = { 679 = { is_owned_by = OTT } }
+			HEJ = {
+				transfer_state = 679
+				load_oob = HEJ_initial
+				declare_war_on = {
+					target = OTT
+					type = annex_everything
+				}
+				add_offsite_building = {
+					type = arms_factory
+					level = 2
+				}
+				add_ideas = {
+					partial_economic_mobilisation
+					limited_exports
+					volunteer_only
+				}
+			}
+		}
+		hidden_effect = {
+			news_event = {
+				id = worldnews.425
+				days = 1
+			}
+			#HEJ = {
+			#	country_event = { id = hejdiplo.1 days = 1 }
+			#}
+			if = {
+				limit = {
+					var:292.owner = {
+						OR = {
+							tag = SAU
+							tag = JBS
+						}
+						is_subject = no
+						NOT = { is_in_faction_with = OTT }
+					}
+				}
+				var:292.owner = {
+					country_event = { id = hejrev.3 days = 2 }
+				}
+			}
+			else = {
+				EGY = { add_to_faction = HEJ }
+			}
+		}
+	}
+
+	#option = {
+	#	name = hejrev.1.a
+	#	HEJ = {
+	#		change_tag_from = OTT
+	#	}
+	#}
+	option = {
+		log = "[GetLogInfo]: event hejrev.1 option hejrev.1.b"
+		name = hejrev.1.b
+		add_political_power = -20
+	}
+}
+
+country_event = {	#Medina joins the revolt
+	id = hejrev.2
+	title = hejrev.2.t
+	desc = hejrev.2.d
+
+	trigger = {
+		has_war_with = EGY
+		has_war_with = HEJ
+	}
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = { 754 = { is_owned_by = OTT } }
+			HEJ = { transfer_state = 754 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event hejrev.2 option hejrev.2.a"
+		name = hejrev.2.a
+		add_political_power = -20
+	}
+}
+
+country_event = {	#The Hashemite Revolt
+	id = hejrev.3
+	title = hejrev.3.t
+	desc = hejrev.3.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event hejrev.3 option hejrev.3.a"
+		name = hejrev.3.a
+		ai_chance = { base = 30 }
+		OTT = {
+			country_event = { id = hejrev.4 days = 1 }
+		}
+		EGY = { add_to_faction = HEJ }
+	}
+	option = {
+		log = "[GetLogInfo]: event hejrev.3 option hejrev.3.b"
+		name = hejrev.3.b
+		ai_chance = {
+			base = 70
+			modifier = {
+				factor = 0
+				has_war_with = IKH
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_war_with = OTT
+				}
+			}
+			declare_war_on = {
+				target = OTT
+				type = annex_everything
+			}
+		}
+		if = {
+			limit = {
+				is_in_faction_with = EGY
+			}
+			EGY = {
+				remove_from_faction = PREV
+			}
+		}
+		declare_war_on = {
+			target = HEJ
+			type = annex_everything
+		}
+		HEJ = {
+			country_event = hejrev.6
+		}
+	}
+}
+
+country_event = {	#Peace Offer from the Peninsula
+	id = hejrev.4
+	title = hejrev.4.t
+	desc = hejrev.4.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event hejrev.4 option hejrev.4.a"
+		name = hejrev.4.a
+		ai_chance = { base = 80 }
+		every_owned_state = {
+			limit = {
+				OR = {
+					is_core_of = FROM
+					is_claimed_by = FROM
+				}
+			}
+			if = {
+				limit = { is_core_of = ROOT }
+				remove_core_of = ROOT
+			}
+			if = {
+				limit = { is_claimed_by = ROOT }
+				remove_claim_by = ROOT
+			}
+			transfer_state_to = FROM
+		}
+		FROM = {
+			leave_faction = yes
+			white_peace_with_ROOT = yes
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event hejrev.4 option hejrev.4.b"
+		name = hejrev.4.b
+		ai_chance = { base = 20 }
+		FROM = {
+			country_event = { id = hejrev.5 days = 1 }
+		}
+	}
+}
+
+country_event = {	#Ottomans refuse our offer
+	id = hejrev.5
+	title = hejrev.5.t
+	desc = hejrev.5.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event hejrev.5 option hejrev.5.a"
+		name = hejrev.5.a
+		add_war_support = -0.2
+	}
+}
+
+country_event = {	#The Invasion of Hejaz
+	id = hejrev.6
+	title = hejrev.6.t
+	desc = hejrev.6.d
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event hejrev.6 option hejrev.6.a"
+		name = hejrev.6.a
+		FROM = { activate_mission = HEJ_invasion_of_hejaz }
+		activate_mission = HEJ_resist_arab_invasion
+		EGY = {
+			country_event = { id = hejrev.7 days = 1 }
+		}
+	}
+}
+
+country_event = {	#The Invasion of Hejaz
+	id = hejrev.7
+	title = hejrev.7.t
+	desc = hejrev.7.d
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event hejrev.7 option hejrev.7.a"
+		name = hejrev.7.a
+		ai_chance = { base = 100 }
+	}
+	option = {
+		log = "[GetLogInfo]: event hejrev.7 option hejrev.7.b"
+		name = hejrev.7.b
+		ai_chance = { base = 0 }
+		add_to_faction = HEJ
+	}
+}
+
+country_event = {	#Fall of Mecca
+	id = hejrev.8
+	title = hejrev.8.t
+	desc = hejrev.8.d
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event hejrev.8 option hejrev.8.a"
+		name = hejrev.8.a
+		random_country = {
+			limit = {
+				owns_state = 915
+				has_war_with = OTT
+			}
+			country_event = hejrev.9
+		}
+	}
+}
+
+country_event = {	#Egypt recognises our territory
+	id = hejrev.9
+	title = hejrev.9.t
+	desc = hejrev.9.d
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event hejrev.9 option hejrev.9.a"
+		name = hejrev.9.a
+		ai_chance = { base = 100 }
+		EGY = {
+			add_to_faction = ROOT
+		}
+		add_war_support = -0.10
+	}
+	option = {
+		log = "[GetLogInfo]: event hejrev.9 option hejrev.9.b"
+		name = hejrev.9.b
+		ai_chance = { base = 0 }
+		EGY = {
+			country_event = { id = hejrev.10 days = 2 }
+		}
+	}
+}
+
+country_event = {	#Arabia abandons the cause
+	id = hejrev.10
+	title = hejrev.10.t
+	desc = hejrev.10.d
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event hejrev.10 option hejrev.10.a"
+		name = hejrev.10.a
+		add_political_power = -30
+	}
+}
+
+country_event = {	#Mecca holds strong
+	id = hejrev.11
+	title = hejrev.11.t
+	desc = hejrev.11.d
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event hejrev.11 option hejrev.11.a"
+		name = hejrev.11.a
+		add_to_faction = FROM
+		every_other_country = {
+			limit = {
+				is_arabian_tag = yes
+				has_war_with = FROM
+			}
+			country_event = { id = hejrev.12 hours = 8 }
+		}
+	}
+}
+
+country_event = {	#Egypt demands an end to hostilities
+	id = hejrev.12
+	title = hejrev.12.t
+	desc = hejrev.12.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event hejrev.12 option hejrev.12.a"
+		name = hejrev.12.a
+		ai_chance = { base = 50 }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event hejrev.12 option hejrev.12.b"
+		name = hejrev.12.b
+		ai_chance = { base = 50 }
+		FROM = {
+			white_peace_with_ROOT = yes
+			add_to_faction = ROOT
+		}
+	}
+}

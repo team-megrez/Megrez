@@ -1,0 +1,579 @@
+GRE_become_syndicalist = {
+	if = {
+		limit = { has_country_flag = GRE_monarchists_win_referendum }
+		clr_country_flag = GRE_monarchists_win_referendum
+		set_country_flag = GRE_republicans_win_referendum
+	}
+	if = {
+		limit = {
+			is_subject = yes
+			overlord = { has_socialist_government = no }
+		}
+		overlord = {
+			country_event = { id = gre.116 days = 1 }
+			set_autonomy = { target = PREV autonomy_state = autonomy_free }
+		}
+	}
+	if = {
+		limit = {
+			is_in_faction = yes
+			faction_leader = { has_socialist_government = no }
+		}
+		leave_faction = yes
+		if = {
+			limit = { has_capitulated = no }
+			separate_peace_all_wars = yes
+		}
+	}
+	hidden_effect = {
+		event_target:original_greece = {
+			GRE_athanasios_klaras = {
+				set_nationality = PREV.PREV
+				promote_character = yes
+			}
+			GRE_stefanos_sarafis = { set_nationality = PREV.PREV }
+			GRE_markos_vafeiadis = { set_nationality = PREV.PREV }
+			GRE_charilaos_florakis = { set_nationality = PREV.PREV }
+		}
+		if = {
+			limit = { has_character = GRE_alexandros_papagos }
+			retire_character = GRE_alexandros_papagos
+		}
+		if = {
+			limit = { has_character = GRE_napoleon_zervas }
+			retire_character = GRE_napoleon_zervas
+		}
+		if = {
+			limit = { has_character = GRE_georgios_grivas }
+			retire_character = GRE_georgios_grivas
+		}
+	}
+}
+
+GRE_stop_being_syndicalist = {
+	if = {
+		limit = { is_monarchy = yes }
+		set_cosmetic_tag = GRE_kingdom
+	}
+	hidden_effect = {
+		event_target:original_greece = {
+			GRE_alexandros_papagos = {
+				set_nationality = PREV.PREV
+				promote_character = yes
+			}
+			GRE_napoleon_zervas = { set_nationality = PREV.PREV }
+			GRE_georgios_grivas = { set_nationality = PREV.PREV }
+		}
+		if = {
+			limit = { has_character = GRE_athanasios_klaras }
+			retire_character = GRE_athanasios_klaras
+		}
+		if = {
+			limit = { has_character = GRE_stefanos_sarafis }
+			retire_character = GRE_stefanos_sarafis
+		}
+		if = {
+			limit = { has_character = GRE_markos_vafeiadis }
+			retire_character = GRE_markos_vafeiadis
+		}
+		if = {
+			limit = { has_character = GRE_charilaos_florakis }
+			retire_character = GRE_charilaos_florakis
+		}
+	}
+}
+
+GRE_restore_republic = {
+	if = {
+		limit = { has_cosmetic_tag = GRE_kingdom }
+		drop_cosmetic_tag = yes
+	}
+	if = {
+		limit = { has_country_flag = GRE_monarchists_win_referendum }
+		clr_country_flag = GRE_monarchists_win_referendum
+		set_country_flag = GRE_republicans_win_referendum
+	}
+	hidden_effect = {
+		if = {
+			limit = { has_character = GRE_georgios_glyksbourg }
+			GRE_georgios_glyksbourg = {
+				set_character_name = GRE_georgios_glyksbourg
+				hidden_effect = { remove_all_country_leader_roles = yes }
+				retire = yes
+			}
+		}
+		if = {
+			limit = { has_character = GRE_pavlos_glyksbourg }
+			GRE_pavlos_glyksbourg = {
+				set_character_name = GRE_pavlos_glyksbourg
+				hidden_effect = { remove_all_country_leader_roles = yes }
+				retire = yes
+			}
+		}
+		if = {
+			limit = { has_character = GRE_alexandros_glyksbourg }
+			GRE_alexandros_glyksbourg = {
+				set_character_name = GRE_alexandros_glyksbourg
+				hidden_effect = { remove_all_country_leader_roles = yes }
+				retire = yes
+			}
+		}
+	}
+}
+
+GRE_create_alexander = {
+	if = {
+		limit = { has_country_flag = GRE_republicans_win_referendum }
+		clr_country_flag = GRE_republicans_win_referendum
+		set_country_flag = GRE_monarchists_win_referendum
+	}
+	set_cosmetic_tag = GRE_kingdom
+	event_target:original_greece = {
+		GRE_alexandros_glyksbourg = {
+			character_becomes_leader_of_ruling_party_effect_tooltip = yes
+			hidden_effect = {
+				set_nationality = PREV.PREV
+				set_character_name = GRE_alexandros_glyksbourg_regnal
+				remove_all_country_leader_roles = yes
+				add_country_leader_role = {
+					country_leader = { ideology = social_democrat_subtype }
+					promote_leader = yes
+				}
+				add_country_leader_role = {
+					country_leader = { ideology = social_liberal_subtype }
+					promote_leader = yes
+				}
+				add_country_leader_role = {
+					country_leader = { ideology = market_liberal_subtype }
+					promote_leader = yes
+				}
+				add_country_leader_role = {
+					country_leader = { ideology = social_conservative_subtype }
+					promote_leader = yes
+				}
+				add_country_leader_role = {
+					country_leader = { ideology = authoritarian_democrat_subtype }
+					promote_leader = yes
+				}
+				add_country_leader_role = {
+					country_leader = { ideology = paternal_autocrat_subtype }
+					promote_leader = yes
+				}
+				add_country_leader_role = {
+					country_leader = { ideology = national_populist_subtype }
+					promote_leader = yes
+				}
+			}
+		}
+		hidden_effect = {
+			GRE_georgios_glyksbourg = {
+				set_nationality = PREV.PREV
+				set_character_name = GRE_georgios_glyksbourg
+			}
+			GRE_pavlos_glyksbourg = {
+				set_nationality = PREV.PREV
+				set_character_name = GRE_pavlos_glyksbourg
+			}
+		}
+	}
+}
+
+GRE_create_george = {
+	if = {
+		limit = { has_country_flag = GRE_republicans_win_referendum }
+		clr_country_flag = GRE_republicans_win_referendum
+		set_country_flag = GRE_monarchists_win_referendum
+	}
+	if = {
+		limit = { NOT = { has_cosmetic_tag = GRE_kingdom } }
+		set_cosmetic_tag = GRE_kingdom
+	}
+	event_target:original_greece = {
+		GRE_georgios_glyksbourg = {
+			character_becomes_leader_of_ruling_party_effect_tooltip = yes
+			hidden_effect = {
+				set_nationality = PREV.PREV
+				set_character_name = GRE_georgios_glyksbourg_regnal
+				remove_all_country_leader_roles = yes
+				add_country_leader_role = {
+					country_leader = { ideology = social_democrat_subtype }
+					promote_leader = yes
+				}
+				add_country_leader_role = {
+					country_leader = { ideology = social_liberal_subtype }
+					promote_leader = yes
+				}
+				add_country_leader_role = {
+					country_leader = { ideology = market_liberal_subtype }
+					promote_leader = yes
+				}
+				add_country_leader_role = {
+					country_leader = { ideology = social_conservative_subtype }
+					promote_leader = yes
+				}
+				add_country_leader_role = {
+					country_leader = { ideology = authoritarian_democrat_subtype }
+					promote_leader = yes
+				}
+				add_country_leader_role = {
+					country_leader = { ideology = paternal_autocrat_subtype }
+					promote_leader = yes
+				}
+				add_country_leader_role = {
+					country_leader = { ideology = national_populist_subtype }
+					promote_leader = yes
+				}
+			}
+		}
+		hidden_effect = {
+			GRE_alexandros_glyksbourg = {
+				set_nationality = PREV.PREV
+				set_character_name = GRE_alexandros_glyksbourg
+			}
+			GRE_pavlos_glyksbourg = {
+				set_nationality = PREV.PREV
+				set_character_name = GRE_pavlos_glyksbourg
+			}
+		}
+	}
+}
+
+GRE_create_paul = {
+	if = {
+		limit = { has_country_flag = GRE_republicans_win_referendum }
+		clr_country_flag = GRE_republicans_win_referendum
+		set_country_flag = GRE_monarchists_win_referendum
+	}
+	if = {
+		limit = { NOT = { has_cosmetic_tag = GRE_kingdom } }
+		set_cosmetic_tag = GRE_kingdom
+	}
+	event_target:original_greece = {
+		GRE_pavlos_glyksbourg = {
+			character_becomes_leader_of_ruling_party_effect_tooltip = yes
+			hidden_effect = {
+				set_nationality = PREV.PREV
+				set_character_name = GRE_pavlos_glyksbourg_regnal
+				remove_all_country_leader_roles = yes
+				add_country_leader_role = {
+					country_leader = { ideology = social_democrat_subtype }
+					promote_leader = yes
+				}
+				add_country_leader_role = {
+					country_leader = { ideology = social_liberal_subtype }
+					promote_leader = yes
+				}
+				add_country_leader_role = {
+					country_leader = { ideology = market_liberal_subtype }
+					promote_leader = yes
+				}
+				add_country_leader_role = {
+					country_leader = { ideology = social_conservative_subtype }
+					promote_leader = yes
+				}
+				add_country_leader_role = {
+					country_leader = { ideology = authoritarian_democrat_subtype }
+					promote_leader = yes
+				}
+				add_country_leader_role = {
+					country_leader = { ideology = paternal_autocrat_subtype }
+					promote_leader = yes
+				}
+				add_country_leader_role = {
+					country_leader = { ideology = national_populist_subtype }
+					promote_leader = yes
+				}
+			}
+		}
+		hidden_effect = {
+			GRE_georgios_glyksbourg = {
+				set_nationality = PREV.PREV
+				set_character_name = GRE_georgios_glyksbourg
+			}
+			GRE_alexandros_glyksbourg = {
+				set_nationality = PREV.PREV
+				set_character_name = GRE_alexandros_glyksbourg
+			}
+		}
+	}
+}
+
+GRE_spawn_civil_war_units = {
+	transfer_units_fraction = {
+		target = ROOT
+		size = 1
+		keep_unit_leaders_trigger = { always = yes }
+	}
+	division_template = {
+		name = "Merarchia Pezikou"
+		division_names_group = GRE_INF_01
+		regiments = {
+			infantry = { x = 0 y = 0 }
+			infantry = { x = 0 y = 1 }
+			infantry = { x = 0 y = 2 }
+			infantry = { x = 1 y = 0 }
+			infantry = { x = 1 y = 1 }
+			infantry = { x = 1 y = 2 }
+			infantry = { x = 2 y = 0 }
+			infantry = { x = 2 y = 1 }
+			infantry = { x = 2 y = 2 }
+		}
+		template_counter = 73
+	}
+	division_template = {
+		name = "Merarchia Ippikou"
+		division_names_group = GRE_CAV_01
+		regiments = {
+			cavalry = { x = 0 y = 0 }
+			cavalry = { x = 0 y = 1 }
+			cavalry = { x = 0 y = 2 }
+			cavalry = { x = 1 y = 0 }
+			cavalry = { x = 1 y = 1 }
+			cavalry = { x = 1 y = 2 }
+		}
+	}
+	capital_scope = {
+		create_unit = {
+			division = "division_template = \"Merarchia Pezikou\" start_experience_factor = 0.1"
+			allow_spawning_on_enemy_provs = yes
+			owner = PREV
+			count = GRE_civil_war_divisions_infantry
+		}
+		create_unit = {
+			division = "division_template = \"Merarchia Ippikou\" start_experience_factor = 0.1"
+			allow_spawning_on_enemy_provs = yes
+			owner = PREV
+			count = GRE_civil_war_divisions_cavalry
+		}
+	}
+}
+
+GRE_uncomplete_focuses = {
+	hidden_effect = {
+		if = {
+			limit = { is_monarchy = no }
+			uncomplete_national_focus = {
+				focus = GRE_divine_mediator
+				uncomplete_children = yes
+			}
+		}
+		if = {
+			limit = { has_democratic_government = no }
+			uncomplete_national_focus = {
+				focus = GRE_empowered_parliament
+				uncomplete_children = yes
+			}
+			uncomplete_national_focus = {
+				focus = GRE_strong_executive
+				uncomplete_children = yes
+			}
+			uncomplete_national_focus = {
+				focus = GRE_empower_the_throne
+				uncomplete_children = yes
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_government = totalist
+					has_government = syndicalist
+				}
+			}
+			uncomplete_national_focus = {
+				focus = GRE_old_order_overthrown
+				uncomplete_children = yes
+			}
+		}
+		if = {
+			limit = { NOT = { has_government = radical_socialist } }
+			uncomplete_national_focus = {
+				focus = GRE_radical_socialists
+				uncomplete_children = yes
+			}
+		}
+		if = {
+			limit = { NOT = { has_government = social_democrat } }
+			uncomplete_national_focus = {
+				focus = GRE_soc_dems
+				uncomplete_children = yes
+			}
+		}
+		if = {
+			limit = { NOT = { has_government = social_liberal } }
+			uncomplete_national_focus = {
+				focus = GRE_soc_liberals
+				uncomplete_children = yes
+			}
+		}
+		if = {
+			limit = { NOT = { has_government = market_liberal } }
+			uncomplete_national_focus = {
+				focus = GRE_market_liberals
+				uncomplete_children = yes
+			}
+		}
+		if = {
+			limit = { NOT = { has_government = social_conservative } }
+			uncomplete_national_focus = {
+				focus = GRE_soc_conservatives
+				uncomplete_children = yes
+			}
+		}
+		if = {
+			limit = { NOT = { has_government = authoritarian_democrat } }
+			uncomplete_national_focus = {
+				focus = GRE_auth_dems
+				uncomplete_children = yes
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_government = paternal_autocrat
+					has_government = national_populist
+				}
+			}
+			uncomplete_national_focus = {
+				focus = GRE_autocratic_greece
+				uncomplete_children = yes
+			}
+		}
+	}
+}
+
+GRE_uncomplete_expansion_focuses = {
+	if = {
+		limit = { has_completed_focus = GRE_diplomacy_focus }
+		uncomplete_national_focus = {
+			focus = GRE_diplomacy_focus
+			uncomplete_children = yes
+		}
+	}
+	if = {
+		limit = { has_completed_focus = GRE_new_expansionism }
+		uncomplete_national_focus = {
+			focus = GRE_new_expansionism
+			uncomplete_children = yes
+		}
+	}
+}
+
+GRE_naval_variants = {
+	### Submarines ###
+	create_equipment_variant = {
+		name = "Mastrozos Class"
+		type = ship_hull_submarine_1
+		name_group = GRE_SS_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_1
+			fixed_ship_engine_slot = sub_ship_engine_1
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Delfin Class"
+		type = ship_hull_submarine_2
+		name_group = GRE_SS_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_1
+			fixed_ship_engine_slot = sub_ship_engine_1
+			rear_1_custom_slot = ship_torpedo_sub_1
+		}
+	}
+
+	### Destroyers ###
+	create_equipment_variant = {
+		name = "Aetos Class"
+		type = ship_hull_light_1
+		name_group = GRE_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = empty
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Navarinon Class"
+		type = ship_hull_light_1
+		name_group = GRE_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_2
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = empty
+			rear_1_custom_slot = ship_mine_layer_1
+		}
+	}
+
+	### Light Cruisers ###
+	create_equipment_variant = {
+		name = "Elli Class"
+		type = ship_hull_cruiser_1
+		name_group = GRE_CL_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_armor_slot = empty
+			fixed_ship_secondaries_slot = empty
+			mid_1_custom_slot = ship_torpedo_1
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = ship_mine_layer_1
+		}
+	}
+
+	### Heavy Cruisers ###
+	create_equipment_variant = {
+		name = "Averof Class"
+		type = ship_hull_cruiser_coastal_defense_ship
+		name_group = GRE_CA_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_armor_slot = ship_armor_cruiser_2
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			mid_1_custom_slot = empty
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = ship_medium_battery_1
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Salamis Class"
+		type = ship_hull_cruiser_panzerschiff
+		name_group = GRE_CA_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_battery_slot = ship_heavy_battery_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			rear_1_custom_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_airplane_launcher_1
+			mid_2_custom_slot = ship_anti_air_1
+		}
+	}
+}

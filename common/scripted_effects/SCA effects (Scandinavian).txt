@@ -1,0 +1,214 @@
+#######################
+## Idea Improvement ###
+#######################
+
+SCA_eco_improve = {
+	if = {
+		limit = {
+			has_idea = SCA_nordic_standard
+		}
+		swap_ideas = {
+			remove_idea = SCA_nordic_standard
+			add_idea = SCA_plan_stage_2_standard
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = SCA_plan_stage_2_standard
+		}
+		swap_ideas = {
+			remove_idea = SCA_plan_stage_2_standard
+			add_idea = SCA_plan_stage_3_standard
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = SCA_nordic_example
+		}
+		swap_ideas = {
+			remove_idea = SCA_nordic_example
+			add_idea = SCA_plan_stage_2_example
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = SCA_plan_stage_2_example
+		}
+		swap_ideas = {
+			remove_idea = SCA_plan_stage_2_example
+			add_idea = SCA_plan_stage_3_example
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = SCA_nordic_model
+		}
+		swap_ideas = {
+			remove_idea = SCA_nordic_model
+			add_idea = SCA_plan_stage_2_model
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = SCA_plan_stage_2_model
+		}
+		swap_ideas = {
+			remove_idea = SCA_plan_stage_2_model
+			add_idea = SCA_plan_stage_3_model
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = SCA_plan_stage_3_model
+		}
+		swap_ideas = {
+			remove_idea = SCA_plan_stage_3_model
+			add_idea = SCA_giant_awake
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = SCA_plan_stage_3_example
+		}
+		swap_ideas = {
+			remove_idea = SCA_plan_stage_3_example
+			add_idea = SCA_giant_awake
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = SCA_plan_stage_3_standard
+		}
+		swap_ideas = {
+			remove_idea = SCA_plan_stage_3_standard
+			add_idea = SCA_giant_awake
+		}
+	}
+}
+
+SCA_unlock_resources_decisions = {
+	custom_effect_tooltip = tooltip_white_line
+	custom_effect_tooltip = SCA_activate_resource_extraction_decisions
+	hidden_effect = {
+		EST_estonian_oil_decisions_activation = yes
+		NOR_activate_resources_extraction_decisions = yes
+		SWE_activate_resources_extraction_decisions = yes
+	}
+}
+
+SCA_setup_develop_country_decisions = {
+	activate_targeted_decision = { target = THIS decision = SCA_stage_2 }
+	activate_targeted_decision = { target = THIS decision = SCA_stage_3 }
+	activate_targeted_decision = { target = THIS decision = SCA_stage_unknown }
+	activate_targeted_decision = { target = THIS decision = SCA_develop_stockholm }
+	activate_targeted_decision = { target = THIS decision = SCA_develop_oslo }
+	activate_targeted_decision = { target = THIS decision = SCA_develop_copenhagen }
+	activate_targeted_decision = { target = THIS decision = SCA_develop_helsinki }
+	activate_targeted_decision = { target = THIS decision = SCA_develop_gothenburg }
+	activate_targeted_decision = { target = THIS decision = SCA_develop_reykjavik }
+	activate_targeted_decision = { target = THIS decision = SCA_build_norway }
+	activate_targeted_decision = { target = THIS decision = SCA_build_sweden }
+	activate_targeted_decision = { target = THIS decision = SCA_build_denmark }
+	activate_targeted_decision = { target = THIS decision = SCA_build_iceland }
+	activate_targeted_decision = { target = THIS decision = SCA_build_finland }
+	activate_targeted_decision = { target = THIS decision = SCA_industrialize_Bohuslan }
+	activate_targeted_decision = { target = THIS decision = SCA_industrialize_Gotland }
+	activate_targeted_decision = { target = THIS decision = SCA_industrialize_trondelag }
+	activate_targeted_decision = { target = THIS decision = SCA_industrialize_Jamtland }
+	activate_targeted_decision = { target = THIS decision = SCA_industrialize_Norrland }
+	activate_targeted_decision = { target = THIS decision = SCA_industrialize_West_Bothnia }
+	activate_targeted_decision = { target = THIS decision = SCA_industrialize_Nordland_Troms }
+	activate_targeted_decision = { target = THIS decision = SCA_industrialize_Haparanda }
+	activate_targeted_decision = { target = THIS decision = SCA_industrialize_Finnmark }
+	activate_targeted_decision = { target = THIS decision = SCA_industrialize_Aland }
+	activate_targeted_decision = { target = THIS decision = SCA_industrialize_Tornio }
+	activate_targeted_decision = { target = THIS decision = SCA_industrialize_Faroes }
+	activate_targeted_decision = { target = THIS decision = SCA_industrialize_Iceland }
+}
+
+SCA_get_ideologies = {
+	if = {
+		limit = { SWE = { has_government = social_democrat } }
+		add_to_variable = { SCA.socdem_gov_var = 1 }
+	}
+	else_if = {
+		limit = {
+			SWE = {
+				OR = {
+					has_government = social_liberal
+					has_government = market_liberal
+				}
+			}
+		}
+		add_to_variable = { SCA.liberal_gov_var = 1 }
+	}
+	else_if = {
+		limit = { SWE = { has_government = social_conservative } }
+		add_to_variable = { SCA.soccon_gov_var = 1 }
+	}
+	if = {
+		limit = { NOR = { has_country_flag = SCA_accepted_federation } }
+		if = {
+			limit = { NOR = { has_government = social_democrat } }
+			add_to_variable = { SCA.socdem_gov_var = 1 }
+		}
+		else_if = {
+			limit = {
+				NOR = {
+					OR = {
+						has_government = social_liberal
+						has_government = market_liberal
+					}
+				}
+			}
+			add_to_variable = { SCA.liberal_gov_var = 1 }
+		}
+		else_if = {
+			limit = { NOR = { has_government = social_conservative } }
+			add_to_variable = { SCA.soccon_gov_var = 1 }
+		}
+	}
+	if = {
+		limit = { DEN = { has_government = social_democrat } }
+		add_to_variable = { SCA.socdem_gov_var = 1 }
+	}
+	else_if = {
+		limit = {
+			DEN = {
+				OR = {
+					has_government = social_liberal
+					has_government = market_liberal
+				}
+			}
+		}
+		add_to_variable = { SCA.liberal_gov_var = 1 }
+	}
+	else_if = {
+		limit = { DEN = { has_government = social_conservative } }
+		add_to_variable = { SCA.soccon_gov_var = 1 }
+	}
+}
+
+SCA_determine_election = {
+	if = {
+		limit = {
+			check_variable = { SCA.socdem_gov_var > SCA.liberal_gov_var }
+			check_variable = { SCA.socdem_gov_var > SCA.soccon_gov_var }
+		}
+		set_country_flag = SCA_socdem_govt
+	}
+	else_if = {
+		limit = {
+			check_variable = { SCA.liberal_gov_var > SCA.socdem_gov_var }
+			check_variable = { SCA.liberal_gov_var > SCA.soccon_gov_var }
+		}
+		set_country_flag = SCA_lib_govt
+	}
+	else_if = {
+		limit = {
+			check_variable = { SCA.soccon_gov_var > SCA.socdem_gov_var }
+			check_variable = { SCA.soccon_gov_var > SCA.liberal_gov_var }
+		}
+		set_country_flag = SCA_soccon_govt
+	}
+}

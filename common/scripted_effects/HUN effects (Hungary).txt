@@ -1,0 +1,32 @@
+HUN_remove_joseph_august = {
+	HUN = {
+		if = {
+			limit = { has_character = AUS_joseph_august_von_habsburg }
+			AUS_joseph_august_von_habsburg = {
+				set_character_name = AUS_joseph_august_von_habsburg
+				remove_all_country_leader_roles = yes
+				set_nationality = AUS
+			}
+		}
+	}
+}
+
+HUN_kalman_daranyi_de_pusztaszentgyorgyi_sic = {
+	if = {
+		limit = {
+			has_character = HUN_kalman_daranyi_de_pusztaszentgyorgyi
+			HUN_kalman_daranyi_de_pusztaszentgyorgyi = { is_second_in_command = no }
+		}
+		activate_advisor = HUN_kalman_daranyi_de_pusztaszentgyorgyi_second_in_command
+	}
+}
+
+HUN_gusztav_gratz_sic = {
+	if = {
+		limit = {
+			has_character = HUN_gusztav_gratz
+			HUN_gusztav_gratz = { is_second_in_command = no }
+		}
+		activate_advisor = HUN_gusztav_gratz_second_in_command
+	}
+}

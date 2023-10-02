@@ -1,0 +1,4246 @@
+﻿# Costa Rica - Jeankedezeehond
+add_namespace = cos
+
+country_event = { #Nomination of the Republican Candidate
+	id = cos.2
+	title = cos.2.t
+	desc = cos.2.d
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			country_event = { id = cos.3 days = 7 }
+		}
+	}
+
+	option = { #Cortes
+		log = "[GetLogInfo]: event cos.2 option cos.2.a"
+		ai_chance = {
+			base = 75
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = COS_path option = COS_PATH_CALDERON_SOCDEM }
+					has_game_rule = { rule = COS_path option = COS_PATH_FERRER_SOCDEM }
+					has_game_rule = { rule = COS_path option = COS_PATH_SYNDIE }
+				}
+			}
+		}
+		name = cos.2.a
+		set_country_flag = CORTES
+		effect_tooltip = {
+			add_country_leader_role = {
+				character = COS_leon_cortes_castro
+				country_leader = { ideology = social_conservative_subtype }
+			}
+		}
+	}
+
+	option = { #Guardia
+		log = "[GetLogInfo]: event cos.2 option cos.2.b"
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = COS_path option = COS_PATH_SOCCON }
+			}
+		}
+		name = cos.2.b
+		set_country_flag = GUARDIA
+		add_country_leader_role = {
+			character = COS_rafael_angel_calderon_guardia
+			country_leader = { ideology = social_conservative_subtype }
+		}
+	}
+}
+
+country_event = { #Manuel Mora Valverde requests lowering of the age requirement
+
+	id = cos.3
+	title = cos.3.t
+	desc = cos.3.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #The constitution is sacred
+		log = "[GetLogInfo]: event cos.3 option cos.3.a"
+		ai_chance = { base = 95 }
+		name = cos.3.a
+		add_political_power = 20
+	}
+
+	option = { #It was a dumb rule anyway
+		log = "[GetLogInfo]: event cos.3 option cos.3.b"
+		ai_chance = { base = 5 }
+		name = cos.3.b
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.05
+		}
+		add_stability = 0.03
+	}
+}
+
+country_event = { #1936 Elections
+
+	id = cos.4
+	title = cos.4.t
+	desc = cos.4.d
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = COS
+		date < 1938.02.02
+		is_subject = no
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			country_event = { id = cos.59 days = 365 }
+		}
+	}
+
+	option = { #Cortes wins
+		log = "[GetLogInfo]: event cos.4 option cos.4.a"
+		trigger = {
+			has_country_flag = CORTES
+		}
+		ai_chance = { base = 100 }
+		name = cos.4.a
+		complete_national_focus = COS_Conservative_Victory
+		promote_character = COS_leon_cortes_castro
+		hidden_effect = {
+			country_event = { id = cos.69 days = 1095 }
+			country_event = { id = cos.122 days = 710 }
+		}
+	}
+
+	option = { #Guardia wins
+		log = "[GetLogInfo]: event cos.4 option cos.4.b"
+		trigger = {
+			has_country_flag = GUARDIA
+		}
+		ai_chance = { base = 100 }
+		name = cos.4.b
+		promote_character = {
+			character = COS_rafael_angel_calderon_guardia
+			ideology = social_conservative_subtype
+		}
+		hidden_effect = {
+			country_event = { id = cos.77 days = 6 }
+		}
+	}
+}
+
+### BLACK MONDAY ###
+
+country_event = { #Black Monday hits the ZKG
+	id = cos.5
+	title = cos.5.t
+	desc = cos.5.d
+
+	is_triggered_only = yes
+
+	option = { #Oh the humanity
+		log = "[GetLogInfo]: event cos.5 option cos.5.a"
+		name = cos.5.a
+		trigger = {
+			has_country_flag = CORTES
+		}
+		ai_chance = { base = 100 }
+		add_ideas = COS_black_monday
+		hidden_effect = {
+			country_event = { id = cos.14 days = 100 }
+		}
+		add_stability = -0.4
+		add_political_power = -100
+	}
+	option = { #Those Germans had it coming!
+		log = "[GetLogInfo]: event cos.5 option cos.5.b"
+		name = cos.5.b
+		trigger = {
+			has_country_flag = GUARDIA
+		}
+		ai_chance = { base = 100 }
+		add_ideas = COS_black_monday
+		add_stability = -0.4
+		add_political_power = -100
+	}
+}
+
+country_event = { #ZKG collapses under the BM crisis
+
+	id = cos.6
+	title = cos.6.t
+	desc = cos.6.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Approach the USA
+		log = "[GetLogInfo]: event cos.6 option cos.6.a"
+		ai_chance = { base = 30 }
+		name = cos.6.a
+		USA = {
+			country_event = { id = cos.7 days = 2 }
+		}
+	}
+
+	option = { #Ask for a German bailout
+		log = "[GetLogInfo]: event cos.6 option cos.6.b"
+		ai_chance = { base = 70 }
+		name = cos.6.b
+		GER = {
+			country_event = { id = cos.10 days = 2 }
+		}
+	}
+}
+
+country_event = { #Costa Rica requests American support
+
+	id = cos.7
+	title = cos.7.t
+	desc = cos.7.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Offer them assistance
+		log = "[GetLogInfo]: event cos.7 option cos.7.a"
+		ai_chance = { base = 60 }
+		name = cos.7.a
+		COS = {
+			country_event = { id = cos.8 days = 2 }
+		}
+	}
+
+	option = { #We have more important matters to attend to
+		log = "[GetLogInfo]: event cos.7 option cos.7.b"
+		ai_chance = { base = 40 }
+		name = cos.7.b
+		COS = {
+			set_country_flag = USA_DENIED
+			country_event = { id = cos.9 days = 2 }
+		}
+	}
+}
+
+country_event = { #Costa Rica receives American support
+
+	id = cos.8
+	title = cos.8.t
+	desc = cos.8.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #God bless the US of A
+		log = "[GetLogInfo]: event cos.8 option cos.8.a"
+		name = cos.8.a
+		add_stability = 0.05
+		complete_national_focus = COS_Request_American_Support
+		set_country_flag = GER_DENIED
+	}
+}
+
+country_event = { #Costa Rica receives no American support
+
+	id = cos.9
+	title = cos.9.t
+	desc = cos.9.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Ask Germany
+		log = "[GetLogInfo]: event cos.9 option cos.9.a"
+		trigger = {
+			NOT = {
+				has_country_flag = GER_DENIED
+			}
+		}
+		ai_chance = { base = 100 }
+		name = cos.9.a
+		GER = {
+			country_event = { id = cos.10 days = 2 }
+		}
+	}
+
+	option = { #RIP
+		log = "[GetLogInfo]: event cos.9 option cos.9.b"
+		trigger = {
+			has_country_flag = GER_DENIED
+		}
+		ai_chance = { base = 100 }
+		name = cos.9.b
+		add_stability = -0.10
+		custom_effect_tooltip = ZKG_NO_SUPPORT
+		hidden_effect = {
+			country_event = { id = cos.13 days = 1825 }
+		}
+	}
+}
+
+country_event = { #Costa Rica requests German support
+
+	id = cos.10
+	title = cos.10.t
+	desc = cos.10.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Offer them assistance
+		log = "[GetLogInfo]: event cos.10 option cos.10.a"
+		ai_chance = { base = 100 }
+		name = cos.10.a
+		COS = {
+			country_event = cos.11
+		}
+	}
+
+	option = { #We have more important matters to attend to
+		log = "[GetLogInfo]: event cos.10 option cos.10.b"
+		ai_chance = { base = 0 }
+		name = cos.10.b
+		COS = {
+			set_country_flag = GER_DENIED
+			country_event = cos.12
+		}
+	}
+}
+
+country_event = { #Costa Rica receives German support
+
+	id = cos.11
+	title = cos.11.t
+	desc = cos.11.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Thank God for the Germans
+		log = "[GetLogInfo]: event cos.11 option cos.11.a"
+		name = cos.11.a
+		add_stability = 0.05
+		complete_national_focus = COS_German_Crisis_Response
+		set_country_flag = USA_DENIED
+	}
+}
+
+country_event = { #Costa Rica receives no German support
+
+	id = cos.12
+	title = cos.12.t
+	desc = cos.12.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Ask America
+		log = "[GetLogInfo]: event cos.12 option cos.12.a"
+		trigger = {
+			NOT = {
+				has_country_flag = USA_DENIED
+			}
+		}
+		ai_chance = { base = 100 }
+		name = cos.12.a
+		USA = {
+			country_event = cos.10
+		}
+	}
+
+	option = { #RIP
+		log = "[GetLogInfo]: event cos.12 option cos.12.b"
+		trigger = {
+			has_country_flag = USA_DENIED
+		}
+		ai_chance = { base = 100 }
+		name = cos.12.b
+		add_stability = -0.10
+		custom_effect_tooltip = ZKG_NO_SUPPORT
+		hidden_effect = {
+			country_event = { id = cos.13 days = 1825 }
+		}
+	}
+}
+
+country_event = { #ZKG recovers on its own
+
+	id = cos.13
+	title = cos.13.t
+	desc = cos.13.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #At last
+		log = "[GetLogInfo]: event cos.13 option cos.13.a"
+		name = cos.13.a
+		add_stability = 0.05
+		complete_national_focus = COS_A_Different_Approach
+	}
+}
+
+### 1936 Events ###
+
+country_event = { #ZKG strikes
+
+	id = cos.14
+	title = cos.14.t
+	desc = cos.14.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = CORTES
+	}
+
+	option = { #Let's hope they don't repeat the '34 disaster
+		log = "[GetLogInfo]: event cos.14 option cos.14.a"
+		name = cos.14.a
+		add_stability = -0.05
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.03
+		}
+		hidden_effect = {
+			country_event = { id = cos.15 days = 80 }
+		}
+	}
+}
+
+country_event = { #Protest against Blacks taking Costa Rican jobs
+
+	id = cos.15
+	title = cos.15.t
+	desc = cos.15.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_government = social_conservative
+	}
+
+	option = { #It's a free world
+		log = "[GetLogInfo]: event cos.15 option cos.15.a"
+		ai_chance = { base = 33 }
+		name = cos.15.a
+		custom_effect_tooltip = COS_ZKG_plus_3
+		hidden_effect = {
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.03
+			}
+		}
+		custom_effect_tooltip = COS_UFC_plus_3
+		hidden_effect = {
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.03
+			}
+		}
+	}
+
+	option = { #Encourage companies to hire native Costa Ricans
+		log = "[GetLogInfo]: event cos.15 option cos.15.b"
+		ai_chance = { base = 33 }
+		name = cos.15.b
+		add_political_power = -30
+		custom_effect_tooltip = COS_ZKG_minus_3
+		hidden_effect = {
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.03
+			}
+		}
+		custom_effect_tooltip = COS_UFC_minus_3
+		hidden_effect = {
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.03
+			}
+		}
+	}
+
+	option = { #Enforce zones which blacks can't leave
+		log = "[GetLogInfo]: event cos.15 option cos.15.c"
+		ai_chance = { base = 33 }
+		name = cos.15.c
+		add_political_power = -30
+		set_temp_variable = { ideology_change_var = 0.05 }
+		change_ruling_party_popularity = yes
+	}
+}
+
+### Schleswig ###
+
+country_event = { #German Cruiser Schleswig docks in Costa Rica
+
+	id = cos.16
+	title = cos.16.t
+	desc = cos.16.d
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = CORTES
+	}
+
+	option = { #Request a German garisson
+		log = "[GetLogInfo]: event cos.16 option cos.16.a"
+		ai_chance = { base = 90 }
+		name = cos.16.a
+		add_political_power = -100
+		GER = {
+			country_event = cos.17
+		}
+	}
+
+	option = { #Request German arms
+		log = "[GetLogInfo]: event cos.16 option cos.16.b"
+		ai_chance = { base = 20 }
+		name = cos.16.b
+		add_political_power = -50
+		GER = {
+			country_event = cos.20
+		}
+	}
+
+	option = { #We don't need their help
+		log = "[GetLogInfo]: event cos.16 option cos.16.c"
+		ai_chance = { base = 0 }
+		name = cos.16.c
+		add_stability = 0.05
+	}
+}
+
+country_event = { #CR requests German garisson
+
+	id = cos.17
+	title = cos.17.t
+	desc = cos.17.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Accept their idea
+		log = "[GetLogInfo]: event cos.17 option cos.17.a"
+		ai_chance = { base = 80 }
+		name = cos.17.a
+		COS = {
+			country_event = cos.18
+		}
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = -100
+			producer = GER
+		}
+		add_manpower = -100
+	}
+
+	option = { #We shouldn't anger the USA
+		log = "[GetLogInfo]: event cos.17 option cos.17.b"
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				COS = {
+					is_ai = no
+				}
+			}
+		}
+		name = cos.17.b
+		COS = {
+			country_event = cos.19
+		}
+	}
+}
+
+country_event = { #German garisson instated
+
+	id = cos.18
+	title = cos.18.t
+	desc = cos.18.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Wilkommen meine Freunden
+		log = "[GetLogInfo]: event cos.18 option cos.18.a"
+		name = cos.18.a
+		hidden_effect = { COS_create_GER_garrison_divisions = yes }
+		custom_effect_tooltip = COS_gerdiv_tt
+	}
+}
+
+country_event = { #German garisson refused
+
+	id = cos.19
+	title = cos.19.t
+	desc = cos.19.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #SAD
+		log = "[GetLogInfo]: event cos.19 option cos.19.a"
+		name = cos.19.a
+		add_war_support = 0.10
+	}
+}
+
+country_event = { #CR requests German arms
+
+	id = cos.20
+	title = cos.20.t
+	desc = cos.20.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Accept their idea
+		log = "[GetLogInfo]: event cos.20 option cos.20.a"
+		ai_chance = { base = 30 }
+		name = cos.20.a
+		COS = {
+			country_event = cos.21
+		}
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = -500
+			producer = GER
+		}
+	}
+
+	option = { #We shouldn't anger the USA
+		log = "[GetLogInfo]: event cos.20 option cos.20.b"
+		ai_chance = {
+			base = 70
+			modifier = {
+				factor = 0
+				COS = {
+					is_ai = no
+				}
+			}
+		}
+		name = cos.20.b
+		COS = {
+			country_event = cos.22
+		}
+	}
+}
+
+country_event = { #German arms received
+
+	id = cos.21
+	title = cos.21.t
+	desc = cos.21.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #It's for a good cause
+		log = "[GetLogInfo]: event cos.21 option cos.21.a"
+		name = cos.21.a
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 500
+			producer = GER
+		}
+	}
+}
+
+country_event = { #Germany refuses weapons shipment
+
+	id = cos.22
+	title = cos.22.t
+	desc = cos.22.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Well fuck you too then
+		log = "[GetLogInfo]: event cos.22 option cos.22.a"
+		name = cos.22.a
+		add_war_support = 0.10
+	}
+}
+
+#######
+# ACW #
+#######
+
+country_event = { #ACW breaks out
+	id = cos.23
+	title = cos.23.t
+	desc = cos.23.d
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_subject = no
+	}
+
+	immediate = {
+		hidden_effect = {
+			country_event = { id = cos.63 days = 150 }
+		}
+	}
+
+	option = { #Approach the Entente
+		log = "[GetLogInfo]: event cos.23 option cos.23.a"
+		name = cos.23.a
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = COS_forpol option = COS_FORPOL_NEUT }
+					has_game_rule = { rule = COS_forpol option = COS_FORPOL_GER }
+				}
+			}
+		}
+		remove_ideas = CEN_monroe_doctrine
+		CAN = {
+			country_event = { id = cos.24 days = 2 }
+		}
+	}
+
+	option = { #Approach Germany
+		log = "[GetLogInfo]: event cos.23 option cos.23.b"
+		name = cos.23.b
+		ai_chance = {
+			base = 80
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = COS_forpol option = COS_FORPOL_NEUT }
+					has_game_rule = { rule = COS_forpol option = COS_FORPOL_ENT }
+				}
+			}
+		}
+		remove_ideas = CEN_monroe_doctrine
+		GER = {
+			country_event = { id = cos.27 days = 2 }
+		}
+	}
+
+	option = { #The world is a warm place with only fluffy and happy thoughts
+		log = "[GetLogInfo]: event cos.23 option cos.23.c"
+		name = cos.23.c
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 100
+				has_game_rule = { rule = COS_forpol option = COS_FORPOL_NEUT }
+			}
+		}
+		remove_ideas = CEN_monroe_doctrine
+	}
+}
+
+country_event = { #Costa Rica requests we guarantee their safety (CANADA)
+
+	id = cos.24
+	title = cos.24.t
+	desc = cos.24.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Offer them assistance
+		log = "[GetLogInfo]: event cos.24 option cos.24.a"
+		ai_chance = { base = 60 }
+		name = cos.24.a
+		give_guarantee = COS
+		COS = {
+			country_event = { id = cos.25 days = 2 }
+		}
+	}
+
+	option = { #We have more important matters to attend to
+		log = "[GetLogInfo]: event cos.24 option cos.24.b"
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = COS_forpol option = COS_FORPOL_ENT }
+			}
+		}
+		name = cos.24.b
+		COS = {
+			set_country_flag = CAN_DENIED_GUA
+			country_event = { id = cos.26 days = 2 }
+		}
+	}
+}
+
+country_event = { #Costa Rica receives Canadian backing
+
+	id = cos.25
+	title = cos.25.t
+	desc = cos.25.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #We are grateful
+		log = "[GetLogInfo]: event cos.25 option cos.25.a"
+		name = cos.25.a
+		add_stability = 0.05
+	}
+}
+
+country_event = { #Costa Rica receives no Canadian support
+
+	id = cos.26
+	title = cos.26.t
+	desc = cos.26.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Ask Germany
+		log = "[GetLogInfo]: event cos.26 option cos.26.a"
+		trigger = {
+			NOT = {
+				has_country_flag = GER_DENIED_GUA
+			}
+		}
+		ai_chance = { base = 100 }
+		name = cos.26.a
+		GER = {
+			country_event = { id = cos.27 days = 2 }
+		}
+	}
+
+	option = { #RIP
+		log = "[GetLogInfo]: event cos.26 option cos.26.b"
+		trigger = {
+			has_country_flag = GER_DENIED_GUA
+		}
+		ai_chance = { base = 100 }
+		name = cos.26.b
+		add_stability = -0.10
+	}
+}
+
+country_event = { #Costa Rica requests German protection
+
+	id = cos.27
+	title = cos.27.t
+	desc = cos.27.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Offer them assistance
+		log = "[GetLogInfo]: event cos.27 option cos.27.a"
+		ai_chance = { base = 100 }
+		name = cos.27.a
+		give_guarantee = COS
+		COS = {
+			country_event = { id = cos.28 days = 2 }
+		}
+	}
+
+	option = { #We have more important matters to attend to
+		log = "[GetLogInfo]: event cos.27 option cos.27.b"
+		ai_chance = { base = 0 }
+		name = cos.27.b
+		COS = {
+			set_country_flag = GER_DENIED_GUA
+			country_event = { id = cos.29 days = 2 }
+		}
+	}
+}
+
+country_event = { #Costa Rica receives German support
+
+	id = cos.28
+	title = cos.28.t
+	desc = cos.28.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Thank God for the Germans
+		log = "[GetLogInfo]: event cos.28 option cos.28.a"
+		name = cos.28.a
+		add_stability = 0.05
+	}
+}
+
+country_event = { #Costa Rica receives no German support
+
+	id = cos.29
+	title = cos.29.t
+	desc = cos.29.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Ask Canada
+		log = "[GetLogInfo]: event cos.29 option cos.29.a"
+		trigger = {
+			NOT = {
+				has_country_flag = CAN_DENIED_GUA
+			}
+		}
+		ai_chance = { base = 100 }
+		name = cos.29.a
+		CAN = {
+			country_event = { id = cos.24 days = 2 }
+		}
+	}
+
+	option = { #RIP
+		log = "[GetLogInfo]: event cos.29 option cos.29.b"
+		trigger = {
+			has_country_flag = CAN_DENIED_GUA
+		}
+		ai_chance = { base = 100 }
+		name = cos.29.b
+		add_war_support = 0.20
+	}
+}
+
+###############
+# COTO CRISIS #
+###############
+
+country_event = { #Panama invades!
+	id = cos.30
+	title = cos.30.t
+	desc = cos.30.d
+
+	is_triggered_only = yes
+
+	trigger = {
+		FROM = {
+			is_subject = no
+			can_declare_war_on = ROOT
+		}
+	}
+
+	option = { #Request Mediation from our ally Canada
+		log = "[GetLogInfo]: event cos.30 option cos.30.a"
+		trigger = {
+			OR = {
+				is_guaranteed_by = CAN
+				is_in_faction_with = CAN
+			}
+			CAN = { is_in_faction_with = ENT }
+		}
+		ai_chance = { base = 100 }
+		name = cos.30.a
+		CAN = {
+			country_event = { id = cos.31 days = 2 }
+		}
+	}
+
+	option = { #Request Mediation from our ally Germany
+		log = "[GetLogInfo]: event cos.30 option cos.30.b"
+		trigger = {
+			OR = {
+				is_guaranteed_by = GER
+				is_in_faction_with = GER
+			}
+			GER = { is_faction_leader = yes }
+		}
+		ai_chance = { base = 100 }
+		name = cos.30.b
+		GER = {
+			country_event = { id = cos.45 days = 2 }
+		}
+	}
+
+	option = { #RIP
+		log = "[GetLogInfo]: event cos.30 option cos.30.c"
+		trigger = {
+			NOT = {
+				is_guaranteed_by = CAN
+				is_guaranteed_by = GER
+			}
+		}
+		ai_chance = { base = 100 }
+		name = cos.30.c
+		add_war_support = 0.20
+		add_stability = -0.10
+		add_manpower = 2000
+		PAN = {
+			country_event = { id = cos.301 days = 2 }
+		}
+	}
+}
+
+country_event = { #Costa Rica is undefended
+	id = cos.301
+	title = cos.301.t
+	desc = cos.301.d
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_subject = no
+		can_declare_war_on = COS
+	}
+
+	option = { #Talk to Panama
+		log = "[GetLogInfo]: event cos.301 option cos.301.a"
+		name = cos.301.a
+		declare_war_on = {
+			target = COS
+			type = annex_everything
+		}
+	}
+}
+
+country_event = { #Canadian response to the border conflict
+	id = cos.31
+	title = cos.31.t
+	desc = cos.31.d
+
+	is_triggered_only = yes
+
+	option = { #Talk to Panama
+		log = "[GetLogInfo]: event cos.31 option cos.31.a"
+		ai_chance = { base = 80 }
+		name = cos.31.a
+		PAN = {
+			country_event = { id = cos.32 days = 2 }
+		}
+	}
+
+	option = { #Issue a warning to Panama
+		log = "[GetLogInfo]: event cos.31 option cos.31.b"
+		ai_chance = { base = 20 }
+		name = cos.31.b
+		trigger = {
+			NOT = {
+				PAN = {
+					has_country_flag = PAN_canada_accepted
+				}
+			}
+		}
+		PAN = {
+			country_event = { id = cos.44 days = 2 }
+		}
+	}
+}
+
+country_event = { #Panama reacts to mediation
+	id = cos.32
+	title = cos.32.t
+	desc = cos.32.d
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_subject = no
+		can_declare_war_on = COS
+	}
+
+	option = { #Accept the Fallo White ruling (no coto for you)
+		log = "[GetLogInfo]: event cos.32 option cos.32.a"
+		ai_chance = { base = 80 }
+		name = cos.32.a
+		CAN = {
+			country_event = { id = cos.33 days = 2 }
+		}
+	}
+
+	option = { #Demand monetary compensation
+		log = "[GetLogInfo]: event cos.32 option cos.32.b"
+		ai_chance = { base = 20 }
+		name = cos.32.b
+		CAN = {
+			country_event = { id = cos.35 days = 2 }
+		}
+	}
+
+	option = { #The time for mediation is over. To war!
+		log = "[GetLogInfo]: event cos.32 option cos.32.c"
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				COS = {
+					OR = {
+						is_guaranteed_by = GER
+						is_guaranteed_by = CAN
+						is_in_faction = yes
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				is_in_faction = yes
+			}
+		}
+		name = cos.32.c
+		trigger = {
+			NOT = {
+				PAN = {
+					has_country_flag = PAN_canada_accepted
+				}
+			}
+		}
+		if = {
+			limit = { is_in_faction = yes }
+			leave_faction = yes
+		}
+		declare_war_on = {
+			target = COS
+			type = annex_everything
+		}
+		CAN = {
+			country_event = { id = cos.41 days = 2 }
+		}
+		COS = {
+			country_event = { id = cos.42 days = 2 }
+		}
+	}
+}
+
+country_event = { #Panama accepts the Fallo White ruling
+	id = cos.33
+	title = cos.33.t
+	desc = cos.33.d
+
+	is_triggered_only = yes
+
+	option = { #Another job well done
+		log = "[GetLogInfo]: event cos.33 option cos.33.a"
+		name = cos.33.a
+		COS = {
+			country_event = { id = cos.34 days = 2 }
+		}
+		add_political_power = 30
+	}
+}
+
+country_event = { #Panama accepts the Fallo White ruling (COS reaction)
+	id = cos.34
+	title = cos.34.t
+	desc = cos.34.d
+
+	is_triggered_only = yes
+
+	option = { #Another success for diplomacy
+		log = "[GetLogInfo]: event cos.34 option cos.34.a"
+		name = cos.34.a
+		add_war_support = -0.1
+		add_stability = 0.1
+	}
+}
+
+country_event = { #Panama demands monetary compensation
+	id = cos.35
+	title = cos.35.t
+	desc = cos.35.d
+
+	is_triggered_only = yes
+
+	option = { #Propose the deal to Costa Rica
+		log = "[GetLogInfo]: event cos.35 option cos.35.a"
+		ai_chance = { base = 80 }
+		name = cos.35.a
+		COS = {
+			country_event = { id = cos.36 days = 2 }
+		}
+	}
+
+	option = { #We don't negotiate with these villains
+		log = "[GetLogInfo]: event cos.35 option cos.35.b"
+		ai_chance = { base = 80 }
+		trigger = {
+			NOT = {
+				PAN = {
+					has_country_flag = PAN_canada_accepted
+				}
+			}
+		}
+		name = cos.35.b
+		COS = {
+			country_event = { id = cos.39 days = 2 }
+		}
+		PAN = {
+			country_event = { id = cos.40 days = 2 }
+		}
+	}
+}
+
+country_event = { #Panama demands monetary compensation (COS reaction)
+	id = cos.36
+	title = cos.36.t
+	desc = cos.36.d
+
+	is_triggered_only = yes
+
+	option = { #Accept the deal
+		log = "[GetLogInfo]: event cos.36 option cos.36.a"
+		ai_chance = { base = 80 }
+		name = cos.36.a
+		CAN = {
+			country_event = { id = cos.37 days = 2 }
+		}
+		PAN = {
+			country_event = { id = cos.38 days = 2 }
+		}
+		add_timed_idea = {
+			idea = COS_coto_compensation
+			days = 300
+		}
+	}
+
+	option = { #We don't negotiate with these villains
+		log = "[GetLogInfo]: event cos.36 option cos.36.b"
+		ai_chance = { base = 80 }
+		trigger = {
+			NOT = {
+				PAN = {
+					has_country_flag = PAN_canada_accepted
+				}
+			}
+		}
+		name = cos.36.b
+		CAN = {
+			country_event = { id = cos.43 days = 2 }
+		}
+		PAN = {
+			country_event = { id = cos.40 days = 2 }
+		}
+	}
+}
+
+country_event = { #Canada signs the deal
+	id = cos.37
+	title = cos.37.t
+	desc = cos.37.d
+
+	is_triggered_only = yes
+
+	option = { #We truly make the best deals
+		log = "[GetLogInfo]: event cos.37 option cos.37.a"
+		name = cos.37.a
+		add_political_power = 30
+	}
+}
+
+country_event = { #Panama signs the deal
+	id = cos.38
+	title = cos.38.t
+	desc = cos.38.d
+
+	is_triggered_only = yes
+
+	option = { #We truly make the best deals
+		log = "[GetLogInfo]: event cos.38 option cos.38.a"
+		name = cos.38.a
+		add_timed_idea = {
+			idea = COS_coto_compensation_PAN
+			days = 300
+		}
+	}
+}
+
+country_event = { #Canada puts the squeeze on Panama (COS reaction)
+	id = cos.39
+	title = cos.39.t
+	desc = cos.39.d
+
+	is_triggered_only = yes
+
+	option = { #They are playing with fire!
+		log = "[GetLogInfo]: event cos.39 option cos.39.a"
+		name = cos.39.a
+	}
+}
+
+country_event = { #Compensation is refused by COS/CAN (PAN reaction)
+	id = cos.40
+	title = cos.40.t
+	desc = cos.40.d
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_subject = no
+		can_declare_war_on = COS
+	}
+
+	option = { #They clearly don't want to negotiate!
+		log = "[GetLogInfo]: event cos.40 option cos.40.a"
+		ai_chance = {
+			base = 80
+			modifier = {
+				factor = 0
+				COS = {
+					OR = {
+						is_guaranteed_by = GER
+						is_guaranteed_by = CAN
+						is_in_faction = yes
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				is_in_faction = yes
+			}
+		}
+		name = cos.40.a
+		if = {
+			limit = { is_in_faction = yes }
+			leave_faction = yes
+		}
+		declare_war_on = {
+			target = COS
+			type = annex_everything
+		}
+		CAN = {
+			country_event = { id = cos.41 days = 2 }
+		}
+		COS = {
+			country_event = { id = cos.42 days = 2 }
+		}
+	}
+
+	option = { #Back down and accept the Fallo White ruling
+		log = "[GetLogInfo]: event cos.40 option cos.40.b"
+		ai_chance = { base = 80 }
+		name = cos.40.b
+		add_war_support = -0.20
+		add_stability = -0.10
+		CAN = {
+			country_event = { id = cos.33 days = 2 }
+		}
+		COS = {
+			country_event = { id = cos.34 days = 2 }
+		}
+	}
+}
+
+country_event = { #War over Coto! (Canada reaction)
+	id = cos.41
+	title = cos.41.t
+	desc = cos.41.d
+
+	is_triggered_only = yes
+
+	option = { #welp that didn't go so well
+		log = "[GetLogInfo]: event cos.41 option cos.41.a"
+		name = cos.41.a
+	}
+}
+
+country_event = { #War over Coto! (COS reaction)
+	id = cos.42
+	title = cos.42.t
+	desc = cos.42.d
+
+	is_triggered_only = yes
+
+	trigger = {
+		ENT = { is_faction_leader = yes }
+		PAN = {
+			is_subject = no
+			can_declare_war_on = COS
+		}
+	}
+
+	option = { #all men to battle stations!
+		log = "[GetLogInfo]: event cos.42 option cos.42.a"
+		name = cos.42.a
+		add_manpower = 100
+		ENT = { add_to_faction = COS }
+	}
+}
+
+country_event = { #COS refuses the monetary compensation
+	id = cos.43
+	title = cos.43.t
+	desc = cos.43.d
+
+	is_triggered_only = yes
+
+	option = { #let's hope they don't anger the Panamese
+		log = "[GetLogInfo]: event cos.43 option cos.43.a"
+		name = cos.43.a
+	}
+}
+
+country_event = { #Canada issues a warning to Panama (PAN reaction)
+	id = cos.44
+	title = cos.44.t
+	desc = cos.44.d
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_subject = no
+		can_declare_war_on = COS
+	}
+
+	option = { #Accept the Fallo White Ruling
+		log = "[GetLogInfo]: event cos.44 option cos.44.a"
+		ai_chance = { base = 80 }
+		name = cos.44.a
+		CAN = {
+			country_event = { id = cos.33 days = 2 }
+		}
+	}
+
+	option = { #We aren't afraid of Canada
+		log = "[GetLogInfo]: event cos.44 option cos.44.b"
+		ai_chance = {
+			base = 80
+			modifier = {
+				factor = 0
+				COS = {
+					OR = {
+						is_guaranteed_by = GER
+						is_guaranteed_by = CAN
+						is_in_faction = yes
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				is_in_faction = yes
+			}
+		}
+		name = cos.44.b
+		if = {
+			limit = { is_in_faction = yes }
+			leave_faction = yes
+		}
+		declare_war_on = {
+			target = COS
+			type = annex_everything
+		}
+		CAN = {
+			country_event = { id = cos.41 days = 2 }
+		}
+		COS = {
+			country_event = { id = cos.42 days = 2 }
+		}
+	}
+}
+
+country_event = { #German response to the border conflict
+	id = cos.45
+	title = cos.45.t
+	desc = cos.45.d
+
+	is_triggered_only = yes
+
+	trigger = {
+		PAN = {
+			is_subject = no
+			can_declare_war_on = COS
+		}
+	}
+
+	option = { #Talk to Panama
+		log = "[GetLogInfo]: event cos.45 option cos.45.a"
+		ai_chance = { base = 80 }
+		name = cos.45.a
+		PAN = {
+			country_event = { id = cos.46 days = 2 }
+		}
+	}
+
+	option = { #Issue a warning to Panama
+		log = "[GetLogInfo]: event cos.45 option cos.45.b"
+		ai_chance = { base = 20 }
+		name = cos.45.b
+		PAN = {
+			country_event = { id = cos.58 days = 2 }
+		}
+	}
+}
+
+country_event = { #Panama reacts to mediation
+	id = cos.46
+	title = cos.46.t
+	desc = cos.46.d
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_subject = no
+		can_declare_war_on = COS
+	}
+
+	option = { #Accept the Fallo White ruling (no coto for you)
+		log = "[GetLogInfo]: event cos.46 option cos.46.a"
+		ai_chance = { base = 80 }
+		name = cos.46.a
+		GER = {
+			country_event = { id = cos.47 days = 2 }
+		}
+	}
+
+	option = { #Demand monetary compensation
+		log = "[GetLogInfo]: event cos.46 option cos.46.b"
+		ai_chance = { base = 20 }
+		name = cos.46.b
+		GER = {
+			country_event = { id = cos.49 days = 2 }
+		}
+	}
+
+	option = { #The time for mediation is over. To war!
+		log = "[GetLogInfo]: event cos.46 option cos.46.c"
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				COS = {
+					OR = {
+						is_guaranteed_by = GER
+						is_guaranteed_by = CAN
+						is_in_faction = yes
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				is_in_faction = yes
+			}
+		}
+		name = cos.46.c
+		if = {
+			limit = { is_in_faction = yes }
+			leave_faction = yes
+		}
+		declare_war_on = {
+			target = COS
+			type = annex_everything
+		}
+		GER = {
+			country_event = { id = cos.55 days = 2 }
+		}
+		COS = {
+			country_event = { id = cos.56 days = 2 }
+		}
+	}
+}
+
+country_event = { #Panama accepts the Fallo White ruling
+	id = cos.47
+	title = cos.47.t
+	desc = cos.47.d
+
+	is_triggered_only = yes
+
+	option = { #Another job well done
+		log = "[GetLogInfo]: event cos.47 option cos.47.a"
+		name = cos.47.a
+		add_political_power = 20
+	}
+}
+
+country_event = { #Panama accepts the Fallo White ruling (COS reaction)
+	id = cos.48
+	title = cos.48.t
+	desc = cos.48.d
+
+	is_triggered_only = yes
+
+	option = { #Another success for diplomacy
+		log = "[GetLogInfo]: event cos.48 option cos.48.a"
+		name = cos.48.a
+		add_war_support = -0.1
+		add_stability = 0.1
+	}
+}
+
+country_event = { #Panama demands monetary compensation
+	id = cos.49
+	title = cos.49.t
+	desc = cos.49.d
+
+	is_triggered_only = yes
+
+	option = { #Propose the deal to Costa Rica
+		log = "[GetLogInfo]: event cos.49 option cos.49.a"
+		ai_chance = { base = 80 }
+		name = cos.49.a
+		COS = {
+			country_event = { id = cos.50 days = 2 }
+		}
+	}
+
+	option = { #We don't negotiate with these villains
+		log = "[GetLogInfo]: event cos.49 option cos.49.b"
+		ai_chance = { base = 80 }
+		name = cos.49.b
+		COS = {
+			country_event = { id = cos.53 days = 2 }
+		}
+		PAN = {
+			country_event = { id = cos.54 days = 2 }
+		}
+	}
+}
+
+country_event = { #Panama demands monetary compensation (COS reaction)
+	id = cos.50
+	title = cos.50.t
+	desc = cos.50.d
+
+	is_triggered_only = yes
+
+	option = { #Accept the deal
+		log = "[GetLogInfo]: event cos.50 option cos.50.a"
+		ai_chance = { base = 80 }
+		name = cos.50.a
+		GER = {
+			country_event = { id = cos.51 days = 2 }
+		}
+		PAN = {
+			country_event = { id = cos.52 days = 2 }
+		}
+		add_timed_idea = {
+			idea = COS_coto_compensation
+			days = 300
+		}
+	}
+
+	option = { #We don't negotiate with these villains
+		log = "[GetLogInfo]: event cos.50 option cos.50.b"
+		ai_chance = { base = 80 }
+		name = cos.50.b
+		GER = {
+			country_event = { id = cos.57 days = 2 }
+		}
+		PAN = {
+			country_event = { id = cos.54 days = 2 }
+		}
+	}
+}
+
+country_event = { #Germany signs the deal
+	id = cos.51
+	title = cos.51.t
+	desc = cos.51.d
+
+	is_triggered_only = yes
+
+	option = { #We truly make the best deals
+		log = "[GetLogInfo]: event cos.51 option cos.51.a"
+		name = cos.51.a
+		add_political_power = 30
+	}
+}
+
+country_event = { #Panama signs the deal
+	id = cos.52
+	title = cos.52.t
+	desc = cos.52.d
+
+	is_triggered_only = yes
+
+	option = { #We truly make the best deals
+		log = "[GetLogInfo]: event cos.52 option cos.52.a"
+		name = cos.52.a
+		add_timed_idea = {
+			idea = COS_coto_compensation_PAN
+			days = 300
+		}
+	}
+}
+
+country_event = { #Germany puts the squeeze on Panama (COS reaction)
+	id = cos.53
+	title = cos.53.t
+	desc = cos.53.d
+
+	is_triggered_only = yes
+
+	option = { #They are playing with fire!
+		log = "[GetLogInfo]: event cos.53 option cos.53.a"
+		name = cos.53.a
+	}
+}
+
+country_event = { #Compensation is refused by COS/GER (PAN reaction)
+	id = cos.54
+	title = cos.54.t
+	desc = cos.54.d
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_subject = no
+		can_declare_war_on = COS
+	}
+
+	option = { #They clearly don't want to negotiate!
+		log = "[GetLogInfo]: event cos.54 option cos.54.a"
+		ai_chance = {
+			base = 80
+			modifier = {
+				factor = 0
+				COS = {
+					OR = {
+						is_guaranteed_by = GER
+						is_guaranteed_by = CAN
+						is_in_faction = yes
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				is_in_faction = yes
+			}
+		}
+		name = cos.54.a
+		if = {
+			limit = { is_in_faction = yes }
+			leave_faction = yes
+		}
+		declare_war_on = {
+			target = COS
+			type = annex_everything
+		}
+		GER = {
+			country_event = { id = cos.55 days = 2 }
+		}
+		COS = {
+			country_event = { id = cos.56 days = 2 }
+		}
+	}
+
+	option = { #Back down and accept the Fallo White ruling
+		log = "[GetLogInfo]: event cos.54 option cos.54.b"
+		ai_chance = { base = 80 }
+		name = cos.54.b
+		add_war_support = -0.20
+		add_stability = -0.10
+		GER = {
+			country_event = { id = cos.47 days = 2 }
+		}
+		COS = {
+			country_event = { id = cos.48 days = 2 }
+		}
+	}
+}
+
+country_event = { #War over Coto! (Germany reaction)
+	id = cos.55
+	title = cos.55.t
+	desc = cos.55.d
+
+	is_triggered_only = yes
+
+	option = { #welp that didn't go so well
+		log = "[GetLogInfo]: event cos.55 option cos.55.a"
+		name = cos.55.a
+	}
+}
+
+country_event = { #War over Coto! (COS reaction)
+	id = cos.56
+	title = cos.56.t
+	desc = cos.56.d
+
+	is_triggered_only = yes
+
+	trigger = {
+		GER = { is_faction_leader = yes }
+		PAN = {
+			is_subject = no
+			can_declare_war_on = COS
+		}
+	}
+
+	option = { #all men to battle stations!
+		log = "[GetLogInfo]: event cos.56 option cos.56.a"
+		name = cos.56.a
+		add_manpower = 100
+		GER = {
+			add_to_faction = COS
+		}
+	}
+}
+
+country_event = { #COS refuses the monetary compensation
+	id = cos.57
+	title = cos.57.t
+	desc = cos.57.d
+
+	is_triggered_only = yes
+
+	option = { #let's hope they don't anger the Panamese
+		log = "[GetLogInfo]: event cos.57 option cos.57.a"
+		name = cos.57.a
+	}
+}
+
+country_event = { #Germany issues a warning to Panama (PAN reaction)
+	id = cos.58
+	title = cos.58.t
+	desc = cos.58.d
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_subject = no
+		can_declare_war_on = COS
+	}
+
+	option = { #Accept the Fallo White Ruling
+		log = "[GetLogInfo]: event cos.58 option cos.58.a"
+		ai_chance = { base = 80 }
+		name = cos.58.a
+		GER = {
+			country_event = { id = cos.47 days = 2 }
+		}
+		COS = {
+			country_event = { id = cos.48 days = 2 }
+		}
+	}
+
+	option = { #We aren't afraid of Germany
+		log = "[GetLogInfo]: event cos.58 option cos.58.b"
+		ai_chance = {
+			base = 80
+			modifier = {
+				factor = 0
+				COS = {
+					OR = {
+						is_guaranteed_by = GER
+						is_guaranteed_by = CAN
+						is_in_faction = yes
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				is_in_faction = yes
+			}
+		}
+		name = cos.58.b
+		if = {
+			limit = { is_in_faction = yes }
+			leave_faction = yes
+		}
+		declare_war_on = {
+			target = COS
+			type = annex_everything
+		}
+		GER = {
+			country_event = { id = cos.55 days = 2 }
+		}
+		COS = {
+			country_event = { id = cos.56 days = 2 }
+		}
+	}
+}
+
+########
+# 1937 #
+########
+
+country_event = { #Banana Plantation Strike
+
+	id = cos.59
+	title = cos.59.t
+	desc = cos.59.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			country_event = { id = cos.60 days = 30 }
+			country_event = { id = cos.61 days = 60 }
+			country_event = { id = cos.62 days = 110 }
+		}
+	}
+
+	option = { #Unfortunate
+		log = "[GetLogInfo]: event cos.59 option cos.59.a"
+		name = cos.59.a
+	}
+}
+
+country_event = { #Counter Cortes protest in "Trabaio"
+
+	id = cos.60
+	title = cos.60.t
+	desc = cos.60.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = CORTES
+	}
+
+	option = { #Silence the journal
+		log = "[GetLogInfo]: event cos.60 option cos.60.a"
+		ai_chance = { base = 30 }
+		name = cos.60.a
+		add_stability = -0.04
+		hidden_effect = {
+			country_event = { id = cos.62 days = 100 }
+		}
+		set_country_flag = silence_trabaio
+	}
+
+	option = { #Let them preach their nonsense
+		log = "[GetLogInfo]: event cos.60 option cos.60.b"
+		ai_chance = { base = 70 }
+		name = cos.60.b
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.04
+		}
+	}
+}
+
+country_event = { #Signature of the Collective Agreement between Workers and the UFC
+	id = cos.61
+	title = cos.61.t
+	desc = cos.61.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Agreement is signed
+		log = "[GetLogInfo]: event cos.61 option cos.61.a"
+		name = cos.61.a
+		remove_ideas = COS_labour_conflicts
+		set_country_flag = ZKG_Labour_Accord
+		set_country_flag = UFC_Labour_Accord
+		add_stability = 0.05
+		if = {
+			limit = {
+				has_government = social_democrat
+			}
+			set_temp_variable = { ideology_change_var = 0.1 }
+			change_ruling_party_popularity = yes
+		}
+		else = {
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
+			set_temp_variable = { ideology_change_var = 0.05 }
+			change_ruling_party_popularity = yes
+		}
+		custom_effect_tooltip = COS_ZKG_minus_3
+		hidden_effect = {
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.03
+			}
+		}
+		custom_effect_tooltip = COS_UFC_minus_3
+		hidden_effect = {
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.03
+			}
+		}
+	}
+}
+
+country_event = { #Increased regulation of the Press
+
+	id = cos.62
+	title = cos.62.t
+	desc = cos.62.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = CORTES
+	}
+
+	option = { #Free Speech is a human right!
+		log = "[GetLogInfo]: event cos.62 option cos.62.a"
+		ai_chance = { base = 30 }
+		name = cos.62.a
+		add_stability = 0.03
+	}
+
+	option = { #...syndies aren't human anyway
+		log = "[GetLogInfo]: event cos.62 option cos.62.b"
+		ai_chance = { base = 70 }
+		name = cos.62.b
+		add_popularity = {
+			ideology = syndicalist
+			popularity = -0.20
+		}
+		add_stability = -0.10
+	}
+}
+
+country_event = { #Jewish refugees request permission to settle
+
+	id = cos.63
+	title = cos.63.t
+	desc = cos.63.d
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				date > 1937.06.06
+				date < 1939.12.31
+			}
+			AND = {
+				date > 1941.06.06
+				date < 1943.12.31
+			}
+		}
+		tag = COS
+		has_country_flag = CORTES
+	}
+
+	option = { #Jews are propagators of socialism! Away with them!
+		log = "[GetLogInfo]: event cos.63 option cos.63.a"
+		ai_chance = { base = 30 }
+		name = cos.63.a
+		add_stability = 0.03
+	}
+
+	option = { #Offer the Tenerio farm as a possible colony
+		log = "[GetLogInfo]: event cos.63 option cos.63.b"
+		ai_chance = { base = 70 }
+		name = cos.63.b
+		add_offsite_building = {
+			type = industrial_complex
+			level = 1
+		}
+		add_stability = -0.05
+	}
+}
+
+country_event = { #American refugees flood the nation
+
+	id = cos.64
+	title = cos.64.t
+	desc = cos.64.d
+
+	fire_only_once = yes
+
+	trigger = {
+		USA = {
+			has_war_with = TEX
+			has_war_with = CSA
+		}
+		tag = COS
+		date > 1937.09.04
+	}
+
+	option = { #Accept them with open arms
+		log = "[GetLogInfo]: event cos.64 option cos.64.a"
+		ai_chance = { base = 30 }
+		name = cos.64.a
+		add_timed_idea = {
+			idea = COS_AM_REFUGEES
+			days = 150
+		}
+		add_stability = -0.05
+	}
+
+	option = { #We have no place for them
+		log = "[GetLogInfo]: event cos.64 option cos.64.b"
+		ai_chance = { base = 70 }
+		name = cos.64.b
+		add_stability = 0.03
+		set_temp_variable = { ideology_change_var = 0.05 }
+		change_ruling_party_popularity = yes
+	}
+}
+
+country_event = { #1938 Regional Elections
+
+	id = cos.65
+	title = cos.65.t
+	desc = cos.65.d
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = COS
+		date > 1938.02.02
+		has_country_flag = CORTES
+	}
+
+	immediate = {
+		set_variable = {
+			cos_prn_factor = 20
+		}
+		set_variable = {
+			cos_pvp_factor = 10
+		}
+		set_country_flag = COS_ELECTIONS
+		hidden_effect = {
+			activate_mission = COS_Mora_Supporters_mission
+			country_event = { id = cos.107 days = 130 }
+		}
+	}
+
+	option = { #The popularity of Cortes is at an all time low!
+		log = "[GetLogInfo]: event cos.65 option cos.65.a"
+		ai_chance = { base = 30 }
+		name = cos.65.a
+		add_to_variable = {
+			var = cos_prn_factor
+			value = 2
+		}
+		custom_effect_tooltip = PRN_OPEN_ELECTIONS
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.10
+		}
+	}
+
+	option = { #We shall intervene directly!
+		log = "[GetLogInfo]: event cos.65 option cos.65.b"
+		ai_chance = { base = 30 }
+		name = cos.65.b
+		subtract_from_variable = {
+			var = cos_pvp_factor
+			value = 5
+		}
+		custom_effect_tooltip = PVP_CHECKMATE
+		add_stability = -0.10
+	}
+}
+
+country_event = { #Flemish-Wallonian exchange program
+
+	id = cos.66
+	title = cos.66.t
+	desc = cos.66.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Deny their offer
+		log = "[GetLogInfo]: event cos.66 option cos.66.a"
+		ai_chance = { base = 30 }
+		name = cos.66.a
+		add_stability = 0.02
+	}
+
+	option = { #We value their expertise
+		log = "[GetLogInfo]: event cos.66 option cos.66.b"
+		ai_chance = { base = 30 }
+		name = cos.66.b
+		add_political_power = 50
+	}
+}
+
+country_event = { #Creation of the Institut National pour l'Etude Agronomique du Costa Rica
+
+	id = cos.67
+	title = cos.67.t
+	desc = cos.67.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #very nice
+		log = "[GetLogInfo]: event cos.67 option cos.67.a"
+		name = cos.67.a
+		add_stability = 0.02
+	}
+}
+
+country_event = { #Costa Rican National Theathre
+
+	id = cos.68
+	title = cos.68.t
+	desc = cos.68.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Deny their offer
+		log = "[GetLogInfo]: event cos.68 option cos.68.a"
+		name = cos.68.a
+		add_stability = 0.05
+		set_temp_variable = { ideology_change_var = 0.05 }
+		change_ruling_party_popularity = yes
+	}
+}
+
+country_event = { #Formation of 'El Centro'
+
+	id = cos.69
+	title = cos.69.t
+	desc = cos.69.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #A radical idea
+		log = "[GetLogInfo]: event cos.69 option cos.69.a"
+		name = cos.69.a
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.05
+		}
+	}
+}
+
+country_event = { #Jimenez announces his candidancy for the presidency
+
+	id = cos.70
+	title = cos.70.t
+	desc = cos.70.d
+
+	fire_only_once = yes
+
+	trigger = {
+		has_country_flag = CORTES
+		tag = COS
+		date > 1938.10.25
+		date < 1939.12.31
+	}
+
+	option = { #the race has started
+		log = "[GetLogInfo]: event cos.70 option cos.70.a"
+		name = cos.70.a
+		add_political_power = -30
+		activate_mission = COS_Jimenez_Supporters_mission
+		hidden_effect = {
+			country_event = { id = cos.106 days = 60 }
+			country_event = { id = cos.108 days = 250 }
+		}
+	}
+}
+
+country_event = { #1940 Elections
+
+	id = cos.71
+	title = cos.71.t
+	desc = cos.71.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		clr_country_flag = COS_ELECTIONS
+		hidden_effect = {
+			remove_mission = COS_Mora_Supporters_mission
+			remove_mission = COS_Jimenez_Supporters_mission
+		}
+	}
+
+	trigger = {
+		date > 1939.12.31
+		tag = COS
+		has_country_flag = CORTES
+		is_subject = no
+	}
+
+	option = { #Calderon
+		log = "[GetLogInfo]: event cos.71 option cos.71.a"
+		ai_chance = { base = 70 }
+		trigger = {
+			NOT = {
+				has_completed_focus = COS_Adapt_the_Constitution
+			}
+		}
+		name = cos.71.a
+		add_country_leader_role = {
+			character = COS_rafael_angel_calderon_guardia
+			country_leader = { ideology = social_conservative_subtype }
+			promote_leader = yes
+		}
+		clr_country_flag = CORTES
+		add_stability = 0.1
+		country_event = { id = cos.77 days = 20 }
+
+		#ELECTION RESULTS
+		hidden_effect = {
+			set_variable = {
+				current_prn_pop = party_popularity@social_conservative
+			}
+			multiply_variable = {
+				var = cos_prn_factor
+				value = 0.01
+			}
+			multiply_variable = {
+				var = cos_pvp_factor
+				value = 0.01
+			}
+			subtract_from_variable = {
+				var = cos_prn_factor
+				value = current_prn_pop
+			}
+			add_popularity = {
+				ideology = social_conservative
+				popularity = cos_prn_factor
+			}
+			add_popularity = {
+				ideology = syndicalist
+				popularity = cos_pvp_factor
+			}
+		}
+	}
+
+	option = { #Cortes
+		log = "[GetLogInfo]: event cos.71 option cos.71.b"
+		ai_chance = { base = 100 }
+		trigger = {
+			has_completed_focus = COS_Adapt_the_Constitution
+		}
+		name = cos.71.b
+		hidden_effect = {
+			country_event = { id = cos.72 days = 100 }
+		}
+
+		#ELECTION RESULTS
+		hidden_effect = {
+			set_variable = {
+				current_prn_pop = party_popularity@social_conservative
+			}
+			multiply_variable = {
+				var = cos_prn_factor
+				value = 0.01
+			}
+			multiply_variable = {
+				var = cos_pvp_factor
+				value = 0.01
+			}
+			subtract_from_variable = {
+				var = cos_prn_factor
+				value = current_prn_pop
+			}
+			add_popularity = {
+				ideology = social_conservative
+				popularity = cos_prn_factor
+			}
+			add_popularity = {
+				ideology = syndicalist
+				popularity = cos_pvp_factor
+			}
+		}
+	}
+}
+
+country_event = { #Figueres Ferrer takes to the air
+
+	id = cos.72
+	title = cos.72.t
+	desc = cos.72.d
+
+	picture = GFX_report_event_COS_ferrer_radio
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Release the man
+		log = "[GetLogInfo]: event cos.72 option cos.72.a"
+		ai_chance = { base = 30 }
+		name = cos.72.a
+		add_political_power = -100
+		add_stability = 0.05
+		hidden_effect = {
+			country_event = { id = cos.73 days = 30 }
+		}
+	}
+
+	option = { #Put him on the first boat to Mexico!
+		log = "[GetLogInfo]: event cos.72 option cos.72.b"
+		ai_chance = { base = 70 }
+		name = cos.72.b
+		add_stability = -0.15
+		hidden_effect = {
+			country_event = { id = cos.75 days = 8 }
+		}
+	}
+}
+
+country_event = { #Unrest in the countryside
+
+	id = cos.73
+	title = cos.73.t
+	desc = cos.73.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #What can a few peasants do?
+		log = "[GetLogInfo]: event cos.73 option cos.73.a"
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = COS_path option = COS_PATH_SOCCON }
+			}
+		}
+		name = cos.73.a
+		add_stability = -0.10
+		hidden_effect = {
+			country_event = { id = cos.76 days = 30 }
+		}
+	}
+
+	option = { #Cortes announces his resignation
+		log = "[GetLogInfo]: event cos.73 option cos.73.b"
+		ai_chance = { base = 70 }
+		name = cos.73.b
+		set_temp_variable = { ideology_change_var = -0.05 }
+		change_ruling_party_popularity = yes
+		country_event = { id = cos.74 days = 3 }
+	}
+}
+
+country_event = { #Cortes resigns from office
+
+	id = cos.74
+	title = cos.74.t
+	desc = cos.74.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Good luck Calderón!
+		log = "[GetLogInfo]: event cos.74 option cos.74.a"
+		name = cos.74.a
+		add_stability = 0.05
+		clr_country_flag = CORTES
+		set_country_flag = GUARDIA
+		add_country_leader_role = {
+			character = COS_rafael_angel_calderon_guardia
+			country_leader = { ideology = social_conservative_subtype }
+			promote_leader = yes
+		}
+		country_event = { id = cos.77 days = 6 }
+	}
+}
+
+country_event = { #Ferrer escapes!
+
+	id = cos.75
+	title = cos.75.t
+	desc = cos.75.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Do I have to do everything myself?
+		log = "[GetLogInfo]: event cos.75 option cos.75.a"
+		name = cos.75.a
+		add_political_power = -75
+		hidden_effect = {
+			country_event = { id = cos.76 days = 30 }
+		}
+	}
+}
+
+country_event = { #The Legion Caribe excecutes a Coup
+
+	id = cos.76
+	title = cos.76.t
+	desc = cos.76.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Figueres proclaims the Junta
+		log = "[GetLogInfo]: event cos.76 option cos.76.a"
+		name = cos.76.a
+		clr_country_flag = CORTES
+		complete_national_focus = COS_Legion_del_Caribe
+		set_politics = {
+			ruling_party = social_democrat
+		}
+		add_country_leader_role = {
+			character = COS_jose_figueres_ferrer
+			country_leader = { ideology = social_democrat_subtype }
+			promote_leader = yes
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.30
+		}
+	}
+}
+
+############
+# CALDERON #
+############
+
+country_event = { #Calderon announces his ambitions
+	id = cos.77
+	title = cos.77.t
+	desc = cos.77.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #H-he can't do this!
+		log = "[GetLogInfo]: event cos.77 option cos.77.a"
+		name = cos.77.a
+		complete_national_focus = COS_Socialist_Victory
+		set_politics = {
+			ruling_party = social_democrat
+			elections_allowed = yes
+		}
+		hidden_effect = {
+			promote_character = COS_leon_cortes_castro
+			country_event = { id = cos.79 days = 365 }
+			country_event = { id = cos.80 days = 730 }
+		}
+
+		set_country_flag = GUARDIA
+
+		#ELECTION RESULTS
+		if = {
+			limit = {
+				date > 1937.01.01
+			}
+			hidden_effect = {
+				set_variable = {
+					current_prn_pop = party_popularity@social_conservative
+				}
+				set_variable = {
+					current_prn_dem_pop = party_popularity@social_democrat
+				}
+				subtract_from_variable = {
+					var = current_prn_pop
+					value = current_prn_dem_pop
+				}
+				add_popularity = {
+					ideology = social_democrat
+					popularity = current_prn_pop
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Education Reform
+
+	id = cos.78
+	title = cos.78.t
+	desc = cos.78.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #The seperation between Church and State becomes less distinct by the day
+		log = "[GetLogInfo]: event cos.78 option cos.78.a"
+		name = cos.78.a
+		add_political_power = 20
+		add_popularity = {
+			ideology = social_democrat
+			popularity = -0.05
+		}
+		add_stability = -0.03
+	}
+}
+
+country_event = { #"Paco o Medias"
+
+	id = cos.79
+	title = cos.79.t
+	desc = cos.79.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Whilst the people starve, the rich become richer
+		log = "[GetLogInfo]: event cos.79 option cos.79.a"
+		name = cos.79.a
+		add_stability = -0.05
+		add_popularity = {
+			ideology = social_democrat
+			popularity = -0.03
+		}
+	}
+}
+
+country_event = { #Emergency powers
+
+	id = cos.80
+	title = cos.80.t
+	desc = cos.80.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Dark times are ahead of us...
+		log = "[GetLogInfo]: event cos.80 option cos.80.a"
+		name = cos.80.a
+		add_political_power = 200
+		add_stability = -0.05
+		set_country_flag = EMERGENCY
+		hidden_effect = {
+			country_event = { id = cos.83 days = 300 }
+		}
+	}
+}
+
+country_event = { #German assets
+
+	id = cos.81
+	title = cos.81.t
+	desc = cos.81.d
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = COS
+		has_country_flag = EMERGENCY
+		has_country_flag = GUARDIA
+		has_completed_focus = COS_Break_Coffee_Elite
+		NOT = {
+			is_in_faction_with = GER
+		}
+		GER = {
+			OR = {
+				has_war_with = FRA
+				has_war_with = JAP
+				has_war_with = RUS
+				has_war_with = USA
+				has_war_with = TEX
+			}
+		}
+	}
+
+	option = { #Take their lands
+		log = "[GetLogInfo]: event cos.81 option cos.81.a"
+		ai_chance = { base = 30 }
+		name = cos.81.a
+		add_political_power = 150
+		add_stability = -0.10
+		set_country_flag = ZKG_GONE
+		custom_effect_tooltip = COS_ZKG_minus_100
+		hidden_effect = {
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -1
+			}
+		}
+	}
+
+	option = { #Strip them from their rights
+		log = "[GetLogInfo]: event cos.81 option cos.81.b"
+		ai_chance = { base = 30 }
+		name = cos.81.b
+
+		add_stability = -0.15
+		add_offsite_building = {
+			type = industrial_complex
+			level = 1
+		}
+		set_country_flag = ZKG_GONE
+		custom_effect_tooltip = COS_ZKG_minus_100
+		hidden_effect = {
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -1
+			}
+		}
+	}
+
+	option = { #Maybe we shouldn't...
+		log = "[GetLogInfo]: event cos.81 option cos.81.c"
+		ai_chance = { base = 30 }
+		name = cos.81.c
+	}
+}
+
+country_event = { #Internment camps
+	id = cos.82
+	title = cos.82.t
+	desc = cos.82.d
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = COS
+		has_country_flag = EMERGENCY
+		has_country_flag = GUARDIA
+		has_war_with = GER
+	}
+
+	option = { #They are a threat to the state
+		log = "[GetLogInfo]: event cos.82 option cos.82.a"
+		ai_chance = { base = 70 }
+		name = cos.82.a
+		add_political_power = 150
+		add_stability = -0.10
+		set_country_flag = CAMPS
+	}
+
+	option = { #Maybe we shouldn't...
+		log = "[GetLogInfo]: event cos.82 option cos.82.b"
+		ai_chance = { base = 30 }
+		name = cos.82.b
+	}
+}
+
+country_event = { #A Tempting Offer...
+	id = cos.83
+	title = cos.83.t
+	desc = cos.83.d
+
+	trigger = {
+		is_subject = no
+	}
+
+	is_triggered_only = yes
+
+	option = { #Together we shall restore stability!
+		log = "[GetLogInfo]: event cos.83 option cos.83.a"
+		ai_chance = {
+			base = 70
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = COS_path option = COS_PATH_CALDERON_SOCDEM }
+					has_game_rule = { rule = COS_path option = COS_PATH_FERRER_SOCDEM }
+				}
+			}
+		}
+		name = cos.83.a
+		country_event = { id = cos.84 days = 20 }
+	}
+
+	option = { #Mora declines the offer
+		log = "[GetLogInfo]: event cos.83 option cos.83.b"
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = COS_path option = COS_PATH_SOCCON }
+					has_game_rule = { rule = COS_path option = COS_PATH_SYNDIE }
+				}
+			}
+		}
+		name = cos.83.b
+		country_event = { id = cos.96 days = 20 }
+	}
+}
+
+country_event = { #Coup in Costa Rica
+	id = cos.84
+	title = cos.84.t
+	desc = cos.84.d
+
+	trigger = {
+		is_subject = no
+	}
+
+	is_triggered_only = yes
+
+	option = { #The Dictator is gone! Long Live Costa Rica!
+		log = "[GetLogInfo]: event cos.84 option cos.84.a"
+		name = cos.84.a
+		clr_country_flag = GUARDIA
+		set_politics = {
+			ruling_party = paternal_autocrat
+			elections_allowed = no
+		}
+		country_event = { id = cos.85 days = 2 }
+	}
+}
+
+country_event = { #Future of Costa Rica
+	id = cos.85
+	title = cos.85.t
+	desc = cos.85.d
+
+	trigger = {
+		is_subject = no
+	}
+
+	is_triggered_only = yes
+
+	option = { #Mora proclaims the Workers Republic
+		log = "[GetLogInfo]: event cos.85 option cos.85.a"
+		ai_chance = {
+			base = 60
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = COS_path option = COS_PATH_SOCCON }
+			}
+		}
+		name = cos.85.a
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.10
+		}
+		set_politics = {
+			ruling_party = syndicalist
+		}
+		set_country_flag = UFC_GONE
+		hidden_effect = {
+			if = {
+				limit = {
+					NIC = {
+						has_socialist_government = yes
+						is_subject = no
+						exists = yes
+						has_war = no
+					}
+				}
+				NIC = {
+					country_event = { id = cos.881 days = 1 }
+				}
+			}
+			else_if = {
+				limit = {
+					CEN = {
+						has_socialist_government = yes
+						is_subject = no
+						exists = yes
+						has_war = no
+					}
+				}
+				CEN = {
+					country_event = { id = cos.881 days = 1 }
+				}
+			}
+			else = {
+				country_event = { id = cos.89 days = 10 }
+			}
+		}
+	}
+
+	option = { #Emergency elections are held
+		log = "[GetLogInfo]: event cos.85 option cos.85.b"
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = COS_path option = COS_PATH_SYNDIE }
+			}
+		}
+		name = cos.85.b
+		country_event = { id = cos.86 days = 30 }
+	}
+}
+
+country_event = { #Jimenez wins the emergency elections
+	id = cos.86
+	title = cos.86.t
+	desc = cos.86.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_government = paternal_autocrat
+		is_subject = no
+	}
+
+	option = { #The Dictator is gone! Long Live Costa Rica!
+		log = "[GetLogInfo]: event cos.86 option cos.86.a"
+		name = cos.86.a
+		promote_character = COS_ricardo_jimenez_oreamuno
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = social_conservative
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 48
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		add_stability = 0.1
+		complete_national_focus = COS_Conservative_Victory
+	}
+}
+
+country_event = { #Nicaragua crosses the border
+	id = cos.87
+	title = cos.87.t
+	desc = cos.87.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #The World Revolution continues ever stronger!
+		log = "[GetLogInfo]: event cos.87 option cos.87.a"
+		name = cos.87.a
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.08
+		}
+		hidden_effect = {
+			country_event = { id = cos.88 days = 3 }
+		}
+	}
+}
+
+country_event = { #Nicaragua requests our integration into the Central American union
+	id = cos.88
+	title = cos.88.t
+	desc = cos.88.d
+
+	trigger = {
+		is_subject = no
+	}
+
+	is_triggered_only = yes
+
+	option = { #Costa Rica joins Centro-America
+		log = "[GetLogInfo]: event cos.88 option cos.88.a"
+		ai_chance = { base = 100 }
+		name = cos.88.a
+		FROM.FROM = {
+			country_event = { id = cos.882 days = 1 }
+			if = {
+				limit = { ROOT = { is_ai = no } }
+				change_tag_from = COS
+			}
+		}
+	}
+
+	option = { #We reject their "offer"
+		log = "[GetLogInfo]: event cos.88 option cos.88.b"
+		ai_chance = { base = 0 }
+		name = cos.88.b
+		hidden_effect = {
+			country_event = { id = cos.89 days = 10 }
+		}
+	}
+}
+
+country_event = { #Nicaragua senses an opportunity
+	id = cos.881
+	title = cos.881.t
+	desc = cos.881.d
+
+	trigger = {
+		is_subject = no
+	}
+
+	is_triggered_only = yes
+
+	option = { #Costa Rica is forced into Centro-America
+		log = "[GetLogInfo]: event cos.881 option cos.881.a"
+		ai_chance = { base = 100 }
+		name = cos.881.a
+		COS = {
+			country_event = { id = cos.87 days = 1 }
+		}
+	}
+
+	option = { #We reject their "offer"
+		log = "[GetLogInfo]: event cos.881 option cos.881.b"
+		ai_chance = { base = 0 }
+		name = cos.881.b
+		COS = {
+			hidden_effect = {
+				country_event = { id = cos.89 days = 10 }
+			}
+		}
+	}
+}
+
+country_event = { #Nicaragua annexes Costa Rica
+
+	id = cos.882
+	title = cos.882.t
+	desc = cos.882.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Costa Rica is forced into Centro-America
+		log = "[GetLogInfo]: event cos.882 option cos.882.a"
+		name = cos.882.a
+		annex_country = {
+			target = COS
+			transfer_troops = yes
+		}
+		if = {
+			limit = { #maybe add checks at some point for integrating cos leaders/generals
+				tag = CEN
+			}
+			hidden_effect = {
+				every_state = {
+					limit = { is_core_of = COS }
+					add_core_of = CEN
+				}
+			}
+			CEN = {
+				annex_country = { target = COS transfer_troops = yes }
+			}
+		}
+		set_country_flag = COS_CONQ
+	}
+}
+
+country_event = { #Army deposes Mora
+	id = cos.89
+	title = cos.89.t
+	desc = cos.89.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Hold Emergency Elections
+		log = "[GetLogInfo]: event cos.89 option cos.89.a"
+		ai_chance = { base = 75 }
+		name = cos.89.a
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.1
+		}
+		country_event = { id = cos.86 days = 30 }
+		set_politics = {
+			ruling_party = paternal_autocrat
+			elections_allowed = no
+		}
+	}
+
+	option = { #Council of National Security rules temporarily
+		log = "[GetLogInfo]: event cos.89 option cos.89.b"
+		ai_chance = { base = 25 }
+		name = cos.89.b
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.1
+		}
+		set_politics = {
+			ruling_party = paternal_autocrat
+			elections_allowed = yes
+			election_frequency = 48
+			last_election = "1936.02.02"
+		}
+		set_country_flag = COUNCIL_RULE
+	}
+}
+
+country_event = { #1940/1944 Election year
+
+	id = cos.90
+	title = cos.90.t
+	desc = cos.90.d
+
+	fire_only_once = yes
+
+	trigger = {
+		has_country_flag = COUNCIL_RULE
+	}
+
+	is_triggered_only = yes
+
+	option = { #Elections proceed as scheduled
+		log = "[GetLogInfo]: event cos.90 option cos.90.a"
+		ai_chance = { base = 100 }
+		name = cos.90.a
+		country_event = { id = cos.91 days = 30 }
+	}
+
+	option = { #Council retains control
+		log = "[GetLogInfo]: event cos.90 option cos.90.b"
+		ai_chance = { base = 0 }
+		name = cos.90.b
+		hidden_effect = {
+			country_event = { id = cos.92 days = 100 }
+		}
+	}
+}
+
+country_event = { #1940 Elections
+	id = cos.91
+	title = cos.91.t
+	desc = cos.91.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		date > 1939.12.31
+		has_country_flag = COUNCIL_RULE
+		is_subject = no
+	}
+
+	immediate = {
+		clr_country_flag = COUNCIL_RULE
+	}
+
+	option = { #Jimenez
+		log = "[GetLogInfo]: event cos.91 option cos.91.a"
+		name = cos.91.a
+		promote_character = COS_ricardo_jimenez_oreamuno
+		set_politics = {
+			ruling_party = social_conservative
+			elections_allowed = yes
+			election_frequency = 48
+		}
+		add_stability = 0.1
+		complete_national_focus = COS_Conservative_Victory
+	}
+
+	option = { #Cortes
+		log = "[GetLogInfo]: event cos.91 option cos.91.b"
+		name = cos.91.b
+		promote_character = COS_leon_cortes_castro
+		set_politics = {
+			ruling_party = social_conservative
+			elections_allowed = yes
+		}
+		add_stability = 0.1
+		complete_national_focus = COS_Conservative_Victory
+	}
+}
+
+country_event = { #Figueres Ferrer takes to the air
+
+	id = cos.92
+	title = cos.92.t
+	desc = cos.92.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Release the man
+		log = "[GetLogInfo]: event cos.92 option cos.92.a"
+		ai_chance = { base = 30 }
+		name = cos.92.a
+		add_political_power = -100
+		add_stability = 0.05
+		hidden_effect = {
+			country_event = { id = cos.93 days = 30 }
+		}
+	}
+
+	option = { #Put him on the first boat to Mexico!
+		log = "[GetLogInfo]: event cos.92 option cos.92.b"
+		ai_chance = { base = 70 }
+		name = cos.92.b
+		add_stability = -0.15
+		hidden_effect = {
+			country_event = { id = cos.94 days = 8 }
+		}
+	}
+}
+
+country_event = { #Unrest in the countryside
+
+	id = cos.93
+	title = cos.93.t
+	desc = cos.93.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #What can a few peasants do?
+		log = "[GetLogInfo]: event cos.93 option cos.93.a"
+		name = cos.93.a
+		add_stability = -0.10
+		hidden_effect = {
+			country_event = { id = cos.95 days = 50 }
+		}
+	}
+}
+
+country_event = { #Ferrer escapes!
+
+	id = cos.94
+	title = cos.94.t
+	desc = cos.94.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Do I have to do everything myself?
+		log = "[GetLogInfo]: event cos.94 option cos.94.a"
+		name = cos.94.a
+		add_political_power = -75
+		hidden_effect = {
+			country_event = { id = cos.93 days = 20 }
+		}
+	}
+}
+
+country_event = { #The Legion Caribe excecutes a Coup
+	id = cos.95
+	title = cos.95.t
+	desc = cos.95.d
+
+	trigger = {
+		is_subject = no
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		clr_country_flag = COUNCIL_RULE
+	}
+
+	option = { #Figueres proclaims the Junta
+		log = "[GetLogInfo]: event cos.95 option cos.95.a"
+		name = cos.95.a
+		set_politics = {
+			ruling_party = social_democrat
+		}
+		complete_national_focus = COS_Legion_del_Caribe
+		add_country_leader_role = {
+			character = COS_jose_figueres_ferrer
+			country_leader = { ideology = social_democrat_subtype }
+			promote_leader = yes
+		}
+	}
+}
+
+country_event = { #Mora offers an alliance to the PRN
+
+	id = cos.96
+	title = cos.96.t
+	desc = cos.96.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #The Left stand united
+		log = "[GetLogInfo]: event cos.96 option cos.96.a"
+		name = cos.96.a
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.04
+		}
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.04
+		}
+	}
+}
+
+country_event = { #Bankruptcy looms over Costa Rica
+
+	id = cos.97
+	title = cos.97.t
+	desc = cos.97.d
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			has_political_power < -200
+			NOT = {
+				has_country_flag = CAMPS
+			}
+		}
+		tag = COS
+		OR = {
+			AND = {
+				date > 1938.06.06
+				date < 1939.12.31
+			}
+			AND = {
+				date > 1942.06.06
+				date < 1943.12.31
+			}
+		}
+		has_country_flag = GUARDIA
+	}
+
+	option = { #The Federation might not be the worst idea...
+		log = "[GetLogInfo]: event cos.97 option cos.97.a"
+		trigger = {
+			always = no
+		}
+		ai_chance = { base = 100 }
+		name = cos.97.a
+		#BEEL DO YOUR THING HERE
+		custom_effect_tooltip = Beel_pls
+	}
+
+	option = { #Drastically increase taxation
+		log = "[GetLogInfo]: event cos.97 option cos.97.b"
+		ai_chance = { base = 100 }
+		name = cos.97.b
+		add_stability = -0.1
+		add_political_power = -50
+	}
+}
+
+country_event = { #Coffee Elite speaks out against Calderon
+
+	id = cos.98
+	title = cos.98.t
+	desc = cos.98.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Ufortunate
+		log = "[GetLogInfo]: event cos.98 option cos.98.a"
+		name = cos.98.a
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.03
+		}
+	}
+}
+
+country_event = { #[GetYear] Elections
+
+	id = cos.99
+	title = cos.99.t
+	desc = cos.99.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = COS
+		has_country_flag = GUARDIA
+		date > 1939.12.31
+		is_subject = no
+	}
+
+	option = { #Picado takes control
+		log = "[GetLogInfo]: event cos.99 option cos.99.a"
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = COS_path option = COS_PATH_FERRER_SOCDEM }
+			}
+		}
+		name = cos.99.a
+		promote_character = COS_teodoro_picado_michalski
+		clr_country_flag = GUARDIA
+	}
+
+	option = { #Calderon announces his second term
+		log = "[GetLogInfo]: event cos.99 option cos.99.b"
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = COS_path option = COS_PATH_CALDERON_SOCDEM }
+			}
+		}
+		name = cos.99.b
+		hidden_effect = {
+			country_event = { id = cos.92 days = 100 }
+		}
+		add_political_power = 200
+		add_stability = -0.15
+	}
+}
+
+country_event = { #Figueres Ferrer takes to the air
+
+	id = cos.100
+	title = cos.100.t
+	desc = cos.100.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Release the man
+		log = "[GetLogInfo]: event cos.100 option cos.100.a"
+		ai_chance = { base = 30 }
+		name = cos.100.a
+		add_political_power = -100
+		add_stability = 0.05
+		hidden_effect = {
+			country_event = { id = cos.101 days = 30 }
+		}
+	}
+
+	option = { #Put him on the first boat to Mexico!
+		log = "[GetLogInfo]: event cos.100 option cos.100.b"
+		ai_chance = { base = 70 }
+		name = cos.100.b
+		add_stability = -0.15
+		hidden_effect = {
+			country_event = { id = cos.102 days = 8 }
+		}
+	}
+}
+
+country_event = { #Unrest in the countryside
+
+	id = cos.101
+	title = cos.101.t
+	desc = cos.101.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #What can a few peasants do?
+		log = "[GetLogInfo]: event cos.101 option cos.101.a"
+		name = cos.101.a
+		add_stability = -0.10
+		hidden_effect = {
+			country_event = { id = cos.103 days = 50 }
+		}
+	}
+}
+
+country_event = { #Ferrer escapes!
+
+	id = cos.102
+	title = cos.102.t
+	desc = cos.102.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Do I have to do everything myself?
+		log = "[GetLogInfo]: event cos.102 option cos.102.a"
+		name = cos.102.a
+		add_political_power = -75
+		hidden_effect = {
+			country_event = { id = cos.101 days = 20 }
+		}
+	}
+}
+
+country_event = { #The Legion Caribe excecutes a Coup
+	id = cos.103
+	title = cos.103.t
+	desc = cos.103.d
+
+	trigger = {
+		is_subject = no
+	}
+
+	is_triggered_only = yes
+
+	option = { #Figueres proclaims the Junta
+		log = "[GetLogInfo]: event cos.103 option cos.103.a"
+		name = cos.103.a
+		complete_national_focus = COS_Legion_del_Caribe
+		clr_country_flag = GUARDIA
+		set_politics = {
+			ruling_party = social_democrat
+		}
+		add_country_leader_role = {
+			character = COS_jose_figueres_ferrer
+			country_leader = { ideology = social_democrat_subtype }
+			promote_leader = yes
+		}
+	}
+}
+
+#EVENTS FOR THE ELECTION SYSTEM
+
+country_event = { #Mora starts rallying support
+
+	id = cos.104
+
+	hidden = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = COS_ELECTIONS
+	}
+
+	option = { #Do I have to do everything myself?
+		log = "[GetLogInfo]: event cos.104 option 1"
+		hidden_effect = {
+			activate_mission = COS_Mora_Supporters_mission
+		}
+	}
+}
+
+country_event = { #Jimenez starts rallying support
+
+	id = cos.105
+	hidden = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = COS_ELECTIONS
+		NOT = {
+			has_country_flag = JIMMY_DOWN
+		}
+	}
+
+	option = { #Do I have to do everything myself?
+		log = "[GetLogInfo]: event cos.105 option 1"
+		hidden_effect = {
+			activate_mission = COS_Jimenez_Supporters_mission
+		}
+	}
+}
+
+country_event = { #Businessmen sign a deal with Jimenez
+
+	id = cos.106
+	title = cos.106.t
+	desc = cos.106.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = {
+			has_country_flag = JIMMY_DOWN
+		}
+	}
+
+	option = { #Screw them!
+		log = "[GetLogInfo]: event cos.106 option cos.106.a"
+		name = cos.106.a
+		add_to_variable = {
+			var = cos_prn_factor
+			value = -3
+		}
+		custom_effect_tooltip = PRN_min_3
+	}
+
+	option = { #Convince them of our campaign
+		log = "[GetLogInfo]: event cos.106 option cos.106.b"
+		name = cos.106.b
+		add_political_power = -60
+	}
+}
+
+country_event = { #Storm devastates the Limon plantations
+
+	id = cos.107
+	title = cos.107.t
+	desc = cos.107.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #I don't control Mother Nature!
+		log = "[GetLogInfo]: event cos.107 option cos.107.a"
+		name = cos.107.a
+		add_to_variable = {
+			var = cos_prn_factor
+			value = -3
+		}
+		custom_effect_tooltip = PRN_min_3
+		add_to_variable = {
+			var = cos_pvp_factor
+			value = 3
+		}
+		custom_effect_tooltip = PVP_3
+	}
+
+	option = { #Divert Funds to aid them
+		log = "[GetLogInfo]: event cos.107 option cos.107.b"
+		name = cos.107.b
+		add_political_power = -50
+		add_to_variable = {
+			var = cos_prn_factor
+			value = -1
+		}
+		custom_effect_tooltip = PRN_min_1
+	}
+}
+
+country_event = { #Put Jimenez out of the race
+
+	id = cos.108
+	title = cos.108.t
+	desc = cos.108.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Attack him at his next rally
+		log = "[GetLogInfo]: event cos.108 option cos.108.a"
+		name = cos.108.a
+		add_political_power = -30
+		hidden_effect = {
+			country_event = { id = cos.109 days = 10 }
+		}
+	}
+
+	option = { #We will not steep so low
+		log = "[GetLogInfo]: event cos.108 option cos.108.b"
+		name = cos.108.b
+	}
+}
+
+country_event = { #Jimenez withdraws out of the race
+
+	id = cos.109
+	title = cos.109.t
+	desc = cos.109.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Good Riddance
+		log = "[GetLogInfo]: event cos.109 option cos.109.a"
+		name = cos.109.a
+		add_to_variable = {
+			var = cos_prn_factor
+			value = -3
+		}
+		set_country_flag = JIMMY_DOWN
+		custom_effect_tooltip = PRN_min_3
+		add_stability = -0.04
+	}
+}
+
+country_event = { #Strike on the plantations
+
+	id = cos.110
+	title = cos.110.t
+	desc = cos.110.d
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = COS_ELECTIONS
+	}
+
+	option = { #Blast it!
+		log = "[GetLogInfo]: event cos.110 option cos.110.a"
+		name = cos.110.a
+		add_to_variable = {
+			var = cos_pvp_factor
+			value = 3
+		}
+		custom_effect_tooltip = PVP_3
+		hidden_effect = {
+			country_event = { id = cos.110 days = 200 }
+		}
+	}
+}
+
+country_event = { #Crisis in Central America
+
+	id = cos.113
+	title = cos.113.t
+	desc = cos.113.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Stay neutral in the conflict
+		log = "[GetLogInfo]: event cos.113 option cos.113.a"
+		ai_chance = { base = 50 }
+		name = cos.113.a
+		set_country_flag = COS_CEN_WAR
+	}
+
+	option = { #Support Costa Rica
+		log = "[GetLogInfo]: event cos.113 option cos.113.b"
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				has_authoritarian_government = yes
+			}
+		}
+		name = cos.113.b
+		set_country_flag = COS_CEN_WAR
+		add_to_faction = CEN
+	}
+
+	option = { #Support Central American Republic
+		log = "[GetLogInfo]: event cos.113 option cos.113.c"
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				has_democratic_government = yes
+			}
+		}
+		name = cos.113.c
+		set_country_flag = COS_CEN_WAR
+		add_to_faction = COS
+	}
+}
+
+country_event = { #event to restore the old factions
+
+	id = cos.115
+
+	fire_only_once = yes
+
+	hidden = yes
+
+	trigger = {
+		tag = COS
+		CEN = {
+			exists = no
+		}
+		has_country_flag = COS_TIME_TO_DANCE_DICKWEED
+	}
+
+	option = { #ola amigos
+		log = "[GetLogInfo]: event cos.115 option 1"
+		if = {
+			limit = {
+				GER = {
+					has_country_flag = COS_CEN_WAR
+				}
+			}
+			GER = {
+				add_to_faction = COS
+			}
+		}
+		if = {
+			limit = {
+				CAN = {
+					has_country_flag = COS_CEN_WAR
+				}
+			}
+			CAN = {
+				add_to_faction = COS
+			}
+		}
+		if = {
+			limit = {
+				USA = {
+					has_country_flag = COS_CEN_WAR
+				}
+			}
+			USA = {
+				add_to_faction = COS
+			}
+		}
+	}
+}
+
+country_event = { #event to restore the old factions
+
+	id = cos.116
+
+	fire_only_once = yes
+
+	hidden = yes
+
+	trigger = {
+		tag = CEN
+		COS = {
+			exists = no
+			has_country_flag = COS_TIME_TO_DANCE_DICKWEED
+		}
+	}
+
+	option = { #hello there
+		log = "[GetLogInfo]: event cos.116 option 1"
+		if = {
+			limit = {
+				GER = {
+					has_country_flag = COS_CEN_WAR
+				}
+			}
+			GER = {
+				add_to_faction = CEN
+			}
+		}
+		if = {
+			limit = {
+				CAN = {
+					has_country_flag = COS_CEN_WAR
+				}
+			}
+			CAN = {
+				add_to_faction = CEN
+			}
+		}
+		if = {
+			limit = {
+				USA = {
+					has_country_flag = COS_CEN_WAR
+				}
+			}
+			USA = {
+				add_to_faction = CEN
+			}
+		}
+	}
+}
+
+country_event = { #Costa Rica wins Coto
+	id = cos.117
+	title = cos.117.t
+	desc = cos.117.d
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = COS
+		has_war_with = PAN
+		is_valid_peace_target = yes
+		PAN = {
+			OR = {
+				surrender_progress > 0.8
+				NOT = { controls_province = 13683 }
+			}
+			is_subject = no
+		}
+	}
+
+	option = { #HUZZAH
+		log = "[GetLogInfo]: event cos.117 option cos.117.a"
+		name = cos.117.a
+		add_timed_idea = {
+			idea = COS_coto_compensation_PAN
+			days = 365
+		}
+		PAN = {
+			add_timed_idea = {
+				idea = COS_coto_compensation
+				days = 365
+			}
+			every_enemy_country = {
+				limit = {
+					OR = {
+						is_ally_with = COS
+						has_guaranteed = COS
+					}
+					is_valid_peace_target = yes
+				}
+				white_peace_with_PREV = yes
+			}
+		}
+	}
+}
+
+country_event = { #Panama wins Coto
+
+	id = cos.118
+	title = cos.118.t
+	desc = cos.118.d
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = PAN
+		has_war_with = COS
+		is_valid_peace_target = yes
+		COS = {
+			OR = {
+				surrender_progress > 0.8
+				NOT = { controls_province = 12878 }
+			}
+			is_subject = no
+		}
+	}
+
+	option = { #HUZZAH
+		log = "[GetLogInfo]: event cos.118 option cos.118.a"
+		name = cos.118.a
+		add_timed_idea = {
+			idea = COS_coto_compensation_PAN
+			days = 365
+		}
+		COS = {
+			add_timed_idea = {
+				idea = COS_coto_compensation
+				days = 365
+			}
+		}
+		every_enemy_country = {
+			limit = {
+				OR = {
+					is_ally_with = COS
+					has_guaranteed = COS
+				}
+				is_valid_peace_target = yes
+			}
+			white_peace_with_ROOT = yes
+		}
+	}
+}
+
+#DIPLOMACY
+country_event = { #Costa Rica in the Entente/Reichspakt
+
+	id = cos.120
+	title = cos.120.t
+	desc = cos.120.d
+
+	is_triggered_only = yes
+
+	option = { #YES
+		log = "[GetLogInfo]: event cos.120 option cos.120.a"
+		ai_chance = { base = 100 }
+		name = cos.120.a
+		add_to_faction = COS
+	}
+	option = { #NO
+		log = "[GetLogInfo]: event cos.120 option cos.120.b"
+		ai_chance = { base = 0 }
+		name = cos.120.b
+		COS = {
+			country_event = cos.121
+		}
+	}
+}
+
+country_event = { #Request refused
+
+	id = cos.121
+	title = cos.121.t
+	desc = cos.121.d
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event cos.121 option cos.121.a"
+		name = cos.121.a
+	}
+}
+
+country_event = { #Punctuality in the Castro Regime
+
+	id = cos.122
+	title = cos.122.t
+	desc = cos.122.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = CORTES
+	}
+
+	option = { #YES
+		log = "[GetLogInfo]: event cos.122 option cos.122.a"
+		name = cos.122.a
+		add_stability = 0.05
+	}
+}
+
+country_event = { #"Mamita Yunai"
+
+	id = cos.123
+	title = cos.123.t
+	desc = cos.123.d
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = COS
+		date > 1939.03.05
+	}
+
+	option = { #YES
+		log = "[GetLogInfo]: event cos.123 option cos.123.a"
+		name = cos.123.a
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.02
+		}
+	}
+}
+
+country_event = { #Pepe smashes the walls of Oppression
+
+	id = cos.124
+	title = cos.124.t
+	desc = cos.124.d
+
+	picture = GFX_report_event_COS_ferrer_smash
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #YES
+		log = "[GetLogInfo]: event cos.124 option cos.124.a"
+		name = cos.124.a
+		add_stability = 0.02
+	}
+}
+
+country_event = { #Pepe stops a plane Hijacking
+
+	id = cos.125
+	title = cos.125.t
+	desc = cos.125.d
+
+	picture = GFX_report_event_COS_ferrer_hijacking
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = COS
+		has_country_leader = { character = COS_jose_figueres_ferrer }
+		NOT = {
+			has_war_with = GER
+			NIC = { has_authoritarian_government = yes }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	option = { #YES
+		log = "[GetLogInfo]: event cos.125 option cos.125.a"
+		name = cos.125.a
+		add_stability = 0.02
+	}
+}
+
+country_event = { #Countries in Ferrer's cool kids club
+	id = cos.126
+	title = cos.126.t
+	desc = cos.126.d
+
+	is_triggered_only = yes
+
+	option = { #YES
+		log = "[GetLogInfo]: event cos.126 option cos.126.a"
+		ai_chance = { base = 100 }
+		name = cos.126.a
+		FROM = {
+			add_to_faction = ROOT
+		}
+	}
+	option = { #NO
+		log = "[GetLogInfo]: event cos.126 option cos.126.b"
+		ai_chance = { base = 0 }
+		name = cos.126.b
+		FROM = {
+			country_event = cos.121
+		}
+	}
+}
+
+country_event = { #Request refused
+	id = cos.127
+	title = cos.127.t
+	desc = cos.127.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #:sadalp:
+		log = "[GetLogInfo]: event cos.127 option cos.127.a"
+		name = cos.127.a
+	}
+}
+
+country_event = { #Offering a hand? (Invasion of Panama)
+	id = cos.128
+	title = cos.128.t
+	desc = cos.128.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = COS
+		has_war = no
+		CAN = {
+			is_faction_leader = yes
+			has_war_with = PAN
+		}
+	}
+
+	option = { #YES
+		log = "[GetLogInfo]: event cos.128 option cos.128.a"
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = COS_path option = COS_PATH_SYNDIE }
+					has_game_rule = { rule = COS_forpol option = COS_FORPOL_GER }
+					has_game_rule = { rule = COS_forpol option = COS_FORPOL_NEUT }
+				}
+			}
+		}
+		name = cos.128.a
+		CAN = {
+			country_event = cos.129
+		}
+	}
+	option = { #NO
+		log = "[GetLogInfo]: event cos.128 option cos.126.b"
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 100
+				OR = {
+					has_game_rule = { rule = COS_path option = COS_PATH_SYNDIE }
+					has_game_rule = { rule = COS_forpol option = COS_FORPOL_GER }
+					has_game_rule = { rule = COS_forpol option = COS_FORPOL_NEUT }
+				}
+			}
+		}
+		name = cos.126.b
+	}
+}
+
+country_event = { #Offering a hand? (Invasion of Panama)
+
+	id = cos.129
+	title = cos.129.t
+	desc = cos.129.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #YES
+		log = "[GetLogInfo]: event cos.129 option cos.129.a"
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = COS_path option = COS_PATH_SYNDIE }
+					has_game_rule = { rule = COS_forpol option = COS_FORPOL_GER }
+					has_game_rule = { rule = COS_forpol option = COS_FORPOL_NEUT }
+				}
+			}
+		}
+		name = cos.129.a
+		COS = {
+			country_event = cos.130
+			add_to_war = {
+				targeted_alliance = CAN
+				enemy = PAN
+				hostility_reason = asked_to_join
+			}
+			give_military_access = CAN
+			if = {
+				limit = {
+					is_in_faction = no
+				}
+				CAN = {
+					add_to_faction = COS
+				}
+			}
+		}
+	}
+	option = { #NO
+		log = "[GetLogInfo]: event cos.129 option cos.129.b"
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 100
+				OR = {
+					has_game_rule = { rule = COS_path option = COS_PATH_SYNDIE }
+					has_game_rule = { rule = COS_forpol option = COS_FORPOL_GER }
+					has_game_rule = { rule = COS_forpol option = COS_FORPOL_NEUT }
+				}
+			}
+		}
+		name = cos.129.b
+		COS = {
+			country_event = cos.131
+		}
+	}
+}
+
+country_event = { #You have my axe (Invasion of Panama)
+
+	id = cos.130
+	title = cos.130.t
+	desc = cos.130.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #YES
+		log = "[GetLogInfo]: event cos.130 option cos.130.a"
+		name = cos.130.a
+	}
+}
+
+country_event = { #Canada says no
+
+	id = cos.131
+	title = cos.131.t
+	desc = cos.131.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #YES
+		log = "[GetLogInfo]: event cos.131 option cos.131.a"
+		name = cos.131.a
+	}
+}
+

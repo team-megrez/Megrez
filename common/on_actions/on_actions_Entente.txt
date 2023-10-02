@@ -1,0 +1,350 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			CAN = { every_core_state = { remove_core_of = GBR } }
+		}
+	}
+
+	#ROOT is winner #FROM gets annexed - For civil wars on_civil_war_end is also fired
+	on_annex = {
+		effect = {
+			if = {
+				limit = { FROM = { tag = event_target:KR_king_base } }
+				GBR = {
+					save_event_target_as = king_flees_to
+					CAN_transfer_king_base = yes
+				}
+			}
+			if = {
+				limit = { FROM = { tag = ENT } }
+				if = {
+					limit = { has_global_flag = CAN_iedc_created }
+					clr_global_flag = CAN_iedc_created
+					random_country = {
+						limit = { has_idea = CAN_iedc_main }
+						remove_ideas = CAN_iedc_main
+					}
+					every_country = {
+						clr_country_flag = CAN_refused_iedc
+						CAN_remove_from_iedc = yes
+					}
+				}
+				if = {
+					limit = { has_global_flag = CAN_isac_created }
+					clr_global_flag = CAN_isac_created
+					every_country = {
+						limit = { is_in_tech_sharing_group = entente_research }
+						remove_from_tech_sharing_group = entente_research
+					}
+				}
+				GBR = { save_global_event_target_as = KR_entente_leader }
+			}
+			else = {
+				FROM = {
+					clr_country_flag = CAN_refused_iedc
+					CAN_remove_from_iedc = yes
+					remove_from_tech_sharing_group = entente_research
+				}
+			}
+		}
+	}
+
+	# ROOT is the new faction leader FROM is the old faction leader
+	on_assume_faction_leadership = {
+		effect = {
+			if = {
+				limit = { FROM = { tag = ENT } }
+				save_global_event_target_as = KR_entente_leader
+				save_event_target_as = entente_transfer_to
+				CAN_transfer_entente_leader = yes
+				if = {
+					limit = {
+						FROM = { has_idea = CAN_iedc_main }
+						GER_is_in_mitteleuropa = no
+					}
+					CAN_transfer_iedc_leadership = yes
+				}
+			}
+			if = {
+				limit = {
+					FROM = {
+						tag = event_target:KR_king_base
+						OR = {
+							surrender_progress > 0.8
+							NOT = { is_in_faction_with = ROOT }
+						}
+					}
+				}
+				if = {
+					limit = {
+						NOT = { FROM = { tag = GBR } }
+						GBR = {
+							is_in_faction_with = FROM
+							surrender_progress < 0.30
+						}
+					}
+					GBR = { save_event_target_as = king_flees_to }
+				}
+				else_if = {
+					limit = {
+						NOT = { FROM = { tag = CAN } }
+						CAN = {
+							is_in_faction_with = FROM
+							surrender_progress < 0.30
+						}
+					}
+					CAN = { save_event_target_as = king_flees_to }
+				}
+				else_if = {
+					limit = {
+						NOT = { FROM = { original_tag = AST } }
+						AST = {
+							is_in_faction_with = FROM
+							surrender_progress < 0.30
+							NOT = { has_government = paternal_autocrat }
+						}
+					}
+					AST = { save_event_target_as = king_flees_to }
+				}
+				else_if = {
+					limit = {
+						NOT = { FROM = { original_tag = RAJ } }
+						RAJ = {
+							is_in_faction_with = FROM
+							surrender_progress < 0.30
+							NOT = { has_government = social_democrat }
+						}
+					}
+					RAJ = { save_event_target_as = king_flees_to }
+				}
+				else_if = {
+					limit = {
+						NOT = { FROM = { original_tag = SAF } }
+						SAF = {
+							is_in_faction_with = FROM
+							surrender_progress < 0.30
+						}
+					}
+					SAF = { save_event_target_as = king_flees_to }
+				}
+				if = {
+					limit = { has_event_target = king_flees_to }
+					event_target:king_flees_to = { CAN_transfer_king_base = yes }
+				}
+				else = {
+					GBR = {
+						save_event_target_as = king_flees_to
+						CAN_transfer_king_base = yes
+					}
+				}
+			}
+		}
+	}
+
+	# ROOT is capitulated country, FROM is winner
+	on_capitulation_immediate = {
+		effect = {
+			# remove effects of the Halifax Conference if Germany capitulates
+			if = {
+				limit = {
+					tag = GER
+					country_exists = ENT
+					has_global_flag = GER_stay_out_france_uk
+				}
+				every_country = {
+					limit = { is_in_faction_with = ENT }
+					country_event = { id = entente.330 days = 5 }
+				}
+			}
+		}
+	}
+
+	#FROM is country getting invited.
+	on_offer_join_faction = {
+		effect = {
+			# removing from IEDC
+			if = {
+				limit = {
+					FROM = { has_country_flag = CAN_joined_iedc }
+					NOT = { has_idea = CAN_iedc_main }
+				}
+				FROM = { country_event = entente.12 }
+			}
+			# giving the ACW support idea to new ENT members
+			if = {
+				limit = { tag = ENT }
+				if = {
+					limit = {
+						has_idea = ACW_support_usa
+						FROM = { NOT = { has_idea = ACW_support_usa } }
+					}
+					FROM = { add_ideas = ACW_support_usa }
+				}
+				else_if = {
+					limit = {
+						has_idea = ACW_support_psa
+						FROM = { NOT = { has_idea = ACW_support_psa } }
+					}
+					FROM = { add_ideas = ACW_support_psa }
+				}
+				else_if = {
+					limit = {
+						has_idea = ACW_support_aus
+						FROM = { NOT = { has_idea = ACW_support_aus } }
+					}
+					FROM = { add_ideas = ACW_support_aus }
+				}
+			}
+		}
+	}
+
+	on_new_term_election = {
+		effect = {
+			### Australasia ###
+			if = {
+				limit = { tag = AST }
+				country_event = austral.10
+				country_event = austral.50
+				country_event = austral.53
+			}
+			### West Indies ###
+			if = {
+				limit = { tag = WIF }
+				country_event = wifpol.30
+			}
+			### Canada ###
+			if = {
+				limit = { tag = CAN }
+				country_event = canada.50 #1936
+				country_event = canada.67 #runoff
+				country_event = canada.75 #after 1936
+			}
+			### UK ###
+			if = {
+				limit = { tag = GBR }
+				country_event = uk.34
+			}
+		}
+	}
+
+	on_ruling_party_change = {
+		effect = {
+			if = {
+				limit = { original_tag = WIF }
+				if = {
+					limit = { will_have_socialist_government = yes }
+					WIF_remove_entente_commanders = yes
+					WIF_add_caribbean_commanders = yes
+				}
+				else = {
+					WIF_add_entente_commanders = yes
+					WIF_remove_caribbean_commanders = yes
+				}
+			}
+			else_if = {
+				limit = { tag = CAN }
+				CAN_add_correct_second_in_command = yes
+			}
+		}
+	}
+
+	#ROOT is new controller #FROM is old controller #FROM.FROM is state ID
+	on_state_control_changed = {
+		effect = {
+			### HND Civil War
+			if = {
+				limit = {
+					FROM.FROM = { state = 431 } #West Bengal
+					tag = INR
+					has_government = totalist
+					FROM = { tag = HND }
+				}
+				FROM = { country_event = beng.83 }
+			}
+			if = {
+				limit = {
+					FROM.FROM = { state = 431 } #West Bengal
+					tag = INR
+					has_government = radical_socialist
+					FROM = { tag = HND }
+				}
+				FROM = { country_event = beng.90 }
+			}
+		}
+	}
+
+	#ROOT = attacking side
+	#FROM = defending side
+	#fired when two countries end up at war with each other (on_war is fired when a country goes to war against anyone and is not fired again when it enters war against another country unless it went to peace first)
+	on_war_relation_added = {
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						tag = JAP
+						tag = ENT
+					}
+					FROM = {
+						OR = {
+							tag = JAP
+							tag = ENT
+						}
+					}
+				}
+				set_global_flag = JAP_war_vs_ENT
+			}
+			else_if = {
+				limit = {
+					OR = {
+						tag = ENT
+						tag = RAJ
+					}
+					FROM = {
+						OR = {
+							tag = ENT
+							tag = RAJ
+						}
+					}
+				}
+				RAJ = { country_event = { id = delhi.25 days = 2 } }
+			}
+			if = {
+				limit = {
+					OR = {
+						tag = GER
+						AND = {
+							ENT = { exists = yes }
+							is_ally_with = ENT
+						}
+					}
+					FROM = {
+						OR = {
+							tag = GER
+							AND = {
+								ENT = { exists = yes }
+								is_ally_with = ENT
+							}
+						}
+					}
+				}
+				country_event = entente.331
+			}
+			if = { # When INT/ENT go to war
+				limit = {
+					OR = {
+						tag = ENT
+						tag = INT
+					}
+					FROM = {
+						OR = {
+							tag = ENT
+							tag = INT
+						}
+					}
+				}
+				entente_add_reclamation_wars_threat = yes
+			}
+		}
+	}
+}
+

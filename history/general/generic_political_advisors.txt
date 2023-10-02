@@ -1,0 +1,57 @@
+﻿# For minor countries where advisors are not defined
+# Generate them from a generic template
+
+# Generic Political Advisors
+every_possible_country = {
+	limit = {
+		is_dynamic_country = no
+		NOT = { tag = CEN } #formable tag
+		NOT = { tag = SCA } #formable tag
+		NOT = { tag = XXA } #system tag
+		NOT = { any_character = { has_advisor_role = political_advisor } }
+	}
+	generate_character = {
+		token_base = generic_silent_workhorse # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { KR_silent_workhorse }
+		}
+		portraits = {
+			army = { small = GFX_idea_generic_silent_workhorse }
+		}
+	}
+	generate_character = {
+		token_base = generic_captain_of_industry # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { KR_captain_of_industry }
+		}
+		portraits = {
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+	generate_character = {
+		token_base = generic_fortification_engineer # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { KR_fortification_engineer }
+		}
+		portraits = {
+			army = { small = GFX_idea_generic_fortification_engineer }
+		}
+	}
+	generate_character = {
+		token_base = generic_war_industrialist # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { KR_war_industrialist }
+		}
+		portraits = {
+			army = { small = GFX_idea_generic_war_industrialist }
+		}
+	}
+	generic_silent_workhorse = { set_character_flag = is_generic }
+	generic_captain_of_industry = { set_character_flag = is_generic }
+	generic_fortification_engineer = { set_character_flag = is_generic }
+	generic_war_industrialist = { set_character_flag = is_generic }
+}

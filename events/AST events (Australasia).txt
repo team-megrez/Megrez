@@ -1,0 +1,8475 @@
+﻿###########################
+# Australasia Events
+###########################
+# By Rylock
+###########################
+
+add_namespace = austral
+
+# The Passing of King George
+country_event = {
+	id = austral.3
+	title = austral.3.t
+	desc = austral.3.d
+	picture = GFX_report_event_europe_funeral
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.3 option austral.3.a"
+		name = austral.3.a
+		add_stability = -0.05
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.03
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.02
+		}
+	}
+}
+
+# Jack Lang readmitted to the Labour Party
+country_event = {
+	id = austral.4
+	title = austral.4.t
+	desc = austral.4.d
+	picture = GFX_report_event_AST_jacklang
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.4 option austral.4.a"
+		name = austral.4.a
+		add_stability = -0.02
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.02
+		}
+	}
+}
+
+# New Guard intro
+country_event = {
+	id = austral.5
+	title = austral.5.t
+	desc = austral.5.d
+	picture = GFX_report_event_AST_campbell
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.5 option austral.5.a"
+		name = austral.5.a
+		add_stability = -0.02
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.02
+		}
+	}
+}
+
+# Victoria forest fires
+country_event = {
+	id = austral.6
+	title = austral.6.t
+	desc = austral.6.d
+	picture = GFX_report_event_AST_fires
+
+	is_triggered_only = yes
+
+	trigger = {
+		controls_state = 517 #Victoria
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.6 option austral.6.a"
+		name = austral.6.a
+		add_stability = -0.02
+		hidden_effect = {
+			country_event = { id = austral.7 days = 9 }
+		}
+	}
+}
+
+# Forest fires extinguished
+country_event = {
+	id = austral.7
+	title = austral.7.t
+	desc = austral.7.d
+	picture = GFX_report_event_AST_fires
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.7 option austral.7.a"
+		name = austral.7.a
+	}
+}
+
+# Ion Idriess' 'The Cattle King'
+country_event = {
+	id = austral.8
+	title = austral.8.t
+	desc = austral.8.d
+	picture = GFX_report_event_AST_rajah
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.8 option austral.8.a"
+		name = austral.8.a
+	}
+}
+
+# Australasia Day
+country_event = {
+	id = austral.9
+	title = austral.9.t
+	desc = austral.9.d
+	picture = GFX_report_event_AST_crowd3
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_subject = no
+		has_cosmetic_tag = AST_australasia_entente
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.9 option austral.9.a"
+		name = austral.9.a
+		add_stability = 0.01
+		hidden_effect = {
+			country_event = { id = austral.9 days = 365 }
+		}
+	}
+}
+
+### 1936 ELECTIONS
+
+# Main election event
+country_event = {
+	id = austral.10
+	title = austral.10.t
+	desc = austral.10.d
+	picture = GFX_report_event_AST_election
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		has_democratic_government = yes
+		NOT = { has_country_flag = AST_had_1936_election }
+	}
+
+	immediate = {
+		set_country_flag = { flag = AST_syndicalist_unrest value = 0 }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.10 option austral.10.a"
+		name = austral.10.a #Earl Page's Country Party
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCDEM }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCCON }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCLIB }
+					has_game_rule = { rule = AST_path option = AST_PATH_NATPOP }
+					has_game_rule = { rule = AST_path option = AST_PATH_SYNDIE }
+					has_game_rule = { rule = AST_path option = AST_PATH_TOTALIST }
+					has_game_rule = { rule = AST_path option = AST_PATH_RADSOC }
+				}
+			}
+		}
+		set_country_flag = AST_had_1936_election
+		add_stability = -0.05
+		set_politics = {
+			ruling_party = market_liberal
+			election_frequency = 36
+			elections_allowed = yes
+		}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.20
+		}
+		AST_marlib_sic = yes
+		hidden_effect = {
+			country_event = { id = austral.11 days = 1 } #New Guard election results
+			country_event = { id = austral.12 days = 3 } #Replace Birdwood?
+			LEC = { country_event = { id = lecbrits.25 days = 1 } }
+			news_event = { id = worldnews.134 days = 1 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.10 option austral.10.b"
+		name = austral.10.b #The Labour Party of Australasia
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 2
+				has_country_flag = AST_labor_supported_by_uob
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_path option = AST_PATH_MARLIB }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCCON }
+				}
+			}
+		}
+		add_stability = -0.10
+		set_politics = {
+			ruling_party = social_democrat
+			election_frequency = 36
+			elections_allowed = yes
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.20
+		}
+		AST_socdem_sic = yes
+		hidden_effect = {
+			country_event = { id = austral.11 days = 1 } #New Guard election results
+			country_event = { id = austral.13 days = 3 } #Syndicalists attempt coup
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.10 option austral.10.c"
+		name = austral.10.c #Stanley Bruce and the United Australasia Party
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_path option = AST_PATH_NATPOP }
+					has_game_rule = { rule = AST_path option = AST_PATH_MARLIB }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCDEM }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCLIB }
+					has_game_rule = { rule = AST_path option = AST_PATH_SYNDIE }
+					has_game_rule = { rule = AST_path option = AST_PATH_TOTALIST }
+					has_game_rule = { rule = AST_path option = AST_PATH_RADSOC }
+				}
+			}
+		}
+		set_country_flag = AST_had_1936_election
+		add_stability = 0.05
+		set_politics = {
+			ruling_party = social_conservative
+			election_frequency = 36
+			elections_allowed = yes
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.20
+		}
+		AST_soccon_sic = yes
+		hidden_effect = {
+			country_event = { id = austral.11 days = 1 } #New Guard election results
+			country_event = { id = austral.12 days = 3 } #Replace Birdwood?
+			LEC = { country_event = { id = lecbrits.25 days = 1 } }
+			news_event = { id = worldnews.133 days = 1 }
+		}
+	}
+}
+
+# New Guard election results
+country_event = {
+	id = austral.11
+	title = austral.11.t
+	desc = austral.11.d
+	picture = GFX_report_event_AST_campbell
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.11 option austral.11.a"
+		name = austral.11.a
+		add_stability = -0.05
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.05
+		}
+	}
+}
+
+# A new Governor-General?
+country_event = {
+	id = austral.12
+	title = austral.12.t
+	desc = austral.12.d
+	picture = GFX_report_event_AST_birdwood
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		has_country_leader = { character = AST_william_riddell_birdwood }
+		has_democratic_government = yes
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.12 option austral.12.a"
+		name = austral.12.a #William Birdwood should remain where he is
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0.25
+				has_government = social_democrat
+			}
+			modifier = {
+				factor = 0.5
+				has_government = social_conservative
+			}
+		}
+		add_stability = -0.10
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.12 option austral.12.b"
+		name = austral.12.b #Sir Alexander would make a fine Governor-General!
+		ai_chance = {
+			base = 45
+			modifier = {
+				factor = 1.5
+				has_government = social_democrat
+			}
+		}
+		add_stability = 0.10
+		reverse_add_opinion_modifier = {
+			target = CAN
+			modifier = KR_disapproves_of_govt
+		}
+		retire_character = AST_william_riddell_birdwood
+		AST_create_governor_general_hore_ruthven = yes
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.12 option austral.12.c"
+		name = austral.12.c #We should invite a member of the royal family to hold the post
+		ai_chance = {
+			base = 35
+			modifier = {
+				factor = 1.5
+				has_government = social_conservative
+			}
+		}
+		add_stability = 0.05
+		reverse_add_opinion_modifier = {
+			target = CAN
+			modifier = KR_approves_of_govt
+		}
+		retire_character = AST_william_riddell_birdwood
+		if = {
+			limit = { ENT_king_george_vi = yes }
+			AST_create_governor_general_prince_henry = yes
+		}
+		else = {
+			AST_create_governor_general_prince_george = yes
+		}
+	}
+}
+
+# Syndicalists attempt to take over Labor
+country_event = {
+	id = austral.13
+	title = austral.13.t
+	desc = austral.13.d
+	picture = GFX_report_event_AST_laborsplit
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		has_government = social_democrat
+		NOT = { has_country_flag = AST_labor_has_split }
+		OR = {
+			has_war = no
+			has_capitulated = no
+		}
+	}
+
+	immediate = {
+		set_country_flag = AST_labor_has_split
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.13 option austral.13.a"
+		name = austral.13.a #Expel the revolutionaries from the party!
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_path option = AST_PATH_SYNDIE }
+					has_game_rule = { rule = AST_path option = AST_PATH_TOTALIST }
+					has_game_rule = { rule = AST_path option = AST_PATH_RADSOC }
+					has_game_rule = { rule = AST_path option = AST_PATH_NATPOP }
+				}
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = NZL_succession option = NZL_SUCCESSION_ALONE }
+				NOT = {
+					has_game_rule = { rule = AST_path option = AST_PATH_DEM }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCDEM }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCLIB }
+					has_game_rule = { rule = AST_path option = AST_PATH_AUTDEM }
+					has_game_rule = { rule = AST_path option = AST_PATH_ELECTED_NATPOP }
+					has_game_rule = { rule = AST_path option = AST_PATH_LATER_SYNDIE }
+					has_game_rule = { rule = AST_path option = AST_PATH_PATAUT }
+					has_game_rule = { rule = AST_path option = AST_PATH_ELECTED_AUTDEM }
+				}
+			}
+		}
+		set_country_flag = AST_had_1936_election
+		set_country_flag = AST_syndicalists_expelled_labor
+		add_stability = 0.05
+		add_popularity = {
+			ideology = social_democrat
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.03
+		}
+		hidden_effect = {
+			country_event = { id = austral.12 days = 3 } #Replace Birdwood?
+			LEC = { country_event = { id = lecbrits.25 days = 1 } }
+			news_event = { id = worldnews.135 days = 1 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.13 option austral.13.b"
+		name = austral.13.b #The ACTU seizes control! Declare the syndicalist republic!
+		ai_chance = {
+			base = 60
+			modifier = {
+				factor = 2
+				has_country_flag = AST_labor_supported_by_uob
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_path option = AST_PATH_DEM }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCDEM }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCLIB }
+					has_game_rule = { rule = AST_path option = AST_PATH_AUTDEM }
+					has_game_rule = { rule = AST_path option = AST_PATH_ELECTED_NATPOP }
+					has_game_rule = { rule = AST_path option = AST_PATH_LATER_SYNDIE }
+					has_game_rule = { rule = AST_path option = AST_PATH_PATAUT }
+					has_game_rule = { rule = AST_path option = AST_PATH_ELECTED_AUTDEM }
+				}
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = NZL_succession option = NZL_SUCCESSION_NO }
+				NOT = {
+					has_game_rule = { rule = AST_path option = AST_PATH_SYNDIE }
+					has_game_rule = { rule = AST_path option = AST_PATH_TOTALIST }
+					has_game_rule = { rule = AST_path option = AST_PATH_RADSOC }
+					has_game_rule = { rule = AST_path option = AST_PATH_NATPOP }
+				}
+			}
+		}
+		set_country_flag = AST_had_1936_election
+		add_stability = -0.10
+		add_ideas = AST_new_unrest
+		set_politics = {
+			ruling_party = syndicalist
+			elections_allowed = no
+		}
+		leave_faction = yes
+		separate_peace_all_wars = yes
+		hidden_effect = {
+			country_event = lecbrits.28 #remove LEC vote
+			AST_become_republic = yes
+			AST_enact_syndicalist_trade = yes
+			add_country_leader_role = {
+				character = AST_john_curtin
+				country_leader = { ideology = syndicalist_subtype }
+				promote_leader = yes
+			}
+			if = {
+				limit = { is_in_array = { global.CAN_imperial_conference = ROOT } }
+				remove_from_array = { global.CAN_imperial_conference = ROOT }
+			}
+			news_event = { id = worldnews.123 days = 1 }
+			GEA = { country_event = { id = austral.371 days = 2 random_days = 7 } }
+			add_named_threat = {
+				threat = 2
+				name = AST_revolution_threat
+			}
+		}
+	}
+}
+
+# Union of Britain supports Labor election efforts (fired by UoB focus)
+country_event = {
+	id = austral.14
+	title = austral.14.t
+	desc = austral.14.d
+	picture = GFX_report_event_AST_paterson
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.14 option austral.14.a"
+		name = austral.14.a
+		set_country_flag = AST_labor_supported_by_uob
+		add_stability = -0.05
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.03
+		}
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.05
+		}
+		add_opinion_modifier = {
+			target = ENG
+			modifier = KR_hates_govt
+		}
+	}
+}
+
+### POST-ELECTION EVENTS
+
+# Workers' Organization and Trade Unions (fired by focus)
+country_event = {
+	id = austral.20
+	title = austral.20.t
+	desc = austral.20.d
+	picture = GFX_report_event_generic_workers
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.20 option austral.20.a"
+		name = austral.20.a #Rescind Birdwood's policies
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 1.2
+				has_government = market_liberal
+			}
+			modifier = {
+				factor = 0.8
+				has_government = social_conservative
+			}
+		}
+		set_country_flag = AST_allowed_trade_unions
+		set_temp_variable = { ideology_change_var = 0.05 }
+		change_ruling_party_popularity = yes
+		if = {
+			limit = {
+				has_government = social_democrat
+			}
+			add_popularity = {
+				ideology = syndicalist
+				popularity = 0.05
+			}
+		}
+		else = {
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = syndicalist
+				popularity = 0.05
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.20 option austral.20.b"
+		name = austral.20.b #Trade unions cause trouble - continue the suppression
+		trigger = {
+			NOT = {
+				has_government = social_democrat
+			}
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0.8
+				has_government = market_liberal
+			}
+			modifier = {
+				factor = 1.2
+				has_government = social_conservative
+			}
+		}
+		set_country_flag = AST_suppressed_trade_unions
+		set_temp_variable = { ideology_change_var = -0.05 }
+		change_ruling_party_popularity = yes
+		add_popularity = {
+			ideology = syndicalist
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = totalist
+			popularity = 0.02
+		}
+	}
+}
+
+# Massive syndicalist protest
+country_event = {
+	id = austral.21
+	title = austral.21.t
+	picture = GFX_report_event_AST_riot1
+
+	desc = {
+		text = austral.21.d.labor
+		trigger = {
+			has_country_flag = AST_labor_has_split
+		}
+	}
+	desc = {
+		text = austral.21.d.notlabor
+		trigger = {
+			NOT = {
+				has_country_flag = AST_labor_has_split
+			}
+		}
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		has_democratic_government = yes
+		has_country_flag = {
+			flag = AST_syndicalist_unrest
+			value < 1
+		}
+		has_country_flag = AST_had_1936_election
+		NOT = {
+			has_country_flag = AST_had_1939_election
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 15
+	}
+
+	immediate = {
+		modify_country_flag = {
+			flag = AST_syndicalist_unrest
+			value = 1
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.21 option austral.21.a"
+		name = austral.21.a
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.03
+		}
+		add_stability = -0.05
+	}
+}
+
+# Trade Unions campaigning
+country_event = {
+	id = austral.22
+	title = austral.22.t
+	desc = austral.22.d
+	picture = GFX_report_event_AST_paterson
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		has_democratic_government = yes
+		has_country_flag = {
+			flag = AST_syndicalist_unrest
+			value > 0
+		}
+		has_country_flag = AST_allowed_trade_unions
+		NOT = {
+			has_country_flag = AST_had_1939_election
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	immediate = {
+		modify_country_flag = {
+			flag = AST_syndicalist_unrest
+			value = 1
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.22 option austral.22.a"
+		name = austral.22.a
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.03
+		}
+		add_stability = -0.05
+	}
+}
+
+# Trade Unions protesting the continued suppression
+country_event = {
+	id = austral.23
+	title = austral.23.t
+	desc = austral.23.d
+	picture = GFX_report_event_AST_protest2
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		has_democratic_government = yes
+		has_country_flag = {
+			flag = AST_syndicalist_unrest
+			value > 0
+		}
+		has_country_flag = AST_suppressed_trade_unions
+		NOT = {
+			has_country_flag = AST_had_1939_election
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	immediate = {
+		modify_country_flag = {
+			flag = AST_syndicalist_unrest
+			value = 1
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.23 option austral.22.a"
+		name = austral.22.a
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.03
+		}
+		add_stability = -0.05
+	}
+}
+
+# Miners clash with police in Victoria
+country_event = {
+	id = austral.24
+	title = austral.24.t
+	desc = austral.24.d
+	picture = GFX_report_event_generic_riot
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		517 = { is_owned_and_controlled_by = AST } #Victoria
+		has_democratic_government = yes
+		has_country_flag = {
+			flag = AST_syndicalist_unrest
+			value > 0
+		}
+		has_completed_focus = AST_suppress_syndicalism
+		NOT = {
+			has_country_flag = AST_had_1939_election
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	immediate = {
+		modify_country_flag = {
+			flag = AST_syndicalist_unrest
+			value = 1
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.24 option austral.24.a"
+		name = austral.24.a
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.03
+		}
+		add_stability = -0.05
+	}
+}
+
+# ACTU celebrate workers' deal
+country_event = {
+	id = austral.25
+	title = austral.25.t
+	desc = austral.25.d
+	picture = GFX_report_event_generic_rally2
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		has_democratic_government = yes
+		has_country_flag = {
+			flag = AST_syndicalist_unrest
+			value > 0
+		}
+		has_completed_focus = AST_workers_deal
+		NOT = {
+			has_country_flag = AST_had_1939_election
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	immediate = {
+		modify_country_flag = {
+			flag = AST_syndicalist_unrest
+			value = 1
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.25 option austral.25.a"
+		name = austral.25.a
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.03
+		}
+	}
+}
+
+# Illegal Strike in Sydney
+country_event = {
+	id = austral.26
+	title = austral.26.t
+	desc = austral.26.d
+	picture = GFX_report_event_generic_strike
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		285 = { is_owned_and_controlled_by = AST } #New South Wales
+		has_democratic_government = yes
+		has_country_flag = {
+			flag = AST_syndicalist_unrest
+			value > 0
+		}
+		NOT = {
+			has_country_flag = AST_allowed_trade_unions
+		}
+		NOT = {
+			has_country_flag = AST_had_1939_election
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	immediate = {
+		modify_country_flag = {
+			flag = AST_syndicalist_unrest
+			value = 1
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.26 option austral.26.a"
+		name = austral.26.a
+		add_stability = -0.02
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.01
+		}
+		add_popularity = {
+			ideology = totalist
+			popularity = 0.01
+		}
+	}
+}
+
+# Jack Lang speech disrupted
+country_event = {
+	id = austral.27
+	title = austral.27.t
+	desc = austral.27.d
+	picture = GFX_report_event_AST_jacklang
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		has_democratic_government = yes
+		has_country_flag = {
+			flag = AST_syndicalist_unrest
+			value > 1
+		}
+		NOT = {
+			has_government = social_liberal
+		}
+		NOT = {
+			has_country_flag = AST_had_1939_election
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 9
+	}
+
+	immediate = {
+		modify_country_flag = {
+			flag = AST_syndicalist_unrest
+			value = 1
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.27 option austral.27.a"
+		name = austral.27.a
+		add_stability = -0.02
+		add_popularity = {
+			ideology = social_liberal
+			popularity = -0.01
+		}
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.01
+		}
+	}
+}
+
+# Paterson speech after martial law lifted
+country_event = {
+	id = austral.28
+	title = austral.28.t
+	desc = austral.28.d
+	picture = GFX_report_event_AST_paterson
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		has_completed_focus = AST_lift_martial_law
+		date > 1937.6.1
+		has_democratic_government = yes
+		has_country_flag = {
+			flag = AST_syndicalist_unrest
+			value > 1
+		}
+		NOT = { has_country_flag = AST_had_1939_election }
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	immediate = {
+		modify_country_flag = {
+			flag = AST_syndicalist_unrest
+			value = 1
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.28 option austral.28.a"
+		name = austral.28.a
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.02
+		}
+	}
+}
+
+# Radicals burn down factory
+country_event = {
+	id = austral.29
+	title = austral.29.t
+	desc = austral.29.d
+	picture = GFX_report_event_SRI_bombing
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		date > 1938.1.1
+		has_democratic_government = yes
+		has_country_flag = {
+			flag = AST_syndicalist_unrest
+			value > 1
+		}
+		has_country_flag = {
+			flag = AST_syndicalist_unrest
+			value < 5
+		}
+		NOT = {
+			has_country_flag = AST_had_1939_election
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	immediate = {
+		hidden_effect = {
+			modify_country_flag = {
+				flag = AST_syndicalist_unrest
+				value = 1
+			}
+			hidden_effect = {
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = AST
+						industrial_complex > 0
+					}
+					save_event_target_as = factory_state
+				}
+			}
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.29 option austral.29.a"
+		name = austral.29.a
+		add_stability = -0.02
+		event_target:factory_state = {
+			damage_building = {
+				type = industrial_complex
+				damage = 0.5
+			}
+		}
+	}
+}
+
+# General Strike
+country_event = {
+	id = austral.30
+	title = austral.30.t
+	picture = GFX_report_event_AST_protest1
+
+	desc = {
+		text = austral.30.d.legal
+		trigger = {
+			has_country_flag = AST_allowed_trade_unions
+		}
+	}
+	desc = {
+		text = austral.30.d.illegal
+		trigger = {
+			NOT = {
+				has_country_flag = AST_allowed_trade_unions
+			}
+		}
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		date > 1938.1.1
+		has_democratic_government = yes
+		has_country_flag = {
+			flag = AST_syndicalist_unrest
+			value > 1
+		}
+		has_country_flag = {
+			flag = AST_syndicalist_unrest
+			value < 5
+		}
+		NOT = {
+			has_country_flag = AST_had_1939_election
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	immediate = {
+		modify_country_flag = {
+			flag = AST_syndicalist_unrest
+			value = 1
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.30 option austral.30.a"
+		name = austral.30.a
+		add_stability = -0.02
+		add_timed_idea = {
+			idea = AST_massive_strikes
+			days = 30
+		}
+	}
+}
+
+# Rise of the New Guard
+country_event = {
+	id = austral.31
+	title = austral.31.t
+	desc = austral.31.d
+	picture = GFX_report_event_AST_campbell2
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		date > 1938.1.1
+		has_democratic_government = yes
+		has_country_flag = {
+			flag = AST_syndicalist_unrest
+			value > 4
+		}
+		NOT = {
+			has_country_flag = AST_had_1939_election
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 2
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.31 option austral.31.a"
+		name = austral.31.a
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.05
+		}
+	}
+}
+
+# Rise of the AFM
+country_event = {
+	id = austral.32
+	title = austral.32.t
+	desc = austral.32.d
+	picture = GFX_report_event_AST_stephenson
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		date > 1938.5.1
+		has_democratic_government = yes
+		has_country_flag = {
+			flag = AST_syndicalist_unrest
+			value > 4
+		}
+		NOT = {
+			has_country_flag = AST_had_1939_election
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 30
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.32 option austral.32.a"
+		name = austral.32.a
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.05
+		}
+	}
+}
+
+# AFM protests the war
+country_event = {
+	id = austral.33
+	title = austral.33.t
+	desc = austral.33.d
+	picture = GFX_report_event_AST_stephenson
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		has_war = yes
+		NOT = {
+			has_defensive_war = yes
+		}
+		has_democratic_government = yes
+		has_country_flag = AST_had_1936_election
+		NOT = {
+			has_country_flag = AST_had_1939_election
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 30
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.33 option austral.33.a"
+		name = austral.33.a
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.05
+		}
+	}
+}
+
+# Charles Vyner Brooke Backs the New Guard
+country_event = {
+	id = austral.34
+	title = austral.34.t
+	desc = austral.34.d
+	picture = GFX_report_event_AST_rajah
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		date > 1938.10.1
+		has_democratic_government = yes
+		NOT = {
+			has_country_flag = AST_had_1939_election
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 30
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.34 option austral.34.a"
+		name = austral.34.a
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.05
+		}
+	}
+}
+
+# The Great Schism of the Australasian Labor Party
+country_event = {
+	id = austral.35
+	title = austral.35.t
+	picture = GFX_report_event_AST_laborsplit
+
+	desc = {
+		text = austral.35.d.labor
+		trigger = {
+			has_government = social_democrat
+		}
+	}
+	desc = {
+		text = austral.35.d.notlabor
+		trigger = {
+			NOT = { has_government = social_democrat }
+			has_country_flag = AST_labor_has_split
+		}
+	}
+	desc = {
+		text = austral.35.d.notlabor2
+		trigger = {
+			NOT = {
+				has_government = social_democrat
+				has_country_flag = AST_labor_has_split
+			}
+		}
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		OR = {
+			AND = {
+				date > 1936.8.20
+				has_government = social_democrat
+				NOT = { has_country_flag = AST_had_1939_election }
+			}
+			AND = {
+				date > 1939.8.20
+				NOT = { has_government = social_democrat }
+			}
+		}
+		has_democratic_government = yes
+		NOT = { has_government = social_liberal }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.35 option austral.35.a"
+		name = austral.35.a
+		set_country_flag = AST_labor_has_split
+		set_country_flag = AST_syndicalists_expelled_labor
+		add_stability = -0.02
+		add_popularity = {
+			ideology = social_democrat
+			popularity = -0.02
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.02
+		}
+	}
+}
+
+# Ruling Party loses popularity
+country_event = {
+	id = austral.36
+	title = austral.36.t
+	picture = GFX_report_event_AST_parliament1
+
+	desc = {
+		text = austral.36.d.uap
+		trigger = {
+			has_government = social_conservative
+		}
+	}
+	desc = {
+		text = austral.36.d.country
+		trigger = {
+			has_government = market_liberal
+		}
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		date > 1938.11.01
+		has_right_democratic_government = yes
+		NOT = {
+			has_country_flag = AST_had_1939_election
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 15
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.36 option austral.36.a"
+		name = austral.36.a
+		set_temp_variable = { ideology_change_var = -0.2 }
+		change_ruling_party_popularity = yes
+	}
+}
+
+# UAP/Country parties consider coalition
+country_event = {
+	id = austral.37
+	title = austral.37.t
+	picture = GFX_report_event_AST_bruce
+
+	desc = {
+		text = austral.37.d.uap
+		trigger = {
+			has_government = social_conservative
+		}
+	}
+	desc = {
+		text = austral.37.d.country
+		trigger = {
+			has_government = market_liberal
+		}
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		date > 1939.01.01
+		has_right_democratic_government = yes
+		NOT = {
+			has_country_flag = AST_had_1939_election
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.37 option austral.37.a"
+		name = austral.37.a #We have no choice but to agree
+		set_country_flag = AST_uap_in_coalition
+		hidden_effect = {
+			country_event = { id = austral.44 random_days = 20 } # Bruce and Lyons attend rally
+		}
+		set_temp_variable = { ideology_change_var = 0.05 }
+		change_ruling_party_popularity = yes
+		if = {
+			limit = { has_government = social_conservative }
+			set_temp_variable = { coalition_partner_var = token:market_liberal }
+			add_to_coalition = yes
+		}
+		else = {
+			set_temp_variable = { coalition_partner_var = token:social_conservative }
+			add_to_coalition = yes
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.37 option austral.37.b"
+		name = austral.37.b #No - we will stick to our principles, no matter what
+		add_stability = -0.05
+	}
+}
+
+# UAP/Country parties form coalition (if neither is ruling)
+country_event = {
+	id = austral.38
+	title = austral.38.t
+	desc = austral.38.d
+	picture = GFX_report_event_AST_bruce
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		date > 1939.01.01
+		has_democratic_government = yes
+		NOT = {
+			has_right_democratic_government = yes
+			has_country_flag = AST_had_1939_election
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.38 option austral.38.a"
+		name = austral.38.a
+		set_country_flag = AST_uap_in_coalition
+		hidden_effect = {
+			country_event = { id = austral.44 random_days = 20 } # Bruce and Lyons attend rally
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.05
+		}
+	}
+}
+
+# Forty Thousand Horsemen
+country_event = {
+	id = austral.39
+	title = austral.39.t
+	desc = austral.39.d
+	picture = GFX_report_event_AST_army1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.39 option austral.39.a"
+		name = austral.39.a
+	}
+}
+
+# VFM Finals
+country_event = {
+	id = austral.40
+	title = austral.40.t
+	desc = austral.40.d
+	picture = GFX_report_event_AST_football
+
+	is_triggered_only = yes
+
+	trigger = {
+		517 = { is_owned_and_controlled_by = ROOT } #Victoria
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.40 option austral.40.a"
+		name = austral.40.a
+		add_stability = 0.01
+		hidden_effect = {
+			random_list = {
+				1 = { country_event = { id = austral.42 days = 5 } }
+				1 = { country_event = { id = austral.43 days = 5 } }
+			}
+		}
+	}
+}
+
+# Victory event 1
+country_event = {
+	id = austral.42
+	title = austral.42.t
+	desc = austral.42.d
+	picture = GFX_report_event_AST_football2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.42 option austral.42.a"
+		name = austral.42.a
+	}
+}
+
+# Victory event 2
+country_event = {
+	id = austral.43
+	title = austral.43.t
+	desc = austral.43.d
+	picture = GFX_report_event_AST_football2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.43 option austral.42.a"
+		name = austral.42.a
+	}
+}
+
+# Bruce and Lyons attend rally
+country_event = {
+	id = austral.44
+	title = austral.44.t
+	desc = austral.44.d
+	picture = GFX_report_event_AST_rally
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_elected_government = yes
+		has_country_flag = AST_uap_in_coalition
+		NOT = {
+			has_country_flag = AST_had_1939_election
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.44 option austral.44.a"
+		name = austral.44.a
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.03
+		}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.02
+		}
+	}
+}
+
+### 1939 ELECTIONS
+
+# Main election event
+country_event = {
+	id = austral.50
+	title = austral.50.t
+	desc = austral.50.d
+	picture = GFX_report_event_AST_election
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		has_democratic_government = yes
+		has_country_flag = AST_had_1936_election
+		NOT = {
+			has_country_flag = AST_had_1939_election
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { has_dlc_lar = yes }
+				create_operative_leader = {
+					name = "Roland Griffiths-Marsh"
+					GFX = GFX_portrait_kr_roland_griffiths
+					traits = {
+						operative_commando
+					}
+					bypass_recruitment = no
+					available_to_spy_master = yes
+					nationalities = { AST }
+				}
+			}
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.50 option austral.50.a"
+		name = austral.50.a #Stanley Bruce and the United Australasia Party
+		trigger = {
+			NOT = {
+				has_government = market_liberal
+			}
+		}
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 1.5
+				has_country_flag = AST_uap_in_coalition
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_path option = AST_PATH_MARLIB }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCDEM }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCLIB }
+					has_game_rule = { rule = AST_path option = AST_PATH_AUTDEM }
+					has_game_rule = { rule = AST_path option = AST_PATH_ELECTED_NATPOP }
+					has_game_rule = { rule = AST_path option = AST_PATH_LATER_SYNDIE }
+					has_game_rule = { rule = AST_path option = AST_PATH_PATAUT }
+				}
+			}
+		}
+		set_country_flag = AST_had_1939_election
+		add_stability = 0.05
+		set_politics = {
+			ruling_party = social_conservative
+			election_frequency = 36
+			elections_allowed = yes
+		}
+		if = {
+			limit = { has_country_flag = AST_uap_in_coalition }
+			set_temp_variable = { coalition_partner_var = token:market_liberal }
+			add_to_coalition = yes
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.15
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.05
+			}
+		}
+		else = {
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.20
+			}
+		}
+		AST_soccon_sic = yes
+		hidden_effect = {
+			country_event = { id = austral.51 days = 10 } #New Guard coup
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.50 option austral.50.b"
+		name = austral.50.b #Earl Page's Country Party
+		trigger = {
+			has_government = market_liberal
+		}
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 1.5
+				has_country_flag = AST_uap_in_coalition
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCDEM }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCCON }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCLIB }
+					has_game_rule = { rule = AST_path option = AST_PATH_AUTDEM }
+					has_game_rule = { rule = AST_path option = AST_PATH_ELECTED_NATPOP }
+					has_game_rule = { rule = AST_path option = AST_PATH_LATER_SYNDIE }
+					has_game_rule = { rule = AST_path option = AST_PATH_PATAUT }
+				}
+			}
+		}
+		set_country_flag = AST_had_1939_election
+		add_stability = -0.02
+		set_politics = {
+			ruling_party = market_liberal
+			election_frequency = 36
+			elections_allowed = yes
+		}
+		if = {
+			limit = { has_country_flag = AST_uap_in_coalition }
+			set_temp_variable = { coalition_partner_var = token:social_conservative }
+			add_to_coalition = yes
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.15
+			}
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 0.05
+			}
+		}
+		else = {
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.20
+			}
+		}
+		AST_marlib_sic = yes
+		hidden_effect = {
+			country_event = { id = austral.51 days = 10 } #New Guard coup
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.50 option austral.50.c"
+		name = austral.50.c #The Labor Party of Australasia
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_path option = AST_PATH_MARLIB }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCCON }
+					has_game_rule = { rule = AST_path option = AST_PATH_AUTDEM }
+					has_game_rule = { rule = AST_path option = AST_PATH_ELECTED_NATPOP }
+					has_game_rule = { rule = AST_path option = AST_PATH_LATER_SYNDIE }
+					has_game_rule = { rule = AST_path option = AST_PATH_PATAUT }
+				}
+			}
+		}
+		set_country_flag = AST_had_1939_election
+		add_stability = -0.05
+		set_politics = {
+			ruling_party = social_democrat
+			election_frequency = 36
+			elections_allowed = yes
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.20
+		}
+		AST_socdem_sic = yes
+		hidden_effect = {
+			country_event = { id = austral.13 days = 3 } #Syndicalists attempt coup
+			country_event = { id = austral.51 days = 10 } #New Guard coup
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.50 option austral.50.e"
+		name = austral.50.e #Eric Campbell & the Centre Party
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 0.6
+				NOT = {
+					has_country_flag = AST_new_guard_hughes
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_path option = AST_PATH_DEM }
+					has_game_rule = { rule = AST_path option = AST_PATH_MARLIB }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCDEM }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCCON }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCLIB }
+					has_game_rule = { rule = AST_path option = AST_PATH_PATAUT }
+					has_game_rule = { rule = AST_path option = AST_PATH_ELECTED_AUTDEM }
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = NZL_succession option = NZL_SUCCESSION_ENT }
+					has_game_rule = { rule = NZL_succession option = NZL_SUCCESSION_ALONE }
+				}
+				NOT = {
+					has_game_rule = { rule = AST_path option = AST_PATH_AUTDEM }
+					has_game_rule = { rule = AST_path option = AST_PATH_ELECTED_NATPOP }
+					has_game_rule = { rule = AST_path option = AST_PATH_LATER_SYNDIE }
+				}
+			}
+		}
+		set_country_flag = AST_had_1939_election
+		add_stability = -0.10
+		add_ideas = AST_new_unrest
+		set_politics = {
+			ruling_party = national_populist
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.20
+		}
+		effect_tooltip = {
+			if = {
+				limit = { AST_is_dominion = yes }
+				activate_advisor = AST_eric_campbell_sic
+			}
+		}
+		hidden_effect = {
+			news_event = { id = worldnews.124 days = 1 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.50 option austral.50.f"
+		name = austral.50.f #Percy Stephenson & the Australasia First Movement
+		ai_chance = {
+			base = 5
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_path option = AST_PATH_DEM }
+					has_game_rule = { rule = AST_path option = AST_PATH_MARLIB }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCDEM }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCCON }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCLIB }
+					has_game_rule = { rule = AST_path option = AST_PATH_AUTDEM }
+					has_game_rule = { rule = AST_path option = AST_PATH_ELECTED_NATPOP }
+					has_game_rule = { rule = AST_path option = AST_PATH_LATER_SYNDIE }
+					has_game_rule = { rule = AST_path option = AST_PATH_ELECTED_AUTDEM }
+				}
+			}
+		}
+		set_country_flag = AST_had_1939_election
+		add_stability = -0.10
+		add_ideas = AST_new_unrest
+		set_politics = {
+			ruling_party = paternal_autocrat
+			election_frequency = 36
+			elections_allowed = yes
+		}
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.20
+		}
+		AST_become_republic = yes
+		hidden_effect = {
+			news_event = { id = worldnews.125 days = 1 }
+		}
+	}
+}
+
+# New Guard attempts a coup
+country_event = {
+	id = austral.51
+	title = austral.51.t
+	desc = austral.51.d
+	picture = GFX_report_event_AST_campbell2
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			has_right_democratic_government = yes
+			has_government = social_democrat
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.51 option austral.51.a"
+		name = austral.51.a #The coup fails!
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_path option = AST_PATH_ELECTED_NATPOP }
+					has_game_rule = { rule = AST_path option = AST_PATH_LATER_SYNDIE }
+					has_game_rule = { rule = AST_path option = AST_PATH_AUTDEM }
+				}
+			}
+		}
+		add_stability = -0.10
+		country_event = { id = austral.52 days = 7 }
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.51 option austral.51.b"
+		name = austral.51.b #The coup succeeds!
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 3.25
+				has_government = market_liberal
+			}
+			modifier = {
+				factor = 4.5
+				has_government = social_democrat
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_path option = AST_PATH_DEM }
+					has_game_rule = { rule = AST_path option = AST_PATH_MARLIB }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCDEM }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCCON }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCLIB }
+					has_game_rule = { rule = AST_path option = AST_PATH_ELECTED_AUTDEM }
+				}
+			}
+		}
+		add_stability = -0.25
+		set_politics = {
+			ruling_party = national_populist
+			elections_allowed = no
+			name = AST_national_populist_banned_party
+			long_name = AST_national_populist_banned_party_long
+		}
+		add_country_leader_role = {
+			character = AST_thomas_albert_blamey
+			country_leader = { ideology = national_populist_subtype }
+			promote_leader = yes
+		}
+		add_ideas = AST_new_unrest
+		set_country_flag = { flag = AST_delay_entente_bypass days = 30 value = 1 }
+		hidden_effect = {
+			news_event = { id = worldnews.126 days = 1 }
+			GEA = { country_event = { id = austral.373 days = 2 random_days = 7 } }
+		}
+	}
+}
+
+# The Dissolution Of The New Guard
+country_event = {
+	id = austral.52
+	title = austral.52.t
+	desc = austral.52.d
+	picture = GFX_report_event_AST_protest2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.52 option austral.52.a"
+		name = austral.52.a
+		set_country_flag = AST_new_guard_dissolved
+		add_stability = 0.10
+		retire_character = AST_eric_campbell
+		retire_character = AST_thomas_albert_blamey
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.05
+		}
+		set_party_name = {
+			ideology = national_populist
+			name = AST_national_populist_banned_party
+			long_name = AST_national_populist_banned_party_long
+		}
+	}
+}
+
+# Post-1939 election events
+country_event = {
+	id = austral.53
+	title = austral.53.t
+	desc = austral.53.d
+	picture = GFX_report_event_AST_election
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		has_democratic_government = yes
+		has_country_flag = AST_had_1939_election
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.53 option austral.53.a"
+		name = austral.53.a #The United Australasia Party carries the day
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 1.5
+				has_government = social_conservative
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_path option = AST_PATH_MARLIB }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCDEM }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCLIB }
+					has_game_rule = { rule = AST_path option = AST_PATH_ELECTED_AUTDEM }
+				}
+			}
+		}
+		set_politics = {
+			ruling_party = social_conservative
+			election_frequency = 36
+			elections_allowed = yes
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.20
+		}
+		if = {
+			limit = { has_country_flag = AST_uap_in_coalition }
+			set_temp_variable = { coalition_partner_var = token:market_liberal }
+			add_to_coalition = yes
+		}
+		AST_soccon_sic = yes
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.53 option austral.53.b"
+		name = austral.53.b #The Country Party wins a slim majority
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 3
+				has_government = market_liberal
+			}
+			modifier = {
+				factor = 0.5
+				date > 1942.1.1
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCDEM }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCCON }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCLIB }
+					has_game_rule = { rule = AST_path option = AST_PATH_ELECTED_AUTDEM }
+				}
+			}
+		}
+		set_politics = {
+			ruling_party = market_liberal
+			election_frequency = 36
+			elections_allowed = yes
+		}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.20
+		}
+		if = {
+			limit = { has_country_flag = AST_uap_in_coalition }
+			set_temp_variable = { coalition_partner_var = token:social_conservative }
+			add_to_coalition = yes
+		}
+		AST_marlib_sic = yes
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.53 option austral.53.c"
+		name = austral.53.c #The Labor Party manages victory
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 1.5
+				has_government = social_democrat
+			}
+			modifier = {
+				factor = 1.5
+				date > 1945.1.1
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_path option = AST_PATH_MARLIB }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCCON }
+					AND = {
+						has_country_flag = AST_lang_election
+						has_game_rule = { rule = AST_path option = AST_PATH_SOCLIB }
+					}
+					has_game_rule = { rule = AST_path option = AST_PATH_ELECTED_AUTDEM }
+				}
+			}
+		}
+		set_politics = {
+			ruling_party = social_democrat
+			election_frequency = 36
+			elections_allowed = yes
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.20
+		}
+		AST_socdem_sic = yes
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.53 option austral.53.e"
+		name = austral.53.e #The Nationalists regain control of parliament
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 3
+				has_government = authoritarian_democrat
+			}
+			modifier = {
+				factor = 2
+				date > 1942.1.1
+			}
+			modifier = {
+				factor = 1.5
+				date > 1945.1.1
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_path option = AST_PATH_DEM }
+					has_game_rule = { rule = AST_path option = AST_PATH_MARLIB }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCDEM }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCCON }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCLIB }
+				}
+			}
+		}
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			election_frequency = 36
+			elections_allowed = yes
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.20
+		}
+		AST_authdem_sic = yes
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.53 option austral.53.f"
+		name = austral.53.f #Lang Labor wins the day!
+		trigger = {
+			has_country_flag = AST_lang_election
+		}
+		ai_chance = {
+			base = 5
+			modifier = {
+				factor = 6
+				has_government = social_liberal
+			}
+			modifier = {
+				factor = 4
+				has_government = social_democrat
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_path option = AST_PATH_MARLIB }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCDEM }
+					has_game_rule = { rule = AST_path option = AST_PATH_SOCCON }
+					has_game_rule = { rule = AST_path option = AST_PATH_ELECTED_AUTDEM }
+				}
+			}
+		}
+		set_politics = {
+			ruling_party = social_liberal
+			election_frequency = 36
+			elections_allowed = yes
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.20
+		}
+		AST_soclib_sic = yes
+	}
+}
+
+### POST-1939 ELECTION EVENTS - DEMOCRATIC
+
+# Maori Act (fired by focus)
+country_event = {
+	id = austral.60
+	title = austral.60.t
+	desc = austral.60.d
+	picture = GFX_report_event_AST_newzealand
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.60 option austral.60.a"
+		name = austral.60.a #These rights are unnecessary, and their land can be used
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 3
+				OR = {
+					has_government = social_conservative
+					has_government = authoritarian_democrat
+				}
+			}
+		}
+		add_political_power = 75
+		284 = { add_extra_state_shared_building_slots = 2 }
+		723 = { add_extra_state_shared_building_slots = 1 }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.60 option austral.60.b"
+		name = austral.60.b #Grant them rights and appease New Zealand
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 3
+				has_government = social_democrat
+			}
+		}
+		add_political_power = -50
+		add_ideas = AST_maori_rights
+	}
+}
+
+# Australia wants to become a republic while in the Entente (fired by focus)
+country_event = {
+	id = austral.61
+	title = austral.61.t
+	desc = austral.61.d
+	picture = GFX_report_event_royal_parade
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.61 option austral.61.a"
+		name = austral.61.a
+		faction_leader = {
+			country_event = { id = austral.62 days = 5 }
+		}
+	}
+}
+
+# Canada/UK considers whether to allow Australasia to cut ties to the crown
+country_event = {
+	id = austral.62
+	title = austral.62.t
+	desc = austral.62.d
+	picture = GFX_report_event_ast_parliament_house
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.62 option austral.62.a"
+		name = austral.62.a #They are free to govern themselves as they please
+		ai_chance = {
+			base = 65
+			modifier = {
+				factor = 0.5
+				has_authoritarian_government = yes
+			}
+			modifier = {
+				factor = 0.75
+				has_government = social_conservative
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_republic option = AST_REPUBLIC_YES_KICKED }
+					has_game_rule = { rule = AST_republic option = AST_REPUBLIC_YES_WAR }
+				}
+			}
+		}
+		add_political_power = -50
+		AST = {
+			country_event = austral.63
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.62 option austral.62.b"
+		name = austral.62.b #They cut ties with us, we cut ties with them
+		trigger = {
+			is_faction_leader = yes
+			is_in_faction_with = AST
+		}
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 0.5
+				OR = {
+					has_government = social_liberal
+					has_government = social_democrat
+				}
+			}
+			modifier = {
+				factor = 0
+				has_war = yes
+				NOT = { has_game_rule = { rule = AST_republic option = AST_REPUBLIC_YES_KICKED } }
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_republic option = AST_REPUBLIC_YES }
+					has_game_rule = { rule = AST_republic option = AST_REPUBLIC_YES_WAR }
+				}
+			}
+		}
+		remove_from_faction = AST
+		add_opinion_modifier = {
+			target = AST
+			modifier = KR_hates_govt
+		}
+		AST = {
+			country_event = austral.64
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.62 option austral.62.c"
+		name = austral.62.c #Independence? Absolutely not!
+		ai_chance = {
+			base = 5
+			modifier = {
+				factor = 2
+				tag = CAN
+			}
+			modifier = {
+				factor = 6
+				has_government = authoritarian_democrat
+			}
+			modifier = {
+				factor = 10
+				has_government = paternal_autocrat
+			}
+			modifier = {
+				factor = 20
+				has_government = national_populist
+			}
+			modifier = {
+				factor = 0
+				has_government = social_liberal
+				NOT = { has_game_rule = { rule = AST_republic option = AST_REPUBLIC_YES_WAR } }
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_republic option = AST_REPUBLIC_YES }
+					has_game_rule = { rule = AST_republic option = AST_REPUBLIC_YES_KICKED }
+				}
+			}
+		}
+		add_political_power = 100
+		add_opinion_modifier = {
+			target = AST
+			modifier = KR_outraged
+		}
+		AST = {
+			country_event = austral.65
+		}
+	}
+}
+
+# Australasia is given permission
+country_event = {
+	id = austral.63
+	title = austral.63.t
+	desc = austral.63.d
+	picture = GFX_report_event_ast_parliament_house
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.63 option austral.63.a"
+		name = austral.63.a
+		add_political_power = 100
+		AST_become_republic = yes
+		set_country_flag = AST_republic_permission
+		hidden_effect = {
+			news_event = { id = worldnews.127 days = 1 }
+		}
+	}
+}
+
+# Australasia is kicked out of the Entente
+country_event = {
+	id = austral.64
+	title = austral.64.t
+	desc = austral.64.d
+	picture = GFX_report_event_ast_parliament_house
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.64 option austral.63.a"
+		name = austral.63.a
+		add_political_power = -100
+		separate_peace_all_wars = yes
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_hates_govt
+		}
+		AST_become_republic = yes
+
+		set_country_flag = AST_republic_kicked
+		hidden_effect = {
+			news_event = { id = worldnews.127 days = 1 }
+		}
+	}
+}
+
+# Australasia is refused
+country_event = {
+	id = austral.65
+	title = austral.65.t
+	desc = austral.65.d
+	picture = GFX_report_event_ast_parliament_house
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.65 option austral.65.a"
+		name = austral.65.a #So much for that idea
+		ai_chance = {
+			base = 80
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = AST_republic option = AST_REPUBLIC_YES_WAR }
+			}
+		}
+		add_political_power = -200
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_outraged
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.65 option austral.65.b"
+		name = austral.65.b #We are not their colony any longer! We shall do as we please!
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				has_war = yes
+				NOT = { has_game_rule = { rule = AST_republic option = AST_REPUBLIC_YES_WAR } }
+			}
+		}
+		add_political_power = 100
+		AST_become_republic = yes
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_outraged
+		}
+		FROM = {
+			remove_from_faction = AST
+			country_event = { id = austral.66 days = 5 }
+		}
+		separate_peace_all_wars = yes
+		set_country_flag = AST_republic_rebel
+		hidden_effect = {
+			news_event = { id = worldnews.127 days = 1 }
+		}
+	}
+}
+
+# Australasia decided to become a republic anyhow - what now?
+country_event = {
+	id = austral.66
+	title = austral.66.t
+	desc = austral.66.d
+	picture = GFX_report_event_ast_army
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.66 option austral.66.a"
+		name = austral.66.a #Good riddance to colonial rubbish
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = AST_republic option = AST_REPUBLIC_YES_WAR }
+			}
+		}
+		add_political_power = -200
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.66 option austral.66.b"
+		name = austral.66.b #Evidently they need to be taught a lesson
+		ai_chance = { base = 80 }
+		add_political_power = -100
+		create_wargoal = {
+			type = annex_everything
+			target = AST
+		}
+	}
+}
+
+# Australasia becomes a republic and it not part of the Entente
+country_event = {
+	id = austral.67
+	title = austral.67.t
+	desc = austral.67.d
+	picture = GFX_report_event_ast_parliament_house
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.67 option austral.63.a"
+		name = austral.63.a
+		add_political_power = 100
+		AST_become_republic = yes
+	}
+}
+
+# Prince Henry appointed as new Governor General
+country_event = {
+	id = austral.68
+	title = austral.68.t
+	desc = austral.68.d
+	picture = GFX_report_event_royal_parade
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			has_democratic_government = yes
+			has_government = national_populist
+		}
+		NOT = {
+			has_completed_focus = AST_australasian_republic
+			ENT_king_henry_ix = yes
+			has_country_leader = { character = GBR_henry_windsor }
+			has_country_leader = { character = GBR_george_windsor }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.68 option austral.68.a"
+		name = austral.68.a
+		add_stability = 0.05
+		AST_create_governor_general_prince_henry = yes
+	}
+}
+
+### POST-1939 ELECTION EVENTS - NEW GUARD
+
+# Massive demonstrations against the new government
+country_event = {
+	id = austral.80
+	title = austral.80.t
+	desc = austral.80.d
+	picture = GFX_report_event_AST_protest1
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		has_idea = AST_new_unrest
+		has_government = national_populist
+		NOT = {
+			has_country_flag = AST_new_guard_1
+			has_completed_focus = AST_labour_resolved
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 10
+	}
+
+	immediate = {
+		set_country_flag = AST_new_guard_1
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.80 option austral.80.a"
+		name = austral.80.a
+		add_stability = -0.05
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.05
+		}
+	}
+}
+
+# Unions call for illegal strikes
+country_event = {
+	id = austral.81
+	title = austral.81.t
+	desc = austral.81.d
+	picture = GFX_report_event_HOL_february_strike2
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		has_idea = AST_new_unrest
+		has_government = national_populist
+		has_country_flag = AST_new_guard_1
+		NOT = {
+			has_country_flag = AST_new_guard_2
+			has_completed_focus = AST_labour_resolved
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 20
+	}
+
+	immediate = {
+		set_country_flag = AST_new_guard_2
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.81 option austral.81.a"
+		name = austral.81.a
+		add_stability = -0.05
+		add_timed_idea = {
+			idea = AST_massive_strikes
+			days = 30
+		}
+	}
+}
+
+# Paramilitary clash with miners
+country_event = {
+	id = austral.82
+	title = austral.82.t
+	desc = austral.82.d
+	picture = GFX_report_event_generic_riot
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		has_idea = AST_new_unrest
+		has_government = national_populist
+		has_country_flag = AST_new_guard_2
+		NOT = {
+			has_country_flag = AST_new_guard_3
+			has_completed_focus = AST_labour_resolved
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 30
+	}
+
+	immediate = {
+		set_country_flag = AST_new_guard_3
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.82 option austral.82.a"
+		name = austral.82.a
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.05
+		}
+	}
+}
+
+# Syndicalist cells uncovered
+country_event = {
+	id = austral.83
+	title = austral.83.t
+	desc = austral.83.d
+	picture = GFX_report_event_HOL_syndicalist_resistance
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		has_idea = AST_new_unrest
+		has_government = national_populist
+		has_country_flag = AST_new_guard_3
+		NOT = {
+			has_country_flag = AST_new_guard_4
+			has_completed_focus = AST_labour_resolved
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 20
+	}
+
+	immediate = {
+		set_country_flag = AST_new_guard_4
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.83 option austral.83.a"
+		name = austral.83.a
+		add_stability = 0.05
+		add_popularity = {
+			ideology = syndicalist
+			popularity = -0.02
+		}
+	}
+}
+
+# Country-wide protests
+country_event = {
+	id = austral.84
+	title = austral.84.t
+	desc = austral.84.d
+	picture = GFX_report_event_AST_curtin
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		has_idea = AST_new_unrest
+		has_government = national_populist
+		has_country_flag = AST_new_guard_4
+		NOT = {
+			has_country_flag = AST_new_guard_5
+			has_completed_focus = AST_labour_resolved
+			has_country_flag = AST_nzl_crisis_happened
+			has_country_flag = AST_nzl_new_guard_coup
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 20
+	}
+
+	immediate = {
+		set_country_flag = AST_new_guard_5
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.84 option austral.84.a"
+		name = austral.84.a
+		add_stability = -0.05
+		add_popularity = {
+			ideology = national_populist
+			popularity = -0.10
+		}
+	}
+}
+
+# Second Melbourne Uprising
+country_event = {
+	id = austral.85
+	title = austral.85.t
+	picture = GFX_report_event_gathering_protest
+
+	desc = {
+		text = austral.85.d
+		trigger = {
+			OR = {
+				AND = {
+					is_subject = yes
+					NOT = { is_subject_of = ENT }
+				}
+				NOT = {
+					ENT = {
+						is_faction_leader = yes
+						is_in_faction_with = AST
+					}
+				}
+			}
+		}
+	}
+	desc = {
+		text = austral.85.d.british
+		trigger = {
+			OR = {
+				is_subject = no
+				is_subject_of = ENT
+			}
+			ENT = {
+				is_faction_leader = yes
+				is_in_faction_with = AST
+			}
+		}
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		has_idea = AST_new_unrest
+		has_government = national_populist
+		has_country_flag = AST_new_guard_5
+		NOT = {
+			has_country_flag = AST_new_guard_6
+			has_completed_focus = AST_labour_resolved
+			has_country_flag = AST_nzl_crisis_happened
+			has_country_flag = AST_nzl_new_guard_coup
+		}
+		OR = {
+			has_war = no
+			has_capitulated = no
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 20
+	}
+
+	immediate = {
+		set_country_flag = AST_new_guard_6
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.85 option austral.85.a"
+		name = austral.85.a #Crush the uprising - there will be no mercy!
+		ai_chance = {
+			base = 45
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_path option = AST_PATH_AUTDEM }
+					has_game_rule = { rule = AST_path option = AST_PATH_LATER_SYNDIE }
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = NZL_succession option = NZL_SUCCESSION_ENT }
+					has_game_rule = { rule = NZL_succession option = NZL_SUCCESSION_ALONE }
+				}
+				NOT = { has_game_rule = { rule = AST_path option = AST_PATH_ELECTED_NATPOP } }
+			}
+		}
+		set_country_flag = AST_uprising_crushed
+		add_political_power = -500
+		add_stability = -0.10
+		hidden_effect = {
+			news_event = { id = worldnews.129 days = 1 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.85 option austral.85.b"
+		name = austral.85.b #The uprising succeeds - we have utterly failed...
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 2
+				OR = {
+					is_subject = yes
+					controls_all_owned_states = no
+				}
+			}
+			modifier = {
+				factor = 2
+				syndicalist > 0.20
+			}
+			modifier = {
+				factor = 1.5
+				syndicalist > 0.30
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_path option = AST_PATH_ELECTED_NATPOP }
+					has_game_rule = { rule = AST_path option = AST_PATH_AUTDEM }
+				}
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = NZL_succession option = NZL_SUCCESSION_NO }
+				NOT = {
+					has_game_rule = { rule = AST_path option = AST_PATH_ELECTED_NATPOP }
+					has_game_rule = { rule = AST_path option = AST_PATH_LATER_SYNDIE }
+					has_game_rule = { rule = AST_path option = AST_PATH_AUTDEM }
+				}
+			}
+		}
+		set_country_flag = AST_uprising_succeeded
+		set_country_flag = AST_labor_has_split
+		add_political_power = -250
+		add_stability = -0.10
+		set_politics = {
+			ruling_party = syndicalist
+			elections_allowed = no
+		}
+		leave_faction = yes
+		separate_peace_all_wars = yes
+		hidden_effect = {
+			country_event = lecbrits.28 #remove LEC vote
+			AST_become_republic = yes
+			AST_enact_syndicalist_trade = yes
+			add_country_leader_role = {
+				character = AST_john_curtin
+				country_leader = { ideology = syndicalist_subtype }
+				promote_leader = yes
+			}
+			news_event = { id = worldnews.128 days = 1 }
+			GEA = { country_event = { id = austral.371 days = 2 random_days = 7 } }
+			add_named_threat = {
+				threat = 2
+				name = AST_revolution_threat
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.85 option austral.85.c"
+		name = austral.85.c #We must turn to the British for help
+		trigger = {
+			OR = {
+				is_subject = no
+				is_subject_of = ENT
+			}
+			ENT = {
+				is_faction_leader = yes
+				is_in_faction_with = AST
+			}
+		}
+		ai_chance = {
+			base = 5
+			modifier = {
+				factor = 6.0
+				ENT = {
+					has_authoritarian_government = yes
+					is_faction_leader = yes
+					is_in_faction_with = AST
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_path option = AST_PATH_ELECTED_NATPOP }
+					has_game_rule = { rule = AST_path option = AST_PATH_LATER_SYNDIE }
+				}
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = NZL_succession option = NZL_SUCCESSION_ALONE }
+				NOT = { has_game_rule = { rule = AST_path option = AST_PATH_AUTDEM } }
+			}
+		}
+		ENT = {
+			country_event = { id = austral.86 days = 1 }
+		}
+	}
+}
+
+# British asked to take over Australasia once again
+country_event = {
+	id = austral.86
+	title = austral.86.t
+	desc = austral.86.d
+	picture = GFX_report_event_gathering_protest
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.86 option austral.86.a"
+		name = austral.86.a #If it will prevent further chaos, then so be it
+		ai_chance = {
+			base = 80
+			modifier = {
+				factor = 0.5
+				has_political_power < 0
+			}
+		}
+		add_political_power = -200
+		AST = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = KR_approves_of_govt
+			}
+			country_event = austral.87
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.86 option austral.86.b"
+		name = austral.86.b #Australasia must sort out its own problems
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				OR = {
+					has_authoritarian_government = yes
+					has_subject = AST
+				}
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					has_government = social_democrat
+					has_government = social_liberal
+					has_government = market_liberal
+				}
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = AST_path option = AST_PATH_AUTDEM }
+			}
+		}
+		add_political_power = -50
+		AST = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = KR_hates_govt
+			}
+			country_event = austral.88
+		}
+	}
+}
+
+# British invoke the Emergency Protocols clause
+country_event = {
+	id = austral.87
+	title = austral.87.t
+	desc = austral.87.d
+	picture = GFX_report_event_AST_parliament2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.87 option austral.87.a"
+		name = austral.87.a
+		remove_ideas = AST_new_unrest
+		add_stability = -0.10
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			elections_allowed = no
+		}
+		AST_authdem_sic = yes
+		hidden_effect = {
+			news_event = { id = worldnews.130 days = 1 }
+		}
+	}
+}
+
+# British have refused to help
+country_event = {
+	id = austral.88
+	title = austral.88.t
+	desc = austral.88.d
+	picture = GFX_report_event_AST_protest2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.88 option austral.85.a"
+		name = austral.85.a #Crush the uprising - there will be no mercy!
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = AST_path option = AST_PATH_LATER_SYNDIE }
+			}
+		}
+		set_country_flag = AST_uprising_crushed
+		add_political_power = -500
+		add_stability = -0.10
+		hidden_effect = {
+			news_event = { id = worldnews.129 days = 1 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.88 option austral.85.b"
+		name = austral.85.b #The uprising succeeds - we have utterly failed...
+		ai_chance = {
+			base = 60
+			modifier = {
+				factor = 2
+				OR = {
+					is_subject = yes
+					controls_all_owned_states = no
+				}
+			}
+			modifier = {
+				factor = 2
+				syndicalist > 0.20
+			}
+			modifier = {
+				factor = 1.5
+				syndicalist > 0.30
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = AST_path option = AST_PATH_ELECTED_NATPOP }
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = NZL_succession option = NZL_SUCCESSION_NO }
+			}
+		}
+		set_country_flag = AST_uprising_succeeded
+		set_country_flag = AST_labor_has_split
+		add_political_power = -250
+		add_stability = -0.10
+		set_politics = {
+			ruling_party = syndicalist
+			elections_allowed = no
+		}
+		leave_faction = yes
+		separate_peace_all_wars = yes
+		hidden_effect = {
+			country_event = lecbrits.28 #remove LEC vote
+			AST_become_republic = yes
+			AST_enact_syndicalist_trade = yes
+			add_country_leader_role = {
+				character = AST_john_curtin
+				country_leader = { ideology = syndicalist_subtype }
+				promote_leader = yes
+			}
+			news_event = { id = worldnews.128 days = 1 }
+			GEA = { country_event = { id = austral.371 days = 2 random_days = 7 } }
+			add_named_threat = {
+				threat = 2
+				name = AST_revolution_threat
+			}
+		}
+	}
+}
+
+# Order finally restored
+country_event = {
+	id = austral.89
+	title = austral.89.t
+	picture = GFX_report_event_AST_crowd1
+
+	desc = {
+		text = austral.89.crushed
+		trigger = {
+			has_country_flag = AST_uprising_crushed
+		}
+	}
+	desc = {
+		text = austral.89.nouprising
+		trigger = {
+			NOT = {
+				has_country_flag = AST_uprising_crushed
+			}
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.89 option austral.89.a"
+		name = austral.89.a
+		hidden_effect = {
+			country_event = { id = austral.90 days = 90 }
+			country_event = { id = austral.91 days = 180 }
+		}
+	}
+}
+
+# Order restored (part 2)
+country_event = {
+	id = austral.90
+	title = austral.90.t
+	desc = austral.90.d
+	picture = GFX_report_event_AST_crowd2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.90 option austral.90.a"
+		name = austral.90.a
+		add_stability = 0.05
+		if = {
+			limit = { has_political_power < -100 }
+			add_political_power = 200
+		}
+		else = {
+			add_political_power = 100
+		}
+	}
+}
+
+# Order restored (part 3)
+country_event = {
+	id = austral.91
+	title = austral.90.t
+	desc = austral.90.d
+	picture = GFX_report_event_AST_birdwood
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.91 option austral.90.a"
+		name = austral.90.a
+		add_stability = 0.05
+		if = {
+			limit = { has_political_power < -100 }
+			add_political_power = 200
+		}
+		else = {
+			add_political_power = 100
+		}
+	}
+}
+
+### POST-1939 ELECTION EVENTS - SYNDICALIST
+
+# Military reforms completed
+country_event = {
+	id = austral.100
+	title = austral.100.t
+	picture = GFX_report_event_AST_army1
+
+	desc = {
+		text = austral.100.d.synd
+		trigger = {
+			has_socialist_government = yes
+		}
+	}
+	desc = {
+		text = austral.100.d.afm
+		trigger = {
+			has_government = paternal_autocrat
+		}
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_idea = AST_army_purged
+		OR = {
+			has_socialist_government = yes
+			has_government = paternal_autocrat
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.100 option austral.100.a"
+		name = austral.100.a
+		add_political_power = 50
+		swap_ideas = {
+			remove_idea = AST_army_purged
+			add_idea = AST_army_loyal
+		}
+		if = {
+			limit = { has_socialist_government = yes }
+			show_unit_leaders_tooltip = AST_john_clarebrough
+			show_unit_leaders_tooltip = AST_thomas_fannell
+			hidden_effect = {
+				AST_john_clarebrough = { set_nationality = ROOT }
+				AST_thomas_fannell = { set_nationality = ROOT }
+			}
+		}
+	}
+}
+
+# First Australian Congress
+country_event = {
+	id = austral.101
+	title = austral.101.t
+	desc = austral.101.d
+	picture = GFX_report_event_AST_paterson
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		has_socialist_government = yes
+		NOT = {
+			has_idea = AST_new_unrest
+			has_country_flag = AST_had_first_congress
+		}
+		controls_all_owned_states = yes
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = { flag = AST_congress_held days = 1825 value = 1 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.101 option austral.101.a"
+		name = austral.101.a #The syndicalists remain comfortably in control
+		ai_chance = {
+			base = 70
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = AST_path option = AST_PATH_TOTALIST }
+			}
+		}
+		set_country_flag = AST_had_first_congress
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.10
+		}
+		promote_character = AST_frederick_woolnough_paterson
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.101 option austral.101.b"
+		name = austral.101.b #The Maximists under J.B. Miles take command
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_path option = AST_PATH_SYNDIE }
+					has_game_rule = { rule = AST_path option = AST_PATH_LATER_SYNDIE }
+				}
+			}
+		}
+		set_country_flag = AST_had_first_congress
+		add_political_power = -100
+		add_popularity = {
+			ideology = totalist
+			popularity = 0.10
+		}
+		set_politics = {
+			ruling_party = totalist
+			elections_allowed = no
+		}
+		hidden_effect = {
+			promote_character = AST_frederick_woolnough_paterson
+		}
+	}
+}
+
+# Second Australasian Congress
+country_event = {
+	id = austral.102
+	title = austral.102.t
+	desc = austral.102.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		has_country_flag = AST_had_first_congress
+		has_socialist_government = yes
+		NOT = {
+			has_country_flag = AST_congress_held
+			has_country_flag = AST_had_second_congress
+		}
+		controls_all_owned_states = yes
+	}
+
+	mean_time_to_happen = {
+		days = 5
+	}
+
+	immediate = {
+		set_country_flag = { flag = AST_congress_held days = 1825 value = 1 }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.102 option austral.102.a"
+		name = austral.102.a #The syndicalists control the congress
+		ai_chance = {
+			base = 60
+			modifier = {
+				factor = 0.5
+				has_government = totalist
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_path option = AST_PATH_TOTALIST }
+					has_game_rule = { rule = AST_path option = AST_PATH_RADSOC }
+				}
+			}
+		}
+		set_country_flag = AST_had_second_congress
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.10
+		}
+		set_politics = {
+			ruling_party = syndicalist
+			elections_allowed = no
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.102 option austral.102.b"
+		name = austral.102.b #The maximists gain the upper hand
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 2
+				has_government = totalist
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_path option = AST_PATH_SYNDIE }
+					has_game_rule = { rule = AST_path option = AST_PATH_LATER_SYNDIE }
+					has_game_rule = { rule = AST_path option = AST_PATH_RADSOC }
+				}
+			}
+		}
+		set_country_flag = AST_had_second_congress
+		add_popularity = {
+			ideology = totalist
+			popularity = 0.10
+		}
+		set_politics = {
+			ruling_party = totalist
+			elections_allowed = no
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.102 option austral.102.c"
+		name = austral.102.c #The socialists surprise with a slim majority
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_path option = AST_PATH_SYNDIE }
+					has_game_rule = { rule = AST_path option = AST_PATH_LATER_SYNDIE }
+					has_game_rule = { rule = AST_path option = AST_PATH_TOTALIST }
+				}
+			}
+		}
+		set_country_flag = AST_had_second_congress
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = 0.10
+		}
+		set_politics = {
+			ruling_party = radical_socialist
+			elections_allowed = no
+		}
+	}
+}
+
+# Third Australasian Congress
+country_event = {
+	id = austral.103
+	title = austral.103.t
+	desc = austral.103.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		has_country_flag = AST_had_second_congress
+		has_socialist_government = yes
+		NOT = {
+			has_country_flag = AST_had_third_congress
+			has_country_flag = AST_congress_held
+		}
+		controls_all_owned_states = yes
+	}
+
+	mean_time_to_happen = {
+		days = 5
+	}
+
+	immediate = {
+		set_country_flag = { flag = AST_congress_held days = 1825 value = 1 }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.103 option austral.102.a"
+		name = austral.102.a #The syndicalists control the congress
+		ai_chance = {
+			base = 60
+			modifier = {
+				factor = 0.5
+				OR = {
+					has_government = totalist
+					has_government = radical_socialist
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_path option = AST_PATH_TOTALIST }
+					has_game_rule = { rule = AST_path option = AST_PATH_RADSOC }
+				}
+			}
+		}
+		set_country_flag = AST_had_third_congress
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.10
+		}
+		set_politics = {
+			ruling_party = syndicalist
+			elections_allowed = no
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.103 option austral.102.b"
+		name = austral.102.b #The maximists gain the upper hand
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 2
+				has_government = totalist
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_path option = AST_PATH_SYNDIE }
+					has_game_rule = { rule = AST_path option = AST_PATH_LATER_SYNDIE }
+					has_game_rule = { rule = AST_path option = AST_PATH_RADSOC }
+				}
+			}
+		}
+		set_country_flag = AST_had_third_congress
+		add_popularity = {
+			ideology = totalist
+			popularity = 0.10
+		}
+		set_politics = {
+			ruling_party = totalist
+			elections_allowed = no
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.103 option austral.102.c"
+		name = austral.102.c #The socialists surprise with a slim majority
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 3
+				has_government = radical_socialist
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_path option = AST_PATH_SYNDIE }
+					has_game_rule = { rule = AST_path option = AST_PATH_LATER_SYNDIE }
+					has_game_rule = { rule = AST_path option = AST_PATH_TOTALIST }
+				}
+			}
+		}
+		set_country_flag = AST_had_third_congress
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = 0.10
+		}
+		set_politics = {
+			ruling_party = radical_socialist
+			elections_allowed = no
+		}
+	}
+}
+
+# Australasia wishes to join the Internationale (fired from focus)
+country_event = {
+	id = austral.108
+	title = austral.108.t
+	desc = austral.108.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_socialist_government = yes
+		FROM = { has_socialist_government = yes }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.108 option austral.108.a"
+		name = austral.108.a #Of course they may join!
+		add_political_power = 50
+		add_to_faction = FROM
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.108 option austral.108.b"
+		name = austral.108.b #We have no need of them
+		ai_chance = { base = 0 }
+		FROM = { country_event = { id = austral.109 days = 1 } }
+	}
+}
+
+# France refuses
+country_event = {
+	id = austral.109
+	title = austral.109.t
+	desc = austral.109.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.109 option austral.109.a"
+		name = austral.109.a
+		add_political_power = -50
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_disapproves_of_govt
+		}
+	}
+}
+
+# Demonstrations against new syndicalist government
+country_event = {
+	id = austral.110
+	title = austral.110.t
+	desc = austral.110.d
+	picture = GFX_report_event_AST_protest1
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		is_subject = no
+		has_idea = AST_new_unrest
+		has_socialist_government = yes
+		controls_all_owned_states = yes
+		NOT = {
+			has_country_flag = AST_syndicalist_1
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 90
+		modifier = {
+			factor = 0.5
+			has_completed_focus = AST_purge_army
+		}
+		modifier = {
+			factor = 0.5
+			has_completed_focus = AST_british_advisors
+		}
+		modifier = {
+			factor = 0.5
+			has_completed_focus = AST_empower_ACTU
+		}
+	}
+
+	immediate = {
+		set_country_flag = AST_syndicalist_1
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.110 option austral.110.a"
+		name = austral.110.a
+		add_stability = -0.10
+		set_temp_variable = { ideology_change_var = -0.05 }
+		change_ruling_party_popularity = yes
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = { has_country_flag = AST_new_guard_dissolved }
+					NOT = { has_country_flag = AST_nzl_crisis_happened }
+					NOT = { has_country_flag = AST_uprising_succeeded }
+				}
+				country_event = { id = austral.160 days = 20 }
+			}
+			else = {
+				random_country = {
+					limit = {
+						tag = ENT
+						is_faction_leader = yes
+						NOT = { has_socialist_government = yes }
+					}
+					country_event = austral.174
+				}
+			}
+		}
+	}
+}
+
+### POST_1939 ELECTION EVENTS - AFM
+
+# Demonstrations against new AFM government
+country_event = {
+	id = austral.130
+	title = austral.130.t
+	desc = austral.130.d
+	picture = GFX_report_event_AST_protest1
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		is_subject = no
+		has_idea = AST_new_unrest
+		has_government = paternal_autocrat
+		has_completed_focus = AST_cut_british_ties
+		controls_all_owned_states = yes
+		NOT = {
+			has_country_flag = AST_AFM_event_1
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 5
+	}
+
+	immediate = {
+		set_country_flag = AST_AFM_event_1
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.130 option austral.130.a"
+		name = austral.130.a
+		add_stability = -0.10
+		set_temp_variable = { ideology_change_var = -0.05 }
+		change_ruling_party_popularity = yes
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = { has_country_flag = AST_new_guard_dissolved }
+					NOT = { has_country_flag = AST_nzl_crisis_happened }
+				}
+				country_event = { id = austral.160 days = 15 }
+			}
+			else = {
+				random_country = {
+					limit = {
+						tag = ENT
+						is_faction_leader = yes
+						NOT = { has_socialist_government = yes }
+					}
+					country_event = austral.174
+				}
+			}
+		}
+	}
+}
+
+# AFM cuts ties with the British (fired from focus)
+country_event = {
+	id = austral.131
+	title = austral.131.t
+	desc = austral.131.d
+	picture = GFX_report_event_AST_protest1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.131 option austral.131.a"
+		name = austral.131.a
+		add_political_power = -50
+		effect_tooltip = {
+			add_opinion_modifier = {
+				target = AST
+				modifier = KR_outraged
+			}
+			remove_from_faction = AST
+		}
+	}
+}
+
+# AFM seeks closer ties with Japan (fired from focus)
+country_event = {
+	id = austral.132
+	title = austral.132.t
+	desc = austral.132.d
+	picture = GFX_report_event_AST_sydney
+
+	is_triggered_only = yes
+
+	trigger = {
+		country_exists = AST
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.132 option austral.132.a"
+		name = austral.132.a #Yes, let our nations cooperate more closely
+		ai_chance = { base = 70 }
+		add_political_power = 50
+		if = {
+			limit = { has_completed_focus = JAP_osaka_conference }
+			effect_tooltip = { AST = { JAP_add_to_economic_sphere = yes } }
+		}
+		else = {
+			add_opinion_modifier = {
+				target = AST
+				modifier = AST_trade_deal
+			}
+			diplomatic_relation = {
+				country = AST
+				relation = non_aggression_pact
+			}
+		}
+		AST = {
+			country_event = austral.133
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.132 option austral.132.b"
+		name = austral.132.b #No, this is of no interest to us
+		ai_chance = { base = 30 }
+		AST = {
+			add_opinion_modifier = { target = JAP modifier = AST_trade_deal_refused }
+			country_event = austral.134
+		}
+	}
+}
+
+# Australasia informed of Japan's agreement
+country_event = {
+	id = austral.133
+	title = austral.133.t
+	desc = austral.133.d
+	picture = GFX_report_event_JAP_diet
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.133 option austral.133.a"
+		name = austral.133.a
+		set_country_flag = AST_has_ties_with_japan
+		add_political_power = 50
+		if = {
+			limit = { has_idea = JAP_trade_embargoed }
+			remove_ideas = JAP_trade_embargoed
+		}
+		if = {
+			limit = { has_opinion_modifier = KR_disapproves_of_govt }
+			remove_opinion_modifier = { target = JAP modifier = KR_disapproves_of_govt }
+		}
+		if = {
+			limit = { has_opinion_modifier = KR_hates_govt }
+			remove_opinion_modifier = { target = JAP modifier = KR_hates_govt }
+		}
+		if = {
+			limit = { has_opinion_modifier = KR_outraged }
+			remove_opinion_modifier = { target = JAP modifier = KR_outraged }
+		}
+		if = {
+			limit = { JAP = { has_completed_focus = JAP_osaka_conference } }
+			JAP_add_to_economic_sphere = yes
+			if = {
+				limit = {
+					is_in_faction = no
+					NOT = { is_guaranteed_by = FROM }
+				}
+				FROM = { give_guarantee = ROOT }
+			}
+		}
+		else = {
+			add_opinion_modifier = { target = FROM modifier = AST_trade_deal }
+		}
+	}
+}
+
+# Australasia informed of Japan's refusal
+country_event = {
+	id = austral.134
+	title = austral.134.t
+	desc = austral.134.d
+	picture = GFX_report_event_JAP_diet
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.134 option austral.134.a"
+		name = austral.134.a
+		add_political_power = -50
+	}
+}
+
+# Considers aiding Princely Federation
+country_event = {
+	id = austral.135
+	title = austral.135.t
+	desc = austral.135.d
+	picture = GFX_report_event_PRF_war
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		has_government = paternal_autocrat
+		PRF = {
+			controls_state = 429 #Bombay
+			OR = {
+				has_war_with = RAJ
+				has_war_with = HND
+			}
+		}
+		has_manpower > 2000
+		NOT = { has_country_flag = AST_intervene_PRF }
+	}
+
+	mean_time_to_happen = {
+		days = 2
+	}
+
+	immediate = {
+		set_country_flag = AST_intervene_PRF
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.135 option austral.135.a"
+		name = austral.135.a #Of course we must intervene!
+		ai_chance = { base = 90 }
+		PRF = { save_event_target_as = volunteer_target }
+		send_volunteers_to_TARGET = yes
+		add_political_power = -50
+		add_equipment_to_stockpile = {
+			type = infantry_equipment_1
+			amount = -1000
+		}
+		hidden_effect = {
+			add_opinion_modifier = {
+				target = PRF
+				modifier = SAF_we_support_them
+			}
+			PRF = {
+				country_event = { id = austral.136 days = 10 }
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.135 option austral.135.b"
+		name = austral.135.b #No, they are on their own
+		ai_chance = { base = 10 }
+	}
+}
+
+# Aid arrives
+country_event = {
+	id = austral.136
+	title = austral.136.t
+	desc = austral.136.d
+	picture = GFX_report_event_AST_army1
+
+	is_triggered_only = yes
+
+	trigger = {
+		controls_state = 429
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.136 option austral.136.a"
+		name = austral.136.a
+		add_opinion_modifier = {
+			target = AST
+			modifier = AST_close_allies
+		}
+		add_equipment_to_stockpile = {
+			type = infantry_equipment_1
+			amount = 1000
+		}
+		FROM_send_volunteers_to_ROOT = yes
+	}
+}
+
+### THE NEW ZEALAND CRISIS
+
+# New Guard sets up bases in New Zealand
+country_event = {
+	id = austral.160
+	title = austral.160.t
+	desc = austral.160.d
+	picture = GFX_report_event_AST_campbell2
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_socialist_government = yes
+			has_government = paternal_autocrat
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.160 option austral.160.a"
+		name = austral.160.a
+		retire_character = AST_eric_campbell
+		effect_tooltip = { retire_character = AST_thomas_albert_blamey }
+		hidden_effect = {
+			AST_thomas_albert_blamey = { set_nationality = NZL }
+			if = {
+				limit = { ENT = { is_faction_leader = yes } }
+				ENT = {
+					country_event = { id = austral.161 days = 5 } #Ask Entente to support coup
+				}
+			}
+			else = {
+				country_event = { id = austral.172 days = 5 } #Coup attempted without Entente support
+			}
+		}
+	}
+}
+
+# British government asked to support New Guard coup
+country_event = {
+	id = austral.161
+	title = austral.161.t
+	picture = GFX_report_event_AST_blamey
+
+	desc = {
+		text = austral.161.d.synd
+		trigger = {
+			AST = { has_socialist_government = yes }
+		}
+	}
+	desc = {
+		text = austral.161.d.afm
+		trigger = {
+			AST = { has_government = paternal_autocrat }
+		}
+	}
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_faction_leader = yes
+		AST = {
+			exists = yes
+			OR = {
+				has_socialist_government = yes
+				has_government = paternal_autocrat
+			}
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.161 option austral.161.a"
+		name = austral.161.a # We support them, even if it means war
+		trigger = {
+			has_capitulated = no
+		}
+		ai_chance = {
+			base = 75
+			modifier = {
+				factor = 0.5
+				has_political_power < -100
+			}
+			modifier = {
+				factor = 1.5
+				has_authoritarian_government = yes
+			}
+			modifier = {
+				factor = 1.25
+				has_government = social_conservative
+			}
+			modifier = {
+				factor = 0.5
+				surrender_progress > 0.20
+			}
+			modifier = {
+				factor = 0.5
+				surrender_progress > 0.30
+			}
+			modifier = {
+				factor = 0.5
+				surrender_progress > 0.40
+			}
+			modifier = {
+				factor = 0.5
+				surrender_progress > 0.50
+			}
+		}
+		set_country_flag = AST_supporting_new_guard_coup
+		add_political_power = -150
+		custom_effect_tooltip = AST_war_if_coup_fails
+		hidden_effect = {
+			AST = { country_event = austral.162 } #New Guard coup - with support
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.161 option austral.161.b"
+		name = austral.161.b # We cannot risk that much
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 3
+				AST = {
+					is_in_faction = yes
+				}
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					has_government = social_democrat
+					has_government = social_liberal
+				}
+			}
+			modifier = {
+				factor = 2
+				has_war = yes
+				any_enemy_country = {
+					num_of_factories > 35
+				}
+			}
+		}
+		add_political_power = -50
+		hidden_effect = {
+			AST = { country_event = austral.172 } #New Guard coup - without support
+		}
+	}
+}
+
+# The New Guard attempts a coup with Entente support
+country_event = {
+	id = austral.162
+	title = austral.162.t
+	picture = GFX_report_event_AST_blamey
+
+	desc = {
+		text = austral.162.d.synd
+		trigger = {
+			has_socialist_government = yes
+		}
+	}
+	desc = {
+		text = austral.162.d.afm
+		trigger = {
+			has_government = paternal_autocrat
+		}
+	}
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_socialist_government = yes
+			has_government = paternal_autocrat
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.162 option austral.162.a"
+		name = austral.162.a # The coup succeeds! Blamey takes control
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_path option = AST_PATH_SYNDIE }
+					has_game_rule = { rule = AST_path option = AST_PATH_LATER_SYNDIE }
+					has_game_rule = { rule = AST_path option = AST_PATH_PATAUT }
+					has_game_rule = { rule = AST_path option = AST_PATH_TOTALIST }
+					has_game_rule = { rule = AST_path option = AST_PATH_RADSOC }
+				}
+			}
+		}
+		add_political_power = -200
+		add_stability = -0.10
+		set_country_flag = { flag = AST_delay_entente_bypass days = 5 value = 1 }
+		set_politics = {
+			ruling_party = national_populist
+			elections_allowed = no
+			name = AST_national_populist_banned_party
+			long_name = AST_national_populist_banned_party_long
+		}
+		AST_thomas_albert_blamey = {
+			set_nationality = ROOT
+			add_country_leader_role = {
+				country_leader = { ideology = national_populist_subtype }
+				promote_leader = yes
+			}
+		}
+		FROM = {
+			country_event = { id = austral.163 days = 1 }
+		}
+		hidden_effect = {
+			AST_enact_entente_trade = yes
+			set_country_flag = AST_nzl_new_guard_coup
+			country_event = { id = austral.175 days = 1 }
+			news_event = { id = worldnews.126 days = 1 }
+			GEA = { country_event = { id = austral.373 days = 2 random_days = 7 } }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.162 option austral.162.b"
+		name = austral.162.b # The coup fails! Blamey's forces flee the capital
+		ai_chance = {
+			base = 60
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = AST_path option = AST_PATH_NATPOP }
+			}
+		}
+		add_political_power = -100
+		add_stability = -0.05
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_outraged
+		}
+		hidden_effect = {
+			FROM = {
+				country_event = { id = austral.164 days = 1 }
+			}
+		}
+	}
+}
+
+# British are informed that the coup succeeded
+country_event = {
+	id = austral.163
+	title = austral.163.t
+	picture = GFX_report_event_AST_parliament2
+
+	desc = {
+		text = austral.163.d.support
+		trigger = {
+			has_country_flag = AST_supporting_new_guard_coup
+		}
+	}
+	desc = {
+		text = austral.163.d.nosupport
+		trigger = {
+			NOT = { has_country_flag = AST_supporting_new_guard_coup }
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.163 option austral.163.a"
+		name = austral.163.a
+		if = {
+			limit = { has_country_flag = AST_supporting_new_guard_coup }
+			add_political_power = 100
+		}
+		hidden_effect = {
+			add_opinion_modifier = { target = AST modifier = KR_close_allies }
+			reverse_add_opinion_modifier = { target = AST modifier = KR_close_allies }
+			every_country = {
+				limit = { is_in_faction_with = ROOT }
+				remove_opinion_modifier = { target = AST modifier = KR_outraged }
+				remove_opinion_modifier = { target = AST modifier = faction_traitor }
+				remove_opinion_modifier = { target = AST modifier = faction_traitor_trade }
+				AST = {
+					remove_opinion_modifier = { target = PREV modifier = KR_outraged }
+					remove_opinion_modifier = { target = PREV modifier = faction_traitor }
+					remove_opinion_modifier = { target = PREV modifier = faction_traitor_trade }
+				}
+			}
+		}
+		add_to_faction = AST
+	}
+}
+
+# British are informed the coup failed
+country_event = {
+	id = austral.164
+	title = austral.164.t
+	picture = GFX_report_event_AST_army1
+
+	desc = {
+		text = austral.164.d.nzl
+		trigger = {
+			284 = { is_owned_and_controlled_by = AST } #New Zealand
+			723 = { is_owned_and_controlled_by = AST } #South Island
+			AST = { controls_all_owned_states = yes }
+		}
+	}
+	desc = {
+		text = austral.164.d.war
+		trigger = {
+			OR = {
+				AST = { controls_all_owned_states = no }
+				NOT = { 284 = { is_owned_and_controlled_by = AST } }
+				NOT = { 723 = { is_owned_and_controlled_by = AST } }
+			}
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.164 option austral.164.a"
+		name = austral.164.a
+		trigger = {
+			284 = { is_owned_and_controlled_by = AST } #New Zealand
+			723 = { is_owned_and_controlled_by = AST } #South Island
+			AST = { controls_all_owned_states = yes }
+		}
+		add_political_power = -50
+		custom_effect_tooltip = AST_nzl_will_rebel
+		hidden_effect = {
+			AST = { set_country_flag = AST_nzl_will_rebel }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.164 option austral.164.b"
+		name = austral.164.b
+		trigger = {
+			OR = {
+				AST = { controls_all_owned_states = no }
+				NOT = { 284 = { is_owned_and_controlled_by = AST } }
+				NOT = { 723 = { is_owned_and_controlled_by = AST } }
+			}
+		}
+		declare_war_on = {
+			type = annex_everything
+			target = AST
+		}
+	}
+}
+
+# New Zealand separates from Australasian control
+country_event = {
+	id = austral.165
+	title = austral.165.t
+	picture = GFX_report_event_AST_blamey
+
+	desc = {
+		text = austral.165.d.synd
+		trigger = {
+			has_socialist_government = yes
+		}
+	}
+	desc = {
+		text = austral.165.d.afm
+		trigger = {
+			has_government = paternal_autocrat
+		}
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		has_country_flag = AST_nzl_will_rebel
+		284 = { is_owned_and_controlled_by = AST } #New Zealand
+		723 = { is_owned_and_controlled_by = AST } #South Island
+		controls_all_owned_states = yes
+		OR = {
+			has_socialist_government = yes
+			has_government = paternal_autocrat
+		}
+		NOT = {
+			has_country_flag = AST_nzl_crisis_happened
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 3
+	}
+
+	immediate = {
+		set_country_flag = AST_nzl_crisis_happened
+		clr_country_flag = AST_nzl_will_rebel
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.165 option austral.165.a"
+		name = austral.165.a
+		add_political_power = -100
+		release = NZL
+		effect_tooltip = {
+			declare_war_on = {
+				type = annex_everything
+				target = NZL
+			}
+		}
+		hidden_effect = {
+			NZL = {
+				transfer_technology = yes
+				NZL_initial_spawn = yes
+				AST_paramilitary_spawn = yes
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 2000
+				}
+				add_equipment_to_stockpile = {
+					type = convoy
+					amount = 50
+				}
+				add_popularity = {
+					ideology = paternal_autocrat
+					popularity = 0.20
+				}
+				set_politics = {
+					ruling_party = paternal_autocrat
+					elections_allowed = no
+				}
+				every_owned_state = {
+					teleport_armies = {
+						limit = { is_ally_with = ROOT }
+						to_state_array = owned_controlled_states
+					}
+				}
+				activate_targeted_decision = { target = 284 decision = AST_develop_new_zealand_coal_mines }
+				activate_targeted_decision = { target = 284 decision = AST_develop_new_zealand_oil_deposits }
+			}
+		}
+		custom_effect_tooltip = characters_will_be_retired
+		character_list_tooltip = {
+			limit = {
+				OR = {
+					is_character = AST_leslie_james_morshead
+					is_character = AST_herbert_william_lloyd
+					has_character_flag = NZL_character
+				}
+			}
+		}
+		custom_effect_tooltip = AST_ships_defect_to_nzl
+		hidden_effect = {
+			every_character = {
+				limit = {
+					OR = {
+						is_character = AST_leslie_james_morshead
+						is_character = AST_herbert_william_lloyd
+						has_character_flag = NZL_character
+					}
+				}
+				if = {
+					limit = { has_trait = AST_new_zealander }
+					remove_unit_leader_trait = AST_new_zealander
+				}
+				set_nationality = NZL
+			}
+			NZL = {
+				NZL_bernard_cyril_freyberg = {
+					add_country_leader_role = {
+						country_leader = { ideology = authoritarian_democrat_subtype }
+						promote_leader = yes
+					}
+					add_country_leader_role = {
+						country_leader = { ideology = paternal_autocrat_subtype }
+						promote_leader = yes
+					}
+				}
+			}
+			news_event = { id = worldnews.131 days = 1 }
+			transfer_ship = { prefer_name = "HMAS Rodney" type = battle_cruiser target = NZL }
+			transfer_ship = { prefer_name = "HMAS Howe" type = battle_cruiser target = NZL }
+			transfer_ship = { type = light_cruiser target = NZL }
+			transfer_ship = { type = light_cruiser target = NZL }
+			transfer_ship = { type = destroyer target = NZL }
+			transfer_ship = { type = destroyer target = NZL }
+			transfer_ship = { type = destroyer target = NZL }
+			transfer_ship = { type = destroyer target = NZL }
+			transfer_ship = { type = destroyer target = NZL }
+			transfer_ship = { type = destroyer target = NZL }
+			transfer_ship = { type = destroyer target = NZL }
+			transfer_ship = { type = destroyer target = NZL }
+			transfer_ship = { type = submarine target = NZL }
+			transfer_ship = { type = submarine target = NZL }
+			transfer_ship = { type = submarine target = NZL }
+			declare_war_on = {
+				type = annex_everything
+				target = NZL
+			}
+		}
+	}
+}
+
+# Peace deal - AST has captured New Zealand
+country_event = {
+	id = austral.167
+	title = austral.167.t
+	desc = austral.167.d
+	picture = GFX_report_event_ast_army
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = AST
+		has_war_with = ENT
+		has_war_with = NZL
+		is_valid_peace_target = yes
+		NZL = { is_in_faction_with = ENT }
+		controls_state = 284 #North Island
+		controls_state = 723 #South Island
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.167 option austral.167.a"
+		name = austral.167.a # It is time to call for a truce
+		effect_tooltip = {
+			add_political_power = 150
+			ENT = { remove_from_faction = NZL }
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 523 #SE. New Guinea
+						state = 636 #Fiji
+					}
+					OR = {
+						is_controlled_by = ENT
+						controller = { is_in_faction_with = ENT }
+					}
+				}
+				if = {
+					limit = { is_core_of = AST }
+					remove_core_of = AST
+					add_claim_by = AST
+				}
+				transfer_state_to = ENT
+			}
+		}
+		ENT = { country_event = austral.168 }
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.167 option austral.167.b"
+		name = austral.167.b # No! We will continue this war until it is finished!
+		ai_chance = { base = 0 }
+		add_war_support = -0.10
+	}
+}
+
+# British consider white peace with Australasia
+country_event = {
+	id = austral.168
+	title = austral.168.t
+	desc = austral.168.d
+	picture = GFX_report_event_ast_army
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.168 option austral.168.a"
+		name = austral.168.a # Yes, let us end this now
+		add_political_power = -150
+		if = {
+			limit = { has_subject = NZL }
+			set_autonomy = {
+				target = NZL
+				autonomy_state = autonomy_free
+			}
+		}
+		remove_from_faction = NZL
+		AST = {
+			add_political_power = 150
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 523 #SE. New Guinea
+						state = 636 #Fiji
+					}
+					OR = {
+						is_controlled_by = ENT
+						controller = { is_in_faction_with = ENT }
+					}
+				}
+				if = {
+					limit = { is_core_of = AST }
+					remove_core_of = AST
+					add_claim_by = AST
+				}
+				transfer_state_to = ENT
+			}
+			every_owned_state = {
+				limit = {
+					is_core_of = AST
+					is_claimed_by = ROOT
+				}
+				remove_claim_by = ROOT
+			}
+			white_peace_with_ROOT = yes
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.168 option austral.168.b"
+		name = austral.168.b # No! We will continue this war until it is finished!
+		ai_chance = { base = 0 }
+		add_war_support = -0.10
+		AST = {
+			country_event = austral.169
+		}
+	}
+}
+
+# British refuse white peace with Australasia
+country_event = {
+	id = austral.169
+	title = austral.169.t
+	desc = austral.169.d
+	picture = GFX_report_event_ast_army
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.169 option austral.169.a"
+		name = austral.169.a
+		add_war_support = 0.10
+	}
+}
+
+# Peace deal - Entente has failed to take Australia
+country_event = {
+	id = austral.170
+	title = austral.170.t
+	desc = austral.170.d
+	picture = GFX_report_event_ast_army
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = AST
+		has_war_with = ENT
+		is_valid_peace_target = yes
+		ENT = { is_valid_peace_target = yes }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.170 option austral.167.a"
+		name = austral.167.a # It is time to call for a truce
+		effect_tooltip = {
+			add_political_power = 100
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 284 #North Island
+						state = 523 #SE. New Guinea
+						state = 636 #Fiji
+						state = 723 #South Island
+					}
+					OR = {
+						is_controlled_by = ENT
+						controller = { is_in_faction_with = ENT }
+					}
+				}
+				if = {
+					limit = { is_core_of = AST }
+					remove_core_of = AST
+					add_claim_by = AST
+				}
+				transfer_state_to = ENT
+			}
+		}
+		ENT = { country_event = austral.171 }
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.170 option austral.167.b"
+		name = austral.167.b # No! We will continue this war until it is finished!
+		ai_chance = { base = 0 }
+		add_war_support = -0.10
+		add_stability = -0.10
+	}
+}
+
+# British consider white peace with Australasia
+country_event = {
+	id = austral.171
+	title = austral.171.t
+	desc = austral.171.d
+	picture = GFX_report_event_ast_army
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.171 option austral.168.a"
+		name = austral.168.a # Yes, let us end this now
+		add_political_power = -100
+		AST = {
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 284 #North Island
+						state = 523 #SE. New Guinea
+						state = 636 #Fiji
+						state = 723 #South Island
+					}
+					OR = {
+						is_controlled_by = ROOT
+						controller = { is_in_faction_with = ROOT }
+					}
+				}
+				if = {
+					limit = { is_core_of = AST }
+					remove_core_of = AST
+					add_claim_by = AST
+				}
+				transfer_state_to = ROOT
+			}
+			every_owned_state = {
+				limit = {
+					is_core_of = AST
+					is_claimed_by = ROOT
+				}
+				remove_claim_by = ROOT
+			}
+			add_political_power = 100
+			white_peace_with_ROOT = yes
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.171 option austral.168.b"
+		name = austral.168.b # No! We will continue this war until it is finished!
+		ai_chance = { base = 0 }
+		AST = {
+			country_event = austral.169
+		}
+	}
+}
+
+# The New Guard attempts a coup without Entente support
+country_event = {
+	id = austral.172
+	title = austral.172.t
+	picture = GFX_report_event_AST_blamey
+
+	desc = {
+		text = austral.172.d.synd
+		trigger = {
+			has_socialist_government = yes
+		}
+	}
+	desc = {
+		text = austral.172.d.afm
+		trigger = {
+			has_government = paternal_autocrat
+		}
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_socialist_government = yes
+			has_government = paternal_autocrat
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.172 option austral.162.a"
+		name = austral.162.a # The coup succeeds! Blamey takes control
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = AST_path option = AST_PATH_SYNDIE }
+					has_game_rule = { rule = AST_path option = AST_PATH_PATAUT }
+					has_game_rule = { rule = AST_path option = AST_PATH_TOTALIST }
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = NZL_succession option = NZL_SUCCESSION_ENT }
+					has_game_rule = { rule = NZL_succession option = NZL_SUCCESSION_ALONE }
+				}
+				NOT = { has_game_rule = { rule = AST_path option = AST_PATH_NATPOP } }
+			}
+		}
+		add_political_power = -300
+		add_stability = -0.10
+		if = {
+			limit = { has_idea = AST_new_unrest }
+			remove_ideas = AST_new_unrest
+		}
+		set_country_flag = { flag = AST_delay_entente_bypass days = 5 value = 1 }
+		set_politics = {
+			ruling_party = national_populist
+			elections_allowed = no
+			name = AST_national_populist_banned_party
+			long_name = AST_national_populist_banned_party_long
+		}
+		AST_thomas_albert_blamey = {
+			set_nationality = ROOT
+			add_country_leader_role = {
+				country_leader = { ideology = national_populist_subtype }
+				promote_leader = yes
+			}
+		}
+		if = {
+			limit = { ENT = { is_faction_leader = yes } }
+			ENT = {
+				add_to_faction = AST
+				country_event = { id = austral.163 days = 1 }
+			}
+		}
+		hidden_effect = {
+			AST_enact_entente_trade = yes
+			set_country_flag = AST_nzl_new_guard_coup
+			country_event = { id = austral.175 days = 1 }
+			news_event = { id = worldnews.126 days = 1 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.172 option austral.162.b"
+		name = austral.162.b # The coup fails! Blamey's forces flee the capital
+		ai_chance = {
+			base = 80
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = AST_path option = AST_PATH_NATPOP }
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = NZL_succession option = NZL_SUCCESSION_NO }
+				NOT = {
+					has_game_rule = { rule = AST_path option = AST_PATH_SYNDIE }
+					has_game_rule = { rule = AST_path option = AST_PATH_PATAUT }
+					has_game_rule = { rule = AST_path option = AST_PATH_TOTALIST }
+				}
+			}
+		}
+		set_country_flag = AST_nzl_will_rebel
+		add_political_power = -100
+		add_stability = -0.05
+	}
+}
+
+# Entente receives wargoal against Australasia
+country_event = {
+	id = austral.174
+	title = austral.174.t
+	picture = GFX_report_event_ast_army
+
+	desc = {
+		text = austral.174.d.synd
+		trigger = {
+			AST = { has_socialist_government = yes }
+		}
+	}
+	desc = {
+		text = austral.174.d.afm
+		trigger = {
+			AST = { has_government = paternal_autocrat }
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.174 option austral.174.a"
+		name = austral.174.a
+		create_wargoal = {
+			type = annex_everything
+			target = AST
+		}
+	}
+}
+
+# Australasia restored Entente rule
+country_event = {
+	id = austral.175
+	title = austral.175.t
+	picture = GFX_report_event_royal_parade
+
+	is_triggered_only = yes
+
+	desc = {
+		text = austral.175.d.henry
+		trigger = {
+			NOT = { ENT_king_henry_ix = yes }
+			ENT_prince_george_is_dead = yes
+		}
+	}
+	desc = {
+		text = austral.175.d.george
+		trigger = {
+			NOT = {
+				ENT_king_george_vi = yes
+				ENT_prince_george_is_dead = yes
+			}
+		}
+	}
+	desc = {
+		text = austral.175.d.hore_ruthven
+		trigger = {
+			OR = {
+				ENT_king_george_vi = yes
+				AND = {
+					ENT_prince_george_is_dead = yes
+					ENT_king_henry_ix = yes
+				}
+			}
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.175 option austral.175.a"
+		name = austral.175.a
+		AST_remove_republic = yes
+	}
+}
+
+### Miscellaneous Events ###
+
+# Country approached for trade deal (fired from decision)
+country_event = {
+	id = austral.201
+	title = austral.201.t
+	desc = austral.201.d
+	picture = GFX_report_event_AST_sydney
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.201 option austral.201.a"
+		name = austral.201.a #Yes - Australasia is our friend
+		ai_chance = {
+			base = 70
+			modifier = {
+				factor = 1.5
+				AST = {
+					has_same_government_as_ROOT = yes
+				}
+			}
+		}
+		set_country_flag = AST_accepted_trade
+		if = {
+			limit = { tag = ENT }
+			add_political_power = 75
+		}
+		else = {
+			add_political_power = 25
+		}
+		AST = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = AST_trade_deal
+			}
+			country_event = { id = austral.202 days = 7 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.201 option austral.201.b"
+		name = austral.201.b #No, we can't be bothered with this
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 0.5
+				OR = {
+					tag = ENT
+					tag = USA
+					tag = PSA
+				}
+			}
+		}
+		add_political_power = -25
+		AST = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = AST_trade_deal_refused
+			}
+			country_event = { id = austral.203 days = 7 }
+		}
+	}
+}
+
+# Country accepted the trade deal
+country_event = {
+	id = austral.202
+	title = austral.202.t
+	desc = austral.202.d
+	picture = GFX_report_event_generic_diplomacy3
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.202 option austral.202.a"
+		name = austral.202.a
+		if = {
+			limit = { FROM = { is_actual_major = yes } }
+			add_political_power = 100
+		}
+		else = {
+			add_political_power = 50
+		}
+		reverse_add_opinion_modifier = {
+			target = FROM
+			modifier = AST_trade_deal
+		}
+		clr_country_flag = AST_recent_trade_mission
+	}
+}
+
+# Country refused the trade deal
+country_event = {
+	id = austral.203
+	title = austral.203.t
+	desc = austral.203.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.203 option austral.203.a"
+		name = austral.203.a
+		if = {
+			limit = { FROM = { tag = ENT } }
+			add_political_power = -50
+		}
+		clr_country_flag = AST_recent_trade_mission
+	}
+}
+
+# Growth of Australasian trade in Canada
+country_event = {
+	id = austral.205
+	title = austral.205.t
+	desc = austral.205.d
+	picture = GFX_report_event_AST_melbourne
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = CAN
+		473 = {
+			is_owned_and_controlled_by = CAN
+		}
+		517 = {
+			is_owned_and_controlled_by = AST
+		}
+		has_country_flag = AST_accepted_trade
+		is_in_faction_with = AST
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	immediate = {
+		clr_country_flag = AST_accepted_trade
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.205 option austral.205.a"
+		name = austral.205.a
+		add_political_power = 40
+		473 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		hidden_effect = {
+			AST = {
+				country_event = austral.206
+			}
+		}
+	}
+}
+
+# Growth of Canadian trade in Australasia
+country_event = {
+	id = austral.206
+	title = austral.206.t
+	desc = austral.206.d
+	picture = GFX_report_event_AST_melbourne
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.206 option austral.206.a"
+		name = austral.206.a
+		add_political_power = 40
+		517 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+
+# Economic development in Karachi due to Australasian trade
+country_event = {
+	id = austral.207
+	title = austral.207.t
+	desc = austral.207.d
+	picture = GFX_report_event_AST_melbourne
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = RAJ
+		444 = { is_owned_and_controlled_by = RAJ } #Karachi
+		has_country_flag = AST_accepted_trade
+		is_in_faction_with = AST
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	immediate = {
+		clr_country_flag = AST_accepted_trade
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.207 option austral.207.a"
+		name = austral.207.a
+		add_political_power = 20
+		444 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+
+# Economic development in the Carribbean Federation due to Australasian trade
+country_event = {
+	id = austral.208
+	title = austral.208.t
+	desc = austral.208.d
+	picture = GFX_report_event_AST_melbourne
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = WIF
+		controls_all_owned_states = yes
+		has_country_flag = AST_accepted_trade
+		is_in_faction_with = AST
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	immediate = {
+		clr_country_flag = AST_accepted_trade
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.208 option austral.208.a"
+		name = austral.208.a
+		add_political_power = 20
+		capital_scope = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+
+# Economic development in Cape Town due to Australasian trade
+country_event = {
+	id = austral.209
+	title = austral.209.t
+	desc = austral.209.d
+	picture = GFX_report_event_AST_melbourne
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = SAF
+		681 = { is_owned_and_controlled_by = SAF } #Cape Town
+		has_country_flag = AST_accepted_trade
+		is_in_faction_with = AST
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	immediate = {
+		clr_country_flag = AST_accepted_trade
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.209 option austral.209.a"
+		name = austral.209.a
+		add_political_power = 20
+		681 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+
+# Growth of American trade in Australasia
+country_event = {
+	id = austral.210
+	title = austral.210.t
+	desc = austral.210.d
+	picture = GFX_report_event_AST_sydney
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		285 = {
+			is_owned_and_controlled_by = AST
+		}
+		797 = {
+			owner = {
+				controls_state = 797
+				has_country_flag = AST_accepted_trade
+				OR = {
+					tag = USA
+					tag = PSA
+					tag = TEX
+					tag = CSA
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	immediate = {
+		hidden_effect = {
+			var:797.owner = {
+				save_event_target_as = american_trade
+				clr_country_flag = AST_accepted_trade
+			}
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.210 option austral.210.a"
+		name = austral.210.a
+		add_political_power = 40
+		285 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+
+# First part of fleet upgraded
+country_event = {
+	id = austral.211
+	title = austral.211.t
+	desc = austral.211.d
+	picture = GFX_report_event_ast_navy
+
+	is_triggered_only = yes
+
+	trigger = {
+		285 = { is_owned_and_controlled_by = AST } #New South Wales
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.211 option austral.211.a"
+		name = austral.211.a
+		if = {
+			limit = { has_dlc_mtg = yes }
+			create_ship = { name = "HMS Vampire" type = ship_hull_light_1 creator = AST equipment_variant = "V/W Class" }
+			create_ship = { name = "HMS Vendetta" type = ship_hull_light_1 creator = AST equipment_variant = "V/W Class" }
+			create_ship = { name = "HMS Voyager" type = ship_hull_light_1 creator = AST equipment_variant = "V/W Class" }
+			create_ship = { name = "HMS Waterhen" type = ship_hull_light_1 creator = AST equipment_variant = "V/W Class" }
+			create_ship = { name = "HMS Wolsey" type = ship_hull_light_1 creator = AST equipment_variant = "V/W Class" }
+			create_ship = { name = "HMS Stronghold" type = ship_hull_light_1 creator = AST equipment_variant = "V/W Class" }
+			create_ship = { name = "HMS Walker" type = ship_hull_light_1 creator = AST equipment_variant = "V/W Class" }
+			create_ship = { name = "HMS Vimy" type = ship_hull_light_1 creator = AST equipment_variant = "V/W Class" }
+			create_ship = { name = "HMS Bruce" type = ship_hull_light_1 creator = AST equipment_variant = "V/W Class" }
+			create_ship = { name = "HMS Malcolm" type = ship_hull_light_1 creator = AST equipment_variant = "V/W Class" }
+			create_ship = { name = "HMS Veteran" type = ship_hull_light_1 creator = AST equipment_variant = "V/W Class" }
+			create_ship = { name = "HMS Westcott" type = ship_hull_light_1 creator = AST equipment_variant = "V/W Class" }
+		}
+		else = {
+			create_ship = { name = "HMS Vampire" type = destroyer_1 creator = AST equipment_variant = "Weltkrieg Destroyer" }
+			create_ship = { name = "HMS Vendetta" type = destroyer_1 creator = AST equipment_variant = "Weltkrieg Destroyer" }
+			create_ship = { name = "HMS Voyager" type = destroyer_1 creator = AST equipment_variant = "Weltkrieg Destroyer" }
+			create_ship = { name = "HMS Waterhen" type = destroyer_1 creator = AST equipment_variant = "Weltkrieg Destroyer" }
+			create_ship = { name = "HMS Wolsey" type = destroyer_1 creator = AST equipment_variant = "Weltkrieg Destroyer" }
+			create_ship = { name = "HMS Stronghold" type = destroyer_1 creator = AST equipment_variant = "Weltkrieg Destroyer" }
+			create_ship = { name = "HMS Walker" type = destroyer_1 creator = AST equipment_variant = "Weltkrieg Destroyer" }
+			create_ship = { name = "HMS Vimy" type = destroyer_1 creator = AST equipment_variant = "Weltkrieg Destroyer" }
+			create_ship = { name = "HMS Bruce" type = destroyer_1 creator = AST equipment_variant = "Weltkrieg Destroyer" }
+			create_ship = { name = "HMS Malcolm" type = destroyer_1 creator = AST equipment_variant = "Weltkrieg Destroyer" }
+			create_ship = { name = "HMS Veteran" type = destroyer_1 creator = AST equipment_variant = "Weltkrieg Destroyer" }
+			create_ship = { name = "HMS Westcott" type = destroyer_1 creator = AST equipment_variant = "Weltkrieg Destroyer" }
+		}
+		hidden_effect = {
+			country_event = { id = austral.212 days = 60 }
+		}
+	}
+}
+
+# Second part of fleet upgraded
+country_event = {
+	id = austral.212
+	title = austral.212.t
+	desc = austral.212.d
+	picture = GFX_report_event_ast_navy
+
+	is_triggered_only = yes
+
+	trigger = {
+		285 = { is_owned_and_controlled_by = AST } #New South Wales
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.212 option austral.211.a"
+		name = austral.211.a
+		if = {
+			limit = { has_dlc_mtg = yes }
+			create_ship = { name = "HMS Coventry" type = ship_hull_cruiser_1 creator = AST equipment_variant = "C-Class" }
+			create_ship = { name = "HMS Colombo" type = ship_hull_cruiser_1 creator = AST equipment_variant = "C-Class" }
+			create_ship = { name = "HMS Caledon" type = ship_hull_cruiser_1 creator = AST equipment_variant = "C-Class" }
+			create_ship = { name = "HMS Calypso" type = ship_hull_cruiser_1 creator = AST equipment_variant = "C-Class" }
+			create_ship = { name = "HMS Curacoa" type = ship_hull_cruiser_1 creator = AST equipment_variant = "C-Class" }
+		}
+		else = {
+			create_ship = { name = "HMS Coventry" type = light_cruiser_1 creator = AST equipment_variant = "Weltkrieg Light Cruiser" }
+			create_ship = { name = "HMS Colombo" type = light_cruiser_1 creator = AST equipment_variant = "Weltkrieg Light Cruiser" }
+			create_ship = { name = "HMS Caledon" type = light_cruiser_1 creator = AST equipment_variant = "Weltkrieg Light Cruiser" }
+			create_ship = { name = "HMS Calypso" type = light_cruiser_1 creator = AST equipment_variant = "Weltkrieg Light Cruiser" }
+			create_ship = { name = "HMS Curacoa" type = light_cruiser_1 creator = AST equipment_variant = "Weltkrieg Light Cruiser" }
+		}
+		hidden_effect = {
+			country_event = { id = austral.213 days = 60 }
+		}
+	}
+}
+
+# Third part of fleet upgraded
+country_event = {
+	id = austral.213
+	title = austral.213.t
+	desc = austral.213.d
+	picture = GFX_report_event_ast_navy
+
+	is_triggered_only = yes
+
+	trigger = {
+		285 = { is_owned_and_controlled_by = AST } #New South Wales
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.213 option austral.211.a"
+		name = austral.211.a
+		if = {
+			limit = { has_dlc_mtg = yes }
+			create_ship = { name = "HMS Barham" type = ship_hull_heavy_1 creator = AST equipment_variant = "Queen Elizabeth Class" }
+			create_ship = { name = "HMS Malaya" type = ship_hull_heavy_1 creator = AST equipment_variant = "Queen Elizabeth Class" }
+			create_ship = { name = "HMS Renown" type = ship_hull_heavy_1 creator = AST equipment_variant = "Renown Class" }
+		}
+		else = {
+			create_ship = { name = "HMS Barham" type = battleship_1 creator = AST equipment_variant = "Weltkrieg Battleship" }
+			create_ship = { name = "HMS Malaya" type = battleship_1 creator = AST equipment_variant = "Weltkrieg Battleship" }
+			create_ship = { name = "HMS Renown" type = battle_cruiser_1 creator = AST equipment_variant = "Weltkrieg Battlecruiser" }
+		}
+	}
+}
+
+# Clarifying ANZAC doctrine (fired by focus)
+country_event = {
+	id = austral.214
+	title = austral.214.t
+	desc = austral.214.d
+	picture = GFX_report_event_ast_army
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.214 option austral.214.a"
+		name = austral.214.a #Focus on organization and planning
+		swap_ideas = {
+			remove_idea = AST_anzac_spirit_1
+			add_idea = AST_anzac_spirit_2
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.214 option austral.214.b"
+		name = austral.214.b #Focus on our training methods
+		swap_ideas = {
+			remove_idea = AST_anzac_spirit_1
+			add_idea = AST_anzac_spirit_3
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.214 option austral.214.c"
+		name = austral.214.c #We need quality weapons, nothing more
+		swap_ideas = {
+			remove_idea = AST_anzac_spirit_1
+			add_idea = AST_anzac_spirit_4
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.214 option austral.214.e"
+		name = austral.214.e #The ANZAC are fine with tried and true methods!
+		swap_ideas = {
+			remove_idea = AST_anzac_spirit_1
+			add_idea = AST_anzac_spirit_5
+		}
+	}
+}
+
+# Conscription campaign begins (fired by decision)
+country_event = {
+	id = austral.215
+	title = austral.215.t
+	desc = austral.215.d
+	picture = GFX_report_event_AST_conscription
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.215 option austral.215.a"
+		name = austral.215.a
+		hidden_effect = {
+			set_country_flag = { flag = AST_plebiscite value = 0 }
+			country_event = { id = austral.216 days = 15 } #New South Wales
+			country_event = { id = austral.219 days = 18 } #Northern Territory
+			country_event = { id = austral.222 days = 21 } #Western Australia
+			country_event = { id = austral.225 days = 24 } #South Australia
+			country_event = { id = austral.228 days = 27 } #Queensland
+			country_event = { id = austral.231 days = 30 } #Victoria
+			country_event = { id = austral.234 days = 33 } #Tasmania
+			country_event = { id = austral.237 days = 36 } #New Zealand
+			country_event = { id = austral.240 days = 39 } # Vote results
+		}
+	}
+}
+
+# New South Wales votes on plebiscite
+country_event = {
+	id = austral.216
+
+	hidden = yes
+	is_triggered_only = yes
+
+	trigger = {
+		owns_state = 285
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.216 option AI_OPTION"
+		name = AI_OPTION #Vote YES
+		ai_chance = {
+			base = 75
+			modifier = {
+				factor = 1.4
+				has_war = yes
+			}
+		}
+		country_event = austral.217
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.216 option AI_OPTION"
+		name = AI_OPTION #Vote NO
+		ai_chance = { base = 25 }
+		country_event = austral.218
+	}
+}
+
+# New South Wales votes yes
+country_event = {
+	id = austral.217
+	title = austral.217.t
+	desc = austral.217.d
+	picture = GFX_report_event_AST_sydney
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.217 option austral.217.a"
+		name = austral.217.a
+		modify_country_flag = {
+			flag = AST_plebiscite
+			value = 1
+		}
+	}
+}
+
+# New South Wales votes no
+country_event = {
+	id = austral.218
+	title = austral.218.t
+	desc = austral.218.d
+	picture = GFX_report_event_AST_sydney
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.218 option austral.218.a"
+		name = austral.218.a
+		modify_country_flag = {
+			flag = AST_plebiscite
+			value = -1
+		}
+	}
+}
+
+# Northern Territory votes on plebiscite
+country_event = {
+	id = austral.219
+
+	hidden = yes
+	is_triggered_only = yes
+
+	trigger = {
+		owns_state = 520
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.219 option AI_OPTION"
+		name = AI_OPTION #Vote YES
+		ai_chance = {
+			base = 60
+			modifier = {
+				factor = 1.4
+				has_war = yes
+			}
+		}
+		country_event = austral.220
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.219 option AI_OPTION"
+		name = AI_OPTION #Vote NO
+		ai_chance = { base = 40 }
+		country_event = austral.221
+	}
+}
+
+# Northern Territory votes yes
+country_event = {
+	id = austral.220
+	title = austral.220.t
+	desc = austral.220.d
+	picture = GFX_report_event_AST_conscription
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.220 option austral.217.a"
+		name = austral.217.a
+		modify_country_flag = {
+			flag = AST_plebiscite
+			value = 1
+		}
+	}
+}
+
+# Northern Territory votes no
+country_event = {
+	id = austral.221
+	title = austral.221.t
+	desc = austral.221.d
+	picture = GFX_report_event_AST_conscription
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.221 option austral.218.a"
+		name = austral.218.a
+		modify_country_flag = {
+			flag = AST_plebiscite
+			value = -1
+		}
+	}
+}
+
+# Western Australia votes on plebiscite
+country_event = {
+	id = austral.222
+
+	hidden = yes
+	is_triggered_only = yes
+
+	trigger = {
+		owns_state = 522
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.222 option AI_OPTION"
+		name = AI_OPTION #Vote YES
+		ai_chance = {
+			base = 75
+			modifier = {
+				factor = 1.4
+				has_war = yes
+			}
+		}
+		country_event = austral.223
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.222 option AI_OPTION"
+		name = AI_OPTION #Vote NO
+		ai_chance = { base = 25 }
+		country_event = austral.224
+	}
+}
+
+# Western Australia votes yes
+country_event = {
+	id = austral.223
+	title = austral.223.t
+	desc = austral.223.d
+	picture = GFX_report_event_AST_conscription
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.223 option austral.217.a"
+		name = austral.217.a
+		modify_country_flag = {
+			flag = AST_plebiscite
+			value = 1
+		}
+	}
+}
+
+# Western Australia votes no
+country_event = {
+	id = austral.224
+	title = austral.224.t
+	desc = austral.224.d
+	picture = GFX_report_event_AST_conscription
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.224 option austral.218.a"
+		name = austral.218.a
+		modify_country_flag = {
+			flag = AST_plebiscite
+			value = -1
+		}
+	}
+}
+
+# South Australia votes on plebiscite
+country_event = {
+	id = austral.225
+
+	hidden = yes
+	is_triggered_only = yes
+
+	trigger = {
+		owns_state = 519
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.225 option AI_OPTION"
+		name = AI_OPTION #Vote YES
+		ai_chance = {
+			base = 60
+			modifier = {
+				factor = 1.4
+				has_war = yes
+			}
+		}
+		country_event = austral.226
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.225 option AI_OPTION"
+		name = AI_OPTION #Vote NO
+		ai_chance = { base = 40 }
+		country_event = austral.227
+	}
+}
+
+# South Australia votes yes
+country_event = {
+	id = austral.226
+	title = austral.226.t
+	desc = austral.226.d
+	picture = GFX_report_event_AST_conscription
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.226 option austral.217.a"
+		name = austral.217.a
+		modify_country_flag = {
+			flag = AST_plebiscite
+			value = 1
+		}
+	}
+}
+
+# South Australia votes no
+country_event = {
+	id = austral.227
+	title = austral.227.t
+	desc = austral.227.d
+	picture = GFX_report_event_AST_conscription
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.227 option austral.218.a"
+		name = austral.218.a
+		modify_country_flag = {
+			flag = AST_plebiscite
+			value = -1
+		}
+	}
+}
+
+# Queensland votes on plebiscite
+country_event = {
+	id = austral.228
+
+	hidden = yes
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			owns_state = 521
+			owns_state = 986
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.228 option AI_OPTION"
+		name = AI_OPTION #Vote YES
+		ai_chance = {
+			base = 75
+			modifier = {
+				factor = 1.4
+				has_war = yes
+			}
+		}
+		country_event = austral.229
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.228 option AI_OPTION"
+		name = AI_OPTION #Vote NO
+		ai_chance = { base = 25 }
+		country_event = austral.230
+	}
+}
+
+# Queensland votes yes
+country_event = {
+	id = austral.229
+	title = austral.229.t
+	desc = austral.229.d
+	picture = GFX_report_event_AST_conscription
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.229 option austral.217.a"
+		name = austral.217.a
+		modify_country_flag = {
+			flag = AST_plebiscite
+			value = 1
+		}
+	}
+}
+
+# Queensland votes no
+country_event = {
+	id = austral.230
+	title = austral.230.t
+	desc = austral.230.d
+	picture = GFX_report_event_AST_conscription
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.230 option austral.218.a"
+		name = austral.218.a
+		modify_country_flag = {
+			flag = AST_plebiscite
+			value = -1
+		}
+	}
+}
+
+# Victoria votes on plebiscite
+country_event = {
+	id = austral.231
+
+	hidden = yes
+	is_triggered_only = yes
+
+	trigger = {
+		owns_state = 517
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.231 option AI_OPTION"
+		name = AI_OPTION #Vote YES
+		ai_chance = {
+			base = 80
+			modifier = {
+				factor = 1.4
+				has_war = yes
+			}
+		}
+		country_event = austral.232
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.231 option AI_OPTION"
+		name = AI_OPTION #Vote NO
+		ai_chance = { base = 20 }
+		country_event = austral.233
+	}
+}
+
+# Victoria votes yes
+country_event = {
+	id = austral.232
+	title = austral.232.t
+	desc = austral.232.d
+	picture = GFX_report_event_AST_melbourne
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.232 option austral.217.a"
+		name = austral.217.a
+		modify_country_flag = {
+			flag = AST_plebiscite
+			value = 1
+		}
+	}
+}
+
+# Victoria votes no
+country_event = {
+	id = austral.233
+	title = austral.233.t
+	desc = austral.233.d
+	picture = GFX_report_event_AST_melbourne
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.233 option austral.218.a"
+		name = austral.218.a
+		modify_country_flag = {
+			flag = AST_plebiscite
+			value = -1
+		}
+	}
+}
+
+# Tasmania votes on plebiscite
+country_event = {
+	id = austral.234
+
+	hidden = yes
+	is_triggered_only = yes
+
+	trigger = {
+		owns_state = 518
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.234 option AI_OPTION"
+		name = AI_OPTION #Vote YES
+		ai_chance = {
+			base = 75
+			modifier = {
+				factor = 1.4
+				has_war = yes
+			}
+		}
+		country_event = austral.235
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.234 option AI_OPTION"
+		name = AI_OPTION #Vote NO
+		ai_chance = { base = 25 }
+		country_event = austral.236
+	}
+}
+
+# Tasmania votes yes
+country_event = {
+	id = austral.235
+	title = austral.235.t
+	desc = austral.235.d
+	picture = GFX_report_event_AST_conscription
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.235 option austral.217.a"
+		name = austral.217.a
+		modify_country_flag = {
+			flag = AST_plebiscite
+			value = 1
+		}
+	}
+}
+
+# Tasmania votes no
+country_event = {
+	id = austral.236
+	title = austral.236.t
+	desc = austral.236.d
+	picture = GFX_report_event_AST_conscription
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.236 option austral.218.a"
+		name = austral.218.a
+		modify_country_flag = {
+			flag = AST_plebiscite
+			value = -1
+		}
+	}
+}
+
+# New Zealand votes on plebiscite
+country_event = {
+	id = austral.237
+
+	hidden = yes
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			owns_state = 284
+			owns_state = 723
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.237 option AI_OPTION"
+		name = AI_OPTION #Vote YES
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+		country_event = austral.238
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.237 option AI_OPTION"
+		name = AI_OPTION #Vote NO
+		ai_chance = { base = 70 }
+		country_event = austral.239
+	}
+}
+
+# New Zealand votes yes
+country_event = {
+	id = austral.238
+	title = austral.238.t
+	desc = austral.238.d
+	picture = GFX_report_event_AST_newzealand
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.238 option austral.217.a"
+		name = austral.217.a
+		modify_country_flag = {
+			flag = AST_plebiscite
+			value = 1
+		}
+	}
+}
+
+# New Zealand votes no
+country_event = {
+	id = austral.239
+	title = austral.239.t
+	desc = austral.239.d
+	picture = GFX_report_event_AST_newzealand
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.239 option austral.218.a"
+		name = austral.218.a
+		set_country_flag = AST_NZL_voted_no
+		modify_country_flag = {
+			flag = AST_plebiscite
+			value = -1
+		}
+	}
+}
+
+# Does the plebiscite pass?
+country_event = {
+	id = austral.240
+
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				has_country_flag = {
+					flag = AST_plebiscite
+					value > 0
+				}
+			}
+			country_event = austral.241
+		}
+		else = {
+			country_event = austral.242
+		}
+		clr_country_flag = AST_plebiscite
+	}
+}
+
+# The conscription plebiscite passes
+country_event = {
+	id = austral.241
+	title = austral.241.t
+	desc = austral.241.d
+	picture = GFX_report_event_AST_parliament2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.241 option austral.241.a"
+		name = austral.241.a
+		clr_country_flag = cannot_have_conscription
+		add_political_power = 100
+		set_temp_variable = { ideology_change_var = 0.05 }
+		change_ruling_party_popularity = yes
+		add_ideas = limited_conscription
+	}
+}
+
+# The conscription plebiscite fails
+country_event = {
+	id = austral.242
+	title = austral.242.t
+	desc = austral.242.d
+	picture = GFX_report_event_AST_parliament2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.242 option austral.242.a"
+		name = austral.242.a
+		set_country_flag = AST_plebiscite_failed
+		add_political_power = -200
+		set_temp_variable = { ideology_change_var = -0.05 }
+		change_ruling_party_popularity = yes
+	}
+}
+
+# New Zealand conscription riots
+country_event = {
+	id = austral.243
+	title = austral.243.t
+	picture = GFX_report_event_AST_riot1
+
+	desc = {
+		text = austral.243.d.forced
+		trigger = {
+			has_country_flag = AST_plebiscite_forced
+		}
+	}
+	desc = {
+		text = austral.243.d.voted
+		trigger = {
+			NOT = { has_country_flag = AST_plebiscite_forced }
+		}
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		has_idea = limited_conscription
+		OR = {
+			284 = { is_owned_and_controlled_by = AST }
+			723 = { is_owned_and_controlled_by = AST }
+		}
+		OR = {
+			has_country_flag = AST_plebiscite_forced
+			has_country_flag = AST_NZL_voted_no
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.243 option austral.243.a"
+		name = austral.243.a
+		add_stability = -0.05
+		set_country_flag = AST_NZL_secede
+		if = {
+			limit = { has_country_flag = AST_plebiscite_forced }
+			284 = {
+				remove_core_of = AST
+				add_claim_by = AST
+			}
+			723 = {
+				remove_core_of = AST
+				add_claim_by = AST
+			}
+		}
+	}
+}
+
+# New Guard pleased with conscription
+country_event = {
+	id = austral.245
+	title = austral.245.t
+	desc = austral.245.d
+	picture = GFX_report_event_AST_rajah
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		has_idea = limited_conscription
+		has_democratic_government = yes
+		has_country_flag = AST_had_1936_election
+		NOT = { has_country_flag = AST_had_1939_election }
+	}
+
+	mean_time_to_happen = {
+		days = 5
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.245 option austral.245.a"
+		name = austral.245.a
+		add_political_power = 25
+		set_temp_variable = { ideology_change_var = 0.05 }
+		change_ruling_party_popularity = yes
+	}
+}
+
+# New Guard displeased with conscription loss
+country_event = {
+	id = austral.246
+	title = austral.246.t
+	desc = austral.246.d
+	picture = GFX_report_event_AST_rajah
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		has_country_flag = AST_plebiscite_failed
+		has_democratic_government = yes
+		has_country_flag = AST_had_1936_election
+		NOT = {
+			has_country_flag = AST_had_1939_election
+			has_idea = limited_conscription
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 5
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.246 option austral.246.a"
+		name = austral.246.a
+		add_political_power = -50
+		set_temp_variable = { ideology_change_var = -0.05 }
+		change_ruling_party_popularity = yes
+		hidden_effect = {
+			country_event = { id = austral.247 days = 10 }
+		}
+	}
+}
+
+# National Party Supports the New Guard
+country_event = {
+	id = austral.247
+	title = austral.247.t
+	desc = austral.247.d
+	picture = GFX_report_event_AST_campbell
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = AST_plebiscite_failed
+		has_democratic_government = yes
+		NOT = {
+			has_country_flag = AST_had_1939_election
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.247 option austral.247.a"
+		name = austral.247.a
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.05
+		}
+		set_country_flag = AST_new_guard_hughes
+	}
+}
+
+# Australasia loses New Zealand
+country_event = {
+	id = austral.248
+	title = austral.248.t
+	desc = austral.248.d
+	picture = GFX_report_event_AST_newzealand
+
+	trigger = {
+		tag = AST
+		OR = {
+			has_cosmetic_tag = AST_australasia_entente
+			has_cosmetic_tag = AST_australasia
+		}
+		NOT = {
+			owns_state = 284 #North Island
+			owns_state = 723 #South Island
+		}
+		has_war = no
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.248 option austral.248.a"
+		name = austral.248.a
+		if = {
+			limit = { has_cosmetic_tag = AST_australasia_entente }
+			set_cosmetic_tag = AST_entente
+		}
+		else = {
+			effect_tooltip = { set_cosmetic_tag = AST }
+			drop_cosmetic_tag = yes
+		}
+		284 = {
+			if = {
+				limit = { is_core_of = AST }
+				remove_core_of = AST
+				add_claim_by = AST
+			}
+		}
+		723 = {
+			if = {
+				limit = { is_core_of = AST }
+				remove_core_of = AST
+				add_claim_by = AST
+			}
+		}
+	}
+}
+
+# Australia regains New Zealand
+country_event = {
+	id = austral.249
+	title = austral.249.t
+	desc = austral.249.d
+	picture = GFX_report_event_AST_newzealand
+
+	trigger = {
+		tag = AST
+		NOT = {
+			has_cosmetic_tag = AST_australasia_entente
+			has_cosmetic_tag = AST_australasia
+		}
+		owns_state = 284 #North Island
+		owns_state = 723 #South Island
+		has_war = no
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.249 option austral.249.a"
+		name = austral.249.a
+		if = {
+			limit = { has_cosmetic_tag = AST_entente }
+			set_cosmetic_tag = AST_australasia_entente
+		}
+		else = {
+			set_cosmetic_tag = AST_australasia
+		}
+	}
+}
+
+# New Zealand wants to have a vote on secession
+country_event = {
+	id = austral.250
+	title = austral.250.t
+	picture = GFX_report_event_AST_newzealand
+
+	desc = {
+		text = austral.250.d.gbr
+		trigger = {
+			country_exists = GBR
+		}
+	}
+	desc = {
+		text = austral.250.d.faction
+		trigger = {
+			NOT = {
+				country_exists = GBR
+			}
+		}
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		has_war = no
+		OR = {
+			has_country_flag = AST_NZL_secede
+			has_game_rule = { rule = NZL_succession option = NZL_SUCCESSION_ENT }
+			has_game_rule = { rule = NZL_succession option = NZL_SUCCESSION_ALONE }
+		}
+		owns_state = 284 #North Island
+		owns_state = 723 #South Island
+		OR = {
+			has_democratic_government = yes
+			has_government = national_populist
+		}
+		OR = {
+			country_exists = GBR
+			is_in_faction = no
+		}
+		NOT = {
+			has_country_flag = AST_nzl_crisis_happened
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 2
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.250 option austral.250.a"
+		name = austral.250.a #They are free to hold their referendum, if they wish
+		ai_chance = {
+			base = 70
+			modifier = {
+				factor = 0.5
+				has_government = authoritarian_democrat
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = NZL_succession option = NZL_SUCCESSION_NO }
+			}
+		}
+		custom_effect_tooltip = AST_nzl_referendum
+		hidden_effect = { country_event = { id = austral.251 days = 30 } }
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.250 option austral.250.b"
+		name = austral.250.b #We would consider that an illegal act
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 0
+				has_government = social_liberal
+				NOT = { has_game_rule = { rule = NZL_succession option = NZL_SUCCESSION_NO } }
+			}
+			modifier = {
+				factor = 0.5
+				has_government = social_democrat
+			}
+			modifier = {
+				factor = 5
+				has_government = national_populist
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = NZL_succession option = NZL_SUCCESSION_ENT }
+					has_game_rule = { rule = NZL_succession option = NZL_SUCCESSION_ALONE }
+				}
+			}
+		}
+		add_political_power = -200
+		add_stability = -0.05
+		284 = {
+			if = {
+				limit = { is_core_of = AST }
+				remove_core_of = AST
+				add_claim_by = AST
+			}
+		}
+		723 = {
+			if = {
+				limit = { is_core_of = AST }
+				remove_core_of = AST
+				add_claim_by = AST
+			}
+		}
+	}
+}
+
+# Bounce event for referendum
+country_event = {
+	id = austral.251
+
+	hidden = yes
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.251 option austral.251.a"
+		name = austral.251.a #Stay
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 1.5
+				has_idea = AST_maori_rights
+			}
+			modifier = {
+				factor = 1.25
+				has_country_flag = AST_NZL_voted_no
+			}
+			modifier = {
+				factor = 1.25
+				has_government = social_democrat
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = NZL_succession option = NZL_SUCCESSION_ENT }
+					has_game_rule = { rule = NZL_succession option = NZL_SUCCESSION_ALONE }
+				}
+			}
+		}
+		country_event = austral.252
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.251 option austral.251.b"
+		name = austral.251.b #Secede
+		ai_chance = {
+			base = 60
+			modifier = {
+				factor = 1.25
+				country_exists = GBR
+			}
+			modifier = {
+				factor = 1.5
+				has_government = national_populist
+			}
+			modifier = {
+				factor = 2
+				has_country_flag = AST_plebiscite_forced
+			}
+		}
+		country_event = austral.253
+	}
+}
+
+# New Zealand votes to stay
+country_event = {
+	id = austral.252
+	title = austral.252.t
+	desc = austral.252.d
+	picture = GFX_report_event_AST_newzealand
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.252 option austral.252.a"
+		name = austral.252.a
+		add_political_power = 100
+	}
+}
+
+# New Zealand votes to leave
+country_event = {
+	id = austral.253
+	title = austral.253.t
+	desc = austral.253.d
+	picture = GFX_report_event_AST_newzealand
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.253 option austral.253.a"
+		name = austral.253.a
+		add_political_power = -100
+		release = NZL
+		hidden_effect = {
+			NZL = {
+				transfer_technology = yes
+				NZL_initial_spawn = yes
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 1000
+				}
+				add_equipment_to_stockpile = {
+					type = convoy
+					amount = 25
+				}
+				activate_targeted_decision = { target = 284 decision = AST_develop_new_zealand_coal_mines }
+				activate_targeted_decision = { target = 284 decision = AST_develop_new_zealand_oil_deposits }
+			}
+		}
+		if = {
+			limit = { is_in_faction = yes }
+			faction_leader = { add_to_faction = NZL }
+		}
+		custom_effect_tooltip = characters_will_be_retired
+		character_list_tooltip = {
+			limit = { has_character_flag = NZL_character }
+		}
+		custom_effect_tooltip = AST_ships_defect_to_nzl
+		hidden_effect = {
+			every_character = {
+				limit = { has_character_flag = NZL_character }
+				if = {
+					limit = { has_trait = AST_new_zealander }
+					remove_unit_leader_trait = AST_new_zealander
+				}
+				set_nationality = NZL
+			}
+			NZL = {
+				NZL_bernard_cyril_freyberg = {
+					add_country_leader_role = {
+						country_leader = { ideology = authoritarian_democrat_subtype }
+						promote_leader = yes
+					}
+					add_country_leader_role = {
+						country_leader = { ideology = paternal_autocrat_subtype }
+						promote_leader = yes
+					}
+				}
+			}
+			country_event = { id = austral.248 days = 3 }
+			news_event = { id = worldnews.132 days = 1 }
+			transfer_ship = { prefer_name = "HMAS Royal Sovereign" type = battleship target = NZL }
+			transfer_ship = { prefer_name = "HMAS Hood" type = battleship target = NZL }
+			transfer_ship = { prefer_name = "HMAS Effingham" type = light_cruiser target = NZL }
+			transfer_ship = { prefer_name = "HMAS Constance" type = light_cruiser target = NZL }
+			transfer_ship = { prefer_name = "HMAS Brisbane" type = light_cruiser target = NZL }
+			transfer_ship = { type = destroyer target = NZL }
+			transfer_ship = { type = destroyer target = NZL }
+			transfer_ship = { type = destroyer target = NZL }
+			transfer_ship = { type = destroyer target = NZL }
+			transfer_ship = { type = destroyer target = NZL }
+			transfer_ship = { type = destroyer target = NZL }
+			transfer_ship = { type = destroyer target = NZL }
+			transfer_ship = { type = destroyer target = NZL }
+			transfer_ship = { type = destroyer target = NZL }
+			transfer_ship = { type = destroyer target = NZL }
+			transfer_ship = { type = submarine target = NZL }
+			transfer_ship = { type = submarine target = NZL }
+			transfer_ship = { type = submarine target = NZL }
+			transfer_ship = { type = submarine target = NZL }
+			transfer_ship = { type = submarine target = NZL }
+		}
+	}
+}
+
+# Day of Mourning
+country_event = {
+	id = austral.254
+	title = austral.254.t
+	desc = austral.254.d
+	picture = GFX_report_event_AST_aborigine
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = {
+			has_country_flag = AST_landing_anno
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.254 option austral.254.a"
+		name = austral.254.a
+		set_country_flag = AST_landing_anno
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.03
+		}
+	}
+}
+
+# Farmers request emu culling
+country_event = {
+	id = austral.255
+	title = austral.255.t
+	desc = austral.255.d
+	picture = GFX_report_event_AST_emu
+
+	is_triggered_only = yes
+
+	trigger = {
+		522 = { is_owned_and_controlled_by = AST } #Western Australia
+		NOT = { has_country_flag = AST_emu_war }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.255 option austral.255.a"
+		name = austral.255.a
+		set_country_flag = AST_emu_war
+	}
+}
+
+# The Volunteer Defense Corps
+country_event = {
+	id = austral.256
+	title = austral.256.t
+	desc = austral.256.d
+	picture = GFX_report_event_AST_volunteers
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		OR = {
+			has_war_with = ENG
+			has_war_with = GER
+		}
+		is_in_faction_with = CAN
+		num_of_controlled_states > 0
+		NOT = { has_idea = volunteer_only }
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.256 option austral.256.a"
+		name = austral.256.a
+		add_manpower = 20000
+		division_template = {
+			name = "Defence Corps"
+			division_names_group = AST_INF_02
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+				infantry = { x = 0 y = 3 }
+				infantry = { x = 0 y = 4 }
+			}
+			priority = 0
+		}
+		random_owned_controlled_state = {
+			limit = { valid_state_for_spawning_friendly_unit = yes }
+			create_unit = {
+				division = "division_template = \"Defence Corps\""
+				owner = ROOT
+				count = 4
+			}
+		}
+	}
+}
+
+# Australasian war memorial finished
+country_event = {
+	id = austral.257
+	title = austral.257.t
+	picture = GFX_report_event_AST_memorial
+
+	desc = {
+		text = austral.257.d.labor
+		trigger = {
+			has_government = social_democrat
+		}
+	}
+	desc = {
+		text = austral.257.d.uap
+		trigger = {
+			has_government = social_conservative
+		}
+	}
+	desc = {
+		text = austral.257.d.antiwar
+		trigger = {
+			OR = {
+				has_government = paternal_autocrat
+				has_socialist_government = yes
+			}
+		}
+	}
+	desc = {
+		text = austral.257.d.other
+		trigger = {
+			NOT = {
+				has_government = social_conservative
+				has_government = social_democrat
+				has_government = paternal_autocrat
+				has_socialist_government = yes
+			}
+		}
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		is_subject = no
+		date > 1941.4.24
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.257 option austral.257.a"
+		name = austral.257.a
+		add_political_power = 10
+	}
+}
+
+# Socialists petition to rejoin Labor
+country_event = {
+	id = austral.258
+	title = austral.258.t
+	desc = austral.258.d
+	picture = GFX_report_event_AST_totalists
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		has_government = social_democrat
+		has_country_flag = AST_syndicalists_expelled_labor
+		date > 1941.1.1
+		OR = {
+			has_war = no
+			AND = {
+				controls_all_owned_states = yes
+				NOT = {
+					any_enemy_country = {
+						has_socialist_government = yes
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.258 option austral.258.a"
+		name = austral.258.a #Yes, we'll take them back
+		ai_chance = { base = 75 }
+		clr_country_flag = AST_syndicalists_expelled_labor
+		set_party_name = {
+			ideology = radical_socialist
+			long_name = AST_radical_socialist_labor_long
+			name = AST_radical_socialist_labor
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = 0.05
+		}
+		add_stability = 0.02
+		hidden_effect = {
+			country_event = { id = austral.259 days = 10 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.258 option austral.258.b"
+		name = austral.258.b #No, they can remain where they are
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = AST_path option = AST_PATH_SOCLIB }
+			}
+		}
+		add_political_power = 50
+	}
+}
+
+# Jack Lang breaks away from Labor - again
+country_event = {
+	id = austral.259
+	title = austral.259.t
+	desc = austral.259.d
+	picture = GFX_report_event_AST_jacklang
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.259 option austral.259.a"
+		name = austral.259.a
+		add_political_power = -25
+		set_country_flag = AST_lang_election
+		add_popularity = {
+			ideology = social_democrat
+			popularity = -0.02
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.02
+		}
+	}
+}
+
+# Possible reconciliation with Lang Labor?
+country_event = {
+	id = austral.260
+	title = austral.260.t
+	desc = austral.260.d
+	picture = GFX_report_event_AST_jacklang
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		has_government = social_democrat
+		has_country_flag = AST_lang_election
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.260 option austral.260.a"
+		name = austral.260.a #We must make the attempt
+		ai_chance = {
+			base = 80
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = AST_path option = AST_PATH_SOCLIB }
+			}
+		}
+		random_list = {
+			25 = {
+				country_event = { id = austral.261 days = 3 }
+			}
+			75 = {
+				country_event = { id = austral.262 days = 3 }
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.260 option austral.260.b"
+		name = austral.260.b #No, they're asking too much!
+		ai_chance = { base = 20 }
+		add_political_power = -50
+	}
+}
+
+# Reconciliation Succeeds
+country_event = {
+	id = austral.261
+	title = austral.261.t
+	desc = austral.261.d
+	picture = GFX_report_event_AST_jacklang
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.261 option austral.261.a"
+		name = austral.261.a
+		add_political_power = 50
+		clr_country_flag = AST_lang_election
+	}
+}
+
+# Reconciliation Fails
+country_event = {
+	id = austral.262
+	title = austral.262.t
+	desc = austral.262.d
+	picture = GFX_report_event_AST_jacklang
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.262 option austral.262.a"
+		name = austral.262.a
+		add_political_power = -25
+	}
+}
+
+# Forming a Maori Battalion
+country_event = {
+	id = austral.263
+	title = austral.263.t
+	desc = austral.263.d
+	picture = GFX_report_event_AST_aborigine
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		has_idea = AST_maori_rights
+		any_enemy_country = { is_major = yes }
+		NOT = { country_exists = NZL }
+		has_elected_government = yes
+	}
+
+	mean_time_to_happen = {
+		months = 2
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.263 option austral.263.a"
+		name = austral.263.a #This will only help the war effort
+		ai_chance = {
+			base = 90
+			modifier = {
+				factor = 0.1
+				has_political_power < 0
+			}
+		}
+		add_political_power = -50
+		add_manpower = 10000
+		division_template = {
+			name = "Maori Battalion"
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 1 y = 2 }
+				infantry = { x = 2 y = 0 }
+				infantry = { x = 2 y = 1 }
+				infantry = { x = 2 y = 2 }
+			}
+			support = {
+				recon = { x = 0 y = 0 }
+				engineer = { x = 0 y = 1 }
+			}
+		}
+		random_owned_controlled_state = {
+			prioritize = { 284 723 }
+			limit = { valid_state_for_spawning_friendly_unit = yes }
+			create_unit = {
+				division = "name = \"Māori Battalion\" division_template = \"Maori Battalion\" start_experience_factor = 0.1"
+				owner = ROOT
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.263 option austral.263.b"
+		name = austral.263.b #No, the Maori will be better off as normal troops within the AEF
+		ai_chance = { base = 10 }
+		add_manpower = 10000
+	}
+}
+
+# Manhunt for Stanley Graham
+country_event = {
+	id = austral.264
+	title = austral.264.t
+	desc = austral.264.d
+	picture = GFX_report_event_AST_rednorth
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			tag = AST
+			tag = NZL
+		}
+		723 = { is_owned_and_controlled_by = ROOT } #South Island
+		date > 1941.10.7
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.264 option austral.264.a"
+		name = austral.264.a
+		add_political_power = -10
+		hidden_effect = {
+			country_event = { id = austral.265 days = 21 }
+		}
+	}
+}
+
+# Stanley Graham manhunt ends
+country_event = {
+	id = austral.265
+	title = austral.265.t
+	desc = austral.265.d
+	picture = GFX_report_event_AST_rednorth
+
+	is_triggered_only = yes
+
+	trigger = {
+		723 = { is_owned_and_controlled_by = ROOT } #South Island
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.265 option austral.265.a"
+		name = austral.265.a
+		add_political_power = 10
+	}
+}
+
+# John Curtin visits Canada
+country_event = {
+	id = austral.266
+	title = austral.266.t
+	desc = austral.266.d
+	picture = GFX_report_event_AST_curtinspeech
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		has_country_leader = { character = AST_john_curtin }
+		is_in_faction_with = CAN
+		CAN = { has_war_with = ENG }
+	}
+
+	mean_time_to_happen = {
+		months = 2
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.266 option austral.266.a"
+		name = austral.266.a
+		add_political_power = 25
+		reverse_add_opinion_modifier = {
+			target = CAN
+			modifier = KR_approves_of_govt
+		}
+		hidden_effect = {
+			CAN = {
+				country_event = austral.267
+			}
+		}
+	}
+}
+
+# Canada is notified
+country_event = {
+	id = austral.267
+	title = austral.267.t
+	desc = austral.267.d
+	picture = GFX_report_event_AST_curtinspeech
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.267 option austral.267.a"
+		name = austral.267.a
+		add_political_power = 25
+		reverse_add_opinion_modifier = {
+			target = AST
+			modifier = KR_approves_of_govt
+		}
+	}
+}
+
+### DEATH/RETIREMENT EVENTS
+
+# Death of Prince George
+country_event = {
+	id = austral.300
+	title = austral.300.t
+	picture = GFX_report_event_SRI_superga
+
+	desc = {
+		text = austral.300.d
+		trigger = {
+			NOT = { ENT_king_henry_ix = yes }
+		}
+	}
+	desc = {
+		text = austral.300.d.albert
+		trigger = {
+			ENT_king_henry_ix = yes
+			NOT = { CAN = { has_country_leader = { character = GBR_albert_windsor } } }
+		}
+	}
+	desc = {
+		text = austral.300.d.hore_ruthven
+		trigger = {
+			ENT_king_henry_ix = yes
+			CAN = { has_country_leader = { character = GBR_albert_windsor } }
+		}
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		date > 1942.8.15
+		has_country_leader = { character = GBR_george_windsor }
+		NOT = {
+			has_game_rule = { rule = CAN_king option = CAN_KING_GEORGE }
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			event_target:KR_king_base = {
+				country_event = austral.3000
+				if = {
+					limit = { NOT = { tag = ENT } }
+					ENT = { country_event = austral.3000 }
+				}
+			}
+			GBR_george_windsor = { set_character_as_dead = yes }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.300 option austral.300.a"
+		name = austral.300.a
+		trigger = {
+			ENT_king_henry_ix = no
+		}
+		GBR_george_windsor = { kill_character = yes }
+		add_stability = -0.05
+		AST_create_governor_general_prince_henry = yes
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.300 option austral.300.a"
+		name = austral.300.a
+		trigger = {
+			ENT_king_henry_ix = yes
+			NOT = { CAN = { has_country_leader = { character = GBR_albert_windsor } } }
+		}
+		GBR_george_windsor = { kill_character = yes }
+		add_stability = -0.05
+		AST_create_governor_general_prince_albert = yes
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.300 option austral.300.a"
+		name = austral.300.a
+		trigger = {
+			ENT_king_henry_ix = yes
+			CAN = { has_country_leader = { character = GBR_albert_windsor } }
+		}
+		GBR_george_windsor = { kill_character = yes }
+		add_stability = -0.05
+		AST_create_governor_general_hore_ruthven = yes
+	}
+}
+
+country_event = {
+	id = austral.3000
+	title = austral.300.t
+	picture = GFX_report_event_SRI_superga
+
+	desc = {
+		text = austral.300.d
+		trigger = {
+			NOT = { ENT_king_henry_ix = yes }
+		}
+	}
+	desc = {
+		text = austral.300.d.albert
+		trigger = {
+			ENT_king_henry_ix = yes
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.3000 option austral.300.a"
+		name = austral.300.a
+	}
+}
+
+# Death of Joseph Lyons
+country_event = {
+	id = austral.301
+	title = austral.301.t
+	desc = austral.301.d
+	picture = GFX_report_event_generic_funeral
+
+	fire_only_once = yes
+
+	trigger = {
+		original_tag = AST
+		date > 1939.3.7
+		has_character = AST_joseph_aloysius_lyons
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.301 option austral.301.a"
+		name = austral.301.a
+		add_political_power = -20
+		retire_character = AST_joseph_aloysius_lyons
+	}
+}
+
+# Attempted Assassination of Fred Paterson
+country_event = {
+	id = austral.302
+	title = austral.302.t
+	desc = austral.302.d
+	picture = GFX_report_event_AST_paterson2
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_socialist_government = yes
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.302 option austral.302.a"
+		name = austral.302.a
+		add_stability = -0.03
+	}
+}
+
+# Stanley Bruce resigns as UAP leader
+country_event = {
+	id = austral.303
+	title = austral.303.t
+	picture = GFX_report_event_AST_holmenz
+
+	desc = {
+		text = austral.303.d.gov
+		trigger = {
+			has_government = social_conservative
+		}
+	}
+	desc = {
+		text = austral.303.d.notgov
+		trigger = {
+			NOT = {
+				has_government = social_conservative
+			}
+		}
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		date > 1942.1.1
+		has_character = AST_stanley_melbourne_bruce
+		has_democratic_government = yes
+	}
+
+	mean_time_to_happen = {
+		months = 5
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.303 option austral.303.a"
+		name = austral.303.a #Robert Menzies steps up as the new leader
+		ai_chance = { base = 60 }
+		retire_character = AST_stanley_melbourne_bruce
+		if = {
+			limit = { AST_is_dominion = no }
+			add_country_leader_role = {
+				character = AST_robert_gordon_menzies
+				country_leader = { ideology = social_conservative_subtype }
+				promote_leader = yes
+			}
+		}
+		else = {
+			add_country_leader_role = {
+				character = AST_robert_gordon_menzies
+				country_leader = { ideology = social_conservative_subtype }
+			}
+			if = {
+				limit = { has_government = social_conservative }
+				activate_advisor = AST_robert_gordon_menzies_sic
+			}
+		}
+		hidden_effect = {
+			country_event = { id = austral.304 days = 15 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.303 option austral.303.b"
+		name = austral.303.b #Sidney Holland becomes the first New Zealander to lead the party
+		trigger = {
+			has_character = NZL_sidney_george_holland
+		}
+		ai_chance = { base = 40 }
+		add_political_power = -25
+		retire_character = AST_stanley_melbourne_bruce
+		if = {
+			limit = { AST_is_dominion = no }
+			add_country_leader_role = {
+				character = NZL_sidney_george_holland
+				country_leader = { ideology = social_conservative_subtype }
+				promote_leader = yes
+			}
+		}
+		else = {
+			add_country_leader_role = {
+				character = NZL_sidney_george_holland
+				country_leader = { ideology = social_conservative_subtype }
+			}
+			if = {
+				limit = { has_government = social_conservative }
+				activate_advisor = NZL_sidney_george_holland_sic
+			}
+		}
+	}
+}
+
+# Collapse of the UAP/Country Coalition
+country_event = {
+	id = austral.304
+	title = austral.304.t
+	desc = austral.304.d
+	picture = GFX_report_event_AST_earlepage
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = AST_uap_in_coalition
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.304 option austral.304.a"
+		name = austral.304.a
+		clr_country_flag = AST_uap_in_coalition
+		add_political_power = -50
+		if = {
+			limit = {
+				set_temp_variable = { coalition_partner_to_check = token:social_conservative }
+				has_coalition_with_target = yes
+			}
+			set_temp_variable = { coalition_partner_var = token:social_conservative }
+			remove_from_coalition = yes
+		}
+		else_if = {
+			limit = {
+				set_temp_variable = { coalition_partner_to_check = token:market_liberal }
+				has_coalition_with_target = yes
+			}
+			add_political_power = -50
+			set_temp_variable = { coalition_partner_var = token:market_liberal }
+			remove_from_coalition = yes
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = -0.03
+		}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = -0.03
+		}
+		hidden_effect = {
+			country_event = { id = austral.305 days = 30 }
+		}
+	}
+}
+
+# Earle Page removed as Country leader
+country_event = {
+	id = austral.305
+	title = austral.305.t
+	desc = austral.305.d
+	picture = GFX_report_event_AST_earlepage
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_character = AST_earle_christmas_grafton_page
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.305 option austral.305.a"
+		name = austral.305.a
+		retire_character = AST_earle_christmas_grafton_page
+		if = {
+			limit = { AST_is_dominion = no }
+			add_country_leader_role = {
+				character = AST_arthur_william_fadden
+				country_leader = { ideology = market_liberal_subtype }
+				promote_leader = yes
+			}
+		}
+		else = {
+			add_country_leader_role = {
+				character = AST_arthur_william_fadden
+				country_leader = { ideology = market_liberal_subtype }
+			}
+			if = {
+				limit = { has_government = market_liberal }
+				activate_advisor = AST_arthur_william_fadden_sic
+			}
+		}
+	}
+}
+
+# J.B. Miles Resigns
+country_event = {
+	id = austral.306
+	title = austral.306.t
+	desc = austral.306.d
+	picture = GFX_report_event_AST_parliament1
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		date > 1946.1.1
+		has_character = AST_john_bramwell_miles
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.306 option austral.306.a"
+		name = austral.306.a
+		add_stability = -0.02
+		retire_character = AST_john_bramwell_miles
+		promote_character = AST_lawrence_louis_sharkey
+	}
+}
+
+# Death of David Murray Anderson
+country_event = {
+	id = austral.307
+	title = austral.307.t
+	desc = austral.307.d
+	picture = GFX_report_event_AST_anderson
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_right_democratic_government = yes
+			has_authoritarian_government = yes
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.307 option austral.307.a"
+		name = austral.307.a
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.05
+		}
+	}
+}
+
+# Resignation of Fred Paterson
+country_event = {
+	id = austral.308
+	title = austral.308.t
+	desc = austral.308.d
+	picture = GFX_report_event_AST_federationalist
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		date > 1946.1.1
+		has_character = AST_frederick_woolnough_paterson
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.308 option austral.308.a"
+		name = austral.308.a #Elsie Farrely will take his place
+		trigger = {
+			has_character = NZL_elsie_violet_farrelly
+		}
+		retire_character = AST_frederick_woolnough_paterson
+		promote_character = NZL_elsie_violet_farrelly
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.308 option austral.308.b"
+		name = austral.308.b #John Anderson is the appropriate choice
+		retire_character = AST_frederick_woolnough_paterson
+		promote_character = AST_john_anderson
+	}
+}
+
+# Death of John Curtin
+country_event = {
+	id = austral.309
+	title = austral.309.t
+	picture = GFX_report_event_AST_curtinspeech
+
+	desc = {
+		text = austral.309.d.hog
+		trigger = {
+			OR = {
+				has_government = social_democrat
+				has_country_leader = { character = AST_john_curtin }
+			}
+		}
+	}
+	desc = {
+		text = austral.309.d.nothog
+		trigger = {
+			NOT = {
+				has_government = social_democrat
+				has_country_leader = { character = AST_john_curtin }
+			}
+		}
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AST
+		date > 1945.7.1
+		has_character = AST_john_curtin
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.309 option austral.309.a"
+		name = austral.309.a
+		add_political_power = -25
+		retire_character = AST_john_curtin
+		if = {
+			limit = { AST_is_dominion = no }
+			add_country_leader_role = {
+				character = AST_joseph_benedict_chifley
+				country_leader = { ideology = social_democrat_subtype }
+				promote_leader = yes
+			}
+		}
+		else = {
+			add_country_leader_role = {
+				character = AST_joseph_benedict_chifley
+				country_leader = { ideology = social_democrat_subtype }
+			}
+			if = {
+				limit = { has_government = social_democrat }
+				activate_advisor = AST_joseph_benedict_chifley_sic
+			}
+		}
+		hidden_effect = {
+			country_event = { id = austral.310 days = 30 }
+		}
+	}
+}
+
+# Election for new Labor leader
+country_event = {
+	id = austral.310
+	title = austral.310.t
+	desc = austral.310.d
+	picture = GFX_report_event_AST_federationalist
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_democratic_government = yes
+		has_character = NZL_peter_fraser
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.310 option austral.310.a"
+		name = austral.310.a #Chifley remains the Labor leader
+		add_political_power = 20
+		add_popularity = {
+			ideology = social_democrat
+			popularity = -0.02
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.310 option austral.310.b"
+		name = austral.310.b #Peter Fraser takes control of the party
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.02
+		}
+		if = {
+			limit = { AST_is_dominion = no }
+			add_country_leader_role = {
+				character = NZL_peter_fraser
+				country_leader = { ideology = social_democrat_subtype }
+				promote_leader = yes
+			}
+		}
+		else = {
+			add_country_leader_role = {
+				character = NZL_peter_fraser
+				country_leader = { ideology = social_democrat_subtype }
+			}
+			if = {
+				limit = { has_government = social_democrat }
+				activate_advisor = NZL_peter_fraser_sic
+			}
+		}
+	}
+}
+
+### ANDERSON DOCTRINE EVENTS
+
+# Australasia claims New Guinea
+country_event = {
+	id = austral.350
+	title = austral.350.t
+	desc = austral.350.d
+	picture = GFX_report_event_AST_army1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.350 option austral.350.a"
+		name = austral.350.a
+		trigger = { NOT = { has_war_with = AST } }
+		add_opinion_modifier = {
+			target = AST
+			modifier = AST_claimed_territory
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.350 option austral.350.b"
+		name = austral.350.b
+		trigger = { has_war_with = AST }
+	}
+}
+
+# Australasia claims Melanesia
+country_event = {
+	id = austral.351
+	title = austral.351.t
+	desc = austral.351.d
+	picture = GFX_report_event_AST_army1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.351 option austral.350.a"
+		name = austral.350.a
+		trigger = { NOT = { has_war_with = AST } }
+		add_opinion_modifier = {
+			target = AST
+			modifier = AST_claimed_territory
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.351 option austral.350.b"
+		name = austral.350.b
+		trigger = { has_war_with = AST }
+	}
+}
+
+# Australasia claims South Pacific
+country_event = {
+	id = austral.352
+	title = austral.352.t
+	desc = austral.352.d
+	picture = GFX_report_event_AST_army1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.352 option austral.350.a"
+		name = austral.350.a
+		trigger = { NOT = { has_war_with = AST } }
+		add_opinion_modifier = {
+			target = AST
+			modifier = AST_claimed_territory
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.352 option austral.350.b"
+		name = austral.350.b
+		trigger = { has_war_with = AST }
+	}
+}
+
+# Australasia claims German East Indies
+country_event = {
+	id = austral.353
+	title = austral.353.t
+	desc = austral.353.d
+	picture = GFX_report_event_AST_army1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.353 option austral.350.a"
+		name = austral.350.a
+		trigger = { NOT = { has_war_with = AST } }
+		add_opinion_modifier = {
+			target = AST
+			modifier = AST_claimed_territory
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.353 option austral.350.b"
+		name = austral.350.b
+		trigger = { has_war_with = AST }
+	}
+}
+
+# Australasia claims Singapore
+country_event = {
+	id = austral.354
+	title = austral.354.t
+	desc = austral.354.d
+	picture = GFX_report_event_AST_army1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.354 option austral.350.a"
+		name = austral.350.a
+		trigger = { NOT = { has_war_with = AST } }
+		add_opinion_modifier = {
+			target = AST
+			modifier = AST_claimed_territory
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.354 option austral.350.b"
+		name = austral.350.b
+		trigger = { has_war_with = AST }
+	}
+}
+
+# Australasia claims Sarawak
+country_event = {
+	id = austral.355
+	title = austral.355.t
+	desc = austral.355.d
+	picture = GFX_report_event_AST_army1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.355 option austral.350.a"
+		name = austral.350.a
+		trigger = { NOT = { has_war_with = AST } }
+		add_opinion_modifier = {
+			target = AST
+			modifier = AST_claimed_territory
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.355 option austral.350.b"
+		name = austral.350.b
+		trigger = { has_war_with = AST }
+	}
+}
+
+# Australasia claims Malaya
+country_event = {
+	id = austral.356
+	title = austral.356.t
+	desc = austral.356.d
+	picture = GFX_report_event_AST_army1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.356 option austral.350.a"
+		name = austral.350.a
+		trigger = { NOT = { has_war_with = AST } }
+		add_opinion_modifier = {
+			target = AST
+			modifier = AST_claimed_territory
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.356 option austral.350.b"
+		name = austral.350.b
+		trigger = { has_war_with = AST }
+	}
+}
+
+# Australasia claims Western New Guinea
+country_event = {
+	id = austral.357
+	title = austral.357.t
+	desc = austral.357.d
+	picture = GFX_report_event_AST_army1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.357 option austral.350.a"
+		name = austral.350.a
+		add_opinion_modifier = {
+			target = AST
+			modifier = AST_claimed_territory
+		}
+	}
+}
+
+# Australasia claims Timor
+country_event = {
+	id = austral.358
+	title = austral.358.t
+	desc = austral.358.d
+	picture = GFX_report_event_AST_army1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.358 option austral.350.a"
+		name = austral.350.a
+		add_opinion_modifier = {
+			target = AST
+			modifier = AST_claimed_territory
+		}
+	}
+}
+
+# Australasia make a demand for its claimed territories (fired from decision)
+country_event = {
+	id = austral.360
+	title = austral.360.t
+	picture = GFX_report_event_AST_army1
+
+	desc = {
+		text = austral.360.d.puppet
+		trigger = {
+			has_event_target = puppet_owner
+		}
+	}
+	desc = {
+		text = austral.360.d.owned
+		trigger = {
+			NOT = { has_event_target = puppet_owner }
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.360 option austral.360.a"
+		name = austral.360.a #We have no choice - let them have the land
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 2
+				surrender_progress > 0.25
+			}
+			modifier = {
+				factor = 2
+				surrender_progress > 0.50
+			}
+			modifier = {
+				factor = 0.5
+				strength_ratio = {
+					tag = AST
+					ratio > 1.0
+				}
+			}
+			modifier = {
+				factor = 0
+				surrender_progress < 0.50
+				strength_ratio = {
+					tag = AST
+					ratio > 2.0
+				}
+			}
+			modifier = {
+				factor = 0.5
+				is_in_faction = yes
+				is_faction_leader = no
+				faction_leader = {
+					strength_ratio = {
+						tag = AST
+						ratio > 1.0
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				surrender_progress < 0.50
+				is_in_faction = yes
+				is_faction_leader = no
+				faction_leader = {
+					strength_ratio = {
+						tag = AST
+						ratio > 2.0
+					}
+				}
+			}
+		}
+		add_opinion_modifier = {
+			target = AST
+			modifier = KR_outraged
+		}
+		if = {
+			limit = { has_event_target = puppet_owner }
+			add_political_power = -50
+			event_target:puppet_owner = {
+				country_event = { id = austral.361 days = 3 }
+				effect_tooltip = {
+					every_owned_state = {
+						limit = {
+							is_claimed_by = AST
+							has_state_flag = AST_claimed_anderson
+						}
+						transfer_state_to = AST
+					}
+				}
+			}
+		}
+		else = {
+			add_political_power = -100
+			effect_tooltip = {
+				every_owned_state = {
+					limit = {
+						is_claimed_by = AST
+						has_state_flag = AST_claimed_anderson
+					}
+					transfer_state_to = AST
+				}
+			}
+		}
+		AST = {
+			country_event = { id = austral.362 days = 3 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.360 option austral.360.b"
+		name = austral.360.b #What? No! They will have to fight for it
+		ai_chance = {
+			base = 75
+			modifier = {
+				factor = 0.5
+				OR = {
+					is_in_faction = no
+					is_faction_leader = yes
+				}
+				strength_ratio = {
+					tag = AST
+					ratio < 0.5
+				}
+			}
+		}
+		add_political_power = 50
+		add_opinion_modifier = { target = AST modifier = KR_outraged }
+		AST = {
+			country_event = { id = austral.363 days = 3 }
+		}
+	}
+}
+
+# Puppet informed that territory has been given away
+country_event = {
+	id = austral.361
+	title = austral.361.t
+	desc = austral.361.d
+	picture = GFX_report_event_AST_army1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.361 option austral.361.a"
+		name = austral.361.a
+		add_political_power = -100
+		add_opinion_modifier = { target = FROM modifier = KR_disapproves_of_govt }
+		add_opinion_modifier = { target = AST modifier = KR_outraged }
+		effect_tooltip = {
+			every_owned_state = {
+				limit = {
+					is_claimed_by = AST
+					has_state_flag = AST_claimed_anderson
+				}
+				transfer_state_to = AST
+			}
+		}
+	}
+}
+
+# Australasia informed that their demands have been met
+country_event = {
+	id = austral.362
+	title = austral.362.t
+	desc = austral.362.d
+	picture = GFX_report_event_AST_army1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.362 option austral.362.a"
+		name = austral.362.a
+		add_political_power = 50
+		if = {
+			limit = { has_event_target = puppet_owner }
+			event_target:puppet_owner = {
+				every_owned_state = {
+					limit = {
+						is_claimed_by = AST
+						has_state_flag = AST_claimed_anderson
+					}
+					transfer_state_to = AST
+				}
+			}
+		}
+		else = {
+			FROM = {
+				every_owned_state = {
+					limit = {
+						is_claimed_by = AST
+						has_state_flag = AST_claimed_anderson
+					}
+					transfer_state_to = AST
+				}
+			}
+		}
+	}
+}
+
+# Australasia informed that their demands have been refused
+country_event = {
+	id = austral.363
+	title = austral.363.t
+	desc = austral.363.d
+	picture = GFX_report_event_AST_army1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.363 option austral.363.a"
+		name = austral.363.a
+		if = {
+			limit = { has_event_target = puppet_owner }
+			declare_war_on = {
+				target = event_target:puppet_owner
+				type = take_claimed_state
+			}
+		}
+		else = {
+			declare_war_on = {
+				target = FROM
+				type = take_claimed_state
+			}
+		}
+	}
+}
+
+# Australasia seizes New Guinea
+country_event = {
+	id = austral.364
+	title = austral.364.t
+	desc = austral.364.d
+	picture = GFX_report_event_AST_army1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.364 option austral.364.a"
+		name = austral.364.a
+		every_owned_state = {
+			limit = {
+				OR = {
+					state = 757 #NE. New Guinea
+					state = 737 #Bismarck Archipelago
+				}
+				ROOT = {
+					divisions_in_state = {
+						state = PREV
+						size < 1
+					}
+				}
+			}
+			transfer_state_to = AST
+			add_claim_of_ROOT = yes
+		}
+		add_opinion_modifier = {
+			target = AST
+			modifier = KR_outraged
+		}
+	}
+}
+
+# Australasia seizes western New Guinea
+country_event = {
+	id = austral.365
+	title = austral.365.t
+	desc = austral.365.d
+	picture = GFX_report_event_AST_army1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.365 option austral.364.a"
+		name = austral.364.a
+		every_owned_state = {
+			limit = {
+				OR = {
+					state = 843 #SW. New Guinea
+					state = 669 #NW. New Guinea
+				}
+				ROOT = {
+					divisions_in_state = {
+						state = PREV
+						size < 1
+					}
+				}
+			}
+			transfer_state_to = AST
+			add_claim_of_ROOT = yes
+		}
+		add_opinion_modifier = {
+			target = AST
+			modifier = KR_outraged
+		}
+	}
+}
+
+# Australasia seizes Timor
+country_event = {
+	id = austral.366
+	title = austral.366.t
+	desc = austral.366.d
+	picture = GFX_report_event_AST_army1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.366 option austral.364.a"
+		name = austral.364.a
+		every_owned_state = {
+			limit = {
+				OR = {
+					state = 721 #East Timor
+					state = 1017 #West Timor
+				}
+				ROOT = {
+					divisions_in_state = {
+						state = PREV
+						size < 1
+					}
+				}
+			}
+			transfer_state_to = AST
+			add_claim_of_ROOT = yes
+		}
+		add_opinion_modifier = {
+			target = AST
+			modifier = KR_outraged
+		}
+	}
+}
+
+# Return lands to the UK?
+country_event = {
+	id = austral.367
+	title = austral.367.t
+	desc = austral.367.d
+	picture = GFX_report_event_AST_army1
+
+	trigger = {
+		original_tag = AST
+		is_in_faction_with = GBR
+		has_completed_focus = AST_anderson_doctrine
+		NOT = { has_country_flag = AST_no_return_GBR }
+		any_owned_state = {
+			has_state_flag = AST_claimed_anderson
+			NOT = {
+				state = 633 #Marshall Islands
+				state = 635 #New Caledonia
+				state = 641 #Tahiti
+				state = 646 #Mariana Islands
+				state = 647 #Palau
+				state = 669 #NW. New Guinea
+				state = 684 #Caroline Islands
+				state = 721 #East Timor
+				state = 737 #Bismarck Archipelago
+				state = 757 #NE. New Guinea
+				state = 843 #SW. New Guinea
+				state = 1017 #West Timor
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 2
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.367 option austral.367.a"
+		name = austral.367.a
+		ai_chance = { base = 100 }
+		GBR = {
+			country_event = { id = austral.368 days = 5 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.367 option austral.367.b"
+		name = austral.367.b
+		ai_chance = { base = 0 }
+		set_country_flag = AST_no_return_GBR
+		add_stability = -0.05
+	}
+}
+
+# UK considers whether they want the lands
+country_event = {
+	id = austral.368
+	title = austral.368.t
+	desc = austral.368.d
+	picture = GFX_report_event_AST_army1
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_in_faction_with = FROM
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.368 option austral.368.a"
+		name = austral.368.a #Yes, please!
+		set_temp_variable = { target = ROOT }
+		FROM = {
+			every_owned_state = {
+				limit = {
+					has_state_flag = AST_claimed_anderson
+					NOT = { is_core_of = FROM }
+					NOT = {
+						state = 633 #Marshall Islands
+						state = 635 #New Caledonia
+						state = 641 #Tahiti
+						state = 646 #Mariana Islands
+						state = 647 #Palau
+						state = 669 #NW. New Guinea
+						state = 684 #Caroline Islands
+						state = 721 #East Timor
+						state = 737 #Bismarck Archipelago
+						state = 757 #NE. New Guinea
+						state = 843 #SW. New Guinea
+						state = 1017 #West Timor
+					}
+				}
+				remove_claim_by = FROM
+				add_claim_by = ROOT
+				transfer_state_to = ROOT
+			}
+		}
+		FROM = { country_event = austral.369 }
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.368 option austral.368.b"
+		name = austral.368.b #They fought for it, they can keep it
+		add_political_power = 100
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_approves_of_govt
+		}
+		FROM = { country_event = austral.370 }
+	}
+}
+
+# They took the lands back
+country_event = {
+	id = austral.369
+	title = austral.369.t
+	desc = austral.369.d
+	picture = GFX_report_event_AST_army1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.369 option austral.369.a"
+		name = austral.369.a
+		add_stability = 0.10
+		add_political_power = 100
+		reverse_add_opinion_modifier = {
+			target = FROM
+			modifier = AST_returned_land
+		}
+	}
+}
+
+# They let us keep the lands
+country_event = {
+	id = austral.370
+	title = austral.370.t
+	desc = austral.370.d
+	picture = GFX_report_event_AST_army1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.370 option austral.370.a"
+		name = austral.370.a
+		add_political_power = 100
+		set_country_flag = AST_no_return_GBR
+		add_opinion_modifier = {
+			target = FROM
+			modifier = KR_approves_of_govt
+		}
+	}
+}
+
+# GEA: Seize Papua?
+country_event = {
+	id = austral.371
+	title = austral.371.t
+	desc = austral.371.d
+	picture = GFX_report_event_AST_army1
+
+	trigger = {
+		523 = { is_owned_and_controlled_by = FROM } #SE. New Guinea
+		757 = { is_owned_and_controlled_by = ROOT } #NE. New Guinea
+		FROM = { has_socialist_government = yes }
+		surrender_progress < 0.2
+		NOT = { has_war_with = FROM }
+		NOT = { FROM = { any_allied_country = { has_war_with = ROOT } } }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.371 option austral.371.a"
+		name = austral.371.a
+		FROM = {
+			every_owned_state = {
+				limit = { is_core_of = PNG }
+				add_claim_by = ROOT
+				transfer_state_to = ROOT
+				set_state_flag = AST_seized_by_GEA
+			}
+			country_event = austral.372
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event austral.371 option austral.371.b"
+		name = austral.371.b
+		ai_chance = { base = 0 }
+		add_political_power = -10
+	}
+}
+
+# AST: GEA has seized Papua
+country_event = {
+	id = austral.372
+	title = austral.372.t
+	desc = austral.372.d
+	picture = GFX_report_event_AST_army1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.372 option austral.372.a"
+		name = austral.372.a #Let them take it
+		effect_tooltip = {
+			every_state = {
+				limit = { has_state_flag = AST_seized_by_GEA }
+				add_claim_by = FROM
+				transfer_state_to = FROM
+			}
+		}
+		add_opinion_modifier = { target = FROM modifier = KR_hates_govt }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.372 option austral.372.b"
+		name = austral.372.b #This means war!
+		ai_chance = { base = 0 }
+		add_political_power = -200
+		create_wargoal = { target = FROM type = annex_everything }
+	}
+}
+
+# GEA: AST is no longer socialist, return Papua?
+country_event = {
+	id = austral.373
+
+	title = {
+		text = austral.373.t.new_guard_coup
+		trigger = {
+			FROM = { original_tag = AST }
+		}
+	}
+	title = {
+		text = austral.373.t.invaded
+		trigger = {
+			NOT = { FROM = { original_tag = AST } }
+		}
+	}
+
+	desc = {
+		text = austral.373.d.new_guard_coup
+		trigger = {
+			FROM = { original_tag = AST }
+		}
+	}
+	desc = {
+		text = austral.373.d.invaded
+		trigger = {
+			NOT = { FROM = { original_tag = AST } }
+		}
+	}
+
+	picture = GFX_report_event_AST_army1
+
+	trigger = {
+		523 = { is_owned_and_controlled_by = ROOT } #SE. New Guinea
+		757 = { is_owned_and_controlled_by = ROOT } #NE. New Guinea
+		FROM = { has_socialist_government = no }
+		surrender_progress < 0.2
+		NOT = { has_war_with = FROM }
+		NOT = { FROM = { any_allied_country = { has_war_with = ROOT } } }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.373 option austral.373.a"
+		name = austral.373.a #Yes, it shall be returned
+		ai_chance = { base = 70 }
+		if = {
+			limit = { AST = { is_in_faction_with = FROM } }
+			set_temp_variable = { target = AST }
+		}
+		else = {
+			set_temp_variable = { target = ROOT }
+		}
+		every_owned_state = {
+			limit = { has_state_flag = AST_seized_by_GEA }
+			remove_claim_by = ROOT
+			effect_tooltip = { transfer_state_to = var:target }
+		}
+		effect_tooltip = {
+			reverse_add_opinion_modifier = { target = FROM modifier = KR_pleased }
+		}
+		FROM = { country_event = austral.374 }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event austral.373 option austral.373.b"
+		name = austral.373.b #Finders, keepers
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 0
+				OR = {
+					has_global_flag = GER_stay_out_france_uk
+					has_non_aggression_pact_with = FROM
+					is_in_faction_with = FROM
+				}
+			}
+		}
+		effect_tooltip = { reverse_add_opinion_modifier = { target = FROM modifier = KR_outraged } }
+		FROM = { country_event = austral.375 }
+	}
+}
+
+# AST/ENT: GEA has returned Papua
+country_event = {
+	id = austral.374
+	title = austral.374.t
+	desc = austral.374.d
+	picture = GFX_report_event_AST_army1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.374 option austral.374.a"
+		name = austral.374.a #Excellent
+		if = {
+			limit = { has_subject = AST }
+			set_temp_variable = { target = AST }
+		}
+		else = {
+			set_temp_variable = { target = ROOT }
+		}
+		FROM = {
+			every_owned_state = {
+				limit = { has_state_flag = AST_seized_by_GEA }
+				add_claim_by = var:target
+				transfer_state_to = var:target
+			}
+		}
+		add_opinion_modifier = { target = FROM modifier = KR_pleased }
+		hidden_effect = { every_state = { clr_state_flag = AST_seized_by_GEA } }
+	}
+}
+
+# AST/ENT: GEA has retained Papua
+country_event = {
+	id = austral.375
+	title = austral.375.t
+	desc = austral.375.d
+	picture = GFX_report_event_AST_army1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event austral.375 option austral.375.a"
+		name = austral.375.a #We will remember this!
+		add_opinion_modifier = { target = FROM modifier = KR_outraged }
+		hidden_effect = { every_state = { clr_state_flag = AST_seized_by_GEA } }
+	}
+}

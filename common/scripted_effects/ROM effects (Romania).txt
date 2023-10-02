@@ -1,0 +1,406 @@
+ROM_increase_king = {
+	add_power_balance_value = {
+		id = ROM_power_balance
+		value = -0.25
+	}
+	add_to_variable = { ROM.captain_influence = -1 }
+	add_to_variable = { ROM.king_influence = 1 }
+}
+
+ROM_increase_captain = {
+	add_power_balance_value = {
+		id = ROM_power_balance
+		value = 0.25
+	}
+	add_to_variable = { ROM.captain_influence = 1 }
+	add_to_variable = { ROM.king_influence = -1 }
+}
+
+ROM_increase_selected = {
+	if = {
+		limit = { has_country_flag = ROM_selectczc }
+		custom_effect_tooltip = tooltip_white_line
+
+		add_power_balance_value = {
+			id = ROM_power_balance
+			value = 0.25
+		}
+	}
+	else_if = {
+		limit = { has_country_flag = ROM_selectcarol }
+		custom_effect_tooltip = tooltip_white_line
+
+		add_power_balance_value = {
+			id = ROM_power_balance
+			value = -0.25
+		}
+	}
+}
+
+ROM_IG_CZC = {
+	add_to_variable = { var = ROM_IG_CZC value = 1 }
+	custom_effect_tooltip = ROM_IG_CZC_tt
+	if = {
+		limit = {
+			check_variable = { ROM_IG_OG > ROM_IG_CML }
+			check_variable = { ROM_IG_OG > ROM_IG_CNTZ }
+		}
+		add_to_variable = { var = ROM_IG_OG value = -2 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { ROM_IG_CML > ROM_IG_OG }
+			check_variable = { ROM_IG_CML > ROM_IG_CNTZ }
+		}
+		add_to_variable = { var = ROM_IG_CML value = -2 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { ROM_IG_CNTZ > ROM_IG_OG }
+			check_variable = { ROM_IG_CNTZ > ROM_IG_CML }
+		}
+		add_to_variable = { var = ROM_IG_CNTZ value = -2 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { ROM_IG_OG = ROM_IG_CNTZ }
+			check_variable = { ROM_IG_OG = ROM_IG_CML }
+		}
+		add_to_variable = { var = ROM_IG_OG value = -1 }
+		add_to_variable = { var = ROM_IG_CNTZ value = -1 }
+		add_to_variable = { var = ROM_IG_CML value = -1 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { ROM_IG_OG = ROM_IG_CML }
+		}
+		add_to_variable = { var = ROM_IG_OG value = -1 }
+		add_to_variable = { var = ROM_IG_CML value = -1 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { ROM_IG_OG = ROM_IG_CNTZ }
+		}
+		add_to_variable = { var = ROM_IG_OG value = -1 }
+		add_to_variable = { var = ROM_IG_CNTZ value = -1 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { ROM_IG_CNTZ = ROM_IG_CML }
+		}
+		add_to_variable = { var = ROM_IG_CNTZ value = -1 }
+		add_to_variable = { var = ROM_IG_CML value = -1 }
+	}
+	else = {
+		add_to_variable = { var = ROM_IG_CZC value = 1 }
+	}
+}
+ROM_IG_OG = {
+	add_to_variable = { var = ROM_IG_OG value = 1 }
+	custom_effect_tooltip = ROM_IG_OG_tt
+}
+ROM_IG_OG3 = {
+	add_to_variable = { var = ROM_IG_OG value = 2 }
+	custom_effect_tooltip = ROM_IG_OG3_tt
+}
+ROM_IG_CML = {
+	add_to_variable = { var = ROM_IG_CML value = 1 }
+	custom_effect_tooltip = ROM_IG_CML_tt
+}
+ROM_IG_CML3 = {
+	add_to_variable = { var = ROM_IG_CML value = 2 }
+	custom_effect_tooltip = ROM_IG_CML3_tt
+}
+ROM_IG_CNTZ = {
+	add_to_variable = { var = ROM_IG_CNTZ value = 1 }
+	custom_effect_tooltip = ROM_IG_CNTZ_tt
+}
+ROM_IG_CNTZ3 = {
+	add_to_variable = { var = ROM_IG_CNTZ value = 2 }
+	custom_effect_tooltip = ROM_IG_CNTZ3_tt
+}
+ROM_IG_ALL = {
+	custom_effect_tooltip = ROM_IG_ALL_tt
+	add_to_variable = { var = ROM_IG_CZC value = -1 }
+}
+ROM_check_factions = {
+	hidden_effect = { #give more leeway here, don't fire stuff immediately
+		if = {
+			limit = {
+				check_variable = { ROM_IG_OG > ROM_IG_CZC }
+			}
+			country_event = { id = romania.187 days = 70 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { ROM_IG_CML > ROM_IG_CZC }
+			}
+			country_event = { id = romania.188 days = 70 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { ROM_IG_CNTZ > ROM_IG_CZC }
+			}
+			country_event = { id = romania.189 days = 70 }
+		}
+		else = {
+			country_event = { id = romania.902 days = 70 }
+		}
+		if = {
+			limit = { check_variable = { ROM_IG_CZC < 0 } }
+			set_variable = { var = ROM_IG_CZC value = 0 }
+		}
+		if = {
+			limit = { check_variable = { ROM_IG_OG < 0 } }
+			set_variable = { var = ROM_IG_OG value = 0 }
+		}
+		if = {
+			limit = { check_variable = { ROM_IG_CML < 0 } }
+			set_variable = { var = ROM_IG_CML value = 0 }
+		}
+		if = {
+			limit = { check_variable = { ROM_IG_CNTZ < 0 } }
+			set_variable = { var = ROM_IG_CNTZ value = 0 }
+		}
+	}
+}
+
+ROM_first_elect_PNT = {
+	if = {
+		limit = {
+			has_country_flag = ROM_PNT_madgearu
+		}
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = social_democrat
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 48
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		activate_advisor = ROM_virgil_madgearu_sic
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.20
+		}
+		set_temp_variable = { coalition_partner_var = token:social_liberal }
+		add_to_coalition = yes
+		set_temp_variable = { coalition_partner_var = token:social_conservative }
+		add_to_coalition = yes
+	}
+	else_if = {
+		limit = {
+			has_country_flag = ROM_PNT_maniu
+		}
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = social_liberal
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 48
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		activate_advisor = ROM_iuliu_maniu_sic
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.20
+		}
+		set_temp_variable = { coalition_partner_var = token:social_democrat }
+		add_to_coalition = yes
+		set_temp_variable = { coalition_partner_var = token:social_conservative }
+		add_to_coalition = yes
+	}
+	else_if = {
+		limit = {
+			has_country_flag = ROM_PNT_vaida
+		}
+		meta_effect = {
+			text = {
+				set_politics = {
+					ruling_party = social_conservative
+					last_election = "[CURRENT_DATE]"
+					election_frequency = 48
+					elections_allowed = yes
+				}
+			}
+			CURRENT_DATE = "[?global.date.GetDateStringNoHour]"
+		}
+		activate_advisor = ROM_alexandru_vaida_voevod_sic
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.20
+		}
+		set_temp_variable = { coalition_partner_var = token:social_democrat }
+		add_to_coalition = yes
+		set_temp_variable = { coalition_partner_var = token:social_liberal }
+		add_to_coalition = yes
+	}
+}
+ROM_later_elect_PNT = {
+	if = {
+		limit = {
+			has_country_flag = ROM_PNT_madgearu
+		}
+		set_politics = {
+			ruling_party = social_democrat
+			elections_allowed = yes
+			election_frequency = 48
+		}
+		activate_advisor = ROM_virgil_madgearu_sic
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.10
+		}
+		set_temp_variable = { coalition_partner_var = token:social_liberal }
+		add_to_coalition = yes
+		set_temp_variable = { coalition_partner_var = token:social_conservative }
+		add_to_coalition = yes
+	}
+	else_if = {
+		limit = {
+			has_country_flag = ROM_PNT_maniu
+		}
+		set_politics = {
+			ruling_party = social_liberal
+			elections_allowed = yes
+			election_frequency = 48
+		}
+		activate_advisor = ROM_iuliu_maniu_sic
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.10
+		}
+		set_temp_variable = { coalition_partner_var = token:social_democrat }
+		add_to_coalition = yes
+		set_temp_variable = { coalition_partner_var = token:social_conservative }
+		add_to_coalition = yes
+	}
+	else_if = {
+		limit = {
+			has_country_flag = ROM_PNT_vaida
+		}
+		set_politics = {
+			ruling_party = social_conservative
+			elections_allowed = yes
+			election_frequency = 48
+		}
+		activate_advisor = ROM_alexandru_vaida_voevod_sic
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.10
+		}
+		set_temp_variable = { coalition_partner_var = token:social_democrat }
+		add_to_coalition = yes
+		set_temp_variable = { coalition_partner_var = token:social_liberal }
+		add_to_coalition = yes
+	}
+}
+
+ROM_set_legionary_HoG = {
+	if = {
+		limit = { has_country_flag = ROM_cantacuzino } #Radicals/Cantacuzino
+		activate_advisor = ROM_alexandru_cantacuzino_sic
+	}
+	else_if = {
+		limit = { NOT = { has_character = ROM_corneliu_codreanu } } #Codreanu ded
+		activate_advisor = ROM_horia_sima_sic
+	}
+	else = {
+		activate_advisor = ROM_corneliu_codreanu_sic #Codreanu still alive in romania
+	}
+}
+ROM_fix_democracy = {
+	if = {
+		limit = { has_idea = ROM_rebuilding_the_democracy }
+		swap_ideas = {
+			remove_idea = ROM_rebuilding_the_democracy
+			add_idea = ROM_rebuilding_the_democracy2
+		}
+	}
+	else_if = {
+		limit = { has_idea = ROM_rebuilding_the_democracy2 }
+		swap_ideas = {
+			remove_idea = ROM_rebuilding_the_democracy2
+			add_idea = ROM_rebuilding_the_democracy3
+		}
+	}
+	else_if = {
+		limit = { has_idea = ROM_rebuilding_the_democracy3 }
+		swap_ideas = {
+			remove_idea = ROM_rebuilding_the_democracy3
+			add_idea = ROM_rebuilding_the_democracy4
+		}
+	}
+	else_if = {
+		limit = { has_idea = ROM_rebuilding_the_democracy4 }
+		remove_ideas = ROM_rebuilding_the_democracy4
+	}
+	else = {
+		set_temp_variable = { ideology_change_var = 5 }
+		change_ruling_party_popularity = yes
+	}
+}
+
+ROM_integrate_transylvanians = {
+	hidden_effect = {
+		TRS = {
+			retire_character = TRS_albert_wass
+			retire_character = TRS_georg_domaschnian #Let the old man retire
+			retire_character = TRS_alexandru_borza #ROM already has education reformer
+			retire_character = TRS_miron_cristea #ROM already has spiritual leader
+			retire_character = TRS_iuliu_hossu #ROM already has compassionate gentleman
+			retire_character = TRS_iosif_jumanca #ROM already has pragmatic statesman
+			retire_character = TRS_aurel_vlad #ROM already has bank president
+			retire_character = TRS_ladislaus_cenna #ROM already has commando leader
+			TRS_miklos_banffy = { set_nationality = HUN }
+		}
+	}
+	TRS = { every_character = { set_nationality = ROM } }
+}
+
+ROM_set_up_puppet_leaders = {
+	hidden_effect = {
+		if = {
+			limit = {
+				ROOT = {
+					OR = {
+						tag = UPC
+						is_american_tag = yes
+						AND = {
+							is_russian_tag = yes
+							has_elected_government = yes
+						}
+					}
+				}
+			}
+			ROM_ion_mihalache = {
+				promote_character = social_democrat_subtype
+				promote_character = social_liberal_subtype
+			}
+			ROM_dinu_bratianu = {
+				promote_character = market_liberal_subtype
+				promote_character = social_conservative_subtype
+			}
+		}
+		if = {
+			limit = {
+				has_country_leader = { character = ROM_carol_ii }
+			}
+			ROM_mihai_i = { promote_character = paternal_autocrat_subtype }
+			ROM_alexandru_cantacuzino = { promote_character = national_populist_subtype }
+		}
+		if = {
+			limit = {
+				has_government = national_populist
+				has_country_leader = { character = ROM_mihai_i }
+			}
+			ROM_alexandru_cantacuzino = { promote_character = national_populist_subtype }
+		}
+	}
+}

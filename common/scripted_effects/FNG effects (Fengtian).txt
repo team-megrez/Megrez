@@ -1,0 +1,732 @@
+#Recovery League
+FNG_RLPOP = {
+	if = {
+		limit = { has_country_flag = FNG_recovery_league_active }
+		divide_temp_variable = { RLPOP = 100 }
+		hidden_effect = {
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = RLPOP
+			}
+		}
+		FNG_party_popularity_events = yes
+		custom_effect_tooltip = RL_POP
+	}
+}
+# National Unity League
+FNG_NUPOP = {
+	divide_temp_variable = { NUPOP = 100 }
+	hidden_effect = {
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = NUPOP
+		}
+	}
+	custom_effect_tooltip = NU_POP
+}
+
+#Zhang Clique
+FNG_ZCPOP = {
+	if = {
+		limit = { has_country_flag = FNG_zhang_clique_active }
+		divide_temp_variable = { ZCPOP = 100 }
+		hidden_effect = {
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = ZCPOP
+			}
+		}
+		FNG_party_popularity_events = yes
+		custom_effect_tooltip = ZC_POP
+	}
+}
+
+#Communications Clique
+FNG_CCPOP = {
+	if = {
+		limit = { has_country_flag = FNG_communications_clique_active }
+		divide_temp_variable = { CCPOP = 100 }
+		hidden_effect = {
+			add_popularity = {
+				ideology = social_conservative
+				popularity = CCPOP
+			}
+		}
+		FNG_party_popularity_events = yes
+		custom_effect_tooltip = CC_POP
+	}
+}
+
+#Concordia Association
+FNG_CAPOP = {
+	if = {
+		limit = { has_country_flag = FNG_concordia_association_active }
+		divide_temp_variable = { CAPOP = 100 }
+		hidden_effect = {
+			add_popularity = {
+				ideology = market_liberal
+				popularity = CAPOP
+			}
+		}
+		FNG_party_popularity_events = yes
+		custom_effect_tooltip = CA_POP
+	}
+}
+FNG_CA_remove = {
+	clr_country_flag = FNG_concordia_association_active
+	remove_targeted_decision = { target = THIS decision = FNG_favor_concordia_association }
+	hidden_effect = {
+		set_political_party = {
+			ideology = market_liberal
+			popularity = 0
+		}
+		clear_variable = FNG_factionalism_marlib_drift
+		force_update_dynamic_modifier = yes
+		country_event = { id = fngpolitic.16 days = 1 random_hours = 24 } #Expel the Japanese Bandits!
+	}
+	FNG_party_popularity_events = yes
+	custom_effect_tooltip = CA_remove
+}
+
+#Zhigong Party
+FNG_ZPPOP = {
+	divide_temp_variable = { ZPPOP = 100 }
+	hidden_effect = {
+		add_popularity = {
+			ideology = social_democrat
+			popularity = ZPPOP
+		}
+	}
+	FNG_party_popularity_events = yes
+	custom_effect_tooltip = ZP_POP
+}
+
+FNG_party_popularity_events = {
+	hidden_effect = {
+		# Recovery League
+		country_event = { id = fngpolitic.21 days = 2 random_hours = 72 } #Disastrous Governance
+		country_event = fngpolitic.22 #Disastrous Governance Removal
+
+		# Zhang Clique
+		country_event = { id = fngpolitic.23 days = 2 random_hours = 72 } #Army Dominance
+		country_event = { id = fngpolitic.30 days = 30 random_hours = 2880 } #Zhang Clique Low Influence
+		country_event = fngpolitic.24 #Army Dominance Removal
+
+		# Communications Clique
+		country_event = { id = fngpolitic.25 days = 2 random_hours = 72 } #Plutocratic Exploitation
+		country_event = { id = fngpolitic.31 days = 30 random_hours = 2880 } #Communications Clique Low Influence
+		country_event = fngpolitic.26 #Plutocratic Exploitation Removal
+
+		# Concordia
+		country_event = { id = fngpolitic.18 days = 1 random_hours = 24 } #Mantetsu Influence
+		country_event = { id = fngpolitic.19 days = 1 random_hours = 24 } #Pervasive Mantetsu Influence
+		country_event = { id = fngpolitic.20 days = 1 random_hours = 24 } #Mantetsu Dominance
+		country_event = fngpolitic.27
+
+		#Mantetsu
+		FNG_recalculate_mantetsu_effects = yes
+	}
+}
+
+#Fengtian vs Japan
+FNG_japan_cuts_aid = {
+	add_ideas = FNG_Japanese_Aid_Cut
+	hidden_effect = {
+		country_event = { id = fengtian.23 random_hours = 3960 days = 55 }
+	}
+}
+
+#Legitimacy
+FNG_setup_legitimacy = {
+	if = {
+		limit = { NOT = { has_variable = FNG_legitimacy_level } }
+		set_temp_variable = { FNG_legitimacy_level = 1 }
+	}
+	meta_effect = {
+		text = {
+			add_ideas = [IDEA_TAG]
+		}
+		IDEA_TAG = "FNG_Legitimacy_[?FNG_legitimacy_level]"
+	}
+}
+
+FNG_increase_legitimacy = {
+	add_to_variable = { FNG_legitimacy_level = 1 }
+	clamp_variable = { var = FNG_mantetsu_influence_var max = 10 }
+	if = {
+		limit = { has_idea = FNG_Legitimacy_1 }
+		swap_ideas = {
+			remove_idea = FNG_Legitimacy_1
+			add_idea = FNG_Legitimacy_2
+		}
+	}
+	else_if = {
+		limit = { has_idea = FNG_Legitimacy_2 }
+		swap_ideas = {
+			remove_idea = FNG_Legitimacy_2
+			add_idea = FNG_Legitimacy_3
+		}
+	}
+	else_if = {
+		limit = { has_idea = FNG_Legitimacy_3 }
+		swap_ideas = {
+			remove_idea = FNG_Legitimacy_3
+			add_idea = FNG_Legitimacy_4
+		}
+	}
+	else_if = {
+		limit = { has_idea = FNG_Legitimacy_4 }
+		swap_ideas = {
+			remove_idea = FNG_Legitimacy_4
+			add_idea = FNG_Legitimacy_5
+		}
+	}
+	else_if = {
+		limit = { has_idea = FNG_Legitimacy_5 }
+		swap_ideas = {
+			remove_idea = FNG_Legitimacy_5
+			add_idea = FNG_Legitimacy_6
+		}
+	}
+	else_if = {
+		limit = { has_idea = FNG_Legitimacy_6 }
+		swap_ideas = {
+			remove_idea = FNG_Legitimacy_6
+			add_idea = FNG_Legitimacy_7
+		}
+	}
+	else_if = {
+		limit = { has_idea = FNG_Legitimacy_7 }
+		swap_ideas = {
+			remove_idea = FNG_Legitimacy_7
+			add_idea = FNG_Legitimacy_8
+		}
+	}
+	else_if = {
+		limit = { has_idea = FNG_Legitimacy_8 }
+		swap_ideas = {
+			remove_idea = FNG_Legitimacy_8
+			add_idea = FNG_Legitimacy_9
+		}
+	}
+	else_if = {
+		limit = { has_idea = FNG_Legitimacy_9 }
+		swap_ideas = {
+			remove_idea = FNG_Legitimacy_9
+			add_idea = FNG_Legitimacy_10
+		}
+	}
+	else = {
+		custom_effect_tooltip = FNG_increase_legitimacy_tooltip
+	}
+}
+
+FNG_decrease_legitimacy = {
+	subtract_from_variable = { FNG_legitimacy_level = 1 }
+	clamp_variable = { var = FNG_mantetsu_influence_var min = 1 }
+	if = {
+		limit = { has_idea = FNG_Legitimacy_10 }
+		swap_ideas = {
+			remove_idea = FNG_Legitimacy_10
+			add_idea = FNG_Legitimacy_9
+		}
+	}
+	else_if = {
+		limit = { has_idea = FNG_Legitimacy_9 }
+		swap_ideas = {
+			remove_idea = FNG_Legitimacy_9
+			add_idea = FNG_Legitimacy_8
+		}
+	}
+	else_if = {
+		limit = { has_idea = FNG_Legitimacy_8 }
+		swap_ideas = {
+			remove_idea = FNG_Legitimacy_8
+			add_idea = FNG_Legitimacy_7
+		}
+	}
+	else_if = {
+		limit = { has_idea = FNG_Legitimacy_7 }
+		swap_ideas = {
+			remove_idea = FNG_Legitimacy_7
+			add_idea = FNG_Legitimacy_6
+		}
+	}
+	else_if = {
+		limit = { has_idea = FNG_Legitimacy_6 }
+		swap_ideas = {
+			remove_idea = FNG_Legitimacy_6
+			add_idea = FNG_Legitimacy_5
+		}
+	}
+	else_if = {
+		limit = { has_idea = FNG_Legitimacy_5 }
+		swap_ideas = {
+			remove_idea = FNG_Legitimacy_5
+			add_idea = FNG_Legitimacy_4
+		}
+	}
+	else_if = {
+		limit = { has_idea = FNG_Legitimacy_4 }
+		swap_ideas = {
+			remove_idea = FNG_Legitimacy_4
+			add_idea = FNG_Legitimacy_3
+		}
+	}
+	else_if = {
+		limit = { has_idea = FNG_Legitimacy_3 }
+		swap_ideas = {
+			remove_idea = FNG_Legitimacy_3
+			add_idea = FNG_Legitimacy_2
+		}
+	}
+	else_if = {
+		limit = { has_idea = FNG_Legitimacy_2 }
+		swap_ideas = {
+			remove_idea = FNG_Legitimacy_2
+			add_idea = FNG_Legitimacy_1
+		}
+	}
+	else = {
+		custom_effect_tooltip = FNG_decrease_legitimacy_tooltip
+	}
+}
+
+# Mantetsu
+FNG_recalculate_mantetsu_effects = {
+	if = {
+		limit = {
+			FNG_JAP_hostile = no
+		}
+		#Max influence effects at 50% popularity
+		set_variable = { FNG_mantetsu_influence_var = FNG.party_popularity@market_liberal }
+		clamp_variable = {
+			var = FNG_mantetsu_influence_var
+			max = 0.5
+		}
+
+		set_temp_variable = { FNG_mantetsu_positive_factor = FNG_mantetsu_influence_var }
+		multiply_temp_variable = { FNG_mantetsu_positive_factor = 2 }
+
+		###Fengtian
+		set_variable = { FNG.FNG_mantetsu_max_efficiency = 0.25 }
+		set_variable = { FNG.FNG_mantetsu_construction_speed = 0.25 }
+		multiply_variable = { FNG.FNG_mantetsu_max_efficiency = FNG_mantetsu_positive_factor }
+		multiply_variable = { FNG.FNG_mantetsu_construction_speed = FNG_mantetsu_positive_factor }
+
+		# Efficient Rail System bonus (from focus)
+		if = {
+			limit = {
+				has_country_flag = FNG_efficient_rail_system
+			}
+			add_to_variable = { FNG.FNG_mantetsu_construction_speed = 0.1 }
+			add_to_variable = { FNG.FNG_mantetsu_factory_output = 0.1 }
+		}
+
+		# Maluses if above 20%
+		if = {
+			limit = {
+				check_variable = { party_popularity@market_liberal > 0.2 }
+			}
+			set_variable = { FNG.FNG_mantetsu_political_power = -0.3 }
+			set_variable = { FNG.FNG_mantetsu_stability = -0.3 }
+			set_variable = { FNG.FNG_mantetsu_war_support = -0.3 }
+
+			set_temp_variable = { FNG_mantetsu_negative_factor = 0.2 }
+			subtract_from_temp_variable = { FNG_mantetsu_negative_factor = FNG_mantetsu_influence_var }
+			divide_temp_variable = { FNG_mantetsu_negative_factor = -0.3 }
+
+			multiply_variable = { FNG.FNG_mantetsu_political_power = FNG_mantetsu_negative_factor }
+			multiply_variable = { FNG.FNG_mantetsu_stability = FNG_mantetsu_negative_factor }
+			multiply_variable = { FNG.FNG_mantetsu_war_support = FNG_mantetsu_negative_factor }
+
+			if = {
+				limit = { has_government = market_liberal }
+				divide_variable = { FNG.FNG_mantetsu_political_power = 3 }
+				divide_variable = { FNG.FNG_mantetsu_stability = 3 }
+				divide_variable = { FNG.FNG_mantetsu_war_support = 3 }
+			}
+		}
+		else = {
+			clear_variable = FNG_mantetsu_political_power
+			clear_variable = FNG_mantetsu_stability
+			clear_variable = FNG_mantetsu_war_support
+		}
+
+		###Japan
+		if = {
+			limit = {
+				JAP = { NOT = { has_completed_focus = JAP_victory_with_vision } }
+			}
+			set_variable = { FNG.JAP_mantetsu_factory_output = 0.1 }
+			set_variable = { FNG.JAP_mantetsu_resource_gain = 0.08 }
+		}
+		else = {
+			set_variable = { FNG.JAP_mantetsu_factory_output = 0.2 }
+			set_variable = { FNG.JAP_mantetsu_resource_gain = 0.16 }
+		}
+		multiply_variable = { FNG.JAP_mantetsu_factory_output = FNG_mantetsu_positive_factor }
+		multiply_variable = { FNG.JAP_mantetsu_resource_gain = FNG_mantetsu_positive_factor }
+
+		clear_variable = FNG_mantetsu_influence_var
+		force_update_dynamic_modifier = yes
+	}
+}
+
+FNG_break_with_japan = {
+	FNG = {
+		set_global_flag = FNG_relations_JAP_broke
+		set_potential_national_government = yes
+		if = {
+			limit = { is_in_faction_with = JAP }
+			leave_faction = yes
+		}
+		diplomatic_relation = {
+			country = JAP
+			relation = non_aggression_pact
+			active = no
+		}
+		diplomatic_relation = {
+			country = JAP
+			relation = military_access
+			active = no
+		}
+		JAP = {
+			diplomatic_relation = {
+				country = FNG
+				relation = guarantee
+				active = no
+			}
+			diplomatic_relation = {
+				country = FNG
+				relation = military_access
+				active = no
+			}
+		}
+		FNG_CA_remove = yes
+		FNG_mantetsu_collapse = yes
+	}
+}
+
+FNG_mantetsu_collapse = {
+	if = {
+		limit = {
+			has_idea = FNG_mantetsu_influence_idea
+		}
+		remove_ideas = FNG_mantetsu_influence_idea
+		hidden_effect = {
+			if = {
+				limit = { has_dynamic_modifier = { modifier = FNG_mantetsu_influence_modifier } }
+				remove_dynamic_modifier = { modifier = FNG_mantetsu_influence_modifier }
+			}
+			JAP = {
+				if = {
+					limit = { has_idea = FNG_mantetsu_profits }
+					remove_ideas = FNG_mantetsu_profits
+					if = {
+						limit = { has_dynamic_modifier = { modifier = FNG_mantetsu_profits_modifier } }
+						remove_dynamic_modifier = { modifier = FNG_mantetsu_profits_modifier }
+					}
+					add_timed_idea = {
+						idea = JAP_MANTETSU_COLLAPSE
+						days = 235
+					}
+				}
+			}
+			clear_variable = FNG_mantetsu_political_power
+			clear_variable = FNG_mantetsu_stability
+			clear_variable = FNG_mantetsu_war_support
+			clear_variable = FNG_mantetsu_max_efficiency
+			clear_variable = FNG_mantetsu_construction_speed
+			clear_variable = FNG_mantetsu_factory_output
+			clear_variable = JAP_mantetsu_factory_output
+			clear_variable = JAP_mantetsu_resource_gain
+		}
+		if = {
+			limit = { FNG_mantetsu_level_very_high = yes }
+			add_timed_idea = {
+				idea = FNG_Post-Colonial_Chaos_3
+				days = 50
+			}
+		}
+		else_if = {
+			limit = { FNG_mantetsu_level_high = yes }
+			add_timed_idea = {
+				idea = FNG_Post-Colonial_Chaos_2
+				days = 50
+			}
+		}
+		else_if = {
+			limit = { FNG_mantetsu_level_medium = yes }
+			add_timed_idea = {
+				idea = FNG_Post-Colonial_Chaos_1
+				days = 65
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = FNG_Post-Colonial_Chaos_1
+				days = 35
+			}
+		}
+		if = {
+			limit = { has_idea = FNG_The_Kwantung_Army }
+			remove_ideas = FNG_The_Kwantung_Army
+		}
+		if = {
+			limit = { has_idea = FNG_Japanese_Aid_Cut }
+			remove_ideas = FNG_Japanese_Aid_Cut
+		}
+		if = {
+			limit = { has_idea = JAP_japanese_investments }
+			remove_ideas = JAP_japanese_investments
+		}
+		if = {
+			limit = { has_idea = mantetsu_industrial_subsidiaries }
+			remove_ideas = mantetsu_industrial_subsidiaries
+		}
+		if = {
+			limit = { has_idea = mitsubishi_heavy_industries }
+			remove_ideas = mitsubishi_heavy_industries
+		}
+	}
+}
+
+FNG_close_FNG_Preparing_For_The_Princes_Visit = {
+	remove_targeted_decision = { target = THIS decision = FNG_increase_security_in_shenyang }
+	remove_targeted_decision = { target = THIS decision = FNG_investigate_the_junior_officer_corps }
+	remove_targeted_decision = { target = THIS decision = FNG_reinforce_soldierly_discipline }
+	remove_targeted_decision = { target = THIS decision = FNG_present_chinese_modernity }
+	remove_targeted_decision = { target = THIS decision = FNG_Fortress_Manchuria }
+}
+
+FNG_factionalism_increase_zhang_clique_effect = {
+	if = {
+		limit = { has_dynamic_modifier = { modifier = FNG_factionalism_modifier } }
+		custom_effect_tooltip = FNG_modify_factionalism
+		add_to_variable = {
+			ROOT.FNG_factionalism_stability = 0.05
+			tooltip = stability_tooltip
+		}
+		add_to_variable = {
+			ROOT.FNG_factionalism_pataut_drift = 0.05
+			tooltip = paternal_autocrat_drift_tooltip
+		}
+		ROOT = { force_update_dynamic_modifier = yes }
+	}
+}
+
+FNG_factionalism_decrease_zhang_clique_effect = {
+	if = {
+		limit = { has_dynamic_modifier = { modifier = FNG_factionalism_modifier } }
+		custom_effect_tooltip = FNG_modify_factionalism
+		add_to_variable = {
+			ROOT.FNG_factionalism_stability = -0.05
+			tooltip = stability_tooltip
+		}
+		add_to_variable = {
+			ROOT.FNG_factionalism_pataut_drift = -0.05
+			tooltip = paternal_autocrat_drift_tooltip
+		}
+		ROOT = { force_update_dynamic_modifier = yes }
+	}
+}
+
+FNG_factionalism_increase_recovery_league_effect = {
+	if = {
+		limit = { has_dynamic_modifier = { modifier = FNG_factionalism_modifier } }
+		custom_effect_tooltip = FNG_modify_factionalism
+		add_to_variable = {
+			ROOT.FNG_factionalism_war_support = 0.05
+			tooltip = war_support_tooltip
+		}
+		add_to_variable = {
+			ROOT.FNG_factionalism_authdem_drift = 0.05
+			tooltip = authoritarian_democrat_drift_tooltip
+		}
+		ROOT = { force_update_dynamic_modifier = yes }
+	}
+}
+
+FNG_factionalism_decrease_recovery_league_effect = {
+	if = {
+		limit = { has_dynamic_modifier = { modifier = FNG_factionalism_modifier } }
+		custom_effect_tooltip = FNG_modify_factionalism
+		add_to_variable = {
+			ROOT.FNG_factionalism_war_support = -0.05
+			tooltip = war_support_tooltip
+		}
+		add_to_variable = {
+			ROOT.FNG_factionalism_authdem_drift = -0.05
+			tooltip = authoritarian_democrat_drift_tooltip
+		}
+		ROOT = { force_update_dynamic_modifier = yes }
+	}
+}
+
+FNG_factionalism_increase_concordia_association_effect = {
+	if = {
+		limit = { has_dynamic_modifier = { modifier = FNG_factionalism_modifier } }
+		custom_effect_tooltip = FNG_modify_factionalism
+		add_to_variable = {
+			ROOT.FNG_factionalism_max_efficiency = 0.05
+			tooltip = max_efficiency_tooltip
+		}
+		if = {
+			limit = { NOT = { has_global_flag = FNG_relations_JAP_broke } }
+			add_to_variable = {
+				ROOT.FNG_factionalism_marlib_drift = 0.05
+				tooltip = market_liberal_drift_tooltip
+			}
+		}
+		ROOT = { force_update_dynamic_modifier = yes }
+	}
+}
+
+FNG_factionalism_decrease_concordia_association_effect = {
+	if = {
+		limit = { has_dynamic_modifier = { modifier = FNG_factionalism_modifier } }
+		custom_effect_tooltip = FNG_modify_factionalism
+		add_to_variable = {
+			ROOT.FNG_factionalism_max_efficiency = -0.05
+			tooltip = max_efficiency_tooltip
+		}
+		if = {
+			limit = { NOT = { has_global_flag = FNG_relations_JAP_broke } }
+			add_to_variable = {
+				ROOT.FNG_factionalism_marlib_drift = -0.05
+				tooltip = market_liberal_drift_tooltip
+			}
+		}
+		ROOT = { force_update_dynamic_modifier = yes }
+	}
+}
+
+FNG_factionalism_increase_communications_clique_effect = {
+	if = {
+		limit = { has_dynamic_modifier = { modifier = FNG_factionalism_modifier } }
+		custom_effect_tooltip = FNG_modify_factionalism
+		add_to_variable = {
+			ROOT.FNG_factionalism_construction_speed = 0.05
+			tooltip = construction_speed_tooltip
+		}
+		add_to_variable = {
+			ROOT.FNG_factionalism_soccon_drift = 0.05
+			tooltip = social_conservative_drift_tooltip
+		}
+		ROOT = { force_update_dynamic_modifier = yes }
+	}
+}
+
+FNG_factionalism_decrease_communications_clique_effect = {
+	if = {
+		limit = { has_dynamic_modifier = { modifier = FNG_factionalism_modifier } }
+		custom_effect_tooltip = FNG_modify_factionalism
+		add_to_variable = {
+			ROOT.FNG_factionalism_construction_speed = -0.05
+			tooltip = construction_speed_tooltip
+		}
+		add_to_variable = {
+			ROOT.FNG_factionalism_soccon_drift = -0.05
+			tooltip = social_conservative_drift_tooltip
+		}
+		ROOT = { force_update_dynamic_modifier = yes }
+	}
+}
+
+FNG_trigger_tang_yulin_leak_event = {
+	hidden_effect = {
+		random_list = {
+			15 = {
+				modifier = {
+					add = 10
+					pataut_pop_high = yes
+				}
+				country_event = { id = fengtian.158 days = 36 random_days = 144 }
+			}
+			15 = {
+				modifier = {
+					add = 10
+					pataut_pop_high = yes
+				}
+				country_event = { id = fengtian.180 days = 36 random_days = 144 }
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					has_country_flag = FNG_encryption_codes_leaked
+				}
+				modifier = {
+					add = 10
+					pataut_pop_high = yes
+				}
+				country_event = { id = fngpolitic.15 days = 36 random_days = 144 }
+			}
+			60 = {
+				modifier = {
+					add = -30
+					pataut_pop_high = yes
+				}
+			}
+		}
+	}
+}
+
+FNG_zhifeng_war_threat = {
+	if = {
+		limit = {
+			has_global_flag = QIE_manchu_restoration
+			QIE = { owns_state = 608 }
+		}
+		add_named_threat = {
+			threat = 5
+			name = FNG_manchu_fengtian_war
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				QIE = { owns_state = 608 }
+				SZC = {
+					owns_state = 608
+					SZC_zhili_in_exile = yes
+				}
+			}
+		}
+		add_named_threat = {
+			threat = 5
+			name = FNG_fifth_zhili_fengtian_war
+		}
+	}
+	else = {
+		add_named_threat = {
+			threat = 5
+			name = FNG_war_of_national_reclamation
+		}
+	}
+}
+
+FNG_add_shanhaiguan_infiltration_effects = {
+	if = {
+		limit = { has_country_flag = shanhaiguan_successful }
+		clr_country_flag = shanhaiguan_successful
+		add_timed_idea = {
+			idea = FNG_successful_infiltration_of_shanhaiguan
+			days = 50
+		}
+	}
+	else_if = {
+		limit = { has_country_flag = shanhaiguan_delayed_success }
+		hidden_effect = {
+			clr_country_flag = shanhaiguan_delayed_success
+			country_event = { id = fengtian.107 days = 14 }
+		}
+	}
+	else_if = {
+		limit = { has_country_flag = shanhaiguan_delayed_failure }
+		hidden_effect = {
+			clr_country_flag = shanhaiguan_delayed_failure
+			country_event = { id = fengtian.108 days = 14 }
+		}
+	}
+}

@@ -1,0 +1,64 @@
+﻿instant_effect = {
+	GRE_naval_variants = yes
+}
+
+units = {
+	fleet = {
+		name = "Polemikó Naftikó"
+		naval_base = 4109 #Piraeus
+		task_force = {
+			name = "Naftikes Amynas Periochi 1"
+			location = 4109 #Piraeus
+			ship = { name = "EP Salamis" pride_of_the_fleet = yes definition = heavy_cruiser equipment = { ship_hull_cruiser_panzerschiff = { amount = 1 owner = GRE version_name = "Salamis Class" } } }
+			ship = { name = "EP Elli" definition = light_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = GRE version_name = "Elli Class" } } }
+			ship = { name = "RHS Aetos" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = GRE version_name = "Aetos Class" } } }
+			ship = { name = "RHS Ierax" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = GRE version_name = "Aetos Class" } } }
+			ship = { name = "RHS Leon" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = GRE version_name = "Aetos Class" } } }
+			ship = { name = "RHS Panthir" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = GRE version_name = "Aetos Class" } } }
+			ship = { name = "EP Lonchi" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = GRE version_name = "Aetos Class" } } }
+		}
+		task_force = {
+			name = "Naftikes Amynas Periochi 2"
+			location = 7211 #Patras
+			ship = { name = "EP Georgios Averof" definition = heavy_cruiser equipment = { ship_hull_cruiser_coastal_defense_ship = { amount = 1 owner = GRE version_name = "Averof Class" } } }
+			ship = { name = "EP Ierax" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = GRE version_name = "Aetos Class" } } }
+			ship = { name = "EP Aetos" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = GRE version_name = "Aetos Class" } } }
+			ship = { name = "EP Thyella" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = GRE version_name = "Aetos Class" } } }
+			ship = { name = "EP Sfendoni" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = GRE version_name = "Aetos Class" } } }
+			ship = { name = "EP Nafkratoussa" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = GRE version_name = "Aetos Class" } } }
+		}
+		task_force = {
+			name = "Dioikisi Ypovrychion"
+			location = 4109 #Piraeus
+			ship = { name = "EP Mastrozos" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = GRE version_name = "Mastrozos Class" } } }
+			ship = { name = "EP Papanikolis" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = GRE version_name = "Mastrozos Class" } } }
+			ship = { name = "EP Delfin" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = GRE version_name = "Delfin Class" } } }
+			ship = { name = "EP Nirefs" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = GRE version_name = "Delfin Class" } } }
+			ship = { name = "EP Protefs" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = GRE version_name = "Delfin Class" } } }
+			ship = { name = "EP Triton" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = GRE version_name = "Delfin Class" } } }
+		}
+	}
+}
+
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_1
+			creator = "GRE"
+			version_name = "Navarinon Class"
+		}
+		requested_factories = 1
+		progress = 0.35
+		amount = 2
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_submarine_2
+			creator = "GRE"
+			version_name = "Delfin Class"
+		}
+		requested_factories = 1
+		progress = 0.6
+		amount = 4
+	}
+}

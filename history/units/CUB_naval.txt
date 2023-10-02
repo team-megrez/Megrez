@@ -1,0 +1,31 @@
+﻿instant_effect = {
+	### Destroyers ###
+	create_equipment_variant = {
+		name = "Baire Class"
+		type = ship_hull_light_1
+		name_group = CUB_DD_HISTORICAL
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = empty
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+	}
+}
+
+units = {
+	fleet = {
+		name = "Flotilla Cubana"
+		naval_base = 1550
+		task_force = {
+			name = "Flotilla Cubana"
+			location = 1550
+			ship = { name = "BGC Baire" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = CUB version_name = "Baire Class" } } }
+			ship = { name = "BGC Patria" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = CUB version_name = "Baire Class" } } }
+		}
+	}
+}

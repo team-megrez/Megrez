@@ -1,0 +1,82 @@
+NFA_is_possible_revolter = {
+	OR = {
+		tag = CHA
+		tag = NGR
+		tag = VOL
+		tag = MLI
+		tag = GNA
+		tag = MRT
+		tag = TUN
+		tag = IVO
+	}
+}
+
+# check if NFA is getting a large number of revolts active at once
+# This is effectively three current revolts because this trigger only fires when another is being added
+NFA_has_multiple_african_revolts = {
+	count_triggers = {
+		amount = 2
+		has_war_with = CHA
+		has_war_with = NGR
+		has_war_with = VOL
+		has_war_with = MLI
+		has_war_with = GNA
+		has_war_with = MRT
+		has_war_with = TUN
+		has_war_with = IVO
+	}
+}
+
+# check if NFA has any active African revolts
+NFA_has_any_african_revolts = {
+	OR = {
+		has_war_with = CHA
+		has_war_with = NGR
+		has_war_with = VOL
+		has_war_with = MLI
+		has_war_with = GNA
+		has_war_with = MRT
+		has_war_with = TUN
+		has_war_with = IVO
+	}
+}
+
+GER_has_Belgian_Ally = {
+	BLG = { is_in_faction_with = GER }
+}
+
+NFA_controls_major_city = {
+	OR = { #One Major French city is back in our hands
+		16 = {
+			is_owned_and_controlled_by = NFA
+		}
+		19 = {
+			is_owned_and_controlled_by = NFA
+		}
+		20 = {
+			is_owned_and_controlled_by = NFA
+		}
+		21 = {
+			is_owned_and_controlled_by = NFA
+		}
+		980 = {
+			is_owned_and_controlled_by = NFA
+		}
+	}
+}
+
+NFA_for_pol_tree_moved = {
+	AND = {
+		NFA_controls_major_city = yes
+		OR = {
+			GER = {
+				OR = {
+					exists = no
+					is_faction_leader = no
+				}
+			}
+			FRP = { is_in_faction_with = GER }
+		}
+	}
+}
+

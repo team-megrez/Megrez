@@ -1,0 +1,113 @@
+﻿instant_effect = {
+	### Variants ###
+	GER_add_armour_variants = yes
+
+	### Production ###
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+		}
+		requested_factories = 2
+		progress = 0.20
+		efficiency = 50
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+		}
+		requested_factories = 1
+		progress = 0.20
+		efficiency = 50
+	}
+}
+
+division_template = {
+	name = "Freiwilligen-Regiment"
+	division_names_group = GERM_GAR_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+	template_counter = 68
+	priority = 0
+}
+division_template = {
+	name = "Deutsch-Balt. Kampfbrigade"
+	division_names_group = GERM_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		artillery_brigade = { x = 1 y = 0 }
+		artillery_brigade = { x = 1 y = 1 }
+		artillery_brigade = { x = 1 y = 2 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 }
+	}
+}
+division_template = {
+	name = "Kavallerie-Kampfbrigade"
+	division_names_group = GERM_CAV_01
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}
+}
+division_template = {
+	name = "Motorisierte-Kampfbrigade"
+	division_names_group = GERM_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+	}
+}
+division_template = {
+	name = "Panzer-Kampfbrigade"
+	division_names_group = GERM_MOB_01
+	regiments = {
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+	}
+}
+
+units = {
+	division = {
+		name = "1. Deutsch-Balt. Kampfbrigade"
+		location = 9340
+		division_template = "Deutsch-Balt. Kampfbrigade"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Lettische Kampf-Brigade"
+		location = 3388
+		division_template = "Deutsch-Balt. Kampfbrigade"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "2. Deutsch-Balt. Kampfbrigade"
+		location = 3152
+		division_template = "Deutsch-Balt. Kampfbrigade"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "3. Deutsch-Balt. Kampfbrigade"
+		location = 4640
+		division_template = "Deutsch-Balt. Kampfbrigade"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+}
