@@ -6,7 +6,6 @@
 ###############
 
 capital = 1
-TNO_startup_nation = yes
 
 ### Government Flag Setup - needs to be here to avoid ideas being removed in the gap between the game starting and on_startup
 every_possible_country = {
@@ -21,8 +20,6 @@ every_possible_country = {
 	set_temp_variable = { new_government = current_party_ideology_group }
 	set_government_flags = yes
 }
-
-TNO_policy_effectiveness_starting_setup = yes
 
 # set up ideology array
 add_to_array = { global.ideologies = token:totalist_subtype }

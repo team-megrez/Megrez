@@ -1,0 +1,284 @@
+﻿instant_effect = {
+	### Submarines ###
+	create_equipment_variant = {
+		name = "K-III Class" #WW1 submarines
+		type = ship_hull_submarine_1
+		name_group = HOL_SS_KCLASS
+		parent_version = 0
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_1
+			fixed_ship_engine_slot = sub_ship_engine_1
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "O9 Class" #20's submarines
+		type = ship_hull_submarine_1
+		name_group = HOL_SS_OCLASS
+		parent_version = 0
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_1
+			fixed_ship_engine_slot = sub_ship_engine_2
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "K-XIV Class" #30's submarines
+		type = ship_hull_submarine_2
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_2
+			fixed_ship_engine_slot = sub_ship_engine_2
+			rear_1_custom_slot = ship_torpedo_sub_2
+		}
+	}
+
+	### Destroyers ###
+	create_equipment_variant = {
+		name = "Van Ghent Class"
+		type = ship_hull_light_1
+		name_group = HOL_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_mine_layer_1
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Van Galen Class"
+		type = ship_hull_light_1
+		name_group = HOL_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = empty
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+	}
+	create_equipment_variant = {
+		name = "Gerard Callenburgh Class"
+		type = ship_hull_light_2
+		name_group = HOL_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_2
+			fixed_ship_torpedo_slot = ship_torpedo_2
+			mid_1_custom_slot = ship_mine_layer_1
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+	}
+	create_equipment_variant = {
+		name = "Van der Zaan Class"
+		type = ship_hull_light_2
+		name_group = HOL_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = empty
+			mid_1_custom_slot = ship_mine_layer_1
+			rear_1_custom_slot = ship_mine_layer_1
+		}
+	}
+
+	### Light Cruisers ###
+	create_equipment_variant = {
+		name = "Java Class"
+		type = ship_hull_cruiser_1
+		name_group = HOL_CL_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			mid_1_custom_slot = empty
+			mid_2_custom_slot = ship_light_medium_battery_1
+			rear_1_custom_slot = ship_airplane_launcher_1
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "De Ruyter Class"
+		type = ship_hull_cruiser_1
+		name_group = HOL_CL_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_2
+			mid_1_custom_slot = empty
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = ship_airplane_launcher_1
+		}
+	}
+
+	### Heavy Cruisers ###
+	create_equipment_variant = {
+		name = "Soerabaja Class"
+		type = ship_hull_cruiser_coastal_defense_ship
+		name_group = HOL_CA_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_heavy_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_armor_slot = ship_armor_cruiser_2
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			mid_1_custom_slot = empty
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = empty
+		}
+	}
+
+	### Battlecruisers ###
+	create_equipment_variant = {
+		name = "Van Speijk Class"
+		type = ship_hull_heavy_1
+		name_group = HOL_BC_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_heavy_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = heavy_ship_engine_2
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			fixed_ship_armor_slot = ship_armor_bc_2
+			front_1_custom_slot = ship_anti_air_1
+			mid_1_custom_slot = empty
+			mid_2_custom_slot = ship_secondaries_1
+			rear_1_custom_slot = ship_heavy_battery_1
+		}
+	}
+}
+
+units = {
+	fleet = {
+		name = "Koninklijke Marine"
+		naval_base = 3314 #Amsterdam
+		task_force = {
+			name = "Koninklijke Vloot"
+			location = 3314 #Amsterdam
+			ship = { name = "HrMs De Ruyter" definition = light_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = HOL version_name = "De Ruyter Class" } } }
+			ship = { name = "HrMs Gerard Callenburgh" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = HOL version_name = "Gerard Callenburgh Class" } } }
+			ship = { name = "HrMs Isaac Sweers" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = HOL version_name = "Gerard Callenburgh Class" } } }
+			ship = { name = "HrMs Tjerk Hiddes" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = HOL version_name = "Gerard Callenburgh Class" } } }
+			ship = { name = "HrMs Philips van Almonde" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = HOL version_name = "Gerard Callenburgh Class" } } }
+		}
+		task_force = {
+			name = "Koninklijke Onderzeeboot Smaldeel"
+			location = 3314 #Amsterdam
+			ship = { name = "HrMs O-8" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = HOL version_name = "O9 Class" } } }
+			ship = { name = "HrMs O-9" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = HOL version_name = "O9 Class" } } }
+			ship = { name = "HrMs O-10" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = HOL version_name = "O9 Class" } } }
+			ship = { name = "HrMs O-11" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = HOL version_name = "O9 Class" } } }
+			ship = { name = "HrMs O-12" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = HOL version_name = "O9 Class" } } }
+			ship = { name = "HrMs O-13" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = HOL version_name = "O9 Class" } } }
+			ship = { name = "HrMs O-14" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = HOL version_name = "O9 Class" } } }
+			ship = { name = "HrMs O-15" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = HOL version_name = "O9 Class" } } }
+		}
+	}
+	fleet = {
+		name = "Nederlands-Indië Marine"
+		naval_base = 7381 #Batavia
+		task_force = {
+			name = "1e Eskader"
+			location = 7381 #Batavia
+			ship = { name = "HrMs Van Speijk" pride_of_the_fleet = yes definition = battle_cruiser equipment = { ship_hull_heavy_1 = { amount = 1 owner = HOL version_name = "Van Speijk Class" } } }
+			ship = { name = "HrMs Soerabaja" definition = heavy_cruiser equipment = { ship_hull_cruiser_coastal_defense_ship = { amount = 1 owner = HOL version_name = "Soerabaja Class" } } }
+			ship = { name = "HrMs Hertog Hendrik" definition = heavy_cruiser equipment = { ship_hull_cruiser_coastal_defense_ship = { amount = 1 owner = HOL version_name = "Soerabaja Class" } } }
+			ship = { name = "HrMs Jakob van Heemskerck" definition = heavy_cruiser equipment = { ship_hull_cruiser_coastal_defense_ship = { amount = 1 owner = HOL version_name = "Soerabaja Class" } } }
+			ship = { name = "HrMs Celebes" definition = light_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = HOL version_name = "Java Class" } } }
+			ship = { name = "HrMs Sumatra" definition = light_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = HOL version_name = "Java Class" } } }
+			ship = { name = "HrMs Java" definition = light_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = HOL version_name = "Java Class" } } }
+			ship = { name = "HrMs Amersfoort" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = HOL version_name = "Van Galen Class" } } }
+			ship = { name = "HrMs Amsterdam" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = HOL version_name = "Van Galen Class" } } }
+			ship = { name = "HrMs Apeldoorn" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = HOL version_name = "Van Galen Class" } } }
+			ship = { name = "HrMs Banckert" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = HOL version_name = "Van Galen Class" } } }
+			ship = { name = "HrMs Breda" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = HOL version_name = "Van Galen Class" } } }
+			ship = { name = "HrMs Den Haag" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = HOL version_name = "Van Galen Class" } } }
+			ship = { name = "HrMs Eindhoven" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = HOL version_name = "Van Galen Class" } } }
+			ship = { name = "HrMs Tilburg" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = HOL version_name = "Van Galen Class" } } }
+			ship = { name = "HrMs Utrecht" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = HOL version_name = "Van Galen Class" } } }
+			ship = { name = "HrMs Van Galen" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = HOL version_name = "Van Galen Class" } } }
+			ship = { name = "HrMs Enschede" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = HOL version_name = "Van Ghent Class" } } }
+			ship = { name = "HrMs Evertsen" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = HOL version_name = "Van Ghent Class" } } }
+			ship = { name = "HrMs Van Ghent" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = HOL version_name = "Van Ghent Class" } } }
+		}
+		task_force = {
+			name = "Nederlands-Indië Onderzeeboot Smaldeel"
+			location = 4608 #Soerabaja
+			ship = { name = "HrMs K-IX" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = HOL version_name = "K-III Class" } } }
+			ship = { name = "HrMs K-VII" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = HOL version_name = "K-III Class" } } }
+			ship = { name = "HrMs K-VIII" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = HOL version_name = "K-III Class" } } }
+			ship = { name = "HrMs K-X" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = HOL version_name = "K-III Class" } } }
+			ship = { name = "HrMs K-XI" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = HOL version_name = "K-III Class" } } }
+			ship = { name = "HrMs K-XII" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = HOL version_name = "K-III Class" } } }
+			ship = { name = "HrMs K-XIII" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = HOL version_name = "K-III Class" } } }
+			ship = { name = "HrMs K-XIV" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = HOL version_name = "K-XIV Class" } } }
+			ship = { name = "HrMs K-XV" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = HOL version_name = "K-XIV Class" } } }
+			ship = { name = "HrMs K-XVI" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = HOL version_name = "K-XIV Class" } } }
+			ship = { name = "HrMs K-XVII" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = HOL version_name = "K-XIV Class" } } }
+			ship = { name = "HrMs K-XVIII" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = HOL version_name = "K-XIV Class" } } }
+		}
+	}
+}
+
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_heavy_1
+			creator = "HOL"
+			version_name = "Van Speijk Class"
+		}
+		requested_factories = 1
+		progress = 0.75
+		amount = 1
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "HOL"
+			version_name = "Gerard Callenburgh Class"
+		}
+		requested_factories = 1
+		progress = 0.75
+		amount = 2
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "HOL"
+			version_name = "Gerard Callenburgh Class"
+		}
+		requested_factories = 1
+		progress = 0.65
+		amount = 2
+	}
+}
