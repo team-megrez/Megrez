@@ -1,0 +1,5992 @@
+guiTypes = {
+
+	containerWindowType = {
+		name = "TNO_USA_political_situation_text"
+		size = { width = 482 height = 840 }
+		# quadTextureSprite = "GFX_tiled_paper_bg2"
+		# come back to this
+		
+		icontype = {
+			name = "great_seal"
+			position = { x = 11 y = 150 }
+			spriteType = "GFX_us_great_seal"
+			alwaystransparent = yes
+		}
+		
+		instantTextboxType = {
+			name = "TNO_USA_political_situation_desc"
+			position = { x = 11 y = 6 } 
+			text = USA_coalition_unity_gui
+			font = "aldrich_18_outline"
+			maxwidth = 482
+		}
+	}
+		
+	containerWindowType = {
+		name = "TNO_us_voting_menu_open"
+		size = { width = 220 height = 128 }
+		position = { x=0 y=289 }
+
+		buttonType ={
+			name ="us_voting_menu_open"
+			spriteType = "GFX_us_vote_open_button"
+			position = { x=238 y=41 }
+			pdx_tooltip = "scripted_gui_open_tt_usa_gov"
+			scale = 0.65
+		}
+		
+		iconType = {
+			name = "gui_alert"
+			spriteType = "GFX_gui_alert"
+			position = { x=189 y=-16 }
+		}
+	}
+
+	containerWindowType = {
+		name = "TNO_us_voting_menu_main"
+		size = { width = 1133 height = 838 }
+		position = { x=-300 y=80 }
+		show_position = { x=555 y=80 }
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
+		animation_time = 300
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite ="GFX_tiled_window_1b_no_border"
+		}
+
+		buttonType = {
+			name = "USA_close_button"
+			position = { x = -32 y = 16 }
+			quadTextureSprite ="GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = "UPPER_RIGHT"
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+
+		iconType ={
+			name ="us_voting_senate_controlled_by"
+			spriteType = "GFX_us_voting_senate_controlled_by"
+			position = { x= 144 y = 56 }
+		}
+
+		iconType ={
+			name ="us_voting_LA"
+			spriteType = "GFX_us_voting_LA"
+			position = { x= 112 y = 367 }
+		}
+
+		iconType ={
+			name ="us_voting_the_npp_senate"
+			spriteType = "GFX_us_voting_the_npp_senate"
+			position = { x= 541 y = 56 }
+		}
+
+		iconType ={
+			name ="us_voting_the_rd_senate"
+			spriteType = "GFX_us_voting_the_rd_senate"
+			position = { x= 541 y = 56 }
+		}
+
+		#iconType ={
+		#	name ="us_voting_none_senate"
+		#	spriteType = "GFX_us_voting_none_senate"
+		#	position = { x= 541 y = 56 }
+		#}
+		###########################################################
+
+		### LOWER-RIGHT TEXT SECTION ###
+		instantTextboxType = {
+			name = "us_voting_party_split_text"
+			position = { x = 904 y = 678 }
+			textureFile = ""
+			font = "aldrich_24_outline"
+			borderSize = {x = 0 y = 0}
+			text = US_VOTE_PARTY_SPLIT_TEXT
+			maxWidth = 220
+			maxHeight = 20
+			fixedsize = yes
+			format = center 	
+		}
+
+		instantTextboxType = {
+			name = "us_voting_republican_split_text"
+			position = { x = 914 y = 696 }
+			textureFile = ""
+			font = "aldrich_16_outline"
+			borderSize = {x = 0 y = 0}
+			text = US_VOTE_REP_SPLIT_TEXT_1_TT
+			maxWidth = 200
+			maxHeight = 20
+			fixedsize = yes
+		}
+
+		instantTextboxType = {
+			name = "us_voting_republican_split_amount_text"
+			position = { x = 889 y = 696 }
+			textureFile = ""
+			format = right
+			font = "aldrich_18_outline"
+			borderSize = {x = 0 y = 0}
+			text = "US_VOTE_REP_SPLIT_TEXT_GUI"
+			maxWidth = 200
+			maxHeight = 20
+			fixedsize = yes
+		}
+
+		instantTextboxType = {
+			name = "us_voting_republican_predicted_amount_text"
+			position = { x = 917 y = 696 }
+			textureFile = ""
+			format = right
+			font = "aldrich_18_outline"
+			borderSize = {x = 0 y = 0}
+			text = "US_VOTE_REP_PRED_TEXT"
+			maxWidth = 200
+			maxHeight = 20
+			fixedsize = yes
+		}
+
+		instantTextboxType = {
+			name = "us_voting_democrat_split_text"
+			position = { x = 914 y = 712 }
+			textureFile = ""
+			font = "aldrich_16_outline"
+			borderSize = {x = 0 y = 0}
+			text = US_VOTE_DEM_SPLIT_TEXT_1_TT
+			maxWidth = 200
+			maxHeight = 20
+			fixedsize = yes
+		}
+
+		instantTextboxType = {
+			name = "us_voting_democrat_split_amount_text"
+			position = { x = 889 y = 712 }
+			textureFile = ""
+			format = right
+			font = "aldrich_18_outline"
+			borderSize = {x = 0 y = 0}
+			text = "US_VOTE_DEM_SPLIT_TEXT_GUI"
+			maxWidth = 200
+			maxHeight = 20
+			fixedsize = yes
+		}
+
+		instantTextboxType = {
+			name = "us_voting_democrat_predicted_amount_text"
+			position = { x = 917 y = 712 }
+			textureFile = ""
+			format = right
+			font = "aldrich_18_outline"
+			borderSize = {x = 0 y = 0}
+			text = "US_VOTE_DEM_PRED_TEXT"
+			maxWidth = 200
+			maxHeight = 20
+			fixedsize = yes
+		}
+
+		instantTextboxType = {
+			name = "us_voting_rdc_split_text"
+			position = { x = 914 y = 728 }
+			textureFile = ""
+			font = "aldrich_16_outline"
+			borderSize = {x = 0 y = 0}
+			text = US_VOTE_RDC_SPLIT_TEXT_1_TT
+			maxWidth = 200
+			maxHeight = 20
+			fixedsize = yes
+		}
+
+		instantTextboxType = {
+			name = "us_voting_rdc_split_amount_text"
+			position = { x = 889 y = 728 }
+			textureFile = ""
+			format = right
+			font = "aldrich_18_outline"
+			borderSize = {x = 0 y = 0}
+			text = "US_VOTE_RDC_SPLIT_TEXT_GUI"
+			maxWidth = 200
+			maxHeight = 20
+			fixedsize = yes
+		}
+
+		instantTextboxType = {
+			name = "us_voting_rdc_predicted_amount_text"
+			position = { x = 917 y = 728 }
+			textureFile = ""
+			format = right
+			font = "aldrich_18_outline"
+			borderSize = {x = 0 y = 0}
+			text = "US_VOTE_RDC_PRED_TEXT"
+			maxWidth = 200
+			maxHeight = 20
+			fixedsize = yes
+		}
+
+		instantTextboxType = {
+			name = "us_voting_center_npp_setup_text"
+			position = { x = 914 y = 748 }
+			textureFile = ""
+			font = "aldrich_16_outline"
+			borderSize = {x = 0 y = 0}
+			text = CENTER_NPP_AMOUNT_TEXT_1_TT
+			maxWidth = 200
+			maxHeight = 20
+			fixedsize = yes
+		}
+
+		instantTextboxType = {
+			name = "us_voting_center_npp_setup_amount_text"
+			position = { x = 889 y = 748 }
+			textureFile = ""
+			format = right
+			font = "aldrich_18_outline"
+			borderSize = {x = 0 y = 0}
+			text = "CENTER_NPP_AMOUNT_TEXT_GUI"
+			maxWidth = 200
+			maxHeight = 20
+			fixedsize = yes
+		}
+
+		instantTextboxType = {
+			name = "us_voting_centre_predicted_amount_text"
+			position = { x = 917 y = 748 }
+			textureFile = ""
+			format = right
+			font = "aldrich_18_outline"
+			borderSize = {x = 0 y = 0}
+			text = "US_VOTE_CENTRE_PRED_TEXT"
+			maxWidth = 200
+			maxHeight = 20
+			fixedsize = yes
+		}
+
+		instantTextboxType = {
+			name = "us_voting_farright_npp_setup_text"
+			position = { x = 914 y = 764 }
+			textureFile = ""
+			font = "aldrich_16_outline"
+			borderSize = {x = 0 y = 0}
+			text = FARRIGHT_NPP_AMOUNT_TEXT_1_TT
+			maxWidth = 200 
+			maxHeight = 20 
+			fixedsize = yes
+		}
+
+		instantTextboxType = {
+			name = "us_voting_farright_npp_setup_amount_text"
+			position = { x = 889 y = 764 }
+			textureFile = ""
+			format = right
+			font = "aldrich_18_outline"
+			borderSize = {x = 0 y = 0}
+			text = "FARRIGHT_NPP_AMOUNT_TEXT_GUI"
+			maxWidth = 200
+			maxHeight = 20
+			fixedsize = yes
+		}
+
+		instantTextboxType = {
+			name = "us_voting_far_right_predicted_amount_text"
+			position = { x = 917 y = 764 }
+			textureFile = ""
+			format = right
+			font = "aldrich_18_outline"
+			borderSize = {x = 0 y = 0}
+			text = "US_VOTE_FAR_RIGHT_PRED_TEXT"
+			maxWidth = 200
+			maxHeight = 20
+			fixedsize = yes
+		}
+
+		instantTextboxType = {
+			name = "us_voting_farleft_npp_setup_text"
+			position = { x = 914 y = 780 }
+			textureFile = ""
+			font = "aldrich_16_outline"
+			borderSize = {x = 0 y = 0}
+			text = FARLEFT_NPP_AMOUNT_TEXT_1_TT
+			maxWidth = 200
+			maxHeight = 20
+			fixedsize = yes
+		}
+
+		instantTextboxType = {
+			name = "us_voting_farleft_npp_setup_amount_text"
+			position = { x = 889 y = 780 }
+			textureFile = ""
+			format = right
+			font = "aldrich_18_outline"
+			borderSize = {x = 0 y = 0}
+			text = "FARLEFT_NPP_AMOUNT_TEXT_GUI"
+			maxWidth = 200
+			maxHeight = 20
+			fixedsize = yes
+		}
+
+		instantTextboxType = {
+			name = "us_voting_far_left_predicted_amount_text"
+			position = { x = 917 y = 780 }
+			textureFile = ""
+			format = right
+			font = "aldrich_18_outline"
+			borderSize = {x = 0 y = 0}
+			text = "US_VOTE_FAR_LEFT_PRED_TEXT"
+			maxWidth = 200
+			maxHeight = 20
+			fixedsize = yes
+		}
+
+		instantTextboxType = {
+			name = "us_voting_Yockeys_npp_setup_text"
+			position = { x = 914 y = 796 }
+			textureFile = ""
+			font = "aldrich_16_outline"
+			borderSize = {x = 0 y = 0}
+			text = YOCKEYS_NPP_AMOUNT_TEXT_1_TT
+			maxWidth = 200
+			maxHeight = 20
+			fixedsize = yes
+		}
+
+		instantTextboxType = {
+			name = "us_voting_yockeys_npp_setup_amount_text"
+			position = { x = 889 y = 796 }
+			textureFile = ""
+			format = right
+			font = "aldrich_18_outline"
+			borderSize = {x = 0 y = 0}
+			text = "YOCKEYS_NPP_AMOUNT_TEXT_GUI"
+			maxWidth = 200
+			maxHeight = 20
+			fixedsize = yes
+		}
+
+		instantTextboxType = {
+			name = "us_voting_yockeys_predicted_amount_text"
+			position = { x = 917 y = 796 }
+			textureFile = ""
+			format = right
+			font = "aldrich_18_outline"
+			borderSize = {x = 0 y = 0}
+			text = "US_VOTE_YOCKEYS_PRED_TEXT"
+			maxWidth = 200
+			maxHeight = 20
+			fixedsize = yes
+		}
+
+		instantTextboxType = {
+			name = "us_voting_npp_setup_text"
+			position = { x = 914 y = 812 }
+			textureFile = ""
+			font = "aldrich_16_outline"
+			borderSize = {x = 0 y = 0}
+			text = NPP_AMOUNT_TEXT_1_TT
+			maxWidth = 200
+			maxHeight = 20
+			fixedsize = yes
+		}
+
+		instantTextboxType = {
+			name = "us_voting_npp_setup_amount_text"
+			position = { x = 889 y = 812 }
+			textureFile = ""
+			format = right
+			font = "aldrich_18_outline"
+			borderSize = {x = 0 y = 0}
+			text = "NPP_AMOUNT_TEXT_GUI"
+			maxWidth = 200
+			maxHeight = 20
+			fixedsize = yes
+		}
+
+		instantTextboxType = {
+			name = "us_voting_npp_predicted_amount_text"
+			position = { x = 917 y = 812 }
+			textureFile = ""
+			format = right
+			font = "aldrich_18_outline"
+			borderSize = {x = 0 y = 0}
+			text = "US_VOTE_NPP_PRED_TEXT"
+			maxWidth = 200
+			maxHeight = 20
+			fixedsize = yes
+		}
+
+		#########################
+		### RIGHT BAR SECTION ###
+		#########################
+
+		###### STATES MAP SECTION ######
+
+		gridboxtype = {
+			name = "USA_GUI_states_map_icon"
+			position = { x = -5 y = 0 }
+			size = { width = 10 height = 10 }
+		}
+		
+		############Outlines############
+		##Southwest##
+		buttonType ={
+			name = "us_voting_oklahoma_southwest_outline"
+			spriteType = "GFX_USA_voting_southwest_oklahoma"
+			position = { x= 272 y = 411 }
+			pdx_tooltip = "US_VOTE_OKLAHOMA_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_south_west
+		}
+		buttonType ={
+			name = "us_voting_new_mexico_southwest_outline"
+			spriteType = "GFX_USA_voting_southwest_new_mexico"
+			position = { x= 272 y = 411 }
+			pdx_tooltip = "US_VOTE_NEW_MEXICO_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_south_west
+		}
+		buttonType ={
+			name = "us_voting_arizona_southwest_outline"
+			spriteType = "GFX_USA_voting_southwest_arizona"
+			position = { x= 272 y = 411 }
+			pdx_tooltip = "US_VOTE_ARIZONA_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_south_west
+		}
+		buttonType ={
+			name = "us_voting_texas_southwest_outline"
+			spriteType = "GFX_USA_voting_southwest_texas"
+			position = { x= 272 y = 411 }
+			pdx_tooltip = "US_VOTE_TEXAS_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_south_west
+		}
+
+		##New England##
+		buttonType ={
+			name = "us_voting_maine_new_england_outline"
+			spriteType = "GFX_USA_voting_new_england_maine"
+			position = { x= 854 y = 195 }
+			pdx_tooltip = "US_VOTE_MAINE_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_new_england
+		}
+		buttonType ={
+			name = "us_voting_new_hampshire_new_england_outline"
+			spriteType = "GFX_USA_voting_new_england_new_hampshire"
+			position = { x= 854 y = 195 }
+			pdx_tooltip = "US_VOTE_NEW_HAMPSHIRE_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_new_england
+		}
+		buttonType ={
+			name = "us_voting_vermont_new_england_outline"
+			spriteType = "GFX_USA_voting_new_england_vermont"
+			position = { x= 854 y = 195 }
+			pdx_tooltip = "US_VOTE_VERMONT_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_new_england
+		}
+		buttonType ={
+			name = "us_voting_massachusetts_new_england_outline"
+			spriteType = "GFX_USA_voting_new_england_massachusetts"
+			position = { x= 854 y = 195 }
+			pdx_tooltip = "US_VOTE_MASSACHUSETTS_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_new_england
+		}
+		buttonType ={
+			name = "us_voting_connecticut_new_england_outline"
+			spriteType = "GFX_USA_voting_new_england_connecticut"
+			position = { x= 854 y = 195 }
+			pdx_tooltip = "US_VOTE_CONNECTICUT_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_new_england
+		}
+		buttonType ={
+			name = "us_voting_rhode_island_new_england_outline"
+			spriteType = "GFX_USA_voting_new_england_rhode_island"
+			position = { x= 854 y = 195 }
+			pdx_tooltip = "US_VOTE_RHODE_ISLAND_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_new_england
+		}
+
+		##East Coast##
+		buttonType ={
+			name = "us_voting_dc_east_coast_outline"
+			spriteType = "GFX_USA_voting_east_coast_dc"
+			position = { x= 751 y = 252 }
+			pdx_tooltip = "US_VOTE_DC_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_east_coast
+		}
+		buttonType ={
+			name = "us_voting_delaware_east_coast_outline"
+			spriteType = "GFX_USA_voting_east_coast_delaware"
+			position = { x= 751 y = 252 }
+			pdx_tooltip = "US_VOTE_DELAWARE_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_east_coast
+		}
+		buttonType ={
+			name = "us_voting_maryland_east_coast_outline"
+			spriteType = "GFX_USA_voting_east_coast_maryland"
+			position = { x= 751 y = 252 }
+			pdx_tooltip = "US_VOTE_MARYLAND_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_east_coast
+		}
+		buttonType ={
+			name = "us_voting_new_jersey_east_coast_outline"
+			spriteType = "GFX_USA_voting_east_coast_new_jersey"
+			position = { x= 751 y = 252 }
+			pdx_tooltip = "US_VOTE_NEW_JERSEY_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_east_coast
+		}
+		buttonType ={
+			name = "us_voting_pennsylvania_east_coast_outline"
+			spriteType = "GFX_USA_voting_east_coast_pennsylvania"
+			position = { x= 751 y = 252 }
+			pdx_tooltip = "US_VOTE_PENNSYLVANIA_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_east_coast
+		}
+		buttonType ={
+			name = "us_voting_west_virginia_east_coast_outline"
+			spriteType = "GFX_USA_voting_east_coast_west_virginia"
+			position = { x= 751 y = 252 }
+			pdx_tooltip = "US_VOTE_WEST_VIRGINIA_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_east_coast
+		}
+		buttonType ={
+			name = "us_voting_new_york_east_coast_outline"
+			spriteType = "GFX_USA_voting_east_coast_new_york"
+			position = { x= 751 y = 252 }
+			pdx_tooltip = "US_VOTE_NEW_YORK_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_east_coast
+		}
+
+		##Deep South##
+		buttonType ={
+			name = "us_voting_alabama_deep_south_outline"
+			spriteType = "GFX_USA_voting_deep_south_alabama"
+			position = { x= 581 y = 443 }
+			pdx_tooltip = "US_VOTE_ALABAMA_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_lower_south
+		}
+		buttonType ={
+			name = "us_voting_arkansas_deep_south_outline"
+			spriteType = "GFX_USA_voting_deep_south_arkansas"
+			position = { x= 581 y = 443 }
+			pdx_tooltip = "US_VOTE_ARKANSAS_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_lower_south
+		}
+		buttonType ={
+			name = "us_voting_georgia_deep_south_outline"
+			spriteType = "GFX_USA_voting_deep_south_georgia"
+			position = { x= 581 y = 443 }
+			pdx_tooltip = "US_VOTE_GEORGIA_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_lower_south
+		}
+		buttonType ={
+			name = "us_voting_louisiana_deep_south_outline"
+			spriteType = "GFX_USA_voting_deep_south_louisiana"
+			position = { x= 581 y = 443 }
+			pdx_tooltip = "US_VOTE_LOUISIANA_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_lower_south
+		}
+		buttonType ={
+			name = "us_voting_mississippi_deep_south_outline"
+			spriteType = "GFX_USA_voting_deep_south_mississippi"
+			position = { x= 581 y = 443 }
+			pdx_tooltip = "US_VOTE_MISSISSIPPI_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_lower_south
+		}
+		buttonType ={
+			name = "us_voting_south_carolina_deep_south_outline"
+			spriteType = "GFX_USA_voting_deep_south_south_carolina"
+			position = { x= 581 y = 443 }
+			pdx_tooltip = "US_VOTE_SOUTH_CAROLINA_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_lower_south
+		}
+		buttonType ={
+			name = "us_voting_florida_deep_south_outline"
+			spriteType = "GFX_USA_voting_deep_south_florida"
+			position = { x= 581 y = 443 }
+			pdx_tooltip = "US_VOTE_FLORIDA_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_lower_south
+		}
+
+		##Upper South##
+		buttonType ={
+			name = "us_voting_kentucky_upper_south_outline"
+			spriteType = "GFX_USA_voting_upper_south_kentucky"
+			position = { x= 647 y = 370 }
+			pdx_tooltip = "US_VOTE_KENTUCKY_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_upper_south
+		}
+		buttonType ={
+			name = "us_voting_north_carolina_upper_south_outline"
+			spriteType = "GFX_USA_voting_upper_south_north_carolina"
+			position = { x= 647 y = 370 }
+			pdx_tooltip = "US_VOTE_NORTH_CAROLINA_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_upper_south
+		}
+		buttonType ={
+			name = "us_voting_tennessee_upper_south_outline"
+			spriteType = "GFX_USA_voting_upper_south_tennessee"
+			position = { x= 647 y = 370 }
+			pdx_tooltip = "US_VOTE_TENNESSEE_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_upper_south
+		}
+		buttonType ={
+			name = "us_voting_virginia_upper_south_outline"
+			spriteType = "GFX_USA_voting_upper_south_virginia"
+			position = { x= 647 y = 370 }
+			pdx_tooltip = "US_VOTE_VIRGINIA_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_upper_south
+		}
+
+		##Great Lakes##
+		buttonType ={
+			name = "us_voting_ohio_great_lakes_outline"
+			spriteType = "GFX_USA_voting_great_lakes_ohio"
+			position = { x = 600 y = 239 }
+			pdx_tooltip = "US_VOTE_OHIO_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_great_lakes
+		}
+		buttonType ={
+			name = "us_voting_wisconsin_great_lakes_outline"
+			spriteType = "GFX_USA_voting_great_lakes_wisconsin"
+			position = { x = 600 y = 239 }
+			pdx_tooltip = "US_VOTE_WISCONSIN_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_great_lakes
+		}
+		buttonType ={
+			name = "us_voting_indiana_great_lakes_outline"
+			spriteType = "GFX_USA_voting_great_lakes_indiana"
+			position = { x = 600 y = 239 }
+			pdx_tooltip = "US_VOTE_INDIANA_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_great_lakes
+		}
+		buttonType ={
+			name = "us_voting_illinois_great_lakes_outline"
+			spriteType = "GFX_USA_voting_great_lakes_illinois"
+			position = { x = 600 y = 239 }
+			pdx_tooltip = "US_VOTE_ILLINOIS_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_great_lakes
+		}
+		buttonType ={
+			name = "us_voting_michigan_great_lakes_outline"
+			spriteType = "GFX_USA_voting_great_lakes_michigan"
+			position = { x = 600 y = 239 }
+			pdx_tooltip = "US_VOTE_MICHIGAN_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_great_lakes
+		}
+
+		##Great Plains##
+		buttonType ={
+			name = "us_voting_missouri_great_plains_outline"
+			spriteType = "GFX_USA_voting_great_plains_missouri"
+			position = { x = 450 y = 209 }
+			pdx_tooltip = "US_VOTE_MISSOURI_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_great_plains
+		}
+		buttonType ={
+			name = "us_voting_iowa_great_plains_outline"
+			spriteType = "GFX_USA_voting_great_plains_iowa"
+			position = { x = 450 y = 209 }
+			pdx_tooltip = "US_VOTE_IOWA_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_great_plains
+		}
+		buttonType ={
+			name = "us_voting_nebraska_great_plains_outline"
+			spriteType = "GFX_USA_voting_great_plains_nebraska"
+			position = { x = 450 y = 209 }
+			pdx_tooltip = "US_VOTE_NEBRASKA_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_great_plains
+		}
+		buttonType ={
+			name = "us_voting_kansas_great_plains_outline"
+			spriteType = "GFX_USA_voting_great_plains_kansas"
+			position = { x = 450 y = 209 }
+			pdx_tooltip = "US_VOTE_KANSAS_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_great_plains
+		}
+		buttonType ={
+			name = "us_voting_south_dakota_great_plains_outline"
+			spriteType = "GFX_USA_voting_great_plains_south_dakota"
+			position = { x = 450 y = 209 }
+			pdx_tooltip = "US_VOTE_SOUTH_DAKOTA_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_great_plains
+		}
+		buttonType ={
+			name = "us_voting_north_dakota_great_plains_outline"
+			spriteType = "GFX_USA_voting_great_plains_north_dakota"
+			position = { x = 450 y = 209 }
+			pdx_tooltip = "US_VOTE_NORTH_DAKOTA_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_great_plains
+		}
+		buttonType ={
+			name = "us_voting_minnesota_great_plains_outline"
+			spriteType = "GFX_USA_voting_great_plains_minnesota"
+			position = { x = 450 y = 209 }
+			pdx_tooltip = "US_VOTE_MINNESOTA_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_great_plains
+		}
+
+		##Rockies##
+		buttonType ={
+			name = "us_voting_idaho_rockies_outline"
+			spriteType = "GFX_USA_voting_rockies_idaho"
+			position = { x = 223 y = 187 }
+			pdx_tooltip = "US_VOTE_IDAHO_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_rockies
+		}
+		buttonType ={
+			name = "us_voting_nevada_rockies_outline"
+			spriteType = "GFX_USA_voting_rockies_nevada"
+			position = { x = 223 y = 187 }
+			pdx_tooltip = "US_VOTE_NEVADA_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_rockies
+		}
+		buttonType ={
+			name = "us_voting_utah_rockies_outline"
+			spriteType = "GFX_USA_voting_rockies_utah"
+			position = { x = 223 y = 187 }
+			pdx_tooltip = "US_VOTE_UTAH_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_rockies
+		}
+		buttonType ={
+			name = "us_voting_wyoming_rockies_outline"
+			spriteType = "GFX_USA_voting_rockies_wyoming"
+			position = { x = 223 y = 187 }
+			pdx_tooltip = "US_VOTE_WYOMING_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_rockies
+		}
+		buttonType ={
+			name = "us_voting_colorado_rockies_outline"
+			spriteType = "GFX_USA_voting_rockies_colorado"
+			position = { x = 223 y = 187 }
+			pdx_tooltip = "US_VOTE_COLORADO_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_rockies
+		}
+		buttonType ={
+			name = "us_voting_montana_rockies_outline"
+			spriteType = "GFX_USA_voting_rockies_montana"
+			position = { x = 223 y = 187 }
+			pdx_tooltip = "US_VOTE_MONTANA_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_rockies
+		}
+
+		##West Coast##
+		buttonType ={
+			name = "us_voting_hawaii_west_coast_outline"
+			spriteType = "GFX_USA_voting_west_coast_hawaii"
+			position = { x = 163 y = 169 }
+			pdx_tooltip = "US_VOTE_HAWAII_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_west_coast
+		}
+		buttonType ={
+			name = "us_voting_alaska_west_coast_outline"
+			spriteType = "GFX_USA_voting_west_coast_alaska"
+			position = { x = 163 y = 169 }
+			pdx_tooltip = "US_VOTE_ALASKA_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_west_coast
+		}
+		buttonType ={
+			name = "us_voting_washington_west_coast_outline"
+			spriteType = "GFX_USA_voting_west_coast_washington"
+			position = { x = 163 y = 169 }
+			pdx_tooltip = "US_VOTE_WASHINGTON_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_west_coast
+		}
+		buttonType ={
+			name = "us_voting_oregon_west_coast_outline"
+			spriteType = "GFX_USA_voting_west_coast_oregon"
+			position = { x = 163 y = 169 }
+			pdx_tooltip = "US_VOTE_OREGON_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_west_coast
+		}
+		buttonType ={
+			name = "us_voting_california_west_coast_outline"
+			spriteType = "GFX_USA_voting_west_coast_california"
+			position = { x = 163 y = 169 }
+			pdx_tooltip = "US_VOTE_CALIFORNIA_TOOLTIP_LOC"
+			pdx_tooltip_delayed = USA_voting_gui_open_west_coast
+		}
+		##########End Of Outlines###########
+
+		###############################
+		#iconType ={
+		#	name ="us_voting_test"
+		#	spriteType = "GFX_USA_test_map_icon_shader"
+		#	position = { x= 275 y = 413 }
+		#}
+		#iconType ={
+		#	name ="us_voting_test_overlay"
+		#	spriteType = "GFX_us_voting_test_overlay"
+		#	position = { x= 275 y = 413 }
+		#}
+		iconType ={
+			name ="us_voting_background"
+			spriteType = "GFX_us_voting_background"
+			position = { x= 4 y = 0 }
+			alwaystransparent = yes
+		}
+		iconType ={
+			name ="us_voting_background_alaska_hawaii"
+			spriteType = "GFX_US_alaska_hawaii"
+			position = { x= 162 y = 521 }
+			alwaystransparent = yes
+		}
+
+		iconType ={
+			name ="us_voting_free_states"
+			spriteType = "GFX_us_voting_free_states"
+			position = { x= 165 y = 566 }
+			alwaystransparent = yes
+		}
+
+		iconType ={
+			name ="us_voting_occupied_states"
+			spriteType = "GFX_us_voting_occupied_states"
+			position = { x= 352 y = 592 }
+		}
+
+		iconType ={
+			name ="us_voting_occupied_states_alaska"
+			spriteType = "GFX_us_voting_occupied_states_alaska"
+			position = { x= 165 y = 566 }
+		}
+
+		####Topbit####
+		iconType ={
+			name ="us_voting_topbit"
+			spriteType = "GFX_US_GUI_topbar"
+			position = { x = 17 y = 16 }
+		}
+		buttonType ={
+			name ="us_voting_topbar_button_1"
+			spriteType = "GFX_US_GUI_top_button_1"
+			position = { x= 18 y = 17 }
+		}
+		iconType ={
+			name ="us_voting_topbar_button_1_blank"
+			spriteType = "GFX_US_GUI_top_button_1_blank"
+			position = { x= 18 y = 17 }
+		}
+		buttonType ={
+			name ="us_voting_topbar_button_2"
+			spriteType = "GFX_US_GUI_top_button_2"
+			position = { x= 377 y = 17 }
+		}
+		iconType ={
+			name ="us_voting_topbar_button_2_blank"
+			spriteType = "GFX_US_GUI_top_button_2_blank"
+			position = { x= 377 y = 17 }
+		}
+		buttonType ={
+			name ="us_voting_topbar_button_3"
+			spriteType = "GFX_US_GUI_top_button_3"
+			position = { x= 737 y = 17 }
+		}
+		iconType ={
+			name ="us_voting_topbar_button_3_blank"
+			spriteType = "GFX_US_GUI_top_button_3_blank"
+			position = { x= 737 y = 17 }
+		}
+		buttonType ={
+			name ="us_voting_topbar_button_1_1"
+			spriteType = "GFX_US_GUI_top_button_1_1"
+			position = { x= 23 y = 35 }
+		}
+		buttonType ={
+			name ="us_voting_topbar_button_1_2"
+			spriteType = "GFX_US_GUI_top_button_1_2"
+			position = { x= 197 y = 35 }
+		}
+		iconType ={
+			name ="us_voting_topbar_button_1_1_blank"
+			spriteType = "GFX_US_GUI_top_button_1_1_blank"
+			position = { x= 23 y = 35 }
+		}
+		iconType ={
+			name ="us_voting_topbar_button_1_2_blank"
+			spriteType = "GFX_US_GUI_top_button_1_2_blank"
+			position = { x= 197 y = 35 }
+		}
+		buttonType ={
+			name ="us_voting_topbar_button_2_1"
+			spriteType = "GFX_US_GUI_top_button_1_1"
+			position = { x= 383 y = 35 }
+		}
+		buttonType ={
+			name ="us_voting_topbar_button_2_2"
+			spriteType = "GFX_US_GUI_top_button_1_2"
+			position = { x= 557 y = 35 }
+		}
+		iconType ={
+			name ="us_voting_topbar_button_2_1_blank"
+			spriteType = "GFX_US_GUI_top_button_1_1_blank"
+			position = { x= 383 y = 35 }
+		}
+		iconType ={
+			name ="us_voting_topbar_button_2_2_blank"
+			spriteType = "GFX_US_GUI_top_button_1_2_blank"
+			position = { x= 557 y = 35 }
+		}
+		buttonType ={
+			name ="us_voting_topbar_button_3_1"
+			spriteType = "GFX_US_GUI_top_button_3_1"
+			position = { x= 742 y = 35 }
+		}
+		buttonType ={
+			name ="us_voting_topbar_button_3_2"
+			spriteType = "GFX_US_GUI_top_button_3_2"
+			position = { x= 858 y = 35 }
+		}
+		buttonType ={
+			name ="us_voting_topbar_button_3_3"
+			spriteType = "GFX_US_GUI_top_button_3_3"
+			position = { x= 974 y = 35 }
+		}
+		iconType ={
+			name ="us_voting_topbar_button_3_1_blank"
+			spriteType = "GFX_US_GUI_top_button_3_1_blank"
+			position = { x= 742 y = 35 }
+		}
+		iconType ={
+			name ="us_voting_topbar_button_3_2_blank"
+			spriteType = "GFX_US_GUI_top_button_3_2_blank"
+			position = { x= 858 y = 35 }
+		}
+		iconType ={
+			name ="us_voting_topbar_button_3_3_blank"
+			spriteType = "GFX_US_GUI_top_button_3_3_blank"
+			position = { x= 974 y = 35 }
+		}
+
+		#######################################################
+		instantTextboxType = {
+			name = "US_presidential_condenter_rd_actual_votes_third_part"
+			position = { x = 29 y = 179 }
+			font = "aldrich_16_outline"
+			text = US_rd_actual_votes_third_part_gui_loc
+			maxWidth = 130
+			maxHeight = 50
+			format = left
+		}
+		iconType ={
+			name = "US_presidential_votes_blocker_rd_2"
+			spriteType = "GFX_US_voting_blocker_numbers_rd"
+		}
+		instantTextboxType = {
+			name = "US_presidential_condenter_rd_actual_votes_second_part"
+			position = { x = 29 y = 179 }
+			font = "aldrich_16_outline"
+			text = US_rd_actual_votes_second_part_gui_loc
+			maxWidth = 130
+			maxHeight = 50
+			format = left
+		}
+		iconType ={
+			name = "US_presidential_votes_blocker_rd_1"
+			spriteType = "GFX_US_voting_blocker_numbers_rd"
+		}
+		instantTextboxType = {
+			name = "US_presidential_condenter_rd_actual_votes"
+			position = { x = 29 y = 179 }
+			font = "aldrich_16_outline"
+			text = US_rd_actual_votes_gui_loc
+			maxWidth = 130
+			maxHeight = 50
+			format = left
+		}
+		instantTextboxType = {
+			name = "US_presidential_condenter_npp_actual_votes_third_part"
+			position = { x = 983 y = 179 }
+			font = "aldrich_16_outline"
+			text = US_npp_actual_votes_third_part_gui_loc
+			maxWidth = 130
+			maxHeight = 50
+			format = left
+		}
+		iconType ={
+			name = "US_presidential_votes_blocker_npp_2"
+			spriteType = "GFX_US_voting_blocker_numbers"
+		}
+		instantTextboxType = {
+			name = "US_presidential_condenter_npp_actual_votes_second_part"
+			position = { x = 983 y = 179 }
+			font = "aldrich_16_outline"
+			text = US_npp_actual_votes_second_part_gui_loc
+			maxWidth = 130
+			maxHeight = 50
+			format = left
+		}
+		iconType ={
+			name = "US_presidential_votes_blocker_npp_1"
+			spriteType = "GFX_US_voting_blocker_numbers"
+		}
+		instantTextboxType = {
+			name = "US_presidential_condenter_npp_actual_votes"
+			position = { x = 983 y = 179 }
+			font = "aldrich_16_outline"
+			text = US_npp_actual_votes_gui_loc
+			maxWidth = 130
+			maxHeight = 50
+			format = left
+		}
+		##################################################
+		iconType ={
+			name ="us_voting_previous_elections_outline"
+			spriteType = "GFX_US_GUI_Previous_elections_outline"
+			position = { x = 926 y = 305 }
+		}
+		buttonType ={
+			name ="us_voting_previous_elections_1940_button"
+			spriteType = "GFX_US_GUI_1940_button"
+			position = { x = 928 y = 307 }
+		}
+		iconType ={
+			name ="us_voting_previous_elections_1940_outline"
+			spriteType = "GFX_US_GUI_1940_outline"
+			position = { x = 928 y = 307 }
+		}
+		buttonType ={
+			name ="us_voting_previous_elections_1944_button"
+			spriteType = "GFX_US_GUI_1944_button"
+			position = { x = 928 y = 347 }
+		}
+		iconType ={
+			name ="us_voting_previous_elections_1944_outline"
+			spriteType = "GFX_US_GUI_1944_outline"
+			position = { x = 928 y = 347 }
+		}
+		buttonType ={
+			name ="us_voting_previous_elections_1948_button"
+			spriteType = "GFX_US_GUI_1948_button"
+			position = { x = 928 y = 387 }
+		}
+		iconType ={
+			name ="us_voting_previous_elections_1948_outline"
+			spriteType = "GFX_US_GUI_1948_outline"
+			position = { x = 928 y = 387 }
+		}
+		buttonType ={
+			name ="us_voting_previous_elections_1952_button"
+			spriteType = "GFX_US_GUI_1952_button"
+			position = { x = 928 y = 427 }
+		}
+		iconType ={
+			name ="us_voting_previous_elections_1952_outline"
+			spriteType = "GFX_US_GUI_1952_outline"
+			position = { x = 928 y = 427 }
+		}
+		buttonType ={
+			name ="us_voting_previous_elections_1956_button"
+			spriteType = "GFX_US_GUI_1956_button"
+			position = { x = 928 y = 467 }
+		}
+		iconType ={
+			name ="us_voting_previous_elections_1956_outline"
+			spriteType = "GFX_US_GUI_1956_outline"
+			position = { x = 928 y = 467 }
+		}
+		buttonType ={
+			name ="us_voting_previous_elections_1960_button"
+			spriteType = "GFX_US_GUI_1960_button"
+			position = { x = 928 y = 507 }
+		}
+		iconType ={
+			name ="us_voting_previous_elections_1960_outline"
+			spriteType = "GFX_US_GUI_1960_outline"
+			position = { x = 928 y = 507 }
+		}
+		buttonType ={
+			name ="us_voting_previous_elections_1964_button"
+			spriteType = "GFX_US_GUI_1964_button"
+			position = { x = 928 y = 547 }
+		}
+		iconType ={
+			name ="us_voting_previous_elections_1964_outline"
+			spriteType = "GFX_US_GUI_1964_outline"
+			position = { x = 928 y = 547 }
+		}
+		buttonType ={
+			name ="us_voting_previous_elections_1968_button"
+			spriteType = "GFX_US_GUI_1968_button"
+			position = { x = 928 y = 587 }
+		}
+		iconType ={
+			name ="us_voting_previous_elections_1968_outline"
+			spriteType = "GFX_US_GUI_1968_outline"
+			position = { x = 928 y = 587 }
+		}
+		buttonType ={
+			name ="us_voting_previous_elections_1972_button"
+			spriteType = "GFX_US_GUI_1972_button"
+			position = { x = 928 y = 627 }
+		}
+		iconType ={
+			name ="us_voting_previous_elections_1972_outline"
+			spriteType = "GFX_US_GUI_1972_outline"
+			position = { x = 928 y = 627 }
+		}
+
+		iconType ={
+			name ="us_voting_pres_thomas_dewey"
+			spriteType = "GFX_US_GUI_Thomas_Dewey"
+			position = { x = 1003 y = 60 }
+		}
+		iconType ={
+			name ="us_voting_pres_robert_taft"
+			spriteType = "GFX_US_GUI_Robert_Taft"
+			position = { x = 1003 y = 60 }
+		}
+		iconType ={
+			name ="us_voting_pres_ed_martin"
+			spriteType = "GFX_US_GUI_Edward_Martin"
+			position = { x = 1003 y = 60 }
+		}
+		iconType ={
+			name ="us_voting_pres_happy_chandler"
+			spriteType = "GFX_US_GUI_Happy_Chandler"
+			position = { x = 1003 y = 60 }
+		}
+		iconType ={
+			name ="us_voting_pres_henry_jackson"
+			spriteType = "GFX_US_GUI_Henry_Jackson"
+			position = { x = 1003 y = 60 }
+		}
+		iconType ={
+			name ="us_voting_pres_george_wallace"
+			spriteType = "GFX_US_GUI_George_Wallace"
+			position = { x = 1003 y = 60 }
+		}
+		iconType ={
+			name ="us_voting_pres_robert_kennedy"
+			spriteType = "GFX_US_GUI_Robert_Kennedy"
+			position = { x = 1003 y = 60 }
+		}
+		iconType ={
+			name ="us_voting_pres_michael_harrington"
+			spriteType = "GFX_US_GUI_Michael_Harrington"
+			position = { x = 1003 y = 60 }
+		}
+		iconType ={
+			name ="us_voting_pres_margret_smith"
+			spriteType = "GFX_US_GUI_Margret_Smith"
+			position = { x = 1003 y = 60 }
+		}
+		iconType ={
+			name ="us_voting_pres_henry_m_jackson"
+			spriteType = "GFX_US_GUI_Henry_M_Jackson"
+			position = { x = 1003 y = 60 }
+		}
+		iconType ={
+			name ="us_voting_pres_phyllis_schlafly"
+			spriteType = "GFX_US_GUI_Phyllis_Schlafly"
+			position = { x = 1003 y = 60 }
+		}
+		iconType ={
+			name ="us_voting_pres_francis_yockey"
+			spriteType = "GFX_US_GUI_Francis_Yockey"
+			position = { x = 1003 y = 60 }
+		}
+		iconType ={
+			name ="us_voting_pres_gus_hall"
+			spriteType = "GFX_US_GUI_Gus_Hall"
+			position = { x = 1003 y = 60 }
+		}
+		iconType ={
+			name ="us_voting_pres_harry_hopkins"
+			spriteType = "GFX_US_GUI_Harry_Hopkins"
+			position = { x = 45 y = 60 }
+		}
+		iconType ={
+			name ="us_voting_pres_james_farley"
+			spriteType = "GFX_US_GUI_James_Farley"
+			position = { x = 45 y = 60 }
+		}
+		iconType ={
+			name ="us_voting_pres_dwight_eisenhower"
+			spriteType = "GFX_US_GUI_Dwight_Eisenhower"
+			position = { x = 45 y = 60 }
+		}
+		iconType ={
+			name ="us_voting_pres_estes_kefauver"
+			spriteType = "GFX_US_GUI_Estes_Kefauver"
+			position = { x = 45 y = 60 }
+		}
+		iconType ={
+			name ="us_voting_pres_richard_nixon"
+			spriteType = "GFX_US_GUI_Richard_Nixon"
+			position = { x = 45 y = 60 }
+		}
+		iconType ={
+			name ="us_voting_pres_wallace_bennett"
+			spriteType = "GFX_US_GUI_Wallace_Bennett"
+			position = { x = 45 y = 60 }
+		}
+		iconType ={
+			name ="us_voting_pres_lyndon_johnson"
+			spriteType = "GFX_US_GUI_Lyndon_Johnson"
+			position = { x = 45 y = 60 }
+		}
+		iconType ={
+			name ="us_voting_pres_barry_goldwater"
+			spriteType = "GFX_US_GUI_Barry_Goldwater"
+			position = { x = 45 y = 60 }
+		}
+		iconType ={
+			name ="us_voting_pres_philip_hart"
+			spriteType = "GFX_US_GUI_Philip_Hart"
+			position = { x = 45 y = 60 }
+		}
+		iconType ={
+			name ="us_voting_pres_george_romney"
+			spriteType = "GFX_US_GUI_George_Romney"
+			position = { x = 45 y = 60 }
+		}
+		iconType ={
+			name ="us_voting_pres_jean_kirkpatrick"
+			spriteType = "GFX_US_GUI_Jean_Kirkpatrick"
+			position = { x = 45 y = 60 }
+		}
+		iconType ={
+			name ="us_voting_pres_left_hand_side_outline"
+			spriteType = "GFX_US_GUI_left_hand_side_pres"
+			position = { x = 43 y = 58 }
+		}
+		iconType ={
+			name ="us_voting_pres_left_hand_side_overlay"
+			spriteType = "GFX_US_pres_pics_overlay"
+			position = { x = 45 y = 60 }
+		}
+		instantTextboxType = {
+			name = "US_presidential_left_hand_side_votes"
+			position = { x = 138 y = 58 }
+			font = "aldrich_36_outline"
+			text = US_rd_total_electoral_votes
+			maxWidth = 130
+			maxHeight = 50
+			format = left
+		}
+		instantTextboxType = {
+			name = "US_presidential_condenter_npp_name"
+			position = { x = 966 y = 40 }
+			font = "aldrich_18_outline"
+			text = US_npp_contender_name
+			maxWidth = 160
+			maxHeight = 50
+			format = centre
+		}
+		instantTextboxType = {
+			name = "US_presidential_condenter_rdc_name"
+			position = { x = 12 y = 40 }
+			font = "aldrich_18_outline"
+			text = US_rdc_contender_name
+			maxWidth = 160
+			maxHeight = 50
+			format = centre
+		}
+		iconType ={
+			name ="us_voting_pres_right_hand_side_outline"
+			spriteType = "GFX_US_GUI_right_hand_side_pres"
+			position = { x = 1001 y = 58 }
+		}
+		iconType ={
+			name ="us_voting_pres_right_hand_side_overlay"
+			spriteType = "GFX_US_pres_pics_overlay"
+			position = { x = 1003 y = 60 }
+		}
+		instantTextboxType = {
+			name = "US_presidential_right_hand_side_votes"
+			position = { x = 866 y = 58 }
+			font = "aldrich_36_outline"
+			text = US_npp_total_electoral_votes
+			maxWidth = 130
+			maxHeight = 50
+			orientation = top_right
+			format = right
+		}
+		iconType ={
+			name ="us_voting_pres_rd_icon"
+			spriteType = "GFX_US_GUI_rd_pres_icon"
+			position = { x = 45 y = 60 }
+		}
+		iconType ={
+			name ="us_voting_pres_npp_icon"
+			spriteType = "GFX_US_GUI_npp_pres_icon"
+			position = { x = 1003 y = 60 }
+		}
+		iconType ={
+			name ="us_voting_pres_progressive_bar"
+			spriteType = "GFX_US_GUI_progressive_pres_votes_bar"
+			position = { x = 133 y = 88 }
+		}
+		iconType ={
+			name ="us_voting_pres_nationalist_bar"
+			spriteType = "GFX_US_GUI_nationalist_pres_votes_bar"
+			position = { x = 133 y = 88 }
+		}
+		iconType ={
+			name ="us_voting_pres_republican_bar"
+			spriteType = "GFX_US_GUI_republican_pres_votes_bar"
+			position = { x = 133 y = 88 }
+		}
+		iconType ={
+			name ="us_voting_pres_nationalist_bar_56"
+			spriteType = "GFX_US_GUI_nationalist_pres_votes_bar"
+			position = { x = 133 y = 88 }
+		}
+		iconType ={
+			name ="us_voting_pres_democrat_bar"
+			spriteType = "GFX_US_GUI_democrat_pres_votes_bar"
+			position = { x = 133 y = 88 }
+		}
+		iconType ={
+			name ="us_voting_pres_npp_bar"
+			spriteType = "GFX_US_GUI_npp_pres_votes_bar"
+			position = { x = 133 y = 88 }
+		}
+		iconType ={
+			name ="us_voting_pres_rd_bar"
+			spriteType = "GFX_US_GUI_rd_pres_votes_bar"
+			position = { x = 133 y = 88 }
+		}
+		iconType ={
+			name ="us_voting_pres_nationalist_bar_tt"
+			spriteType = "GFX_US_voting_nationalist_bar_tt"
+			position = { x = 576 y = 89 }
+			pdx_tooltip = US_voting_nationalist_bat_tt_52
+		}
+		iconType ={
+			name ="us_voting_pres_progressive_bar_tt"
+			spriteType = "GFX_US_voting_progressive_bar_tt"
+			position = { x = 610 y = 89 }
+			pdx_tooltip = US_voting_progressive_bat_tt_56
+		}
+		iconType ={
+			name ="us_voting_pres_republican_bar_tt"
+			spriteType = "GFX_US_voting_republican_bar_tt"
+			position = { x = 645 y = 89 }
+			pdx_tooltip = US_voting_republican_bat_tt_56
+		}
+		iconType ={
+			name ="us_voting_pres_uncertainty_bar"
+			spriteType = "GFX_US_GUI_republican_pres_votes_bar"
+			position = { x = 133 y = 88 }
+		}
+		iconType ={
+			name ="us_voting_pres_npp_bar_current"
+			spriteType = "GFX_US_GUI_npp_pres_votes_bar"
+			position = { x = 133 y = 88 }
+		}
+		iconType ={
+			name ="us_voting_pres_rd_bar_current"
+			spriteType = "GFX_US_GUI_rd_pres_votes_bar"
+			position = { x = 133 y = 88 }
+		}
+
+		iconType ={
+			name = "us_voting_current_predictions_bg_predictions"
+			spriteType = "GFX_US_GUI_cur_pred_prediction_selected"
+			position = { x = 854 y = 575 }
+		}
+		iconType ={
+			name = "us_voting_current_predictions_bg_current"
+			spriteType = "GFX_US_GUI_cur_pred_current_selected"
+			position = { x = 854 y = 575 }
+		}
+		buttonType ={
+			name = "us_voting_current_predictions_button_current"
+			spriteType = "GFX_US_GUI_cur_pred_current_button"
+			position = { x = 855 y = 575 }
+		}
+		buttonType ={
+			name = "us_voting_current_predictions_button_predictions"
+			spriteType = "GFX_US_GUI_cur_pred_prediction_button"
+			position = { x = 987 y = 575 }
+		}
+		iconType ={
+			name = "us_voting_hide_show_button_bg"
+			spriteType = "GFX_USA_hide_show_button_outline"
+			position = { x = 876 y = 632 }
+		}
+		buttonType ={
+			name = "us_voting_hide_show_button_hide"
+			spriteType = "GFX_USA_hide_show_button_hide"
+			position = { x = 876 y = 632 }
+		}
+		buttonType ={
+			name = "us_voting_hide_show_button_show"
+			spriteType = "GFX_USA_hide_show_button_show"
+			position = { x = 876 y = 632 }
+		}
+		gridboxtype = {
+			name = "USA_GUI_senators_overview_gridbox"
+			position = { x = -352 y = 683 }
+			size = { width = 881 height = 147 }
+			slotsize = { width = 150 height = 15 }
+			add_horizontal = no
+			max_slots_vertical = 9
+			max_slots_horizontal = 6
+		}
+		iconType ={
+			name = "us_voting_texan_faithless_electors"
+			spriteType = "GFX_US_faithless_elector_texas"
+			position = { x = 501 y = 526 }
+			pdx_tooltip = USA_faithless_elector_texas
+			pdx_tooltip_delayed = USA_faithless_elector_texas_tt
+		}
+		iconType ={
+			name = "us_voting_virginia_faithless_electors"
+			spriteType = "GFX_US_faithless_elector_virginia"
+			position = { x = 800 y = 385 }
+			pdx_tooltip = USA_faithless_elector_virginia
+			pdx_tooltip_delayed = USA_faithless_elector_virginia_tt
+		}
+		iconType ={
+			name = "us_voting_iowa_faithless_electors"
+			spriteType = "GFX_US_faithless_elector_iowa"
+			position = { x = 579 y = 328 }
+			pdx_tooltip = USA_faithless_elector_iowa
+			pdx_tooltip_delayed = USA_faithless_elector_iowa_tt
+		}
+		iconType = {
+			name ="us_voting_victory_line_40_52_56"
+			spriteType = "GFX_US_victory_line_40_52_56"
+			position = { x = 531 y = 84 }
+		}
+		iconType = {
+			name ="us_voting_victory_line_44"
+			spriteType = "GFX_US_victory_line_44"
+			position = { x = 531 y = 84 }
+		}
+		iconType = {
+			name ="us_voting_victory_line_48"
+			spriteType = "GFX_US_victory_line_48"
+			position = { x = 531 y = 84 }
+		}
+		iconType = {
+			name ="us_voting_victory_line_48_hawaii"
+			spriteType = "GFX_US_victory_line_48_hawaii"
+			position = { x = 531 y = 84 }
+		}
+		iconType = {
+			name ="us_voting_victory_line"
+			spriteType = "GFX_US_victory_line"
+			position = { x = 531 y = 84 }
+		}
+		##################################################
+		iconType = {
+			name ="us_voting_senate_previous_elections_outline"
+			spriteType = "GFX_US_previous_elections_outline_senate"
+			position = { x = 926 y = 425 }
+		}
+		buttonType ={
+			name ="us_voting_previous_elections_1962_button"
+			spriteType = "GFX_US_GUI_1962_button"
+			position = { x = 928 y = 427 }
+		}
+		iconType ={
+			name ="us_voting_previous_elections_1962_outline"
+			spriteType = "GFX_US_GUI_1962_outline"
+			position = { x = 928 y = 427 }
+		}
+		buttonType ={
+			name ="us_voting_previous_elections_1964_button_senate"
+			spriteType = "GFX_US_GUI_1964_button"
+			position = { x = 928 y = 467 }
+		}
+		iconType ={
+			name ="us_voting_previous_elections_1964_outline_senate"
+			spriteType = "GFX_US_GUI_1964_outline"
+			position = { x = 928 y = 467 }
+		}
+		buttonType ={
+			name ="us_voting_previous_elections_1966_button"
+			spriteType = "GFX_US_GUI_1966_button"
+			position = { x = 928 y = 507 }
+		}
+		iconType ={
+			name ="us_voting_previous_elections_1966_outline"
+			spriteType = "GFX_US_GUI_1966_outline"
+			position = { x = 928 y = 507 }
+		}
+		buttonType ={
+			name ="us_voting_previous_elections_1968_button_senate"
+			spriteType = "GFX_US_GUI_1968_button"
+			position = { x = 928 y = 547 }
+		}
+		iconType ={
+			name ="us_voting_previous_elections_1968_outline_senate"
+			spriteType = "GFX_US_GUI_1968_outline"
+			position = { x = 928 y = 547 }
+		}
+		buttonType ={
+			name ="us_voting_previous_elections_1970_button"
+			spriteType = "GFX_US_GUI_1970_button"
+			position = { x = 928 y = 587 }
+		}
+		iconType ={
+			name ="us_voting_previous_elections_1970_outline"
+			spriteType = "GFX_US_GUI_1970_outline"
+			position = { x = 928 y = 587 }
+		}
+		buttonType ={
+			name ="us_voting_previous_elections_1972_button_senate"
+			spriteType = "GFX_US_GUI_1972_button"
+			position = { x = 928 y = 627 }
+		}
+		iconType ={
+			name ="us_voting_previous_elections_1972_outline_senate"
+			spriteType = "GFX_US_GUI_1972_outline"
+			position = { x = 928 y = 627 }
+		}
+		##############################
+			###### STATES MAP SECTION ANIMATION ICONS ######
+		######				   1964               ######
+		#alabma
+		iconType ={
+			name ="us_voting_alabama_animation_rd_1964"
+			spriteType = "GFX_US_alabama_animation_rd"
+			position = { x= 680 y = 468 }
+		}
+		iconType ={
+			name ="us_voting_alabama_animation_npp_1964"
+			spriteType = "GFX_US_alabama_animation_npp"
+			position = { x= 680 y = 468 }
+		}
+
+		#alaska with islands
+		iconType ={
+			name ="us_voting_alaska_with_islands_animation_rd_1964"
+			spriteType = "GFX_US_alaskawislands_animation_rd"
+			position = { x= 167 y = 529 }
+		}
+		iconType ={
+			name ="us_voting_alaska_with_islands_animation_npp_1964"
+			spriteType = "GFX_US_alaskawislands_animation_npp"
+			position = { x= 167 y = 529 }
+		}
+
+		#alaska without islands
+		iconType ={
+			name ="us_voting_alaska_without_islands_animation_rd_1964"
+			spriteType = "GFX_US_alaskanislands_animation_rd"
+			position = { x= 201 y = 529 }
+		}
+		iconType ={
+			name ="us_voting_alaska_without_islands_animation_npp_1964"
+			spriteType = "GFX_US_alaskanislands_animation_npp"
+			position = { x= 201 y = 529 }
+		}
+
+		#arizona
+		iconType ={
+			name ="us_voting_arizona_animation_rd_1964"
+			spriteType = "GFX_US_arizona_animation_rd"
+			position = { x= 275 y = 413 }
+		}
+		iconType ={
+			name ="us_voting_arizona_animation_npp_1964"
+			spriteType = "GFX_US_arizona_animation_npp"
+			position = { x= 275 y = 413 }
+		}
+
+		#arkansas
+		iconType ={
+			name ="us_voting_arkansas_animation_rd_1964"
+			spriteType = "GFX_US_arkansas_animation_rd"
+			position = { x= 584 y = 445 }
+		}
+		iconType ={
+			name ="us_voting_arkansas_animation_npp_1964"
+			spriteType = "GFX_US_arkansas_animation_npp"
+			position = { x= 584 y = 445 }
+		}
+
+		#california no ports
+		iconType ={
+			name ="us_voting_california_no_ports_animation_rd_1964"
+			spriteType = "GFX_US_californianports_animation_rd"
+			position = { x= 173 y = 291 }
+		}
+		iconType ={
+			name ="us_voting_california_no_ports_animation_npp_1964"
+			spriteType = "GFX_US_californianports_animation_npp"
+			position = { x= 173 y = 291 }
+		}
+
+		#california ports
+		iconType ={
+			name ="us_voting_california_with_ports_animation_rd_1964"
+			spriteType = "GFX_US_californiawports_animation_rd"
+			position = { x= 173 y = 291 }
+		}
+		iconType ={
+			name ="us_voting_california_with_ports_animation_npp_1964"
+			spriteType = "GFX_US_californiawports_animation_npp"
+			position = { x= 173 y = 291 }
+		}
+
+		#colorado
+		iconType ={
+			name ="us_voting_colorado_animation_rd_1964"
+			spriteType = "GFX_US_colorado_animation_rd"
+			position = { x= 374 y = 354 }
+		}
+		iconType ={
+			name ="us_voting_colorado_animation_npp_1964"
+			spriteType = "GFX_US_colorado_animation_npp"
+			position = { x= 374 y = 354 }
+		}
+
+		#connecticut
+		iconType ={
+			name ="us_voting_connecticut_animation_rd_1964"
+			spriteType = "GFX_US_connecticut_animation_rd"
+			position = { x= 867 y = 305 }
+		}
+		iconType ={
+			name ="us_voting_connecticut_animation_npp_1964"
+			spriteType = "GFX_US_connecticut_animation_npp"
+			position = { x= 867 y = 305 }
+		}
+
+		#dc
+		iconType ={
+			name ="us_voting_dc_animation_rd_1964"
+			spriteType = "GFX_US_dc_animation_rd"
+			position = { x= 828 y = 374 }
+		}
+		iconType ={
+			name ="us_voting_dc_animation_npp_1964"
+			spriteType = "GFX_US_dc_animation_npp"
+			position = { x= 828 y = 374 }
+		}
+
+		#delaware
+		iconType ={
+			name ="us_voting_delaware_animation_rd_1964"
+			spriteType = "GFX_US_delaware_animation_rd"
+			position = { x= 845 y = 356 }
+		}
+		iconType ={
+			name ="us_voting_delaware_animation_npp_1964"
+			spriteType = "GFX_US_delaware_animation_npp"
+			position = { x= 845 y = 356 }
+		}
+
+		#florida
+		iconType ={
+			name ="us_voting_florida_animation_rd_1964"
+			spriteType = "GFX_US_florida_animation_rd"
+			position = { x= 695 y = 538 }
+		}
+		iconType ={
+			name ="us_voting_florida_animation_npp_1964"
+			spriteType = "GFX_US_florida_animation_npp"
+			position = { x= 695 y = 538 }
+		}
+
+		#georgia
+		iconType ={
+			name ="us_voting_georgia_animation_rd_1964"
+			spriteType = "GFX_US_georgia_animation_rd"
+			position = { x= 719 y = 464 }
+		}
+		iconType ={
+			name ="us_voting_georgia_animation_npp_1964"
+			spriteType = "GFX_US_georgia_animation_npp"
+			position = { x= 719 y = 464 }
+		}
+
+		#hawaii
+		iconType ={
+			name ="us_voting_hawaii_animation_rd_1964"
+			spriteType = "GFX_US_hawaii_animation_rd"
+			position = { x= 354 y = 593 }
+		}
+		iconType ={
+			name ="us_voting_hawaii_animation_npp_1964"
+			spriteType = "GFX_US_hawaii_animation_npp"
+			position = { x= 354 y = 593 }
+		}
+
+		#idaho
+		iconType ={
+			name ="us_voting_idaho_animation_rd_1964"
+			spriteType = "GFX_US_idaho_animation_rd"
+			position = { x= 279 y = 190 }
+		}
+		iconType ={
+			name ="us_voting_idaho_animation_npp_1964"
+			spriteType = "GFX_US_idaho_animation_npp"
+			position = { x= 279 y = 190 }
+		}
+
+		#illinois
+		iconType ={
+			name ="us_voting_illinois_animation_rd_1964"
+			spriteType = "GFX_US_illinois_animation_rd"
+			position = { x= 625 y = 332 }
+		}
+		iconType ={
+			name ="us_voting_illinois_animation_npp_1964"
+			spriteType = "GFX_US_illinois_animation_npp"
+			position = { x= 625 y = 332 }
+		}
+
+		#indiana
+		iconType ={
+			name ="us_voting_indiana_animation_rd_1964"
+			spriteType = "GFX_US_indiana_animation_rd"
+			position = { x= 678 y = 342 }
+		}
+		iconType ={
+			name ="us_voting_indiana_animation_npp_1964"
+			spriteType = "GFX_US_indiana_animation_npp"
+			position = { x= 678 y = 342 }
+		}
+
+		#iowa
+		iconType ={
+			name ="us_voting_iowa_animation_rd_1964"
+			spriteType = "GFX_US_iowa_animation_rd"
+			position = { x= 555 y = 317 }
+		}
+		iconType ={
+			name ="us_voting_iowa_animation_npp_1964"
+			spriteType = "GFX_US_iowa_animation_npp"
+			position = { x= 555 y = 317 }
+		}
+
+		#kansas
+		iconType ={
+			name ="us_voting_kansas_animation_rd_1964"
+			spriteType = "GFX_US_kansas_animation_rd"
+			position = { x= 475 y = 381 }
+		}
+		iconType ={
+			name ="us_voting_kansas_animation_npp_1964"
+			spriteType = "GFX_US_kansas_animation_npp"
+			position = { x= 475 y = 381 }
+		}
+
+		#kentucky
+		iconType ={
+			name ="us_voting_kentucky_animation_rd_1964"
+			spriteType = "GFX_US_kentucky_animation_rd"
+			position = { x= 662 y = 390 }
+		}
+		iconType ={
+			name ="us_voting_kentucky_animation_npp_1964"
+			spriteType = "GFX_US_kentucky_animation_npp"
+			position = { x= 662 y = 390 }
+		}
+
+		#louisiana
+		iconType ={
+			name ="us_voting_louisiana_animation_rd_1964"
+			spriteType = "GFX_US_louisiana_animation_rd"
+			position = { x= 593 y = 512 }
+		}
+		iconType ={
+			name ="us_voting_louisiana_animation_npp_1964"
+			spriteType = "GFX_US_louisiana_animation_npp"
+			position = { x= 593 y = 512 }
+		}
+
+		#maine
+		iconType ={
+			name ="us_voting_maine_animation_rd_1964"
+			spriteType = "GFX_US_maine_animation_rd"
+			position = { x= 884 y = 198 }
+		}
+		iconType ={
+			name ="us_voting_maine_animation_npp_1964"
+			spriteType = "GFX_US_maine_animation_npp"
+			position = { x= 884 y = 198 }
+		}
+
+		#maryland
+		iconType ={
+			name ="us_voting_maryland_animation_rd_1964"
+			spriteType = "GFX_US_maryland_animation_rd"
+			position = { x= 794 y = 358 }
+		}
+		iconType ={
+			name ="us_voting_maryland_animation_npp_1964"
+			spriteType = "GFX_US_maryland_animation_npp"
+			position = { x= 794 y = 358 }
+		}
+
+		#massachusetts
+		iconType ={
+			name ="us_voting_massachusetts_animation_rd_1964"
+			spriteType = "GFX_US_massachusetts_animation_rd"
+			position = { x= 866 y = 287 }
+		}
+		iconType ={
+			name ="us_voting_massachusetts_animation_npp_1964"
+			spriteType = "GFX_US_massachusetts_animation_npp"
+			position = { x= 866 y = 287 }
+		}
+
+		#michigan
+		iconType ={
+			name ="us_voting_michigan_animation_rd_1964"
+			spriteType = "GFX_US_michigan_animation_rd"
+			position = { x= 636 y = 241 }
+		}
+		iconType ={
+			name ="us_voting_michigan_animation_npp_1964"
+			spriteType = "GFX_US_michigan_animation_npp"
+			position = { x= 636 y = 241 }
+		}
+
+		#minnesota
+		iconType ={
+			name ="us_voting_minnesota_animation_rd_1964"
+			spriteType = "GFX_US_minnesota_animation_rd"
+			position = { x= 549 y = 212 }
+		}
+		iconType ={
+			name ="us_voting_minnesota_animation_npp_1964"
+			spriteType = "GFX_US_minnesota_animation_npp"
+			position = { x= 549 y = 212 }
+		}
+
+		#mississippi
+		iconType ={
+			name ="us_voting_mississippi_animation_rd_1964"
+			spriteType = "GFX_US_mississippi_animation_rd"
+			position = { x= 632 y = 471 }
+		}
+		iconType ={
+			name ="us_voting_mississippi_animation_npp_1964"
+			spriteType = "GFX_US_mississippi_animation_npp"
+			position = { x= 632 y = 471 }
+		}
+
+		#missouri
+		iconType ={
+			name ="us_voting_missouri_animation_rd_1964"
+			spriteType = "GFX_US_missouri_animation_rd"
+			position = { x= 567 y = 371 }
+		}
+		iconType ={
+			name ="us_voting_missouri_animation_npp_1964"
+			spriteType = "GFX_US_missouri_animation_npp"
+			position = { x= 567 y = 371 }
+		}
+
+		#montana
+		iconType ={
+			name ="us_voting_montana_animation_rd_1964"
+			spriteType = "GFX_US_montana_animation_rd"
+			position = { x= 316 y = 193 }
+		}
+		iconType ={
+			name ="us_voting_montana_animation_npp_1964"
+			spriteType = "GFX_US_montana_animation_npp"
+			position = { x= 316 y = 193 }
+		}
+
+		#nebraska
+		iconType ={
+			name ="us_voting_nebraska_animation_rd_1964"
+			spriteType = "GFX_US_nebraska_animation_rd"
+			position = { x= 452 y = 323 }
+		}
+		iconType ={
+			name ="us_voting_nebraska_animation_npp_1964"
+			spriteType = "GFX_US_nebraska_animation_npp"
+			position = { x= 452 y = 323 }
+		}
+
+		#nevada
+		iconType ={
+			name ="us_voting_nevada_animation_rd_1964"
+			spriteType = "GFX_US_nevada_animation_rd"
+			position = { x= 226 y = 305 }
+		}
+		iconType ={
+			name ="us_voting_nevada_animation_npp_1964"
+			spriteType = "GFX_US_nevada_animation_npp"
+			position = { x= 226 y = 305 }
+		}
+
+		#new hampshire
+		iconType ={
+			name ="us_voting_new_hampshire_animation_rd_1964"
+			spriteType = "GFX_US_new_hampshire_animation_rd"
+			position = { x= 875 y = 244 }
+		}
+		iconType ={
+			name ="us_voting_new_hampshire_animation_npp_1964"
+			spriteType = "GFX_US_new_hampshire_animation_npp"
+			position = { x= 875 y = 244 }
+		}
+
+		#new jersey
+		iconType ={
+			name ="us_voting_new_jersey_animation_rd_1964"
+			spriteType = "GFX_US_new_jersey_animation_rd"
+			position = { x= 849 y = 325 }
+		}
+		iconType ={
+			name ="us_voting_new_jersey_animation_npp_1964"
+			spriteType = "GFX_US_new_jersey_animation_npp"
+			position = { x= 849 y = 325 }
+		}
+
+		#new mexico
+		iconType ={
+			name ="us_voting_new_mexico_animation_rd_1964"
+			spriteType = "GFX_US_new_mexico_animation_rd"
+			position = { x= 359 y = 426 }
+		}
+		iconType ={
+			name ="us_voting_new_mexico_animation_npp_1964"
+			spriteType = "GFX_US_new_mexico_animation_npp"
+			position = { x= 359 y = 426 }
+		}
+
+		#new york
+		iconType ={
+			name ="us_voting_new_york_animation_rd_1964"
+			spriteType = "GFX_US_new_york_animation_rd"
+			position = { x= 783 y = 256 }
+		}
+		iconType ={
+			name ="us_voting_new_york_animation_npp_1964"
+			spriteType = "GFX_US_new_york_animation_npp"
+			position = { x= 783 y = 256 }
+		}
+
+		#north carolina
+		iconType ={
+			name ="us_voting_north_carolina_animation_rd_1964"
+			spriteType = "GFX_US_north_carolina_animation_rd"
+			position = { x= 737 y = 416 }
+		}
+		iconType ={
+			name ="us_voting_north_carolina_animation_npp_1964"
+			spriteType = "GFX_US_north_carolina_animation_npp"
+			position = { x= 737 y = 416 }
+		}
+
+		#north dakota
+		iconType ={
+			name ="us_voting_north_dakota_animation_rd_1964"
+			spriteType = "GFX_US_north_dakota_animation_rd"
+			position = { x= 460 y = 215 }
+		}
+		iconType ={
+			name ="us_voting_north_dakota_animation_npp_1964"
+			spriteType = "GFX_US_north_dakota_animation_npp"
+			position = { x= 460 y = 215 }
+		}
+
+		#ohio
+		iconType ={
+			name ="us_voting_ohio_animation_rd_1964"
+			spriteType = "GFX_US_ohio_animation_rd"
+			position = { x= 717 y = 330 }
+		}
+		iconType ={
+			name ="us_voting_ohio_animation_npp_1964"
+			spriteType = "GFX_US_ohio_animation_npp"
+			position = { x= 717 y = 330 }
+		}
+
+		#oklahoma
+		iconType ={
+			name ="us_voting_oklahoma_animation_rd_1964"
+			spriteType = "GFX_US_oklahoma_animation_rd"
+			position = { x= 460 y = 435 }
+		}
+		iconType ={
+			name ="us_voting_oklahoma_animation_npp_1964"
+			spriteType = "GFX_US_oklahoma_animation_npp"
+			position = { x= 460 y = 435 }
+		}
+
+		#oregon
+		iconType ={
+			name ="us_voting_oregon_animation_rd_1964"
+			spriteType = "GFX_US_oregon_animation_rd"
+			position = { x= 184 y = 217 }
+		}
+		iconType ={
+			name ="us_voting_oregon_animation_npp_1964"
+			spriteType = "GFX_US_oregon_animation_npp"
+			position = { x= 184 y = 217 }
+		}
+
+		#pennsylvania
+		iconType ={
+			name ="us_voting_pennsylvania_animation_rd_1964"
+			spriteType = "GFX_US_pennsylvania_animation_rd"
+			position = { x= 774 y = 316 }
+		}
+		iconType ={
+			name ="us_voting_pennsylvania_animation_npp_1964"
+			spriteType = "GFX_US_pennsylvania_animation_npp"
+			position = { x= 774 y = 316 }
+		}
+
+		#rhode island
+		iconType ={
+			name ="us_voting_rhode_island_animation_rd_1964"
+			spriteType = "GFX_US_rhode_island_animation_rd"
+			position = { x= 889 y = 304 }
+		}
+		iconType ={
+			name ="us_voting_rhode_island_animation_npp_1964"
+			spriteType = "GFX_US_rhode_island_animation_npp"
+			position = { x= 889 y = 304 }
+		}
+
+		#south carolina
+		iconType ={
+			name ="us_voting_south_carolina_animation_rd_1964"
+			spriteType = "GFX_US_south_carolina_animation_rd"
+			position = { x= 753 y = 456 }
+		}
+		iconType ={
+			name ="us_voting_south_carolina_animation_npp_1964"
+			spriteType = "GFX_US_south_carolina_animation_npp"
+			position = { x= 753 y = 456 }
+		}
+
+		#south dakota
+		iconType ={
+			name ="us_voting_south_dakota_animation_rd_1964"
+			spriteType = "GFX_US_south_dakota_animation_rd"
+			position = { x= 455 y = 269 }
+		}
+		iconType ={
+			name ="us_voting_south_dakota_animation_npp_1964"
+			spriteType = "GFX_US_south_dakota_animation_npp"
+			position = { x= 455 y = 269 }
+		}
+
+		#tennessee
+		iconType ={
+			name ="us_voting_tennessee_animation_rd_1964"
+			spriteType = "GFX_US_tennessee_animation_rd"
+			position = { x= 651 y = 431 }
+		}
+		iconType ={
+			name ="us_voting_tennessee_animation_npp_1964"
+			spriteType = "GFX_US_tennessee_animation_npp"
+			position = { x= 651 y = 431 }
+		}
+
+		#texas
+		iconType ={
+			name ="us_voting_texas_animation_rd_1964"
+			spriteType = "GFX_US_texas_animation_rd"
+			position = { x= 398 y = 445 }
+		}
+		iconType ={
+			name ="us_voting_texas_animation_npp_1964"
+			spriteType = "GFX_US_texas_animation_npp"
+			position = { x= 398 y = 445 }
+		}
+
+		#utah
+		iconType ={
+			name ="us_voting_utah_animation_rd_1964"
+			spriteType = "GFX_US_utah_animation_rd"
+			position = { x= 302 y = 322 }
+		}
+		iconType ={
+			name ="us_voting_utah_animation_npp_1964"
+			spriteType = "GFX_US_utah_animation_npp"
+			position = { x= 302 y = 322 }
+		}
+
+		#vermont
+		iconType ={
+			name ="us_voting_vermont_animation_rd_1964"
+			spriteType = "GFX_US_vermont_animation_rd"
+			position = { x= 856 y = 250 }
+		}
+		iconType ={
+			name ="us_voting_vermont_animation_npp_1964"
+			spriteType = "GFX_US_vermont_animation_npp"
+			position = { x= 856 y = 250 }
+		}
+
+		#virginia
+		iconType ={
+			name ="us_voting_virginia_animation_rd_1964"
+			spriteType = "GFX_US_virginia_animation_rd"
+			position = { x= 749 y = 372 }
+		}
+		iconType ={
+			name ="us_voting_virginia_animation_npp_1964"
+			spriteType = "GFX_US_virginia_animation_npp"
+			position = { x= 749 y = 372 }
+		}
+
+		#washington
+		iconType ={
+			name ="us_voting_washington_animation_rd_1964"
+			spriteType = "GFX_US_washington_animation_rd"
+			position = { x= 210 y = 172 }
+		}
+		iconType ={
+			name ="us_voting_washington_animation_npp_1964"
+			spriteType = "GFX_US_washington_animation_npp"
+			position = { x= 210 y = 172 }
+		}
+
+		#west virginia
+		iconType ={
+			name ="us_voting_west_virginia_animation_rd_1964"
+			spriteType = "GFX_US_west_virginia_animation_rd"
+			position = { x= 754 y = 356 }
+		}
+		iconType ={
+			name ="us_voting_west_virginia_animation_npp_1964"
+			spriteType = "GFX_US_west_virginia_animation_npp"
+			position = { x= 754 y = 356 }
+		}
+
+		#wisconsin
+		iconType ={
+			name ="us_voting_wisconsin_animation_rd_1964"
+			spriteType = "GFX_US_wisconsin_animation_rd"
+			position = { x= 603 y = 254 }
+		}
+		iconType ={
+			name ="us_voting_wisconsin_animation_npp_1964"
+			spriteType = "GFX_US_wisconsin_animation_npp"
+			position = { x= 603 y = 254 }
+		}
+
+		#wyoming
+		iconType ={
+			name ="us_voting_wyoming_animation_rd_1964"
+			spriteType = "GFX_US_wyoming_animation_rd"
+			position = { x= 356 y = 276 }
+		}
+		iconType ={
+			name ="us_voting_wyoming_animation_npp_1964"
+			spriteType = "GFX_US_wyoming_animation_npp"
+			position = { x= 356 y = 276 }
+		}
+
+
+		######				   1968               ######
+		#alabma
+		iconType ={
+			name ="us_voting_alabama_animation_rd_1968"
+			spriteType = "GFX_US_alabama_animation_rd"
+			position = { x= 680 y = 468 }
+		}
+		iconType ={
+			name ="us_voting_alabama_animation_npp_1968"
+			spriteType = "GFX_US_alabama_animation_npp"
+			position = { x= 680 y = 468 }
+		}
+
+		#alaska with islands
+		iconType ={
+			name ="us_voting_alaska_with_islands_animation_rd_1968"
+			spriteType = "GFX_US_alaskawislands_animation_rd"
+			position = { x= 167 y = 529 }
+		}
+		iconType ={
+			name ="us_voting_alaska_with_islands_animation_npp_1968"
+			spriteType = "GFX_US_alaskawislands_animation_npp"
+			position = { x= 167 y = 529 }
+		}
+
+		#alaska without islands
+		iconType ={
+			name ="us_voting_alaska_without_islands_animation_rd_1968"
+			spriteType = "GFX_US_alaskanislands_animation_rd"
+			position = { x= 201 y = 529 }
+		}
+		iconType ={
+			name ="us_voting_alaska_without_islands_animation_npp_1968"
+			spriteType = "GFX_US_alaskanislands_animation_npp"
+			position = { x= 201 y = 529 }
+		}
+
+		#arizona
+		iconType ={
+			name ="us_voting_arizona_animation_rd_1968"
+			spriteType = "GFX_US_arizona_animation_rd"
+			position = { x= 275 y = 413 }
+		}
+		iconType ={
+			name ="us_voting_arizona_animation_npp_1968"
+			spriteType = "GFX_US_arizona_animation_npp"
+			position = { x= 275 y = 413 }
+		}
+
+		#arkansas
+		iconType ={
+			name ="us_voting_arkansas_animation_rd_1968"
+			spriteType = "GFX_US_arkansas_animation_rd"
+			position = { x= 584 y = 445 }
+		}
+		iconType ={
+			name ="us_voting_arkansas_animation_npp_1968"
+			spriteType = "GFX_US_arkansas_animation_npp"
+			position = { x= 584 y = 445 }
+		}
+
+		#california no ports
+		iconType ={
+			name ="us_voting_california_no_ports_animation_rd_1968"
+			spriteType = "GFX_US_californianports_animation_rd"
+			position = { x= 173 y = 291 }
+		}
+		iconType ={
+			name ="us_voting_california_no_ports_animation_npp_1968"
+			spriteType = "GFX_US_californianports_animation_npp"
+			position = { x= 173 y = 291 }
+		}
+
+		#california ports
+		iconType ={
+			name ="us_voting_california_with_ports_animation_rd_1968"
+			spriteType = "GFX_US_californiawports_animation_rd"
+			position = { x= 173 y = 291 }
+		}
+		iconType ={
+			name ="us_voting_california_with_ports_animation_npp_1968"
+			spriteType = "GFX_US_californiawports_animation_npp"
+			position = { x= 173 y = 291 }
+		}
+
+		#colorado
+		iconType ={
+			name ="us_voting_colorado_animation_rd_1968"
+			spriteType = "GFX_US_colorado_animation_rd"
+			position = { x= 374 y = 354 }
+		}
+		iconType ={
+			name ="us_voting_colorado_animation_npp_1968"
+			spriteType = "GFX_US_colorado_animation_npp"
+			position = { x= 374 y = 354 }
+		}
+
+		#connecticut
+		iconType ={
+			name ="us_voting_connecticut_animation_rd_1968"
+			spriteType = "GFX_US_connecticut_animation_rd"
+			position = { x= 867 y = 305 }
+		}
+		iconType ={
+			name ="us_voting_connecticut_animation_npp_1968"
+			spriteType = "GFX_US_connecticut_animation_npp"
+			position = { x= 867 y = 305 }
+		}
+
+		#dc
+		iconType ={
+			name ="us_voting_dc_animation_rd_1968"
+			spriteType = "GFX_US_dc_animation_rd"
+			position = { x= 828 y = 374 }
+		}
+		iconType ={
+			name ="us_voting_dc_animation_npp_1968"
+			spriteType = "GFX_US_dc_animation_npp"
+			position = { x= 828 y = 374 }
+		}
+
+		#delaware
+		iconType ={
+			name ="us_voting_delaware_animation_rd_1968"
+			spriteType = "GFX_US_delaware_animation_rd"
+			position = { x= 845 y = 356 }
+		}
+		iconType ={
+			name ="us_voting_delaware_animation_npp_1968"
+			spriteType = "GFX_US_delaware_animation_npp"
+			position = { x= 845 y = 356 }
+		}
+
+		#florida
+		iconType ={
+			name ="us_voting_florida_animation_rd_1968"
+			spriteType = "GFX_US_florida_animation_rd"
+			position = { x= 695 y = 538 }
+		}
+		iconType ={
+			name ="us_voting_florida_animation_npp_1968"
+			spriteType = "GFX_US_florida_animation_npp"
+			position = { x= 695 y = 538 }
+		}
+
+		#georgia
+		iconType ={
+			name ="us_voting_georgia_animation_rd_1968"
+			spriteType = "GFX_US_georgia_animation_rd"
+			position = { x= 719 y = 464 }
+		}
+		iconType ={
+			name ="us_voting_georgia_animation_npp_1968"
+			spriteType = "GFX_US_georgia_animation_npp"
+			position = { x= 719 y = 464 }
+		}
+
+		#hawaii
+		iconType ={
+			name ="us_voting_hawaii_animation_rd_1968"
+			spriteType = "GFX_US_hawaii_animation_rd"
+			position = { x= 354 y = 593 }
+		}
+		iconType ={
+			name ="us_voting_hawaii_animation_npp_1968"
+			spriteType = "GFX_US_hawaii_animation_npp"
+			position = { x= 354 y = 593 }
+		}
+
+		#idaho
+		iconType ={
+			name ="us_voting_idaho_animation_rd_1968"
+			spriteType = "GFX_US_idaho_animation_rd"
+			position = { x= 279 y = 190 }
+		}
+		iconType ={
+			name ="us_voting_idaho_animation_npp_1968"
+			spriteType = "GFX_US_idaho_animation_npp"
+			position = { x= 279 y = 190 }
+		}
+
+		#illinois
+		iconType ={
+			name ="us_voting_illinois_animation_rd_1968"
+			spriteType = "GFX_US_illinois_animation_rd"
+			position = { x= 625 y = 332 }
+		}
+		iconType ={
+			name ="us_voting_illinois_animation_npp_1968"
+			spriteType = "GFX_US_illinois_animation_npp"
+			position = { x= 625 y = 332 }
+		}
+
+		#indiana
+		iconType ={
+			name ="us_voting_indiana_animation_rd_1968"
+			spriteType = "GFX_US_indiana_animation_rd"
+			position = { x= 678 y = 342 }
+		}
+		iconType ={
+			name ="us_voting_indiana_animation_npp_1968"
+			spriteType = "GFX_US_indiana_animation_npp"
+			position = { x= 678 y = 342 }
+		}
+
+		#iowa
+		iconType ={
+			name ="us_voting_iowa_animation_rd_1968"
+			spriteType = "GFX_US_iowa_animation_rd"
+			position = { x= 555 y = 317 }
+		}
+		iconType ={
+			name ="us_voting_iowa_animation_npp_1968"
+			spriteType = "GFX_US_iowa_animation_npp"
+			position = { x= 555 y = 317 }
+		}
+
+		#kansas
+		iconType ={
+			name ="us_voting_kansas_animation_rd_1968"
+			spriteType = "GFX_US_kansas_animation_rd"
+			position = { x= 475 y = 381 }
+		}
+		iconType ={
+			name ="us_voting_kansas_animation_npp_1968"
+			spriteType = "GFX_US_kansas_animation_npp"
+			position = { x= 475 y = 381 }
+		}
+
+		#kentucky
+		iconType ={
+			name ="us_voting_kentucky_animation_rd_1968"
+			spriteType = "GFX_US_kentucky_animation_rd"
+			position = { x= 662 y = 390 }
+		}
+		iconType ={
+			name ="us_voting_kentucky_animation_npp_1968"
+			spriteType = "GFX_US_kentucky_animation_npp"
+			position = { x= 662 y = 390 }
+		}
+
+		#louisiana
+		iconType ={
+			name ="us_voting_louisiana_animation_rd_1968"
+			spriteType = "GFX_US_louisiana_animation_rd"
+			position = { x= 593 y = 512 }
+		}
+		iconType ={
+			name ="us_voting_louisiana_animation_npp_1968"
+			spriteType = "GFX_US_louisiana_animation_npp"
+			position = { x= 593 y = 512 }
+		}
+
+		#maine
+		iconType ={
+			name ="us_voting_maine_animation_rd_1968"
+			spriteType = "GFX_US_maine_animation_rd"
+			position = { x= 884 y = 198 }
+		}
+		iconType ={
+			name ="us_voting_maine_animation_npp_1968"
+			spriteType = "GFX_US_maine_animation_npp"
+			position = { x= 884 y = 198 }
+		}
+
+		#maryland
+		iconType ={
+			name ="us_voting_maryland_animation_rd_1968"
+			spriteType = "GFX_US_maryland_animation_rd"
+			position = { x= 794 y = 358 }
+		}
+		iconType ={
+			name ="us_voting_maryland_animation_npp_1968"
+			spriteType = "GFX_US_maryland_animation_npp"
+			position = { x= 794 y = 358 }
+		}
+
+		#massachusetts
+		iconType ={
+			name ="us_voting_massachusetts_animation_rd_1968"
+			spriteType = "GFX_US_massachusetts_animation_rd"
+			position = { x= 866 y = 287 }
+		}
+		iconType ={
+			name ="us_voting_massachusetts_animation_npp_1968"
+			spriteType = "GFX_US_massachusetts_animation_npp"
+			position = { x= 866 y = 287 }
+		}
+
+		#michigan
+		iconType ={
+			name ="us_voting_michigan_animation_rd_1968"
+			spriteType = "GFX_US_michigan_animation_rd"
+			position = { x= 636 y = 241 }
+		}
+		iconType ={
+			name ="us_voting_michigan_animation_npp_1968"
+			spriteType = "GFX_US_michigan_animation_npp"
+			position = { x= 636 y = 241 }
+		}
+
+		#minnesota
+		iconType ={
+			name ="us_voting_minnesota_animation_rd_1968"
+			spriteType = "GFX_US_minnesota_animation_rd"
+			position = { x= 549 y = 212 }
+		}
+		iconType ={
+			name ="us_voting_minnesota_animation_npp_1968"
+			spriteType = "GFX_US_minnesota_animation_npp"
+			position = { x= 549 y = 212 }
+		}
+
+		#mississippi
+		iconType ={
+			name ="us_voting_mississippi_animation_rd_1968"
+			spriteType = "GFX_US_mississippi_animation_rd"
+			position = { x= 632 y = 471 }
+		}
+		iconType ={
+			name ="us_voting_mississippi_animation_npp_1968"
+			spriteType = "GFX_US_mississippi_animation_npp"
+			position = { x= 632 y = 471 }
+		}
+
+		#missouri
+		iconType ={
+			name ="us_voting_missouri_animation_rd_1968"
+			spriteType = "GFX_US_missouri_animation_rd"
+			position = { x= 567 y = 371 }
+		}
+		iconType ={
+			name ="us_voting_missouri_animation_npp_1968"
+			spriteType = "GFX_US_missouri_animation_npp"
+			position = { x= 567 y = 371 }
+		}
+
+		#montana
+		iconType ={
+			name ="us_voting_montana_animation_rd_1968"
+			spriteType = "GFX_US_montana_animation_rd"
+			position = { x= 316 y = 193 }
+		}
+		iconType ={
+			name ="us_voting_montana_animation_npp_1968"
+			spriteType = "GFX_US_montana_animation_npp"
+			position = { x= 316 y = 193 }
+		}
+
+		#nebraska
+		iconType ={
+			name ="us_voting_nebraska_animation_rd_1968"
+			spriteType = "GFX_US_nebraska_animation_rd"
+			position = { x= 452 y = 323 }
+		}
+		iconType ={
+			name ="us_voting_nebraska_animation_npp_1968"
+			spriteType = "GFX_US_nebraska_animation_npp"
+			position = { x= 452 y = 323 }
+		}
+
+		#nevada
+		iconType ={
+			name ="us_voting_nevada_animation_rd_1968"
+			spriteType = "GFX_US_nevada_animation_rd"
+			position = { x= 226 y = 305 }
+		}
+		iconType ={
+			name ="us_voting_nevada_animation_npp_1968"
+			spriteType = "GFX_US_nevada_animation_npp"
+			position = { x= 226 y = 305 }
+		}
+
+		#new hampshire
+		iconType ={
+			name ="us_voting_new_hampshire_animation_rd_1968"
+			spriteType = "GFX_US_new_hampshire_animation_rd"
+			position = { x= 875 y = 244 }
+		}
+		iconType ={
+			name ="us_voting_new_hampshire_animation_npp_1968"
+			spriteType = "GFX_US_new_hampshire_animation_npp"
+			position = { x= 875 y = 244 }
+		}
+
+		#new jersey
+		iconType ={
+			name ="us_voting_new_jersey_animation_rd_1968"
+			spriteType = "GFX_US_new_jersey_animation_rd"
+			position = { x= 849 y = 325 }
+		}
+		iconType ={
+			name ="us_voting_new_jersey_animation_npp_1968"
+			spriteType = "GFX_US_new_jersey_animation_npp"
+			position = { x= 849 y = 325 }
+		}
+
+		#new mexico
+		iconType ={
+			name ="us_voting_new_mexico_animation_rd_1968"
+			spriteType = "GFX_US_new_mexico_animation_rd"
+			position = { x= 359 y = 426 }
+		}
+		iconType ={
+			name ="us_voting_new_mexico_animation_npp_1968"
+			spriteType = "GFX_US_new_mexico_animation_npp"
+			position = { x= 359 y = 426 }
+		}
+
+		#new york
+		iconType ={
+			name ="us_voting_new_york_animation_rd_1968"
+			spriteType = "GFX_US_new_york_animation_rd"
+			position = { x= 783 y = 256 }
+		}
+		iconType ={
+			name ="us_voting_new_york_animation_npp_1968"
+			spriteType = "GFX_US_new_york_animation_npp"
+			position = { x= 783 y = 256 }
+		}
+
+		#north carolina
+		iconType ={
+			name ="us_voting_north_carolina_animation_rd_1968"
+			spriteType = "GFX_US_north_carolina_animation_rd"
+			position = { x= 737 y = 416 }
+		}
+		iconType ={
+			name ="us_voting_north_carolina_animation_npp_1968"
+			spriteType = "GFX_US_north_carolina_animation_npp"
+			position = { x= 737 y = 416 }
+		}
+
+		#north dakota
+		iconType ={
+			name ="us_voting_north_dakota_animation_rd_1968"
+			spriteType = "GFX_US_north_dakota_animation_rd"
+			position = { x= 460 y = 215 }
+		}
+		iconType ={
+			name ="us_voting_north_dakota_animation_npp_1968"
+			spriteType = "GFX_US_north_dakota_animation_npp"
+			position = { x= 460 y = 215 }
+		}
+
+		#ohio
+		iconType ={
+			name ="us_voting_ohio_animation_rd_1968"
+			spriteType = "GFX_US_ohio_animation_rd"
+			position = { x= 717 y = 330 }
+		}
+		iconType ={
+			name ="us_voting_ohio_animation_npp_1968"
+			spriteType = "GFX_US_ohio_animation_npp"
+			position = { x= 717 y = 330 }
+		}
+
+		#oklahoma
+		iconType ={
+			name ="us_voting_oklahoma_animation_rd_1968"
+			spriteType = "GFX_US_oklahoma_animation_rd"
+			position = { x= 460 y = 435 }
+		}
+		iconType ={
+			name ="us_voting_oklahoma_animation_npp_1968"
+			spriteType = "GFX_US_oklahoma_animation_npp"
+			position = { x= 460 y = 435 }
+		}
+
+		#oregon
+		iconType ={
+			name ="us_voting_oregon_animation_rd_1968"
+			spriteType = "GFX_US_oregon_animation_rd"
+			position = { x= 184 y = 217 }
+		}
+		iconType ={
+			name ="us_voting_oregon_animation_npp_1968"
+			spriteType = "GFX_US_oregon_animation_npp"
+			position = { x= 184 y = 217 }
+		}
+
+		#pennsylvania
+		iconType ={
+			name ="us_voting_pennsylvania_animation_rd_1968"
+			spriteType = "GFX_US_pennsylvania_animation_rd"
+			position = { x= 774 y = 316 }
+		}
+		iconType ={
+			name ="us_voting_pennsylvania_animation_npp_1968"
+			spriteType = "GFX_US_pennsylvania_animation_npp"
+			position = { x= 774 y = 316 }
+		}
+
+		#rhode island
+		iconType ={
+			name ="us_voting_rhode_island_animation_rd_1968"
+			spriteType = "GFX_US_rhode_island_animation_rd"
+			position = { x= 889 y = 304 }
+		}
+		iconType ={
+			name ="us_voting_rhode_island_animation_npp_1968"
+			spriteType = "GFX_US_rhode_island_animation_npp"
+			position = { x= 889 y = 304 }
+		}
+
+		#south carolina
+		iconType ={
+			name ="us_voting_south_carolina_animation_rd_1968"
+			spriteType = "GFX_US_south_carolina_animation_rd"
+			position = { x= 753 y = 456 }
+		}
+		iconType ={
+			name ="us_voting_south_carolina_animation_npp_1968"
+			spriteType = "GFX_US_south_carolina_animation_npp"
+			position = { x= 753 y = 456 }
+		}
+
+		#south dakota
+		iconType ={
+			name ="us_voting_south_dakota_animation_rd_1968"
+			spriteType = "GFX_US_south_dakota_animation_rd"
+			position = { x= 455 y = 269 }
+		}
+		iconType ={
+			name ="us_voting_south_dakota_animation_npp_1968"
+			spriteType = "GFX_US_south_dakota_animation_npp"
+			position = { x= 455 y = 269 }
+		}
+
+		#tennessee
+		iconType ={
+			name ="us_voting_tennessee_animation_rd_1968"
+			spriteType = "GFX_US_tennessee_animation_rd"
+			position = { x= 651 y = 431 }
+		}
+		iconType ={
+			name ="us_voting_tennessee_animation_npp_1968"
+			spriteType = "GFX_US_tennessee_animation_npp"
+			position = { x= 651 y = 431 }
+		}
+
+		#texas
+		iconType ={
+			name ="us_voting_texas_animation_rd_1968"
+			spriteType = "GFX_US_texas_animation_rd"
+			position = { x= 398 y = 445 }
+		}
+		iconType ={
+			name ="us_voting_texas_animation_npp_1968"
+			spriteType = "GFX_US_texas_animation_npp"
+			position = { x= 398 y = 445 }
+		}
+
+		#utah
+		iconType ={
+			name ="us_voting_utah_animation_rd_1968"
+			spriteType = "GFX_US_utah_animation_rd"
+			position = { x= 302 y = 322 }
+		}
+		iconType ={
+			name ="us_voting_utah_animation_npp_1968"
+			spriteType = "GFX_US_utah_animation_npp"
+			position = { x= 302 y = 322 }
+		}
+
+		#vermont
+		iconType ={
+			name ="us_voting_vermont_animation_rd_1968"
+			spriteType = "GFX_US_vermont_animation_rd"
+			position = { x= 856 y = 250 }
+		}
+		iconType ={
+			name ="us_voting_vermont_animation_npp_1968"
+			spriteType = "GFX_US_vermont_animation_npp"
+			position = { x= 856 y = 250 }
+		}
+
+		#virginia
+		iconType ={
+			name ="us_voting_virginia_animation_rd_1968"
+			spriteType = "GFX_US_virginia_animation_rd"
+			position = { x= 749 y = 372 }
+		}
+		iconType ={
+			name ="us_voting_virginia_animation_npp_1968"
+			spriteType = "GFX_US_virginia_animation_npp"
+			position = { x= 749 y = 372 }
+		}
+
+		#washington
+		iconType ={
+			name ="us_voting_washington_animation_rd_1968"
+			spriteType = "GFX_US_washington_animation_rd"
+			position = { x= 210 y = 172 }
+		}
+		iconType ={
+			name ="us_voting_washington_animation_npp_1968"
+			spriteType = "GFX_US_washington_animation_npp"
+			position = { x= 210 y = 172 }
+		}
+
+		#west virginia
+		iconType ={
+			name ="us_voting_west_virginia_animation_rd_1968"
+			spriteType = "GFX_US_west_virginia_animation_rd"
+			position = { x= 754 y = 356 }
+		}
+		iconType ={
+			name ="us_voting_west_virginia_animation_npp_1968"
+			spriteType = "GFX_US_west_virginia_animation_npp"
+			position = { x= 754 y = 356 }
+		}
+
+		#wisconsin
+		iconType ={
+			name ="us_voting_wisconsin_animation_rd_1968"
+			spriteType = "GFX_US_wisconsin_animation_rd"
+			position = { x= 603 y = 254 }
+		}
+		iconType ={
+			name ="us_voting_wisconsin_animation_npp_1968"
+			spriteType = "GFX_US_wisconsin_animation_npp"
+			position = { x= 603 y = 254 }
+		}
+
+		#wyoming
+		iconType ={
+			name ="us_voting_wyoming_animation_rd_1968"
+			spriteType = "GFX_US_wyoming_animation_rd"
+			position = { x= 356 y = 276 }
+		}
+		iconType ={
+			name ="us_voting_wyoming_animation_npp_1968"
+			spriteType = "GFX_US_wyoming_animation_npp"
+			position = { x= 356 y = 276 }
+		}
+
+
+		######				   1972               ######
+		#alabma
+		iconType ={
+			name ="us_voting_alabama_animation_rd_1972"
+			spriteType = "GFX_US_alabama_animation_rd"
+			position = { x= 680 y = 468 }
+		}
+		iconType ={
+			name ="us_voting_alabama_animation_npp_1972"
+			spriteType = "GFX_US_alabama_animation_npp"
+			position = { x= 680 y = 468 }
+		}
+
+		#alaska with islands
+		iconType ={
+			name ="us_voting_alaska_with_islands_animation_rd_1972"
+			spriteType = "GFX_US_alaskawislands_animation_rd"
+			position = { x= 167 y = 529 }
+		}
+		iconType ={
+			name ="us_voting_alaska_with_islands_animation_npp_1972"
+			spriteType = "GFX_US_alaskawislands_animation_npp"
+			position = { x= 167 y = 529 }
+		}
+
+		#alaska without islands
+		iconType ={
+			name ="us_voting_alaska_without_islands_animation_rd_1972"
+			spriteType = "GFX_US_alaskanislands_animation_rd"
+			position = { x= 201 y = 529 }
+		}
+		iconType ={
+			name ="us_voting_alaska_without_islands_animation_npp_1972"
+			spriteType = "GFX_US_alaskanislands_animation_npp"
+			position = { x= 201 y = 529 }
+		}
+
+		#arizona
+		iconType ={
+			name ="us_voting_arizona_animation_rd_1972"
+			spriteType = "GFX_US_arizona_animation_rd"
+			position = { x= 275 y = 413 }
+		}
+		iconType ={
+			name ="us_voting_arizona_animation_npp_1972"
+			spriteType = "GFX_US_arizona_animation_npp"
+			position = { x= 275 y = 413 }
+		}
+
+		#arkansas
+		iconType ={
+			name ="us_voting_arkansas_animation_rd_1972"
+			spriteType = "GFX_US_arkansas_animation_rd"
+			position = { x= 584 y = 445 }
+		}
+		iconType ={
+			name ="us_voting_arkansas_animation_npp_1972"
+			spriteType = "GFX_US_arkansas_animation_npp"
+			position = { x= 584 y = 445 }
+		}
+
+		#california no ports
+		iconType ={
+			name ="us_voting_california_no_ports_animation_rd_1972"
+			spriteType = "GFX_US_californianports_animation_rd"
+			position = { x= 173 y = 291 }
+		}
+		iconType ={
+			name ="us_voting_california_no_ports_animation_npp_1972"
+			spriteType = "GFX_US_californianports_animation_npp"
+			position = { x= 173 y = 291 }
+		}
+
+		#california ports
+		iconType ={
+			name ="us_voting_california_with_ports_animation_rd_1972"
+			spriteType = "GFX_US_californiawports_animation_rd"
+			position = { x= 173 y = 291 }
+		}
+		iconType ={
+			name ="us_voting_california_with_ports_animation_npp_1972"
+			spriteType = "GFX_US_californiawports_animation_npp"
+			position = { x= 173 y = 291 }
+		}
+
+		#colorado
+		iconType ={
+			name ="us_voting_colorado_animation_rd_1972"
+			spriteType = "GFX_US_colorado_animation_rd"
+			position = { x= 374 y = 354 }
+		}
+		iconType ={
+			name ="us_voting_colorado_animation_npp_1972"
+			spriteType = "GFX_US_colorado_animation_npp"
+			position = { x= 374 y = 354 }
+		}
+
+		#connecticut
+		iconType ={
+			name ="us_voting_connecticut_animation_rd_1972"
+			spriteType = "GFX_US_connecticut_animation_rd"
+			position = { x= 867 y = 305 }
+		}
+		iconType ={
+			name ="us_voting_connecticut_animation_npp_1972"
+			spriteType = "GFX_US_connecticut_animation_npp"
+			position = { x= 867 y = 305 }
+		}
+
+		#dc
+		iconType ={
+			name ="us_voting_dc_animation_rd_1972"
+			spriteType = "GFX_US_dc_animation_rd"
+			position = { x= 828 y = 374 }
+		}
+		iconType ={
+			name ="us_voting_dc_animation_npp_1972"
+			spriteType = "GFX_US_dc_animation_npp"
+			position = { x= 828 y = 374 }
+		}
+
+		#delaware
+		iconType ={
+			name ="us_voting_delaware_animation_rd_1972"
+			spriteType = "GFX_US_delaware_animation_rd"
+			position = { x= 845 y = 356 }
+		}
+		iconType ={
+			name ="us_voting_delaware_animation_npp_1972"
+			spriteType = "GFX_US_delaware_animation_npp"
+			position = { x= 845 y = 356 }
+		}
+
+		#florida
+		iconType ={
+			name ="us_voting_florida_animation_rd_1972"
+			spriteType = "GFX_US_florida_animation_rd"
+			position = { x= 695 y = 538 }
+		}
+		iconType ={
+			name ="us_voting_florida_animation_npp_1972"
+			spriteType = "GFX_US_florida_animation_npp"
+			position = { x= 695 y = 538 }
+		}
+
+		#georgia
+		iconType ={
+			name ="us_voting_georgia_animation_rd_1972"
+			spriteType = "GFX_US_georgia_animation_rd"
+			position = { x= 719 y = 464 }
+		}
+		iconType ={
+			name ="us_voting_georgia_animation_npp_1972"
+			spriteType = "GFX_US_georgia_animation_npp"
+			position = { x= 719 y = 464 }
+		}
+
+		#hawaii
+		iconType ={
+			name ="us_voting_hawaii_animation_rd_1972"
+			spriteType = "GFX_US_hawaii_animation_rd"
+			position = { x= 354 y = 593 }
+		}
+		iconType ={
+			name ="us_voting_hawaii_animation_npp_1972"
+			spriteType = "GFX_US_hawaii_animation_npp"
+			position = { x= 354 y = 593 }
+		}
+
+		#idaho
+		iconType ={
+			name ="us_voting_idaho_animation_rd_1972"
+			spriteType = "GFX_US_idaho_animation_rd"
+			position = { x= 279 y = 190 }
+		}
+		iconType ={
+			name ="us_voting_idaho_animation_npp_1972"
+			spriteType = "GFX_US_idaho_animation_npp"
+			position = { x= 279 y = 190 }
+		}
+
+		#illinois
+		iconType ={
+			name ="us_voting_illinois_animation_rd_1972"
+			spriteType = "GFX_US_illinois_animation_rd"
+			position = { x= 625 y = 332 }
+		}
+		iconType ={
+			name ="us_voting_illinois_animation_npp_1972"
+			spriteType = "GFX_US_illinois_animation_npp"
+			position = { x= 625 y = 332 }
+		}
+
+		#indiana
+		iconType ={
+			name ="us_voting_indiana_animation_rd_1972"
+			spriteType = "GFX_US_indiana_animation_rd"
+			position = { x= 678 y = 342 }
+		}
+		iconType ={
+			name ="us_voting_indiana_animation_npp_1972"
+			spriteType = "GFX_US_indiana_animation_npp"
+			position = { x= 678 y = 342 }
+		}
+
+		#iowa
+		iconType ={
+			name ="us_voting_iowa_animation_rd_1972"
+			spriteType = "GFX_US_iowa_animation_rd"
+			position = { x= 555 y = 317 }
+		}
+		iconType ={
+			name ="us_voting_iowa_animation_npp_1972"
+			spriteType = "GFX_US_iowa_animation_npp"
+			position = { x= 555 y = 317 }
+		}
+
+		#kansas
+		iconType ={
+			name ="us_voting_kansas_animation_rd_1972"
+			spriteType = "GFX_US_kansas_animation_rd"
+			position = { x= 475 y = 381 }
+		}
+		iconType ={
+			name ="us_voting_kansas_animation_npp_1972"
+			spriteType = "GFX_US_kansas_animation_npp"
+			position = { x= 475 y = 381 }
+		}
+
+		#kentucky
+		iconType ={
+			name ="us_voting_kentucky_animation_rd_1972"
+			spriteType = "GFX_US_kentucky_animation_rd"
+			position = { x= 662 y = 390 }
+		}
+		iconType ={
+			name ="us_voting_kentucky_animation_npp_1972"
+			spriteType = "GFX_US_kentucky_animation_npp"
+			position = { x= 662 y = 390 }
+		}
+
+		#louisiana
+		iconType ={
+			name ="us_voting_louisiana_animation_rd_1972"
+			spriteType = "GFX_US_louisiana_animation_rd"
+			position = { x= 593 y = 512 }
+		}
+		iconType ={
+			name ="us_voting_louisiana_animation_npp_1972"
+			spriteType = "GFX_US_louisiana_animation_npp"
+			position = { x= 593 y = 512 }
+		}
+
+		#maine
+		iconType ={
+			name ="us_voting_maine_animation_rd_1972"
+			spriteType = "GFX_US_maine_animation_rd"
+			position = { x= 884 y = 198 }
+		}
+		iconType ={
+			name ="us_voting_maine_animation_npp_1972"
+			spriteType = "GFX_US_maine_animation_npp"
+			position = { x= 884 y = 198 }
+		}
+
+		#maryland
+		iconType ={
+			name ="us_voting_maryland_animation_rd_1972"
+			spriteType = "GFX_US_maryland_animation_rd"
+			position = { x= 794 y = 358 }
+		}
+		iconType ={
+			name ="us_voting_maryland_animation_npp_1972"
+			spriteType = "GFX_US_maryland_animation_npp"
+			position = { x= 794 y = 358 }
+		}
+
+		#massachusetts
+		iconType ={
+			name ="us_voting_massachusetts_animation_rd_1972"
+			spriteType = "GFX_US_massachusetts_animation_rd"
+			position = { x= 866 y = 287 }
+		}
+		iconType ={
+			name ="us_voting_massachusetts_animation_npp_1972"
+			spriteType = "GFX_US_massachusetts_animation_npp"
+			position = { x= 866 y = 287 }
+		}
+
+		#michigan
+		iconType ={
+			name ="us_voting_michigan_animation_rd_1972"
+			spriteType = "GFX_US_michigan_animation_rd"
+			position = { x= 636 y = 241 }
+		}
+		iconType ={
+			name ="us_voting_michigan_animation_npp_1972"
+			spriteType = "GFX_US_michigan_animation_npp"
+			position = { x= 636 y = 241 }
+		}
+
+		#minnesota
+		iconType ={
+			name ="us_voting_minnesota_animation_rd_1972"
+			spriteType = "GFX_US_minnesota_animation_rd"
+			position = { x= 549 y = 212 }
+		}
+		iconType ={
+			name ="us_voting_minnesota_animation_npp_1972"
+			spriteType = "GFX_US_minnesota_animation_npp"
+			position = { x= 549 y = 212 }
+		}
+
+		#mississippi
+		iconType ={
+			name ="us_voting_mississippi_animation_rd_1972"
+			spriteType = "GFX_US_mississippi_animation_rd"
+			position = { x= 632 y = 471 }
+		}
+		iconType ={
+			name ="us_voting_mississippi_animation_npp_1972"
+			spriteType = "GFX_US_mississippi_animation_npp"
+			position = { x= 632 y = 471 }
+		}
+
+		#missouri
+		iconType ={
+			name ="us_voting_missouri_animation_rd_1972"
+			spriteType = "GFX_US_missouri_animation_rd"
+			position = { x= 567 y = 371 }
+		}
+		iconType ={
+			name ="us_voting_missouri_animation_npp_1972"
+			spriteType = "GFX_US_missouri_animation_npp"
+			position = { x= 567 y = 371 }
+		}
+
+		#montana
+		iconType ={
+			name ="us_voting_montana_animation_rd_1972"
+			spriteType = "GFX_US_montana_animation_rd"
+			position = { x= 316 y = 193 }
+		}
+		iconType ={
+			name ="us_voting_montana_animation_npp_1972"
+			spriteType = "GFX_US_montana_animation_npp"
+			position = { x= 316 y = 193 }
+		}
+
+		#nebraska
+		iconType ={
+			name ="us_voting_nebraska_animation_rd_1972"
+			spriteType = "GFX_US_nebraska_animation_rd"
+			position = { x= 452 y = 323 }
+		}
+		iconType ={
+			name ="us_voting_nebraska_animation_npp_1972"
+			spriteType = "GFX_US_nebraska_animation_npp"
+			position = { x= 452 y = 323 }
+		}
+
+		#nevada
+		iconType ={
+			name ="us_voting_nevada_animation_rd_1972"
+			spriteType = "GFX_US_nevada_animation_rd"
+			position = { x= 226 y = 305 }
+		}
+		iconType ={
+			name ="us_voting_nevada_animation_npp_1972"
+			spriteType = "GFX_US_nevada_animation_npp"
+			position = { x= 226 y = 305 }
+		}
+
+		#new hampshire
+		iconType ={
+			name ="us_voting_new_hampshire_animation_rd_1972"
+			spriteType = "GFX_US_new_hampshire_animation_rd"
+			position = { x= 875 y = 244 }
+		}
+		iconType ={
+			name ="us_voting_new_hampshire_animation_npp_1972"
+			spriteType = "GFX_US_new_hampshire_animation_npp"
+			position = { x= 875 y = 244 }
+		}
+
+		#new jersey
+		iconType ={
+			name ="us_voting_new_jersey_animation_rd_1972"
+			spriteType = "GFX_US_new_jersey_animation_rd"
+			position = { x= 849 y = 325 }
+		}
+		iconType ={
+			name ="us_voting_new_jersey_animation_npp_1972"
+			spriteType = "GFX_US_new_jersey_animation_npp"
+			position = { x= 849 y = 325 }
+		}
+
+		#new mexico
+		iconType ={
+			name ="us_voting_new_mexico_animation_rd_1972"
+			spriteType = "GFX_US_new_mexico_animation_rd"
+			position = { x= 359 y = 426 }
+		}
+		iconType ={
+			name ="us_voting_new_mexico_animation_npp_1972"
+			spriteType = "GFX_US_new_mexico_animation_npp"
+			position = { x= 359 y = 426 }
+		}
+
+		#new york
+		iconType ={
+			name ="us_voting_new_york_animation_rd_1972"
+			spriteType = "GFX_US_new_york_animation_rd"
+			position = { x= 783 y = 256 }
+		}
+		iconType ={
+			name ="us_voting_new_york_animation_npp_1972"
+			spriteType = "GFX_US_new_york_animation_npp"
+			position = { x= 783 y = 256 }
+		}
+
+		#north carolina
+		iconType ={
+			name ="us_voting_north_carolina_animation_rd_1972"
+			spriteType = "GFX_US_north_carolina_animation_rd"
+			position = { x= 737 y = 416 }
+		}
+		iconType ={
+			name ="us_voting_north_carolina_animation_npp_1972"
+			spriteType = "GFX_US_north_carolina_animation_npp"
+			position = { x= 737 y = 416 }
+		}
+
+		#north dakota
+		iconType ={
+			name ="us_voting_north_dakota_animation_rd_1972"
+			spriteType = "GFX_US_north_dakota_animation_rd"
+			position = { x= 460 y = 215 }
+		}
+		iconType ={
+			name ="us_voting_north_dakota_animation_npp_1972"
+			spriteType = "GFX_US_north_dakota_animation_npp"
+			position = { x= 460 y = 215 }
+		}
+
+		#ohio
+		iconType ={
+			name ="us_voting_ohio_animation_rd_1972"
+			spriteType = "GFX_US_ohio_animation_rd"
+			position = { x= 717 y = 330 }
+		}
+		iconType ={
+			name ="us_voting_ohio_animation_npp_1972"
+			spriteType = "GFX_US_ohio_animation_npp"
+			position = { x= 717 y = 330 }
+		}
+
+		#oklahoma
+		iconType ={
+			name ="us_voting_oklahoma_animation_rd_1972"
+			spriteType = "GFX_US_oklahoma_animation_rd"
+			position = { x= 460 y = 435 }
+		}
+		iconType ={
+			name ="us_voting_oklahoma_animation_npp_1972"
+			spriteType = "GFX_US_oklahoma_animation_npp"
+			position = { x= 460 y = 435 }
+		}
+
+		#oregon
+		iconType ={
+			name ="us_voting_oregon_animation_rd_1972"
+			spriteType = "GFX_US_oregon_animation_rd"
+			position = { x= 184 y = 217 }
+		}
+		iconType ={
+			name ="us_voting_oregon_animation_npp_1972"
+			spriteType = "GFX_US_oregon_animation_npp"
+			position = { x= 184 y = 217 }
+		}
+
+		#pennsylvania
+		iconType ={
+			name ="us_voting_pennsylvania_animation_rd_1972"
+			spriteType = "GFX_US_pennsylvania_animation_rd"
+			position = { x= 774 y = 316 }
+		}
+		iconType ={
+			name ="us_voting_pennsylvania_animation_npp_1972"
+			spriteType = "GFX_US_pennsylvania_animation_npp"
+			position = { x= 774 y = 316 }
+		}
+
+		#rhode island
+		iconType ={
+			name ="us_voting_rhode_island_animation_rd_1972"
+			spriteType = "GFX_US_rhode_island_animation_rd"
+			position = { x= 889 y = 304 }
+		}
+		iconType ={
+			name ="us_voting_rhode_island_animation_npp_1972"
+			spriteType = "GFX_US_rhode_island_animation_npp"
+			position = { x= 889 y = 304 }
+		}
+
+		#south carolina
+		iconType ={
+			name ="us_voting_south_carolina_animation_rd_1972"
+			spriteType = "GFX_US_south_carolina_animation_rd"
+			position = { x= 753 y = 456 }
+		}
+		iconType ={
+			name ="us_voting_south_carolina_animation_npp_1972"
+			spriteType = "GFX_US_south_carolina_animation_npp"
+			position = { x= 753 y = 456 }
+		}
+
+		#south dakota
+		iconType ={
+			name ="us_voting_south_dakota_animation_rd_1972"
+			spriteType = "GFX_US_south_dakota_animation_rd"
+			position = { x= 455 y = 269 }
+		}
+		iconType ={
+			name ="us_voting_south_dakota_animation_npp_1972"
+			spriteType = "GFX_US_south_dakota_animation_npp"
+			position = { x= 455 y = 269 }
+		}
+
+		#tennessee
+		iconType ={
+			name ="us_voting_tennessee_animation_rd_1972"
+			spriteType = "GFX_US_tennessee_animation_rd"
+			position = { x= 651 y = 431 }
+		}
+		iconType ={
+			name ="us_voting_tennessee_animation_npp_1972"
+			spriteType = "GFX_US_tennessee_animation_npp"
+			position = { x= 651 y = 431 }
+		}
+
+		#texas
+		iconType ={
+			name ="us_voting_texas_animation_rd_1972"
+			spriteType = "GFX_US_texas_animation_rd"
+			position = { x= 398 y = 445 }
+		}
+		iconType ={
+			name ="us_voting_texas_animation_npp_1972"
+			spriteType = "GFX_US_texas_animation_npp"
+			position = { x= 398 y = 445 }
+		}
+
+		#utah
+		iconType ={
+			name ="us_voting_utah_animation_rd_1972"
+			spriteType = "GFX_US_utah_animation_rd"
+			position = { x= 302 y = 322 }
+		}
+		iconType ={
+			name ="us_voting_utah_animation_npp_1972"
+			spriteType = "GFX_US_utah_animation_npp"
+			position = { x= 302 y = 322 }
+		}
+
+		#vermont
+		iconType ={
+			name ="us_voting_vermont_animation_rd_1972"
+			spriteType = "GFX_US_vermont_animation_rd"
+			position = { x= 856 y = 250 }
+		}
+		iconType ={
+			name ="us_voting_vermont_animation_npp_1972"
+			spriteType = "GFX_US_vermont_animation_npp"
+			position = { x= 856 y = 250 }
+		}
+
+		#virginia
+		iconType ={
+			name ="us_voting_virginia_animation_rd_1972"
+			spriteType = "GFX_US_virginia_animation_rd"
+			position = { x= 749 y = 372 }
+		}
+		iconType ={
+			name ="us_voting_virginia_animation_npp_1972"
+			spriteType = "GFX_US_virginia_animation_npp"
+			position = { x= 749 y = 372 }
+		}
+
+		#washington
+		iconType ={
+			name ="us_voting_washington_animation_rd_1972"
+			spriteType = "GFX_US_washington_animation_rd"
+			position = { x= 210 y = 172 }
+		}
+		iconType ={
+			name ="us_voting_washington_animation_npp_1972"
+			spriteType = "GFX_US_washington_animation_npp"
+			position = { x= 210 y = 172 }
+		}
+
+		#west virginia
+		iconType ={
+			name ="us_voting_west_virginia_animation_rd_1972"
+			spriteType = "GFX_US_west_virginia_animation_rd"
+			position = { x= 754 y = 356 }
+		}
+		iconType ={
+			name ="us_voting_west_virginia_animation_npp_1972"
+			spriteType = "GFX_US_west_virginia_animation_npp"
+			position = { x= 754 y = 356 }
+		}
+
+		#wisconsin
+		iconType ={
+			name ="us_voting_wisconsin_animation_rd_1972"
+			spriteType = "GFX_US_wisconsin_animation_rd"
+			position = { x= 603 y = 254 }
+		}
+		iconType ={
+			name ="us_voting_wisconsin_animation_npp_1972"
+			spriteType = "GFX_US_wisconsin_animation_npp"
+			position = { x= 603 y = 254 }
+		}
+
+		#wyoming
+		iconType ={
+			name ="us_voting_wyoming_animation_rd_1972"
+			spriteType = "GFX_US_wyoming_animation_rd"
+			position = { x= 356 y = 276 }
+		}
+		iconType ={
+			name ="us_voting_wyoming_animation_npp_1972"
+			spriteType = "GFX_US_wyoming_animation_npp"
+			position = { x= 356 y = 276 }
+		}
+		iconType ={
+			name = "US_opposition_campaign_here"
+			spriteType = "GFX_US_opposition_campaigning_here_icon"
+			alwaystransparent = yes
+		}
+		iconType ={
+			name = "US_campaign_here"
+			spriteType = "GFX_US_campaigning_here_icon"
+			alwaystransparent = yes
+		}
+		iconType ={
+			name = "US_blocker_blocker"
+			spriteType = "GFX_US_blocker_blocker"
+			alwaystransparent = yes
+			position = { x= 4 y = 176 }
+		}
+	}
+	
+	containerWindowType = {
+		name = "TNO_US_voting_regions_overview"
+		size = { width = 1000 height = 940 }
+		position = { x = 630 y = 40 }
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite ="GFX_tiled_window_1b_no_border"
+		}
+
+		containerWindowType = {
+			name = "USA_GUI_voting_large_states_new_england"
+			size = { width = 469 height = 469 }
+			position = { x = 10 y = 50 }
+
+			buttonType = {
+				name = "us_voting_large_button_maine"
+				spriteType = "GFX_us_voting_maine_large"
+				position = { x = 273 y = 122 }
+				pdx_tooltip = "US_VOTE_MAINE_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_vermont"
+				spriteType = "GFX_us_voting_vermont_large"
+				position = { x = 225 y = 194 }
+				pdx_tooltip = "US_VOTE_VERMONT_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_new_hampshire"
+				spriteType = "GFX_us_voting_new_hampshire_large"
+				position = { x = 241 y = 187 }
+				pdx_tooltip = "US_VOTE_NEW_HAMPSHIRE_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_massachusetts"
+				spriteType = "GFX_us_voting_massachusetts_large"
+				position = { x = 220 y = 259 }
+				pdx_tooltip = "US_VOTE_MASSACHUSETTS_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_connecticut"
+				spriteType = "GFX_us_voting_connecticut_large"
+				position = { x = 217 y = 284 }
+				pdx_tooltip = "US_VOTE_CONNECTICUT_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_rhode_island"
+				spriteType = "GFX_us_voting_rhode_island_large"
+				position = { x = 256 y = 286 }
+				pdx_tooltip = "US_VOTE_RHODE_ISLAND_TOOLTIP_LOC"
+			}
+			iconType = {
+				name = "us_voting_large_blocker_maine"
+				spriteType = "GFX_USA_maine_large_black"
+				position = { x = 273 y = 122 }
+				pdx_tooltip = "US_VOTE_MAINE_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_vermont"
+				spriteType = "GFX_USA_vermont_large_black"
+				position = { x = 225 y = 194 }
+				pdx_tooltip = "US_VOTE_VERMONT_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_new_hampshire"
+				spriteType = "GFX_USA_new_hampshire_large_black"
+				position = { x = 241 y = 187 }
+				pdx_tooltip = "US_VOTE_NEW_HAMPSHIRE_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_massachusetts"
+				spriteType = "GFX_USA_massachusetts_large_black"
+				position = { x = 220 y = 259 }
+				pdx_tooltip = "US_VOTE_MASSACHUSETTS_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_connecticut"
+				spriteType = "GFX_USA_connecticut_large_black"
+				position = { x = 217 y = 284 }
+				pdx_tooltip = "US_VOTE_CONNECTICUT_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_rhode_island"
+				spriteType = "GFX_USA_rhode_island_large_black"
+				position = { x = 256 y = 286 }
+				pdx_tooltip = "US_VOTE_RHODE_ISLAND_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+		}
+
+		containerWindowType = {
+			name = "USA_GUI_voting_large_states_east_coast"
+			size = { width = 469 height = 469 }
+			position = { x = 10 y = 50 }
+
+			buttonType = {
+				name = "us_voting_large_button_pennsylvania"
+				spriteType = "GFX_us_voting_pennsylvania_large"
+				position = { x = 193 y = 231 }
+				pdx_tooltip = "US_VOTE_PENNSYLVANIA_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_new_york"
+				spriteType = "GFX_us_voting_new_york_large"
+				position = { x = 207 y = 149 }
+				pdx_tooltip = "US_VOTE_NEW_YORK_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_west_virginia"
+				spriteType = "GFX_us_voting_west_virginia_large"
+				position = { x = 146 y = 281 }
+				pdx_tooltip = "US_VOTE_WEST_VIRGINIA_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_maryland"
+				spriteType = "GFX_us_voting_maryland_large"
+				position = { x = 214 y = 305 }
+				pdx_tooltip = "US_VOTE_MARYLAND_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_delaware"
+				spriteType = "GFX_us_voting_delaware_large"
+				position = { x = 296 y = 304 }
+				pdx_tooltip = "US_VOTE_DELAWARE_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_new_jersey"
+				spriteType = "GFX_us_voting_new_jersey_large"
+				position = { x = 301 y = 258 }
+				pdx_tooltip = "US_VOTE_NEW_JERSEY_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_dc"
+				spriteType = "GFX_us_voting_dc_large"
+				position = { x = 254 y = 314 }
+				pdx_tooltip = "US_VOTE_DC_TOOLTIP_LOC"
+			}
+			iconType = {
+				name = "us_voting_large_blocker_pennsylvania"
+				spriteType = "GFX_USA_pennsylvania_large_black"
+				position = { x = 193 y = 231 }
+				pdx_tooltip = "US_VOTE_PENNSYLVANIA_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_new_york"
+				spriteType = "GFX_USA_new_york_large_black"
+				position = { x = 207 y = 149 }
+				pdx_tooltip = "US_VOTE_NEW_YORK_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_west_virginia"
+				spriteType = "GFX_USA_west_virginia_large_black"
+				position = { x = 146 y = 281 }
+				pdx_tooltip = "US_VOTE_WEST_VIRGINIA_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_maryland"
+				spriteType = "GFX_USA_maryland_large_black"
+				position = { x = 214 y = 305 }
+				pdx_tooltip = "US_VOTE_MARYLAND_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_delaware"
+				spriteType = "GFX_USA_delaware_large_black"
+				position = { x = 296 y = 304 }
+				pdx_tooltip = "US_VOTE_DELAWARE_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_new_jersey"
+				spriteType = "GFX_USA_new_jersey_large_black"
+				position = { x = 301 y = 258 }
+				pdx_tooltip = "US_VOTE_NEW_JERSEY_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_dc"
+				spriteType = "GFX_USA_dc_large_black"
+				position = { x = 254 y = 314 }
+				pdx_tooltip = "US_VOTE_DC_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+		}
+
+		containerWindowType = {
+			name = "USA_GUI_voting_large_states_deep_south"
+			size = { width = 469 height = 469 }
+			position = { x = 10 y = 50 }
+
+			buttonType = {
+				name = "us_voting_large_button_florida"
+				spriteType = "GFX_us_voting_florida_large"
+				position = { x = 239 y = 274 }
+				pdx_tooltip = "US_VOTE_FLORIDA_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_georgia"
+				spriteType = "GFX_us_voting_georgia_large"
+				position = { x = 281 y = 167 }
+				pdx_tooltip = "US_VOTE_GEORGIA_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_south_carolina"
+				spriteType = "GFX_us_voting_south_carolina_large"
+				position = { x = 331 y = 160 }
+				pdx_tooltip = "US_VOTE_SOUTH_CAROLINA_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_alabama"
+				spriteType = "GFX_us_voting_alabama_large"
+				position = { x = 220 y = 166 }
+				pdx_tooltip = "US_VOTE_ALABAMA_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_mississippi"
+				spriteType = "GFX_us_voting_mississippi_large"
+				position = { x = 152 y = 167 }
+				pdx_tooltip = "US_VOTE_MISSISSIPPI_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_louisianna"
+				spriteType = "GFX_us_voting_louisianna_large"
+				position = { x = 101 y = 221 }
+				pdx_tooltip = "US_VOTE_LOUISIANA_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_arkansas"
+				spriteType = "GFX_us_voting_arkansas_large"
+				position = { x = 90 y = 125 }
+				pdx_tooltip = "US_VOTE_ARKANSAS_TOOLTIP_LOC"
+			}
+			iconType = {
+				name = "us_voting_large_blocker_florida"
+				spriteType = "GFX_USA_florida_large_black"
+				position = { x = 239 y = 274 }
+				pdx_tooltip = "US_VOTE_FLORIDA_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_georgia"
+				spriteType = "GFX_USA_georgia_large_black"
+				position = { x = 281 y = 167 }
+				pdx_tooltip = "US_VOTE_GEORGIA_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_south_carolina"
+				spriteType = "GFX_USA_south_carolina_large_black"
+				position = { x = 331 y = 160 }
+				pdx_tooltip = "US_VOTE_SOUTH_CAROLINA_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_alabama"
+				spriteType = "GFX_USA_alabama_large_black"
+				position = { x = 220 y = 166 }
+				pdx_tooltip = "US_VOTE_ALABAMA_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_mississippi"
+				spriteType = "GFX_USA_mississippi_large_black"
+				position = { x = 152 y = 167 }
+				pdx_tooltip = "US_VOTE_MISSISSIPPI_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_louisianna"
+				spriteType = "GFX_USA_louisisana_large_black"
+				position = { x = 101 y = 221 }
+				pdx_tooltip = "US_VOTE_LOUISIANA_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_arkansas"
+				spriteType = "GFX_USA_arkansas_large_black"
+				position = { x = 90 y = 125 }
+				pdx_tooltip = "US_VOTE_ARKANSAS_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+		}
+
+		containerWindowType = {
+			name = "USA_GUI_voting_large_states_upper_south"
+			size = { width = 469 height = 469 }
+			position = { x = 10 y = 50 }
+
+			buttonType = {
+				name = "us_voting_large_button_tennessee"
+				spriteType = "GFX_us_voting_tennessee_large"
+				position = { x = 89 y = 234 }
+				pdx_tooltip = "US_VOTE_TENNESSEE_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_north_carolina"
+				spriteType = "GFX_us_voting_north_carolina_large"
+				position = { x = 214 y = 234 }
+				pdx_tooltip = "US_VOTE_NORTH_CAROLINA_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_virginia"
+				spriteType = "GFX_us_voting_virginia_large"
+				position = { x = 229 y = 157 }
+				pdx_tooltip = "US_VOTE_VIRGINIA_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_kentucky"
+				spriteType = "GFX_us_voting_kentucky_large"
+				position = { x = 105 y = 165 }
+				pdx_tooltip = "US_VOTE_KENTUCKY_TOOLTIP_LOC"
+			}
+			iconType = {
+				name = "us_voting_large_blocker_tennessee"
+				spriteType = "GFX_USA_tennessee_large_black"
+				position = { x = 89 y = 234 }
+				pdx_tooltip = "US_VOTE_TENNESSEE_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_north_carolina"
+				spriteType = "GFX_USA_north_carolina_large_black"
+				position = { x = 214 y = 234 }
+				pdx_tooltip = "US_VOTE_NORTH_CAROLINA_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_virginia"
+				spriteType = "GFX_USA_virginia_large_black"
+				position = { x = 229 y = 157 }
+				pdx_tooltip = "US_VOTE_VIRGINIA_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_kentucky"
+				spriteType = "GFX_USA_kentucky_large_black"
+				position = { x = 105 y = 165 }
+				pdx_tooltip = "US_VOTE_KENTUCKY_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+		}
+
+		containerWindowType = {
+			name = "USA_GUI_voting_large_states_great_lakes"
+			size = { width = 469 height = 469 }
+			position = { x = 10 y = 50 }
+
+			buttonType = {
+				name = "us_voting_large_button_indiana"
+				spriteType = "GFX_us_voting_indiana_large"
+				position = { x = 209 y = 250 }
+				pdx_tooltip = "US_VOTE_INDIANA_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_illinois"
+				spriteType = "GFX_us_voting_illinois_large"
+				position = { x = 134 y = 229 }
+				pdx_tooltip = "US_VOTE_ILLINOIS_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_ohio"
+				spriteType = "GFX_us_voting_ohio_large"
+				position = { x = 279 y = 241 }
+				pdx_tooltip = "US_VOTE_OHIO_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_michigan"
+				spriteType = "GFX_us_voting_michigan_large"
+				position = { x = 162 y = 82 }
+				pdx_tooltip = "US_VOTE_MICHIGAN_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_wisconsin"
+				spriteType = "GFX_us_voting_wisconsin_large"
+				position = { x = 104 y = 98 }
+				pdx_tooltip = "US_VOTE_WISCONSIN_TOOLTIP_LOC"
+			}
+			iconType = {
+				name = "us_voting_large_blocker_indiana"
+				spriteType = "GFX_USA_indiana_large_black"
+				position = { x = 209 y = 250 }
+				pdx_tooltip = "US_VOTE_INDIANA_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_illinois"
+				spriteType = "GFX_USA_illinois_large_black"
+				position = { x = 134 y = 229 }
+				pdx_tooltip = "US_VOTE_ILLINOIS_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_ohio"
+				spriteType = "GFX_USA_ohio_large_black"
+				position = { x = 279 y = 241 }
+				pdx_tooltip = "US_VOTE_OHIO_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_michigan"
+				spriteType = "GFX_USA_michigan_large_black"
+				position = { x = 162 y = 82 }
+				pdx_tooltip = "US_VOTE_MICHIGAN_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_wisconsin"
+				spriteType = "GFX_USA_wisconsin_large_black"
+				position = { x = 104 y = 98 }
+				pdx_tooltip = "US_VOTE_WISCONSIN_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+		}
+
+		containerWindowType = {
+			name = "USA_GUI_voting_large_states_great_plains"
+			size = { width = 469 height = 469 }
+			position = { x = 10 y = 50 }
+
+			buttonType = {
+				name = "us_voting_large_button_minnesota"
+				spriteType = "GFX_us_voting_minnesota_large"
+				position = { x = 215 y = 24 }
+				pdx_tooltip = "US_VOTE_MINNESOTA_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_north_dakota"
+				spriteType = "GFX_us_voting_north_dakota_large"
+				position = { x = 67 y = 34 }
+				pdx_tooltip = "US_VOTE_NORTH_DAKOTA_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_south_dakota"
+				spriteType = "GFX_us_voting_south_dakota_large"
+				position = { x = 67 y = 130 }
+				pdx_tooltip = "US_VOTE_SOUTH_DAKOTA_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_nebraska"
+				spriteType = "GFX_us_voting_nebraska_large"
+				position = { x = 66 y = 215 }
+				pdx_tooltip = "US_VOTE_NEBRASKA_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_kansas"
+				spriteType = "GFX_us_voting_kansas_large"
+				position = { x = 110 y = 302 }
+				pdx_tooltip = "US_VOTE_KANSAS_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_missouri"
+				spriteType = "GFX_us_voting_missouri_large"
+				position = { x = 246 y = 287 }
+				pdx_tooltip = "US_VOTE_MISSOURI_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_iowa"
+				spriteType = "GFX_us_voting_iowa_large"
+				position = { x = 227 y = 202 }
+				pdx_tooltip = "US_VOTE_IOWA_TOOLTIP_LOC"
+			}
+			iconType = {
+				name = "us_voting_large_blocker_minnesota"
+				spriteType = "GFX_USA_minnesota_large_black"
+				position = { x = 215 y = 24 }
+				pdx_tooltip = "US_VOTE_MINNESOTA_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_north_dakota"
+				spriteType = "GFX_USA_north_dakota_large_black"
+				position = { x = 67 y = 34 }
+				pdx_tooltip = "US_VOTE_NORTH_DAKOTA_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_south_dakota"
+				spriteType = "GFX_USA_south_dakota_large_black"
+				position = { x = 67 y = 130 }
+				pdx_tooltip = "US_VOTE_SOUTH_DAKOTA_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_nebraska"
+				spriteType = "GFX_USA_nebraska_large_black"
+				position = { x = 66 y = 215 }
+				pdx_tooltip = "US_VOTE_NEBRASKA_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_kansas"
+				spriteType = "GFX_USA_kansas_large_black"
+				position = { x = 110 y = 302 }
+				pdx_tooltip = "US_VOTE_KANSAS_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_missouri"
+				spriteType = "GFX_USA_missouri_large_black"
+				position = { x = 246 y = 287 }
+				pdx_tooltip = "US_VOTE_MISSOURI_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_iowa"
+				spriteType = "GFX_USA_iowa_large_black"
+				position = { x = 227 y = 202 }
+				pdx_tooltip = "US_VOTE_IOWA_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+		}
+
+		containerWindowType = {
+			name = "USA_GUI_voting_large_states_southwest"
+			size = { width = 469 height = 469 }
+			position = { x = 10 y = 50 }
+
+			buttonType = {
+				name = "us_voting_large_button_texas"
+				spriteType = "GFX_us_voting_texas_large"
+				position = { x = 185 y = 145 }
+				pdx_tooltip = "US_VOTE_TEXAS_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_oklahoma"
+				spriteType = "GFX_us_voting_oklahoma_large"
+				position = { x = 259 y = 130 }
+				pdx_tooltip = "US_VOTE_OKLAHOMA_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_new_mexico"
+				spriteType = "GFX_us_voting_new_mexico_large"
+				position = { x = 129 y = 128 }
+				pdx_tooltip = "US_VOTE_NEW_MEXICO_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_arizona"
+				spriteType = "GFX_us_voting_arizona_large"
+				position = { x = 7 y = 128 }
+				pdx_tooltip = "US_VOTE_ARIZONA_TOOLTIP_LOC"
+			}
+			iconType = {
+				name = "us_voting_large_blocker_texas"
+				spriteType = "GFX_USA_texas_large_black"
+				position = { x = 185 y = 145 }
+				pdx_tooltip = "US_VOTE_TEXAS_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_oklahoma"
+				spriteType = "GFX_USA_oklahoma_large_black"
+				position = { x = 259 y = 130 }
+				pdx_tooltip = "US_VOTE_OKLAHOMA_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_new_mexico"
+				spriteType = "GFX_USA_new_mexico_large_black"
+				position = { x = 129 y = 128 }
+				pdx_tooltip = "US_VOTE_NEW_MEXICO_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_arizona"
+				spriteType = "GFX_USA_arizona_large_black"
+				position = { x = 7 y = 128 }
+				pdx_tooltip = "US_VOTE_ARIZONA_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+		}
+
+		containerWindowType = {
+			name = "USA_GUI_voting_large_states_rockies"
+			size = { width = 469 height = 469 }
+			position = { x = 10 y = 50 }
+
+			buttonType = {
+				name = "us_voting_large_button_idaho"
+				spriteType = "GFX_us_voting_idaho_large"
+				position = { x = 106 y = 31 }
+				pdx_tooltip = "US_VOTE_IDAHO_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_montana"
+				spriteType = "GFX_us_voting_montana_large"
+				position = { x = 131 y = 31 }
+				pdx_tooltip = "US_VOTE_MONTANA_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_nevada"
+				spriteType = "GFX_us_voting_nevada_large"
+				position = { x = 44 y = 241 }
+				pdx_tooltip = "US_VOTE_NEVADA_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_utah"
+				spriteType = "GFX_us_voting_utah_large"
+				position = { x = 175 y = 241 }
+				pdx_tooltip = "US_VOTE_UTAH_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_wyoming"
+				spriteType = "GFX_us_voting_colorado_large"
+				position = { x = 239 y = 157 }
+				pdx_tooltip = "US_VOTE_WYOMING_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_colorado"
+				spriteType = "GFX_us_voting_wyoming_large"
+				position = { x = 283 y = 267 }
+				pdx_tooltip = "US_VOTE_COLORADO_TOOLTIP_LOC"
+			}
+			iconType = {
+				name = "us_voting_large_blocker_idaho"
+				spriteType = "GFX_USA_idaho_large_black"
+				position = { x = 106 y = 31 }
+				pdx_tooltip = "US_VOTE_IDAHO_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_montana"
+				spriteType = "GFX_USA_montana_large_black"
+				position = { x = 131 y = 31 }
+				pdx_tooltip = "US_VOTE_MONTANA_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_nevada"
+				spriteType = "GFX_USA_nevada_large_black"
+				position = { x = 44 y = 241 }
+				pdx_tooltip = "US_VOTE_NEVADA_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_utah"
+				spriteType = "GFX_USA_utah_large_black"
+				position = { x = 175 y = 241 }
+				pdx_tooltip = "US_VOTE_UTAH_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_wyoming"
+				spriteType = "GFX_USA_colorado_large_black"
+				position = { x = 239 y = 157 }
+				pdx_tooltip = "US_VOTE_WYOMING_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_colorado"
+				spriteType = "GFX_USA_wyoming_large_black"
+				position = { x = 283 y = 267 }
+				pdx_tooltip = "US_VOTE_COLORADO_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+		}
+		containerWindowType = {
+			name = "USA_GUI_voting_large_states_west_coast"
+			size = { width = 469 height = 469 }
+			position = { x = 10 y = 50 }
+
+			buttonType = {
+				name = "us_voting_large_button_washington"
+				spriteType = "GFX_us_voting_washington_large"
+				position = { x = 243 y = 3 }
+				pdx_tooltip = "US_VOTE_WASHINGTON_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_oregon"
+				spriteType = "GFX_us_voting_oregon_large"
+				position = { x = 247 y = 86 }
+				pdx_tooltip = "US_VOTE_OREGON_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_hawaii"
+				spriteType = "GFX_us_voting_hawaii_large"
+				position = { x = 49 y = 103 }
+				pdx_tooltip = "US_VOTE_HAWAII_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_californiawports"
+				spriteType = "GFX_us_voting_californiawports_large"
+				position = { x = 250 y = 213 }
+				pdx_tooltip = "US_VOTE_CALIFORNIA_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_californianports"
+				spriteType = "GFX_us_voting_californianports_large"
+				position = { x = 250 y = 213 }
+				pdx_tooltip = "US_VOTE_CALIFORNIA_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_alaskanislands"
+				spriteType = "GFX_us_voting_alaskanislands_large"
+				position = { x = 66 y = 244 }
+				pdx_tooltip = "US_VOTE_ALASKA_TOOLTIP_LOC"
+			}
+			buttonType = {
+				name = "us_voting_large_button_alaskawislands"
+				spriteType = "GFX_us_voting_alaskawislands_large"
+				position = { x = 9 y = 244 }
+				pdx_tooltip = "US_VOTE_ALASKA_TOOLTIP_LOC"
+			}
+			iconType = {
+				name = "us_voting_large_blocker_washington"
+				spriteType = "GFX_USA_washington_large_black"
+				position = { x = 243 y = 3 }
+				pdx_tooltip = "US_VOTE_WASHINGTON_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_oregon"
+				spriteType = "GFX_USA_oregon_large_black"
+				position = { x = 247 y = 86 }
+				pdx_tooltip = "US_VOTE_OREGON_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_hawaii"
+				spriteType = "GFX_USA_hawaii_large_black"
+				position = { x = 49 y = 103 }
+				pdx_tooltip = "US_VOTE_HAWAII_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_californiawports"
+				spriteType = "GFX_USA_california_w_ports_large_black"
+				position = { x = 250 y = 213 }
+				pdx_tooltip = "US_VOTE_CALIFORNIA_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_californianports"
+				spriteType = "GFX_USA_california_n_ports_large_black"
+				position = { x = 250 y = 213 }
+				pdx_tooltip = "US_VOTE_CALIFORNIA_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_alaskanislands"
+				spriteType = "GFX_USA_alaska_no_islands_large_black"
+				position = { x = 66 y = 244 }
+				pdx_tooltip = "US_VOTE_ALASKA_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "us_voting_large_blocker_alaskawislands"
+				spriteType = "GFX_USA_alaska_w_islands_large_black"
+				position = { x = 9 y = 244 }
+				pdx_tooltip = "US_VOTE_ALASKA_TOOLTIP_LOC"
+				alwaystransparent = yes
+			}
+		}
+
+		iconType = {
+			name = "us_voting_region_outline_new_england"
+			spriteType = "GFX_US_voting_new_england_large_oultine"
+			position = { x = 10 y = 50 }
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "us_voting_region_outline_east_coast"
+			spriteType = "GFX_US_voting_east_coast_large_oultine"
+			position = { x = 10 y = 50 }
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "us_voting_region_outline_deep_south"
+			spriteType = "GFX_US_voting_deep_south_large_oultine"
+			position = { x = 10 y = 50 }
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "us_voting_region_outline_upper_south"
+			spriteType = "GFX_US_voting_upper_south_large_oultine"
+			position = { x = 10 y = 50 }
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "us_voting_region_outline_great_lakes"
+			spriteType = "GFX_US_voting_great_lakes_large_oultine"
+			position = { x = 10 y = 50 }
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "us_voting_region_outline_great_plains"
+			spriteType = "GFX_US_voting_great_plains_large_oultine"
+			position = { x = 10 y = 50 }
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "us_voting_region_outline_southwest"
+			spriteType = "GFX_US_voting_southwest_large_oultine"
+			position = { x = 10 y = 50 }
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "us_voting_region_outline_rockies"
+			spriteType = "GFX_US_voting_rockies_large_oultine"
+			position = { x = 10 y = 50 }
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "us_voting_region_outline_west_coast_everything"
+			spriteType = "GFX_US_voting_west_coast_everything_large_oultine"
+			position = { x = 10 y = 50 }
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "us_voting_region_outline_west_coast_ports"
+			spriteType = "GFX_US_voting_west_coast_ports_large_oultine"
+			position = { x = 10 y = 50 }
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "us_voting_region_outline_west_coast_nothing"
+			spriteType = "GFX_US_voting_west_coast_nothing_large_oultine"
+			position = { x = 10 y = 50 }
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "USA_GUI_voting_large_states_new_england_outlines"
+			size = { width = 469 height = 469 }
+			position = { x = 10 y = 50 }
+
+			buttonType = {
+				name = "us_voting_new_england_east_coast_outline"
+				spriteType = "GFX_us_voting_new_england_east_coast_outline"
+				position = { x = 24 y = 191 }
+				pdx_tooltip = USA_voting_gui_open_east_coast
+			}
+			buttonType = {
+				name = "us_voting_new_england_great_lakes_outline"
+				spriteType = "GFX_us_voting_new_england_great_lakes_outline"
+				position = { x = 2 y = 164 }
+				pdx_tooltip = USA_voting_gui_open_great_lakes
+			}
+			buttonType = {
+				name = "us_voting_new_england_upper_south_outline"
+				spriteType = "GFX_us_voting_new_england_upper_south_outline"
+				position = { x = 2 y = 360 }
+				pdx_tooltip = USA_voting_gui_open_upper_south
+			}
+		}
+
+		containerWindowType = {
+			name = "USA_GUI_voting_large_states_east_coast_outlines"
+			size = { width = 469 height = 469 }
+			position = { x = 10 y = 50 }
+
+			buttonType = {
+				name = "us_voting_east_coast_new_england_outline"
+				spriteType = "GFX_us_voting_east_coast_new_england_outline"
+				position = { x = 339 y = 75 }
+				pdx_tooltip = USA_voting_gui_open_new_england
+			}
+			buttonType = {
+				name = "us_voting_east_coast_upper_south_outline"
+				spriteType = "GFX_us_voting_east_coast_upper_south_outline"
+				position = { x = 2 y = 315 }
+				pdx_tooltip = USA_voting_gui_open_upper_south
+			}
+			buttonType = {
+				name = "us_voting_east_coast_deep_south_outline"
+				spriteType = "GFX_us_voting_east_coast_deep_south_outline"
+				position = { x = 2 y = 429 }
+				pdx_tooltip = USA_voting_gui_open_lower_south
+			}
+			buttonType = {
+				name = "us_voting_east_coast_great_lakes_outline"
+				spriteType = "GFX_us_voting_east_coast_great_lakes_outline"
+				position = { x = 2 y = 76 }
+				pdx_tooltip = USA_voting_gui_open_great_lakes
+			}
+			buttonType = {
+				name = "us_voting_east_coast_great_plains_outline"
+				spriteType = "GFX_us_voting_east_coast_great_plains_outline"
+				position = { x = 2 y = 376 }
+				pdx_tooltip = USA_voting_gui_open_great_plains
+			}
+		}
+
+		containerWindowType = {
+			name = "USA_GUI_voting_large_states_deep_south_outlines"
+			size = { width = 469 height = 469 }
+			position = { x = 10 y = 50 }
+
+			buttonType = {
+				name = "us_voting_deep_south_east_coast_outline"
+				spriteType = "GFX_us_voting_deep_south_east_coast_outline"
+				position = { x = 346 y = 2 }
+				pdx_tooltip = USA_voting_gui_open_east_coast
+			}
+			buttonType = {
+				name = "us_voting_deep_south_great_plains_outline"
+				spriteType = "GFX_us_voting_deep_south_great_plains_outline"
+				position = { x = 2 y = 2 }
+				pdx_tooltip = USA_voting_gui_open_great_plains
+			}
+			buttonType = {
+				name = "us_voting_deep_south_great_lakes_outline"
+				spriteType = "GFX_us_voting_deep_south_great_lakes_outline"
+				position = { x = 154 y = 2 }
+				pdx_tooltip = USA_voting_gui_open_great_lakes
+			}
+			buttonType = {
+				name = "us_voting_deep_south_upper_south_outline"
+				spriteType = "GFX_us_voting_deep_south_upper_south_outline"
+				position = { x = 182 y = 44 }
+				pdx_tooltip = USA_voting_gui_open_upper_south
+			}
+			buttonType = {
+				name = "us_voting_deep_south_southwest_outline"
+				spriteType = "GFX_us_voting_deep_south_southwest_outline"
+				position = { x = 2 y = 109 }
+				pdx_tooltip = USA_voting_gui_open_south_west
+			}
+		}
+
+		containerWindowType = {
+			name = "USA_GUI_voting_large_states_upper_south_outlines"
+			size = { width = 469 height = 469 }
+			position = { x = 10 y = 50 }
+
+			buttonType = {
+				name = "us_voting_upper_south_east_coast_outline"
+				spriteType = "GFX_us_voting_upper_south_east_coast_outline"
+				position = { x = 251 y = 2 }
+				pdx_tooltip = USA_voting_gui_open_east_coast
+			}
+			buttonType = {
+				name = "us_voting_upper_south_great_plains_outline"
+				spriteType = "GFX_us_voting_upper_south_great_plains_outline"
+				position = { x = 2 y = 2 }
+				pdx_tooltip = USA_voting_gui_open_great_plains
+			}
+			buttonType = {
+				name = "us_voting_upper_south_great_lakes_outline"
+				spriteType = "GFX_us_voting_upper_south_great_lakes_outline"
+				position = { x = 31 y = 2 }
+				pdx_tooltip = USA_voting_gui_open_great_lakes
+			}
+			buttonType = {
+				name = "us_voting_upper_south_new_england_outline"
+				spriteType = "GFX_us_voting_upper_south_new_england_outline"
+				position = { x = 444 y = 2 }
+				pdx_tooltip = USA_voting_gui_open_new_england
+			}
+			buttonType = {
+				name = "us_voting_upper_south_southwest_outline"
+				spriteType = "GFX_us_voting_upper_south_southwest_outline"
+				position = { x = 2 y = 314 }
+				pdx_tooltip = USA_voting_gui_open_south_west
+			}
+			buttonType = {
+				name = "us_voting_upper_south_deep_south_outline"
+				spriteType = "GFX_us_voting_upper_south_deep_south_outline"
+				position = { x = 2 y = 235 }
+				pdx_tooltip = USA_voting_gui_open_lower_south
+			}
+		}
+
+		containerWindowType = {
+			name = "USA_GUI_voting_large_states_great_lakes_outlines"
+			size = { width = 469 height = 469 }
+			position = { x = 10 y = 50 }
+
+			buttonType = {
+				name = "us_voting_great_lakes_east_coast_outline"
+				spriteType = "GFX_us_voting_great_lakes_east_coast_outline"
+				position = { x = 326 y = 172 }
+				pdx_tooltip = USA_voting_gui_open_east_coast
+			}
+			buttonType = {
+				name = "us_voting_great_lakes_great_plains_outline"
+				spriteType = "GFX_us_voting_great_lakes_great_plains_outline"
+				position = { x = 2 y = 19 }
+				pdx_tooltip = USA_voting_gui_open_great_plains
+			}
+			buttonType = {
+				name = "us_voting_great_lakes_upper_south_outline"
+				spriteType = "GFX_us_voting_great_lakes_upper_south_outline"
+				position = { x = 162 y = 318 }
+				pdx_tooltip = USA_voting_gui_open_upper_south
+			}
+			buttonType = {
+				name = "us_voting_great_lakes_deep_south_outline"
+				spriteType = "GFX_us_voting_great_lakes_deep_south_outline"
+				position = { x = 68 y = 397 }
+				pdx_tooltip = USA_voting_gui_open_lower_south
+			}
+			buttonType = {
+				name = "us_voting_great_lakes_southwest_outline"
+				spriteType = "GFX_us_voting_great_lakes_southwest_outline"
+				position = { x = 2 y = 383 }
+				pdx_tooltip = USA_voting_gui_open_south_west
+			}
+		}
+
+		containerWindowType = {
+			name = "USA_GUI_voting_large_states_great_plains_outlines"
+			size = { width = 469 height = 469 }
+			position = { x = 10 y = 50 }
+
+			buttonType = {
+				name = "us_voting_great_plains_rockies_outline"
+				spriteType = "GFX_us_voting_great_plains_rockies_outline"
+				position = { x = 2 y = 34 }
+				pdx_tooltip = USA_voting_gui_open_rockies
+			}
+			buttonType = {
+				name = "us_voting_great_plains_great_lakes_outline"
+				spriteType = "GFX_us_voting_great_plains_great_lakes_outline"
+				position = { x = 306 y = 82 }
+				pdx_tooltip = USA_voting_gui_open_great_lakes
+			}
+			buttonType = {
+				name = "us_voting_great_plains_upper_south_outline"
+				spriteType = "GFX_us_voting_great_plains_upper_south_outline"
+				position = { x = 364 y = 346 }
+				pdx_tooltip = USA_voting_gui_open_upper_south
+			}
+			buttonType = {
+				name = "us_voting_great_plains_deep_south_outline"
+				spriteType = "GFX_us_voting_great_plains_deep_south_outline"
+				position = { x = 270 y = 400 }
+				pdx_tooltip = USA_voting_gui_open_lower_south
+			}
+			buttonType = {
+				name = "us_voting_great_plains_southwest_outline"
+				spriteType = "GFX_us_voting_great_plains_southwest_outline"
+				position = { x = 2 y = 385 }
+				pdx_tooltip = USA_voting_gui_open_south_west
+			}
+		}
+
+		containerWindowType = {
+			name = "USA_GUI_voting_large_states_southwest_outlines"
+			size = { width = 469 height = 469 }
+			position = { x = 10 y = 50 }
+
+			buttonType = {
+				name = "us_voting_southwest_rockies_outline"
+				spriteType = "GFX_us_voting_southwest_rockies_outline"
+				position = { x = 2 y = 2 }
+				pdx_tooltip = USA_voting_gui_open_rockies
+			}
+			buttonType = {
+				name = "us_voting_southwest_great_plains_outline"
+				spriteType = "GFX_us_voting_southwest_great_plains_outline"
+				position = { x = 238 y = 2 }
+				pdx_tooltip = USA_voting_gui_open_great_plains
+			}
+			buttonType = {
+				name = "us_voting_southwest_west_coast_outline"
+				spriteType = "GFX_us_voting_southwest_west_coast_outline"
+				position = { x = 2 y = 176 }
+				pdx_tooltip = USA_voting_gui_open_west_coast
+			}
+			buttonType = {
+				name = "us_voting_southwest_deep_south_outline"
+				spriteType = "GFX_us_voting_southwest_deep_south_outline"
+				position = { x = 441 y = 141 }
+				pdx_tooltip = USA_voting_gui_open_lower_south
+			}
+		}
+
+		containerWindowType = {
+			name = "USA_GUI_voting_large_states_rockies_outlines"
+			size = { width = 469 height = 469 }
+			position = { x = 10 y = 50 }
+
+			buttonType = {
+				name = "us_voting_rockies_southwest_outline"
+				spriteType = "GFX_us_voting_rockies_southwest_outline"
+				position = { x = 159 y = 380 }
+				pdx_tooltip = USA_voting_gui_open_south_west
+			}
+			buttonType = {
+				name = "us_voting_rockies_great_plains_outline"
+				spriteType = "GFX_us_voting_rockies_great_plains_outline"
+				position = { x = 390 y = 29 }
+				pdx_tooltip = USA_voting_gui_open_great_plains
+			}
+			buttonType = {
+				name = "us_voting_rockies_west_coast_outline"
+				spriteType = "GFX_us_voting_rockies_west_coast_outline"
+				position = { x = 2 y = 29 }
+				pdx_tooltip = USA_voting_gui_open_west_coast
+			}
+		}
+
+		containerWindowType = {
+			name = "USA_GUI_voting_large_states_west_coast_outlines"
+			size = { width = 469 height = 469 }
+			position = { x = 10 y = 50 }
+
+			buttonType = {
+				name = "us_voting_west_coast_southwest_outline"
+				spriteType = "GFX_us_voting_west_coast_southwest_outline"
+				position = { x = 456 y = 380 }
+				pdx_tooltip_delayed = USA_voting_gui_open_south_west
+			}
+			buttonType = {
+				name = "us_voting_west_coast_rockies_outline"
+				spriteType = "GFX_us_voting_west_coast_rockies_outline"
+				position = { x = 340 y = 2 }
+				pdx_tooltip_delayed = USA_voting_gui_open_rockies
+			}
+		}
+
+		instantTextboxType = {
+			name = "us_senate_party_election_predictions"
+			position = { x = 482 y = 50 }
+			font = "aldrich_18_outline"
+			text = us_senate_elections_predicitons
+			maxWidth = 512
+			maxHeight = 469
+			format = left
+		}
+		instantTextboxType = {
+			name = "us_house_party_election_predictions_new_england" #I'm doing this due to the scrolling required
+			position = { x = 479 y = 50 }
+			font = "aldrich_18_outline"
+			text = USA_house_section_new_england
+			maxWidth = 493
+			maxHeight = 599
+			format = left
+			scrollbarType = standardtext_slider
+		}
+		instantTextboxType = {
+			name = "us_house_party_election_predictions_east_coast"
+			position = { x = 479 y = 50 }
+			font = "aldrich_18_outline"
+			text = USA_house_section_east_coast
+			maxWidth = 493
+			maxHeight = 599
+			format = left
+			scrollbarType = standardtext_slider
+		}
+		instantTextboxType = {
+			name = "us_house_party_election_predictions_deep_south"
+			position = { x = 479 y = 50 }
+			font = "aldrich_18_outline"
+			text = USA_house_section_deep_south
+			maxWidth = 493
+			maxHeight = 599
+			format = left
+			scrollbarType = standardtext_slider
+		}
+		instantTextboxType = {
+			name = "us_house_party_election_predictions_upper_south"
+			position = { x = 479 y = 50 }
+			font = "aldrich_18_outline"
+			text = USA_house_section_upper_south
+			maxWidth = 493
+			maxHeight = 599
+			format = left
+			scrollbarType = standardtext_slider
+		}
+		instantTextboxType = {
+			name = "us_house_party_election_predictions_great_lakes"
+			position = { x = 479 y = 50 }
+			font = "aldrich_18_outline"
+			text = USA_house_section_great_lakes
+			maxWidth = 493
+			maxHeight = 599
+			format = left
+			scrollbarType = standardtext_slider
+		}
+		instantTextboxType = {
+			name = "us_house_party_election_predictions_great_plains"
+			position = { x = 479 y = 50 }
+			font = "aldrich_18_outline"
+			text = USA_house_section_great_plains
+			maxWidth = 493
+			maxHeight = 599
+			format = left
+			scrollbarType = standardtext_slider
+		}
+		instantTextboxType = {
+			name = "us_house_party_election_predictions_southwest"
+			position = { x = 479 y = 50 }
+			font = "aldrich_18_outline"
+			text = USA_house_section_southwest
+			maxWidth = 493
+			maxHeight = 599
+			format = left
+			scrollbarType = standardtext_slider
+		}
+		instantTextboxType = {
+			name = "us_house_party_election_predictions_rockies"
+			position = { x = 479 y = 50 }
+			font = "aldrich_18_outline"
+			text = USA_house_section_rockies
+			maxWidth = 493
+			maxHeight = 599
+			format = left
+			scrollbarType = standardtext_slider
+		}
+		instantTextboxType = {
+			name = "us_house_party_election_predictions_west_coast"
+			position = { x = 479 y = 50 }
+			font = "aldrich_18_outline"
+			text = USA_house_section_west_coast
+			maxWidth = 493
+			maxHeight = 599
+			format = left
+			scrollbarType = standardtext_slider
+		}
+
+		instantTextboxType = {
+			name = "us_voting_region_name"
+			position = { x = 0 y = 10 }
+			font = "aldrich_32_outline"
+			text = "US_SENATE_SECTION_NAME"
+			maxWidth = 1000
+			maxHeight = 40
+			format = centre
+			vertical_alignment = centre
+		}
+
+		iconType = {
+			name = "us_voting_campaign_here_button_na"
+			spriteType = "GFX_us_voting_campaign_bar"
+			position = { x = 14 y = 529 }
+			pdx_tooltip = USA_voting_cant_campaign_reason
+		}
+
+		instantTextboxType = {
+			name = "us_voting_campaign_here"
+			position = { x = 58 y = 531 }
+			font = "aldrich_32_outline"
+			text = "CAMPAIGN HERE"
+			maxWidth = 374
+			maxHeight = 46
+			format = centre
+			vertical_alignment = centre
+			alwaystransparent = yes
+		}
+
+		iconType = {
+			name = "us_voting_campaign_here_button_overlay"
+			spriteType = "GFX_us_voting_campaign_button_overlay"
+			position = { x = 14 y = 529 }
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "us_voting_campaign_here_button"
+			spriteType = "GFX_us_voting_campaign_button"
+			position = { x = 14 y = 529 }
+			pdx_tooltip = USA_campaign_here_button_tt
+		}
+
+		iconType = {
+			name = "us_voting_opposition_campaign_icon"
+			spriteType = "GFX_us_voting_campaign_opposition_bar"
+			position = { x = 14 y = 589 }
+			pdx_tooltip = USA_opposition_campaign_button_tt
+		}
+
+		iconType = {
+			name = "us_voting_opposition_campaign_overlay"
+			spriteType = "GFX_us_voting_campaign_opposition_overlay"
+			position = { x = 14 y = 589 }
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "us_voting_opposition_campaign"
+			position = { x = 58 y = 591 }
+			font = "aldrich_32_outline"
+			text = "OPPOSITION CAMPAIGN"
+			maxWidth = 374
+			maxHeight = 46
+			format = centre
+			vertical_alignment = centre
+			alwaystransparent = yes
+		}
+
+		iconType = {
+			name = "us_voting_divider"
+			spriteType = "GFX_US_campaigning_divider"
+			position = { x = 9 y = 519 }
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "USA_GUI_voting_states_overview"
+			size = { width = 469 height = 469 }
+			position = { x = 9 y = 672 }
+
+			instantTextboxType = {
+				name = "us_voting_close_state_name"
+				position = { x = 0 y = -10 }
+				font = "aldrich_32_outline"
+				text = "US_SENATE_STATE_NAME_CLOSE"
+				maxWidth = 225
+				maxHeight = 40
+				format = centre
+			}
+
+			#Alabama
+			iconType = {
+				name = "us_voting_close_alabama"
+				spriteType = "GFX_us_voting_alabama_close"
+				position = { x = 54 y = 41 }
+			}
+			iconType = {
+				name = "us_voting_close_alabama_outline"
+				spriteType = "GFX_us_voting_alabama_close_outline"
+				position = { x = 52 y = 39 }
+			}
+			iconType = {
+				name = "us_voting_close_alabama_black"
+				spriteType = "GFX_USA_alabama_close_black"
+				position = { x = 54 y = 41 }
+			}
+
+			#Alaska With Islands
+			iconType = {
+				name = "us_voting_close_alaskawislands"
+				spriteType = "GFX_us_voting_alaskawislands_close"
+				position = { x = 11 y = 57 }
+			}
+			iconType = {
+				name = "us_voting_close_alaskawislands_outline"
+				spriteType = "GFX_us_voting_alaskawislands_close_outline"
+				position = { x = 9 y = 55 }
+			}
+			iconType = {
+				name = "us_voting_close_alaskawislands_black"
+				spriteType = "GFX_USA_alaska_w_islands_close_black"
+				position = { x = 11 y = 57 }
+			}
+
+			#Alaska Without Islands
+			iconType = {
+				name = "us_voting_close_alaskanislands"
+				spriteType = "GFX_us_voting_alaskanislands_close"
+				position = { x = 18 y = 45 }
+			}
+			iconType = {
+				name = "us_voting_close_alaskanislands_outline"
+				spriteType = "GFX_us_voting_alaskanislands_close_outline"
+				position = { x = 16 y = 43 }
+			}
+			iconType = {
+				name = "us_voting_close_alaskanislands_black"
+				spriteType = "GFX_USA_alaska_no_islands_close_black"
+				position = { x = 18 y = 45 }
+			}
+
+			#Arizona
+			iconType = {
+				name = "us_voting_close_arizona"
+				spriteType = "GFX_us_voting_arizona_close"
+				position = { x = 33 y = 41 }
+			}
+			iconType = {
+				name = "us_voting_close_arizona_outline"
+				spriteType = "GFX_us_voting_arizona_close_outline"
+				position = { x = 31 y = 39 }
+			}
+			iconType = {
+				name = "us_voting_close_arizona_black"
+				spriteType = "GFX_USA_arizona_close_black"
+				position = { x = 33 y = 41 }
+			}
+
+			#Arkansas
+			iconType = {
+				name = "us_voting_close_arkansas"
+				spriteType = "GFX_us_voting_arkansas_close"
+				position = { x = 18 y = 52 }
+			}
+			iconType = {
+				name = "us_voting_close_arkansas_outline"
+				spriteType = "GFX_us_voting_arkansas_close_outline"
+				position = { x = 16 y = 50 }
+			}
+			iconType = {
+				name = "us_voting_close_arkansas_black"
+				spriteType = "GFX_USA_arkansas_close_black"
+				position = { x = 18 y = 52 }
+			}
+
+			#California With Ports
+			iconType = {
+				name = "us_voting_close_californiawports"
+				spriteType = "GFX_us_voting_californiawports_close"
+				position = { x = 28 y = 37 }
+			}
+			iconType = {
+				name = "us_voting_close_californiawports_outline"
+				spriteType = "GFX_us_voting_californiawports_close_outline"
+				position = { x = 26 y = 35 }
+			}
+			iconType = {
+				name = "us_voting_close_californiawports_black"
+				spriteType = "GFX_USA_california_w_ports_close_black"
+				position = { x = 28 y = 37 }
+			}
+			#California Without Ports
+			iconType = {
+				name = "us_voting_close_californianports"
+				spriteType = "GFX_us_voting_californianports_close"
+				position = { x = 28 y = 37 }
+			}
+			iconType = {
+				name = "us_voting_close_californianports_outline"
+				spriteType = "GFX_us_voting_californianports_close_outline"
+				position = { x = 26 y = 35 }
+			}
+			iconType = {
+				name = "us_voting_close_californianports_black"
+				spriteType = "GFX_USA_california_n_ports_close_black"
+				position = { x = 28 y = 37 }
+			}
+
+			#Colorado
+			iconType = {
+				name = "us_voting_close_colorado"
+				spriteType = "GFX_us_voting_colorado_close"
+				position = { x = 18 y = 65 }
+			}
+			iconType = {
+				name = "us_voting_close_colorado_outline"
+				spriteType = "GFX_us_voting_colorado_close_outline"
+				position = { x = 16 y = 63 }
+			}
+			iconType = {
+				name = "us_voting_close_colorado_black"
+				spriteType = "GFX_USA_colorado_close_black"
+				position = { x = 18 y = 65 }
+			}
+
+			#Connecticut
+			iconType = {
+				name = "us_voting_close_connecticut"
+				spriteType = "GFX_us_voting_connecticut_close"
+				position = { x = 18 y = 65 }
+			}
+			iconType = {
+				name = "us_voting_close_connecticut_outline"
+				spriteType = "GFX_us_voting_connecticut_close_outline"
+				position = { x = 16 y = 63 }
+			}
+			iconType = {
+				name = "us_voting_close_connecticut_black"
+				spriteType = "GFX_USA_connecticut_close_black"
+				position = { x = 18 y = 65 }
+			}
+
+			#DC
+			iconType = {
+				name = "us_voting_close_dc"
+				spriteType = "GFX_us_voting_dc_close"
+				position = { x = 39 y = 62 }
+			}
+			iconType = {
+				name = "us_voting_close_dc_outline"
+				spriteType = "GFX_us_voting_dc_close_outline"
+				position = { x = 37 y = 60 }
+			}
+			iconType = {
+				name = "us_voting_close_dc_black"
+				spriteType = "GFX_USA_dc_close_black"
+				position = { x = 39 y = 62 }
+			}
+
+			#Delaware
+			iconType = {
+				name = "us_voting_close_delaware"
+				spriteType = "GFX_us_voting_delaware_close"
+				position = { x = 71 y = 41 }
+			}
+			iconType = {
+				name = "us_voting_close_delaware_outline"
+				spriteType = "GFX_us_voting_delaware_close_outline"
+				position = { x = 69 y = 39 }
+			}
+			iconType = {
+				name = "us_voting_close_delaware_black"
+				spriteType = "GFX_USA_delaware_close_black"
+				position = { x = 71 y = 41 }
+			}
+
+			#Florida
+			iconType = {
+				name = "us_voting_close_florida"
+				spriteType = "GFX_us_voting_florida_close"
+				position = { x = 19 y = 40 }
+			}
+			iconType = {
+				name = "us_voting_close_florida_outline"
+				spriteType = "GFX_us_voting_florida_close_outline"
+				position = { x = 17 y = 38 }
+			}
+			iconType = {
+				name = "us_voting_close_florida_black"
+				spriteType = "GFX_USA_florida_close_black"
+				position = { x = 19 y = 40 }
+			}
+
+			#Georgia
+			iconType = {
+				name = "us_voting_close_georgia"
+				spriteType = "GFX_us_voting_georgia_close"
+				position = { x = 30 y = 41 }
+			}
+			iconType = {
+				name = "us_voting_close_georgia_outline"
+				spriteType = "GFX_us_voting_georgia_close_outline"
+				position = { x = 28 y = 39 }
+			}
+			iconType = {
+				name = "us_voting_close_georgia_black"
+				spriteType = "GFX_USA_georgia_close_black"
+				position = { x = 30 y = 41 }
+			}
+
+			#Hawaii
+			iconType = {
+				name = "us_voting_close_hawaii"
+				spriteType = "GFX_us_voting_hawaii_close"
+				position = { x = 18 y = 67 }
+			}
+			iconType = {
+				name = "us_voting_close_hawaii_outline"
+				spriteType = "GFX_us_voting_hawaii_close_outline"
+				position = { x = 16 y = 65 }
+			}
+			iconType = {
+				name = "us_voting_close_hawaii_black"
+				spriteType = "GFX_USA_hawaii_close_black"
+				position = { x = 18 y = 67 }
+			}
+
+			#Idaho
+			iconType = {
+				name = "us_voting_close_idaho"
+				spriteType = "GFX_us_voting_idaho_close"
+				position = { x = 50 y = 41 }
+			}
+			iconType = {
+				name = "us_voting_close_idaho_outline"
+				spriteType = "GFX_us_voting_idaho_close_outline"
+				position = { x = 48 y = 39 }
+			}
+			iconType = {
+				name = "us_voting_close_idaho_black"
+				spriteType = "GFX_USA_idaho_close_black"
+				position = { x = 50 y = 41 }
+			}
+
+			#Illinois
+			iconType = {
+				name = "us_voting_close_illinois"
+				spriteType = "GFX_us_voting_illinois_close"
+				position = { x = 55 y = 41 }
+			}
+			iconType = {
+				name = "us_voting_close_illinois_outline"
+				spriteType = "GFX_us_voting_illinois_close_outline"
+				position = { x = 53 y = 39 }
+			}
+			iconType = {
+				name = "us_voting_close_illinois_black"
+				spriteType = "GFX_USA_illinois_close_black"
+				position = { x = 55 y = 41 }
+			}
+
+			#Indiana
+			iconType = {
+				name = "us_voting_close_indiana"
+				spriteType = "GFX_us_voting_indiana_close"
+				position = { x = 50 y = 40 }
+			}
+			iconType = {
+				name = "us_voting_close_indiana_outline"
+				spriteType = "GFX_us_voting_indiana_close_outline"
+				position = { x = 48 y = 38 }
+			}
+			iconType = {
+				name = "us_voting_close_indiana_black"
+				spriteType = "GFX_USA_indiana_close_black"
+				position = { x = 50 y = 40 }
+			}
+
+			#Iowa
+			iconType = {
+				name = "us_voting_close_iowa"
+				spriteType = "GFX_us_voting_iowa_close"
+				position = { x = 18 y = 74 }
+			}
+			iconType = {
+				name = "us_voting_close_iowa_outline"
+				spriteType = "GFX_us_voting_iowa_close_outline"
+				position = { x = 16 y = 72 }
+			}
+			iconType = {
+				name = "us_voting_close_iowa_black"
+				spriteType = "GFX_USA_iowa_close_black"
+				position = { x = 18 y = 74 }
+			}
+
+			#Kansas
+			iconType = {
+				name = "us_voting_close_kansas"
+				spriteType = "GFX_us_voting_kansas_close"
+				position = { x = 18 y = 83 }
+			}
+			iconType = {
+				name = "us_voting_close_kansas_outline"
+				spriteType = "GFX_us_voting_kansas_close_outline"
+				position = { x = 16 y = 81 }
+			}
+			iconType = {
+				name = "us_voting_close_kansas_black"
+				spriteType = "GFX_USA_kansas_close_black"
+				position = { x = 18 y = 84 }
+			}
+
+			#Kentucky
+			iconType = {
+				name = "us_voting_close_kentucky"
+				spriteType = "GFX_us_voting_kentucky_close"
+				position = { x = 18 y = 91 }
+			}
+			iconType = {
+				name = "us_voting_close_kentucky_outline"
+				spriteType = "GFX_us_voting_kentucky_close_outline"
+				position = { x = 16 y = 89 }
+			}
+			iconType = {
+				name = "us_voting_close_kentucky_black"
+				spriteType = "GFX_USA_kentucky_close_black"
+				position = { x = 18 y = 91 }
+			}
+
+			#Louisiana
+			iconType = {
+				name = "us_voting_close_louisiana"
+				spriteType = "GFX_us_voting_louisiana_close"
+				position = { x = 18 y = 46 }
+			}
+			iconType = {
+				name = "us_voting_close_louisiana_outline"
+				spriteType = "GFX_us_voting_louisiana_close_outline"
+				position = { x = 16 y = 44 }
+			}
+			iconType = {
+				name = "us_voting_close_louisiana_black"
+				spriteType = "GFX_USA_louisisana_close_black"
+				position = { x = 18 y = 46 }
+			}
+
+			#Maine
+			iconType = {
+				name = "us_voting_close_maine"
+				spriteType = "GFX_us_voting_maine_close"
+				position = { x = 46 y = 41 }
+			}
+			iconType = {
+				name = "us_voting_close_maine_outline"
+				spriteType = "GFX_us_voting_maine_close_outline"
+				position = { x = 44 y = 39 }
+			}
+			iconType = {
+				name = "us_voting_close_maine_black"
+				spriteType = "GFX_USA_maine_close_black"
+				position = { x = 46 y = 41 }
+			}
+
+			#Maryland
+			iconType = {
+				name = "us_voting_close_maryland"
+				spriteType = "GFX_us_voting_maryland_close"
+				position = { x = 18 y = 65 }
+			}
+			iconType = {
+				name = "us_voting_close_maryland_outline"
+				spriteType = "GFX_us_voting_maryland_close_outline"
+				position = { x = 16 y = 63 }
+			}
+			iconType = {
+				name = "us_voting_close_maryland_black"
+				spriteType = "GFX_USA_maryland_close_black"
+				position = { x = 18 y = 65 }
+			}
+
+			#Massachusetts
+			iconType = {
+				name = "us_voting_close_massachusetts"
+				spriteType = "GFX_us_voting_massachusetts_close"
+				position = { x = 18 y = 78 }
+			}
+			iconType = {
+				name = "us_voting_close_massachusetts_outline"
+				spriteType = "GFX_us_voting_massachusetts_close_outline"
+				position = { x = 16 y = 76 }
+			}
+			iconType = {
+				name = "us_voting_close_massachusetts_black"
+				spriteType = "GFX_USA_massachusetts_close_black"
+				position = { x = 18 y = 78 }
+			}
+
+			#Michigan
+			iconType = {
+				name = "us_voting_close_michigan"
+				spriteType = "GFX_us_voting_michigan_close"
+				position = { x = 18 y = 43 }
+			}
+			iconType = {
+				name = "us_voting_close_michigan_outline"
+				spriteType = "GFX_us_voting_michigan_close_outline"
+				position = { x = 16 y = 41 }
+			}
+			iconType = {
+				name = "us_voting_close_michigan_black"
+				spriteType = "GFX_USA_michigan_close_black"
+				position = { x = 18 y = 43 }
+			}
+
+			#Minnesota
+			iconType = {
+				name = "us_voting_close_minnesota"
+				spriteType = "GFX_us_voting_minnesota_close"
+				position = { x = 20 y = 39 }
+			}
+			iconType = {
+				name = "us_voting_close_minnesota_outline"
+				spriteType = "GFX_us_voting_minnesota_close_outline"
+				position = { x = 18 y = 37 }
+			}
+			iconType = {
+				name = "us_voting_close_minnesota_black"
+				spriteType = "GFX_USA_minnesota_close_black"
+				position = { x = 20 y = 39 }
+			}
+
+			#Mississippi
+			iconType = {
+				name = "us_voting_close_mississippi"
+				spriteType = "GFX_us_voting_mississippi_close"
+				position = { x = 58 y = 41 }
+			}
+			iconType = {
+				name = "us_voting_close_mississippi_outline"
+				spriteType = "GFX_us_voting_mississippi_close_outline"
+				position = { x = 56 y = 39 }
+			}
+			iconType = {
+				name = "us_voting_close_mississippi_black"
+				spriteType = "GFX_USA_mississippi_close_black"
+				position = { x = 58 y = 41 }
+			}
+
+			#Missouri
+			iconType = {
+				name = "us_voting_close_missouri"
+				spriteType = "GFX_us_voting_missouri_close"
+				position = { x = 18 y = 53 }
+			}
+			iconType = {
+				name = "us_voting_close_missouri_outline"
+				spriteType = "GFX_us_voting_missouri_close_outline"
+				position = { x = 16 y = 51 }
+			}
+			iconType = {
+				name = "us_voting_close_missouri_black"
+				spriteType = "GFX_USA_missouri_close_black"
+				position = { x = 18 y = 53 }
+			}
+
+			#Montana
+			iconType = {
+				name = "us_voting_close_montana"
+				spriteType = "GFX_us_voting_montana_close"
+				position = { x = 17 y = 84 }
+			}
+			iconType = {
+				name = "us_voting_close_montana_outline"
+				spriteType = "GFX_us_voting_montana_close_outline"
+				position = { x = 15 y = 82 }
+			}
+			iconType = {
+				name = "us_voting_close_montana_black"
+				spriteType = "GFX_USA_montana_close_black"
+				position = { x = 17 y = 84 }
+			}
+
+			#Nebraska
+			iconType = {
+				name = "us_voting_close_nebraska"
+				spriteType = "GFX_us_voting_nebraska_close"
+				position = { x = 18 y = 90 }
+			}
+			iconType = {
+				name = "us_voting_close_nebraska_outline"
+				spriteType = "GFX_us_voting_nebraska_close_outline"
+				position = { x = 16 y = 88 }
+			}
+			iconType = {
+				name = "us_voting_close_nebraska_black"
+				spriteType = "GFX_USA_nebraska_close_black"
+				position = { x = 18 y = 90 }
+			}
+
+			#Nevada
+			iconType = {
+				name = "us_voting_close_nevada"
+				spriteType = "GFX_us_voting_nevada_close"
+				position = { x = 47 y = 41 }
+			}
+			iconType = {
+				name = "us_voting_close_nevada_outline"
+				spriteType = "GFX_us_voting_nevada_close_outline"
+				position = { x = 45 y = 39 }
+			}
+			iconType = {
+				name = "us_voting_close_nevada_black"
+				spriteType = "GFX_USA_nevada_close_black"
+				position = { x = 47 y = 41 }
+			}
+
+			#New Hampshire
+			iconType = {
+				name = "us_voting_close_new_hampshire"
+				spriteType = "GFX_us_voting_new_hampshire_close"
+				position = { x = 60 y = 41 }
+			}
+			iconType = {
+				name = "us_voting_close_new_hampshire_outline"
+				spriteType = "GFX_us_voting_new_hampshire_close_outline"
+				position = { x = 58 y = 39 }
+			}
+			iconType = {
+				name = "us_voting_close_new_hampshire_black"
+				spriteType = "GFX_USA_new_hampshire_close_black"
+				position = { x = 60 y = 41 }
+			}
+
+			#New Jersey
+			iconType = {
+				name = "us_voting_close_new_jersey"
+				spriteType = "GFX_us_voting_new_jersey_close"
+				position = { x = 66 y = 41 }
+			}
+			iconType = {
+				name = "us_voting_close_new_jersey_outline"
+				spriteType = "GFX_us_voting_new_jersey_close_outline"
+				position = { x = 64 y = 39 }
+			}
+			iconType = {
+				name = "us_voting_close_new_jersey_black"
+				spriteType = "GFX_USA_new_jersey_close_black"
+				position = { x = 66 y = 41 }
+			}
+
+			#New Mexico
+			iconType = {
+				name = "us_voting_close_new_mexico"
+				spriteType = "GFX_us_voting_new_mexico_close"
+				position = { x = 30 y = 41 }
+			}
+			iconType = {
+				name = "us_voting_close_new_mexico_outline"
+				spriteType = "GFX_us_voting_new_mexico_close_outline"
+				position = { x = 28 y = 39 }
+			}
+			iconType = {
+				name = "us_voting_close_new_mexico_black"
+				spriteType = "GFX_USA_new_mexico_close_black"
+				position = { x = 30 y = 41 }
+			}
+
+			#New York
+			iconType = {
+				name = "us_voting_close_new_york"
+				spriteType = "GFX_us_voting_new_york_close"
+				position = { x = 18 y = 61 }
+			}
+			iconType = {
+				name = "us_voting_close_new_york_outline"
+				spriteType = "GFX_us_voting_new_york_close_outline"
+				position = { x = 16 y = 59 }
+			}
+			iconType = {
+				name = "us_voting_close_new_york_black"
+				spriteType = "GFX_USA_new_york_close_black"
+				position = { x = 18 y = 61 }
+			}
+
+			#North Carolina
+			iconType = {
+				name = "us_voting_close_north_carolina"
+				spriteType = "GFX_us_voting_north_carolina_close"
+				position = { x = 18 y = 96 }
+			}
+			iconType = {
+				name = "us_voting_close_north_carolina_outline"
+				spriteType = "GFX_us_voting_north_carolina_close_outline"
+				position = { x = 16 y = 94 }
+			}
+			iconType = {
+				name = "us_voting_close_north_carolina_black"
+				spriteType = "GFX_USA_north_carolina_close_black"
+				position = { x = 18 y = 96 }
+			}
+
+			#North Dakota
+			iconType = {
+				name = "us_voting_close_north_dakota"
+				spriteType = "GFX_us_voting_north_dakota_close"
+				position = { x = 18 y = 80 }
+			}
+			iconType = {
+				name = "us_voting_close_north_dakota_outline"
+				spriteType = "GFX_us_voting_north_dakota_close_outline"
+				position = { x = 16 y = 78 }
+			}
+			iconType = {
+				name = "us_voting_close_north_dakota_black"
+				spriteType = "GFX_USA_north_dakota_close_black"
+				position = { x = 18 y = 80 }
+			}
+
+			#Ohio
+			iconType = {
+				name = "us_voting_close_ohio"
+				spriteType = "GFX_us_voting_ohio_close"
+				position = { x = 24 y = 41 }
+			}
+			iconType = {
+				name = "us_voting_close_ohio_outline"
+				spriteType = "GFX_us_voting_ohio_close_outline"
+				position = { x = 22 y = 39 }
+			}
+			iconType = {
+				name = "us_voting_close_ohio_black"
+				spriteType = "GFX_USA_ohio_close_black"
+				position = { x = 24 y = 41 }
+			}
+
+			#Oklahoma
+			iconType = {
+				name = "us_voting_close_oklahoma"
+				spriteType = "GFX_us_voting_oklahoma_close"
+				position = { x = 18 y = 88 }
+			}
+			iconType = {
+				name = "us_voting_close_oklahoma_outline"
+				spriteType = "GFX_us_voting_oklahoma_close_outline"
+				position = { x = 16 y = 86 }
+			}
+			iconType = {
+				name = "us_voting_close_oklahoma_black"
+				spriteType = "GFX_USA_oklahoma_close_black"
+				position = { x = 18 y = 88 }
+			}
+
+			#Oregon
+			iconType = {
+				name = "us_voting_close_oregon"
+				spriteType = "GFX_us_voting_oregon_close"
+				position = { x = 18 y = 64 }
+			}
+			iconType = {
+				name = "us_voting_close_oregon_outline"
+				spriteType = "GFX_us_voting_oregon_close_outline"
+				position = { x = 16 y = 62 }
+			}
+			iconType = {
+				name = "us_voting_close_oregon_black"
+				spriteType = "GFX_USA_oregon_close_black"
+				position = { x = 18 y = 64 }
+			}
+
+			#Pennsylvania
+			iconType = {
+				name = "us_voting_close_pennsylvania"
+				spriteType = "GFX_us_voting_pennsylvania_close"
+				position = { x = 18 y = 78 }
+			}
+			iconType = {
+				name = "us_voting_close_pennsylvania_outline"
+				spriteType = "GFX_us_voting_pennsylvania_close_outline"
+				position = { x = 16 y = 76 }
+			}
+			iconType = {
+				name = "us_voting_close_pennsylvania_black"
+				spriteType = "GFX_USA_pennsylvania_close_black"
+				position = { x = 18 y = 78 }
+			}
+
+			#Rhode Island
+			iconType = {
+				name = "us_voting_close_rhode_island"
+				spriteType = "GFX_us_voting_rhode_island_close"
+				position = { x = 49 y = 40 }
+			}
+			iconType = {
+				name = "us_voting_close_rhode_island_outline"
+				spriteType = "GFX_us_voting_rhode_island_close_outline"
+				position = { x = 47 y = 38 }
+			}
+			iconType = {
+				name = "us_voting_close_rhode_island_black"
+				spriteType = "GFX_USA_rhode_island_close_black"
+				position = { x = 49 y = 40 }
+			}
+
+			#South Carolina
+			iconType = {
+				name = "us_voting_close_south_carolina"
+				spriteType = "GFX_us_voting_south_carolina_close"
+				position = { x = 18 y = 55 }
+			}
+			iconType = {
+				name = "us_voting_close_south_carolina_outline"
+				spriteType = "GFX_us_voting_south_carolina_close_outline"
+				position = { x = 16 y = 53 }
+			}
+			iconType = {
+				name = "us_voting_close_south_carolina_black"
+				spriteType = "GFX_USA_south_carolina_close_black"
+				position = { x = 18 y = 55 }
+			}
+
+			#South Dakota
+			iconType = {
+				name = "us_voting_close_south_dakota"
+				spriteType = "GFX_us_voting_south_dakota_close"
+				position = { x = 18 y = 78 }
+			}
+			iconType = {
+				name = "us_voting_close_south_dakota_outline"
+				spriteType = "GFX_us_voting_south_dakota_close_outline"
+				position = { x = 16 y = 76 }
+			}
+			iconType = {
+				name = "us_voting_close_south_dakota_black"
+				spriteType = "GFX_USA_south_dakota_close_black"
+				position = { x = 18 y = 78 }
+			}
+
+			#Tennessee
+			iconType = {
+				name = "us_voting_close_tennessee"
+				spriteType = "GFX_us_voting_tennessee_close"
+				position = { x = 18 y = 109 }
+			}
+			iconType = {
+				name = "us_voting_close_tennessee_outline"
+				spriteType = "GFX_us_voting_tennessee_close_outline"
+				position = { x = 16 y = 107 }
+			}
+			iconType = {
+				name = "us_voting_close_tennessee_black"
+				spriteType = "GFX_USA_tennessee_close_black"
+				position = { x = 18 y = 109 }
+			}
+
+			#Texas
+			iconType = {
+				name = "us_voting_close_texas"
+				spriteType = "GFX_us_voting_texas_close"
+				position = { x = 12 y = 38 }
+			}
+			iconType = {
+				name = "us_voting_close_texas_outline"
+				spriteType = "GFX_us_voting_texas_close_outline"
+				position = { x = 10 y = 36 }
+			}
+			iconType = {
+				name = "us_voting_close_texas_black"
+				spriteType = "GFX_USA_texas_close_black"
+				position = { x = 12 y = 38 }
+			}
+
+			#Utah
+			iconType = {
+				name = "us_voting_close_utah"
+				spriteType = "GFX_us_voting_utah_close"
+				position = { x = 36 y = 42 }
+			}
+			iconType = {
+				name = "us_voting_close_utah_outline"
+				spriteType = "GFX_us_voting_utah_close_outline"
+				position = { x = 34 y = 40 }
+			}
+			iconType = {
+				name = "us_voting_close_utah_black"
+				spriteType = "GFX_USA_utah_close_black"
+				position = { x = 36 y = 42 }
+			}
+
+			#Vermont
+			iconType = {
+				name = "us_voting_close_vermont"
+				spriteType = "GFX_us_voting_vermont_close"
+				position = { x = 55 y = 40 }
+			}
+			iconType = {
+				name = "us_voting_close_vermont_outline"
+				spriteType = "GFX_us_voting_vermont_close_outline"
+				position = { x = 53 y = 38 }
+			}
+			iconType = {
+				name = "us_voting_close_vermont_black"
+				spriteType = "GFX_USA_vermont_close_black"
+				position = { x = 55 y = 40 }
+			}
+
+			#Virginia
+			iconType = {
+				name = "us_voting_close_virginia"
+				spriteType = "GFX_us_voting_virginia_close"
+				position = { x = 17 y = 91 }
+			}
+			iconType = {
+				name = "us_voting_close_virginia_outline"
+				spriteType = "GFX_us_voting_virginia_close_outline"
+				position = { x = 15 y = 89 }
+			}
+			iconType = {
+				name = "us_voting_close_virginia_black"
+				spriteType = "GFX_USA_virginia_close_black"
+				position = { x = 17 y = 91 }
+			}
+
+			#Washington
+			iconType = {
+				name = "us_voting_close_washington"
+				spriteType = "GFX_us_voting_washington_close"
+				position = { x = 18 y = 75 }
+			}
+			iconType = {
+				name = "us_voting_close_washington_outline"
+				spriteType = "GFX_us_voting_washington_close_outline"
+				position = { x = 16 y = 73 }
+			}
+			iconType = {
+				name = "us_voting_close_washington_black"
+				spriteType = "GFX_USA_washington_close_black"
+				position = { x = 18 y = 75 }
+			}
+
+			#West Virginia
+			iconType = {
+				name = "us_voting_close_west_virginia"
+				spriteType = "GFX_us_voting_west_virginia_close"
+				position = { x = 18 y = 51 }
+			}
+			iconType = {
+				name = "us_voting_close_west_virginia_outline"
+				spriteType = "GFX_us_voting_west_virginia_close_outline"
+				position = { x = 16 y = 49 }
+			}
+			iconType = {
+				name = "us_voting_close_west_virginia_black"
+				spriteType = "GFX_USA_west_virginia_close_black"
+				position = { x = 18 y = 51 }
+			}
+
+			#Wisconsin
+			iconType = {
+				name = "us_voting_close_wisconsin"
+				spriteType = "GFX_us_voting_wisconsin_close"
+				position = { x = 18 y = 44 }
+			}
+			iconType = {
+				name = "us_voting_close_wisconsin_outline"
+				spriteType = "GFX_us_voting_wisconsin_close_outline"
+				position = { x = 16 y = 42 }
+			}
+			iconType = {
+				name = "us_voting_close_wisconsin_black"
+				spriteType = "GFX_USA_wisconsin_close_black"
+				position = { x = 18 y = 44 }
+			}
+
+			#Wyoming
+			iconType = {
+				name = "us_voting_close_wyoming"
+				spriteType = "GFX_us_voting_wyoming_close"
+				position = { x = 18 y = 64 }
+			}
+			iconType = {
+				name = "us_voting_close_wyoming_outline"
+				spriteType = "GFX_us_voting_wyoming_close_outline"
+				position = { x = 16 y = 62 }
+			}
+			iconType = {
+				name = "us_voting_close_wyoming_black"
+				spriteType = "GFX_USA_wyoming_close_black"
+				position = { x = 18 y = 64 }
+			}
+
+
+			#######
+			iconType = {
+				name = "us_voting_close_divider"
+				spriteType = "GFX_US_voting_state_view_divider"
+				position = { x = 225 y = -20 }
+			}
+		}
+
+		containerWindowType = {
+			name = "USA_GUI_voting_states_info"
+			size = { width = 469 height = 469 }
+			position = { x = 236 y = 654 }
+
+			iconType = {
+				name = "us_voting_rdc_r_pie_chart"
+				spriteType = "GFX_US_voting_rdc_r_state_control"
+				position = { x = 325 y = 27 }
+			}
+
+			iconType = {
+				name = "us_voting_rdc_d_pie_chart"
+				spriteType = "GFX_US_voting_rdc_d_state_control"
+				position = { x = 325 y = 27 }
+			}
+
+			iconType = {
+				name = "us_voting_rdc_overlay_pie_chart"
+				spriteType = "GFX_US_voting_state_control_overlay"
+				position = { x = 325 y = 27 }
+				pdx_tooltip = US_voting_rd_pie_chart_breakdown
+				pdx_tooltip_delayed = US_voting_rd_pie_chart_breakdown_delayed
+			}
+
+			iconType = {
+				name = "us_voting_npp_y_pie_chart"
+				spriteType = "GFX_US_voting_npp_y_state_control"
+				position = { x = 547 y = 27 }
+			}
+			iconType = {
+				name = "us_voting_npp_c_pie_chart"
+				spriteType = "GFX_US_voting_npp_c_state_control"
+				position = { x = 547 y = 27 }
+			}
+			iconType = {
+				name = "us_voting_npp_l_pie_chart"
+				spriteType = "GFX_US_voting_npp_l_state_control"
+				position = { x = 547 y = 27 }
+			}
+			iconType = {
+				name = "us_voting_npp_fr_pie_chart"
+				spriteType = "GFX_US_voting_npp_fr_state_control"
+				position = { x = 547 y = 27 }
+			}
+
+			
+
+			iconType = {
+				name = "us_voting_npp_overlay_pie_chart"
+				spriteType = "GFX_US_voting_state_control_overlay"
+				position = { x = 547 y = 27 }
+				pdx_tooltip = US_voting_npp_pie_chart_breakdown
+				pdx_tooltip_delayed = US_voting_npp_pie_chart_breakdown_delayed
+			}
+
+			instantTextboxType = {
+				name = "us_voting_npp_pop_breakdown"
+				position = { x = 538 y = 0 }
+				font = "aldrich_18_outline"
+				text = "US_VOTING_NPP_POP_BREAKDOWN"
+				maxWidth = 212
+				maxHeight = 40
+				format = centre
+			}
+
+			instantTextboxType = {
+				name = "us_voting_rd_pop_breakdown"
+				position = { x = 316 y = 0 }
+				font = "aldrich_18_outline"
+				text = "US_VOTING_RD_POP_BREAKDOWN"
+				maxWidth = 212
+				maxHeight = 40
+				format = centre
+			}
+
+			iconType = {
+				name = "us_voting_bar_backing"
+				spriteType = "GFX_US_voting_backing_bar"
+				position = { x = 55 y = 30 }
+			}
+			iconType = {
+				name = "us_voting_bar_npp_outline"
+				spriteType = "GFX_us_voting_npp_bar_2"
+				position = { x = 60 y = 148 }
+			}
+			iconType = {
+				name = "us_voting_bar_rdc_outline"
+				spriteType = "GFX_us_voting_rd_bar_2"
+				position = { x = 60 y = 50 }
+			}
+			iconType = {
+				name = "us_voting_bar_npp_outline_overlay"
+				spriteType = "GFX_us_voting_bar_overlay"
+				position = { x = 60 y = 146 }
+			}
+			iconType = {
+				name = "us_voting_bar_rdc_outline_overlay"
+				spriteType = "GFX_us_voting_bar_overlay"
+				position = { x = 60 y = 48 }
+			}
+			instantTextboxType = {
+				name = "us_voting_rd_rd" #Yes I'm starting to run out of names for shit#
+				position = { x = 0 y = 50 }
+				font = "aldrich_24_outline"
+				text = "US_VOTING_RD_RD"
+				maxWidth = 55
+				maxHeight = 60
+				format = centre
+				vertical_alignment = centre
+			}
+			instantTextboxType = {
+				name = "us_voting_npp_npp" #Complain and I will beat you#
+				position = { x = 0 y = 148 }
+				font = "aldrich_24_outline"
+				text = "US_VOTING_NPP_NPP"
+				maxWidth = 55
+				maxHeight = 60
+				format = centre
+				vertical_alignment = centre
+			}
+			instantTextboxType = {
+				name = "us_voting_which_side_leads" #I'm Serious#
+				position = { x = 0 y = 225 }
+				font = "aldrich_16_outline"
+				text = "US_VOTING_which_side_leads"
+				maxWidth = 330
+				maxHeight = 50
+				format = centre
+				vertical_alignment = centre
+			}
+			instantTextboxType = {
+				name = "us_voting_polling_title" #I live in your walls#
+				position = { x = 0 y = 0 }
+				font = "aldrich_24_outline"
+				text = "POLLING RESULTS:"
+				maxWidth = 330
+				maxHeight = 30
+				format = centre
+				vertical_alignment = centre
+			}
+			instantTextboxType = {
+				name = "us_voting_hold_poll" #I can see you#
+				position = { x = 351 y = 229 }
+				font = "aldrich_48_outline"
+				text = US_VOTING_HOLD_POLL
+				maxWidth = 290
+				maxHeight = 43
+				format = centre
+				vertical_alignment = centre
+			}
+			iconType = {
+				name = "us_voting_hold_poll_button_na"
+				spriteType = "GFX_US_voting_update_polls_button_na"
+				position = { x = 349 y = 227 }
+				pdx_tooltip = US_voting_cant_afford_cost_hold_poll
+			}
+			buttonType = {
+				name = "us_voting_hold_poll_button"
+				spriteType = "GFX_US_voting_update_polls_button"
+				position = { x = 349 y = 227 }
+				pdx_tooltip = US_voting_hold_poll_tt
+			}
+		}
+
+		buttonType = {
+			name = "USA_close_button_voting_section"
+			position = { x = -32 y = 16 }
+			quadTextureSprite ="GFX_crt_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = "UPPER_RIGHT"
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+	}
+
+
+	containerWindowType = {
+		name = "USA_GUI_senators_overview_gridbox_container"
+		size = { width = 200 height = 15 }
+		position = { x = 0 y = 0 }
+
+		instantTextboxType = {
+			name = "us_voting_state_name"
+			position = { x = -1 y = 0 }
+			font = "aldrich_16_outline"
+			text = US_SENATE_STATE_NAMES
+			maxWidth = 110
+			maxHeight = 20
+			pdx_tooltip = US_SENATE_STATE_NAMES_TT
+		}
+
+		iconType = {
+			name ="us_voting_senate_dot_glow"
+			spriteType = "GFX_US_GUI_seat_for_election_glow"
+			position = { x = 102 y = -4 }
+		}
+
+		iconType = {
+			name ="us_voting_senate_dot_1_glow_prediction"
+			spriteType = "GFX_US_GUI_senate_change_dots"
+			position = { x = 101 y = -5 }
+		}
+
+		iconType = {
+			name ="us_voting_senate_dot_1_glow_result"
+			spriteType = "GFX_US_GUI_changed_or_retained_glow"
+			position = { x = 101 y = -5 }
+		}
+
+		iconType = {
+			name ="us_voting_senate_dot_1"
+			spriteType = "GFX_US_GUI_USA_senate_dots"
+			position = { x = 109 y = 3 }
+			pdx_tooltip = US_SENATE_STATE_DOT_1_TT
+			pdx_tooltip_delayed = US_senate_state_dot_1
+		}
+
+
+		iconType = {
+			name ="us_voting_senate_dot_2_glow_prediction"
+			spriteType = "GFX_US_GUI_senate_change_dots"
+			position = { x = 115 y = -5 }
+		}
+
+		iconType = {
+			name ="us_voting_senate_dot_2_glow_result"
+			spriteType = "GFX_US_GUI_changed_or_retained_glow"
+			position = { x = 115 y = -5 }
+		}
+
+		iconType = {
+			name = "us_voting_senate_dot_2"
+			spriteType = "GFX_US_GUI_USA_senate_dots"
+			position = { x = 123 y = 3 }
+			pdx_tooltip = US_SENATE_STATE_DOT_2_TT
+			pdx_tooltip_delayed = US_senate_state_dot_2
+		}
+		instantTextboxType = {
+			name = "us_voting_state_value"
+			position = { x = 112 y = 0 }
+			font = "aldrich_16_outline"
+			text = "US_SENATE_STATE_VALUE"
+			maxWidth = 110
+			maxHeight = 20
+		}
+	}
+
+	containerWindowType = {
+		name = "USA_GUI_states_container"
+		size = { width = 500 height = 500 }
+		position = { x = 0 y = 0 }
+
+		iconType = {
+			name ="us_voting_state_icon"
+			alwaystransparent = yes
+		}
+
+		iconType = {
+			name ="us_voting_state_icon_overlay_not_for_election"
+			pdx_tooltip = USA_GUI_state_overlay_tt
+		}
+
+		iconType = {
+			name ="us_voting_state_icon_overlay"
+			pdx_tooltip = USA_GUI_state_overlay_tt
+		}
+	}
+
+	#Debug only, remove later
+	containerWindowType = {
+		name = "us_popularities_container"
+		position = { x = 430 y = 80 }
+
+		iconType ={
+			name ="us_pop_display_bg"
+			spriteType = "GFX_us_pop_display_bg"
+			position = { x= 0 y = 0 }
+		}
+
+		#buttonType = { #i hate close buttons
+		#	name = "USA_vardisp_close_button"
+		#	position = { x = 165 y = 4 }
+		#	quadTextureSprite ="GFX_closebutton_small"
+		#	buttonFont = "Main_14_black"
+		#	Orientation = "UPPER_RIGHT"
+		#	clicksound = click_close
+		#	pdx_tooltip = "CLOSE"
+		#}
+
+		instantTextboxType = {
+			name = "US_popularity_display_textbox"
+			position = { x = 5 y = 5 }
+			font = "aldrich_22_outline"
+			text="USA_pops_tooltip"
+			format = left
+			maxWidth = 180
+		}
+	}
+}

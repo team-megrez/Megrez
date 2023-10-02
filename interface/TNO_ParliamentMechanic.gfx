@@ -1,0 +1,423 @@
+# |===============================================================================================================================| #
+#  ____   ____  ____   _      ____   ____  ___ ___    ___  ____   ______      ___ ___    ___    __  __ __   ____  ____   ____   __  #
+# |    \ /    ||    \ | |    |    | /    ||   |   |  /  _]|    \ |      |    |   |   |  /  _]  /  ]|  |  | /    ||    \ |    | /  ] #
+# |  o  )  o  ||  D  )| |     |  | |  o  || _   _ | /  [_ |  _  ||      |    | _   _ | /  [_  /  / |  |  ||  o  ||  _  | |  | /  /  #
+# |   _/|     ||    / | |___  |  | |     ||  \_/  ||    _]|  |  ||_|  |_|    |  \_/  ||    _]/  /  |  _  ||     ||  |  | |  |/  /   #
+# |  |  |  _  ||    \ |     | |  | |  _  ||   |   ||   [_ |  |  |  |  |      |   |   ||   [_/   \_ |  |  ||  _  ||  |  | |  /   \_  #
+# |  |  |  |  ||  .  \|     | |  | |  |  ||   |   ||     ||  |  |  |  |      |   |   ||     \     ||  |  ||  |  ||  |  | |  \     | #
+# |__|  |__|__||__|\_||_____||____||__|__||___|___||_____||__|__|  |__|      |___|___||_____|\____||__|__||__|__||__|__||____\____| #
+#                                                                                                                                   #
+# |======================================================| GFX Definition |=======================================================| #
+
+spriteTypes = {
+	# Button Container
+	spriteType = {
+		name = "GFX_ParliamentMechanic_ButtonsContainer"
+		texturefile = "gfx/interface/parliament_mechanic/GFX_ParliamentMechanic_ButtonsContainer.dds"
+	}
+
+	# Open Button
+	spriteType = {
+		name = "GFX_ParliamentMechanic_OpenButton"
+		texturefile = "gfx/interface/parliament_mechanic/GFX_ParliamentMechanic_OpenButton.dds"
+	}
+
+	#### Main ####
+		# Title
+		spriteType = {
+			name = "GFX_ParliamentMechanic_Title_Divider"
+			textureFile = "gfx/interface/parliament_mechanic/GFX_ParliamentMechanic_Title_Divider.dds"
+		}
+
+		### Parliament Display - PD ###
+			## Portraits ##
+				spriteType = {
+					name = "GFX_ParliamentMechanic_PD_Portrait_Bound"
+					textureFile = "gfx/interface/parliament_mechanic/GFX_ParliamentMechanic_PD_Portrait_Bound.dds"
+					effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
+					# noOfFrames = 23
+				}
+
+				spriteType = {
+					name = "GFX_ParliamentMechanic_PD_Portrait_Speaker_Ex"
+					textureFile = "gfx/interface/parliament_mechanic/GFX_ParliamentMechanic_PD_Portrait_Speaker_Ex.dds"
+				}
+
+				spriteType = {
+					name = "GFX_ParliamentMechanic_PD_Portrait_Monarch_Ex"
+					textureFile = "gfx/interface/parliament_mechanic/GFX_ParliamentMechanic_PD_Portrait_Monarch_Ex.dds"
+				}
+
+				spriteType = {
+					name = "GFX_ParliamentMechanic_PD_Portrait_vice_Speaker_Ex"
+					textureFile = "gfx/interface/parliament_mechanic/GFX_ParliamentMechanic_PD_Portrait_vice_Speaker_Ex.dds"
+				}
+				
+				spriteType = {
+					name = "GFX_ParliamentMechanic_PD_Portrait_UK_PM_Ex"
+					textureFile = "gfx/interface/parliament_mechanic/GFX_ParliamentMechanic_PD_Portrait_UK_PM_Ex.dds"
+				}
+				
+				spriteType = {
+					name = "GFX_ParliamentMechanic_PD_Portrait_Second_leader_Ex"
+					textureFile = "gfx/interface/parliament_mechanic/GFX_ParliamentMechanic_PD_Portrait_Second_leader_Ex.dds"
+				}
+			## Portraits ##
+
+			## Seats ##
+				spriteType = {
+					name = "GFX_ParliamentMechanic_Seat_Boxes"
+					texturefile = "gfx/interface/parliament_mechanic/ParliamentMechanic_Seat_Boxes_18x18.dds"
+					noOfFrames = 23
+				}
+			## Seats ##
+		### Parliament Display - PD ###
+
+		### Parties & Government Stability Display - PGSD ###
+			spriteType = {
+				name = "GFX_ParliamentMechanic_PGSD_Divider"
+				textureFile = "gfx/interface/parliament_mechanic/GFX_ParliamentMechanic_PGSD_Divider.dds"
+			}
+
+			spriteType = {
+				name = "GFX_ParliamentMechanic_PGSD_SectionDivider"
+				textureFile = "gfx/interface/parliament_mechanic/GFX_ParliamentMechanic_PGSD_SectionDivider.dds"
+			}
+
+			## Parties & Top Bar - PTB ##
+				spriteType = {
+					name = "GFX_ParliamentMechanic_InfoButton"
+					textureFile = "gfx/interface/parliament_mechanic/GFX_ParliamentMechanic_InfoButton.dds"
+				}
+
+				spriteType = {
+					name = "GFX_ParliamentMechanic_CloseButton"
+					textureFile = "gfx/interface/parliament_mechanic/GFX_ParliamentMechanic_CloseButton.dds"
+				}
+
+				spriteType = {
+					name = "GFX_ParliamentMechanic_PGSD_PD_Container"
+					texturefile = "gfx/interface/parliament_mechanic/GFX_ParliamentMechanic_PGSD_PD_Container.dds"
+				}
+			## Parties & Top Bar - PTB ##
+
+			## Governmental Stability - GS ##
+				spriteType = {
+					name = "GFX_ParliamentMechanic_PGSD_GS_BG"
+					textureFile = "gfx/interface/parliament_mechanic/GFX_ParliamentMechanic_PGSD_GS_BG.dds"
+				}
+
+				spriteType = {
+					name = "GFX_ParliamentMechanic_PGSD_GS_DisplayBoundary"
+					textureFile = "gfx/interface/parliament_mechanic/GFX_ParliamentMechanic_PGSD_GS_DisplayBoundary.dds"
+				}
+			## Governmental Stability - GS ##
+
+		### Parties & Government Stability Display - PGSD ###
+	#### Main ####
+
+	### Portraits ###
+		# Used for Parliamentary Leaders
+
+		## 호주 총리 ##
+			spriteType = {
+				name = "GFX_ParliamentMechanic_PD_Portrait_Speaker_robert_Menzies"
+				texturefile = "gfx/leaders/AST/council_portrait/small_portrait_AST_Robert_menzies.png"
+			}
+			
+		## 국왕 ##
+			spriteType = {
+				name = "GFX_Portrait_Britain_Edward_VIII"
+				texturefile = "gfx/leaders/AST/council_portrait/small_portrait_AST_King_edward_viii.png"
+			}
+
+		## 뉴질랜드 총리 ##
+			spriteType = {
+				name = "GFX_Portrait_vice_Speaker_Keith_Holyoake"
+				texturefile = "gfx/leaders/AST/council_portrait/small_portrait_AST_Keith_holyoake.png"
+			}
+		## 부총리 ##
+			spriteType = {
+				name = "GFX_Portrait_second_leader_not_seleted"
+				texturefile = "gfx/leaders/AST/council_portrait/NOT_DECIDE.png"
+			}
+		## 야당 당수 ##
+			spriteType = {
+				name = "GFX_Portrait_UK_PM_Alec_Douglas_Home"
+				texturefile = "gfx/leaders/AST/council_portrait/small_portrait_AST_Alec_douglas_home.png"
+			}
+	### Portraits ###
+
+	### Map ###
+		## Ex
+		spriteType = {
+			name = "GFX_ParliamentMechanic_Map_Example"
+			textureFile = "gfx/interface/parliament_mechanic/Map/GFX_ParliamentMechanic_Map_Example.dds"
+		}
+	### Map ###
+
+	#### OLD ####
+	spriteType = {
+		name = "GFX_UKCloseButton"
+		texturefile = "gfx/interface/UK_gui/close_button_something.dds"
+	}
+
+	spriteType = {
+		name = "GFX_UKMonarchyUKText"
+		texturefile = "gfx/interface/UK_gui/uk_united_kingdom_text.dds"
+	}
+
+	spriteType = {
+		name = "GFX_UKMonarchyFrame"
+		texturefile = "gfx/interface/UK_gui/uk_frame_monarchy.dds"
+	}
+
+	spriteType = {
+		name = "GFX_UKMonarchyEnlandText"
+		texturefile = "gfx/interface/UK_gui/uk_england_text.dds"
+	}
+
+	spriteType = {
+		name = "GFX_UKMonarchyEdwardVIII"
+		texturefile = "gfx/interface/UK_gui/uk_eddi_port.dds"
+	}
+
+	spriteType = {
+		name = "GFX_UKEdwardName"
+		texturefile = "gfx/interface/UK_gui/uk_edward_name.dds"
+	}
+
+	spriteType = {
+		name = "GFX_UKLizzyPort"
+		texturefile = "gfx/interface/UK_gui/uk_lizzy_port.dds"
+	}
+
+	spriteType = {
+		name = "GFX_UKLizzyText"
+		texturefile = "gfx/interface/UK_gui/uk_lizzy_text.dds"
+	}
+
+	spriteType = {
+		name = "GFX_UKEngland_text_null"
+		texturefile = "gfx/interface/UK_gui/uk_england_text_null.dds"
+	}
+
+	spriteType = {
+		name = "GFX_UKVACANT_port"
+		texturefile = "gfx/interface/UK_gui/uk_VACANT_port.dds"
+	}
+
+	spriteType = {
+		name = "GFX_UKVACANT_text"
+		texturefile = "gfx/interface/UK_gui/uk_VACANT_text.dds"
+	}
+
+	spriteType = {
+		name = "GFX_protectorate_text"
+		texturefile = "gfx/interface/UK_gui/uk_protectorate_text.dds"
+	}
+
+	spriteType = {
+		name = "GFX_commonwealth_text"
+		texturefile = "gfx/interface/UK_gui/uk_commonwealth_text.dds"
+	}
+
+	spriteType = {
+		name = "GFX_stirling_port"
+		texturefile = "gfx/interface/UK_gui/uk_stirling_port.dds"
+	}
+
+	spriteType = {
+		name = "GFX_stirling_bar"
+		texturefile = "gfx/interface/UK_gui/uk_stirling_bar.dds"
+	}
+
+	spriteType = {
+		name = "GFX_stirling_text"
+		texturefile = "gfx/interface/UK_gui/uk_stirling_text.dds"
+	}
+
+	spriteType = {
+		name = "GFX_henry_port"
+		texturefile = "gfx/interface/UK_gui/uk_henry_port.dds"
+	}
+
+	spriteType = {
+		name = "GFX_henry_txtt"
+		texturefile = "gfx/interface/UK_gui/uk_henry_txtt.dds"
+	}
+
+	spriteType = {
+		name = "GFX_william_port"
+		texturefile = "gfx/interface/UK_gui/uk_william_port.dds"
+	}
+
+	spriteType = {
+		name = "GFX_william_text"
+		texturefile = "gfx/interface/UK_gui/uk_william_text.dds"
+	}
+	
+	#### MAP ####
+		### Cornwall ###
+			spriteType = {
+				name = "GFX_ParliamentMechanic_ElectoralMap_123"
+				textureFile = "gfx/interface/parliament_mechanic/Map/TNO_ParliamentMechanic_ElectoralMap_123.dds"
+				noOfFrames = 13
+				transparencecheck = yes
+			}
+
+			spriteType = {
+				name = "GFX_ParliamentMechanic_ElectoralMap_1296"
+				textureFile = "gfx/interface/parliament_mechanic/Map/TNO_ParliamentMechanic_ElectoralMap_1296.dds"
+				noOfFrames = 13
+				transparencecheck = yes
+			}
+		### Cornwall ###
+
+		### Wales ###
+			spriteType = {
+				name = "GFX_ParliamentMechanic_ElectoralMap_122"
+				textureFile = "gfx/interface/parliament_mechanic/Map/TNO_ParliamentMechanic_ElectoralMap_122.dds"
+				noOfFrames = 13
+				transparencecheck = yes
+			}
+
+			spriteType = {
+				name = "GFX_ParliamentMechanic_ElectoralMap_1301"
+				textureFile = "gfx/interface/parliament_mechanic/Map/TNO_ParliamentMechanic_ElectoralMap_1301.dds"
+				noOfFrames = 13
+				transparencecheck = yes
+			}
+		### Wales ###
+
+		### England ###
+			spriteType = {
+				name = "GFX_ParliamentMechanic_ElectoralMap_125"
+				textureFile = "gfx/interface/parliament_mechanic/Map/TNO_ParliamentMechanic_ElectoralMap_125.dds"
+				noOfFrames = 13
+				transparencecheck = yes
+			}
+
+			spriteType = {
+				name = "GFX_ParliamentMechanic_ElectoralMap_126"
+				textureFile = "gfx/interface/parliament_mechanic/Map/TNO_ParliamentMechanic_ElectoralMap_126.dds"
+				noOfFrames = 13
+				transparencecheck = yes
+			}
+
+			spriteType = {
+				name = "GFX_ParliamentMechanic_ElectoralMap_127"
+				textureFile = "gfx/interface/parliament_mechanic/Map/TNO_ParliamentMechanic_ElectoralMap_127.dds"
+				noOfFrames = 13
+				transparencecheck = yes
+			}
+
+			spriteType = {
+				name = "GFX_ParliamentMechanic_ElectoralMap_128"
+				textureFile = "gfx/interface/parliament_mechanic/Map/TNO_ParliamentMechanic_ElectoralMap_128.dds"
+				noOfFrames = 13
+				transparencecheck = yes
+			}
+
+			spriteType = {
+				name = "GFX_ParliamentMechanic_ElectoralMap_129"
+				textureFile = "gfx/interface/parliament_mechanic/Map/TNO_ParliamentMechanic_ElectoralMap_129.dds"
+				noOfFrames = 13
+				transparencecheck = yes
+			}
+
+			spriteType = {
+				name = "GFX_ParliamentMechanic_ElectoralMap_130"
+				textureFile = "gfx/interface/parliament_mechanic/Map/TNO_ParliamentMechanic_ElectoralMap_130.dds"
+				noOfFrames = 13
+				transparencecheck = yes
+			}
+
+			spriteType = {
+				name = "GFX_ParliamentMechanic_ElectoralMap_131"
+				textureFile = "gfx/interface/parliament_mechanic/Map/TNO_ParliamentMechanic_ElectoralMap_131.dds"
+				noOfFrames = 13
+				transparencecheck = yes
+			}
+
+			spriteType = {
+				name = "GFX_ParliamentMechanic_ElectoralMap_132"
+				textureFile = "gfx/interface/parliament_mechanic/Map/TNO_ParliamentMechanic_ElectoralMap_132.dds"
+				noOfFrames = 13
+				transparencecheck = yes
+			}
+
+			spriteType = {
+				name = "GFX_ParliamentMechanic_ElectoralMap_338"
+				textureFile = "gfx/interface/parliament_mechanic/Map/TNO_ParliamentMechanic_ElectoralMap_338.dds"
+				noOfFrames = 13
+				transparencecheck = yes
+			}
+
+			spriteType = {
+				name = "GFX_ParliamentMechanic_ElectoralMap_777"
+				textureFile = "gfx/interface/parliament_mechanic/Map/TNO_ParliamentMechanic_ElectoralMap_777.dds"
+				noOfFrames = 13
+				transparencecheck = yes
+			}
+
+			spriteType = {
+				name = "GFX_ParliamentMechanic_ElectoralMap_885"
+				textureFile = "gfx/interface/parliament_mechanic/Map/TNO_ParliamentMechanic_ElectoralMap_885.dds"
+				noOfFrames = 13
+				transparencecheck = yes
+			}
+
+			spriteType = {
+				name = "GFX_ParliamentMechanic_ElectoralMap_1300"
+				textureFile = "gfx/interface/parliament_mechanic/Map/TNO_ParliamentMechanic_ElectoralMap_1300.dds"
+				noOfFrames = 13
+				transparencecheck = yes
+			}
+		### England ###
+
+		### Scotland ###
+			spriteType = {
+				name = "GFX_ParliamentMechanic_ElectoralMap_120"
+				textureFile = "gfx/interface/parliament_mechanic/Map/TNO_ParliamentMechanic_ElectoralMap_120.dds"
+				noOfFrames = 13
+				transparencecheck = yes
+			}
+
+			spriteType = {
+				name = "GFX_ParliamentMechanic_ElectoralMap_121"
+				textureFile = "gfx/interface/parliament_mechanic/Map/TNO_ParliamentMechanic_ElectoralMap_121.dds"
+				noOfFrames = 13
+				transparencecheck = yes
+			}
+
+			spriteType = {
+				name = "GFX_ParliamentMechanic_ElectoralMap_133"
+				textureFile = "gfx/interface/parliament_mechanic/Map/TNO_ParliamentMechanic_ElectoralMap_133.dds"
+				noOfFrames = 13
+				transparencecheck = yes
+			}
+
+			spriteType = {
+				name = "GFX_ParliamentMechanic_ElectoralMap_136"
+				textureFile = "gfx/interface/parliament_mechanic/Map/TNO_ParliamentMechanic_ElectoralMap_136.dds"
+				noOfFrames = 13
+				transparencecheck = yes
+			}
+
+			spriteType = {
+				name = "GFX_ParliamentMechanic_ElectoralMap_1320"
+				textureFile = "gfx/interface/parliament_mechanic/Map/TNO_ParliamentMechanic_ElectoralMap_1320.dds"
+				noOfFrames = 13
+				transparencecheck = yes
+			}
+
+			spriteType = {
+				name = "GFX_ParliamentMechanic_ElectoralMap_1321"
+				textureFile = "gfx/interface/parliament_mechanic/Map/TNO_ParliamentMechanic_ElectoralMap_1321.dds"
+				noOfFrames = 13
+				transparencecheck = yes
+			}
+		### Scotland ###
+	#### MAP ####
+}

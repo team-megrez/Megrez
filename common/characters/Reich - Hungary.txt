@@ -1,0 +1,157 @@
+characters = {
+	### HUNGARY
+	HUN_Bela_Imredy = {
+		name = HUN_Bela_Imredy
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/HUN/Portrait_HUN_Bela_Imredy.dds"
+			}
+		}
+		country_leader = {
+			desc = "POLITICS_BELA_IMREDY_DESC"
+			ideology = fascism_corporatism_subtype
+			traits = { }
+			expire = "1990.1.1.1"
+			id = -1
+		}
+	}
+	HUN_Istvan_Horthy = {
+		name = HUN_Istvan_Horthy
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/Generics/leader_unknown.dds"
+			}
+		}
+		country_leader = {
+			desc = "POLITICS_ISTVAN_HORTHY_DESC"
+			expire = "1982.01.01"
+			ideology = paternalism_subtype
+			traits = {
+
+			}
+			id = -1
+		}
+	}
+	HUN_Andor_Jaross = {
+		name = HUN_Andor_Jaross
+		portraits = {
+			civilian = { small = "GFX_idea_HUN_Andor_Jaross_hog" }
+		}
+		advisor = {
+			slot = head_of_government
+			idea_token = HUN_Andor_Jaross_hog
+			allowed = { original_tag = HUN }
+			traits = {
+				head_of_government
+				hog_flamboyant_tough_guy
+			}
+			ledger = civilian
+			cost = -1
+			can_be_fired = no
+			ai_will_do = { factor = 0 }
+		}
+	}
+	HUN_Ferenc_Rajniss = {
+		name = HUN_Ferenc_Rajniss
+		portraits = {
+			civilian = { small = "GFX_idea_HUN_Ferenc_Rajniss_for" }
+		}
+		advisor = {
+			slot = foreign_minister
+			idea_token = HUN_Ferenc_Rajniss_for
+			allowed = { original_tag = HUN }
+			traits = {
+				foreign_minister
+				for_ideological_crusader
+			}
+			ledger = civilian
+			cost = -1
+			can_be_fired = no
+			ai_will_do = { factor = 0 }
+		}
+	}
+	HUN_Lajos_Remenyi_Schneller = {
+		name = HUN_Lajos_Remenyi_Schneller
+		portraits = {
+			civilian = { small = "GFX_idea_HUN_Lajos_Remenyi_Schneller_eco" }
+		}
+		advisor = {
+			slot = economy_minister
+			idea_token = HUN_Lajos_Remenyi_Schneller_eco
+			allowed = { original_tag = HUN }
+			traits = {
+				economy_minister
+				eco_resource_industrialist
+			}
+			ledger = civilian
+			cost = -1
+			can_be_fired = no
+			ai_will_do = { factor = 0 }
+		}
+	}
+	HUN_Bela_Miklos = {
+		name = HUN_Bela_Miklos
+		portraits = {
+			civilian = { small = "GFX_idea_HUN_Bela_Miklos_sec" }
+		}
+		advisor = {
+			slot = security_minister
+			idea_token = HUN_Bela_Miklos_sec
+			allowed = { original_tag = HUN }
+			traits = {
+				security_minister
+				sec_man_of_the_people
+			}
+			ledger = civilian
+			cost = -1
+			can_be_fired = no
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	HUN_Istvan_Olah = {
+		name = HUN_Istvan_Olah
+		portraits = {
+			army = { large = "gfx/leaders/HUN/Portrait_Hungary_Istvan_Olah.tga" }
+		}
+		corps_commander = {
+			traits = { armor_officer career_officer }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 3
+			legacy_id = 740
+		}
+	}
+	HUN_Istvan_Bata = {
+		name = HUN_Istvan_Bata
+		portraits = {
+			army = { large = "gfx/leaders/HUN/Portrait_Hungary_Istvan_Bata.tga" }
+		}
+		corps_commander = {
+			traits = { trait_cautious }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 3
+			planning_skill = 1
+			logistics_skill = 2
+			legacy_id = 741
+		}
+	}
+	HUN_Ferenc_Karpati = {
+		name = HUN_Ferenc_Karpati
+		portraits = {
+			army = { large = "gfx/leaders/HUN/Portrait_Hungary_Ferenc_Karpati.tga" }
+		}
+		corps_commander = {
+			traits = { trait_cautious }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 2
+			legacy_id = 742
+		}
+	}
+}

@@ -1,0 +1,330 @@
+#          ____                __           ___            __                               #
+#         /\  _`\             /\ \         /\_ \    __    /\ \                              #
+#         \ \ \L\_\    ___    \_\ \    ____\//\ \  /\_\   \_\ \     __    ____              #
+#          \ \  _\L  /' _ `\  /'_` \  /',__\ \ \ \ \/\ \  /'_` \  /'__`\ /',__\             #
+#           \ \ \L\ \/\ \/\ \/\ \L\ \/\__, `\ \_\ \_\ \ \/\ \L\ \/\  __//\__, `\            #
+#            \ \____/\ \_\ \_\ \___,_\/\____/ /\____\\ \_\ \___,_\ \____\/\____/            #
+#             \/___/  \/_/\/_/\/__,_ /\/___/  \/____/ \/_/\/__,_ /\/____/\/___/             #
+#                                                                                           #
+# ______                                   __        __                   __                #
+#/\__  _\                                 /\ \__    /\ \__               /\ \  __           #
+#\/_/\ \/       __  __  __     __      ___\ \ ,_\   \ \ ,_\   ___        \_\ \/\_\     __   #
+#   \ \ \      /\ \/\ \/\ \  /'__`\  /' _ `\ \ \/    \ \ \/  / __`\      /'_` \/\ \  /'__`\ #
+#    \_\ \__   \ \ \_/ \_/ \/\ \L\.\_/\ \/\ \ \ \_    \ \ \_/\ \L\ \    /\ \L\ \ \ \/\  __/ #
+#    /\_____\   \ \___x___/'\ \__/.\_\ \_\ \_\ \__\    \ \__\ \____/    \ \___,_\ \_\ \____\#
+#    \/_____/    \/__//__/   \/__/\/_/\/_/\/_/\/__/     \/__/\/___/      \/__,_ /\/_/\/____/#
+#                                                                                           #
+#                                   I'm sorry, little one...                                #
+#<=========================================================================================>#
+#>=================================|  Endslide Triggers  |=================================<#
+#<=========================================================================================>#
+
+
+###Dead Checks
+endscrn_ORE_dead = {
+	NOT = { country_exists = ORE }
+}
+
+endscrn_URL_dead = {
+	NOT = { country_exists = URL }
+}
+
+endscrn_DRL_dead = {
+	NOT = { country_exists = DRL }
+}
+
+endscrn_MGN_dead = {
+	NOT = {
+		country_exists = MGN
+		has_global_flag = MGN_NKVD_coup
+	}
+}
+
+endscrn_NKVD_dead = {
+	NOT = { country_exists = MGN }
+	has_global_flag = MGN_NKVD_coup
+}
+
+endscrn_MGN_NKVD = {
+	has_global_flag = MGN_NKVD_coup
+}
+
+###Dirlewanger Checks
+endscrn_ORE_URL_friendly = {
+	country_exists = URL
+	country_exists = ORE
+	has_global_flag = URL_ORE_friendly
+}
+
+endscrn_ORE_URL_hostile = {
+	country_exists = ORE
+	country_exists = URL
+	NOT = {
+		has_global_flag = URL_ORE_friendly
+	}
+}
+
+### Ural Guard checks
+endscrn_URL_guard_maintained = {
+	country_exists = URL
+	URL = {
+		has_country_flag = URL_guard_maintained
+		NOT = {
+			has_completed_focus = URL_militias_stand_for_something_greater
+		}
+	}
+}
+
+endscrn_URL_militia_reforms = {
+	country_exists = URL
+	URL = {
+		has_completed_focus = URL_militias_stand_for_something_greater
+		NOT = {
+			has_country_flag = URL_guard_maintained
+		}
+	}
+}
+
+endscrn_URL_militia_reforms_and_guard = {
+	country_exists = URL
+	URL = {
+		has_country_flag = URL_guard_maintained
+		has_completed_focus = URL_militias_stand_for_something_greater
+	}
+}
+
+
+###NKVD Checks
+endscrn_MGN_NKVD_high_evil = {
+	country_exists = MGN
+	check_variable = { global.NKVD_badboy > 5 }
+}
+
+endscrn_MGN_NKVD_med_high_evil = {
+	country_exists = MGN
+	check_variable = { global.NKVD_badboy > 4 }
+}
+
+endscrn_MGN_NKVD_med_low_evil = {
+	country_exists = MGN
+	check_variable = { global.NKVD_badboy > 3 }
+}
+
+endscrn_MGN_NKVD_low_evil = {
+	country_exists = MGN
+	check_variable = { global.NKVD_badboy < 3 }
+}
+
+endscrn_MGN_NKVD_orenburg_spared = {
+	country_exists = MGN
+	OR = {
+		has_global_flag = evil_NKVD_orenburg_spared
+		has_global_flag = NKVD_Oreburg_friend
+	}
+}
+
+endscrn_MGN_NKVD_orenburg_stomped_on = {
+	country_exists = MGN
+	has_global_flag = MGN_NKVD_capped_ORE
+}
+
+endscrn_MGN_NKVD_ural_league_stomped_on = {
+	country_exists = MGN
+	has_global_flag = MGN_NKVD_capped_URL
+}
+
+endscrn_MGN_NKVD_low_lysenko_influence = {
+	country_exists = MGN
+	MGN = { has_country_flag = NKVD_low_Lysenko_influence }
+}
+
+endscrn_MGN_NKVD_high_lysenko_influence = {
+	country_exists = MGN
+	MGN = {
+		NOT ={
+			has_country_flag = NKVD_low_Lysenko_influence
+		}
+	}
+}
+
+endscrn_MGN_NKVD_bonus_slides = {
+	country_exists = MGN
+	NOT = {
+		country_exists = URL
+		country_exists = DRL
+	}
+	OR = {
+		NOT = {
+			country_exists = ORE
+		}
+		has_global_flag = NKVD_Oreburg_friend
+		has_global_flag = evil_NKVD_orenburg_spared
+	}
+}
+
+
+###Orenburg Checks
+endscrn_ORE_communes_maintained = {
+	country_exists = ORE
+	has_global_flag = OREChoseNobody
+}
+
+endscrn_ORE_communes_beaten_down = {
+	country_exists = ORE
+	OR = {
+		has_global_flag = OREChoseMalenkov
+		has_global_flag = OREChoseBurba
+	}
+}
+
+endscrn_ORE_burba = {
+	country_exists = ORE
+	has_global_flag = OREChoseBurba
+}
+
+endscrn_ORE_malenkov = {
+	country_exists = ORE
+	has_global_flag = OREChoseMalenkov
+}
+
+endscrn_ORE_council = {
+	country_exists = ORE
+	has_global_flag = OREChoseNobody
+}
+endscrn_ORE_victory = {
+	country_exists = ORE
+	NOT = { country_exists = MGN }
+	NOT = { country_exists = DRL }
+}
+endscrn_ORE_germans = {
+	country_exists = ORE
+	has_global_flag = goering_win
+}
+
+endscrn_ORE_kazakhs = {
+	country_exists = ORE
+	NOT = {
+		has_global_flag = goering_win
+	}
+}
+
+endscrn_ORE_URL_welcomed = {
+	has_global_flag = URL_ORE_alliance
+}
+
+endscrn_ORE_URL_refused = {
+	NOT = { has_global_flag = URL_ORE_alliance }
+}
+
+###Dirlewanger checks
+endscrn_capped_ORE = {
+	DRL = {
+		has_global_flag = DRL_ORE_capped
+	}
+}
+
+endscrn_capped_URL = {
+	DRL = {
+		has_global_flag = DRL_URL_capped
+	}
+}
+endscrn_capped_MGN = {
+	DRL = {
+		has_global_flag = DRL_MGN_LYS_capped
+	}
+}
+endscrn_capped_MGN_NVKD = {
+	DRL = {
+		has_global_flag = DRL_MGN_NKVD_capped
+	}
+}
+
+endscrn_looted_others = {
+	check_variable = { ORE.ORE_non_ural_raiding > 1 }
+}
+
+endscrn_collapsed_band = {
+	country_exists = DRL
+	has_country_flag = DRL_Oskar_Dirlewanger_Dead
+}
+
+endscrn_dirly_alive = {
+	country_exists = DRL
+	NOT = {
+		has_country_flag = DRL_Oskar_Dirlewanger_Dead
+	}
+}
+
+endscrn_alexanders_legacy = {
+	country_exists = DRL
+	has_completed_focus = DRL_alexander_wept_but_we_will_ride
+}
+
+###Lysenko Checks
+endscrn_betrayed_ORE = {
+	country_exists = MGN
+	has_global_flag = MGN_ORE_capped
+}
+
+endscrn_betrayed_DRL = {
+	country_exists = MGN
+	has_global_flag = MGN_DRL_capped
+}
+
+endscrn_capped_URL = {
+	country_exists = MGN
+	has_global_flag = MGN_URL_capped
+}
+
+endscrn_MGN_dead_dirlewanger = {
+	country_exists = MGN
+	NOT = {
+		has_global_flag = MGN_DRL_capped
+	}
+	has_country_flag = DRL_Oskar_Dirlewanger_Dead
+}
+
+endscrn_experiments_untested = {
+	country_exists = MGN
+	check_variable = { global.lysenko_testing < 2.99 }
+	NOT = {
+		has_global_flag = MGN_lysenko_dead
+	}
+}
+
+endscrn_experiments_failed = {
+	country_exists = MGN
+	check_variable = { global.lysenko_testing > 2.99 }
+	NOT = {
+		has_global_flag = MGN_lysenko_dead
+	}
+}
+
+endscrn_a_fitting_end = {
+	has_global_flag = MGN_lysenko_dead
+}
+
+endscrn_lysenko_alive = {
+	country_exists = MGN
+	MGN = {
+		NOT = {
+			has_global_flag = MGN_NKVD_coup
+			has_global_flag = MGN_lysenko_dead
+		}
+	}
+}
+
+endscr_lysenko_bonus_slide = {
+	country_exists = MGN
+	MGN = {
+		NOT = {
+			has_global_flag = MGN_lysenko_dead
+			has_global_flag = MGN_NKVD_coup
+		}
+	}
+	NOT = {
+		country_exists = URL
+		country_exists = DRL
+		country_exists = ORE
+	}
+}
