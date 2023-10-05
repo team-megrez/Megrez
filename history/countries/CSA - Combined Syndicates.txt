@@ -8,8 +8,10 @@ USA_starting_techs = yes
 USA_starting_tank_variants = yes
 USA_starting_plane_variants = yes
 
+set_cosmetic_tag = CSA_socialist_republic
+
 set_politics = {
-	ruling_party = syndicalist
+	ruling_party = radical_socialist
 	last_election = "1936.11.08"
 	election_frequency = 48
 	elections_allowed = no
@@ -17,8 +19,8 @@ set_politics = {
 
 set_popularities = {
 	totalist = 12
-	radical_socialist = 14
-	syndicalist = 62
+	radical_socialist = 62
+	syndicalist = 14
 	social_democrat = 12
 	social_liberal = 0
 	market_liberal = 0
@@ -98,25 +100,8 @@ create_country_leader = {
 }
 
 ### Country Leaders ###
-recruit_character = CSA_earl_browder
-recruit_character = CSA_william_edward_foster
-recruit_character = CSA_jack_reed
-recruit_character = CSA_elizabeth_gurley_flynn
-recruit_character = CSA_daniel_hoan
-recruit_character = CSA_frank_johns
-recruit_character = CSA_eleanor_roosevelt
-recruit_character = CSA_frank_zeidler
-recruit_character = CSA_elmer_allison
-recruit_character = CSA_james_cannon
-recruit_character = CSA_henning_blomen
-recruit_character = CSA_norman_thomas
-recruit_character = CSA_upton_sinclair
-recruit_character = CSA_john_llewellyn_lewis
-recruit_character = CSA_israel_amter
-recruit_character = CSA_darlington_hoopes
-recruit_character = CSA_oakley_johnson
-recruit_character = CSA_asa_philip_randolph
-
+recruit_character = CSA_Jay_Lovestone
+promote_character = CSA_Jay_Lovestone
 ### Second in Command ###
 recruit_character = CSA_revolutionary_congress
 activate_advisor = CSA_revolutionary_congress_sic
@@ -189,16 +174,7 @@ recruit_character = CSA_bessie_coleman
 recruit_character = CSA_eddie_august_henry_schneider
 
 ### Character Setup ###
-CSA_jack_reed = {
-	set_nationality = USA
-	promote_character = yes
-}
-CSA_eleanor_roosevelt = { set_nationality = NEE }
-CSA_smedley_butler = { set_nationality = USA }
-CSA_herbert_charles_heitke = { set_nationality = USA }
-CSA_george_whelan_anderson_jr = { retire = yes }
-CSA_willard_john_smith = { retire = yes }
-CSA_youngblood_nance = { retire = yes }
+
 
 ### Operatives ###
 if = {
