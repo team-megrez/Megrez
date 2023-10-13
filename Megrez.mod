@@ -5,5 +5,5 @@ tags={
 	"Map"
 	"Alternative History"
 }
-supported_version="1.12.*"
+supported_version="1.13.*"
 path="D:/Documents/Paradox Interactive/Hearts of Iron IV/mod/megrez"
