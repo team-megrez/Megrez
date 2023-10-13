@@ -1,0 +1,159 @@
+﻿division_template = {
+	name = "Peasant Armies"	
+	regiments = {
+		militia = { x = 0 y = 1 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 1 y = 3 }
+		militia = { x = 1 y = 1 }
+		militia = { x = 2 y = 3 }
+		militia = { x = 2 y = 3 }
+	}
+}
+
+division_template = {
+	name = "Cavalry Division"	
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+	}
+}
+
+units = {
+	
+	division = {
+		name = "Workers' and Peasants' Hubei 3rd Army"
+		location = 7201
+		division_template = "Peasant Armies"
+		start_experience_factor = 1
+		start_equipment_factor = 1
+
+	}
+	
+	division = {
+		name = "Workers' and Peasants' 4th Army"
+		location = 4203
+		division_template = "Peasant Armies"
+		start_experience_factor = 1
+		start_equipment_factor = 1
+
+	}
+	division = {
+		name = "Workers' and Peasants' 25th Army"
+		location = 7035
+		division_template = "Peasant Armies"
+		start_experience_factor = 1
+		start_equipment_factor = 1
+
+	}
+	division = {
+		name = "Workers' and Peasants' 1st Division"
+		location = 1083
+		division_template = "Peasant Armies"
+		start_experience_factor = 1
+		start_equipment_factor = 1
+
+	}
+	division = {
+		name = "Workers' and Peasants' 42nd Division"
+		location = 7659
+		division_template = "Peasant Armies"
+		start_experience_factor = 1
+		start_equipment_factor = 1
+
+	}
+	division = {
+		name = "Workers' and Peasants' 21st Division"
+		location = 10144
+		division_template = "Peasant Armies"
+		start_experience_factor = 1
+		start_equipment_factor = 1
+
+	}
+	division = {
+		name = "Workers' and Peasants' 10th Army"
+		location = 12030
+		division_template = "Peasant Armies"
+		start_experience_factor = 1
+		start_equipment_factor = 1
+
+	}
+	division = {
+		name = "Workers' and Peasants' 8th Army"
+		location = 12495
+		division_template = "Peasant Armies"
+		start_experience_factor = 1
+		start_equipment_factor = 1
+
+	}
+	division = {
+		name = "Workers' and Peasants' 12th Division"
+		location = 4156
+		division_template = "Peasant Armies"
+		start_experience_factor = 1
+		start_equipment_factor = 1
+
+	}
+	
+	division = {
+		name = "Workers' and Peasants' 16th Army"
+		location = 1110
+		division_template = "Peasant Armies"
+		start_experience_factor = 1
+		start_equipment_factor = 1
+
+	}
+	division = {
+		name = "Workers' and Peasants' 22nd Army"
+		location = 1006
+		division_template = "Peasant Armies"
+		start_experience_factor = 1
+		start_equipment_factor = 1
+
+	}
+	division = {
+		name = "Workers' and Peasants' 12th Army"
+		location = 7099
+		division_template = "Peasant Armies"
+		start_experience_factor = 1
+		start_equipment_factor = 1
+
+	}
+	division = {
+		name = "Workers' and Peasants' 5th Legion"
+		location = 7141
+		division_template = "Cavalry Division"
+		start_experience_factor = 1
+		start_equipment_factor = 1
+
+	}
+	division = {
+		name = "Workers' and Peasants' 3rd Legion"
+		location = 10084
+		division_template = "Cavalry Division"
+		start_experience_factor = 1
+		start_equipment_factor = 1
+
+	}
+	division = {
+		name = "Workers' and Peasants' 1st Legion"
+		location = 4081
+		division_template = "Cavalry Division"
+		start_experience_factor = 1
+		start_equipment_factor = 1
+
+	}
+}
+
+##### STARTING PRODUCTION #####
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = Small_Arms_equipment_1900
+			creator = "PRC"
+		}
+		requested_factories = 2
+		progress = 0.33
+		efficiency = 100
+	}
+}

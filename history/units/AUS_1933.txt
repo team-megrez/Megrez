@@ -1,0 +1,161 @@
+﻿# Volunteer only in 1933
+
+division_template = {
+	name = "Infanterie-Brigade"
+	division_names_group = AUS_GEN_02
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		bicycle_battalion = { x = 2 y = 0 }			# Divisions had a bicycle recon battalion
+		artillery_battalion_light = { x = 3 y = 0 } # All Austrian artillery was 8cm or smaller.
+		artillery_battalion_light = { x = 3 y = 1 }
+		artillery_battalion_light = { x = 3 y = 2 } # One of the three battalions was specifically mountain howizters
+	}
+	support = {
+		recon = { x = 0 y = 0 } # Dragoons squadron
+		engineer = { x = 0 y = 1 }   # Pioneer Bn
+		signal_company = { x = 0 y = 2 }
+		logistics_company = { x = 0 y = 3 }
+	}
+}
+
+division_template = {
+	name = "Alpenjäger-Brigade" #4,5,6,7 Division were all or partially alpine.
+	division_names_group = AUS_GEN_02
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+		bicycle_battalion = { x = 2 y = 0 }			# Divisions had a bicycle recon battalion
+		artillery_battalion_light = { x = 3 y = 0 } # All Austrian artillery was 8cm or smaller.
+		artillery_battalion_light = { x = 3 y = 1 }
+		artillery_battalion_light = { x = 3 y = 2 } # One of the three battalions was specifically mountain howizters
+	}
+	support = {
+		recon = { x = 0 y = 0 } # Dragoons squadron
+		engineer = { x = 0 y = 1 }   # Pioneer Bn
+		signal_company = { x = 0 y = 2 }
+		logistics_company = { x = 0 y = 3 }
+	}
+}
+
+units = {
+	##### Österreichisches Bundesheer #####
+	division= {	
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		unique={
+			"Heribert Wuczkowski"
+			"Albert Oberweger"
+		}
+		location = 11666  # Vienna
+		division_template = "Infanterie-Brigade"
+		start_experience_factor = 0.1 # Prior to the February Uprising, the Austrian army was considered quite poor and "is only a club preparing for parades and outings"
+		start_equipment_factor = 0.8 # The military was at about 80% of paper strength according to one source.
+	}
+
+	division= {	
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		unique={
+			"Eugen Luschinsky"
+			"Theodor Haselmayr"
+		}
+		location = 11666  # Vienna
+		division_template = "Infanterie-Brigade"
+		start_experience_factor = 0.1 # Prior to the February Uprising, the Austrian army was considered quite poor and "is only a club preparing for parades and outings"
+		start_equipment_factor = 0.8 # The military was at about 80% of paper strength according to one source.
+	}
+
+	division= {	
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		unique={
+			"Wilhelm Gebauer"
+			"Valentin Feurstein"
+		}
+		location = 13207 # St Poelten
+		division_template = "Infanterie-Brigade"
+		start_experience_factor = 0.1 # Prior to the February Uprising, the Austrian army was considered quite poor and "is only a club preparing for parades and outings"
+		start_equipment_factor = 0.8 # The military was at about 80% of paper strength according to one source.
+	}
+
+	division= {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		unique={
+			"Wolfgang Waldherr"
+			"Wilhelm Zehner"
+		}
+		location = 9665 # Linz
+		division_template = "Alpenjäger-Brigade"
+		start_experience_factor = 0.1 # Prior to the February Uprising, the Austrian army was considered quite poor and "is only a club preparing for parades and outings"
+		start_equipment_factor = 0.8 # The military was at about 80% of paper strength according to one source.
+	}
+	
+	division= {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 5
+		}
+		unique={
+			"Johann von Sagburg"
+			"Ferdinand Pichler"
+		}
+		location = 9648  # Graz
+		division_template = "Alpenjäger-Brigade"
+		start_experience_factor = 0.1 # Prior to the February Uprising, the Austrian army was considered quite poor and "is only a club preparing for parades and outings"
+		start_equipment_factor = 0.8 # The military was at about 80% of paper strength according to one source.
+	}
+	
+	division= {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 6
+		}
+		unique={
+			"Artur Wimmer"
+			"Willibald Perko"
+		}
+		location = 11618  # Innsbruck
+		division_template = "Alpenjäger-Brigade"
+		start_experience_factor = 0.1 # Prior to the February Uprising, the Austrian army was considered quite poor and "is only a club preparing for parades and outings"
+		start_equipment_factor = 0.8 # The military was at about 80% of paper strength according to one source.
+	}
+}
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = Small_Arms_equipment_1900
+			creator = "AUS"
+		}
+		requested_factories = 1
+		progress = 0.54
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "AUS"
+		}
+		requested_factories = 1
+		progress = 0.74
+		efficiency = 100
+	}
+}

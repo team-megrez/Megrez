@@ -1,0 +1,309 @@
+﻿division_template = {
+	name = "Infanterie Divisie"
+	division_names_group = HOL_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 } 
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		artillery_battalion = { x = 3 y = 0 }
+		artillery_battalion = { x = 3 y = 1 }
+		artillery_battalion = { x = 3 y = 2 }
+	}
+	support = {
+		signal_company = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 }
+		anti_tank_company = { x = 0 y = 2 }
+		anti_air_battery = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "Lichte Brigade"			# Light Division - elite bicycle infantry
+	division_names_group = HOL_BIK_01
+
+	regiments = {
+		bicycle_battalion = { x = 0 y = 0 }  # In March 1939 this expanded to 2 regiments with three battalions each.
+		bicycle_battalion = { x = 0 y = 1 }
+		bicycle_battalion = { x = 0 y = 2 }
+		bicycle_battalion = { x = 0 y = 3 }
+		bicycle_battalion = { x = 1 y = 0 }	# Motorcycle hussars 'regiment'
+		artillery_battalion_light = { x = 2 y = 0 }	# 75mm howitzer Bn
+		artillery_battalion_light = { x = 2 y = 1 }	# 75mm howitzer Bn
+	}
+	support = {
+		signal_company = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 }
+		field_hospital = { x = 0 y = 2 }
+		maintenance_company = { x = 0 y = 3 }
+		logistics_company = { x = 0 y = 4 }
+	}
+	priority = 2
+}
+
+division_template = {
+	name = "Vesting Holland Garnizoen"
+	division_names_group = HOL_GAR_01
+
+	regiments = {
+		garrison = { x = 0 y = 0 } # Each front had a different formation.  This is an average.
+		garrison = { x = 0 y = 1 }
+		garrison = { x = 0 y = 2 }
+		garrison = { x = 0 y = 3 }
+		garrison = { x = 1 y = 0 }
+		garrison = { x = 1 y = 1 }
+		garrison = { x = 1 y = 2 }
+		garrison = { x = 1 y = 3 }
+		artillery_battalion = { x = 2 y = 0 }
+		artillery_battalion = { x = 2 y = 1 }
+		artillery_battalion = { x = 2 y = 2 }
+		artillery_battalion = { x = 2 y = 3 }
+		artillery_battalion = { x = 2 y = 4 }
+	}
+	support = {
+		signal_company = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 }
+		military_police = { x = 0 y = 2 }
+	}
+	priority = 0
+}
+
+units = {
+    division = {
+        name = "Lichte Brigade" # Not called the Lichte Divisie until 1940.
+        location = 6496 # Eindhoven
+        division_template = "Lichte Brigade"
+        start_experience_factor = 0.22 # the elite troops, they received training above and beyond the standard.
+        start_equipment_factor = 0.8
+    }
+    ##### Ie Legerkorps #####
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+        location = 3211 # The Hague
+        division_template = "Infanterie Divisie"
+        start_experience_factor = 0.14
+        start_equipment_factor = 0.8
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+        location = 6241 # Arnhem
+        division_template = "Infanterie Divisie"
+        start_experience_factor = 0.14
+        start_equipment_factor = 0.8
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+        location = 13260 # Haarlem
+        division_template = "Infanterie Divisie"
+        start_experience_factor = 0.14
+        start_equipment_factor = 0.8
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+        location = 11456 # Nijmegen
+        division_template = "Infanterie Divisie"
+        start_experience_factor = 0.14
+        start_equipment_factor = 0.8
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 5
+		}
+        location = 6496 # Eindhoven
+        division_template = "Infanterie Divisie"
+        start_experience_factor = 0.14
+        start_equipment_factor = 0.8
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 6
+		}
+        location = 6496 # Tilburg
+        division_template = "Infanterie Divisie"
+        start_experience_factor = 0.14
+        start_equipment_factor = 0.8
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 7
+		}
+        location = 6241 # Amersfoort
+        division_template = "Infanterie Divisie"
+        start_experience_factor = 0.14
+        start_equipment_factor = 0.8
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 8
+		}
+        location = 6241 # Rhenen
+        division_template = "Infanterie Divisie"
+         start_experience_factor = 0.14
+        start_equipment_factor = 0.8
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+        location = 391 # Utrecht
+        division_template = "Vesting Holland Garnizoen"
+        start_experience_factor = 0.14
+        start_equipment_factor = 0.8
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+        location = 13260 # Haarlem
+        division_template = "Vesting Holland Garnizoen"
+        start_experience_factor = 0.14
+        start_equipment_factor = 0.4 #Smallest of the three
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+        location = 9498 # Rotterdam
+        division_template = "Vesting Holland Garnizoen"
+        start_experience_factor = 0.14
+        start_equipment_factor = 0.6
+    }
+#The Peel Division came into being in March 1940 when defense strategy shifted most forces further west. A total of 23 infantry and 3 artillery battalions, all detached from withdrawing units.  Supported by engineers, field_hospital, AT battery.
+    ##### navy oob #####
+    fleet = {
+        name = "Koninklijke Marine"
+        naval_base = 3314 # Amsterdam
+        task_force = {
+            name = "Koninklijke Marine"
+            location = 3314 # Amsterdam
+            ship = { name = "Hr.Ms. Hertog Hendrik" definition = heavy_cruiser equipment = { CA_equipment_1906 = { amount = 1 owner = HOL } } }
+            ship = { name = "Hr.Ms. Jacob van Heemskerck" definition = heavy_cruiser equipment = { CA_equipment_1906 = { amount = 1 owner = HOL } } }
+            ship = { name = "Hr.Ms. Gelderland" definition = light_cruiser equipment = { CL_equipment_1885 = { amount = 1 owner = HOL } } }
+            ship = { name = "Hr.Ms. Panter" definition = destroyer equipment = { DD_equipment_1912 = { amount = 1 owner = HOL } } }
+            ship = { name = "2e Torpedojager Flottielje" definition = destroyer equipment = { DD_equipment_1922 = { amount = 1 owner = HOL } } }
+            ship = { name = "1e Torpedoboot Flottielje" definition = destroyer equipment = { DD_equipment_1885 = { amount = 1 owner = HOL } } }
+            ship = { name = "2e Torpedoboot Flottielje" definition = destroyer equipment = { DD_equipment_1885 = { amount = 1 owner = HOL } } }
+            ship = { name = "7e Onderzeeboot Flottielje" definition = submarine equipment = { SS_equipment_1922 = { amount = 1 owner = HOL } } }
+            ship = { name = "2e Onderzeeboot Flottielje" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = HOL } } }
+            ship = { name = "6e Onderzeeboot Flottielje" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = HOL } } }
+            ship = { name = "Hr.Ms. M.I" definition = submarine equipment = { SS_equipment_1912 = { amount = 1 owner = HOL } } }
+            ship = { name = "3e Onderzeeboot Flottielje" definition = submarine equipment = { SS_equipment_1895 = { amount = 1 owner = HOL } } }
+        }
+    }
+}
+
+air_wings = {
+    7 = {
+        # 1e Luchtvaartregiment
+        Fighter_equipment_1933 = { # Fokker D.VII
+            owner = "HOL"
+            amount = 30
+        }
+         # 1e Luchtvaartgroep
+         Fighter_equipment_1933 = { # Improved WW1 Fighter
+         owner = "HOL"
+         amount = 30
+        }
+        # 2e Luchtvaartgroep
+        Naval_Bomber_equipment_1925 = { # Fokker T.IV
+            owner = "HOL"
+            amount = 10
+        }
+    }
+}
+### Starting Production ###
+instant_effect = {
+    add_equipment_production = {
+        equipment = {
+            type = Small_Arms_equipment_1916
+            creator = "HOL"
+        }
+        requested_factories = 1
+        Progress = 0.58
+        efficiency = 100
+    }
+
+    add_equipment_production = {
+        equipment = {
+            type = support_equipment_1
+            creator = "HOL"
+        }
+        requested_factories = 1
+        Progress = 0.6
+        efficiency = 100
+    }
+
+    add_equipment_production = {
+        equipment = {
+            type = Artillery_equipment_1916
+            creator = "HOL"
+        }
+        requested_factories = 1
+        Progress = 0.44
+        efficiency = 100
+    }
+
+    add_equipment_production = {
+        equipment = {
+            type = Anti_Aircraft_Gun_equipment_1914
+            creator = "HOL"
+        }
+        requested_factories = 1
+        Progress = 0.4
+        efficiency = 100
+    }
+
+    add_equipment_production = {
+        equipment = {
+            type = DD_equipment_1912
+            creator = "HOL"
+        }
+        requested_factories = 1
+        Progress = 0.24
+        amount = 4
+    }
+
+    add_equipment_production = {
+        equipment = {
+            type = SS_equipment_1922
+            creator = "HOL"
+        }
+        requested_factories = 1
+        Progress = 0.42
+        amount = 8
+    }
+
+    add_equipment_production = {
+        equipment = {
+            type = CA_equipment_1906
+            creator = "HOL"
+        }
+        requested_factories = 1
+        Progress = 0.18
+        amount = 1
+    }
+}

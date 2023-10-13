@@ -1,0 +1,115 @@
+﻿division_template = {
+	name = "División del Ejército"
+	division_names_group = SPAN_INF_02
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+	}
+	support = {
+		artillery_battery = { x = 0 y = 0 }
+        engineer = { x = 0 y = 1 }
+	}
+}
+
+units = {
+	# Should be about 36k troops (6k regulars and 30k mobilized reserves.
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+        location = 14521 # Defending at the border with Paraguay
+        division_template = "División del Ejército"
+        start_experience_factor = 0.06 # Bolivarian troops were more intended for garrison duty to oppose internal discontent, and relied on a much higher proportion reserves than the Paraguayans.
+		start_equipment_factor = 0.7 # Historically the Chaco War was a logisitical nightmare for Bolivia
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+        location = 14519 # Preparing for the assault on Nanawa
+        division_template = "División del Ejército"
+        start_experience_factor = 0.06 # Bolivarian troops were more intended for garrison duty to oppose internal discontent, and relied on a much higher proportion reserves than the Paraguayans.
+		start_equipment_factor = 0.7 # Historically the Chaco War was a logisitical nightmare for Bolivia
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 5
+		}
+        location = 14521 # Defending at the border with Paraguay
+        division_template = "División del Ejército"
+        start_experience_factor = 0.06 # Bolivarian troops were more intended for garrison duty to oppose internal discontent, and relied on a much higher proportion reserves than the Paraguayans.
+		start_equipment_factor = 0.7 # Historically the Chaco War was a logisitical nightmare for Bolivia
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 6
+		}
+        location = 14520 # Would be attacking the forts of Toledo, Platanillos, Fernandez
+        division_template = "División del Ejército"
+        start_experience_factor = 0.06 # Bolivarian troops were more intended for garrison duty to oppose internal discontent, and relied on a much higher proportion reserves than the Paraguayans.
+ 		start_equipment_factor = 0.7 # Historically the Chaco War was a logisitical nightmare for Bolivia
+   }
+
+
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+        location = 14520 # Would be attacking the forts of Toledo, Platanillos, Fernandez
+        division_template = "División del Ejército"
+        start_experience_factor = 0.06 # Bolivarian troops were more intended for garrison duty to oppose internal discontent, and relied on a much higher proportion reserves than the Paraguayans.
+		start_equipment_factor = 0.7 # Historically the Chaco War was a logisitical nightmare for Bolivia
+    }
+     division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 8
+		}
+        location = 14520 # Would be attacking the forts of Toledo, Platanillos, Fernandez
+        division_template = "División del Ejército"
+        start_experience_factor = 0.06 # Bolivarian troops were more intended for garrison duty to oppose internal discontent, and relied on a much higher proportion reserves than the Paraguayans.
+		start_equipment_factor = 0.7 # Historically the Chaco War was a logisitical nightmare for Bolivia
+    }
+
+
+   division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+        location = 14519 # Preparing for the assault on Nanawa
+        division_template = "División del Ejército"
+        start_experience_factor = 0.06 # Bolivarian troops were more intended for garrison duty to oppose internal discontent, and relied on a much higher proportion reserves than the Paraguayans.
+		start_equipment_factor = 0.7 # Historically the Chaco War was a logisitical nightmare for Bolivia
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 7
+		}
+        location = 14519 # Preparing for the assault on Nanawa
+        division_template = "División del Ejército"
+        start_experience_factor = 0.06 # Bolivarian troops were more intended for garrison duty to oppose internal discontent, and relied on a much higher proportion reserves than the Paraguayans.
+		start_equipment_factor = 0.7 # Historically the Chaco War was a logisitical nightmare for Bolivia
+    }
+}
+
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = Small_Arms_equipment_1900
+			creator = "BOL"
+		}
+		requested_factories = 1
+		progress = 0.33
+		efficiency = 100
+	}
+}

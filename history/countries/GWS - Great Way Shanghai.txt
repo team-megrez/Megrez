@@ -1,0 +1,46 @@
+﻿#########################################################################################
+# Great Way Shanghai - 1933
+#########################################################################################
+1933.1.1 = {
+	capital = 868
+	set_convoys = 10
+	set_stability = 0.4
+	set_war_support = 0.3
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		Small_Arms_1916 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = authoritarian
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 100
+		democratic = 0
+		socialist = 0
+		communist = 0
+	}
+	#######################
+	# Leaders
+	#######################
+	create_country_leader = {
+		name = "Su Xiwen"
+		desc = ""
+		picture = GFX_P_A_Su_Xiwen
+		expire = "1945.9.2"
+		ideology = military_dictatorship
+		traits = {
+			POSITION_Chairman
+			SUBIDEOLOGY_Military_Dictatorship
+		}
+	}
+}

@@ -1,0 +1,90 @@
+﻿division_template = {
+	name = "Gvardeyskaya Strelkovaya Diviziya"
+	division_names_group = SOV_GINF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 } 
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		artillery_battalion_light = { x = 3 y = 0 }
+		artillery_battalion_light = { x = 3 y = 1 }
+		artillery_battalion = { x = 3 y = 2 }
+		anti_tank_battalion = { x = 3 y = 3 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+		field_hospital = { x = 0 y = 3 }
+		logistics_company = { x = 0 y = 4 }
+	}
+	priority = 2
+}
+units = {
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 11464 # Berdichev
+        division_template = "Gvardeyskaya Strelkovaya Diviziya"
+        start_experience_factor = 0.77
+        start_equipment_factor = 0.75
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 418 # Kharkiv
+        division_template = "Gvardeyskaya Strelkovaya Diviziya"
+        start_experience_factor = 0.71
+        start_equipment_factor = 0.75
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 7375 # Perm
+        division_template = "Gvardeyskaya Strelkovaya Diviziya"
+        start_experience_factor = 0.77
+        start_equipment_factor = 0.75
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 11271 # Mogilev
+        division_template = "Gvardeyskaya Strelkovaya Diviziya"
+        start_experience_factor = 0.80
+        start_equipment_factor = 0.75
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 5
+		}
+		location = 1794 # Barnaul
+        division_template = "Gvardeyskaya Strelkovaya Diviziya"
+        start_experience_factor = 0.76
+        start_equipment_factor = 0.75
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 6
+		}
+		location = 9355 # Orel
+        division_template = "Gvardeyskaya Strelkovaya Diviziya"
+        start_experience_factor = 0.72
+        start_equipment_factor = 0.75
+    }
+}

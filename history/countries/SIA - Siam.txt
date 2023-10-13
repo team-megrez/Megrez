@@ -1,0 +1,127 @@
+﻿############################################
+# Siam - 1933
+############################################
+1933.1.1 = {
+	capital = 289
+	set_convoys = 15
+	oob = "SIA_1933"
+	add_to_variable = { money = 100 }
+	# Starting tech
+	set_technology = {
+	basic_train = 1
+		### Infantry Tech
+		Small_Arms_1916 = 1
+		Small_Arms_1900 = 1
+		Infantry_Kit_1914 = 1
+		Infantry_Kit_1918 = 1
+
+		Heavy_Weapons_1905 = 1
+		Heavy_Weapons_1916 = 1
+		
+		
+		### Artillery Tech
+		Artillery_1910 = 1
+        Artillery_Range_Finding_and_Surveying_Tools = 1
+        Artillery_1916 = 1
+		### Armour Tech
+		Armored_Car_1911 = 1
+        Armored_Car_1916 = 1
+        Armored_Car_1926 = 1
+		### Air Tech
+		Unarmed_Recon_1910 = 1
+        Fighter_1914 = 1
+        Fighter_1916 = 1
+        Fighter_1918 = 1
+        Tactical_Bomber_1914 = 1
+        Tactical_Bomber_1916 = 1
+        Tactical_Bomber_1918 = 1
+		### Naval Stuff
+		DD_1885 = 1
+		DD_1900 = 1
+		DD_1912 = 1
+		DD_1916 = 1
+		CL_1885 = 1
+		CL_1900 = 1
+		CL_1912 = 1
+		SS_1895 = 1
+		SS_1912 = 1
+		transport = 1
+		### Industry
+		Industrial_Management = 1
+		Factory_Electrification = 1
+		Basic_Construction_Machines = 1
+		### Land Doctrines
+		Twentieth_Century_Warfare = 1
+		Leading_by_Order = 1
+		Strongpoint = 1
+        Mass_Charge = 1
+        Static_Defence = 1
+        Counterattack = 1
+		Defence_In_Depth = 1
+		Separate_Arms_Force = 1
+        Combined_Arms_Effort = 1
+		Specialized_Branch_Tactical_Experience = 1
+	}
+
+
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 30
+		democratic = 70
+		socialist = 0
+		communist = 0
+	}
+	add_ideas = {
+		SIA_D_Prajadhipok
+		agrarian_economy
+		repressive_system
+	}
+	create_country_leader = {
+		name = "Phraya Manopakorn Nititada"
+		desc = ""
+		picture = GFX_P_A_Phraya_Manopakorn_Nititada
+		expire = "1965.1.1"
+		ideology = social_conservatism
+		traits = {
+			POSITION_Prime_Minister
+			SUBIDEOLOGY_Social_Conservatism
+			L_Naive_Optimist
+		}
+	}
+}
+############################################
+# Siam - 1936
+############################################
+1936.1.1 = {
+	oob = "SIA_1936"
+	add_ideas = {
+		SIA_D_Ananda_Mahidol
+		agrarian_economy
+		repressive_system
+	}	
+	create_country_leader = {
+		name = "Phraya Phahonphonphayuhasena"
+		desc = ""
+		picture = GFX_P_A_Phraya_Phahon
+		expire = "1965.1.1"
+		ideology = social_conservatism
+		traits = {
+			POSITION_Prime_Minister
+			SUBIDEOLOGY_Social_Conservatism
+			L_Happy_Amateur
+		}
+	}
+}
+
+############################################
+# Siam - 1939
+############################################
+1939.9.1 = {
+	set_cosmetic_tag = SIA_THAILAND
+}

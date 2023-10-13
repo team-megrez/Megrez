@@ -1,0 +1,47 @@
+﻿#########################################################################
+# Brittany - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 1028
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		Small_Arms_1916 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = fascist
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 30
+		authoritarian = 10
+		democratic = 50
+		socialist = 5
+		communist = 5
+	}
+	#######################
+	# Leaders
+	#######################
+	# Fascism
+	create_country_leader = {
+		name = "Olier Mordrel"
+		desc = ""
+		picture = GFX_P_F_Olier_Mordrel
+		expire = "1985.10.25"
+		ideology = fascism
+		traits = {
+			POSITION_President
+			SUBIDEOLOGY_Fascism
+		}
+	}
+	#######################
+	# Generals
+	#######################
+}

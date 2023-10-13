@@ -1,0 +1,179 @@
+﻿######################################################################
+# Luxemburg - 1933
+######################################################################
+1933.1.1 = {
+	capital = 8
+	oob = "LUX_1933"
+	add_to_variable = { money = 120 }
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		### Infantry Tech
+		Small_Arms_1900 = 1
+		Small_Arms_1916 = 1
+		Infantry_Kit_1914 = 1
+		Infantry_Kit_1918 = 1
+
+		Heavy_Weapons_1905 = 1
+		Heavy_Weapons_1916 = 1
+		### Artillery Tech
+		Artillery_1910 = 1
+		Artillery_Range_Finding_and_Surveying_Tools = 1
+		Artillery_1916 = 1
+		### Armour Tech
+		Armored_Car_1911 = 1
+		Armored_Car_1916 = 1
+		Armored_Car_1926 = 1
+		### Air Tech
+		Unarmed_Recon_1910 = 1
+		Fighter_1914 = 1
+		Fighter_1916 = 1
+		Fighter_1918 = 1
+		Fighter_1924 = 1
+		### Industry
+		Industrial_Management = 1
+		Factory_Electrification = 1
+		Facilities_Design = 1
+		Moving_Assembly_Line = 1
+		Skilled_Workforce = 1
+		Basic_Construction_Machines = 1
+		Novel_Drills = 1
+		Contemporary_Construction_Standards = 1
+		Advanced_Drilling_Method = 1
+		Construction_Site_Management = 1
+		Motorized_Plowing = 1
+		Farm_Tractors = 1
+		Scientific_Agricultural_Processes = 1
+		Mechanized_Agriculture = 1
+		### Land Doctrines
+		Twentieth_Century_Warfare = 1
+		Leading_by_Order = 1
+		Strongpoint = 1
+		Mass_Charge = 1
+		Static_Defence = 1
+		Counterattack = 1
+		Defence_In_Depth = 1
+		Separate_Arms_Force = 1
+		Combined_Arms_Effort = 1
+		Specialized_Branch_Tactical_Experience = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1931.6.3"
+		election_frequency = 36
+		elections_allowed = yes
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 0
+		democratic = 89
+		socialist = 5
+		communist = 6
+	}
+	add_ideas = {
+		# Cabinet
+		LUX_D_Charlotte
+		isolationism
+		full_civil_liberties
+	}
+	######################################################################
+	# Leaders
+	######################################################################
+	# Fascism
+	create_country_leader = {
+		name = "Damian Kratzenberg"
+		desc = ""
+		picture = GFX_P_F_Damian_Kratzenberg
+		expire = "1946.10.11"
+		ideology = national_socialism
+		traits = { 
+			POSITION_Prime_Minister 
+			SUBIDEOLOGY_National_Socialism 
+		}
+	}
+	# Authoritarian
+	create_country_leader = {
+		name = "Charlotte"
+		desc = ""
+		picture = GFX_P_A_Charlotte
+		expire = "1985.7.9"
+		ideology = monarchism
+		traits = { 
+			POSITION_Grand_Duchess 
+			SUBIDEOLOGY_Monarchism 
+		}
+	}
+	# Democracy
+	create_country_leader = {
+		name = "Joseph Bech"
+		desc = ""
+		picture = GFX_P_D_Joseph_Bech
+		expire = "1975.3.8"
+		ideology = social_conservatism
+		traits = { 
+			POSITION_Prime_Minister 
+			SUBIDEOLOGY_Social_Conservatism
+		}
+	}
+	# Communism
+	create_country_leader = {
+		name = "Charles Marx"
+		desc = ""
+		picture = GFX_P_C_Charles_Marx
+		expire = "1946.6.13"
+		ideology = marxism_leninism
+		traits = { 
+			POSITION_Chairman 
+			SUBIDEOLOGY_Marxism_Leninism 
+		}
+	}
+	#######################
+	# Generals
+	#######################
+}
+##########################
+# Luxemburg - 1936
+##########################
+1936.1.1 = {
+	capital = 8
+	oob = "LUX_1936"
+	# Starting tech
+	set_technology = {
+		Small_Arms_1916 = 1
+		Small_Arms_1935 = 1
+		Artillery_1910 = 1
+		tech_support = 1
+		tech_engineers = 1
+		Fighter_1933 = 1
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1934.6.3"
+		election_frequency = 36
+		elections_allowed = yes
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 8
+		democratic = 90
+		socialist = 2
+		communist = 0
+	}
+	add_ideas = {
+		# Cabinet
+		LUX_D_Charlotte
+		isolationism
+		full_civil_liberties
+	}
+}
+##########################
+# Luxemburg - 1944
+##########################
+1944.6.20 = {
+	oob = "LUX_1944"
+}

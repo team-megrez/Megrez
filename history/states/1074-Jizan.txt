@@ -1,0 +1,39 @@
+state={
+	id=1074
+	name="STATE_1074"
+
+	history={
+		owner = SAU
+		victory_points = {
+			13563 2
+		}
+		buildings = {
+			infrastructure = 1
+
+		}
+		add_core_of = SAU
+		set_demilitarized_zone = yes
+		add_province_modifier = {
+			static_modifiers = { idrisid_emirate_of_asir_modifier }
+			province = {
+				all_provinces = yes
+			}
+		}
+		1936.1.1 = {
+			set_demilitarized_zone = no
+			remove_province_modifier = {
+				static_modifiers = { idrisid_emirate_of_asir_modifier }
+				province = {
+					all_provinces = yes
+				}
+			}
+		}
+	}
+
+	provinces={
+		13563 13564
+	}
+	manpower=105193
+	buildings_max_level_factor=1.000
+	state_category=pastoral
+}

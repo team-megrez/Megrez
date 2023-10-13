@@ -1,0 +1,279 @@
+﻿division_template = {
+	name = "Vegyesdandár"		       # Mixed Brigade Fomation Valid from 1930-1938
+	division_names_group = HUN_MIX_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		bicycle_battalion = { x = 2 y = 0 }
+		artillery_battalion = { x = 3 y = 0 }
+		artillery_battalion = { x = 3 y = 1 }	
+		artillery_battalion_light = { x = 3 y = 2 }	# Hungary had a mix of 7 cm and 10 cm artillery
+	}
+	support = {
+		signal_company = { x = 0 y = 0 } 
+		engineer = { x = 0 y = 1 } 
+		recon = { x = 0 y = 2 } 
+		logistics_company = { x = 0 y = 3 } 
+	}
+}
+
+division_template = {
+	name = "Határőrezred"		       # Border Guard Regiments until 1 OCT 1938 were infantry forces to get around treaty limitations on Army size.  Each military district had a regiment, which was intended to suppliment the district's mixed brigade to create a fullstrength infantry division
+	division_names_group = HUN_GAR_02
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+	}
+	support = {
+		signal_company = { x = 0 y = 0 } 
+	}
+}
+
+division_template = {
+	name = "Lovassági Dandár" 				# Cavalry Brigade
+	division_names_group = HUN_CAV_02
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}
+	support = {
+		artillery_battery = { x = 0 y = 0 } # Hungarian cavalry had one independent battalion with two batteries of medium howitzers.  For this OOB each brigade gets one of those batteries.
+	}
+}
+
+units = {
+	##### Magyar Királyi Honvédség #####
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 9660 # Budapest
+        division_template = "Vegyesdandár"
+        start_experience_factor = 0.18 # Hungarian infantry wasn't the most well trained ever, but they weren't notably deficient in training and they did have some experienced troops from the early 1920s.
+        start_equipment_factor = 0.92 # Reliable data shows that the Hungarian Amy was around 92% of authorized strength during the 30s with 57k out of a planned 62.5k troops
+	}
+
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 6703 # Székesfehérvár
+        division_template = "Vegyesdandár"
+        start_experience_factor = 0.18
+        start_equipment_factor = 0.92
+	}
+
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 686 # Szombathely 
+        division_template = "Vegyesdandár"
+        start_experience_factor = 0.18
+        start_equipment_factor = 0.92
+	}
+
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 11610 # Pécs 
+        division_template = "Vegyesdandár"
+        start_experience_factor = 0.18
+        start_equipment_factor = 0.92
+	}
+
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 5
+		}
+		location = 679 # Szeged 
+        division_template = "Vegyesdandár"
+        start_experience_factor = 0.18
+        start_equipment_factor = 0.92
+	}
+
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 6
+		}
+		location = 11659 # Debrecen 
+        division_template = "Vegyesdandár"
+        start_experience_factor = 0.18
+        start_equipment_factor = 0.92
+	}
+
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 7
+		}
+		location = 6751 # Miskolc 
+        division_template = "Vegyesdandár"
+        start_experience_factor = 0.18
+        start_equipment_factor = 0.92
+	}
+
+	division = { # 1. lovasdandár
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 9660 # Budapest
+		division_template = "Lovassági Dandár"
+        start_experience_factor = 0.18
+        start_equipment_factor = 0.92
+	}
+
+	division = { # 2. lovasdandár
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 3730 # Nyiregyháza 
+		division_template = "Lovassági Dandár"
+        start_experience_factor = 0.18
+        start_equipment_factor = 0.92
+	}
+
+	##### Magyar Királyi Határőség #####
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 9690 # Salgótarján 
+        division_template = "Határőrezred"
+        start_experience_factor = 0.14
+        start_equipment_factor = 0.51 # Numbers in 1936 showed the border guard had just over half of the troops necessary to fill all these units at combat strength.
+	}
+
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 9676 # Komárom 
+        division_template = "Határőrezred"
+        start_experience_factor = 0.14
+        start_equipment_factor = 0.51
+	}
+
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 3670 # Keszthély  
+        division_template = "Határőrezred"
+        start_experience_factor = 0.14
+        start_equipment_factor = 0.51
+	}
+
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 11610 # Pécs 
+        division_template = "Határőrezred"
+        start_experience_factor = 0.14
+        start_equipment_factor = 0.51
+	}
+
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 5
+		}
+		location = 6670 # Kiskunhalas  
+        division_template = "Határőrezred"
+        start_experience_factor = 0.14
+        start_equipment_factor = 0.51
+	}
+
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 6
+		}
+		location = 11659 # Debrecen 
+        division_template = "Határőrezred"
+        start_experience_factor = 0.14
+        start_equipment_factor = 0.51
+	}
+
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 7
+		}
+		location = 6735 # Mátészalka  
+        division_template = "Határőrezred"
+        start_experience_factor = 0.14
+        start_equipment_factor = 0.51
+	}
+}
+
+
+air_wings = {
+    43 = {
+        # 1. vadászosztály
+        Fighter_equipment_1924  = { # FIAT CR.20
+            owner = "HUN"
+            amount = 25
+        }
+        # 1. bombázóosztály
+        Tactical_Bomber_equipment_1925 = { # Dornier Do.23G
+            owner = "HUN"
+            amount = 20
+        }
+    }
+}
+### Starting Production ###
+instant_effect = { 
+    add_equipment_production = {
+        equipment = {
+            type = Small_Arms_equipment_1916
+            creator = "HUN"
+        }
+        requested_factories = 2
+        progress = 0.68
+        efficiency = 100
+    }
+
+    add_equipment_production = {
+        equipment = {
+            type = support_equipment_1
+            creator = "HUN"
+        }
+        requested_factories = 2
+        progress = 0.58
+        efficiency = 100
+    }
+
+    add_equipment_production = {
+        equipment = {
+            type = Artillery_equipment_1916
+            creator = "HUN"
+        }
+        requested_factories = 2
+        progress = 0.46
+        efficiency = 100
+    }
+}

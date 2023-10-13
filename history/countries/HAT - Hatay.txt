@@ -1,0 +1,44 @@
+﻿#########################################################################
+# Hatay - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 803
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		Small_Arms_1916 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 0
+		democratic = 100
+		socialist = 0
+		communist = 0
+	}
+	#######################
+	# Leaders
+	#######################
+	# Democracy
+	create_country_leader = {
+		name = "Tayfur Sökmen"
+		desc = ""
+		picture = GFX_P_D_Tayfur_Sokmen
+		expire = "1980.3.3"
+		ideology = social_democracy
+		traits = { POSITION_President SUBIDEOLOGY_Social_Democracy }
+	}
+	#######################
+	# Generals
+	#######################
+}

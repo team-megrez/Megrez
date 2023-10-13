@@ -1,0 +1,120 @@
+﻿division_template = {
+	name = "Duli Bubing Lu"				# Represents: German-trained divisions (better equipment than rest),
+									# 	as well as two-division infantry corps (generally poorly-equipped militias),
+	regiments = {					#	and local militia groups.
+		light_infantry = { x = 0 y = 0 }	# Note: Chinese divisions were brigade-sized compared other nations' armies
+		light_infantry = { x = 0 y = 1 }
+		light_infantry = { x = 1 y = 0 }
+		light_infantry = { x = 1 y = 1 }
+	}
+
+	priority = 0 # garrison
+}
+division_template = {
+	name = "Bubing Shi"			# Represents three-division infantry corps (generally poorly-equipped militias)
+
+	regiments = {
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 }
+		light_infantry = { x = 1 y = 0 }
+		light_infantry = { x = 1 y = 1 }
+		light_infantry = { x = 2 y = 0 }
+		light_infantry = { x = 2 y = 1 }
+	}
+}
+division_template = {
+	name = "Jibing Shi"		# Represents two-division cavalry corps (generally poorly-equipped)
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}
+}
+
+### OOB ###
+units = {
+	###### Kuomintang Army (CO: Chang Kai-shek) ######
+	##### Beiping-Tianjin Area (CO: ) #####
+	### 29 Juntuan (highly-reinforced corps) ###
+
+	##### First War Area (CO: Cheng Qian) #####
+	### 2nd Army Group (CO: Liu Shi) ###
+	## 3rd Army (CO: Han Fuqu) ##
+	division = {
+		name = "12 Duli Bubing Lu"
+		location = 4205
+		division_template = "Duli Bubing Lu"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.6
+
+	}
+	division = {
+		name = "40 Duli Bubing Lu"
+		location = 4205
+		division_template = "Duli Bubing Lu"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.6
+
+	}
+	### 14th Army Group (CO: Wei Lihuang) ###
+	division = {
+		name = "10 Bubing Shi"
+		location = 10043
+		division_template = "Bubing Shi"		# Reorganized German-trained division (frontline infantry, better equipment and highest experience)
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	division = {
+		name = "83 Bubing Shi"
+		location = 10043
+		division_template = "Bubing Shi"		# Reorganized German-trained division (frontline infantry, better equipment and highest experience)
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	##### Fifth War Area (CO: Li Zongren) #####
+	division = {
+		name = "3 Jibing Shi"
+		location = 10000
+		division_template = "Jibing Shi"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.4
+
+	}
+	division = {
+		name = "Qingdao Jingbei"
+		location = 10000
+		division_template = "Duli Bubing Lu"		# Garrison unit (poor equipment and training)
+		start_equipment_factor = 0.4
+
+	}
+	division = {
+		name = "2 Jibing Shi"
+		location = 1069
+		division_template = "Jibing Shi"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.4
+
+	}
+	##### ROCN #####
+}
+
+
+
+
+
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = Small_Arms_equipment_1900
+			creator = "SHD"
+		}
+		requested_factories = 2
+		progress = 0.33
+		efficiency = 60
+	}
+
+#Under Construction in Shanghai
+
+}

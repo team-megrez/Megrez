@@ -1,0 +1,88 @@
+﻿division_template = {
+	name = "División de Infanteria"			# Infantry Division
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+}
+
+units = {
+    ##### 1a Region Militar #####
+    division = {
+        name = "1a Division de Infanteria"
+        location = 8199 # Trujillo
+        division_template = "División de Infanteria"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.15
+    }
+    ##### 2a Region Militar #####
+    division = {
+        name = "2a Division de Infanteria"
+        location = 12997 # Lima
+        division_template = "División de Infanteria"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.15
+    }
+    ##### 3a Region Militar #####
+    division = {
+        name = "3a Division de Infanteria"
+        location = 2210 # Arequipa
+        division_template = "División de Infanteria"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.15
+    }
+    ##### 4a Region Militar #####
+    division = {
+        name = "4a Division de Infanteria"
+        location = 5166 # Cuzco
+        division_template = "División de Infanteria"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.15
+    }
+    ##### 5a Region Militar #####
+    division = {
+        name = "5a Division de Infanteria"
+        location = 8213 # Requena
+        division_template = "División de Infanteria"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.15
+    }
+    ##### navy oob #####
+    fleet = {
+        name = "Marina del Guerra del Peru"
+        naval_base = 12997 # Lima
+        task_force = {
+            name = "Marina del Guerra del Peru"
+            location = 12997 # Lima
+            ship = { name = "BAP Almirante Grau" definition = light_cruiser equipment = { CL_equipment_1900 = { amount = 1 owner = PRU } } }
+            ship = { name = "BAP Coronel Bolognesi" definition = light_cruiser equipment = { CL_equipment_1900 = { amount = 1 owner = PRU } } }
+            ship = { name = "BAP Teniente Rodriguez" definition = destroyer equipment = { DD_equipment_1912 = { amount = 1 owner = PRU } } }
+            ship = { name = "Flotilla de Submarinos No.1" definition = submarine equipment = { SS_equipment_1922 = { amount = 1 owner = PRU } } }
+        }
+    }
+}
+
+air_wings = {
+    303 = {
+        # Ala Aérea No.1
+        Fighter_equipment_1918 = { # Caproni Ca.114
+            owner = "PRU"
+            amount = 15
+        }
+    }
+}
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = Small_Arms_equipment_1900
+			creator = "PRU"
+		}
+		requested_factories = 1
+		progress = 0.64
+		efficiency = 100
+	}
+}

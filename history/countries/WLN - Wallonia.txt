@@ -1,0 +1,49 @@
+﻿#########################################################################
+# Wallonia - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 34
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+
+		Small_Arms_1916 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 23
+		authoritarian = 17
+		democratic = 60
+		socialist = 0
+		communist = 0
+	}
+	#######################
+	# Leaders
+	#######################
+	# Fascism
+	create_country_leader = {
+		name = "Léon Degrelle"
+		desc = ""
+		picture = GFX_P_F_Leon_Degrelle
+		expire = "1994.3.31"
+		ideology = rexism
+		traits = {
+			POSITION_President
+			SUBIDEOLOGY_Rexism
+			L_Barking_Buffoon
+		}
+	}
+	#######################
+	# Generals
+	#######################
+}

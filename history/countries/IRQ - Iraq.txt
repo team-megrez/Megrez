@@ -1,0 +1,248 @@
+﻿#####################################
+# Iraq - 1933
+#####################################
+1933.1.1 = {
+	capital = 291
+	oob = "IRQ_1933"
+	set_stability = 0.55
+	set_war_support = 0.35
+	set_convoys = 5
+	add_to_variable = { money = 80 }
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		### Infantry Tech
+		Small_Arms_1900 = 1
+		Small_Arms_1916 = 1
+		Infantry_Kit_1914 = 1
+		Infantry_Kit_1918 = 1
+
+		Heavy_Weapons_1905 = 1
+		Heavy_Weapons_1916 = 1
+		### Artillery Tech
+		Artillery_1910 = 1
+		Artillery_Range_Finding_and_Surveying_Tools = 1
+		Artillery_1916 = 1
+		### Armour Tech
+		Armored_Car_1911 = 1
+		Armored_Car_1916 = 1
+		Armored_Car_1926 = 1
+		### Air Tech
+		Unarmed_Recon_1910 = 1
+		Fighter_1914 = 1
+		Fighter_1916 = 1
+		### Industry
+		Motorized_Plowing = 1
+		### Land Doctrines
+		Twentieth_Century_Warfare = 1
+		Leading_by_Order = 1
+		Strongpoint = 1
+		Mass_Charge = 1
+		Static_Defence = 1
+		Counterattack = 1
+		Defence_In_Depth = 1
+		Separate_Arms_Force = 1
+		Combined_Arms_Effort = 1
+		Specialized_Branch_Tactical_Experience = 1
+		### Support Companies
+		tech_engineers = 1
+		tech_assault_weapons_1 = 1
+		tech_assault_weapons_2 = 1
+		tech_assault_weapons_3 = 1
+		tech_entrenchment_1 = 1
+		tech_entrenchment_2 = 1
+		tech_entrenchment_3 = 1
+		tech_amphibious_1 = 1
+		tech_amphibious_2 = 1
+		tech_amphibious_3 = 1
+		tech_recon = 1
+		tech_recon2 = 1
+		tech_recon3 = 1
+		tech_recon4 = 1
+		tech_military_police = 1
+		tech_military_police2 = 1
+		tech_military_police3 = 1
+		tech_military_police4 = 1
+		tech_signal_company = 1
+		tech_field_hospital = 1
+		tech_field_hospital_psychology_1 = 1
+		tech_field_hospital_psychology_2 = 1
+		tech_field_hospital_health_1 = 1
+		tech_field_hospital_health_2 = 1
+		tech_logistics_company = 1
+		tech_logistics_company2 = 1
+		tech_logistics_company3 = 1
+		tech_logistics_company4 = 1
+		tech_maintenance_company = 1
+		tech_maintenance_company2 = 1
+		tech_maintenance_company3 = 1
+		tech_maintenance_company4 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = authoritarian
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 33
+		authoritarian = 55
+		democratic = 4
+		socialist = 5
+		communist = 3
+	}
+	add_ideas = {
+		agrarian_economy
+		repressive_system
+		#Cabinet
+		IRQ_D_Naji_Shawkat
+		IRQ_FM_Abdulqadir_Rashid
+		IRQ_MoS_Naji_Shawkat
+		#IRQ_Collapsing_Authorities
+		#IRQ_Anglo_Iraqi_Treaty
+	}
+	#######################
+	# Leaders
+	#######################
+	# Fascism
+	create_country_leader = {
+		name = "Rashid Ali Al-Gaylani"
+		desc = ""
+		picture = GFX_P_A_Rashid_Ali
+		expire = "1965.1.1"
+		ideology = ultranationalism
+		traits = { POSITION_Prime_Minister SUBIDEOLOGY_Ultranationalism }
+	}
+	# Autocracy
+	create_country_leader = {
+		name = "Faisal I"
+		desc = "Faisal_I_desc"
+		picture = GFX_P_A_Faisal_I
+		expire = "1933.9.8"
+		ideology = monarchism
+		traits = { POSITION_King SUBIDEOLOGY_Monarchism L_Autocratic_Charmer }
+	}
+	# Democracy
+	create_country_leader = {
+		name = "Mohammed Hadid"
+		desc = ""
+		picture = GFX_
+		expire = "1965.1.1"
+		ideology = social_democracy
+		traits = { POSITION_President SUBIDEOLOGY_Social_Democracy }
+	}
+	# Socialism
+	create_country_leader = {
+		name = "Jafar Abu Timman"
+		desc = ""
+		picture = GFX_
+		expire = "1965.1.1"
+		ideology = socialism
+		traits = { POSITION_President SUBIDEOLOGY_Democratic_Socialism }
+	}
+	# Communism
+	create_country_leader = {
+		name = "Yusuf Salman Yusuf"
+		desc = ""
+		picture = GFX_P_C_Comrade_Fahd
+		expire = "1965.1.1"
+		ideology = stalinism
+		traits = { POSITION_General_Secretary SUBIDEOLOGY_Stalinism }
+	}
+	#######################
+	# Generals
+	#######################
+	create_field_marshal = {
+		name = "Bakr Sidqi"
+	    id = 132000
+		GFX = GFX_M_Bakr_Sidqi
+		traits = {
+			offensive_doctrine
+			old_guard
+			politically_connected
+		}
+		skill = 4
+		attack_skill = 3
+		defense_skill = 1
+		planning_skill = 2
+		logistics_skill = 1
+	}
+	create_field_marshal = {
+		name = "Jafar Al-Askari"
+	    id = 132001
+		GFX = GFX_M_Jafar_Al_Askari
+		traits = {
+			old_guard
+			trait_cautious
+			career_officer
+		}
+		skill = 3
+		attack_skill = 1
+		defense_skill = 3
+		planning_skill = 3
+		logistics_skill = 2
+	}
+	create_corps_commander = {
+		name = "Taha Al-Hashimi"
+	    id = 132002
+		GFX = GFX_M_Taha_al-Hashimi
+		traits = {
+			old_guard
+			infantry_expert
+			trickster
+		}
+		skill = 1
+		attack_skill = 2
+		defense_skill = 1
+		planning_skill = 3
+		logistics_skill = 4
+	}
+}
+######################################################################
+# Iraq - 1936
+######################################################################
+1936.1.1 = {
+	oob = "IRQ_1936"
+	add_ideas = {
+		IRQ_D_Yasin_Pasha_al_Hashimi
+		agrarian_economy
+		repressive_system
+	}
+	#######################
+	# Leaders
+	#######################
+	# Autocracy
+	create_country_leader = {
+		name = "Ghazi I"
+		desc = ""
+		picture = GFX_P_A_Ghazi_I
+		expire = "1965.1.1"
+		ideology = monarchism
+		traits = { POSITION_King SUBIDEOLOGY_Monarchism L_Autocratic_Charmer }
+	}
+	#######################
+	# National Focuses
+	#######################
+	#unlock_national_focus = IRQ_New_Prime_Minister
+}
+######################################################################
+# Iraq - 1980
+######################################################################
+1980.1.1 = {
+	#######################
+	# Leaders
+	#######################
+	create_country_leader = {
+		name = "Saddam Hussein"
+		desc = ""
+		picture = GFX_P_A_Saddam_Hussein
+		expire = "1965.1.1"
+		ideology = authoritarian_democracy
+		traits = { POSITION_President SUBIDEOLOGY_Authoritarian_Democracy L_Autocratic_Charmer }
+	}
+}

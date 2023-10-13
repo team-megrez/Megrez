@@ -1,0 +1,47 @@
+﻿#########################################################################
+# Niger - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 788
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		Small_Arms_1916 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = authoritarian
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 100
+		democratic = 0
+		socialist = 0
+		communist = 0
+	}
+	#######################
+	# Leaders
+	#######################
+	# Authoritarian
+	create_country_leader = {
+		name = "Hamani Diori"
+		desc = ""
+		picture = GFX_P_A_Hamani_Diori
+		expire = "1989.4.23"
+		ideology = authoritarian_democracy
+		traits = {
+			POSITION_President
+			SUBIDEOLOGY_Authoritarian_Democracy
+		}
+	}
+	#######################
+	# Generals
+	#######################
+}

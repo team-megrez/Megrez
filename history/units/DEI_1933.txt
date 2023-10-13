@@ -1,0 +1,217 @@
+﻿division_template = {
+    name = "Infanterie Divisie" 
+	division_names_group = INS_INF_01
+
+    regiments = {
+        infantry = { x = 0 y = 0 }
+        infantry = { x = 0 y = 1 }
+        infantry = { x = 0 y = 2 }
+        infantry = { x = 1 y = 0 }
+        infantry = { x = 1 y = 1 }
+        infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		artillery_battalion = { x = 3 y = 0 }
+		artillery_battalion = { x = 3 y = 1 }
+		artillery_battalion_light = { x = 3 y = 2 }
+    }
+	support = {
+		engineer = { x = 0 y = 0 }  
+		field_hospital = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+		recon = { x = 0 y = 3 }
+	}
+}
+
+division_template = {
+    name = "Territoriaal Commando" 
+	division_names_group = INS_GAR_01
+
+    regiments = {
+        garrison = { x = 0 y = 0 }
+        garrison = { x = 0 y = 1 }
+        garrison = { x = 0 y = 2 }
+		artillery_battalion_light = { x = 1 y = 0 }
+    }
+ 	support = {
+		anti_air_battery = { x = 0 y = 0 }  
+		field_hospital = { x = 0 y = 1 }
+	}
+    priority = 0
+}
+
+units = {
+    ##### Koninklijk Nederlands Indisch Leger #####
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+        location = 7381 # Batavia
+        division_template = "Infanterie Divisie"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.9 
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+        location = 12277 # Magelang
+        division_template = "Infanterie Divisie"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.6
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+        location = 10491 # Malang
+        division_template = "Infanterie Divisie"
+        start_experience_factor = 0.3
+        start_equipment_factor = 0.4
+    }
+    ##### Territoriaal Commando #####
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+        location = 7658 # Koetaradja
+        division_template = "Territoriaal Commando"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.8
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+        location = 7368 # Padang
+        division_template = "Territoriaal Commando"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.5
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+        location = 12113 # Tandjoengpinang
+        division_template = "Territoriaal Commando"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.2
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+        location = 12268 # Palembang
+        division_template = "Territoriaal Commando"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.4
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 5
+		}
+        location = 4279 # Poentianak
+        division_template = "Territoriaal Commando"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.2
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 6
+		}
+        location = 7296 # Bandjarmasin
+        division_template = "Territoriaal Commando"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.2
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 7
+		}
+        location = 10153 # Manado
+        division_template = "Territoriaal Commando"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.7
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 8
+		}
+        location = 1355 # Koepang
+        division_template = "Territoriaal Commando"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.2
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 9
+		}
+        location = 1574 # Amboina
+        division_template = "Territoriaal Commando"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.25
+    }
+    ##### navy oob #####
+    fleet = {
+        name = "Oostindies Marine"
+        naval_base = 4608 # Soerabaja
+        task_force = {
+            name = "Oostindies Marine"
+            location = 4608 # Soerabaja
+            ship = { name = "Hr.Ms. De Zeven Provinciën" definition = heavy_cruiser equipment = { CA_equipment_1895 = { amount = 1 owner = INS } } }
+            ship = { name = "Hr.Ms. Java" definition = light_cruiser equipment = { CL_equipment_1912 = { amount = 1 owner = INS } } }
+            ship = { name = "Hr.Ms. Sumatra" definition = light_cruiser equipment = { CL_equipment_1912 = { amount = 1 owner = INS } } }
+            ship = { name = "1e Torpedojager Flottielje" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = INS } } }
+            ship = { name = "3e Torpedoboot Flottielje" definition = destroyer equipment = { DD_equipment_1885 = { amount = 1 owner = INS } } }
+            ship = { name = "3e Onderzeeboot Flottielje" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = INS } } }
+            ship = { name = "4e Onderzeeboot Flottielje" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = INS } } }
+            ship = { name = "5e Onderzeeboot Flottielje" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = INS } } } 
+        }
+    }
+}
+
+air_wings = {
+    335 = {
+        # 2e Luchtvaartregiment
+        Fighter_equipment_1933 = {
+            owner = "INS"
+            amount = 20
+        }
+    }
+}
+### Starting Production ###
+instant_effect = {
+
+	add_equipment_production = {
+		equipment = {
+			type = Small_Arms_equipment_1900
+			creator = "INS"
+		}
+		requested_factories = 2
+		progress = 0.1
+		efficiency = 50
+	}
+
+    add_equipment_production = {
+        equipment = {
+            type = DD_equipment_1916
+            creator = "INS"
+        }
+        requested_factories = 1
+        progress = 0.11
+        amount = 1
+    }
+}

@@ -1,0 +1,104 @@
+﻿division_template = {
+	name = "División de Infanteria"		# Infantry Division - All cadres at the military district level with reserves called up to division strength 
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		cavalry = { x = 2 y = 0 }
+		cavalry = { x = 2 y = 1 }
+		cavalry = { x = 2 y = 2 }
+	}
+}
+
+division_template = {
+	name = "División de montaña"			# Mountain Brigade
+	division_names_group = SPAN_MTN_02
+	regiments = {
+		mountaineers = { x = 0 y = 0 }	
+		mountaineers = { x = 0 y = 1 }
+        mountaineers = { x = 0 y = 2 }
+        mountaineers = { x = 1 y = 0 }
+        mountaineers = { x = 1 y = 1 }
+	}
+}
+
+units = {
+    ##### Region Militar I #####
+    division = {
+        name = "Ia División de Ejercito"
+        location = 8217 # Iquique
+        division_template = "División de Infanteria"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.2
+    }
+    ##### Region Militar II #####
+    division = {
+        name = "IIa División de Ejercito"
+        location = 650 # Santiago
+        division_template = "División de Infanteria"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.2
+    }
+    ##### Region Militar III #####
+    division = {
+        name = "IIIa División de Ejercito"
+        location = 5121 # Temuco
+        division_template = "División de Infanteria"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.2
+    }
+    ##### Distrito especial Magallanes #####
+    division = {
+       name = "Destacamento Magallanes"
+       location = 5215 # Punta Arenas
+       division_template = "División de montaña"
+       start_experience_factor = 0.1
+       start_equipment_factor = 0.1
+    }
+    ##### navy oob #####
+    fleet = {
+        name = "Armada de Chile"
+        naval_base = 14625 # Santiago 
+        task_force = {
+            name = "Armada de Chile"
+            location = 14625 # Santiago
+            ship = { name = "Almirante Latorre" definition = battleship equipment = { BB_equipment_1906 = { amount = 1 owner = CHL } } }
+            ship = { name = "Capitan Prat" definition = heavy_cruiser equipment = { CA_equipment_1895 = { amount = 1 owner = CHL } } }
+            ship = { name = "General O'Higgins" definition = heavy_cruiser equipment = { CA_equipment_1895 = { amount = 1 owner = CHL } } }
+            ship = { name = "Chacabuco" definition = light_cruiser equipment = { CL_equipment_1885 = { amount = 1 owner = CHL } } }
+            ship = { name = "Blanco Encalada" definition = light_cruiser equipment = { CL_equipment_1885 = { amount = 1 owner = CHL } } }
+            ship = { name = "Flotilla de Destructores nro. 1" definition = destroyer equipment = { DD_equipment_1912 = { amount = 1 owner = CHL } } }
+            ship = { name = "Flotilla de Destructores nro. 2" definition = destroyer equipment = { DD_equipment_1922 = { amount = 1 owner = CHL } } }
+            ship = { name = "Flotilla de Destructores nro. 3" definition = destroyer equipment = { DD_equipment_1922 = { amount = 1 owner = CHL } } }
+            ship = { name = "Flotilla de Submarinos nro. 1" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = CHL } } }
+            ship = { name = "Flotilla de Submarinos nro. 2" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = CHL } } }
+            ship = { name = "Flotilla de Submarinos nro. 3" definition = submarine equipment = { SS_equipment_1922 = { amount = 1 owner = CHL } } } 
+        }
+    }
+}
+
+air_wings = {
+    279 = {
+        # Grupo de Aviacion nro. 1
+        Fighter_equipment_1924 = { # Curtiss P-1 Hawk
+            owner = "CHL"
+            amount = 20
+        }
+    }
+}
+### Starting Production ###
+instant_effect = {
+    add_equipment_production = {
+        equipment = {
+            type = Small_Arms_equipment_1900
+            creator = "CHL"
+        }
+        requested_factories = 1
+        progress = 0.18
+        efficiency = 100
+    }
+}

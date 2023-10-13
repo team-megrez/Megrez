@@ -1,0 +1,110 @@
+﻿division_template = {
+	name = "Infantry Brigade"			# Infantry Brigade
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+}
+
+division_template = {
+	name = "Infantry Brigade with Artillery"			# Infantry Brigade with Artillery
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		artillery_battalion = { x = 1 y = 1 }
+		artillery_battalion = { x = 1 y = 2 }
+	}
+}
+
+division_template = {
+	name = "Infantry Brigade with Cavalry"			# Infantry Brigade with Cavalry
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+	}
+}
+
+division_template = {
+	name = "Militia Brigade"			# Militia Brigade
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 0 y = 2 }
+		militia = { x = 1 y = 0 }
+		militia = { x = 1 y = 1 }
+		militia = { x = 1 y = 2 }
+	}
+}
+
+units = {
+    ##### Tehran Dastebandi #####
+    division = {
+        name = "5. Sarbaze Piyade"
+        location = 10837 # Tehran
+        division_template = "Infantry Brigade with Artillery"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.5
+    }
+    ##### Kurdestan Dastebandi #####
+    division = {
+        name = "1. Sarbaze Piyade"
+        location = 12773 # Kermanshah 
+        division_template = "Infantry Brigade with Cavalry"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.35
+    }
+    ##### Khuzestan Dastebandi #####
+    division = {
+        name = "2. Sarbaze Piyade"
+        location = 7953 # Ahvaz
+        division_template = "Infantry Brigade"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.35
+    }
+    ##### Fars Dastebandi #####
+    division = {
+        name = "3. Sarbaze Piyade"
+        location = 8117 # Shiraz
+        division_template = "Infantry Brigade"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.35
+    }
+    ##### Makran Dastebandi #####
+    division = {
+        name = "4. Sarbaze Piyade"
+        location = 12895 # Zahedan 
+        division_template = "Infantry Brigade"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.35
+    }
+    ##### Khorasan Dastebandi #####
+    division = {
+        name = "Khorasan Sarbaze Piyade"
+        location = 15171 # Mashhad
+        division_template = "Militia Brigade"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.5
+    }
+}
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = Small_Arms_equipment_1900
+			creator = "PER"
+		}
+		requested_factories = 1
+		progress = 0.24
+		efficiency = 100
+	}
+}

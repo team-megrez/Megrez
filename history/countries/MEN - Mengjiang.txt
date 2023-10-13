@@ -1,0 +1,167 @@
+﻿#########################################################################
+# Mengjiang - 1936
+#########################################################################
+capital = 826
+oob = "MEN_1936"
+set_convoys = 0
+#######################
+# Research
+#######################
+set_technology = {
+	basic_train = 1
+	Small_Arms_1916 = 1
+	Artillery_1910 = 1
+}
+
+add_ideas = {
+}
+
+set_politics = {
+	ruling_party = authoritarian
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	fascist = 0
+	authoritarian = 100
+	democratic = 0
+	socialist = 0
+	communist = 0
+}
+###########
+# Leaders #
+###########
+create_country_leader = {
+	name = "Demchugdongrub"
+	desc = ""
+	picture = GFX_P_A_Demchugdongrub
+	expire = "1965.1.1"
+	ideology = authoritarian_democracy
+	traits = {
+		spirit_of_genghis
+	}
+}
+
+create_country_leader = {
+	name = "Demchugdongrub"
+	desc = ""
+	picture = GFX_P_A_Demchugdongrub
+	expire = "1965.1.1"
+	ideology = fascism
+	traits = {
+		spirit_of_genghis
+	}
+}
+
+###########
+# Generals
+###########
+create_corps_commander = {
+	name = "Namnansüren"
+    id = 172000
+	GFX = GFX_P_A_De_Noyan
+	traits = { }
+	skill = 1
+	attack_skill = 2
+	defense_skill = 1
+	planning_skill = 2
+	logistics_skill = 1
+}
+create_corps_commander = {
+	name = "Demchugdongrub"
+    id = 172001
+	GFX = GFX_P_A_Demchugdongrub
+	traits = { }
+	skill = 1
+	attack_skill = 2
+	defense_skill = 1
+	planning_skill = 2
+	logistics_skill = 1
+}
+#########################################################################
+# Mengjiang - 1936 (Jap Puppet now)
+#########################################################################
+1936.1.1 = {
+	drop_cosmetic_tag = yes
+}
+#########################################################################################
+# Mengjiang United Autonomous Federation - 1937
+#########################################################################################
+1937.1.1 = {
+	if = {
+		limit = {
+			has_start_date > 1937.7.7
+			has_start_date < 1945.9.2
+		}
+		declare_war_on = {
+			target = CHI
+			type = annex_everything
+		}	
+		declare_war_on = {
+			target = PRC
+			type = annex_everything
+		}
+		declare_war_on = {
+			target = SHX
+			type = annex_everything
+		}
+		declare_war_on = {
+			target = YUN
+			type = annex_everything
+		}
+		declare_war_on = {
+			target = XIK
+			type = annex_everything
+		}
+		declare_war_on = {
+			target = XSM
+			type = annex_everything
+		}
+		declare_war_on = {
+			target = GXC
+			type = annex_everything
+		}
+	}
+	create_country_leader = {
+		name = "Demchugdongrub"
+		desc = ""
+		picture = GFX_M_Demchugdongrub
+		expire = "1965.1.1"
+		ideology = fascism
+		traits = { POSITION_Chairman spirit_of_genghis }
+	}
+	create_country_leader = {
+		name = "Demchugdongrub"
+		desc = "Demchugdongrub_Desc"
+		picture = GFX_M_Demchugdongrub
+		expire = "1965.1.1"
+		ideology = monarchism
+		traits = { POSITION_Chairman spirit_of_genghis }
+	}
+	drop_cosmetic_tag = yes
+	set_cosmetic_tag = MEN_ASSEMBLY
+}
+#########################################################################################
+# Mongolian Autonomous Federation
+#########################################################################################
+1940.1.1 = {
+	create_country_leader = {
+		name = "Demchugdongrub"
+		desc = ""
+		picture = GFX_M_Demchugdongrub
+		expire = "1965.1.1"
+		ideology = fascism
+		traits = { POSITION_Chairman SUBIDEOLOGY_Fascism spirit_of_genghis }
+	}
+	create_country_leader = {
+		name = "Demchugdongrub"
+		desc = "Demchugdongrub_Desc"
+		picture = GFX_M_Demchugdongrub
+		expire = "1965.1.1"
+		ideology = despotism
+		traits = { POSITION_Chairman SUBIDEOLOGY_Despotism spirit_of_genghis }
+	}
+	drop_cosmetic_tag = yes
+	set_cosmetic_tag = MEN_AUTFED
+}

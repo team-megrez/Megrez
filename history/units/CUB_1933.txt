@@ -1,0 +1,32 @@
+﻿division_template = {
+	name = "Brigada de Infanteria"
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+}
+
+units = {
+    ##### Ejercito de Cuba #####
+    division = {
+        name = "Ejercito de Cuba"
+        location = 7622 # Havana
+        division_template = "Brigada de Infanteria"
+        start_experience_factor = 0.1
+    }
+}
+### Starting Production ###
+instant_effect = {
+    add_equipment_production = {
+        equipment = {
+            type = Small_Arms_equipment_1900
+            creator = "CUB"
+        }
+        requested_factories = 1
+        progress = 0.54
+        efficiency = 100
+    }
+}

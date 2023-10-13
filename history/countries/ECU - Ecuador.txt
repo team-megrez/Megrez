@@ -1,0 +1,232 @@
+﻿#########################################################################
+# Ecuador - 1933
+#########################################################################
+1933.1.1 = {
+	oob = "ECU_1933"
+	set_convoys = 5
+	capital = 305
+	add_manpower = 5000
+	add_to_variable = { money = 70 }
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		### Infantry Tech
+		Small_Arms_1900 = 1
+		Small_Arms_1916 = 1
+		Infantry_Kit_1914 = 1
+		Infantry_Kit_1918 = 1
+
+		Heavy_Weapons_1905 = 1
+		Heavy_Weapons_1916 = 1
+		### Support Units
+		tech_mountaineers = 1
+		### Armour Tech
+		Armored_Car_1911 = 1
+        Armored_Car_1916 = 1
+        Armored_Car_1926 = 1
+		### Artillery Tech
+		Artillery_1910 = 1
+        Artillery_Range_Finding_and_Surveying_Tools = 1
+        Artillery_1916 = 1
+		### Air Tech
+		Unarmed_Recon_1910 = 1
+        Fighter_1914 = 1
+        Fighter_1916 = 1
+        Fighter_1918 = 1
+        Fighter_1924 = 1
+		### Navy
+		transport = 1
+		DD_1885 = 1
+		DD_1900 = 1
+		### Industry
+		Basic_Construction_Machines = 1
+		Motorized_Plowing = 1
+		Farm_Tractors = 1
+		Scientific_Agricultural_Processes = 1
+		### Land Doctrines
+		Twentieth_Century_Warfare = 1
+		Leading_by_Order = 1
+		Strongpoint = 1
+        Mass_Charge = 1
+        Static_Defence = 1
+        Counterattack = 1
+		Defence_In_Depth = 1
+		Separate_Arms_Force = 1
+        Combined_Arms_Effort = 1
+		Specialized_Branch_Tactical_Experience = 1
+	}
+	#######################
+	# Politics
+	#######################	
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1933.12.15"
+		election_frequency = 73
+		elections_allowed = yes
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 5
+		democratic = 60
+		socialist = 35
+		communist = 0
+	}
+	add_ideas = {
+		agrarian_economy
+		isolationism
+		legalistic_restrictions
+	}
+	set_country_flag = monroe_doctrine
+	#######################
+	# Leaders
+	#######################	
+	# Democracy
+	create_country_leader = {
+		name = "Juan de Dios Martínez"
+		desc = ""
+		picture = GFX_P_D_Juan_de_Dios_Martinez
+		expire = "1965.1.1"
+		ideology = social_conservatism
+		traits = {
+			POSITION_President
+			SUBIDEOLOGY_Social_Conservatism
+			L_Popular_Figurehead
+		}
+	}
+	# Socialism
+	create_country_leader = {
+		name = "Federico Páez Chiriboga"
+		desc = ""
+		picture = GFX_P_S_Federico_Paez
+		expire = "1965.1.1"
+		ideology = socialism # His government had a socialist ideology at the beginning, turning towards liberalism at the end of it, taking inspiration from the fascist governments of Italy and Germany in terms of citizen security, focusing on repression and strengthening the public force loyal to the ruler.
+		traits = {
+			POSITION_Jefe_Supremo
+			SUBIDEOLOGY_Socialism
+			L_Stern_Imperialist
+		}
+	}	
+}
+#########################################################################
+# Ecuador - 1936
+#########################################################################
+1936.1.1 = {
+	oob = "ECU_1936"
+	#######################
+	# Research
+	#######################	
+	set_technology = {
+		Anti_Aircraft_Gun_1935 = 1
+	}
+	#######################
+	# Politics
+	#######################	
+	set_politics = {
+		ruling_party = socialist
+	}
+	add_ideas = {
+		agrarian_economy
+		isolationism
+		legalistic_restrictions
+	}
+}
+#########################################################################
+# Ecuador - 1939
+#########################################################################
+1939.9.1 = {
+	#######################
+	# Politics
+	#######################	
+	set_politics = {
+		ruling_party = democratic
+	}
+	#######################
+	# Leaders
+	#######################	
+	# Democracy
+	create_country_leader = {
+		name = "Aurelio Mosquera Narváez"
+		desc = ""
+		picture = GFX_P_D_Aurelio_Mosquera
+		expire = "1965.1.1"
+		ideology = social_liberalism
+		traits = {
+			POSITION_President
+			SUBIDEOLOGY_Social_Liberalism
+			L_Die_Hard_Reformer
+		}
+	}
+}
+#########################################################################
+# Ecuador - 1940
+#########################################################################
+1940.5.10 = {
+	#######################
+	# Leaders
+	#######################	
+	# Democracy
+	create_country_leader = {
+		name = "Andrés de Córdova Nieto"
+		desc = ""
+		picture = GFX_P_D_Andres_Cordova
+		expire = "1965.1.1"
+		ideology = social_liberalism
+		traits = {
+			POSITION_Acting_President
+			SUBIDEOLOGY_Social_Liberalism
+			L_Weary_Stiff_Neck
+		}
+	}
+}
+#########################################################################
+# Ecuador - 1941
+#########################################################################
+1941.6.22 = {
+	#######################
+	# Leaders
+	#######################	
+	# Democracy
+	create_country_leader = {
+		name = "Carlos Arroyo del Río"
+		desc = ""
+		picture = GFX_P_D_Carlos_Arroyo_del_Rio
+		expire = "1965.1.1"
+		ideology = social_liberalism
+		traits = {
+			POSITION_President
+			SUBIDEOLOGY_Social_Liberalism
+			L_PowerHungry_Demagogue
+		}
+	}
+}
+#########################################################################
+# Ecuador - 1944
+#########################################################################
+1944.6.20 = {
+	#######################
+	# Politics
+	#######################	
+	set_party_name = {
+		ideology = democratic
+		long_name = ECU_democratic_1944_party_long
+		name = ECU_democratic_1944_party
+	}
+	#######################
+	# Leaders
+	#######################	
+	# Democracy
+	create_country_leader = {
+		name = "José María Velasco Ibarra"
+		desc = ""
+		picture = GFX_P_D_Jose_Maria_Velasco_Ibarra
+		expire = "1965.1.1"
+		ideology = social_conservatism
+		traits = {
+			POSITION_President
+			SUBIDEOLOGY_Social_Conservatism
+			L_Benevolent_Gentleman
+		}
+	}
+}

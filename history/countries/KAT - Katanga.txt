@@ -1,0 +1,42 @@
+﻿#########################################################################
+# Katanga 
+#########################################################################
+capital = 1376
+#######################
+# Research
+#######################
+set_technology = {
+	basic_train = 1
+	Small_Arms_1916 = 1
+}
+#######################
+# Politics
+#######################
+set_politics = {
+	ruling_party = authoritarian
+	last_election = "1933.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	fascist = 0
+	authoritarian = 100
+	democratic = 0
+	socialist = 0
+	communist = 0
+}
+#######################
+# Leaders
+#######################
+# Authoritarianism
+create_country_leader = {
+	name = "Moïse Tshombe"
+	desc = ""
+	picture = GFX_P_A_Moise_Tshombe
+	expire = "1969.6.29"
+	ideology = despotism
+	traits = { POSITION_President SUBIDEOLOGY_Despotism }
+}
+#######################
+# Generals
+#######################

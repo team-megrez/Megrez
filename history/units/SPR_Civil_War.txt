@@ -1,0 +1,386 @@
+﻿##### Division Templates #####
+division_template = {
+	name = "Brigada Mixta"         # Infantry Division	
+	division_names_group = SPR_CIV_01
+	
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+		artillery_battalion_light = { x = 1 y = 0 }	# 75mm howitzer Bn
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		recon = { x = 0 y = 1 }
+		field_hospital = { x = 0 y = 2 }
+		logistics_company = { x = 0 y = 3 }
+		signal_company = { x = 0 y = 4 }
+		artillery_battery = { x = 1 y = 0 }  # Single battery of 105mm
+	}
+}
+division_template = {
+	name = "División de Infantería"         # Infantry Division	
+    is_locked = yes
+	
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 1 y = 3 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 2 y = 3 }
+		artillery_battalion_light = { x = 3 y = 0 }	# 75mm howitzer Bn
+		artillery_battalion_light = { x = 3 y = 1 }	# 75mm howitzer Bn
+		artillery_battalion = { x = 3 y = 2 }	# 105mm howitzer Bn
+		artillery_battalion = { x = 3 y = 3 }	# 105mm howitzer Bn
+		artillery_battalion = { x = 4 y = 0 }	# 155mm. Spain had 8 'heavy' artillery regiments of two battalions each.  Each of those 8 regiments has been added to the 8 divisions for gameplay.
+		artillery_battalion = { x = 4 y = 1 }	# 155mm. Spain had 8 'heavy' artillery regiments of two battalions each.  Each of those 8 regiments has been added to the 8 divisions for gameplay.
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		recon = { x = 0 y = 1 }
+		field_hospital = { x = 0 y = 2 }
+		logistics_company = { x = 0 y = 3 }
+		signal_company = { x = 0 y = 4 }
+	}
+}
+division_template = {
+	name = "1.ª División de Infantería (Republicana)"         # 2 of the Infantry Divisions were colocated with anti-air battalions and tank battalions		
+    is_locked = yes
+	
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		artillery_battalion_light = { x = 1 y = 0 }	# 75mm howitzer Bn
+		artillery_battalion_light = { x = 1 y = 1 }	# 75mm howitzer Bn
+		artillery_battalion = { x = 1 y = 2 }	# 105mm howitzer Bn
+		artillery_battalion = { x = 1 y = 3 }	# 105mm howitzer Bn
+		artillery_battalion = { x = 2 y = 0 }	# 155mm. Spain had 8 'heavy' artillery regiments of two battalions each.  Each of those 8 regiments has been added to the 8 divisions for gameplay.
+		artillery_battalion = { x = 2 y = 1 }	# 155mm. Spain had 8 'heavy' artillery regiments of two battalions each.  Each of those 8 regiments has been added to the 8 divisions for gameplay.
+		anti_air_battalion = { x = 2 y = 2 }
+	}
+	support = {
+		light_tank_recon = { x = 0 y = 0 } # Each had 5 FT-17 tanks.  Also 4 and 2 Schneider CA1 tanks, but I can only figure out how to add one equipment variation.
+		field_hospital = { x = 0 y = 1 }
+		logistics_company = { x = 0 y = 2 }
+		signal_company = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "2.ª División de Infantería (Republicana)"
+    is_locked = yes
+	
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+		field_hospital = { x = 0 y = 1 }
+		logistics_company = { x = 0 y = 2 }
+		signal_company = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "6.ª División de Infantería (Republicana)"         # Infantry Division	
+    is_locked = yes
+	
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		recon = { x = 0 y = 1 }
+		field_hospital = { x = 0 y = 2 }
+		logistics_company = { x = 0 y = 3 }
+		signal_company = { x = 0 y = 4 }
+	}
+}
+
+division_template = {
+	name = "División de Caballería (Republicana)"  		# Cavalry Division 
+   is_locked = yes
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		bicycle_battalion = { x = 1 y = 0 }
+		armored_car_battalion = { x = 2 y = 1 }
+		artillery_battalion_light = { x = 3 y = 0 }
+		artillery_battalion_light = { x = 3 y = 1 }
+		artillery_battalion_light = { x = 3 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		logistics_company = { x = 0 y = 1 }
+	}
+}
+division_template = {
+	name = "Brigada Montaña"  		# Mountain Brigades 
+    is_locked = yes
+
+	regiments = {
+		mountaineers = { x = 0 y = 0 }	
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		artillery_battalion_light = { x = 2 y = 0 }
+		artillery_battalion_light = { x = 2 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		logistics_company = { x = 0 y = 1 }
+	}
+}
+division_template = {
+	name = "Brigada Montaña (Republicana)"  		# Mountain Brigades 
+    is_locked = yes
+
+	regiments = {
+		mountaineers = { x = 0 y = 0 }	
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		logistics_company = { x = 0 y = 1 }
+	}
+}
+division_template = {
+	name = "Comandancia General (Republicana)" 		# Garrison Division 
+    is_locked = yes
+
+	regiments = {
+		garrison = { x = 0 y = 0 }
+		garrison = { x = 0 y = 1 }
+		garrison = { x = 0 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+	}
+	priority = 0
+}
+division_template = {
+	name = "Guardia de Asalto"
+    is_locked = yes
+	
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 1 y = 3 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 2 y = 3 }
+		artillery_battalion_light = { x = 3 y = 0 }	# 75mm howitzer Bn
+		artillery_battalion_light = { x = 3 y = 1 }	# 75mm howitzer Bn
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		recon = { x = 0 y = 1 }
+		field_hospital = { x = 0 y = 2 }
+		logistics_company = { x = 0 y = 3 }
+		signal_company = { x = 0 y = 4 }
+	}
+}
+division_template = {
+	name = "Guardia Civil"
+    is_locked = yes
+	
+	regiments = {
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 }
+		light_infantry = { x = 0 y = 2 }
+		light_infantry = { x = 0 y = 3 }
+		light_infantry = { x = 1 y = 0 }
+		light_infantry = { x = 1 y = 1 }
+		light_infantry = { x = 1 y = 2 }
+		light_infantry = { x = 1 y = 3 }
+		light_infantry = { x = 2 y = 0 }
+		light_infantry = { x = 2 y = 1 }
+		light_infantry = { x = 2 y = 2 }
+		light_infantry = { x = 2 y = 3 }
+		artillery_battalion_light = { x = 3 y = 0 }	# 75mm howitzer Bn
+		artillery_battalion_light = { x = 3 y = 1 }	# 75mm howitzer Bn
+	}
+}
+division_template = {
+	name = "Carabineros"
+    is_locked = yes
+	
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 1 y = 3 }
+		cavalry = { x = 2 y = 0 }
+		cavalry = { x = 2 y = 1 }
+		cavalry = { x = 2 y = 2 }
+		cavalry = { x = 2 y = 3 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+		field_hospital = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+	}
+}
+
+###### OOB ######
+units = {
+	division = {
+		name = "Comandancia General de Baleares"
+		location = 9845 # Mahon
+		division_template = "Comandancia General (Republicana)"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.8
+	}
+	division = {
+		name = "1.ª División de Infantería"		
+		location = 9767 # Madrid
+		division_template = "1.ª División de Infantería (Republicana)"
+		start_experience_factor = 0.18
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Light_Tank_equipment_1917 = { owner = "SPR" creator = "FRA" amount = 9 } }
+	}
+	division = {
+		name = "2.ª División de Infantería"		
+		location = 1176 # Granada
+		division_template = "2.ª División de Infantería (Republicana)"
+		start_experience_factor = 0.18
+		start_equipment_factor = 0.75
+	}
+	division = {
+		name = "3.ª División de Infantería"		
+		location = 6906 # Valencia
+		division_template = "División de Infantería"
+		start_experience_factor = 0.18
+		start_equipment_factor = 0.75
+	}
+	division = {
+		name = "4.ª División de Infantería"		
+		location = 9764 # Barcelona
+		division_template = "División de Infantería"
+		start_experience_factor = 0.18
+		start_equipment_factor = 0.75
+	}
+	division = {
+		name = "6.ª División de Infantería"		
+		location = 11688 # Santander
+		division_template = "6.ª División de Infantería (Republicana)"
+		start_experience_factor = 0.18
+		start_equipment_factor = 0.75
+	}
+	division = {
+		name = "División de Caballería"
+		location = 9764 # Barcelona
+		division_template = "División de Caballería (Republicana)"
+		start_experience_factor = 0.18
+		start_equipment_factor = 0.75
+	}
+	division = {
+		name = "1.ª Brigada de Montaña"
+		location = 6927 # Gerona
+		division_template = "Brigada Montaña"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.8
+	}
+	division = {
+		name = "2.ª Brigada de Montaña"
+		location = 740 # Bilbao
+		division_template = "Brigada Montaña (Republicana)"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.8
+	}
+	division = {
+		name = "Cuerpo de Seguridad y Asalto"
+		location = 9764 # Barcelona
+		division_template = "Guardia de Asalto"
+		start_experience_factor = 0.22
+		start_equipment_factor = 0.8
+	}
+	division = {
+		name = "Guardia Civil"
+		location = 6906 # Valencia
+		division_template = "Guardia Civil"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.8
+	}
+	division = {
+		name = "Cuerpo de Carabineros"
+		location = 9979 # Malaga
+		division_template = "Carabineros"
+		start_experience_factor = 0.22
+		start_equipment_factor = 0.8
+	}
+
+	### Republican Navy ###
+	navy = {
+		name = "Republican Navy"
+		base = 6906
+		location = 6906  #Valencia
+		ship = { name = "ARE Jaime I" definition = battleship equipment = { BB_equipment_1900 = { amount = 1 owner = SPR } } }
+		ship = { name = "ARE Méndez Núñez" definition = light_cruiser equipment = { CL_equipment_1922 = { amount = 1 owner = SPR } } }
+		ship = { name = "ARE República" definition = light_cruiser equipment = { CL_equipment_1922 = { amount = 1 owner = SPR } } }
+		ship = { name = "ARE Miguel de Cervantes" definition = light_cruiser equipment = { CL_equipment_1922 = { amount = 1 owner = SPR } } }
+		ship = { name = "Sánchez Barcáiztegui" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = SPR } } }
+		ship = { name = "José Luis Díez" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = SPR } } }
+		ship = { name = "Almirante Ferrándiz" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = SPR } } }
+		ship = { name = "Lepanto" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = SPR } } }
+		ship = { name = "Churruca" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = SPR } } }
+		ship = { name = "Alcalá Galiano" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = SPR } } }
+		ship = { name = "Almirante Valdés" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = SPR } } }
+		ship = { name = "Almirante Antequera" definition = destroyer equipment = { DD_equipment_1922 = { amount = 1 owner = SPR } } }
+		ship = { name = "Almirante Miranda" definition = destroyer equipment = { DD_equipment_1922 = { amount = 1 owner = SPR } } }
+		ship = { name = "Císcar" definition = destroyer equipment = { DD_equipment_1922 = { amount = 1 owner = SPR } } }
+		ship = { name = "Escaño" definition = destroyer equipment = { DD_equipment_1922 = { amount = 1 owner = SPR } } }
+		ship = { name = "Gravina" definition = destroyer equipment = { DD_equipment_1922 = { amount = 1 owner = SPR } } }
+		ship = { name = "Jorge Juan" definition = destroyer equipment = { DD_equipment_1922 = { amount = 1 owner = SPR } } }
+		ship = { name = "Ulloa" definition = destroyer equipment = { DD_equipment_1922 = { amount = 1 owner = SPR } } }		
+		ship = { name = "A-1" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = SPR } } }
+		ship = { name = "A-2" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = SPR } } }
+		ship = { name = "A-3" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = SPR } } }
+		ship = { name = "A-4" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = SPR } } }
+		ship = { name = "A-5" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = SPR } } }
+		ship = { name = "A-6" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = SPR } } }
+		ship = { name = "B-1" definition = submarine equipment = { SS_equipment_1922 = { amount = 1 owner = SPR } } }
+		ship = { name = "B-2" definition = submarine equipment = { SS_equipment_1922 = { amount = 1 owner = SPR } } }
+		ship = { name = "B-3" definition = submarine equipment = { SS_equipment_1922 = { amount = 1 owner = SPR } } }
+		ship = { name = "B-4" definition = submarine equipment = { SS_equipment_1922 = { amount = 1 owner = SPR } } }
+		ship = { name = "B-5" definition = submarine equipment = { SS_equipment_1922 = { amount = 1 owner = SPR } } }
+		ship = { name = "B-6" definition = submarine equipment = { SS_equipment_1922 = { amount = 1 owner = SPR } } }
+	}
+}
+
+### Air Wings
+air_wings = {
+	# Arma de Aviación -- Madrid (Getafe)
+	41 = { 
+		# Grupo n.1 de Caza FARE 'Alas Rojas'
+		Fighter_equipment_1933 = {
+			owner = "SPR" 
+			amount = 15
+		}
+		Naval_Bomber_equipment_1936 = {
+			owner = "SPR" 
+			amount = 10
+		}
+	}
+}

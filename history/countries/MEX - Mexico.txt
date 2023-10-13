@@ -1,0 +1,344 @@
+﻿#########################################################################
+# Mexico - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 277
+	set_stability = 0.75
+	oob = "MEX_1933"
+	set_convoys = 45
+	add_to_variable = { money = 170 }
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		### Infantry Tech
+		Small_Arms_1900 = 1
+		Small_Arms_1916 = 1
+		Infantry_Kit_1914 = 1
+		Infantry_Kit_1918 = 1
+
+		Heavy_Weapons_1905 = 1
+		Heavy_Weapons_1916 = 1
+		### Artillery Tech
+		Artillery_1910 = 1
+        Anti_Aircraft_Gun_1914 = 1
+		Artillery_Range_Finding_and_Surveying_Tools = 1
+		Infantry_Support_Gun_1914 = 1
+        Artillery_1916 = 1
+		### Armour Tech
+		Motorized_1916 = 1
+		Armored_Car_1911 = 1
+        Armored_Car_1916 = 1
+        Armored_Car_1926 = 1
+		### Air Tech
+		Unarmed_Recon_1910 = 1
+        Fighter_1914 = 1
+        Fighter_1916 = 1
+        Fighter_1918 = 1
+        Fighter_1924 = 1
+		### Naval stuff	
+		transport = 1
+		CA_1895 = 1
+		CA_1906 = 1
+		### Industry
+		Industrial_Management = 1
+		Factory_Electrification = 1
+		Facilities_Design = 1
+		Basic_Construction_Machines = 1
+		Novel_Drills = 1
+		Contemporary_Construction_Standards = 1
+		Advanced_Drilling_Method = 1
+		Construction_Site_Management = 1
+		Motorized_Plowing = 1
+		Farm_Tractors = 1
+		Scientific_Agricultural_Processes = 1
+		### Land Doctrines
+		Twentieth_Century_Warfare = 1
+		Leading_by_Order = 1
+		Strongpoint = 1
+        Mass_Charge = 1
+        Static_Defence = 1
+        Counterattack = 1
+		Defence_In_Depth = 1
+		Separate_Arms_Force = 1
+        Combined_Arms_Effort = 1
+		Specialized_Branch_Tactical_Experience = 1
+		Beyond_Trench_Warfare = 1
+		### Engineering
+		computing_1 = 1
+		computing_2 = 1
+		computing_3 = 1
+		decryption_encryption_1 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = authoritarian
+		last_election = "1929.11.1"
+		election_frequency = 56
+		elections_allowed = yes
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 98
+		democratic = 0
+		socialist = 0
+		communist = 2
+	}
+	add_ideas = {
+		MEX_D_Plutarco_Elias_Calles
+		MEX_Callistas
+		industrializing_economy
+		neutrality
+		legalistic_restrictions
+	}
+	#######################
+	# Diplomacy
+	#######################
+	set_country_flag = monroe_doctrine
+	#######################
+	# Leaders
+	#######################
+	# Fascism
+	create_country_leader = {
+		name = "Salvador Abascal Infante"
+		desc = ""
+		picture = GFX_P_F_Salvador_Abascal
+		expire = "1965.1.1"
+		ideology = clerical_fascism
+		traits = { POSITION_Leader SUBIDEOLOGY_Clerical_Fascism L_Silent_Workhorse }
+	}
+	# Autocracy
+	create_country_leader = {
+		name = "Abelardo L. Rodríguez"
+		desc = ""
+		picture = GFX_P_A_Abelardo_L_Rodriguez
+		expire = "1965.1.1"
+		ideology = authoritarian_democracy
+		traits = { POSITION_President SUBIDEOLOGY_Authoritarian_Democracy L_Insignificant_Layman }
+	}
+	# Democracy
+	create_country_leader = {
+		name = "Juan Andreu Almazán"
+		desc = ""
+		picture = GFX_P_D_Juan_Andreu_Almazan
+		expire = "1965.1.1"
+		ideology = social_conservatism
+		traits = { POSITION_President SUBIDEOLOGY_Social_Liberalism L_Popular_Figurehead }
+	}
+	# Socialism
+	create_country_leader = {
+		name = "Genovevo de la O"
+		desc = ""
+		picture = GFX_P_S_Genovevo_de_la_O
+		expire = "1965.1.1"
+		ideology = socialism
+		traits = { POSITION_President SUBIDEOLOGY_Socialism L_Revolutionary_Leader }
+	}
+	# Communism
+	create_country_leader = {
+		name = "Dionisio Encina"
+		desc = ""
+		picture = GFX_P_C_Dionisio_Encina
+		expire = "1965.1.1"
+		ideology = stalinism
+		traits = { POSITION_General_Secretary SUBIDEOLOGY_Stalinism L_Ruthless_Powermonger }
+	}
+	create_country_leader = {
+		name = "Hernán Laborde"
+		desc = ""
+		picture = GFX_P_C_Hernan_Laborde
+		expire = "1940.1.1"
+		ideology = trotskyism
+		traits = { POSITION_General_Secretary SUBIDEOLOGY_Trotskyism L_Naive_Optimist }
+	}
+	#######################
+	# Generals
+	#######################
+	create_field_marshal = {
+		name = "Lázaro Cárdenas"
+	    id = 173000
+		picture = GFX_Portrait_Mexico_Lazaro_Cardenas
+		traits = { politically_connected }
+		skill = 3
+		attack_skill = 3
+		defense_skill = 3
+		planning_skill = 3
+		logistics_skill = 3
+	}
+
+	create_corps_commander = {
+		name = "Heliodoro Charis"
+	    id = 173001
+		#gfx = "GFX_portrait_mex_heliodoro_charis"
+		traits = { infantry_officer } # Veteran of many assaults
+		skill = 3
+		attack_skill = 4
+		defense_skill = 2
+		planning_skill = 2
+		logistics_skill = 2
+	}
+
+	create_corps_commander = {
+		name = "Luis Farell"
+	    id = 173002
+		#gfx = "GFX_portrait_mex_luis_farell"
+		traits = { war_hero } # Personally piloted missions against rebels etc
+		skill = 3
+		attack_skill = 4
+		defense_skill = 1
+		planning_skill = 2
+		logistics_skill = 3
+	}
+
+	create_corps_commander = {
+		name = "Gildardo Magaña"
+	    id = 173003
+		#gfx = "GFX_portrait_mex_gildardo_magana"
+		traits = { media_personality } # Headed some political organisations like trade unions
+		skill = 3
+		attack_skill = 2
+		defense_skill = 2
+		planning_skill = 3
+		logistics_skill = 3
+	}
+
+	create_corps_commander = {
+		name = "Manuel Pérez Treviño"
+	    id = 173004
+		#gfx = "GFX_portrait_mex_manuel_perez_trevino"
+		traits = { career_officer } # Pre-Revolutionary officer training
+		skill = 3
+		attack_skill = 2
+		defense_skill = 3
+		planning_skill = 2
+		logistics_skill = 3
+	}
+
+	create_corps_commander = {
+		name = "Abelardo L. Rodríguez"
+	    id = 173005
+		#gfx = "GFX_portrait_mex_abelardo_rodriguez"
+		traits = { politically_connected } # President prior to Cardenas
+		skill = 3
+		attack_skill = 3
+		defense_skill = 2
+		planning_skill = 3
+		logistics_skill = 2
+	}
+
+	create_corps_commander = {
+		name = "Manuel Ávila Camacho"
+	    id = 173006
+		#gfx = "GFX_portrait_mex_avila_military"
+		traits = { politically_connected } # Future president
+		skill = 3
+		attack_skill = 2
+		defense_skill = 2
+		planning_skill = 3
+		logistics_skill = 3
+	}
+
+	create_navy_leader = {
+		name = "Othón P. Blanco Núñez de Cáceres"
+		#gfx = "GFX_portrait_mex_othon_blanco"
+		traits = { old_guard_navy }
+		skill = 2
+		attack_skill = 1
+		defense_skill = 1
+		maneuvering_skill = 2
+		coordination_skill = 3
+	}
+
+	create_navy_leader = {
+		name = "Heriberto Jara Corona"
+		#gfx = "GFX_portrait_mex_heriberto_corona"
+		traits = { navy_media_personality }
+		skill = 1
+		attack_skill = 1
+		defense_skill = 1
+		maneuvering_skill = 1
+		coordination_skill = 1
+	}
+}	
+#########################################################################
+# Mexico - 1936
+#########################################################################
+1936.1.1 = {
+	oob = "MEX_1936"
+	#######################
+	# Research
+	#######################
+	set_technology = {
+		Small_Arms_1916 = 1
+		Small_Arms_1935 = 1
+		Artillery_1910 = 1
+
+		Fighter_1933 = 1
+		Tactical_Bomber_1933 = 1
+		Attacker_1936 = 1
+		
+		# Naval stuff	
+		DD_1885 = 1
+		DD_1900 = 1
+		DD_1912 = 1
+		DD_1916 = 1
+	
+		CL_1885 = 1
+		CL_1900 = 1
+		CL_1912 = 1
+	
+		CA_1885 = 1
+		CA_1895 = 1
+		CA_1906 = 1
+		
+		BC_1906 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = authoritarian
+		last_election = "1934.7.1"
+		election_frequency = 72
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 70
+		democratic = 15
+		socialist = 15
+		communist = 0
+	}		
+	remove_ideas = {
+		MEX_D_Plutarco_Elias_Calles
+	}
+	add_ideas = {
+		industrializing_economy
+		neutrality
+		legalistic_restrictions
+	}
+	#######################
+	# Diplomacy
+	#######################
+	set_country_flag = monroe_doctrine
+	#######################
+	# Leaders
+	#######################
+	# Autocracy
+	create_country_leader = {
+		name = "Lázaro Cárdenas"
+		desc = ""
+		picture = GFX_P_A_Lazaro_Cardenas
+		expire = "1965.1.1"
+		ideology = authoritarian_democracy
+		traits = { POSITION_President SUBIDEOLOGY_Authoritarian_Democracy L_Autocratic_Charmer }
+	}
+}
+1939.9.1 = {
+	remove_ideas = {
+			MEX_D_Plutarco_Elias_Calles
+	}
+}

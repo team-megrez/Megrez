@@ -1,0 +1,85 @@
+﻿division_template = {
+	name = "Firqat Al-Mushat Al-Asasia"			# Infantry Division
+	division_names_group = ARBC_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		cavalry = { x = 1 y = 0 }
+		artillery_battalion = { x = 2 y = 0 }
+	}
+}
+
+division_template = {
+	name = "Firqat Al-Mushat Al-Thanawia"			# 3 x infantry.
+	division_names_group = ARBC_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+	}
+}
+
+units = {
+    ##### Royal Iraqi Army #####
+    division = {
+        name = "Al-Haras Al-Malaki"
+        location = 2097 # Baghdad
+        division_template = "Firqat Al-Mushat Al-Asasia"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.8
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "ENG" } }
+    }
+
+    division = {
+        name = "Firqat Al-Basra"
+        location = 2089 # Basra
+        division_template = "Firqat Al-Mushat Al-Asasia"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.8
+    	force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "ENG" } }
+	}
+	
+    division = {
+        name = "Jund Al-Mosul"
+        location = 10106 # Mosul
+        division_template = "Firqat Al-Mushat Al-Thanawia"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.8
+    	force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "ENG" } }
+    }
+
+
+    division = {
+        name = "Rejalat Erbil"
+        location = 3916 # Erbil
+        division_template = "Firqat Al-Mushat Al-Thanawia"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.8
+    	force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "ENG" } }
+    }
+
+
+    division = {
+        name = "Firqat Kirkuk"
+        location = 8123 # Kirkuk
+        division_template = "Firqat Al-Mushat Al-Thanawia"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.8
+    	force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "ENG" } }
+    }
+}
+
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = Small_Arms_equipment_1900
+			creator = "IRQ"
+		}
+		requested_factories = 1
+		progress = 0.22
+		efficiency = 100
+	}
+}

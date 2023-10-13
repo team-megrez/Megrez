@@ -1,0 +1,495 @@
+﻿#########################################################################
+# Communist China/People's Republic of China - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 862
+	set_stability = 0.6
+	set_war_support = 0.3
+	oob = "PRC_1933"
+	set_research_slots = 1
+	add_to_variable = {
+		money = 40
+	}
+	save_global_event_target_as = WTT_communist_china
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+
+		### Infantry Tech
+		Small_Arms_1900 = 1
+		Small_Arms_1916 = 1
+		Infantry_Kit_1914 = 1
+		Infantry_Kit_1918 = 1
+
+		Heavy_Weapons_1905 = 1
+		Heavy_Weapons_1916 = 1
+		### Artillery
+		Artillery_1910 = 1
+		Artillery_Range_Finding_and_Surveying_Tools = 1
+		Artillery_1916 = 1
+		High_Explosive_Shells = 1
+		Split_Trail_Carriage = 1
+		### Industry
+		Basic_Construction_Machines = 1
+		### Land Doctrines
+		Twentieth_Century_Warfare = 1
+		Leading_by_Order = 1
+		Strongpoint = 1
+		Mass_Charge = 1
+		Static_Defence = 1
+		Counterattack = 1
+		Defence_In_Depth = 1
+		Separate_Arms_Force = 1
+		Combined_Arms_Effort = 1
+		Specialized_Branch_Tactical_Experience = 1
+		Beyond_Trench_Warfare = 1
+		### Engineering
+		computing_1 = 1
+		computing_2 = 1
+		decryption_encryption_1 = 1
+		### Support Companies
+		tech_engineers = 1
+		tech_assault_weapons_1 = 1
+		tech_assault_weapons_2 = 1
+		tech_assault_weapons_3 = 1
+		tech_entrenchment_1 = 1
+		tech_entrenchment_2 = 1
+		tech_entrenchment_3 = 1
+		tech_amphibious_1 = 1
+		tech_amphibious_2 = 1
+		tech_amphibious_3 = 1
+		tech_recon = 1
+		tech_recon2 = 1
+		tech_recon3 = 1
+		tech_recon4 = 1
+		tech_military_police = 1
+		tech_military_police2 = 1
+		tech_military_police3 = 1
+		tech_military_police4 = 1
+		tech_signal_company = 1
+		tech_field_hospital = 1
+		tech_field_hospital_psychology_1 = 1
+		tech_field_hospital_psychology_2 = 1
+		tech_field_hospital_health_1 = 1
+		tech_field_hospital_health_2 = 1
+		tech_logistics_company = 1
+		tech_logistics_company2 = 1
+		tech_logistics_company3 = 1
+		tech_maintenance_company = 1
+		tech_maintenance_company2 = 1
+		tech_maintenance_company3 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_cosmetic_tag = PRC_CSR
+	set_politics = {
+		ruling_party = communist
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 0
+		democratic = 3
+		socialist = 4
+		communist = 93
+	}
+	add_ideas = {
+		PRC_The_Left_Cannot_Be_Wrong
+		PRC_Revolution_Of_The_People
+		PRC_The_Quarantined_State
+		PRC_Conflicted_Military_1
+		# Laws & Policies
+		interventionism
+		agrarian_economy
+		closed_economy
+		one_year_service
+		tot_economic_mobilisation
+		legalistic_restrictions
+		# Cabinet
+		PRC_D_Mao_Zedong
+		PRC_FM_Wang_Jiaxiang
+		PRC_AM_Lin_Boqu
+		PRC_MoS_Zhou_Enlai
+		#		add minister
+		#		add minister
+		# Military Staff
+		PRC_CoStaff_Liu_Bocheng
+		PRC_CoArmy_Zhu_De
+		PRC_CoNavy_He_Long
+		PRC_CoAir_Ye_Ting
+		PRC_HoI_Li_Kenong
+		#		add high command
+	}
+	#######################
+	# Diplomacy
+	#######################
+	add_opinion_modifier = {
+		target = CHI
+		modifier = hostile_status
+	}
+	#######################
+	# Leaders
+	#######################
+	# Social Democracy
+	create_country_leader = {
+		name = "Shih Liang"
+		desc = ""
+		picture = GFX_P_D_Shi_Liang
+		expire = "1965.1.1"
+		ideology = social_democracy
+		traits = {
+		}
+	}
+	# Socialism
+	create_country_leader = {
+		name = "Lin Boqu"
+		desc = ""
+		picture = GFX_P_S_Li_Boqu
+		expire = "1965.1.1"
+		ideology = socialism
+		traits = {
+			POSITION_General_Secretary
+			SUBIDEOLOGY_Socialism
+			L_Die_Hard_Reformer
+		}
+	}
+	create_country_leader = {
+		name = "Bo Gu"
+		desc = PRC_Bo_Gu_desc
+		picture = GFX_P_C_Bo_Gu
+		expire = "1965.1.1"
+		ideology = marxism_leninism
+		traits = {
+			POSITION_General_Secretary
+			SUBIDEOLOGY_Marxism_Leninism
+			L_Inexperienced_Revolutionary
+		}
+	}
+	#######################
+	# Generals
+	#######################
+	create_corps_commander = {
+		name = "Lin Biao"
+		id = 215000
+		GFX = GFX_M_Lin_Biao
+		traits = {
+			winter_specialist
+			fortress_buster
+		}
+		skill = 4
+		attack_skill = 4
+		defense_skill = 3
+		planning_skill = 4
+		logistics_skill = 1
+	}
+	create_corps_commander = {
+		name = "Liu Bocheng"
+		id = 215001
+		GFX = GFX_M_Liu_Bocheng
+		traits = {
+			trait_engineer
+		}
+		skill = 2
+		attack_skill = 2
+		defense_skill = 2
+		planning_skill = 3
+		logistics_skill = 2
+	}
+	create_corps_commander = {
+		name = "He Long"
+		id = 215002
+		GFX = GFX_M_He_Long
+		traits = {
+			Trickster
+			trait_cautious
+		}
+		skill = 3
+		attack_skill = 3
+		defense_skill = 2
+		planning_skill = 1
+		logistics_skill = 3
+	}
+	create_corps_commander = {
+		name = "Zhu De"
+		id = 215003
+		GFX = GFX_M_Zhu_De
+		traits = {
+			defensive_doctrine
+			trait_cautious
+			politically_connected
+		}
+		skill = 3
+		attack_skill = 3
+		defense_skill = 2
+		planning_skill = 3
+		logistics_skill = 2
+	}
+	create_corps_commander = {
+		name = "Peng Dehuai"
+		id = 215004
+		GFX = GFX_M_Peng_Dehuai
+		traits = {
+			hill_fighter
+		}
+		skill = 3
+		attack_skill = 2
+		defense_skill = 1
+		planning_skill = 2
+		logistics_skill = 1
+	}
+	create_corps_commander = {
+		name = "Xu Xiangqian"
+		id = 215005
+		GFX = GFX_M_Xu_Xiangqian
+		traits = {
+			hill_fighter
+		}
+		skill = 2
+		attack_skill = 1
+		defense_skill = 1
+		planning_skill = 2
+		logistics_skill = 2
+	}
+	create_corps_commander = {
+		name = "Ye Jianying"
+		id = 215006
+		GFX = GFX_M_Ye_Jianying
+		traits = {
+			trait_mountaineer
+		}
+		skill = 3
+		attack_skill = 3
+		defense_skill = 1
+		planning_skill = 2
+		logistics_skill = 3
+	}
+	create_corps_commander = {
+		name = "Luo Ronghuan"
+		id = 215007
+		GFX = GFX_M_Luo_Ronghuan
+		traits = {
+			Trickster
+			infantry_officer
+		}
+		skill = 2
+		attack_skill = 2
+		defense_skill = 1
+		planning_skill = 1
+		logistics_skill = 2
+	}
+	create_corps_commander = {
+		name = "Nie Rongzhen"
+		id = 215008
+		GFX = GFX_M_Nie_Rongzhen
+		traits = {
+			organizer
+		}
+		skill = 2
+		attack_skill = 1
+		defense_skill = 2
+		planning_skill = 2
+		logistics_skill = 2
+	}
+}
+
+#########################################################################
+# Communist China/People's Republic of China - 1936
+#########################################################################
+1936.1.1 = {
+	capital = 622
+	set_stability = 0.7
+	set_war_support = 0.7
+	oob = "PRC_1936"
+	set_research_slots = 1
+	save_global_event_target_as = WTT_communist_china
+	#######################
+	# Research
+	#######################
+	set_technology = {
+		Small_Arms_1916 = 1
+		Mass_Assault = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_cosmetic_tag = PRC_REDARMY_1934
+	set_politics = {
+		ruling_party = communist
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 0
+		democratic = 0
+		socialist = 0
+		communist = 100
+	}
+	add_ideas = {
+		PRC_The_Quarantined_State
+		PRC_Revolution_Of_The_People
+		PRC_The_Left_Cannot_Be_Wrong
+		PRC_Conflicted_Military_1
+		# Laws & Policies
+		closed_economy
+		service_by_requirement
+		tot_economic_mobilisation
+		# Cabinet
+		PRC_D_Zhou_Enlai
+		PRC_AM_Lin_Boqu
+		PRC_MoS_Zhou_Enlai
+		#		foreign minister
+		#		minister
+		#		minister
+		# Military Staff
+		PRC_CoStaff_Liu_Bocheng
+		PRC_CoArmy_Zhu_De
+		#CoNavy_He_Long
+		#CoAir_Ye_Ting
+		PRC_HoI_Li_Kenong
+		#		high command
+	}
+	#######################
+	# Diplomacy
+	#######################
+	add_opinion_modifier = {
+		target = CHI
+		modifier = hostile_status
+	}
+	#######################
+	# Leaders
+	#######################
+	# Communism
+	create_country_leader = {
+		name = "Mao Zedong"
+		desc = "Mao_Zedong_desc"
+		picture = GFX_P_C_Mao_Zedong
+		expire = "1965.1.1"
+		ideology = maoism
+		traits = {
+			POSITION_Chairman
+			SUBIDEOLOGY_Maoism
+			L_PowerHungry_Demagogue
+		}
+	}
+}
+
+#########################################################################
+# People's Republic of China - 1946
+#########################################################################
+1946.1.1 = {
+	#######################
+	# Leaders
+	#######################
+	# Communism
+	create_country_leader = {
+		name = "Mao Zedong"
+		desc = ""
+		picture = GFX_P_C_Mao_Zedong_1945
+		expire = "1965.1.1"
+		ideology = maoism
+		traits = {
+			POSITION_Chairman
+			SUBIDEOLOGY_Maoism
+			L_PowerHungry_Demagogue
+		}
+	}
+}
+
+#########################################################################
+# People's Republic of China - 1950
+#########################################################################
+1950.1.1 = {
+	#######################
+	# Politics
+	#######################
+	drop_cosmetic_tag = yes
+	#######################
+	# Leaders
+	#######################
+	# Communism
+	create_country_leader = {
+		name = "Mao Zedong"
+		desc = ""
+		picture = GFX_P_C_Mao_Zedong_1950
+		expire = "1965.1.1"
+		ideology = maoism
+		traits = {
+			POSITION_Chairman
+			SUBIDEOLOGY_Maoism
+			L_PowerHungry_Demagogue
+		}
+	}
+}
+
+#########################################################################
+# People's Republic of China - 1972
+#########################################################################
+1972.1.1 = {
+	#######################
+	# Leaders
+	#######################
+	# Communism
+	create_country_leader = {
+		name = "Mao Zedong"
+		desc = ""
+		picture = GFX_P_C_Mao_Zedong_1970
+		expire = "1965.1.1"
+		ideology = maoism
+		traits = {
+			POSITION_Chairman
+			SUBIDEOLOGY_Maoism
+			L_PowerHungry_Demagogue
+		}
+	}
+}
+
+#########################################################################
+# People's Republic of China - 1980
+#########################################################################
+1980.1.1 = {
+	#######################
+	# Leaders
+	#######################
+	# Communism
+	create_country_leader = {
+		name = "Deng Xiaoping"
+		desc = ""
+		picture = GFX_P_C_Deng_Xiaoping
+		expire = "1965.1.1"
+		ideology = marxism_leninism
+		traits = {
+			POSITION_Chairman
+			SUBIDEOLOGY_Leninism
+			L_Die_Hard_Reformer
+		}
+	}
+}
+
+#########################################################################
+# People's Republic of China - 1991
+#########################################################################
+1991.1.1 = {
+	#######################
+	# Leaders
+	#######################
+	# Communism
+	create_country_leader = {
+		name = "Jiang Zemin"
+		desc = ""
+		picture = GFX_P_C_Jiang_Zemin
+		expire = "1965.1.1"
+		ideology = marxism_leninism
+		traits = {
+			POSITION_Chairman
+			SUBIDEOLOGY_Leninism
+			L_Autocratic_Charmer
+		}
+	}
+}

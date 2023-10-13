@@ -1,0 +1,92 @@
+﻿recruit_character = CRO_Tomislav_II
+#########################################################################
+# Croatia - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 109
+	set_research_slots = 2
+	oob = "CRO_1936"
+	set_convoys = 5
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		Small_Arms_1916 = 1
+		Small_Arms_1935 = 1
+		tech_mountaineers = 1
+		tech_support = 1
+		tech_recon = 1
+		transport = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 43
+		authoritarian = 3
+		democratic = 49
+		socialist = 5
+		communist = 0
+	}
+	add_ideas = {
+		limited_exports
+		one_year_service
+		partial_economic_mobilisation
+		Exiled_Leader
+		Seperated_Armies
+		Naval_Restrictions
+	}
+	#######################
+	# Leaders
+	#######################
+	# Fascism
+	create_country_leader = {
+		name = "Ante Pavelic"
+		desc = ""
+		picture = GFX_P_F_Ante_Pavelic
+		expire = "1959.12.28"
+		ideology = fascism
+		traits = {
+			POSITION_CRO_Poglavnik
+			SUBIDEOLOGY_Fascism
+			L_Popular_Figurehead
+		}
+	}
+	# Democracy
+	create_country_leader = {
+		name = "Ivan Šubašic"
+		picture = GFX_P_D_Ivan_Subasic
+		expire = "1955.3.2"
+		ideology = social_conservatism
+		traits = {
+			POSITION_CRO_Ban
+			SUBIDEOLOGY_Social_Conservatism
+		}
+	}
+}
+#########################################################################
+# Croatia - 1941
+#########################################################################
+1941.6.22 = {
+	#######################
+	# Politics
+	#######################
+	set_cosmetic_tag = CRO_Ustashe
+	set_politics = {
+		ruling_party = fascist
+		elections_allowed = no
+	}
+}
+#########################################################################
+# Croatia - 1946
+#########################################################################
+1946.1.1 = {
+	drop_cosmetic_tag = yes
+}

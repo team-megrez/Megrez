@@ -1,0 +1,94 @@
+﻿#########################################################################
+# People's Rep of Korea - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 527
+	set_convoys = 5
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		Small_Arms_1916 = 1
+		Mass_Assault = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = communist
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 0
+		democratic = 0
+		socialist = 5
+		communist = 95
+	}
+	#######################
+	# Leaders
+	#######################
+	# Communism
+	create_country_leader = {
+		name = "Kim Il-sung"
+		desc = ""
+		picture = GFX_P_C_Kim_Il_Sung
+		expire = "1960.1.1"
+		ideology = juche
+		traits = { POSITION_Premier SUBIDEOLOGY_Juche L_PowerHungry_Demagogue }
+	}	
+}
+#########################################################################
+# People's Rep of Korea - 1960
+#########################################################################
+1960.1.1 = {
+	#######################
+	# Leaders
+	#######################
+	# Communism
+	create_country_leader = {
+		name = "Kim Il-sung"
+		desc = ""
+		picture = GFX_P_C_Kim_Il_Sung_1960
+		expire = "1994.7.8"
+		ideology = juche
+		traits = { POSITION_Premier SUBIDEOLOGY_Juche L_PowerHungry_Demagogue }
+	}
+}
+#########################################################################
+# People's Rep of Korea - 1980
+#########################################################################
+1980.1.1 = {
+	#######################
+	# Leaders
+	#######################
+	# Communism
+	create_country_leader = {
+		name = "Kim Il-sung"
+		desc = ""
+		picture = GFX_P_C_Kim_Il_Sung_1960
+		expire = "1994.7.8"
+		ideology = juche
+		traits = { POSITION_President SUBIDEOLOGY_Juche L_PowerHungry_Demagogue }
+	}
+}
+#########################################################################
+# People's Rep of Korea - 2000
+#########################################################################
+2000.1.1 = {
+	#######################
+	# Leaders
+	#######################
+	# Communism
+	create_country_leader = {
+		name = "Kim Jong-il"
+		desc = ""
+		picture = GFX_P_C_Kim_Jong_Il
+		expire = "2011.12.17"
+		ideology = juche
+		traits = { POSITION_Supreme_Leader SUBIDEOLOGY_Juche L_Ruthless_Powermonger }
+	}
+}

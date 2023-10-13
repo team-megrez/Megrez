@@ -1,0 +1,44 @@
+﻿#########################################################################
+# Confederate States - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 784
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		Small_Arms_1916 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 10
+		democratic = 60
+		socialist = 25
+		communist = 5
+	}
+	#######################
+	# Leaders
+	#######################
+	# Democracy
+	create_country_leader = {
+		name = "Huey Long"
+		desc = "Huey_Long_desc"
+		picture = GFX_P_D_Huey_Long
+		expire = "1965.1.1"
+		ideology = social_conservatism
+		traits = { POSITION_President SUBIDEOLOGY_Social_Conservatism L_Insignificant_Layman }
+	}	
+	#######################
+	# Generals
+	#######################
+}

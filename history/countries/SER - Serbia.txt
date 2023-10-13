@@ -1,0 +1,75 @@
+﻿recruit_character = SER_Tomislav_II
+#########################################################################
+# Serbia - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 107
+	set_stability = 0.6
+	set_war_support = 0.3
+	set_research_slots = 3
+	set_convoys = 0
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		tech_support = 1
+		tech_engineers = 1
+		tech_mountaineers = 1
+		Fighter_1933 = 1
+		Small_Arms_1916 = 1
+		Small_Arms_1935 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1933.1.1"
+		election_frequency = 36
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 10
+		authoritarian = 30
+		democratic = 40
+		socialist = 0
+		communist = 20
+	}
+	#######################
+	# Leaders
+	#######################
+	# Fascism
+	create_country_leader = {
+		name = "Milan Nedić"
+		desc = ""
+		picture = GFX_P_F_Milan_Nedic
+		expire = "1946.1.1"
+		ideology = fascism
+		traits = { POSITION_Prime_Minister SUBIDEOLOGY_Fascism }
+	}
+}
+#########################################################################
+# Serbia - 1941
+#########################################################################
+1941.6.22 = {
+	set_cosmetic_tag = SER_GER
+	GER = {
+		set_autonomy = {
+			target = SER
+			autonomy_state = AUTONOMY_Reichskommissariat
+		}
+	}
+}
+#########################################################################
+# Serbia - 1946
+#########################################################################
+1946.1.1 = {
+	drop_cosmetic_tag = yes
+	GER = {
+		set_autonomy = {
+			target = SER
+			autonomy_state = autonomy_free
+		}
+	}
+}

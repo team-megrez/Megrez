@@ -1,0 +1,59 @@
+﻿#########################################################################
+# Baden - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 50
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		Small_Arms_1916 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 60
+		democratic = 40
+		socialist = 0
+		communist = 0
+	}
+	#######################
+	# Leaders
+	#######################
+	# Authoritarian
+	create_country_leader = {
+		name = "Albrecht von Württemberg"
+		desc = ""
+		picture = GFX_P_A_Albrecht_von_Wurttemberg
+		expire = "1939.10.31"
+		ideology = monarchism
+		traits = { 
+			POSITION_King
+			SUBIDEOLOGY_Monarchism
+		}
+	}
+	# Democracy
+	create_country_leader = {
+		name = "Eugen Bolz"
+		desc = ""
+		picture = GFX_P_D_Eugen_Bolz
+		expire = "1945.1.23"
+		ideology = social_conservatism
+		traits = { 
+			POSITION_President
+			SUBIDEOLOGY_Social_Conservatism
+		}
+	}
+	#######################
+	# Generals
+	#######################
+}

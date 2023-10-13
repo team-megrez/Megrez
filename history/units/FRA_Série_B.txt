@@ -1,0 +1,272 @@
+division_template = {
+	name = "Division d'Infanterie"
+	division_names_group = FRA_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }  
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		artillery_battalion_light = { x = 3 y = 0 }
+		artillery_battalion_light = { x = 3 y = 1 }
+		artillery_battalion_light = { x = 3 y = 2 }
+		artillery_battalion = { x = 3 y = 3 }
+		artillery_battalion = { x = 3 y = 4 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+		anti_tank_company = { x = 0 y = 1 }
+		engineer = { x = 0 y = 2 }
+		field_hospital = { x = 0 y = 3 }
+		signal_company = { x = 0 y = 4 }
+		logistics_company = { x = 1 y = 0 }
+	}
+}
+division_template = {
+	name = "Division d'Infanterie Alpine"	# Mountain Division
+	division_names_group = FRA_MTN_01
+
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }	
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+		mountaineers = { x = 2 y = 0 }
+		mountaineers = { x = 2 y = 1 }
+		mountaineers = { x = 2 y = 2 }
+		mountaineers = { x = 3 y = 0 }
+		mountaineers = { x = 3 y = 1 }
+		mountaineers = { x = 3 y = 2 }
+		artillery_battalion_light = { x = 4 y = 0 }
+		artillery_battalion_light = { x = 4 y = 1 }
+		artillery_battalion = { x = 4 y = 2 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+		anti_tank_company = { x = 0 y = 1 }
+		engineer = { x = 0 y = 2 }
+		field_hospital = { x = 0 y = 3 }
+		signal_company = { x = 0 y = 4 }
+		logistics_company = { x = 1 y = 0 }
+	}
+}
+units = {
+#### Infanterie
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 51
+		}
+		location = 11483 # Lille
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.12
+		start_equipment_factor = 0.55
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 52
+		}
+		location = 9472 # Charleville-Mézières
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.12
+		start_equipment_factor = 0.55
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 53
+		}
+		location = 575 # Bourbourg
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.12
+		start_equipment_factor = 0.55
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 54
+		}
+		location = 3509 # Le Mans
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.12
+		start_equipment_factor = 0.55
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 55
+		}
+		location = 512 # Orleans
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.12
+		start_equipment_factor = 0.55
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 56
+		}
+		location = 11732 # Châlons-sur-Marne
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.12
+		start_equipment_factor = 0.55
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 57
+		}
+		location = 9642 # Besançon
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.12
+		start_equipment_factor = 0.55
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 58
+		}
+		location = 3652 # Dijon
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.12
+		start_equipment_factor = 0.55
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 60
+		}
+		location = 9495 # Rennes
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.12
+		start_equipment_factor = 0.55
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 61
+		}
+		location = 11465 # Nantes
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.12
+		start_equipment_factor = 0.55
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 62
+		}
+		location = 620 # Limoges
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.12
+		start_equipment_factor = 0.55
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 63
+		}
+		location = 590 # Clermont-Ferrand
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.12
+		start_equipment_factor = 0.55
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 67
+		}
+		location = 6766 # Toulouse
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.12
+		start_equipment_factor = 0.55
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 68
+		}
+		location = 575 # Dunkirk
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.12
+		start_equipment_factor = 0.55
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 70
+		}
+		location = 11516 # Nancy
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.12
+		start_equipment_factor = 0.55
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 71
+		}
+		location = 6547 # Versailles
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.12
+		start_equipment_factor = 0.55
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+#### Alpine
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 64
+		}
+		location = 11716 # Valence
+		division_template = "Division d'Infanterie Alpine"
+		start_experience_factor = 0.12
+		start_equipment_factor = 0.55
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 65
+		}
+		location = 11834 # Marseille
+		division_template = "Division d'Infanterie Alpine"
+		start_experience_factor = 0.12
+		start_equipment_factor = 0.55
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 66
+		}
+		location = 9898 # Montpellier
+		division_template = "Division d'Infanterie Alpine"
+		start_experience_factor = 0.12
+		start_equipment_factor = 0.55
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+}

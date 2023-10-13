@@ -1,0 +1,261 @@
+﻿division_template = {
+	name = "Huncheng Lu" 			# Manchurian Army Mixed Brigades: 1 infantry regiment, 1 cavalry regiment
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		cavalry  = { x = 1 y = 0 }
+		cavalry  = { x = 1 y = 1 }
+		cavalry  = { x = 1 y = 2 }
+	}
+}
+
+division_template = {
+	name = "Qíbīng lu" 			# Manchurian Army Cavalry Brigades
+	regiments = {
+		cavalry  = { x = 0 y = 0 }
+		cavalry  = { x = 1 y = 0 }
+		cavalry  = { x = 2 y = 0 }
+	}
+	priority = 0
+}
+
+division_template = {
+	name = "Bùbīng lu" 			# Infantry Brigade
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry  = { x = 1 y = 0 }
+		infantry  = { x = 1 y = 1 }
+		infantry  = { x = 1 y = 2 }
+	}
+}
+
+division_template = {
+	name = "Zhùjūn lu" 			# Garrison Brigade
+	regiments = {
+		garrison = { x = 0 y = 0 }
+		garrison = { x = 0 y = 1 }
+		garrison = { x = 0 y = 2 }
+		garrison  = { x = 1 y = 0 }
+		garrison  = { x = 1 y = 1 }
+		garrison  = { x = 1 y = 2 }
+    }
+    priority = 0
+}
+
+units = {
+    ##### Fengtian Guard Army #####
+    division = {
+        name = "Di yi hunhe lu"
+        location = 11771 # Shenyang (Mukden)
+        division_template = "Huncheng Lu"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.16
+    }
+
+    division = {
+        name = "Di er hunhe lu"
+        location = 11771 # Shenyang (Mukden)
+        division_template = "Huncheng Lu"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.13
+    }
+
+    division = {
+        name = "Di 3 hunhe lu"
+        location = 11771 # Shenyang (Mukden)
+        division_template = "Huncheng Lu"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.14
+    }
+
+    division = {
+        name = "Di 4 hunhe lu"
+        location = 11771 # Shenyang (Mukden)
+        division_template = "Huncheng Lu"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.1
+    }
+
+    division = {
+        name = "Di wu hunhe lu"
+        location = 11771 # Shenyang (Mukden)
+        division_template = "Huncheng Lu"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.08
+    }
+
+    division = {
+        name = "Di liu hunhe lu"
+        location = 11771 # Shenyang (Mukden)
+        division_template = "Huncheng Lu"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.13
+    }
+
+    division = {
+        name = "Di 7 hunhe lu"
+        location = 11771 # Shenyang (Mukden)
+        division_template = "Huncheng Lu"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.12
+    }
+
+    division = {
+        name = "Di yi qibing lu"
+        location = 11771 # Shenyang (Mukden)
+        division_template = "Qíbīng lu"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.24
+    }
+
+    division = {
+        name = "Dai ichi shido ryodan"
+        location = 11771 # Shenyang (Mukden)
+        division_template = "Bùbīng lu"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.24
+    }
+    ##### Kirin Guard Army #####
+    division = {
+        name = "Di 1 bubing lu"
+        location = 11864 # Jilin
+        division_template = "Huncheng Lu"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.24
+    }
+
+    division = {
+        name = "Di 2 bubing lu"
+        location = 11864 # Jilin
+        division_template = "Huncheng Lu"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.23
+    }
+
+    division = {
+        name = "Di 3 bubing lu"
+        location = 11864 # Jilin
+        division_template = "Huncheng Lu"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.24
+    }
+
+    division = {
+        name = "Di 4 bubing lu"
+        location = 11864 # Jilin
+        division_template = "Huncheng Lu"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.33
+    }
+
+    division = {
+        name = "Di 5 bubing lu"
+        location = 11864 # Jilin
+        division_template = "Bùbīng lu"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.25
+    }
+
+    division = {
+        name = "Di 7 bubing lu"
+        location = 11864 # Jilin
+        division_template = "Bùbīng lu"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.18
+    }
+
+    division = {
+        name = "Di 8 bubing lu"
+        location = 11864 # Jilin
+        division_template = "Bùbīng lu"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.18
+    }
+
+    division = {
+        name = "Dai 2-kai shido ryodan"
+        location = 11864 # Jilin
+        division_template = "Bùbīng lu"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.2
+    }
+    ##### Kirin Railway Guard #####
+    division = {
+        name = "Sang lin danwei"
+        location = 11864 # Jilin
+        division_template = "Zhùjūn lu"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.15
+    }
+    ##### Heilongjiang Guard Army #####
+    division = {
+        name = "Di yi hunhe lu"
+        location = 10433 # Harbin
+        division_template = "Huncheng Lu"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.31
+    }
+
+    division = {
+        name = "Di er hunhe lu"
+        location = 10433 # Harbin
+        division_template = "Huncheng Lu"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.31
+    }
+
+    division = {
+        name = "Di 3 hunhe lu"
+        location = 10433 # Harbin
+        division_template = "Huncheng Lu"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.32
+    }
+
+    division = {
+        name = "Di 4 hunhe lu"
+        location = 10433 # Harbin
+        division_template = "Bùbīng lu"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.23
+    }
+
+    division = {
+        name = "Di wu hunhe lu"
+        location = 10433 # Harbin
+        division_template = "Bùbīng lu"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.15
+    }
+    ##### Hsingan Army #####
+    division = {
+        name = "Hsingan zhùjūn"
+        location = 4852 # Haila'er
+        division_template = "Zhùjūn lu"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.43
+    }
+    ##### Taoliao Army #####
+    division = {
+        name = "Rè hé hòuwèi"
+        location = 11903 # Ulayanqada
+        division_template = "Huncheng Lu"
+        start_experience_factor = 0.2
+    }
+}
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = Small_Arms_equipment_1900
+			creator = "MAN"
+		}
+		requested_factories = 1
+		progress = 0.34
+		efficiency = 100
+	}
+}
+

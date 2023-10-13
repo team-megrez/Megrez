@@ -1,0 +1,65 @@
+﻿#########################################################################
+# RK Belgien/NordFrankreich - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 6
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		Small_Arms_1916 = 2
+		Small_Arms_1935 = 2
+		tech_mountaineers = 2
+		tech_support = 1
+		tech_recon = 1
+		transport = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = authoritarian
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 15
+		authoritarian = 85
+		democratic = 0
+		socialist = 0
+		communist = 0
+	}
+	#######################
+	# Leaders
+	#######################
+	# Fascism
+	create_country_leader = {
+		name = "Josef Grohé" 
+		desc = "" 
+		picture = GFX_P_GER_Josef_Grohe
+		expire = "1961.2.19" 
+		ideology = national_socialism
+		traits = {
+			POSITION_GER_Reichskommissar
+			SUBIDEOLOGY_National_Socialism
+		}
+	}
+	# Authoritarian
+	create_country_leader = {
+		name = "Alexander von Falkenhausen"
+		desc = ""
+		picture = GFX_P_GER_F_Alexander_von_Falkenhausen
+		expire = "1950.5.23"
+		ideology = military_dictatorship
+		traits = {	
+			POSITION_GER_Militarbefehlshaber
+			SUBIDEOLOGY_Military_Dictatorship
+			L_Resigned_Generalissimo
+		}
+	}
+	#######################
+	# Generals
+	#######################
+}

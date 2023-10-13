@@ -1,0 +1,89 @@
+﻿#########################################################################
+# Iceland - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 100
+	set_convoys = 30
+	set_stability = 0.85
+	set_cosmetic_tag = ICE_KINGDOM
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		Small_Arms_1916 = 1
+		Small_Arms_1935 = 1
+		tech_support = 1		
+		tech_engineers = 1
+		Fighter_1933 = 1
+		Tactical_Bomber_1933 = 1
+		tech_recon = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1930.7.16"
+		election_frequency = 36
+		elections_allowed = yes
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 0
+		democratic = 92.5
+		socialist = 0
+		communist = 7.5
+	}
+	add_ideas = {
+		# Cabinet
+		ICE_D_Christian_X
+	}
+	#######################
+	# Leaders
+	#######################
+	# Democracy
+	create_country_leader = {
+		name = "Ásgeir Ásgeirsson"
+		desc = ""
+		picture = GFX_P_D_Asgeir_Asgeirsson
+		expire = "1972.9.15"
+		ideology = social_liberalism
+		traits = { POSITION_Prime_Minister SUBIDEOLOGY_Social_Liberalism }
+	}
+	#######################
+	# Generals
+	#######################
+}
+
+#########################################################################
+# Iceland - 1936
+#########################################################################
+1936.1.1 = {
+	#######################
+	# Leaders
+	#######################
+	# Democracy
+	create_country_leader = {
+		name = "Hermann Jónasson"
+		desc = ""
+		picture = GFX_P_D_Hermann_Jonasson
+		expire = "1976.1.22"
+		ideology = social_liberalism
+		traits = { POSITION_Prime_Minister SUBIDEOLOGY_Social_Liberalism }
+	}
+}
+
+#########################################################################
+# Iceland - 1940
+#########################################################################
+1940.5.10 = {
+	#######################
+	# Politics
+	#######################
+	drop_cosmetic_tag = yes
+	add_ideas = {
+		# Cabinet
+		ICE_D_Sveinn_Bjornsson
+	}
+}

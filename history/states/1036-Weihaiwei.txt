@@ -1,0 +1,55 @@
+
+state={
+	id=1036
+	name="STATE_1036"
+
+	history={
+		owner = SHD
+		victory_points = {
+			4205 3
+		}
+		buildings = {
+			infrastructure = 1
+			4205 = {
+				naval_base = 2
+				coastal_bunker = 1
+				bunker = 1
+
+			}
+		}
+		add_core_of = CHI
+		add_core_of = PRC
+		add_core_of = SHD
+		1939.9.1 = {
+			owner = CHI
+			controller = EHB
+
+		}
+		1940.5.10 = {
+			controller = RNG
+
+		}
+		1946.1.1 = {
+			controller = CHI
+
+		}
+		1950.1.1 = {
+			owner = PRC
+			controller = PRC
+			set_state_name = STATE_1036_2
+			set_province_name = {
+				id = 4205
+				name = VICTORY_POINTS_4205_2
+
+			}
+
+		}
+	}
+
+	provinces={
+		4205
+	}
+	manpower=300200
+	buildings_max_level_factor=1.000
+	state_category=town
+}

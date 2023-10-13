@@ -1,0 +1,169 @@
+﻿division_template = {
+	name = "Infanterie-Division"
+	division_names_group = GER_INF_02
+	
+	regiments = {
+		infantry = { x = 0 y = 0 } 
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		artillery_battalion = { x = 3 y = 0 }	# Called a Regiment but they were all battalion strength units
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		field_hospital = { x = 0 y = 1 }
+	}
+}
+division_template = {
+	name = "Gebirgs-Division"
+	division_names_group = GER_MTN_01
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+		mountaineers = { x = 2 y = 0 }
+		mountaineers = { x = 2 y = 1 }
+		mountaineers = { x = 2 y = 2 }
+		artillery_battalion_light = { x = 3 y = 0 }
+		artillery_battalion_light = { x = 3 y = 1 }
+		artillery_battalion_light = { x = 3 y = 2 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+		logistics_company = { x = 0 y = 3 }
+	}
+}
+
+division_template = {
+	name = "Leichte Panzer-Division"
+	division_names_group = GER_LARM_01
+	regiments = {
+		bicycle_battalion = { x = 0 y = 0 }	# All of the 'cavalry' were a mix of of truck borne and motorcycle borne.
+		bicycle_battalion = { x = 0 y = 1 }
+		bicycle_battalion = { x = 0 y = 2 }
+		bicycle_battalion = { x = 1 y = 0 }
+		bicycle_battalion = { x = 1 y = 1 }
+		armored_car_battalion = { x = 2 y = 0 }
+		light_armor = { x = 2 y = 1 }	# 1 battalion light tanks
+		motorized_artillery_battalion = { x = 3 y = 0 }
+		motorized_artillery_battalion = { x = 3 y = 1 }
+	}
+	support = {
+		armored_car_recon = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+	}
+}
+
+units = {
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 44
+		}
+		unique={
+			"Albrecht Schubert" # German general
+		}
+		portraits = {
+            army = {
+				small = "GFX_M_Albrecht_Schubert"
+				large = "GFX_M_Albrecht_Schubert"
+			}
+		}
+		location = 11666 # Wien
+		division_template = "Infanterie-Division"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.3 # The Austrians all needed to be reequipped with German arms
+		force_equipment_variants = { Small_Arms_equipment_1935 = { owner = "GER" creator = "AUS" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 45
+		}
+		unique={
+			"Friedrich Materna" # Austrian general
+		}
+		portraits = {
+            army = {
+				small = "GFX_M_Friedrich_Materna"
+				large = "GFX_M_Friedrich_Materna"
+			}
+		}
+		location = 9665 # Linz
+		division_template = "Infanterie-Division"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.3 # The Austrians all needed to be reequipped with German arms
+		force_equipment_variants = { Small_Arms_equipment_1935 = { owner = "GER" creator = "AUS" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		unique={
+			"Valentin Feurstein" # Austrian general
+		}
+		portraits = {
+			army = {
+				small = GFX_M_Valentin_Feurstein
+				large = GFX_M_Valentin_Feurstein
+			}
+		}
+		location = 11618 #  Innsbruck
+		division_template = "Gebirgs-Division"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.3 # The Austrians all needed to be reequipped with German arms
+		force_equipment_variants = { Small_Arms_equipment_1935 = { owner = "GER" creator = "AUS" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		unique={
+			"August von Nißl" # German general
+		}
+		portraits = {
+            army = {
+				small = "GFX_M_August_von_Nissl"
+				large = "GFX_M_August_von_Nissl"
+			}
+		}
+		location = 9648 # Graz
+		division_template = "Gebirgs-Division"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.3 # The Austrians all needed to be reequipped with German arms
+		force_equipment_variants = { Small_Arms_equipment_1935 = { owner = "GER" creator = "AUS" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 9
+		}
+		unique={
+			"Alfred Ritter von Hubicki" # Austrian general
+		}
+		portraits = {
+			army = {
+				small = GFX_M_Alfred_Ritter_von_Hubicki
+				large = GFX_M_Alfred_Ritter_von_Hubicki
+			}
+		}
+		location = 11666 # Wien
+		division_template = "Leichte Panzer-Division"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.3 # The Austrians all needed to be reequipped with German arms
+		force_equipment_variants = { Light_Tank_equipment_1919 = { owner = "GER" creator = "AUS" } }
+	}
+}

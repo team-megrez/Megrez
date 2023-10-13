@@ -1,0 +1,46 @@
+﻿#########################################################################
+# Mahabad
+#########################################################################
+capital = 895
+#######################
+# Research
+#######################
+set_technology = {
+	basic_train = 1
+	Small_Arms_1916 = 1
+}
+#######################
+# Politics
+#######################
+set_politics = {
+	ruling_party = communist
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	fascist = 0
+	authoritarian = 5
+	democratic = 10
+	socialist = 25
+	communist = 60
+}
+	#######################
+	# Leaders
+	#######################
+	# Fascism
+	create_country_leader = {
+		name = "Qazi Muhammad"
+		desc = ""
+		picture = GFX_P_C_Qazi_Muhammad
+		expire = "1965.1.1"
+		ideology = marxism_leninism
+		traits = { 
+			POSITION_President
+			SUBIDEOLOGY_Marxism_Leninism
+			L_Revolutionary_Leader
+		}
+	}
+#######################
+# Generals
+#######################

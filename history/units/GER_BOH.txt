@@ -1,0 +1,43 @@
+﻿division_template = {
+	name = "Infanterie-Division"
+	division_names_group = GER_INF_02
+	
+	regiments = {
+		infantry = { x = 0 y = 0 } 
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		artillery_battalion = { x = 3 y = 0 }	# Called a Regiment but they were all battalion strength units
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		field_hospital = { x = 0 y = 1 }
+	}
+}
+units = {
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 46
+		}
+		unique={
+			"Paul von Hase"
+		}
+		portraits = {
+            army={
+				small = GFX_M_Paul_von_Hase
+				large = GFX_M_Paul_von_Hase
+			}
+		}
+		location = 3585 # Karlsbad
+		division_template = "Infanterie-Division"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.7 #Largely still equipped with Czech equipment
+		force_equipment_variants = { Small_Arms_equipment_1935 = { owner = "GER" creator = "CZE" } }
+	}
+}

@@ -1,0 +1,108 @@
+﻿#########################################################################
+# Bohemia - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 9
+	set_research_slots = 1
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		Small_Arms_1916 = 1
+		Small_Arms_1935 = 1
+		tech_support = 1
+		tech_recon = 1
+		tech_mountaineers = 1
+		Artillery_1910 = 1
+		Anti_Aircraft_Gun_1935 = 1
+		Fighter_1933 = 1
+		Fighter_Bomber_1933 = 1
+		Tactical_Bomber_1933 = 1
+		Attacker_1936 = 1
+		Strategic_Bomber_1933 = 1
+		# Armour Tech
+		Heavy_Tank_1916 = 1
+		Heavy_Tank_1917 = 1
+		Light_Tank_1926 = 1
+		Light_Tank_1934 = 1
+		Light_Tank_1936 = 0
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = fascist
+		last_election = "1933.1.1"
+		election_frequency = 60
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 100
+		authoritarian = 0
+		democratic = 0
+		socialist = 0
+		communist = 0
+	}
+	add_ideas = {
+		GER_RK_repression
+		# Laws & Government
+		totalitarian_system
+		# Cabinet
+		BOH_D_Emil_Hacha
+	}
+	#######################
+	# Leaders
+	#######################
+	# Fascism
+	create_country_leader = {
+		name = "Konstantin von Neurath"
+		desc = ""
+		picture = GFX_P_GER_Konstantin_von_Neurath
+		expire = "1956.8.14"
+		ideology = national_socialism
+		traits = {
+			POSITION_GER_Reichsprotektor
+			SUBIDEOLOGY_National_Socialism
+			L_Autocratic_Charmer
+		}
+	}
+	#######################
+	# Generals
+	#######################
+	create_corps_commander = {
+		name = "Jaroslav Eminger"
+	    id = 33000
+		#GFX = GFX_M_Jaroslav_Eminger
+		traits = {
+			trait_cautious
+		}
+		skill = 1
+		attack_skill = 1
+		defense_skill = 2
+		planning_skill = 1
+		logistics_skill = 1
+	}
+}
+
+#########################################################################
+# Bohemia - 1944
+#########################################################################
+1944.6.20 = {
+	#######################
+	# Leaders
+	#######################
+	# Fascism
+	create_country_leader = {
+		name = "Wilhelm Frick"
+		desc = ""
+		picture = GFX_P_F_Wilhelm_Frick
+		expire = "1946.10.16"
+		ideology = national_socialism
+		traits = {
+			POSITION_GER_Reichsprotektor
+			SUBIDEOLOGY_National_Socialism
+			L_Ruthless_Powermonger
+		}
+	}
+}

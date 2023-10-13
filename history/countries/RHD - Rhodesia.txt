@@ -1,0 +1,48 @@
+﻿#########################################################################
+# Rhodesia - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 771
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		Small_Arms_1916 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_cosmetic_tag = RHD_ENG
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1928.9.6"
+		election_frequency = 60
+		elections_allowed = yes
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 0
+		democratic = 100
+		socialist = 0
+		communist = 0
+	}
+	#######################
+	# Leaders
+	#######################
+	# Democracy
+	create_country_leader = {
+		name = "Howard Unwin Moffat"
+		desc = ""
+		picture = GFX_P_D_Howard_Unwin_Moffat
+		expire = "1951.1.19"
+		ideology = classical_liberalism
+		traits = {
+			POSITION_Prime_Minister
+			SUBIDEOLOGY_Classical_Liberalism
+		}
+	}
+	#######################
+	# Generals
+	#######################
+}

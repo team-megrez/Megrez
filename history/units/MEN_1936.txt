@@ -1,0 +1,50 @@
+﻿division_template = {
+	name = "Nisgegch brigad"				# Represents a corps of 3 NRA divisions (2 brigades of 2 regiments each)
+									# Militia-level training and equipment
+	regiments = {
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 }
+		light_infantry = { x = 1 y = 0 }
+		light_infantry = { x = 1 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Valyensi kheltes"			# Cavalry Division
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}
+}
+
+units = {
+	division = {
+		name = "Nisgegch brigad 4"
+		location = 4495
+		division_template = "Nisgegch brigad"
+		start_experience_factor = 0.3
+		start_equipment_factor = 5
+	}
+
+	division = {
+		name = "Valyensi kheltes 2"
+		location = 4495
+		division_template = "Valyensi kheltes"
+		start_experience_factor = 0.5
+		start_equipment_factor = 1
+	}
+}
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = Small_Arms_equipment_1900
+			creator = "MEN"
+		}
+		requested_factories = 1
+		progress = 0.52
+		efficiency = 100
+	}
+}

@@ -1,0 +1,33 @@
+division_template = {
+	name = "Namarlwatlautrayy Tautmataw"
+	is_locked = yes
+	
+	regiments = {
+		militia = { x = 0 y = 0 } # the size of the BIA by the time the Japanese reached Rangoon was estimated at 10-13k.  Most of these were not in combat type roles, so a 9k militia division is somewhat generous, but plausible.
+		militia = { x = 0 y = 1 }
+		militia = { x = 0 y = 2 }
+		militia = { x = 1 y = 0 }
+		militia = { x = 1 y = 1 }
+		militia = { x = 1 y = 2 }
+		militia = { x = 2 y = 0 }
+		militia = { x = 2 y = 1 }
+		militia = { x = 2 y = 2 }
+	}
+	support = {
+		signal_company = { x = 0 y = 0 } # a cadre of Japanese officers held the formation together
+	}
+}
+units = {
+	division = {
+		name = "Namarlwatlautrayy Tautmataw"
+		location = 1330 # Rangoon.  Yes, the BIA was formed in Bangkok among a group of exiles, but it didn't become a fighting formation big enough to appear on the HOI4 map until the capture of Rangoon during the invasion.
+		division_template = "Namarlwatlautrayy Tautmataw"
+		start_experience_factor = 0.02 # Calling many of the BIA 'soldiers' is rather generous.  Most of them simply joined the formation as it marched into Burma from Bangkok.
+		start_equipment_factor = 0.45 # little was supplied to the BIA by the Japanese, and what they did have was mostly weapons captured from retreating British forces.
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "JAP" creator = "ENG" } } # The British rifles of the time were largely the Lee-Enfields
+		acclimatization = {
+			hot_climate = 9300
+			max_acclimatization = 9300
+		}
+	}
+}

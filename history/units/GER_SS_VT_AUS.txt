@@ -1,0 +1,31 @@
+﻿division_template = {
+	name = "SS-Division"
+	
+	regiments = {
+		SS_infantry = { x = 0 y = 0 } # 'Deutschland' Regiment
+		SS_infantry = { x = 0 y = 1 }
+		SS_infantry = { x = 0 y = 2 }
+		SS_infantry = { x = 1 y = 0 } # 'Germania' Regiment
+		SS_infantry = { x = 1 y = 1 }
+		SS_infantry = { x = 1 y = 2 }
+		SS_infantry = { x = 2 y = 0 } # 'Der Fuhrer' Regiment added in 1938
+		SS_infantry = { x = 2 y = 1 }
+		SS_infantry = { x = 2 y = 2 }
+	}
+	support = {
+		signal_company = { x = 0 y = 0 } # Signals units were raised at the formation of the SS-VT in 1934.
+
+	}
+	is_locked = yes
+	priority = 0
+}
+
+units = {
+	division= {
+		name = "SS-Verfügungstruppe"
+		location = 692 # Munich
+		division_template = "SS-Division"
+		start_experience_factor = 0.14
+		start_equipment_factor = 1.0 
+	}
+}

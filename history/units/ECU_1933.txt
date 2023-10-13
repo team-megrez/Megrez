@@ -1,0 +1,86 @@
+﻿division_template = {
+	name = "Zona Militar"		# Maintained at reserve levels during peacetime
+	division_names_group = ECU_GAR_01
+
+	regiments = {
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 }
+		light_infantry = { x = 0 y = 2 }
+		cavalry = { x = 1 y = 0 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery_battery = { x = 0 y = 1 }
+	}
+}
+
+units = {
+    ##### Ejercito Ecuadoriano #####
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+        location = 12798 # Quito
+        division_template = "Zona Militar"
+        start_experience_factor = 0.08
+        start_equipment_factor = 0.7
+    }
+
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+        location = 8252 # Guayaquil
+        division_template = "Zona Militar"
+        start_experience_factor = 0.08
+        start_equipment_factor = 0.7
+    }
+
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+        location = 11020 # Cuenca
+        division_template = "Zona Militar"
+        start_experience_factor = 0.08
+        start_equipment_factor = 0.7
+    }
+
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+        location = 14342 # Puyo
+        division_template = "Zona Militar"
+        start_experience_factor = 0.08
+        start_equipment_factor = 0.7
+    }
+	
+	
+    ##### navy oob #####
+    fleet = {
+        name = "Armada del Ecuador"
+        naval_base = 8252 # Santiago de Guay (Guayquil)
+        task_force = {
+            name = "Armada del Ecuador"
+            location = 8252 # Santiago de Guay (Guayquil)
+            ship = { name = "BAE Libertador Bolivar" definition = destroyer equipment = { DD_equipment_1900 = { amount = 1 owner = ECU } } }
+        }       
+    }
+}
+### Starting Production ###
+instant_effect = {
+    add_equipment_production = {
+        equipment = {
+            type = Small_Arms_equipment_1900
+            creator = "ECU"
+        }
+        requested_factories = 1
+        progress = 0.55
+        efficiency = 100
+    }
+}

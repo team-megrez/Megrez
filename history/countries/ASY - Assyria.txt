@@ -1,0 +1,46 @@
+﻿#########################################################################
+# Assyria - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 1256
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		Small_Arms_1916 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = authoritarian
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 2
+		authoritarian = 78
+		democratic = 20
+		socialist = 0
+		communist = 0
+	}
+	add_ideas = {
+		ASY_D_Shimun_Eshai_XXIII
+	}
+	#######################
+	# Leaders
+	#######################
+	create_country_leader = {
+		name = "Malik Ismail Yaqu"
+		desc = ""
+		picture = GFX_P_A_Malik_Yaqu
+		expire = "1965.1.1"
+		ideology = military_dictatorship
+		traits = { POSITION_Commander SUBIDEOLOGY_Military_Dictatorship }
+	}
+	#######################
+	# Generals
+	#######################
+}

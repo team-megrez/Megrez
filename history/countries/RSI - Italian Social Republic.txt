@@ -1,0 +1,69 @@
+﻿#########################################################################
+# Italian Social Republic - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 1320
+	set_convoys = 10
+	set_stability = 0.4
+	set_war_support = 0.25
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		#Inherit from ITA
+	}
+	#Politics
+	set_politics = {
+		ruling_party = fascist
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 73
+		authoritarian = 2
+		democratic = 24
+		socialist = 1
+		communist = 0
+	}
+	add_ideas = {
+		war_economy
+		all_adults_serve
+	}
+	#######################
+	# Leaders
+	#######################
+	# Fascism
+	create_country_leader = {
+		name = "Benito Mussolini"
+		desc = "Benito_Mussolini_desc"
+		picture = GFX_P_F_Benito_Mussolini_1943
+		expire = "1965.1.1"
+		ideology = fascism
+		traits = {
+			POSITION_ITA_Duce
+			SUBIDEOLOGY_Fascism
+			L_Imperialist_Buffoon
+		}
+	}
+	#######################
+	# Generals
+	#######################
+}
+
+#########################################################################################
+# Italian Social Republic - 1944
+#########################################################################################
+1944.6.20 = {
+	if = {
+		limit = {
+			has_start_date > 1944.6.20
+			has_start_date < 1946.1.1
+		}
+		declare_war_on = {
+			target = ITA
+			type = civil_war
+		}
+	}
+}

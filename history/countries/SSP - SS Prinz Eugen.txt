@@ -1,0 +1,54 @@
+﻿capital = 763
+
+set_research_slots = 1
+
+
+set_technology = {
+	basic_train = 1
+
+	Small_Arms_1916 = 2
+	Small_Arms_1935 = 2
+	tech_mountaineers = 2
+	tech_support = 1
+	tech_recon = 1
+	transport = 1
+}
+
+add_political_power = 0
+set_convoys = 50
+
+set_politics = {	
+	ruling_party = fascist
+	last_election = "1935.6.9"
+	election_frequency = 0
+	elections_allowed = no
+}
+set_popularities = {
+	fascist = 100
+	authoritarian = 0
+	democratic = 0
+	socialist = 0
+	communist = 0
+}
+add_ideas = {
+	volunteer_only
+	export_focus
+	war_economy
+	GER_RK_repression
+}
+
+####################################################
+# SS-Staat Burgund Leaders
+####################################################
+# National Socialism
+create_country_leader = {
+	name = "Heinrich Himmler"
+	desc = ""
+	picture = GFX_P_F_Heinrich_Himmler
+	expire = "1965.1.1"
+	ideology = esoteric_national_socialism
+	traits = {
+		L_Ruthless_Powermonger
+		SUBIDEOLOGY_Esoteric_National_Socialism
+	}
+}

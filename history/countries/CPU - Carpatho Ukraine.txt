@@ -1,0 +1,41 @@
+﻿#########################################################################
+# Carpatho-Ukraine - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 73
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		Small_Arms_1916 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 4
+		authoritarian = 13
+		democratic = 78
+		socialist = 0
+		communist = 5
+	}
+	#######################
+	# Leaders
+	#######################
+	# Democratic
+	create_country_leader = {
+		name = "Avgustyn Voloshyn"
+		desc = ""
+		picture = GFX_P_D_Avgustyn_Voloshyn
+		expire = "1945.7.19"
+		ideology = social_conservatism
+		traits = { POSITION_President SUBIDEOLOGY_Social_Conservatism }
+	}
+}

@@ -1,0 +1,257 @@
+﻿##### Division Templates #####
+division_template = {
+	name = "Luftwaffen-Feld-Division"
+	division_names_group = GER_LFD_01
+	division_cap = 24	
+
+	regiments = {
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 }
+		light_infantry = { x = 0 y = 2 }
+		light_infantry = { x = 1 y = 0 }
+		light_infantry = { x = 1 y = 1 }
+		light_infantry = { x = 1 y = 2 }
+		artillery_battalion = { x = 2 y = 0 }
+		artillery_battalion = { x = 2 y = 1 }
+		artillery_battalion = { x = 2 y = 2 }
+		anti_air_battalion = { x = 2 y = 3 }
+		medium_tank_destroyer_battalion = { x = 3 y = 0 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		signal_company = { x = 0 y = 1 }
+		logistics_company = { x = 0 y = 2 }
+	}
+}
+
+division_template = {
+	name = "Luftwaffen-Feld-Division (Schnelle Truppe)"
+	division_names_group = GER_LFD_01
+	division_cap = 4	
+
+	regiments = {
+		bicycle_battalion = { x = 0 y = 0 }
+		bicycle_battalion = { x = 0 y = 1 }
+		bicycle_battalion = { x = 0 y = 2 }
+		bicycle_battalion = { x = 1 y = 0 }
+		bicycle_battalion = { x = 1 y = 1 }
+		bicycle_battalion = { x = 1 y = 2 }
+		motorized_artillery_battalion = { x = 2 y = 0 }
+		motorized_artillery_battalion = { x = 2 y = 1 }
+		motorized_artillery_battalion = { x = 2 y = 2 }
+		motorized_anti_air_battalion = { x = 2 y = 3 }
+		medium_tank_destroyer_battalion = { x = 3 y = 0 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		signal_company = { x = 0 y = 1 }
+		logistics_company = { x = 0 y = 2 }
+	}
+}
+
+###### OOB ######
+units = {
+###First Wave
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 6332  # Königsberg
+		division_template = "Luftwaffen-Feld-Division"
+		start_experience_factor = 0.08 # These troops were notoriously not trained for ground combat
+		start_equipment_factor = 0.85 # Göring did personnally intervene to ensure these units got the best equipment.
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 11260  # Groß-Born
+		division_template = "Luftwaffen-Feld-Division"
+		start_experience_factor = 0.08 # These troops were notoriously not trained for ground combat
+		start_equipment_factor = 0.85 # Göring did personnally intervene to ensure these units got the best equipment.
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 11260 # Groß-Born
+		division_template = "Luftwaffen-Feld-Division"
+		start_experience_factor = 0.08 # These troops were notoriously not trained for ground combat
+		start_equipment_factor = 0.85 # Göring did personnally intervene to ensure these units got the best equipment.
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 11260 # Groß-Born
+		division_template = "Luftwaffen-Feld-Division"
+		start_experience_factor = 0.08 # These troops were notoriously not trained for ground combat
+		start_equipment_factor = 0.85 # Göring did personnally intervene to ensure these units got the best equipment.
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 5
+		}
+		location = 11260 # Groß-Born
+		division_template = "Luftwaffen-Feld-Division"
+		start_experience_factor = 0.08 # These troops were notoriously not trained for ground combat
+		start_equipment_factor = 0.85 # Göring did personnally intervene to ensure these units got the best equipment.
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 6
+		}
+		location = 11260 # Groß-Born
+		division_template = "Luftwaffen-Feld-Division"
+		start_experience_factor = 0.08 # These troops were notoriously not trained for ground combat
+		start_equipment_factor = 0.85 # Göring did personnally intervene to ensure these units got the best equipment.
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 7
+		}
+		location = 11260 # Groß-Born
+		division_template = "Luftwaffen-Feld-Division"
+		start_experience_factor = 0.08 # These troops were notoriously not trained for ground combat
+		start_equipment_factor = 0.85 # Göring did personnally intervene to ensure these units got the best equipment.
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 8
+		}
+		location = 9346  # Mlawa
+		division_template = "Luftwaffen-Feld-Division"
+		start_experience_factor = 0.08 # These troops were notoriously not trained for ground combat
+		start_equipment_factor = 0.85 # Göring did personnally intervene to ensure these units got the best equipment.
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 9
+		}
+		location = 11386  # Arys, East Prussia
+		division_template = "Luftwaffen-Feld-Division"
+		start_experience_factor = 0.08 # These troops were notoriously not trained for ground combat
+		start_equipment_factor = 0.85 # Göring did personnally intervene to ensure these units got the best equipment.
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 10
+		}
+		location = 9509  # Detmold
+		division_template = "Luftwaffen-Feld-Division"
+		start_experience_factor = 0.08 # These troops were notoriously not trained for ground combat
+		start_equipment_factor = 0.85 # Göring did personnally intervene to ensure these units got the best equipment.
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 11
+		}
+		location = 6535  # Munsterlager
+		division_template = "Luftwaffen-Feld-Division"
+		start_experience_factor = 0.08 # These troops were notoriously not trained for ground combat
+		start_equipment_factor = 0.85 # Göring did personnally intervene to ensure these units got the best equipment.
+	}			
+###Second Wave
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 12
+		}
+		location = 6263  # Bergen (Celle)
+		division_template = "Luftwaffen-Feld-Division"
+		start_experience_factor = 0.08 # These troops were notoriously not trained for ground combat
+		start_equipment_factor = 0.85 # Göring did personnally intervene to ensure these units got the best equipment.
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 13
+		}
+		location = 6263  # Fallingbostel
+		division_template = "Luftwaffen-Feld-Division"
+		start_experience_factor = 0.08 # These troops were notoriously not trained for ground combat
+		start_equipment_factor = 0.85 # Göring did personnally intervene to ensure these units got the best equipment.
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 14
+		}
+		location = 6521  # Berlin Area
+		division_template = "Luftwaffen-Feld-Division"
+		start_experience_factor = 0.08 # These troops were notoriously not trained for ground combat
+		start_equipment_factor = 0.85 # Göring did personnally intervene to ensure these units got the best equipment.
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 15
+		}
+		location = 514  # Actually Salsk, Russia moved to Dresden for gameplay purposes
+		division_template = "Luftwaffen-Feld-Division"
+		start_experience_factor = 0.08 # These troops were notoriously not trained for ground combat
+		start_equipment_factor = 0.85 # Göring did personnally intervene to ensure these units got the best equipment.
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 16
+		}
+		location = 11260 # Groß-Born
+		division_template = "Luftwaffen-Feld-Division"
+		start_experience_factor = 0.08 # These troops were notoriously not trained for ground combat
+		start_equipment_factor = 0.85 # Göring did personnally intervene to ensure these units got the best equipment.
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 17
+		}
+		location = 692  # Landshut, Munich
+		division_template = "Luftwaffen-Feld-Division"
+		start_experience_factor = 0.08 # These troops were notoriously not trained for ground combat
+		start_equipment_factor = 0.85 # Göring did personnally intervene to ensure these units got the best equipment.
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 18
+		}
+		location = 6712  # Actually Rochefort but moved to Germany for gameplay
+		division_template = "Luftwaffen-Feld-Division"
+		start_experience_factor = 0.08 # These troops were notoriously not trained for ground combat
+		start_equipment_factor = 0.85 # Göring did personnally intervene to ensure these units got the best equipment.
+	}			
+###Third Wave
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 19
+		}
+		location = 6263  # Bergen (Celle)
+		division_template = "Luftwaffen-Feld-Division"
+		start_experience_factor = 0.08 # These troops were notoriously not trained for ground combat
+		start_equipment_factor = 0.85 # Göring did personnally intervene to ensure these units got the best equipment.
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 20
+		}
+		location = 6535  # Munsterlager
+		division_template = "Luftwaffen-Feld-Division (Schnelle Truppe)"
+		start_experience_factor = 0.08 # These troops were notoriously not trained for ground combat
+		start_equipment_factor = 0.85 # Göring did personnally intervene to ensure these units got the best equipment.
+	}			
+}

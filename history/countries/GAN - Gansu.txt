@@ -1,0 +1,65 @@
+﻿#########################################################################
+# 36th Division 1933
+#########################################################################
+1933.1.1 = {
+	capital = 860
+	oob = "GAN_1936"
+
+
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		Small_Arms_1916 = 1
+		mass_assault = 1
+	}
+	#######################
+	# Politics
+	#######################	
+	set_politics = {
+		ruling_party = authoritarian
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 100
+		democratic = 0
+		socialist = 0
+		communist = 0
+	}
+	add_ideas = {
+
+	}
+	#######################
+	# Diplomacy
+	#######################	
+	#######################
+	# Leaders
+	#######################	
+	# Authoritarian
+	create_country_leader = {
+		name = "Ma Zhongying"
+		desc = ""
+		picture = GFX_P_A_Ma_Zhongying
+		expire = "1965.1.1"
+		ideology = military_dictatorship
+		traits = {}
+	}
+	#######################
+	# Generals
+	#######################	
+	create_field_marshal = {
+		name = "Ma Zhongying"
+	    id = 102000
+		picture = GFX_P_A_Ma_Zhongying
+		traits = { offensive_doctrine trait_reckless }
+		skill = 3
+		attack_skill = 3
+		defense_skill = 2
+		planning_skill = 4
+		logistics_skill = 3
+	}
+}

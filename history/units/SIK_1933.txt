@@ -1,0 +1,174 @@
+﻿division_template = {
+	name = "Bùbīng shī"				# Infantry Division 
+									
+	regiments = {
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 }
+		light_infantry = { x = 1 y = 0 }
+		light_infantry = { x = 1 y = 1 }
+		light_infantry = { x = 2 y = 0 }
+		light_infantry = { x = 2 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Qíbīng shī"				# Cavalry Division 
+									
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 2 y = 0 }
+		cavalry = { x = 2 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Bái'èluósī fēn bù"				# Cavalry Division with Artillery (White Russian Divsion) 
+									
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		artillery_battalion = { x = 2 y = 0 }
+		artillery_battalion = { x = 2 y = 1 }
+    }
+    is_locked = yes
+}
+
+division_template = {
+	name = "Zhùjūn shī"				# Garrison Division 
+									
+	regiments = {
+		garrison = { x = 0 y = 0 }
+		garrison = { x = 0 y = 1 }
+		garrison = { x = 1 y = 0 }
+		garrison = { x = 1 y = 1 }
+    }
+    priority = 0
+}
+
+division_template = {
+	name = "Mínbīng lu"				# Militia Brigade 
+									
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 1 y = 0 }
+		militia = { x = 1 y = 1 }
+    }
+    priority = 0
+}
+
+units = {
+    ##### Anti Imperialist Army #####
+    division = {
+        name = "Shouwèi tuán"
+        location = 12656 # Urumqi
+        division_template = "Bùbīng shī"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.45
+    }
+
+    division = {
+        name = "Dí huà shì guófáng dàduì"
+        location = 12656 # Urumqi
+        division_template = "Zhùjūn shī"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.35
+    }
+
+    division = {
+        name = "Xùnliàn tuán"
+        location = 12656 # Urumqi
+        division_template = "Mínbīng lu"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.15
+    }
+    ##### Yili Garrison Command #####
+    division = {
+        name = "Yīlí ta chéng zhùjūn"
+        location = 4788 # Atlay
+        division_template = "Zhùjūn shī"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.25
+    }
+    ##### Chenghua Garrison Command #####
+    division = {
+        name = "Āshān jiālǐ sēn"
+        location = 7737 # Atlay
+        division_template = "Zhùjūn shī"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.15
+    }
+    ##### Qitai City Defense Command #####
+    division = {
+        name = "Qí tái zhùjūn"
+        location = 10614 # Bayingol
+        division_template = "Zhùjūn shī"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.15
+    }
+    ##### Hami Garrison Command #####
+    division = {
+        name = "Hāmìjiālǐ sēn"
+        location = 10614 # Nortern Bayingol
+        division_template = "Zhùjūn shī"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.15
+    }
+    ##### Tushantuo Garrison Command #####
+    division = {
+        name = "Dì 12 bùbīng"
+        location = 5736 # Northern Bayingol
+        division_template = "Bùbīng shī"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.15
+    }
+    ##### Kashengeer Garrison Command #####
+    division = {
+        name = "Dì 4 qíbīng tuán"
+        location = 2074 # Northern Bayingol
+        division_template = "Qíbīng shī"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.15
+    }
+
+    division = {
+        name = "Dì 7 shī"
+        location = 5736 # Northern Bayingol
+        division_template = "Bùbīng shī"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.15
+    }
+    ##### Yanqi Garrison Command #####
+    division = {
+        name = "Yānqí zhùjūn"
+        location = 4788 # Atlay
+        division_template = "Zhùjūn shī"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.15
+    }
+    ##### White Russian Expeditionary Force #####
+    division = {
+        name = "Dì 6 qíbīng tuán"
+        location = 12656 # Urumqi
+        division_template = "Bái'èluósī fēn bù"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.2
+    }
+}
+### Starting Production ###
+instant_effect = {
+    add_equipment_production = {
+        equipment = {
+            type = Small_Arms_equipment_1900
+            creator = "SIK"
+        }
+        requested_factories = 1
+        progress = 0.12
+        efficiency = 50
+    }
+}

@@ -1,0 +1,54 @@
+﻿division_template = {
+	name = "Infantry Brigade"		
+	division_names_group = ENGL_INF_02
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		armored_car_recon = { x = 0 y = 1 }
+		artillery_battery = { x = 0 y = 2 }
+		signal_company = { x = 0 y = 3 }
+	}
+}
+
+
+
+units = {
+	######## LAND OOB ########
+	##### Malayan High Command #####
+	division = {
+		name = "Federated Malay States Volunteer Force"
+		location = 4412 # Port Dickinson
+		division_template = "Infantry Brigade"		
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.7
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "MAL" creator = "ENG" }	armored_car_equipment_1926 = { owner = "MAL" creator = "MAL" amount = 1 } }
+	}
+}
+
+
+
+
+#########################
+## STARTING PRODUCTION ##
+#########################
+
+instant_effect = {
+
+	add_equipment_production = {
+		equipment = {
+			type = Small_Arms_equipment_1900
+			creator = "MAL"
+		}
+		requested_factories = 2
+		progress = 0.1
+		efficiency = 50
+	}
+
+}
+
+#################################

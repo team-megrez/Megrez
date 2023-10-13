@@ -1,0 +1,57 @@
+﻿division_template = {
+	name = "Firqat Al-Mushat"
+	division_names_group = ARBC_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+}
+
+division_template = {
+	name = "Hurras Al-Qasr"		# Royal Guard
+	division_names_group = ARBC_CAV_01
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+	}
+	is_locked = yes
+
+}
+
+units = {
+    ##### Royal Omani Army #####
+    division = {
+        name = "Mushat Muscat"
+        location = 10760 # Muscat
+        division_template = "Firqat Al-Mushat"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.8
+    }
+
+    division = {
+        name = "Hurras Al-Qasr"
+        location = 10760 # Muscat
+        division_template = "Hurras Al-Qasr"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.8
+    }
+}
+
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = Small_Arms_equipment_1900
+			creator = "OMA"
+		}
+		requested_factories = 1
+		progress = 0.66
+		efficiency = 100
+	}
+}

@@ -1,0 +1,77 @@
+﻿division_template = {
+	name = "Comandancia de Armas"
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+	}
+}
+
+division_template = {
+	name = "Batallón de Caballería"
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+	}
+}
+
+units = {
+	##### Ejército de Guatemala #####
+	division= {	
+		name = "Comandancia Local de Petén"
+		location = 14075 # Flores
+		division_template = "Comandancia de Armas"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.5
+
+	}
+
+	division= {	
+		name = "Comandancia Local de Zacapa"
+		location = 13085 # Zacapa
+		division_template = "Comandancia de Armas"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.5
+
+	}
+
+	division= {	
+		name = "Comandancia Local de Jutiapa"
+		location = 14070 # Jutiapa
+		division_template = "Comandancia de Armas"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.5
+
+	}
+
+	division= {	
+		name = "Comandancia Local de Santa Cruz del Quiché"
+		location = 10886 # Santa Cruz del Quiché
+		division_template = "Comandancia de Armas"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.5
+
+	}
+
+	division= {	
+		name = "Batallón de Caballería"
+		location = 14072 # Mazatenango
+		division_template = "Batallón de Caballería"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.45
+
+	}
+}
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = Small_Arms_equipment_1900
+			creator = "GUA"
+		}
+		requested_factories = 1
+		progress = 0.11
+		efficiency = 100
+	}
+}

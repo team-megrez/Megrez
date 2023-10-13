@@ -1,0 +1,409 @@
+﻿division_template = {
+	name = "Division d'Infanterie"
+	division_names_group = FRA_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }  
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		artillery_battalion_light = { x = 3 y = 0 }
+		artillery_battalion_light = { x = 3 y = 1 }
+		artillery_battalion_light = { x = 3 y = 2 }
+		artillery_battalion = { x = 3 y = 3 }
+		artillery_battalion = { x = 3 y = 4 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+		anti_tank_company = { x = 0 y = 1 }
+		engineer = { x = 0 y = 2 }
+		field_hospital = { x = 0 y = 3 }
+		signal_company = { x = 0 y = 4 }
+		logistics_company = { x = 1 y = 0 }
+	}
+}
+division_template = {
+	name = "Division d'Infanterie Alpine"	# Mountain Division
+	division_names_group = FRA_MTN_01
+
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }	
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+		mountaineers = { x = 2 y = 0 }
+		mountaineers = { x = 2 y = 1 }
+		mountaineers = { x = 2 y = 2 }
+		mountaineers = { x = 3 y = 0 }
+		mountaineers = { x = 3 y = 1 }
+		mountaineers = { x = 3 y = 2 }
+		artillery_battalion_light = { x = 4 y = 0 }
+		artillery_battalion_light = { x = 4 y = 1 }
+		artillery_battalion = { x = 4 y = 2 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+		anti_tank_company = { x = 0 y = 1 }
+		engineer = { x = 0 y = 2 }
+		field_hospital = { x = 0 y = 3 }
+		signal_company = { x = 0 y = 4 }
+		logistics_company = { x = 1 y = 0 }
+	}
+}
+division_template = {
+	name = "Division d'Infanterie Nord-Africaine"
+	division_names_group = FRA_CINF_03
+
+	regiments = {
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 }  
+		light_infantry = { x = 0 y = 2 }
+		light_infantry = { x = 1 y = 0 }
+		light_infantry = { x = 1 y = 1 }
+		light_infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		artillery_battalion_light = { x = 3 y = 0 }
+		artillery_battalion_light = { x = 3 y = 1 }
+		artillery_battalion_light = { x = 3 y = 2 }
+		artillery_battalion_light = { x = 3 y = 3 }
+		artillery_battalion = { x = 4 y = 0 }
+		artillery_battalion = { x = 4 y = 1 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+		anti_tank_company = { x = 0 y = 1 }
+		engineer = { x = 0 y = 2 }
+		field_hospital = { x = 0 y = 3 }
+		signal_company = { x = 0 y = 4 }
+		logistics_company = { x = 1 y = 0 }
+	}
+}
+division_template = {
+	name = "Division d'Infanterie Coloniale"
+	division_names_group = FRA_CINF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		light_infantry = { x = 1 y = 0 }
+		light_infantry = { x = 1 y = 1 }  
+		light_infantry = { x = 1 y = 2 }
+		light_infantry = { x = 2 y = 0 }
+		light_infantry = { x = 2 y = 1 }
+		light_infantry = { x = 2 y = 2 }
+		light_infantry = { x = 3 y = 0 }
+		light_infantry = { x = 3 y = 1 }
+		light_infantry = { x = 3 y = 2 }
+		artillery_battalion_light = { x = 4 y = 0 }
+		artillery_battalion_light = { x = 4 y = 1 }
+		artillery_battalion_light = { x = 4 y = 2 }
+		artillery_battalion = { x = 4 y = 3 }
+		artillery_battalion = { x = 4 y = 4 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+	}
+}
+units = {
+#### Infanterie
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 11483 # Lille
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 3447 # Hirson
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 6
+		}
+		location = 11563 # Roncherolles-sur-le-Vivier
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.05
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 7
+		}
+		location = 3509 # Le Mans
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 8
+		}
+		location = 11565 # Coutras
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 16
+		}
+		location = 3652 # Dijon
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 18
+		}
+		location = 3671 # Tours
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 20
+		}
+		location = 9495 # Rennes
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 22
+		}
+		location = 9737 # Bordeaux
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 24
+		}
+		location = 620 # Limoges
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 26
+		}
+		location = 590 # Clermont-Ferrand
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 32
+		}
+		location = 9898 # Montpellier
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 35
+		}
+		location = 9737 # Bordeaux
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 41
+		}
+		location = 6547 # Versailles
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 44
+		}
+		location = 9507 # Dourdan
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 45
+		}
+		location = 512 # Orleans
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 47
+		}
+		location = 9642 # Besançon
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army 
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+#### Alpine
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 28
+		}
+		location = 11573 # Chambéry
+		division_template = "Division d'Infanterie Alpine"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 30
+		}
+		location = 11834 # Marseille
+		division_template = "Division d'Infanterie Alpine"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+#### Afrique
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 87
+		}
+		location = 13878 # Constantine
+		division_template = "Division d'Infanterie d'Afrique"
+		start_experience_factor = 0.10 #"these units were for the most part large, mediocre units, just capable of ensuring the defense of the colonies, of repressing robbery but certainly not of taking part in a modern conflict in Europe"
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+#### Nord-Africaine
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 6
+		}
+		location = 13011 # Chaumont-Porcien
+		division_template = "Division d'Infanterie Nord-Africaine"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 7
+		}
+		location = 6786 # Brignais
+		division_template = "Division d'Infanterie Nord-Africaine"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+#### Coloniale
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 55
+		}
+		location = 9898 # Montpellier
+		division_template = "Division d'Infanterie Coloniale"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 6
+		}
+		location = 9629 # Saint-Maur sur Indre
+		division_template = "Division d'Infanterie Coloniale"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 7
+		}
+		location = 6766 # Toulouse
+		division_template = "Division d'Infanterie Coloniale"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 8
+		}
+		location = 9737 # Mérignac
+		division_template = "Division d'Infanterie Coloniale"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "FRA" } }
+	}
+}

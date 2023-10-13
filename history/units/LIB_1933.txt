@@ -1,0 +1,31 @@
+﻿division_template = {
+	name = "Liberian Frontier Force"		# LFF never exceeded 1500 troops during WW2
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+	}
+}
+
+units = {
+    ##### Liberian Army #####
+    division = {
+        name = "Liberian Frontier Force"
+        location = 7959 # Monrovia
+        division_template = "Liberian Frontier Force"
+        start_experience_factor = 0.06 # their training was "brief and uninspired [with little] accomplished other than some desultory close-order drill"
+        start_equipment_factor = 0.65
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "USA" } } #The Liberians actually used the M1892 Krag rifle.
+    }
+}
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = Small_Arms_equipment_1900
+			creator = "LIB"
+		}
+		requested_factories = 1
+		progress = 0.12
+		efficiency = 100
+	}
+}

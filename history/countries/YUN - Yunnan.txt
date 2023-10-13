@@ -1,0 +1,127 @@
+﻿#########################################################################
+# Yunnan - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 325
+	oob = "YUN_1936"
+	add_to_variable = {
+		money = 40
+	}
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		### Infantry Tech
+		Small_Arms_1900 = 1
+		Small_Arms_1916 = 1
+		Infantry_Kit_1914 = 1
+		Infantry_Kit_1918 = 1
+
+		Heavy_Weapons_1905 = 1
+		Heavy_Weapons_1916 = 1
+		### Artillery Tech
+		Artillery_1910 = 1
+		Artillery_Range_Finding_and_Surveying_Tools = 1
+		Artillery_1916 = 1
+		High_Explosive_Shells = 1
+		### Industry
+		Industrial_Management = 1
+		Factory_Electrification = 1
+		Basic_Construction_Machines = 1
+		### Land Doctrines
+		Twentieth_Century_Warfare = 1
+		Leading_by_Order = 1
+		Strongpoint = 1
+		Mass_Charge = 1
+		Static_Defence = 1
+		Counterattack = 1
+		Defence_In_Depth = 1
+		Separate_Arms_Force = 1
+		Combined_Arms_Effort = 1
+		Specialized_Branch_Tactical_Experience = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = authoritarian
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 20
+		authoritarian = 80
+		democratic = 0
+		socialist = 0
+		communist = 0
+	}
+	add_ideas = {
+		YUN_D_Hu_Ruoyu
+		YUN_FM_Hu_Ruoyu
+		YUN_MoS_Ding_Zhipan
+		YUN_AM_Liu_Wenhui
+		YUN_HoI_Mi_Zaiming
+		YUN_CoStaff_Long_Yun
+		YUN_CoArmy_Long_Yun
+		YUN_CoNavy_Lu_Han
+		YUN_CoAir_Lu_Han
+		agrarian_economy
+		isolationism
+		repressive_system
+	}
+	#######################
+	# Leaders
+	#######################
+	create_country_leader = {
+		name = "Long Yun"
+		desc = ""
+		picture = GFX_P_A_Long_Yun
+		expire = "1965.1.1"
+		ideology = despotism
+		traits = {
+			POSITION_Civil_Governor
+			SUBIDEOLOGY_Despotism
+			L_King_of_Yunnan
+		}
+	}
+	#######################
+	# Generals
+	#######################
+	create_field_marshal = {
+		name = "Long Yun"
+		id = 321000
+		picture = GFX_P_A_Long_Yun
+		traits = {
+		}
+		skill = 3
+		attack_skill = 3
+		defense_skill = 3
+		planning_skill = 2
+		logistics_skill = 2
+	}
+	create_corps_commander = {
+		name = "Yang Hucheng"
+		id = 321001
+		GFX = GFX_M_Yang_Hucheng
+		traits = {
+		}
+		skill = 3
+		attack_skill = 2
+		defense_skill = 2
+		planning_skill = 3
+		logistics_skill = 3
+	}
+}
+
+#########################################################################
+# Yunnan - 1936
+#########################################################################
+1936.1.1 = {
+	oob = "YUN_1936"
+	set_autonomy = {
+		target = GUZ
+		autonomous_state = autonomy_free
+	}
+}

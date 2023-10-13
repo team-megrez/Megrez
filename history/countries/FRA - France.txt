@@ -1,0 +1,757 @@
+recruit_character = FRA_Albert_Lebrun
+recruit_character = FRA_Leon_Blum
+recruit_character = FRA_Fernand_Bouisson
+recruit_character = FRA_Joseph_Paul_Boncour
+recruit_character = FRA_Camille_Chautemps
+recruit_character = FRA_Edouard_Daladier
+recruit_character = FRA_Gaston_Doumergue
+recruit_character = FRA_Pierre_Etienne_Flandin
+recruit_character = FRA_Pierre_Laval
+recruit_character = FRA_Paul_Reynaud
+recruit_character = FRA_Albert_Sarraut
+recruit_character = FRA_Andre_Tardieu
+recruit_character = FRA_Louis_Barthou
+recruit_character = FRA_Paul_Baudoin
+recruit_character = FRA_Albert_Bedouce
+recruit_character = FRA_Georges_Bonnet
+recruit_character = FRA_Marx_Darnoy
+recruit_character = FRA_Yvon_Delbos
+recruit_character = FRA_Ludovic_Oscar_Frossard
+recruit_character = FRA_Eugene_Frot
+recruit_character = FRA_George_Mandel
+recruit_character = FRA_Paul_Marchandeau
+recruit_character = FRA_Adrien_Marquet
+recruit_character = FRA_Jules_Moch
+recruit_character = FRA_Anatole_de_Monzie
+recruit_character = FRA_Joseph_Paganon
+recruit_character = FRA_Charles_Pomaret
+recruit_character = FRA_Marcel_Regnier
+recruit_character = FRA_Henri_Roy
+recruit_character = FRA_Roger_Salengro
+recruit_character = FRA_Antoine_Henri_Queuille
+recruit_character = FRA_Gaston_Billotte
+recruit_character = FRA_Georges_Blanchard
+recruit_character = FRA_Charles_Huntziger
+recruit_character = FRA_Maurice_Gamelin
+recruit_character = FRA_Marcel_Garchery
+recruit_character = FRA_Charles_de_Gaulle
+recruit_character = FRA_Alphonse_Georges
+recruit_character = FRA_Henri_Giraud
+recruit_character = FRA_Henri_Gouraud
+recruit_character = FRA_Alphonse_Juin
+recruit_character = FRA_Jean_de_Lattre_de_Tassigny
+recruit_character = FRA_Philippe_Leclerc
+recruit_character = FRA_Paul_Legentilhomme
+recruit_character = FRA_Maxime_Weygand
+recruit_character = FRA_JeanFrancois_Darlan
+recruit_character = FRA_Jean_Esteva
+recruit_character = FRA_Edouard_Bares
+recruit_character = FRA_Victor_Denain
+recruit_character = FRA_Laurent_Eynac
+recruit_character = FRA_Joseph_Vuillemin
+recruit_character = FRA_Marcel_Bucard
+recruit_character = FRA_Robert_Brasillach
+recruit_character = FRA_Xavier_Vallat
+recruit_character = FRA_Charles_Maurras
+recruit_character = FRA_Francois_de_la_Rocque
+recruit_character = FRA_Philippe_Petain
+recruit_character = FRA_Marceau_Pivert
+recruit_character = FRA_Maurice_Thorez
+recruit_character = FRA_Marcel_Cachin
+recruit_character = FRA_Jacques_Duclos
+recruit_character = FRA_Raoul_Dautry
+recruit_character = FRA_Sylvestre_Gerard_Audet
+recruit_character = FRA_Edouard_Requin
+recruit_character = FRA_Andre_Gaston_Pretelat
+recruit_character = FRA_Benoit_Bessont
+recruit_character = FRA_Victor_Bourret
+recruit_character = FRA_Andre_Georges_Corap
+recruit_character = FRA_Charles_Marie_Conde
+recruit_character = FRA_Jean_Flavigny
+recruit_character = FRA_Charles_Nogues
+recruit_character = FRA_Rene_Olry
+recruit_character = FRA_Rene_Prioux
+recruit_character = FRA_Robert_Touchon
+recruit_character = FRA_Henri_Mordacq
+recruit_character = FRA_Jean_Marie_Abrial
+recruit_character = FRA_Raoul_Castex
+recruit_character = FRA_Marcel_Gensoul
+recruit_character = FRA_Jean_de_Laborde
+recruit_character = FRA_Georges_Robert
+recruit_character = FRA_Emmanuel_Ollive
+recruit_character = FRA_Jean_Barrau
+recruit_character = FRA_Paul_Beynet
+recruit_character = FRA_Henri_Dentz
+recruit_character = FRA_Aime_Doumenc
+recruit_character = FRA_Aubert_Frere
+recruit_character = FRA_Emile_Laure
+recruit_character = FRA_Eugene_Mittelhauser
+
+#########################################################################
+# French Republic - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 16
+	set_stability = 0.5
+	set_war_support = 0.7
+	oob = "FRA_1933"
+	set_research_slots = 3
+	set_convoys = 300
+	add_to_variable = { money = 1000 }
+	set_rule = {
+		can_send_volunteers = no
+    }
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+
+		### Infantry Tech
+		Small_Arms_1900 = 1
+		Small_Arms_1916 = 1
+		Infantry_Kit_1914 = 1
+		Infantry_Kit_1918 = 1
+
+		Heavy_Weapons_1905 = 1
+		Heavy_Weapons_1916 = 1
+		### Support Units
+		tech_recon = 1
+		tech_support = 1
+		tech_engineers = 1
+		tech_mountaineers = 1
+		tech_logistics_company = 1
+		### Artillery Tech
+		Artillery_1910 = 1
+		Anti_Aircraft_Gun_1914 = 1
+		Artillery_Range_Finding_and_Surveying_Tools = 1
+		Infantry_Support_Gun_1914 = 1
+		Artillery_1916 = 1
+		High_Explosive_Shells = 1
+		Split_Trail_Carriage = 1
+		Motor_Compatible_Carriage = 1
+		Optical_Sighting_Mechanism = 1
+		Anti_Tank_Gun_1935 = 1
+		### Armour Tech
+		Motorized_1916 = 1
+		Motorized_1932 = 1
+		Armored_Car_1911 = 1
+		Armored_Car_1916 = 1
+		Armored_Car_1926 = 1
+		Heavy_Tank_1916 = 1
+		Heavy_Tank_1917 = 1
+		Super_Heavy_Tank_1917 = 1
+		Light_Tank_1917 = 1
+		Light_Tank_1919 = 1
+		Light_Tank_1926 = 1
+		Medium_Tank_1926 = 1
+		### Air Tech
+		Unarmed_Recon_1910 = 1
+		Fighter_1914 = 1
+		Fighter_1916 = 1
+		Fighter_1918 = 1
+		Fighter_1924 = 1
+		Fighter_1933 = 1
+		cv_Fighter_1918 = 1
+		cv_Fighter_1924 = 1
+		Fighter_Bomber_1916 = 1
+		Fighter_Bomber_1918 = 1
+		Fighter_Bomber_1924 = 1
+		Fighter_Bomber_1924 = 1
+		Tactical_Bomber_1914 = 1
+		Tactical_Bomber_1916 = 1
+		Tactical_Bomber_1918 = 1
+		Tactical_Bomber_1925 = 1
+		Tactical_Bomber_1933 = 1
+		Strategic_Bomber_1916 = 1
+		Strategic_Bomber_1933 = 1
+		Naval_Bomber_1918 = 1
+		Naval_Bomber_1925 = 1
+		#Naval Stuff
+		DD_1885 = 1
+		DD_1900 = 1
+		DD_1912 = 1
+		DD_1916 = 1
+		DD_1922 = 1
+		DD_1933 = 1
+		CL_1885 = 1
+		CL_1900 = 1
+		CL_1912 = 1
+		CL_1922 = 1
+		CL_1933 = 1
+		CA_1885 = 1
+		CA_1895 = 1
+		CA_1906 = 1
+		CA_1922 = 1
+		CA_1933 = 1
+		SS_1895 = 1
+		SS_1912 = 1
+		SS_1916 = 1
+		SS_1922 = 1
+		SS_1933 = 1
+		BC_1906 = 1
+		BC_1912 = 1
+		BC_1916 = 1
+		BC_1933 = 1
+		BB_1885 = 1
+		BB_1895 = 1
+		BB_1900 = 1
+		BB_1906 = 1
+		BB_1912 = 1
+		BB_1916 = 1
+		BB_1922 = 1
+		CV_1912 = 1
+		CV_1916 = 1
+		CV_1922 = 1
+		transport = 1
+		fleet_in_being = 1
+		### Industry
+		Industrial_Management = 1
+		Factory_Electrification = 1
+		Facilities_Design = 1
+		Moving_Assembly_Line = 1
+		Skilled_Workforce = 1
+		Dispersed_Industry = 1
+		Basic_Construction_Machines = 1
+		Novel_Drills = 1
+		Contemporary_Construction_Standards = 1
+		Advanced_Drilling_Method = 1
+		Motorized_Plowing = 1
+		Farm_Tractors = 1
+		Scientific_Agricultural_Processes = 1
+		### Land Doctrines
+		Twentieth_Century_Warfare = 1
+		Leading_by_Order = 1
+		Strongpoint = 1
+		Mass_Charge = 1
+		Static_Defence = 1
+		Counterattack = 1
+		Defence_In_Depth = 1
+		Separate_Arms_Force = 1
+		Combined_Arms_Effort = 1
+		Specialized_Branch_Tactical_Experience = 1
+		Beyond_Trench_Warfare = 1
+		Planning_Focus = 1
+		### Engineering
+		computing_1 = 1
+		computing_2 = 1
+		computing_3 = 1
+		computing_4 = 1
+		decryption_encryption_1 = 1
+		decryption_encryption_2 = 1
+		### Experimental Research
+		rocketry_1 = 1
+		nuclear_1 = 1
+		### Support Companies
+		tech_engineers = 1
+		tech_assault_weapons_1 = 1
+		tech_assault_weapons_2 = 1
+		tech_assault_weapons_3 = 1
+		tech_entrenchment_1 = 1
+		tech_entrenchment_2 = 1
+		tech_entrenchment_3 = 1
+		tech_amphibious_1 = 1
+		tech_amphibious_2 = 1
+		tech_amphibious_3 = 1
+		tech_recon = 1
+		tech_recon2 = 1
+		tech_recon3 = 1
+		tech_recon4 = 1
+		tech_military_police = 1
+		tech_military_police2 = 1
+		tech_military_police3 = 1
+		tech_military_police4 = 1
+		tech_signal_company = 1
+		tech_signal_company2 = 1
+		tech_field_hospital = 1
+		tech_field_hospital_psychology_1 = 1
+		tech_field_hospital_psychology_2 = 1
+		tech_field_hospital_psychology_3 = 1
+		tech_field_hospital_health_1 = 1
+		tech_field_hospital_health_2 = 1
+		tech_field_hospital_health_3 = 1
+		tech_logistics_company = 1
+		tech_logistics_company2 = 1
+		tech_logistics_company3 = 1
+		tech_logistics_company4 = 1
+		tech_maintenance_company = 1
+		tech_maintenance_company2 = 1
+		tech_maintenance_company3 = 1
+		tech_maintenance_company4 = 1
+	}
+	#######################
+	# Diplomacy
+	#######################
+	give_guarantee = CZE
+	### Soviet–French Non–Aggression Pact
+	diplomatic_relation = {
+		country = SOV
+		relation = non_aggression_pact
+		active = yes
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1932.5.1"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		fascist = 1.5
+		authoritarian = 1.2
+		democratic = 70.5
+		socialist = 6.9
+		communist = 19.9
+	}
+	complete_national_focus = FRA_Cartel_des_Gauches
+	### Great Depression/Unemployment
+	add_ideas = generic_unemployment_idea
+	set_variable = { unemployment_value_modifier = 1.50 }
+	set_variable = { current_unemployment = 0.15 }
+	clamp_variable = {
+		var = current_unemployment
+		min = 0
+		max = 1
+	}
+	update_unemployment_modifier = yes
+	set_variable = { current_inflation = 0.05 }
+	add_inflation_with_tooltip_effect = yes
+	add_ideas = {
+		FRA_The_Third_Republic
+		FRA_Scars_of_the_Great_War
+		FRA_La_Der_des_Ders
+		FRA_On_ne_Passe_Pas
+		FRA_Multitude_of_aircraft_manufacturers
+		FRA_The_Era_of_Aces
+		# Cabinet
+		FRA_Albert_Lebrun_HoG
+		FRA_Joseph_Paul_Boncour_FM
+		FRA_Georges_Bonnet_AM
+		FRA_Camille_Chautemps_MoS
+		FRA_Joseph_Paganon_HoI
+		# Military Staff
+		FRA_Maurice_Gamelin_CoArmy
+		FRA_JeanFrancois_Darlan_CoNavy
+		FRA_Victor_Denain_CoAir
+		# Laws & Policies
+		one_year_service
+		full_civil_liberties
+		interventionism
+		civilian_economy
+		#Spending
+		social_spending_level_3
+	}
+	create_intelligence_agency = {
+		name = "Deuxième Bureau"
+		icon = "GFX_intelligence_agency_logo_fra"
+	}
+	######################
+	# Diplomacy
+	#######################
+	give_guarantee = AND
+	give_guarantee = SAR
+	give_guarantee = POL
+	# Subjects
+	set_autonomy = {
+		target = MOR
+		autonomous_state = AUTONOMY_Protectorate
+		freedom_level = 0.35
+	}
+	set_autonomy = {
+		target = TUN
+		autonomous_state = AUTONOMY_Protectorate
+		freedom_level = 0.35
+	}
+	set_autonomy = {
+		target = VIN
+		autonomous_state = AUTONOMY_Colony
+		freedom_level = 0.35
+	}
+}
+#########################################################################
+# French Republic - 1936
+#########################################################################
+1936.1.1 = {
+	capital = 16
+	set_stability = 0.5
+	set_war_support = 0.15
+	oob = "FRA_1936"
+	set_research_slots = 3
+	set_convoys = 300
+	#######################
+	# Research
+	#######################
+	set_technology = {
+		Small_Arms_1916 = 1
+		Small_Arms_1935 = 1
+		tech_support = 1
+		tech_recon = 1
+		tech_mountaineers = 1
+		Motorized_1916 = 1
+		Artillery_1910 = 1
+		Anti_Aircraft_Gun_1935 = 1
+		Fighter_1933 = 1
+		Fighter_1936 = 1
+		Naval_Bomber_1936 = 1
+		cv_Fighter_1933 = 1
+		Torpedo_bomber_1936 = 1
+		Tactical_Bomber_1933 = 1
+		Tactical_Bomber_1936 = 1
+		Attacker_1936 = 1
+		Strategic_Bomber_1933 = 1
+		# Armour Tech
+		Heavy_Tank_1916 = 1
+		Heavy_Tank_1917 = 1
+		Light_Tank_1926 = 1
+		Light_Tank_1934 = 1
+		#Naval Stuff
+		DD_1885 = 1
+		DD_1900 = 1
+		DD_1912 = 1
+		DD_1916 = 1
+		DD_1922 = 1
+		DD_1933 = 1
+		CL_1885 = 1
+		CL_1900 = 1
+		CL_1912 = 1
+		CL_1922 = 1
+		CL_1933 = 1
+		CL_1936 = 1
+		CA_1885 = 1
+		CA_1895 = 1
+		CA_1906 = 1
+		CA_1922 = 1
+		CA_1933 = 1
+		CA_1936 = 1
+		SS_1895 = 1
+		SS_1912 = 1
+		SS_1916 = 1
+		SS_1922 = 1
+		SS_1933 = 1
+		SS_1936 = 1
+		HSS_1933 = 1
+		BC_1906 = 1
+		BC_1912 = 1
+		BC_1916 = 1
+		BC_1933 = 1
+		BB_1885 = 1
+		BB_1895 = 1
+		BB_1900 = 1
+		BB_1906 = 1
+		BB_1912 = 1
+		BB_1916 = 1
+		BB_1922 = 1
+		BB_1933 = 1
+		CV_1912 = 1
+		CV_1916 = 1
+		CV_1922 = 1
+		transport = 1
+		trench_warfare = 1
+		fleet_in_being = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1932.5.1"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		fascist = 1.5
+		authoritarian = 1.2
+		democratic = 70.5
+		socialist = 6.9
+		communist = 19.9
+	}
+	add_ideas = {
+		# Laws & Policies
+		one_year_service
+		full_civil_liberties
+		interventionism
+		# Cabinet
+		FRA_D_Albert_Lebrun
+		FRA_FM_Pierre_Etienne_Flandin
+		FRA_AM_Georges_Bonnet
+		FRA_MoS_Marx_Dormoy
+		FRA_HoI_Joseph_Paganon
+		# Military Staff
+		FRA_CoStaff_Maurice_Gamelin
+		FRA_CoArmy_Maurice_Gamelin
+		FRA_CoNavy_JeanFrancois_Darlan
+		FRA_CoAir_Victor_Denain
+	}
+	#######################
+	# Subjects
+	#######################
+	set_autonomy = {
+		target = VIN
+		autonomous_state = AUTONOMY_Colony
+		freedom_level = 0.4
+	}
+	#######################
+	# Leaders
+	#######################
+	# Democracy
+	create_country_leader = {
+		name = "Pierre Laval"
+		desc = ""
+		picture = GFX_P_D_Pierre_Laval
+		expire = "1938.1.1"
+		ideology = social_conservatism
+		traits = {
+			POSITION_Prime_Minister
+			SUBIDEOLOGY_Social_Conservatism
+			L_Flamboyant_Tough_Guy
+		}
+	}
+	# Socialism
+	create_country_leader = {
+		name = "Léon Blum"
+		desc = ""
+		picture = GFX_P_D_Leon_Blum
+		expire = "1965.1.1"
+		ideology = syndicalism
+		traits = {
+			POSITION_Prime_Minister
+			SUBIDEOLOGY_Syndicalism
+			L_Ambitious_Union_Boss
+		}
+	}
+}
+##########################################################
+# French Republic - 1939
+##########################################################
+1939.9.1 = {
+	oob = "FRA_1939"
+}
+if = {
+	limit = {
+		has_start_date > 1939.9.1
+		has_start_date < 1946.01.01
+	}
+	declare_war_on = {
+		target = GER
+		type = annex_everything
+	}
+	declare_war_on = {
+		target = SLO
+		type = annex_everything
+	}
+}
+##########################################################
+# French Republic - 1940
+##########################################################
+1940.5.10 = {
+	oob = "FRA_1940"
+}
+1943.7.26 = {
+	create_corps_commander = {
+		name = "Jean Touzet du Vigier"
+	    id = 96015
+		GFX = GFX_M_Jean_Touzet_du_Vigier
+		traits = {
+			panzer_leader
+			combined_arms_expert
+		}
+		skill = 3
+		attack_skill = 3
+		defense_skill = 2
+		planning_skill = 3
+		logistics_skill = 3
+	}
+}
+##########################################################
+# French Republic - 1944
+##########################################################
+1944.6.20 = {
+	oob = "FRA_1944"
+	set_cosmetic_tag = FRA_FREE
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1932.5.1"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		fascist = 1.5
+		authoritarian = 1.2
+		democratic = 70.5
+		socialist = 4.5
+		communist = 17.9
+	}
+	#######################
+	# Leaders
+	#######################
+	# Democracy
+	create_country_leader = {
+		name = "Charles De Gaulle"
+		desc = ""
+		picture = GFX_M_Charles_De_Gaulle
+		expire = "1946.1.1"
+		ideology = social_conservatism
+		traits = {
+			POSITION_President
+			SUBIDEOLOGY_Social_Conservatism
+			L_Resigned_Generalissimo
+		}
+	}
+}
+##########################################################
+# Provisional Government of the French Republic - 1945
+##########################################################
+1945.1.1 = {
+	drop_cosmetic_tag = yes
+	set_cosmetic_tag = FRA_PGFR
+}
+##########################################################
+# French Republic - 1950
+##########################################################
+1950.1.1 = {
+	drop_cosmetic_tag = yes
+	#######################
+	# Leaders
+	#######################
+	# Democracy
+	create_country_leader = {
+		name = "Vincent Auriol"
+		desc = ""
+		picture = GFX_P_D_Vincent_Auriol
+		expire = "1954.1.1"
+		ideology = social_democracy
+		traits = {
+			POSITION_President
+			SUBIDEOLOGY_Social_Democracy
+			L_Autocratic_Charmer
+		}
+	}
+}
+##########################################################
+# French Republic - 1956
+##########################################################
+1956.1.1 = {
+	#######################
+	# Leaders
+	#######################
+	# Democracy
+	create_country_leader = {
+		name = "René Coty"
+		desc = ""
+		picture = GFX_P_D_Rene_Coty
+		expire = "1959.1.1"
+		ideology = social_conservatism
+		traits = {
+			POSITION_President
+			SUBIDEOLOGY_Social_Conservatism
+			L_Pig_Headed_Isolationist
+		}
+	}
+}
+##########################################################
+# French Republic - 1960
+##########################################################
+1960.1.1 = {
+	#######################
+	# Leaders
+	#######################
+	# Democracy
+	create_country_leader = {
+		name = "Charles De Gaulle"
+		desc = ""
+		picture = GFX_M_Charles_De_Gaulle
+		expire = "1969.1.1"
+		ideology = social_conservatism
+		traits = {
+			POSITION_President
+			SUBIDEOLOGY_Social_Conservatism
+			L_Resigned_Generalissimo
+		}
+	}
+}
+##########################################################
+# French Republic - 1970
+##########################################################
+1972.1.1 = {
+	#######################
+	# Leaders
+	#######################
+	# Democracy
+	create_country_leader = {
+		name = "Georges Pompidou"
+		desc = ""
+		picture = GFX_P_D_Georges_Pompidou
+		expire = "1974.1.1"
+		ideology = social_conservatism
+		traits = {
+			POSITION_President
+			SUBIDEOLOGY_Social_Conservatism
+			L_Insignificant_Layman
+		}
+	}
+}
+##########################################################
+# French Republic - 1980
+##########################################################
+1980.1.1 = {
+	#######################
+	# Leaders
+	#######################
+	# Democracy
+	create_country_leader = {
+		name = "Valéry Giscard d'Estaing"
+		desc = ""
+		picture = GFX_P_D_Valery_Giscard_dEstaing
+		expire = "1981.1.1"
+		ideology = social_conservatism
+		traits = {
+			POSITION_President
+			SUBIDEOLOGY_Social_Conservatism
+			L_Die_Hard_Reformer
+		}
+	}
+}
+##########################################################
+# French Republic - 1991
+##########################################################
+1991.1.1 = {
+	#######################
+	# Leaders
+	#######################
+	# Democracy
+	create_country_leader = {
+		name = "François Mitterrand"
+		desc = ""
+		picture = GFX_P_D_Francois_Mitterrand
+		expire = "1995.1.1"
+		ideology = social_democracy
+		traits = {
+			POSITION_President
+			SUBIDEOLOGY_Social_Democracy
+			L_Barking_Buffoon
+		}
+	}
+}
+##########################################################
+# French Republic - 2000
+##########################################################
+2000.1.1 = {
+	#######################
+	# Leaders
+	#######################
+	# Democracy
+	create_country_leader = {
+		name = "Jacques Chirac"
+		desc = ""
+		picture = GFX_P_D_Jacques_Chirac
+		expire = "2007.1.1"
+		ideology = social_conservatism
+		traits = {
+			POSITION_President
+			SUBIDEOLOGY_Social_Conservatism
+			L_Autocratic_Charmer
+		}
+	}
+}

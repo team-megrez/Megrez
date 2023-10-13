@@ -1,0 +1,75 @@
+﻿#########################################################################
+# Saarland - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 806
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		Small_Arms_1916 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_cosmetic_tag = SAR_TERRITORY
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 10
+		authoritarian = 5
+		democratic = 75
+		socialist = 0
+		communist = 10
+	}
+	#######################
+	# Leaders
+	#######################
+	# Democracy
+	create_country_leader = {
+		name = "Geoffrey Knox"
+		desc = ""
+		picture = GFX_P_D_Geoffrey_Knox
+		expire = "1935.3.1"
+		ideology = league_of_nations_administration
+		traits = { POSITION_Commission_Chairman SUBIDEOLOGY_League_of_Nations_Administration L_Insignificant_Layman }
+	}
+	#######################
+	# Generals
+	#######################
+}
+
+#########################################################################
+# Saarland - 1936
+#########################################################################
+1936.1.1 = {
+	#######################
+	# Politics
+	#######################
+	drop_cosmetic_tag = yes
+}
+
+#########################################################################
+# Saarland - 1950
+#########################################################################
+1950.1.1 = {
+	#######################
+	# Politics
+	#######################
+	set_cosmetic_tag = SAR_PROTECTORATE
+}
+
+#########################################################################
+# Saarland - 1960
+#########################################################################
+1960.1.1 = {
+	#######################
+	# Politics
+	#######################
+	drop_cosmetic_tag = yes
+}

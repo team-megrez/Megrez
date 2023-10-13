@@ -1,0 +1,115 @@
+﻿#########################################################################
+# Haiti - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 318
+	set_convoys = 5
+	oob = "HAI_1933"
+	add_to_variable = { money = 30 }
+	#######################
+	# Research
+	#######################	
+	set_technology = {
+	basic_train = 1
+		### Infantry Tech
+		Small_Arms_1900 = 1
+		Small_Arms_1916 = 1
+		Infantry_Kit_1914 = 1
+		Infantry_Kit_1918 = 1
+
+		Heavy_Weapons_1905 = 1
+		Heavy_Weapons_1916 = 1
+		### Artillery Tech
+		Artillery_1910 = 1
+		### Armour Tech
+		Armored_Car_1911 = 1
+		### Air Tech
+		Unarmed_Recon_1910 = 1
+        Fighter_1914 = 1
+        Fighter_1916 = 1
+		### Industry
+		Motorized_Plowing = 1
+		### Land Doctrines
+		Twentieth_Century_Warfare = 1
+		Leading_by_Order = 1
+		Strongpoint = 1
+        Mass_Charge = 1
+        Static_Defence = 1
+        Counterattack = 1
+		Defence_In_Depth = 1
+		Separate_Arms_Force = 1
+        Combined_Arms_Effort = 1
+		Specialized_Branch_Tactical_Experience = 1
+	}
+	#######################
+	# Politics
+	#######################	
+	set_country_flag = monroe_doctrine
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 23
+		democratic = 72
+		socialist = 0
+		communist = 5
+	}
+	add_ideas = {
+		industrializing_economy
+	}
+	#######################
+	# Leaders
+	#######################	
+	# Democracy
+	create_country_leader = {
+		name = "Sténio Vincent"
+		desc = ""
+		picture = GFX_P_D_Stenio_Vincent
+		expire = "1959.9.3"
+		ideology = social_conservatism
+		traits = {
+			POSITION_President 
+			SUBIDEOLOGY_Social_Conservatism 
+			L_Pig_Headed_Isolationist
+		}
+	}
+	# Communism
+	create_country_leader = {
+		name = "Jacques Roumain"
+		desc = ""
+		picture = GFX_P_C_Jacques_Roumain
+		expire = "1944.8.18"
+		ideology = marxism_leninism
+		traits = {
+			POSITION_General_Secretary
+			SUBIDEOLOGY_Marxism_Leninism
+		}
+	}
+}
+#########################################################################
+# Haiti - 1936
+#########################################################################
+1936.1.1 = {
+	oob = "HAI_1936"
+}
+#########################################################################
+# Haiti - 1941
+#########################################################################
+1941.6.22 = {
+	#######################
+	# Leaders
+	#######################	
+	# Democracy
+	create_country_leader = {
+		name = "Élie Lescot"
+		desc = ""
+		picture = GFX_P_D_Elie_Lescot
+		expire = "1965.1.1"
+		ideology = social_conservatism
+		traits = { POSITION_President SUBIDEOLOGY_Social_Conservatism L_Resigned_Generalissimo }
+	}
+}

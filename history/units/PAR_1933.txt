@@ -1,0 +1,141 @@
+﻿division_template = {
+	name = "División de Infantería"
+	division_names_group = SPAN_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+	}
+    support = {
+        artillery_battery = { x = 0 y = 0 }
+        engineer = { x = 0 y = 1 } # Paraguay's engineers were critical to their success.  They built well camouflaged supply roads, and constructed field fortifications that rivaled those of WWI trench warfare.
+		signal_company = { x = 0 y = 2 }
+		logistics_company = { x = 0 y = 3 }
+		field_hospital = { x = 0 y = 4 }
+		}
+}
+
+division_template = {
+    name = "División de Caballería"             # Cavalry Division
+	division_names_group = SPAN_CAV_01
+
+    regiments = {
+        cavalry = { x = 0 y = 0 }
+        cavalry = { x = 0 y = 1 }
+        cavalry = { x = 0 y = 2 }
+        cavalry = { x = 1 y = 0 }
+        cavalry = { x = 1 y = 1 }
+        cavalry = { x = 1 y = 2 }
+    }
+    support = {
+        artillery_battery = { x = 0 y = 0 }
+        engineer = { x = 0 y = 1 } # Paraguay's engineers were critical to their success.  They built well camouflaged supply roads, and constructed field fortifications that rivaled those of WWI trench warfare.
+		signal_company = { x = 0 y = 2 }
+		logistics_company = { x = 0 y = 3 }
+		field_hospital = { x = 0 y = 4 }
+		}
+}
+
+units = {
+    ##### Ejercito del Paraguay #####
+	#Should be about 20k troops.  4k regular, with 16k mobilized reserve.
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+        location = 2195 # Nanawa area
+        division_template = "División de Infantería"
+        start_experience_factor = 0.18 # Paraguay had a fairly well trained army, studied the combat lessons of WWI, and had an NCO academy to ensure competent small unit leadership.
+    }
+
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+        location = 14518 # forts of Toledo, Platanillos, Fernandez
+        division_template = "División de Infantería"
+        start_experience_factor = 0.18 # Paraguay had a fairly well trained army, studied the combat lessons of WWI, and had an NCO academy to ensure competent small unit leadership.
+    }
+
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+        location = 14518 # forts of Toledo, Platanillos, Fernandez
+        division_template = "División de Infantería"
+        start_experience_factor = 0.18 # Paraguay had a fairly well trained army, studied the combat lessons of WWI, and had an NCO academy to ensure competent small unit leadership.
+    }
+
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+        location = 10973 # Unknown, but since the entire Paguayan army was deployed to the frontlines, put in the last province of the border.
+        division_template = "División de Infantería"
+        start_experience_factor = 0.18 # Paraguay had a fairly well trained army, studied the combat lessons of WWI, and had an NCO academy to ensure competent small unit leadership.
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 5
+		}
+        location = 2195 # The fort at Nanawa
+        division_template = "División de Infantería"
+        start_experience_factor = 0.18 # Paraguay had a fairly well trained army, studied the combat lessons of WWI, and had an NCO academy to ensure competent small unit leadership.
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 6
+		}
+        location = 14518 # forts of Toledo, Platanillos, Fernandez
+        division_template = "División de Infantería"
+        start_experience_factor = 0.18 # Paraguay had a fairly well trained army, studied the combat lessons of WWI, and had an NCO academy to ensure competent small unit leadership.
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 7
+		}
+        location = 10973 # Unknown, but since the entire Paguayan army was deployed to the frontlines, put in the last province of the border.
+        division_template = "División de Infantería"
+        start_experience_factor = 0.18 # Paraguay had a fairly well trained army, studied the combat lessons of WWI, and had an NCO academy to ensure competent small unit leadership.
+    }
+
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+        location = 14518 # forts of Toledo, Platanillos, Fernandez
+        division_template = "División de Caballería"
+        start_experience_factor = 0.18 # Paraguay had a fairly well trained army, studied the combat lessons of WWI, and had an NCO academy to ensure competent small unit leadership.
+    }
+}
+
+air_wings = {
+    301 = {
+        # 1a Brigada Aérea
+        Fighter_equipment_1924 = { # FIAT CR.20
+            owner = "PAR"
+            amount = 10
+        }
+    }
+}
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = Small_Arms_equipment_1900
+			creator = "PAR"
+		}
+		requested_factories = 1
+		progress = 0.64
+		efficiency = 100
+	}
+}

@@ -1,0 +1,69 @@
+﻿#########################################################################
+#  Trucial States - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 658
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		Small_Arms_1916 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_cosmetic_tag = UAE_TRUCIAL
+	set_politics = {
+		ruling_party = authoritarian
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 100
+		democratic = 0
+		socialist = 0
+		communist = 0
+	}
+	#######################
+	# Leaders
+	#######################
+	create_country_leader = {
+		name = "Shakhbut bin Sultan Al Nahyan"
+		desc = ""
+		picture = GFX_P_A_Shakhbut_bin_Sultan
+		expire = "1989.4.12"
+		ideology = monarchism
+		traits = { 
+			POSITION_Sultan 
+			SUBIDEOLOGY_Monarchism
+			L_Stern_Imperialist
+		}
+	}
+	#######################
+	# Generals
+	#######################
+}
+#########################################################################
+#  United Arab Emirates - 1933
+#########################################################################
+1972.1.1 = {
+	drop_cosmetic_tag = yes
+	#######################
+	# Leaders
+	#######################
+	create_country_leader = {
+		name = "Zayed bin Sultan Al Nahyan"
+		desc = ""
+		picture = GFX_P_A_Zayed_bin_Sultan
+		expire = "2004.11.2"
+		ideology = monarchism
+		traits = { 
+			POSITION_Sultan 
+			SUBIDEOLOGY_Monarchism
+			L_Stern_Imperialist
+		}
+	}
+}

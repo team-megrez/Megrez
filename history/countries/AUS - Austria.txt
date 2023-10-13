@@ -1,0 +1,293 @@
+﻿#########################################################################
+# Austria - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 4
+	oob = "AUS_1933"
+	set_research_slots = 3
+	set_stability = 0.5
+	add_to_variable = { money = 100 }
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		Small_Arms_1900 = 1
+		Small_Arms_1916 = 1
+		Infantry_Kit_1914 = 1
+		Infantry_Kit_1918 = 1
+
+		Heavy_Weapons_1905 = 1
+		Heavy_Weapons_1916 = 1
+		### Support Company Tech
+		tech_recon = 1
+		tech_engineers = 1
+		tech_support = 1
+		tech_mountaineers = 1
+		### Arty Tech
+		Artillery_1910 = 1
+		Anti_Aircraft_Gun_1914 = 1
+		Artillery_Range_Finding_and_Surveying_Tools = 1
+		Infantry_Support_Gun_1914 = 1
+		Artillery_1916 = 1
+		### Armor Tech
+		Motorized_1916 = 1
+		Armored_Car_1911 = 1
+		Armored_Car_1916 = 1
+		Armored_Car_1926 = 1	
+		Heavy_Tank_1916 = 1
+		Heavy_Tank_1917 = 1
+		Light_Tank_1917 = 1
+		Light_Tank_1919 = 1
+		Light_Tank_1926 = 1			
+		### Light Air Tech
+		Unarmed_Recon_1910 = 1
+		Fighter_1914 = 1
+		Fighter_1916 = 1
+		Fighter_1918 = 1
+		Fighter_1924 = 1
+		Fighter_1933 = 1
+		Fighter_Bomber_1916 = 1
+		Fighter_Bomber_1918 = 1
+		Fighter_Bomber_1924 = 1
+		### Heavy Air Tech
+		Tactical_Bomber_1914 = 1
+		Tactical_Bomber_1916 = 1
+		Tactical_Bomber_1918 = 1
+		Tactical_Bomber_1925 = 1
+		Strategic_Bomber_1916 = 1
+		Strategic_Bomber_1933 = 1
+		### Land Doctrine Tech
+		Twentieth_Century_Warfare = 1
+		Leading_by_Task = 1
+		Strongpoint = 1
+		Mass_Charge = 1
+		Static_Defence = 1
+		Counterattack = 1
+		Schwerpunkt = 1
+		Separate_Arms_Force = 1
+		Combined_Arms_Effort = 1
+		Cross_Branch_Tactical_Experience = 1
+		Beyond_Trench_Warfare = 1
+		### Industry
+		Industrial_Management = 1
+		Factory_Electrification = 1
+		Facilities_Design = 1
+		Moving_Assembly_Line = 1
+		Skilled_Workforce = 1
+		Concentrated_Industry = 1
+		Basic_Construction_Machines = 1
+		Novel_Drills = 1
+		Contemporary_Construction_Standards = 1
+		Advanced_Drilling_Method = 1
+		Construction_Site_Management = 1
+		Motorized_Plowing = 1
+		Farm_Tractors = 1
+		Scientific_Agricultural_Processes = 1
+		Mechanized_Agriculture = 1
+		### Engineering
+		computing_1 = 1
+		computing_2 = 1
+		computing_3 = 1
+		decryption_encryption_1 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1930.11.9"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 5
+		authoritarian = 0
+		democratic = 86
+		socialist = 8
+		communist = 1
+	}
+	add_ideas = {
+		# Cabinet
+		AUS_D_Wilhelm_Miklas
+		AUS_FM_Egon_BergerWaldenegg
+		AUS_AM_Julius_Raab
+		AUS_MoS_Eduard_BaarBaarenfels
+		AUS_HoI_Wilhelm_Gebauer
+		mixed_economy
+		full_civil_liberties
+		# Military Staff
+		AUS_CoStaff_Alfred_von_Jansa
+		AUS_CoArmy_Wilhelm_Zehner
+		AUS_CoNavy_Paul_von_Hegedus
+		AUS_CoAir_Alexander_Lohr
+	}
+	#######################
+	# Leaders
+	#######################
+	# Fascism
+	create_country_leader = {
+		name = "Engelbert Dollfuss"
+		desc = ""
+		picture = GFX_P_F_Engelbert_Dollfuss
+		expire = "1965.1.1"
+		ideology = clerical_fascism
+		traits = {
+			POSITION_Chancellor
+			SUBIDEOLOGY_Clerical_Fascism
+			L_Flamboyant_Tough_Guy
+		}
+	}
+	# Paternal Autocracy
+	create_country_leader = {
+		name = "Engelbert Dollfuss"
+		desc = ""
+		picture = GFX_P_F_Engelbert_Dollfuss
+		expire = "1965.1.1"
+		ideology = authoritarian_democracy
+		traits = {
+			POSITION_Chancellor
+			SUBIDEOLOGY_Authoritarian_Democracy
+			L_Flamboyant_Tough_Guy
+		}
+	}
+	#  Democracy
+	create_country_leader = {
+		name = "Engelbert Dollfuss"
+		desc = ""
+		picture = GFX_P_F_Engelbert_Dollfuss
+		expire = "1965.1.1"
+		ideology = social_conservatism
+		traits = {
+			POSITION_Chancellor
+			SUBIDEOLOGY_Social_Conservatism
+			L_Flamboyant_Tough_Guy
+		}
+	}
+	# Left-Wing Radicalism
+	create_country_leader = {
+		name = "Robert Danneberg"
+		desc = ""
+		picture = GFX_P_S_Robert_Danneberg
+		expire = "1948.12.12"		#IRL died in Auschwitz 1942 of the same date
+		ideology = socialism
+		traits = {
+			POSITION_Chancellor
+			SUBIDEOLOGY_Socialism
+			L_Revolutionary_Leader
+		}
+	}
+	create_country_leader = {
+		name = "Karl Seitz"
+		desc = ""
+		picture = GFX_P_S_Karl_Seitz
+		expire = "1950.2.3"
+		ideology = socialism
+		traits = {
+			POSITION_Chancellor
+			SUBIDEOLOGY_Socialism
+			L_Die_Hard_Reformer
+		}
+	}
+	# Marxism-Leninism
+	create_country_leader = {
+		name = "Johann Koplenig"
+		desc = ""
+		picture = GFX_P_C_Johann_Koplenig
+		expire = "1968.12.13"
+		ideology = marxism_leninism
+		traits = {
+			POSITION_Chairman
+			SUBIDEOLOGY_Marxism_Leninism
+			L_Revolutionary_Leader
+		}
+	}
+	#######################
+	# Generals
+	#######################
+	create_corps_commander = {
+		name = "Karl Eglseer"
+	    id = 19000
+		GFX = GFX_P_Vacant
+		traits = {
+			trait_mountaineer
+			trickster
+		}
+		skill = 3
+		attack_skill = 2
+		defense_skill = 3
+		planning_skill = 3
+		logistics_skill = 2
+	}
+}
+#########################################################################
+# Austria - 1936
+#########################################################################
+1936.1.1 = {
+	oob = "AUS_1936"
+	#######################
+	# Research
+	#######################
+	set_technology = {
+		Small_Arms_1916 = 1
+		Small_Arms_1935 = 1
+		tech_recon = 1
+		tech_engineers = 1
+		Artillery_1910 = 1
+		Anti_Aircraft_Gun_1935 = 1
+		tech_support = 1
+		tech_mountaineers = 1
+		Fighter_1933 = 1
+		Strategic_Bomber_1933 = 1
+		# Armour Tech
+		Heavy_Tank_1916 = 1
+		Heavy_Tank_1917 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = fascist
+		last_election = "1930.11.9"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 100
+		authoritarian = 0
+		democratic = 0
+		socialist = 0
+		communist = 0
+	}
+	add_ideas = {
+		# Cabinet
+		AUS_D_Wilhelm_Miklas
+		AUS_FM_Egon_BergerWaldenegg
+		AUS_AM_Julius_Raab
+		AUS_MoS_Eduard_BaarBaarenfels
+		AUS_HoI_Wilhelm_Gebauer
+		corporatism
+		legalistic_restrictions
+		# Military Staff
+		AUS_CoStaff_Alfred_von_Jansa
+		AUS_CoArmy_Wilhelm_Zehner
+		AUS_CoNavy_Paul_von_Hegedus
+		AUS_CoAir_Alexander_Lohr
+	}
+	#######################
+	# Leaders
+	#######################
+	# Fascism
+	create_country_leader = {
+		name = "Kurt Schuschnigg"
+		desc = ""
+		picture = GFX_P_F_Kurt_Schuschnigg
+		expire = "1965.1.1"
+		ideology = clerical_fascism
+		traits = {
+			POSITION_Chancellor
+			SUBIDEOLOGY_Clerical_Fascism
+			L_Silent_Workhorse
+		}
+	}
+}

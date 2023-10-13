@@ -1,0 +1,49 @@
+﻿#########################################################################
+# Jamaica - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 689
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+
+		Small_Arms_1916 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 10
+		democratic = 60
+		socialist = 25
+		communist = 5
+	}
+	#######################
+	# Leaders
+	#######################
+	# Democracy
+	create_country_leader = {
+		name = "Alexander Bustamante"
+		desc = ""
+		picture = GFX_P_D_Alexander_Bustamante
+		expire = "1964.1.1"
+		ideology = social_democracy
+		traits = {
+			POSITION_Prime_Minister
+			SUBIDEOLOGY_Social_Democracy
+		}
+	}
+	
+	#######################
+	# Generals
+	#######################
+}

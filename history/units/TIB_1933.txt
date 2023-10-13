@@ -1,0 +1,34 @@
+﻿division_template = {
+	name = "Dmag Dpung Bod"			# The entire Tibetan military was just a few thousand troops
+								
+	regiments = {
+		light_infantry = { x = 0 y = 0 } #Notably deficient in machine guns and other heavy weapons
+		light_infantry = { x = 0 y = 1 }
+		light_infantry = { x = 0 y = 2 }
+	}
+}
+
+
+units = {
+	##### Xi'zang Zuigao Tongshuai Bu #####
+	division = {
+		name = "Dmag Dpung Bod" # The Tibetan Army was defeated by KMT forces in late 1932 and was in a rebuilding process.
+		location = 8041
+		division_template = "Dmag Dpung Bod"
+		start_experience_factor = 0.08
+		start_equipment_factor = 0.7
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "TIB" creator = "ENG" } }
+	}
+}
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = Small_Arms_equipment_1900
+			creator = "TIB"
+		}
+		requested_factories = 1
+		progress = 0.42
+		efficiency = 78
+	}
+}

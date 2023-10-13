@@ -1,0 +1,90 @@
+﻿##### Division Templates #####
+division_template = {
+	name = "Home Guard"
+    is_locked = yes
+	priority = 0
+	force_allow_recruiting = yes
+
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 0 y = 2 }
+		militia = { x = 1 y = 0 }
+		militia = { x = 1 y = 1 }
+		militia = { x = 1 y = 2 }
+	}
+}
+# Peak strength of the Home Guard was 100k.  Unit names are fictional, based on the historical provinces of New Zealand.
+###### OOB ######
+units = {
+	division= {			
+		name = "Auckland Home Guard"
+		location = 4543  # Auckland
+		division_template = "Home Guard"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.7
+	}			
+	division= {			
+		name = "Canterbury Home Guard"
+		location = 2197  # Christchurch
+		division_template = "Home Guard"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.7
+	}			
+	division= {			
+		name = "Hawke's Bay Home Guard"
+		location = 10609  # Napier
+		division_template = "Home Guard"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.7
+	}			
+	division= {			
+		name = "Marlborough Home Guard"
+		location = 4819
+		division_template = "Home Guard"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.7
+	}			
+	division= {			
+		name = "Nelson Home Guard"
+		location = 12632  # Nelson
+		division_template = "Home Guard"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.7
+	}			
+	division= {			
+		name = "Otago Home Guard"
+		location = 2211  # Dunedin
+		division_template = "Home Guard"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.7
+	}			
+	division= {			
+		name = "Southland Home Guard"
+		location = 8241
+		division_template = "Home Guard"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.7
+	}			
+	division= {			
+		name = "Taranaki Home Guard"
+		location = 12604  # New Plymouth
+		division_template = "Home Guard"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.7
+	}			
+	division= {			
+		name = "Wellington Home Guard"
+		location = 1814  # Wellington
+		division_template = "Home Guard"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.7
+	}			
+	division= {			
+		name = "Westland Home Guard"
+		location = 8204  # Hokitika
+		division_template = "Home Guard"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.7
+	}			
+}

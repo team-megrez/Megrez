@@ -1,0 +1,93 @@
+﻿##### Division Templates #####
+division_template = {
+	name = "Reisimint na bhFórsaí Cosanta Áitiúla" # LDF had 10 regiments with a 1942 strength of 98,429
+    is_locked = yes
+	force_allow_recruiting = yes
+	priority = 0
+
+	regiments = {
+		militia = { x = 0 y = 0 } # LDF was trained by the police, and was outfitted with rifles only
+		militia = { x = 0 y = 1 }
+		militia = { x = 0 y = 2 }
+		militia = { x = 1 y = 0 }
+		militia = { x = 1 y = 1 }
+		militia = { x = 1 y = 2 }
+		militia = { x = 2 y = 0 }
+		militia = { x = 2 y = 1 }
+		militia = { x = 2 y = 2 }
+	}
+}
+
+###### OOB ######
+units = {
+	division= {			
+		name = "The Regiment of Oriel"
+		location = 3359  # Dundalk
+		division_template = "Reisimint na bhFórsaí Cosanta Áitiúla"
+		start_experience_factor = 0.14 # These are actual trained militia
+		start_equipment_factor = 0.9 # To represent the stragglers arriving late.
+	}			
+	division= {			
+		name = "The Regiment of Leinster"
+		location = 285  # Wexford
+		division_template = "Reisimint na bhFórsaí Cosanta Áitiúla"
+		start_experience_factor = 0.14 # These are actual trained militia
+		start_equipment_factor = 0.9 # To represent the stragglers arriving late.
+	}			
+	division= {			
+		name = "The Regiment of Dublin"
+		location = 11293  # Dublin
+		division_template = "Reisimint na bhFórsaí Cosanta Áitiúla"
+		start_experience_factor = 0.14 # These are actual trained militia
+		start_equipment_factor = 0.9 # To represent the stragglers arriving late.
+	}			
+	division= {			
+		name = "The Regiment of Ossory"
+		location = 11237  # Waterford
+		division_template = "Reisimint na bhFórsaí Cosanta Áitiúla"
+		start_experience_factor = 0.14 # These are actual trained militia
+		start_equipment_factor = 0.9 # To represent the stragglers arriving late.
+	}			
+	division= {			
+		name = "The Regiment of Thomond"
+		location = 6289  # Limerick
+		division_template = "Reisimint na bhFórsaí Cosanta Áitiúla"
+		start_experience_factor = 0.14 # These are actual trained militia
+		start_equipment_factor = 0.9 # To represent the stragglers arriving late.
+	}			
+	division= {			
+		name = "The Regiment of Connacht"
+		location = 9303  # Galway
+		division_template = "Reisimint na bhFórsaí Cosanta Áitiúla"
+		start_experience_factor = 0.14 # These are actual trained militia
+		start_equipment_factor = 0.9 # To represent the stragglers arriving late.
+	}			
+	division= {			
+		name = "The Regiment of Breffni"
+		location = 11371  # Sligo
+		division_template = "Reisimint na bhFórsaí Cosanta Áitiúla"
+		start_experience_factor = 0.14 # These are actual trained militia
+		start_equipment_factor = 0.9 # To represent the stragglers arriving late.
+	}			
+	division= {			
+		name = "The Regiment of Tyrconnell"
+		location = 337  # Donegal
+		division_template = "Reisimint na bhFórsaí Cosanta Áitiúla"
+		start_experience_factor = 0.14 # These are actual trained militia
+		start_equipment_factor = 0.9 # To represent the stragglers arriving late.
+	}			
+	division= {			
+		name = "The Regiment of Uisneach"
+		location = 303  # Tullamore
+		division_template = "Reisimint na bhFórsaí Cosanta Áitiúla"
+		start_experience_factor = 0.14 # These are actual trained militia
+		start_equipment_factor = 0.9 # To represent the stragglers arriving late.
+	}			
+	division= {			
+		name = "The Regiment of Desmond"
+		location = 7394  # Cork
+		division_template = "Reisimint na bhFórsaí Cosanta Áitiúla"
+		start_experience_factor = 0.14 # These are actual trained militia
+		start_equipment_factor = 0.9 # To represent the stragglers arriving late.
+	}			
+}

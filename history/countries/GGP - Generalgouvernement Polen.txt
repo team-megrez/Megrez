@@ -1,0 +1,74 @@
+﻿#########################################################################
+# Generalgouvernement Polen - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 88
+	set_research_slots = 1
+	set_stability = 0.5
+	set_war_support = 0.3
+	set_convoys = 50
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		Small_Arms_1916 = 2
+		Small_Arms_1935 = 2
+		tech_mountaineers = 2
+		tech_support = 1
+		tech_recon = 1
+		transport = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = fascist
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 100
+		authoritarian = 0
+		democratic = 0
+		socialist = 0
+		communist = 0
+	}
+	add_ideas = {
+		GER_RK_repression
+		# Laws and Policies
+		volunteer_only
+		export_focus
+		war_economy
+		# Cabinet
+		GGP_D_Josef_Buhler
+		GGP_FM_Hans_Frank
+		GGP_MoS_Friedrich_Wilhelm_Kruger
+		GGP_AM_Hermann_Senkowsky
+		GGP_HoI_Koppe_Wilhelm
+		# Military Staff
+		GGP_CoStaff_Curt_Ludwig_Freiherr_von_Gienanth
+		GGP_CoArmy_Curt_Ludwig_Freiherr_von_Gienanth
+		GGP_CoNavy_Erich_Raeder
+		GGP_CoAir_Hermann_Goring
+	}
+	#######################
+	# Leaders
+	#######################
+	# Fascism
+	create_country_leader = {
+		name = "Hans Frank"
+		picture = GFX_P_F_Hans_Frank
+		expire = "1946.10.16"
+		ideology = national_socialism
+		traits = {
+			POSITION_GER_Generalgouverneur
+			SUBIDEOLOGY_National_Socialism
+			L_Ruthless_Powermonger
+		}
+	}
+	#######################
+	# Generals
+	#######################
+}

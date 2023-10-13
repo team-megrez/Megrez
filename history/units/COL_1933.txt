@@ -1,0 +1,65 @@
+﻿division_template = {
+	name = "División de Infanteria"			# Represents regional reserve mixed brigades
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+	}
+}
+
+units = {
+    ##### 1a Region Militar #####
+    division = {
+        name = "1a Brigada de Infanteria"
+        location = 10747 # Bogata (Santa Fe de Bogo)
+        division_template = "División de Infanteria"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.15
+    }
+    ##### 2a Region Militar #####
+    division = {
+        name = "2a Brigada de Infanteria"
+        location = 8056 # Barranquilla
+        division_template = "División de Infanteria"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.15
+    }
+    ##### 3a Region Militar #####
+    division = {
+        name = "3a Brigada de Infanteria"
+        location = 7936 # Cali
+        division_template = "División de Infanteria"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.15
+    }
+    ##### 4a Region Militar #####
+    division = {
+        name = "4a Brigada de Infanteria"
+        location = 2023 # Medellin
+        division_template = "División de Infanteria"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.15
+    }
+    ##### 5a Region Militar #####
+    division = {
+        name = "5a Brigada de Infanteria"
+        location = 12845 # Cucuta
+        division_template = "División de Infanteria"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.15
+    }
+}
+### Starting Production ###
+instant_effect = {
+    add_equipment_production = {
+        equipment = {
+            type = Small_Arms_equipment_1900
+            creator = "COL"
+        }
+        requested_factories = 1
+        progress = 0.33
+        efficiency = 100
+    }
+}

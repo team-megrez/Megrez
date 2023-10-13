@@ -1,0 +1,479 @@
+﻿################################
+# Canada - 1933
+################################
+1933.1.1 = {
+	capital = 276
+	oob = "CAN_1933"
+	set_research_slots = 3
+	set_stability = 0.9
+	set_convoys = 100
+	add_to_variable = { money = 250 }
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		### Infantry Tech
+		Small_Arms_1900 = 1
+		Small_Arms_1916 = 1
+		Infantry_Kit_1914 = 1
+		Infantry_Kit_1918 = 1
+
+		Heavy_Weapons_1905 = 1
+		Heavy_Weapons_1916 = 1
+		### Support Company Tech
+		tech_support = 1
+		tech_engineers = 1
+		tech_recon = 1
+		### Artillery
+		Artillery_1910 = 1
+		Anti_Aircraft_Gun_1914 = 1
+		Artillery_Range_Finding_and_Surveying_Tools = 1
+		Infantry_Support_Gun_1914 = 1
+		Artillery_1916 = 1
+		### Air
+		Unarmed_Recon_1910 = 1
+		Fighter_1914 = 1
+		Fighter_1916 = 1
+		Fighter_1918 = 1
+		Fighter_1924 = 1
+		Fighter_Bomber_1916 = 1
+		Fighter_Bomber_1918 = 1
+		Fighter_Bomber_1924 = 1
+		Tactical_Bomber_1914 = 1
+		Tactical_Bomber_1916 = 1
+		Tactical_Bomber_1918 = 1
+		Tactical_Bomber_1925 = 1
+		Strategic_Bomber_1916 = 1
+		#### Armour Tech
+		Motorized_1916 = 1
+		Armored_Car_1911 = 1
+		Armored_Car_1916 = 1
+		Armored_Car_1926 = 1
+		Heavy_Tank_1916 = 1
+		Heavy_Tank_1917 = 1
+		### Naval Stuff
+		DD_1885 = 1
+		DD_1900 = 1
+		DD_1912 = 1
+		DD_1916 = 1
+		DD_1922 = 1
+		CL_1885 = 1
+		CL_1900 = 1
+		transport = 1
+		### Industry
+		Industrial_Management = 1
+		Factory_Electrification = 1
+		Facilities_Design = 1
+		Moving_Assembly_Line = 1
+		Skilled_Workforce = 1
+		Concentrated_Industry = 1
+		Basic_Construction_Machines = 1
+		Novel_Drills = 1
+		Contemporary_Construction_Standards = 1
+		Advanced_Drilling_Method = 1
+		Construction_Site_Management = 1
+		Motorized_Plowing = 1
+		Farm_Tractors = 1
+		Scientific_Agricultural_Processes = 1
+		Mechanized_Agriculture = 1
+		### Land Doctrines
+		Twentieth_Century_Warfare = 1
+		Leading_by_Order = 1
+		Strongpoint = 1
+		Mass_Charge = 1
+		Static_Defence = 1
+		Counterattack = 1
+		Defence_In_Depth = 1
+		Separate_Arms_Force = 1
+		Combined_Arms_Effort = 1
+		Specialized_Branch_Tactical_Experience = 1
+		Beyond_Trench_Warfare = 1
+		### Navy Doctrine
+		fleet_in_being = 1
+		battlefleet_concentration = 1
+		convoy_sailing = 1
+		### Engineering
+		computing_1 = 1
+		computing_2 = 1
+		computing_3 = 1
+		decryption_encryption_1 = 1
+		### Support Companies
+		tech_engineers = 1
+		tech_assault_weapons_1 = 1
+		tech_assault_weapons_2 = 1
+		tech_assault_weapons_3 = 1
+		tech_entrenchment_1 = 1
+		tech_entrenchment_2 = 1
+		tech_entrenchment_3 = 1
+		tech_amphibious_1 = 1
+		tech_amphibious_2 = 1
+		tech_amphibious_3 = 1
+		tech_recon = 1
+		tech_recon2 = 1
+		tech_recon3 = 1
+		tech_recon4 = 1
+		tech_military_police = 1
+		tech_military_police2 = 1
+		tech_military_police3 = 1
+		tech_military_police4 = 1
+		tech_signal_company = 1
+		tech_signal_company2 = 1
+		tech_field_hospital = 1
+		tech_field_hospital_psychology_1 = 1
+		tech_field_hospital_psychology_2 = 1
+		tech_field_hospital_psychology_3 = 1
+		tech_field_hospital_health_1 = 1
+		tech_field_hospital_health_2 = 1
+		tech_field_hospital_health_3 = 1
+		tech_logistics_company = 1
+		tech_logistics_company2 = 1
+		tech_logistics_company3 = 1
+		tech_logistics_company4 = 1
+		tech_maintenance_company = 1
+		tech_maintenance_company2 = 1
+		tech_maintenance_company3 = 1
+		tech_maintenance_company4 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1930.7.28"
+		election_frequency = 60
+		elections_allowed = yes
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 1
+		democratic = 98
+		socialist = 1
+		communist = 0
+	}
+	add_ideas = {
+		CAN_Conscription_Crisis_among_French_Canadians
+		# Cabinet
+		CAN_D_Vere_Ponsonby
+		CAN_FM_Mackenzie_King
+		CAN_AM_Ian_A_Mackenzie
+		CAN_MoS_Ernest_Lapointe
+		CAN_HoI_Henry_Crerar
+		mixed_economy
+		full_civil_liberties
+		# Military Staff
+		CAN_CoStaff_Ernest_Ashton
+		CAN_CoArmy_Ernest_Ashton
+		CAN_CoNavy_Percy_Nelles
+		CAN_CoAir_George_Croil
+	}
+	#######################
+	# Diplomacy
+	#######################
+	set_country_flag = monroe_doctrine
+	set_cosmetic_tag = CAN_ENG
+	add_to_tech_sharing_group = commonwealth_research
+	#######################
+	# Leaders
+	#######################
+	# Fascism
+	create_country_leader = {
+		name = "Adrien Arcand"
+		desc = ""
+		picture = GFX_P_F_Adrien_Arcand
+		expire = "1965.1.1"
+		ideology = national_socialism
+		traits = {
+			POSITION_GER_Fuhrer
+			SUBIDEOLOGY_National_Socialism
+			L_Barking_Buffoon
+		}
+	}
+	# Authoritarian
+	create_country_leader = {
+		name = "John Horne Blackmore"
+		desc = ""
+		picture = GFX_P_A_John_Horne_Blackmoore
+		expire = "1965.1.1"
+		ideology = authoritarian_democracy
+		traits = {
+			POSITION_Prime_Minister
+			SUBIDEOLOGY_Authoritarian_Democracy
+			L_Happy_Amateur
+		}
+	}
+	# Democracy
+	create_country_leader = {
+		name = "R. B. Bennett"
+		desc = ""
+		picture = GFX_P_D_R_B_Bennett
+		expire = "1950.7.22"
+		ideology = social_conservatism
+		traits = {
+			POSITION_Prime_Minister
+			SUBIDEOLOGY_Social_Conservatism
+			L_Silent_Workhorse
+		}
+	}
+	# Socialism
+	create_country_leader = {
+		name = "George Armstrong"
+		desc = ""
+		picture = GFX_P_S_George_Armstrong
+		expire = "1965.1.1"
+		ideology = socialism
+		traits = {
+			POSITION_Prime_Minister
+			SUBIDEOLOGY_Democratic_Socialism
+			L_Autocratic_Charmer
+		}
+	}
+	# Communism
+	create_country_leader = {
+		name = "Tim Buck"
+		desc = ""
+		picture = GFX_P_C_Tim_Buck
+		expire = "1965.1.1"
+		ideology = stalinism
+		traits = {
+			POSITION_General_Secretary
+			L_Ambitious_Union_Boss
+		}
+	}
+	#######################
+	# Generals
+	#######################
+	create_corps_commander = {
+		name = "Thomas Victor Anderson"
+	    id = 47000
+		GFX = GFX_M_Thomas_Victor_Anderson
+		traits = {
+		}
+		skill = 4
+		attack_skill = 2
+		defense_skill = 3
+		planning_skill = 3
+		logistics_skill = 5
+	}
+	create_field_marshal = {
+		name = "Charles Foulkes"
+	    id = 47001
+		GFX = GFX_M_Charles_Foulkes
+		traits = {
+		}
+		skill = 4
+		attack_skill = 4
+		defense_skill = 2
+		planning_skill = 4
+		logistics_skill = 3
+	}
+	create_corps_commander = {
+		name = "John Montague"
+	    id = 47002
+		GFX = GFX_M_John_Montague
+		traits = {
+		}
+		skill = 3
+		attack_skill = 1
+		defense_skill = 1
+		planning_skill = 3
+		logistics_skill = 5
+	}
+	create_corps_commander = {
+		name = "Bert Hoffmeister"
+	    id = 47003
+		GFX = GFX_M_Bert_Hoffmeister
+		traits = {
+			hill_fighter
+		}
+		skill = 4
+		attack_skill = 4
+		defense_skill = 3
+		planning_skill = 3
+		logistics_skill = 3
+	}
+	#######################
+	# Admirals
+	#######################
+	create_navy_leader = {
+		name = "Leonard W. Murray"
+		GFX = GFX_P_Vacant
+		traits = {
+		}
+		skill = 4
+		attack_skill = 4
+		defense_skill = 3
+		maneuvering_skill = 3
+		coordination_skill = 3
+	}
+	create_navy_leader = {
+		name = "H.T. Baillie-Grohman"
+		GFX = GFX_P_Vacant
+		traits = {
+			spotter
+		}
+		skill = 4
+		attack_skill = 3
+		defense_skill = 3
+		maneuvering_skill = 3
+		coordination_skill = 4
+	}
+	create_navy_leader = {
+		name = "James D. Prentice"
+		GFX = GFX_P_Vacant
+		traits = {
+			spotter
+		}
+		skill = 3
+		attack_skill = 3
+		defense_skill = 2
+		maneuvering_skill = 3
+		coordination_skill = 2
+	}
+	create_navy_leader = {
+		name = "Harry DeWolf"
+		GFX = GFX_P_Vacant
+		traits = {
+			superior_tactician
+		}
+		traits = {
+			superior_tactician
+			bold
+		}
+		skill = 4
+		attack_skill = 3
+		defense_skill = 2
+		maneuvering_skill = 3
+		coordination_skill = 5
+	}
+}
+################################
+# Canada - 1936
+################################
+1936.1.1 = {
+	oob = "CAN_1936"
+	#######################
+	# Research
+	#######################
+	set_technology = {
+		Small_Arms_1916 = 1
+		Small_Arms_1935 = 1
+		tech_support = 1
+		tech_engineers = 1
+		tech_recon = 1
+		Artillery_1910 = 1
+		Fighter_1933 = 1
+		Naval_Bomber_1936 = 1
+		Tactical_Bomber_1933 = 1
+		Strategic_Bomber_1933 = 1
+		# Armour Tech
+		Heavy_Tank_1916 = 1
+		Heavy_Tank_1917 = 1
+		#Naval Stuff
+		DD_1885 = 1
+		DD_1900 = 1
+		DD_1912 = 1
+		DD_1916 = 1
+		DD_1922 = 1
+		DD_1933 = 1
+		CL_1885 = 1
+		CL_1900 = 1
+		CL_1912 = 1
+		SS_1895 = 1
+		SS_1912 = 1
+		SS_1916 = 1
+		SS_1922 = 1
+		transport = 1
+		#
+		Trench_Warfare = 1
+		fleet_in_being = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1935.10.14"
+		election_frequency = 60
+		elections_allowed = yes
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 1
+		democratic = 98
+		socialist = 1
+		communist = 0
+	}
+	add_ideas = {
+		# Cabinet
+		CAN_D_John_Buchan
+		CAN_FM_Mackenzie_King
+		CAN_AM_Ian_A_Mackenzie
+		CAN_MoS_Ernest_Lapointe
+		CAN_HoI_Henry_Crerar
+		mixed_economy
+		full_civil_liberties
+		# Military Staff
+		CAN_CoStaff_Ernest_Ashton
+		CAN_CoArmy_Ernest_Ashton
+		CAN_CoNavy_Percy_Nelles
+		CAN_CoAir_George_Croil
+	}
+	#######################
+	# Diplomacy
+	#######################
+	set_country_flag = monroe_doctrine
+	set_cosmetic_tag = CAN_ENG
+	add_to_tech_sharing_group = commonwealth_research
+	#######################
+	# Leaders
+	#######################
+	# Democracy
+	create_country_leader = {
+		name = "Mackenzie King"
+		desc = "Mackenzie_King_desc"
+		picture = GFX_P_D_Mackenzie_King
+		expire = "1950.7.22"
+		ideology = social_liberalism
+		traits = {
+			POSITION_Prime_Minister
+			SUBIDEOLOGY_Social_Conservatism
+			L_Flamboyant_Tough_Guy
+		}
+	}
+}
+################################
+# Canada - 1940
+################################
+1940.5.10 = {
+	oob = "CAN_1940"
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1935.10.14"
+		election_frequency = 60
+		elections_allowed = yes
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 1
+		democratic = 98
+		socialist = 1
+		communist = 0
+	}
+	add_ideas = {
+		# Cabinet
+		CAN_D_Alexander_Cambridge
+		CAN_FM_Mackenzie_King
+		CAN_AM_James_Ralston
+		CAN_MoS_Ernest_Lapointe
+		CAN_HoI_Henry_Crerar
+		# Military Staff
+		CAN_CoStaff_Thomas_Anderson
+		CAN_CoArmy_Thomas_Anderson
+		CAN_CoNavy_Percy_Nelles
+		CAN_CoAir_George_Croil
+	}
+}

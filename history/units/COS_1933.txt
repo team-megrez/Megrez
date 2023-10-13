@@ -1,0 +1,35 @@
+﻿division_template = {
+	name = "Ejército"		# Only had a force of reservists, which were later disbanded altogether in 1948
+
+	regiments = {
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 }
+	}
+	support = {
+		artillery_battery = { x = 0 y = 0 }   # Costa Rican forces had one cannon.
+
+	}
+
+}
+
+units = {
+    division = {
+        name = "Ejército de Costa Rica"
+        location = 13087
+        division_template = "Ejército"
+		start_experience_factor = 0.1
+        start_equipment_factor = 1
+    }
+}
+##### No notable armed forces #####
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = Small_Arms_equipment_1900
+			creator = "COS"
+		}
+		requested_factories = 1
+		progress = 0.51
+		efficiency = 100
+	}
+}

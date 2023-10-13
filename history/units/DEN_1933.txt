@@ -1,0 +1,121 @@
+﻿division_template = {
+	name = "Infanteri Division"
+	division_names_group = DEN_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+		infantry = { x = 0 y = 4 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 1 y = 3 }
+		infantry = { x = 1 y = 4 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 2 y = 3 }
+		infantry = { x = 2 y = 4 }
+		cavalry = { x = 3 y = 0 }
+		cavalry = { x = 3 y = 1 }
+		cavalry = { x = 3 y = 2 }
+		motorized_artillery_battalion = { x = 4 y = 0 }
+		motorized_artillery_battalion = { x = 4 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		anti_air_battery = { x = 0 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Garnisonbataljon"
+
+	regiments = {
+		garrison = { x = 0 y = 0 }
+	}
+}
+units = {
+	##### Sjællenske Division #####
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 6287 # Copenhagen
+        division_template = "Infanteri Division"
+        start_experience_factor = 0.10
+        start_equipment_factor = 0.2 # The divisions were largely just cadre forces for training the annual conscripts
+	}
+	##### Jydske Division #####
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 3206 # Viborg
+        division_template = "Infanteri Division"
+        start_experience_factor = 0.10
+        start_equipment_factor = 0.2 # The divisions were largely just cadre forces for training the annual conscripts
+	}
+	division = {
+		name = "Bornholms Værn"
+		location = 6361 # Bornholm
+        division_template = "Garnisonbataljon"
+        start_experience_factor = 0.10
+        start_equipment_factor = 0.7
+	}
+    ##### navy oob #####
+    fleet = {
+        name = "Kongelinge Danske Marine"
+        naval_base = 6287 # Copenhagen
+        task_force = {
+            name = "Kongelinge Danske Marine"
+            location = 6287 # Copenhagen
+            ship = { name = "KDM Olfert Fischer" definition = heavy_cruiser equipment = { CA_equipment_1895 = { amount = 1 owner = DEN } } }
+            ship = { name = "KDM Peder Skram" definition = heavy_cruiser equipment = { CA_equipment_1895 = { amount = 1 owner = DEN } } }
+            ship = { name = "KDM Niels Juel" definition = light_cruiser equipment = { CL_equipment_1912 = { amount = 1 owner = DEN } } }
+            ship = { name = "1. Torpedobådsflotille" definition = destroyer equipment = { DD_equipment_1885 = { amount = 1 owner = DEN } } }
+            ship = { name = "2. Torpedobådsflotille" definition = destroyer equipment = { DD_equipment_1885 = { amount = 1 owner = DEN } } }
+            ship = { name = "3. Torpedobådsflotille" definition = destroyer equipment = { DD_equipment_1885 = { amount = 1 owner = DEN } } }
+            ship = { name = "4. Torpedobådsflotille" definition = destroyer equipment = { DD_equipment_1885 = { amount = 1 owner = DEN } } }
+            ship = { name = "1. Ubådsflotille" definition = submarine equipment = { SS_equipment_1912 = { amount = 1 owner = DEN } } }
+            ship = { name = "2. Ubådsflotille" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = DEN } } }
+            ship = { name = "3. Ubådsflotille" definition = submarine equipment = { SS_equipment_1922 = { amount = 1 owner = DEN } } }
+        }
+    }
+}
+
+air_wings = {
+    37 = {
+        # 1. Gruppe
+        Fighter_equipment_1933 = {
+            owner = "DEN"
+            amount = 20
+        }
+    }
+}
+### Starting Production ###
+instant_effect = {
+    add_equipment_production = {
+        equipment = {
+            type = Small_Arms_equipment_1900
+            creator = "DEN"
+        }
+        requested_factories = 1
+        progress = 0.85
+        efficiency = 100
+    }
+
+    add_equipment_production = {
+        equipment = {
+            type = Anti_Aircraft_Gun_equipment_1935
+            creator = "DEN"
+        }
+        requested_factories = 1
+        progress = 0.54
+        efficiency = 100
+    }
+}

@@ -1,0 +1,152 @@
+﻿#########################################################################
+# Northeastern Army - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 608
+	oob = "NEA_1933"
+	# Starting tech
+	set_technology = {
+	basic_train = 1
+		### Infantry Tech
+		Small_Arms_1900 = 1
+		Small_Arms_1916 = 1
+		Infantry_Kit_1914 = 1
+		Infantry_Kit_1918 = 1
+
+		Heavy_Weapons_1905 = 1
+		Heavy_Weapons_1916 = 1
+		### Artillery Tech
+		Artillery_1910 = 1
+		### Armour Tech
+		Armored_Car_1911 = 1
+		### Air Tech
+		Unarmed_Recon_1910 = 1
+		Fighter_1914 = 1
+		Fighter_1916 = 1
+		### Industry
+		Motorized_Plowing = 1
+		### Land Doctrines
+		Twentieth_Century_Warfare = 1
+		Leading_by_Order = 1
+		Strongpoint = 1
+		Mass_Charge = 1
+		Static_Defence = 1
+		Counterattack = 1
+		Defence_In_Depth = 1
+		Separate_Arms_Force = 1
+		Combined_Arms_Effort = 1
+		Specialized_Branch_Tactical_Experience = 1
+	}
+	set_politics = {
+		ruling_party = authoritarian
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 100
+		democratic = 0
+		socialist = 0
+		communist = 0
+	}
+	add_ideas = {
+		NEA_Remnants_of_Fengtian_Clique
+		NEA_Legacy_of_the_Old_Marshal
+		# Cabinet
+		NEA_D_Wan_Fulin
+		agrarian_economy
+	}
+	create_country_leader = {
+		name = "Zhang Xueliang"
+		desc = ""
+		picture = GFX_P_A_Zhang_Xueliang
+		expire = "1965.1.1"
+		ideology = military_dictatorship
+		traits = {
+			POSITION_Commander_in_Chief
+			SUBIDEOLOGY_Military_Dictatorship
+			L_The_Young_Marshal
+		}
+	}
+	create_field_marshal = {
+		name = "Zhang Xueliang"
+		id = 191000
+		GFX = GFX_M_Zhang_Xueliang
+		traits = {
+		}
+		skill = 3
+		attack_skill = 3
+		defense_skill = 3
+		planning_skill = 2
+		logistics_skill = 2
+	}
+	create_corps_commander = {
+		name = "Lu Zhengcao"
+		id = 191001
+		GFX = GFX_lu_zhengcao
+		traits = {
+		}
+		skill = 2
+		attack_skill = 2
+		defense_skill = 2
+		planning_skill = 2
+		logistics_skill = 3
+	}
+	create_corps_commander = {
+		name = "Liu Doujun"
+		id = 191002
+		GFX = GFX_liu_doujun
+		traits = {
+		}
+		skill = 1
+		attack_skill = 2
+		defense_skill = 1
+		planning_skill = 2
+		logistics_skill = 1
+	}
+	create_corps_commander = {
+		name = "Tang Yulin"
+		id = 191003
+		GFX = GFX_tangyulin
+		traits = {
+		}
+		skill = 1
+		attack_skill = 1
+		defense_skill = 2
+		planning_skill = 1
+		logistics_skill = 1
+	}
+	create_corps_commander = {
+		name = "Wan Fulin"
+		id = 191004
+		GFX = GFX_wanfulin
+		traits = {
+		}
+		skill = 2
+		attack_skill = 2
+		defense_skill = 2
+		planning_skill = 1
+		logistics_skill = 2
+	}
+	create_corps_commander = {
+		name = "Wang Yizhe"
+		id = 191005
+		GFX = GFX_wangyizhe
+		traits = {
+		}
+		skill = 1
+		attack_skill = 1
+		defense_skill = 1
+		planning_skill = 1
+		logistics_skill = 1
+	}
+}
+
+#########################################################################
+# Northeastern Army - 1936
+#########################################################################
+1936.1.1 = {
+	capital = 744
+	oob = "NEA_1936"
+}

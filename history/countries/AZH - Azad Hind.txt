@@ -1,0 +1,45 @@
+﻿#########################################################################
+# Azad Hind - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 439
+	#######################
+	# Research
+	#######################
+	set_technology = {
+		basic_train = 1
+		Small_Arms_1916 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = fascist
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 60
+		authoritarian = 10
+		democratic = 0
+		socialist = 25
+		communist = 5
+	}
+	#######################
+	# Leaders
+	#######################
+	create_country_leader = {
+		name = "Subhas Chandra Bose"
+		desc = ""
+		picture = GFX_P_S_Subhas_Chandra_Bose
+		expire = "1965.1.1"
+		ideology = fascism
+		traits = {
+			POSITION_Prime_Minister SUBIDEOLOGY_Fascism L_Naive_Optimist
+		}
+	}
+	#######################
+	# Generals
+	#######################
+}

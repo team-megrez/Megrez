@@ -1,0 +1,254 @@
+﻿################################
+# Chile - 1933
+################################
+1933.1.1 = {
+	oob = "CHL_1933"
+	capital = 279
+	set_convoys = 20
+	add_to_variable = { money = 150 }
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		### Infantry Tech
+		Small_Arms_1900 = 1
+		Small_Arms_1916 = 1
+		Infantry_Kit_1914 = 1
+		Infantry_Kit_1918 = 1
+
+		Heavy_Weapons_1905 = 1
+		Heavy_Weapons_1916 = 1
+		### Armour Tech
+		Motorized_1916 = 1
+		Armored_Car_1911 = 1
+		Armored_Car_1916 = 1
+		Armored_Car_1926 = 1
+		### Artillery Tech
+		Artillery_1910 = 1
+		Anti_Aircraft_Gun_1914 = 1
+		Artillery_Range_Finding_and_Surveying_Tools = 1
+		Infantry_Support_Gun_1914 = 1
+		Artillery_1916 = 11
+		### Air Tech
+		Unarmed_Recon_1910 = 1
+		Fighter_1914 = 1
+		Fighter_1916 = 1
+		Fighter_1918 = 1
+		Fighter_1924 = 1
+		### Naval Stuff
+		DD_1885 = 1
+		DD_1900 = 1
+		DD_1912 = 1
+		DD_1916 = 1
+		DD_1922 = 1
+		DD_1933 = 1
+		CL_1885 = 1
+		CL_1900 = 1
+		CL_1912 = 1
+		CA_1885 = 1
+		CA_1895 = 1
+		CA_1906 = 1
+		BB_1885 = 1
+		BB_1895 = 1
+		BB_1900 = 1
+		BB_1906 = 1
+		BB_1912 = 1
+		BB_1916 = 1
+		BB_1922 = 1
+		BB_1933 = 1
+		SS_1895 = 1
+		SS_1912 = 1
+		SS_1916 = 1
+		SS_1922 = 1
+		transport = 1
+		### Industry
+		Basic_Construction_Machines = 1
+		Motorized_Plowing = 1
+		Farm_Tractors = 1
+		Scientific_Agricultural_Processes = 1
+		Mechanized_Agriculture = 1
+		### Land Doctrines
+		Twentieth_Century_Warfare = 1
+		Leading_by_Order = 1
+		Strongpoint = 1
+		Mass_Charge = 1
+		Static_Defence = 1
+		Counterattack = 1
+		Defence_In_Depth = 1
+		Separate_Arms_Force = 1
+		Combined_Arms_Effort = 1
+		Specialized_Branch_Tactical_Experience = 1
+		#
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1932.10.30"
+		election_frequency = 72  #but 4 years after this one in 1938.
+		elections_allowed = yes
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 12
+		democratic = 87
+		socialist = 0
+		communist = 1
+	}
+	add_ideas = {
+		CHL_D_Alberto_Cabera_Diaz
+		industrializing_economy
+		neutrality
+		limited_civil_liberties
+	}
+	#######################
+	# Diplomacy
+	#######################
+	set_country_flag = monroe_doctrine
+	#######################
+	# Leaders
+	#######################
+	# Fascism
+	create_country_leader = {
+		name = "Jorge González von Marées"
+		desc = ""
+		picture = GFX_P_F_Jorge_Gonzalez_von_Marees
+		expire = "1965.1.1"
+		ideology = national_socialism
+		traits = {
+			POSITION_Jefe_Supremo
+			SUBIDEOLOGY_National_Socialism
+			L_Autocratic_Charmer
+		}
+	}
+	# Autocracy
+	create_country_leader = {
+		name = "Carlos Ibáñez del Campo"
+		desc = ""
+		picture = GFX_P_A_Carlos_Ibanez_del_Campo
+		expire = "1965.1.1"
+		ideology = military_dictatorship
+		traits = {
+			POSITION_President
+			SUBIDEOLOGY_Military_Dictatorship
+			L_Resigned_Generalissimo
+		}
+	}
+	# Democracy
+	create_country_leader = {
+		name = "Arturo Alessandri Palma"
+		desc = ""
+		picture = GFX_P_D_Arturo_Alessandri
+		expire = "1965.1.1"
+		ideology = classical_liberalism
+		traits = {
+			POSITION_President
+			SUBIDEOLOGY_Classical_Liberalism
+			L_Stern_Imperialist
+		}
+	}
+	# Socialism
+	create_country_leader = {
+		name = "Marmaduke Grove"
+		desc = ""
+		picture = GFX_P_S_Marmaduke_Grove
+		expire = "1965.1.1"
+		ideology = socialism
+		traits = {
+			POSITION_President
+			SUBIDEOLOGY_Socialism
+			L_Barking_Buffoon
+		}
+	}
+	# Communism
+	create_country_leader = {
+		name = "Elías Lafferte"
+		desc = ""
+		picture = GFX_P_C_Elias_Lafferte
+		expire = "1965.1.1"
+		ideology = marxism_leninism
+		traits = {
+			POSITION_General_Secretary
+			SUBIDEOLOGY_Marxism_Leninism
+			L_Popular_Figurehead
+		}
+	}
+	#######################
+	# Generals
+	#######################
+	create_corps_commander = {
+		name = "Escudero Oscar Otárola"
+	    id = 55000
+		GFX = GFX_P_Vacant
+		traits = { trait_mountaineer }
+		skill = 4
+		attack_skill = 4
+		defense_skill = 2
+		planning_skill = 4
+		logistics_skill = 3
+	}
+}
+#################################
+# Chile - 1936
+#################################
+1936.1.1 = {
+	oob = "CHL_1936"
+	add_ideas = {
+		CHL_D_Ignacio_Urrutia_Manzanio
+		industrializing_economy
+		neutrality
+		limited_civil_liberties
+	}
+}
+#################################
+# Chile - 1939
+#################################
+1939.9.1 = {
+	#######################
+	# Politics
+	#######################
+	set_party_name = {
+		ideology = democratic
+		long_name = CHL_democratic_party_1939_long
+		name = CHL_democratic_party_1939
+	}
+	#######################
+	# Leaders
+	#######################
+	# Democracy
+	create_country_leader = {
+		name = "Pedro Aguirre Cerda"
+		desc = ""
+		picture = GFX_P_D_Pedro_Aguirre_Cerda
+		expire = "1965.1.1"
+		ideology = social_democracy
+		traits = {
+			POSITION_President
+			SUBIDEOLOGY_Social_Democracy
+			L_Benevolent_Gentleman
+		}
+	}
+}
+#################################
+# Chile - 1942
+#################################
+1942.11.22 = {
+	#######################
+	# Leaders
+	#######################
+	# Democracy
+	create_country_leader = {
+		name = "Juan Antonio Ríos"
+		desc = ""
+		picture = GFX_P_D_Juan_Antonio_Ríos
+		expire = "1965.1.1"
+		ideology = social_democracy
+		traits = {
+			POSITION_President
+			SUBIDEOLOGY_Social_Democracy
+			L_Weary_Stiff_Neck
+		}
+	}
+}

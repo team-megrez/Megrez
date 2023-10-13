@@ -1,0 +1,79 @@
+﻿#########################################################################
+# Tunisia - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 458
+	oob = "TUN_1933"
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+
+		Small_Arms_1916 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = authoritarian
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 45
+		democratic = 20
+		socialist = 10
+		communist = 25
+	}
+	#######################
+	# Leaders
+	#######################
+	# Authoritarian
+	create_country_leader = {
+		name = "Ahmad II"
+		desc = ""
+		picture = GFX_P_A_Ahmad_II
+		expire = "1942.6.19"
+		ideology = monarchism
+		traits = { 
+			POSITION_Bey
+			SUBIDEOLOGY_Monarchism
+			L_Resigned_Generalissimo
+		}
+	}
+	#######################
+	# Ideas
+	#######################
+
+	add_ideas = {
+		TUN_Economic_Crisis
+	}
+
+	#######################
+	# Generals
+	#######################
+}
+
+#########################################################################
+# Tunisia - 1943
+#########################################################################
+1943.7.26 = {
+	#######################
+	# Leaders
+	#######################
+	# Authoritarian
+	create_country_leader = {
+		name = "Muhammad VIII"
+		desc = ""
+		picture = GFX_P_A_Muhammad_VIII
+		expire = "1962.9.30"
+		ideology = monarchism
+		traits = { 
+			POSITION_Bey
+			SUBIDEOLOGY_Monarchism
+		}
+	}
+}

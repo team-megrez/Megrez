@@ -1,0 +1,56 @@
+
+state={
+	id=805
+	name="STATE_805"
+
+	history={
+		owner = POL
+		victory_points = {
+			3320 10
+		}
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			air_base = 5
+
+		}
+		add_core_of = POL
+		add_core_of = LIT
+		1940.5.10 = {
+			owner = SOV
+
+		}
+		1942.11.22 = {
+			controller = GER
+
+		}
+		1945.1.1 = {
+			controller = SOV
+
+		}
+		1946.1.1 = {
+			add_core_of = SOV
+			remove_core_of = POL
+			set_state_name = STATE_805_2
+			set_province_name = {
+				id = 3320
+				name = VICTORY_POINTS_3320_2
+
+			}
+
+		}
+		2000.1.1 = {
+			owner = LIT
+			remove_core_of = SOV
+
+		}
+
+	}
+
+	provinces={
+		3320 9274 9295 11342 
+	}
+	manpower=487000
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

@@ -1,0 +1,48 @@
+﻿division_template = {
+	name = "Secteur Fortifié"
+    is_locked = yes
+
+	regiments = {
+		garrison = { x = 0 y = 0 }
+		garrison = { x = 0 y = 1 }  
+		garrison = { x = 0 y = 2 }
+		garrison = { x = 1 y = 0 }
+		garrison = { x = 1 y = 1 }
+		garrison = { x = 1 y = 2 }
+		garrison = { x = 2 y = 0 }
+		garrison = { x = 2 y = 1 }
+		garrison = { x = 2 y = 2 }
+		artillery_battalion = { x = 3 y = 0 }
+		artillery_battalion = { x = 3 y = 1 }
+		artillery_battalion_light = { x = 3 y = 2 }
+		artillery_battalion_heavy = { x = 3 y = 3 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		signal_company = { x = 0 y = 1 }
+		logistics_company = { x = 0 y = 2 }
+	}
+}
+units = {
+	division = {
+		name = "Secteur défensif de Montbéliard"
+		location = 698
+		division_template = "Secteur Fortifié"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.15
+	}
+	division = {
+		name = "Secteur fortifié du Jura"
+		location = 3666
+		division_template = "Secteur Fortifié"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.15
+	}
+	division = {
+		name = "Secteur défensif du Rhône"
+		location = 9603
+		division_template = "Secteur Fortifié"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.15
+	}
+}

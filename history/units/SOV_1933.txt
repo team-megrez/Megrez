@@ -1,0 +1,1576 @@
+﻿division_template = {
+	name = "Strelkovaya Diviziya"			# Rifle Division
+	division_names_group = SOV_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 } 
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		artillery_battalion_light = { x = 3 y = 0 }
+		artillery_battalion_light = { x = 3 y = 1 }
+		artillery_battalion_light = { x = 3 y = 2 }
+		artillery_battalion = { x = 3 y = 3 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+		anti_tank_company = { x = 0 y = 1 }
+		engineer = { x = 0 y = 2 }
+		signal_company = { x = 0 y = 3 }
+		field_hospital = { x = 0 y = 4 }
+		logistics_company = { x = 1 y = 0 }
+		medium_armor_company = { x = 1 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Strelkovaya Brigada"
+	division_names_group = SOV_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 } 
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		artillery_battalion_light = { x = 2 y = 0 }
+		artillery_battalion_light = { x = 2 y = 1 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+	}
+}
+
+division_template = {
+	name = "Gornostrelkovaya Diviziya"		# Mountain Rifle Division
+	division_names_group = SOV_MTN_01
+
+	regiments = {
+		mountaineers = { x = 0 y = 0 }	
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }	
+		mountaineers = { x = 0 y = 3 }	
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+		mountaineers = { x = 1 y = 3 }	
+		artillery_battalion_light = { x = 2 y = 0 }
+		artillery_battalion_light = { x = 2 y = 1 }
+		artillery_battalion_light = { x = 2 y = 2 }
+		artillery_battalion_light = { x = 2 y = 3 }
+	}
+	support = {
+		signal_company = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 } 
+		field_hospital = { x = 0 y = 2 }
+		recon = { x = 0 y = 3 }
+	}
+}
+
+division_template = {
+	name = "Kavaleriyskaya Diviziya" 	# Cavalry Division
+	division_names_group = SOV_CAV_01
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+		artillery_battalion_light = { x = 2 y = 0 }
+		artillery_battalion_light = { x = 2 y = 1 }
+	}
+	support = {
+		armored_car_recon = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+		medium_armor_company = { x = 0 y = 3 }
+	}
+}
+
+division_template = {
+	name = "Kavaleriyskaya Brigada" 	# Cavalry Brigade
+	division_names_group = SOV_CAV_01
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		artillery_battalion_light = { x = 1 y = 0 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		signal_company = { x = 0 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Gornokavaleriyskaya Diviziya" 	# Mountain Cavalry Diviziya
+	division_names_group = SOV_CAV_01
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		artillery_battalion_light = { x = 1 y = 0 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		signal_company = { x = 0 y = 1 }
+		armored_car_recon = { x = 0 y = 2 }
+	}
+}
+
+division_template = {
+	name = "Diviziya Osobogo Naznacheniya"
+	is_locked = yes # Will be replaced by a real motor rifle division when the NKVD is formed
+
+	regiments = {
+		motorized = { x = 0 y = 0 } 
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+		motorized = { x = 2 y = 0 }
+		motorized = { x = 2 y = 1 }
+		motorized = { x = 2 y = 2 }
+		cavalry = { x = 3 y = 0 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Mekhanizirovannyy Korpus" # Mechanized Corps
+	division_names_group = SOV_MECC_01
+											
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }
+		medium_armor = { x = 1 y = 0 }
+		medium_armor = { x = 1 y = 1 }
+		medium_armor = { x = 1 y = 2 }
+		armored_car_battalion = { x = 2 y = 0 }
+		armored_car_battalion = { x = 2 y = 1 }
+		armored_car_battalion = { x = 2 y = 2 }
+		motorized_artillery_battalion = { x = 3 y = 0 }
+		motorized_artillery_battalion = { x = 3 y = 1 }
+	}
+	support = {
+		armored_car_recon = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 }
+		military_police = { x = 0 y = 2 }
+	}
+}
+
+units = {
+	###### Severno-Zapadnoe TVD (North West Theatre) -- Archangelsk ######				
+	### Leningradskii Voennyii Okrug (Leningrad Military District) -- Leningrad ###
+	#Cadre
+	#Mixed
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 72
+		}
+		location = 3151 # Leningrad
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.3
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 16
+		}
+		location = 117 # Novgorod
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.3
+	}			
+	# Territorial
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 67
+		}
+		location = 3151 # Leningrad
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.2
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 56
+		}
+		location = 11202 # Pskov
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.2
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 18
+		}
+		location = 121 # Yaroslavl 
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 54
+		}
+		location = 3134 # Murmansk
+		division_template = "Strelkovaya Brigada"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+
+	}			
+	### Severnyy Voyennyy Komissariat (Northern Military Commissariat) -- Vologda ###
+	# Territorial A
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 10
+		}
+		location = 11213 # Vologda
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}			
+	### Ural'skii Voennyii Okrug (Urals Military District) -- Smolensk ###
+	# Territorial A
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 65
+		}
+		location = 1387 # Tyumen
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 82
+		}
+		location = 7375 # Perm
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}			
+	#Territorial B
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 85
+		}
+		location = 9292 # Chelyabinsk
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.10
+	}			
+	###### Zapadnye TVD (Western Theatre Military District) ######
+	### Belorusskii Voennyii Okrug (Belorussian Military District) -- Velikie Luki, Minsk ###		
+	#Cadre
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 11370 # Minsk
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.60
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 360 # Slutsk 
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.60
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 5
+		}
+		location = 6326 # Polotsk
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.60
+	}			
+	#Mixed
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 8
+		}
+		location = 3350 # Bobruisk 
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.3
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 27
+		}
+		location = 11241 # Vitebsk 
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.3
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 37
+		}
+		location = 9288 # Gomel
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.3
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 43
+		}
+		location = 11234 # Velikie Luki
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.3
+	}			
+	# Territorial A
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 29
+		}
+		location = 9272 # Vyazma
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 33
+		}
+		location = 11271 # Mogilev
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 48
+		}
+		location = 6245 # Kalinin
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 64
+		}
+		location = 306 # Smolensk
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 81
+		}
+		location = 11370 # Minsk
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}
+	### Moskva Voennyii Okrug (Moscow Military District) -- Moscow ###
+	#Cadre
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 6380 # Moscow
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.22
+		start_equipment_factor = 0.80
+	}			
+	# Territorial A
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 6
+		}
+		location = 9355 # Orel
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 14
+		}
+		location = 378 # Vladimir
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 55
+		}
+		location = 3580 # Kursk
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 84
+		}
+		location = 6262 # Tula
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}			
+	# Territorial B
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 17
+		}
+		location = 11375 # Nizhny Novgorod
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.10
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 19
+		}
+		location = 413 # Voronezh
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.10
+	}			
+	### Volga Voennyii Okrug (Volga Military District) -- Hoymel (Gomel) ###
+	# Cadre
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 32
+		}
+		location = 3578 # Saratov
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.60
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 34
+		}
+		location = 11225 # Samara
+		division_template = "Strelkovaya Diviziya"
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "SOV" } }
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.60
+	}			
+	# Territorial A
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 86
+		}
+		location = 6338 # Kazan
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 31
+		}
+		location = 3529 # Stalingrad
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 53
+		}
+		location = 11523 # Engels
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 61
+		}
+		location = 11408 # Balashov
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}			
+	###### Yugo-Zapadnaya Teatr VD (South West TVD) -- Kyiv, Dnipropetrovsk ######				
+	### Kiev Voennyii Okrug (Kiev Military District) -- Kiev ###
+	# Cadre
+	# Mixed
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 60
+		}
+		location = 11477 # Ovruch
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.30
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 46
+		}
+		location = 6593 # Korosten
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.30
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 51
+		}
+		location = 11670 # Odessa
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.30
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 95
+		}
+		location = 9576 # Podilsk
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.30
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 96
+		}
+		location = 9481 # Zhmerynka
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.30
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 99
+		}
+		location = 9451 # Uman
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.30
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 100
+		}
+		location = 11464 # Berdichev
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.30
+	}
+	# Territorial A
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 24
+		}
+		location = 11490 # Vinnitsa
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 44
+		}
+		location = 11514 # Zhitomir
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 62
+		}
+		location = 504 # Bila Tserkva
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 7
+		}
+		location = 3568 # Chernigov
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 15
+		}
+		location = 11546 # Nikolaev
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}			
+	### Kharkov Voenniy Okrug (Kharkov Military District) -- Kharkov ###
+	#Mixed
+	division= {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 13251 # Simferopol
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.30
+	}			
+	# Territorial A
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 25
+		}
+		location = 559 # Poltava
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 30
+		}
+		location = 11437 # Dnipropetrovsk
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 41
+		}
+		location = 11561 # Krivoy Rog
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 75
+		}
+		location = 3584 # Lubny
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 80
+		}
+		location = 3479 # Artemovsk
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}
+	# Territorial B
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 23
+		}
+		location = 418 # Kharkiv
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.10
+	}			
+	### Severniy Kavkaz Voennyii Okrug (North Caucasus Military District) -- Rostov na Don ###
+	# Cadre - Mountain
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 28
+		}
+		location = 9628 # Vladikavkaz
+		division_template = "Gornostrelkovaya Diviziya"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.60
+	}			
+	# Territorial A
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 38
+		}
+		location = 9417 # Rostov-on-Don
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 13
+		}
+		location = 11459 # Kamensk
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 22
+		}
+		location = 11696 # Stavropol
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 74
+		}
+		location = 3734 # Krasnodar
+		division_template = "Strelkovaya Diviziya"
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "SOV" } }
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}			
+	###### Blizhniy Vostok Teatr VD (Near East Theater) -- Astrakhan ######
+	### Zakavkaz'e Voennyii Okrug (Transcaucasus Military District) -- Tblisi ###
+	# Cadre - Mountain
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 9
+		}
+		location = 3653 # Batumi
+		division_template = "Gornostrelkovaya Diviziya"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.60
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 20
+		}
+		location = 12441 # Gyumri
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.60
+	}			
+	# Mixed - Mountain
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 47
+		}
+		location = 3658 # Kutaisi
+		division_template = "Gornostrelkovaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.30
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 76
+		}
+		location = 12320 # Yerevan
+		division_template = "Gornostrelkovaya Diviziya"
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "SOV" } }
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.30
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 77
+		}
+		location = 7661 # Baku
+		division_template = "Gornostrelkovaya Diviziya"
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "SOV" } }
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.30
+	}			
+	# Territorial A
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 63
+		}
+		location = 12309 # Tbilisi
+		division_template = "Strelkovaya Diviziya"
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "SOV" } }
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}			
+	### Tsentral'naya Aziya Voennyii Okrug (Central Asia Military District) -- Tashkent ###
+	# Mixed - Mountain
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 83
+		}
+		location = 12333 # Ashgabat
+		division_template = "Gornostrelkovaya Diviziya"
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "SOV" } }
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.30
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 68
+		}
+		location = 12218 # Termez
+		division_template = "Strelkovaya Diviziya"
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "SOV" } }
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.30
+	}			
+	###### Dal'nevostochniy Teatr VD (Far Eastern TVD) -- Chita ######
+	### Sibirskii Voennyii Okrug (Siberian Military District) -- Semipalatinsk ###
+	# Territorial A
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 78
+		}
+		location = 12536 # Tomsk
+		division_template = "Strelkovaya Diviziya"
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "SOV" } }
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 94
+		}
+		location = 4724 # Krasnoyarsk
+		division_template = "Strelkovaya Diviziya"
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "SOV" } }
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}			
+	### Zabaikal'skii Voennyii Okrug (Transbaikal Military District) -- Argunsk ###
+	# Cadre
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 36
+		}
+		location = 1672 # Chita
+		division_template = "Strelkovaya Diviziya"
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "SOV" } }
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.60
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 57
+		}
+		location = 7786 # Olovyannaya
+		division_template = "Strelkovaya Diviziya"
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "SOV" } }
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.60
+	}			
+	# Territorial A
+	### Dal'niy Vostok Voennyii Okrug (Far Eastern Military District) -- Khabarovsk ###
+	# Cadre
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 39
+		}
+		location = 957 # Vladivostok
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.60
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 12
+		}
+		location = 7763 # Blagoveshchensk
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.60
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 21
+		}
+		location = 3787 # Spassk-Dalny
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.60
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 26
+		}
+		location = 3977 # Ussuriysk
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.60
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 35
+		}
+		location = 4797 # Irkutsk
+		division_template = "Strelkovaya Diviziya"
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "SOV" } }
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.60
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 40
+		}
+		location = 11879 # Slavyanka, Primorsky Krai
+		division_template = "Strelkovaya Diviziya"
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "SOV" } }
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.60
+	}			
+	# Cadre - Collective Farm Corps
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 59
+		}
+		location = 6838 # Kremovo
+		division_template = "Strelkovaya Diviziya"
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "SOV" } }
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.50
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 66
+		}
+		location = 11643 # Ussuri
+		division_template = "Strelkovaya Diviziya"
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "SOV" } }
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.50
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 69
+		}
+		location = 7763 # Blagoveshchensk
+		division_template = "Strelkovaya Diviziya"
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "SOV" } }
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.50
+	}	
+### Cavalry
+## Cadre
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 32
+		}
+		location = 3457 # Proskurov
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.60
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 34
+		}
+		location = 3511 # Staro-Konstantinov
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.60
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 11464 # Berdichev
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.60
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 360 # Slutsk
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.60
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 5
+		}
+		location = 11696 # Stavropol
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.60
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 6
+		}
+		location = 9288 # Gomel
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.60
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 7
+		}
+		location = 11370 # Minsk
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.60
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 8
+		}
+		location = 3977 # Ussuriysk
+		division_template = "Kavaleriyskaya Diviziya"
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "SOV" } }
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.60
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 9
+		}
+		location = 6480 # Gaisin
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.60
+	}
+## Territorial
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 10
+		}
+		location = 6718 # Pyatigorsk
+		division_template = "Kavaleriyskaya Diviziya"
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "SOV" } }
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 11
+		}
+		location = 12128 # Orenburg
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 12
+		}
+		location = 3564 # Armavir, Armenia
+		division_template = "Kavaleriyskaya Diviziya"
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "SOV" } }
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 14
+		}
+		location = 11351 # Tambov
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 15
+		}
+		location = 4719 # Daurya
+		division_template = "Kavaleriyskaya Diviziya"
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "SOV" } }
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 16
+		}
+		location = 117 # Novgorod
+		division_template = "Kavaleriyskaya Brigada"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 17
+		}
+		location = 12309 # Tbilisi
+		division_template = "Kavaleriyskaya Brigada"
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "SOV" } }
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 18
+		}
+		location = 4482 # Mary
+		division_template = "Kavaleriyskaya Diviziya"
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "SOV" } }
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 19
+		}
+		location = 7775 # Samarkand
+		division_template = "Gornokavaleriyskaya Diviziya"
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "SOV" } }
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 20
+		}
+		location = 1384 # Dushanbe
+		division_template = "Gornokavaleriyskaya Diviziya"
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "SOV" } }
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 21
+		}
+		location = 10601 # Fergana
+		division_template = "Gornokavaleriyskaya Diviziya"
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "SOV" } }
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.20
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 22
+		}
+		location = 4677 # Khada-Bulak
+		division_template = "Kavaleriyskaya Diviziya"
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "SOV" } }
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.50
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 36
+		}
+		location = 6380 # Moscow
+		division_template = "Kavaleriyskaya Brigada"
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "SOV" } }
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.60
+	}
+### Mechanized Corps
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 3120 # Kingisepp
+		division_template = "Mekhanizirovannyy Korpus"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.50
+	}
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 11464 # Berdichev
+		division_template = "Mekhanizirovannyy Korpus"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.50
+	}
+###OGPU
+    division = {
+		name = "Krasnoznamennaya Diviziya Osobogo Naznacheniya pri Kollegii OGPU SSSR imeni F. E. Dzerzhinskogo"
+		location = 6380 # Moscow
+        division_template = "Diviziya Osobogo Naznacheniya"
+        start_experience_factor = 0.22
+        start_equipment_factor = 0.75
+    }
+    ##### navy oob #####
+    fleet = {
+        name = "Krasnoznamenny Baltiisky Flot"
+        naval_base = 14696 # Kronstadt
+        task_force = {
+            name = "Krasnoznamenny Baltiisky Flot"
+            location = 14696 # Kronstadt
+            ship = { name = "Marat" definition = battleship equipment = { BB_equipment_1900 = { amount = 1 owner = SOV } } }
+            ship = { name = "Frunze" definition = battleship equipment = { BB_equipment_1900 = { amount = 1 owner = SOV } } }
+            ship = { name = "3 Diviziya Esmintsev" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = SOV } } }
+            ship = { name = "2 Diviziya Esmintsev" definition = destroyer equipment = { DD_equipment_1912 = { amount = 1 owner = SOV } } }
+            ship = { name = "1 Diviziya Esmintsev" definition = destroyer equipment = { DD_equipment_1900 = { amount = 1 owner = SOV } } }
+            ship = { name = "1 Diviziya Podlodok" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = SOV } } }
+            ship = { name = "2 Diviziya Podlodok" definition = submarine equipment = { SS_equipment_1922 = { amount = 1 owner = SOV } } }
+        }
+    }
+
+    fleet = {
+        name = "Chernomorskiy Flot"
+        naval_base = 3686 # Sevastopol
+        task_force = {
+            name = "Chernomorskiy Flot"
+            location = 3686 # Sevastopol
+            ship = { name = "Parizhskaya Kommuna" definition = battleship equipment = { BB_equipment_1900 = { amount = 1 owner = SOV } } }
+            ship = { name = "Krasni Kavkaz" definition = heavy_cruiser equipment = { CA_equipment_1906 = { amount = 1 owner = SOV } } }
+            ship = { name = "Profintern" definition = light_cruiser equipment = { CL_equipment_1912 = { amount = 1 owner = SOV } } }
+            ship = { name = "Komintern" definition = light_cruiser equipment = { CL_equipment_1900 = { amount = 1 owner = SOV } } }
+            ship = { name = "Chervonaya Ukraina" definition = light_cruiser equipment = { CL_equipment_1912 = { amount = 1 owner = SOV } } }
+            ship = { name = "6 Diviziya Esmintsev" definition = destroyer equipment = { DD_equipment_1912 = { amount = 1 owner = SOV } } }
+            ship = { name = "7 Divizya Esmintsev" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = SOV } } }
+            ship = { name = "3 Divizya Podlodok" definition = submarine equipment = { SS_equipment_1922 = { amount = 1 owner = SOV } } } 
+        }
+    }
+
+    fleet = {
+        name = "Severnyi Flot"
+        naval_base = 3134 # Murmansk
+        task_force = {
+            name = "Severnyi Flot"
+            location = 3134 # Murmansk
+            ship = { name = "8 Diviziya Esmintsev" definition = destroyer equipment = { DD_equipment_1912 = { amount = 1 owner = SOV } } }
+            ship = { name = "4 Diviziya Podlodok" definition = submarine equipment = { SS_equipment_1912 = { amount = 1 owner = SOV } } }
+        }
+    }
+
+    fleet = {
+        name = "Tikhookeanskiy Flot"
+        naval_base = 957 # Vladivostok
+        task_force = {
+            name = "Tikhookeanskiy Flot"
+            location = 957 # Vladivostok
+            ship = { name = "10. Divizion Esmintsev" definition = destroyer equipment = { DD_equipment_1900 = { amount = 1 owner = SOV } } }
+            ship = { name = "9. Divizion Esmintsev" definition = destroyer equipment = { DD_equipment_1885 = { amount = 1 owner = SOV } } }
+            ship = { name = "5 Diviziya Podlodok" definition = submarine equipment = { SS_equipment_1912 = { amount = 1 owner = SOV } } }
+        }
+    }
+}
+
+air_wings = {
+    219 = {
+        # 403.IABR
+        Fighter_equipment_1924 = { # Polikarpov I-3 
+            owner = "SOV"
+            amount = 95
+        }
+    }
+
+    222 = {
+        # 11.TBABR
+        Strategic_Bomber_equipment_1916 = { # Tupolev TB-3
+            owner = "SOV"
+            amount = 70
+        }
+    }
+
+    195 = {
+        # 1.TBABR
+        Tactical_Bomber_equipment_1925 = { # Tupolev TB-1
+            owner = "SOV"
+            amount = 55
+        }
+        # 53.LBABR
+        Fighter_Bomber_equipment_1924 = { # Polikarpov I-5
+            owner = "SOV"
+            amount = 90
+        }
+    }
+
+    209 = {
+        # 3.IABR
+        Fighter_equipment_1924 = { # Polikarpov I-3
+            owner = "SOV"
+            amount = 90
+        }
+    }
+
+    224 = {
+        # 5.TBABR
+        Tactical_Bomber_equipment_1925 = { # Tupolev TB-1
+            owner = "SOV"
+            amount = 55
+        }
+        # 402.IABR
+        Fighter_equipment_1924 = { # Polikarpov I-3
+            owner = "SOV"
+            amount = 90
+        }
+    }
+
+    207 = {
+        # 40.LBABR
+        Fighter_Bomber_equipment_1924 = { # Polikarpov I-5
+            owner = "SOV"
+            amount = 65
+        }
+    }
+
+    202 = {
+        # 5.IABR
+        Fighter_equipment_1924 = { # Polikarpov I-3
+            owner = "SOV"
+            amount = 55
+        }
+    }
+
+    221 = {
+        # 16.LBABR
+        Fighter_Bomber_equipment_1924 = { # Polikarpov I-5
+            owner = "SOV"
+            amount = 45
+        }
+    }
+
+    563 = {
+        # 29.LBABR
+        Fighter_Bomber_equipment_1924 = { # Polikarpov I-5
+            owner = "SOV"
+            amount = 35
+        }
+    }
+
+    218 = {
+        # 55.LBABR
+        Fighter_Bomber_equipment_1924 = { # Polikarpov I-5
+            owner = "SOV"
+            amount = 25
+        }
+    }
+}
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = Small_Arms_equipment_1916
+			creator = "SOV"
+		}
+		requested_factories = 8
+		progress = 0.1
+		efficiency = 50
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "SOV" 
+		}
+		requested_factories = 3
+		progress = 0.29
+		efficiency = 50
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = Artillery_equipment_1916
+			creator = "SOV" 
+		}
+		requested_factories = 2
+		progress = 0.25
+		efficiency = 50
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = Light_Tank_equipment_1926
+			creator = "SOV" 
+		}
+		requested_factories = 3
+		progress = 0.32
+		efficiency = 50
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = Motorized_equipment_1916
+			creator = "SOV" 
+		}
+		requested_factories = 3
+		progress = 0.35
+		efficiency = 50
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = Fighter_equipment_1924
+			creator = "SOV" 
+		}
+		requested_factories = 2
+		progress = 0.15
+		efficiency = 50
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = Strategic_Bomber_equipment_1916
+			creator = "SOV" 
+		}
+		requested_factories = 2
+		progress = 0.17
+		efficiency = 50
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = DD_equipment_1900
+			creator = "SOV"
+		}
+		requested_factories = 2
+		progress = 0.70
+		amount = 4
+	}
+	
+	add_equipment_production = {
+		equipment = {
+			type = SS_equipment_1916
+			creator = "SOV"
+		}
+		requested_factories = 1
+		progress = 0.80
+		amount = 11
+	}
+    
+    add_equipment_production = {
+		equipment = {
+			type = SS_equipment_1916
+			creator = "SOV"
+		}
+		requested_factories = 1
+		progress = 0.80
+		amount = 10
+	}
+    
+    add_equipment_production = {
+		equipment = {
+			type = SS_equipment_1916
+			creator = "SOV"
+		}
+		requested_factories = 1
+		progress = 0.80
+		amount = 10
+	}
+	add_equipment_to_stockpile = {
+		type = Motorized_equipment_1916
+        amount = 1600
+	    producer = SOV
+    }
+
+}

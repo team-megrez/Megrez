@@ -1,0 +1,453 @@
+﻿##### Division Templates #####
+division_template = {
+	name = "División de Infantería"         # Infantry Division	
+	division_names_group = SPR_INF_01
+	
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 1 y = 3 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 2 y = 3 }
+		artillery_battalion_light = { x = 3 y = 0 }	# 75mm howitzer Bn
+		artillery_battalion_light = { x = 3 y = 1 }	# 75mm howitzer Bn
+		artillery_battalion = { x = 3 y = 2 }	# 105mm howitzer Bn
+		artillery_battalion = { x = 3 y = 3 }	# 105mm howitzer Bn
+		artillery_battalion = { x = 4 y = 0 }	# 155mm. Spain had 8 'heavy' artillery regiments of two battalions each.  Each of those 8 regiments has been added to the 8 divisions for gameplay.
+		artillery_battalion = { x = 4 y = 1 }	# 155mm. Spain had 8 'heavy' artillery regiments of two battalions each.  Each of those 8 regiments has been added to the 8 divisions for gameplay.
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		recon = { x = 0 y = 1 }
+		field_hospital = { x = 0 y = 2 }
+		logistics_company = { x = 0 y = 3 }
+		signal_company = { x = 0 y = 4 }
+	}
+}
+
+division_template = {
+	name = "División de Infantería (reforzada)"         # 2 of the Infantry Divisions were colocated with anti-air battalions and tank battalions		
+	division_names_group = SPR_INF_01
+	
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 1 y = 3 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 2 y = 3 }
+		artillery_battalion_light = { x = 3 y = 0 }	# 75mm howitzer Bn
+		artillery_battalion_light = { x = 3 y = 1 }	# 75mm howitzer Bn
+		artillery_battalion = { x = 3 y = 2 }	# 105mm howitzer Bn
+		artillery_battalion = { x = 3 y = 3 }	# 105mm howitzer Bn
+		artillery_battalion = { x = 4 y = 0 }	# 155mm. Spain had 8 'heavy' artillery regiments of two battalions each.  Each of those 8 regiments has been added to the 8 divisions for gameplay.
+		artillery_battalion = { x = 4 y = 1 }	# 155mm. Spain had 8 'heavy' artillery regiments of two battalions each.  Each of those 8 regiments has been added to the 8 divisions for gameplay.
+		anti_air_battalion = { x = 4 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		light_tank_recon = { x = 0 y = 1 } # Each had 5 FT-17 tanks.  Also 4 and 2 Schneider CA1 tanks, but I can only figure out how to add one equipment variation.
+		field_hospital = { x = 0 y = 2 }
+		logistics_company = { x = 0 y = 3 }
+		signal_company = { x = 0 y = 4 }
+	}
+}
+
+division_template = {
+	name = "División de Caballería"  		# Cavalry Division 
+	division_names_group = SPR_CAV_01
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+		bicycle_battalion = { x = 2 y = 0 }
+		armored_car_battalion = { x = 3 y = 1 }
+		artillery_battalion_light = { x = 4 y = 0 }
+		artillery_battalion_light = { x = 4 y = 1 }
+		artillery_battalion_light = { x = 4 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		logistics_company = { x = 0 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Brigada Montaña"  		# Mountain Brigades 
+	division_names_group = SPR_MTN_02
+
+	regiments = {
+		mountaineers = { x = 0 y = 0 }	
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		artillery_battalion_light = { x = 2 y = 0 }
+		artillery_battalion_light = { x = 2 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		logistics_company = { x = 0 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Comandancia General" 		# Garrison Division 
+
+	regiments = {
+		garrison = { x = 0 y = 0 }
+		garrison = { x = 0 y = 1 }
+		garrison = { x = 0 y = 2 }
+		garrison = { x = 1 y = 0 }
+		garrison = { x = 1 y = 1 }
+		garrison = { x = 1 y = 2 }
+		artillery_battalion = { x = 2 y = 0 }
+		artillery_battalion = { x = 2 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		field_hospital = { x = 0 y = 1 }
+		logistics_company = { x = 0 y = 2 }
+	}
+	priority = 0
+}
+
+division_template = {
+	name = "Circunscripción Marroquí" 		# Two districts in Morroco, similar size but not exact.  This is a good approximation
+
+	regiments = {
+		infantry = { x = 0 y = 0 }  # Tercio de Extranjeros
+		infantry = { x = 0 y = 1 }	# Tercio de Extranjeros
+		infantry = { x = 0 y = 2 }	# Tercio de Extranjeros
+		light_infantry = { x = 1 y = 0 } # Cazadores
+		light_infantry = { x = 1 y = 1 } # Cazadores
+		light_infantry = { x = 1 y = 2 } # Cazadores
+		shock_infantry = { x = 1 y = 3 } # Ametralladoras
+		infantry = { x = 2 y = 0 }  # Fuerzas Regulares Indigenas
+		infantry = { x = 2 y = 1 }	# Fuerzas Regulares Indigenas
+		infantry = { x = 2 y = 2 }	# Fuerzas Regulares Indigenas
+		infantry = { x = 2 y = 3 }	# Fuerzas Regulares Indigenas
+		infantry = { x = 2 y = 4 }	# Fuerzas Regulares Indigenas
+		militia = { x = 3 y = 0 }	# Mehal-la Jalifiana
+		militia = { x = 3 y = 1 }	# Mehal-la Jalifiana
+		militia = { x = 3 y = 2 }	# Mehal-la Jalifiana
+		artillery_battalion = { x = 4 y = 0 } # 105mm
+		artillery_battalion = { x = 4 y = 1 } # 105mm
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		field_hospital = { x = 0 y = 1 }
+		logistics_company = { x = 0 y = 2 }
+		signal_company = { x = 0 y = 3 }
+	}
+	priority = 0
+}
+
+###### OOB ######
+units = {
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 9767 # Madrid
+		division_template = "División de Infantería (reforzada)"
+		start_experience_factor = 0.18
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Light_Tank_equipment_1917 = { owner = "SPR" creator = "FRA" amount = 9 } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 7183 # Sevilla
+		division_template = "División de Infantería"
+		start_experience_factor = 0.18
+		start_equipment_factor = 0.75
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 6906 # Valencia
+		division_template = "División de Infantería"
+		start_experience_factor = 0.18
+		start_equipment_factor = 0.75
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 9764 # Barcelona
+		division_template = "División de Infantería"
+		start_experience_factor = 0.18
+		start_equipment_factor = 0.75
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 5
+		}
+		location = 3816 # Zaragoza
+		division_template = "División de Infantería (reforzada)"
+		start_experience_factor = 0.18
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Light_Tank_equipment_1917 = { owner = "SPR" creator = "FRA" amount = 7 } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 6
+		}
+		location = 885 # Burgos
+		division_template = "División de Infantería"
+		start_experience_factor = 0.18
+		start_equipment_factor = 0.75
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 7
+		}
+		location = 11825 # Valladolid
+		division_template = "División de Infantería"
+		start_experience_factor = 0.18
+		start_equipment_factor = 0.75 
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 8
+		}
+		location = 758 # Coruna
+		division_template = "División de Infantería"
+		start_experience_factor = 0.18
+		start_equipment_factor = 0.60 # Only had 3 infantry regiments
+	}
+	division = {
+		name = "División de Caballería"
+		location = 903 # Palencia.  The division was distributed throughout northern Spain
+		division_template = "División de Caballería"
+		start_experience_factor = 0.18
+		start_equipment_factor = 0.75
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 6927 # Gerona
+		division_template = "Brigada Montaña"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.8
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 740 # Bilbao
+		division_template = "Brigada Montaña"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.8
+	}
+	division = {
+		name = "Brigada Mixta Montaña"
+		location = 11707 # Asturias
+		division_template = "Brigada Montaña"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.7
+	}
+	division = {
+		name = "Comandancia General de Baleares"
+		location = 9793 # Palma de Mallorca
+		division_template = "Comandancia General"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.6 #Only had one artillery battalion.
+	}
+	division = {
+		name = "Comandancia General de Canarias"
+		location = 13258 # Tenerife
+		division_template = "Comandancia General"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.75
+	}
+	division = {
+		name = "Circonscripcion Oriental"
+		location = 13234 # Melilla
+		division_template = "Circunscripción Marroquí"
+		start_experience_factor = 0.24
+		start_equipment_factor = 0.60
+	}
+	division = {
+		name = "Circonscripcion Occidental"
+		location = 9945 # Ceuta
+		division_template = "Circunscripción Marroquí"
+		start_experience_factor = 0.24
+		start_equipment_factor = 0.60
+	}
+
+	##### navy oob #####
+	fleet = {
+		name = "Base Naval Cádiz"
+		naval_base = 4195 # Cadiz
+		task_force = {
+			name = "Base Naval Cádiz"
+			location = 4195 # Cadiz
+			ship = { name = "República" definition = light_cruiser equipment = { CL_equipment_1912 = { amount = 1 owner = SPR } } }
+			ship = { name = "Flotilla de Torpederos No.1" definition = destroyer equipment = { DD_equipment_1885 = { amount = 1 owner = SPR } } }
+		}
+	}
+
+	fleet = {
+		name = "Base Naval Cartagena"
+		naval_base = 6906 # Valencia
+		task_force = {
+			name = "Base Naval Cartagena"
+			location = 6906 # Valencia
+			ship = { name = "Dédalo" definition = escort_carrier equipment = { CV_equipment_1912 = { amount = 1 owner = SPR } } }
+			ship = { name = "Flotilla de Destructores No.2" definition = destroyer equipment = { DD_equipment_1900 = { amount = 1 owner = SPR } } }
+			ship = { name = "Flotilla de Destructores No.1" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = SPR } } }
+			ship = { name = "Flotilla de Torpederos No.2" definition = destroyer equipment = { DD_equipment_1885 = { amount = 1 owner = SPR } } }
+			ship = { name = "Flotilla de Submarinos No.4" definition = submarine equipment = { SS_equipment_1922 = { amount = 1 owner = SPR } } }
+			ship = { name = "Flotilla de Submarinos No.3" definition = submarine equipment = { SS_equipment_1922 = { amount = 1 owner = SPR } } }
+			ship = { name = "Flotilla de Submarinos No.2" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = SPR } } }
+		}
+	}
+
+	fleet = {
+		name = "Base Naval El Ferrol"
+		naval_base = 758 # Coruna
+		task_force = {
+			name = "Base Naval El Ferrol"
+			location = 758 # Coruna
+			ship = { name = "España" definition = battleship equipment = { BB_equipment_1895 = { amount = 1 owner = SPR } } }
+			ship = { name = "Jaime I" definition = battleship equipment = { BB_equipment_1895 = { amount = 1 owner = SPR } } }
+			ship = { name = "Libertad" definition = light_cruiser equipment = { CL_equipment_1912 = { amount = 1 owner = SPR } } }
+			ship = { name = "Almirante Cervera" definition = light_cruiser equipment = { CL_equipment_1912 = { amount = 1 owner = SPR } } }
+			ship = { name = "Miguel de Cervantes" definition = light_cruiser equipment = { CL_equipment_1912 = { amount = 1 owner = SPR } } }
+			ship = { name = "Flotilla de Torpederos No.3" definition = destroyer equipment = { DD_equipment_1885 = { amount = 1 owner = SPR } } }
+		}
+	}
+
+	fleet = {
+		name = "Base Naval Mahon"
+		naval_base = 9793 # Palma de Mallorc
+		task_force = {
+			name = "Base Naval Mahon"
+			location = 9793 # Palma de Mallorc
+			ship = { name = "Flotilla de Submarinos No.1" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = SPR } } }
+		}
+	}
+
+	fleet = {
+		name = "Naval Estacion Canarias"
+		naval_base = 13071 # Las Palmas de Gran
+		task_force = {
+			name = "Naval Estacion Canarias"
+			location = 13071 # Las Palmas de Gran
+			ship = { name = "Méndez Núñez" definition = light_cruiser equipment = { CL_equipment_1912 = { amount = 1 owner = SPR } } }
+		}
+	}
+}
+
+### Air Wings
+air_wings = {
+	41 = {
+		# Escuadra No.1
+		Fighter_equipment_1924 = { # Nieuport-Delage NiD.29
+			owner = "SPR"
+			amount = 25
+		}
+		# Escuadra No.2
+		Fighter_equipment_1924 = { # Nieuport-Delage NiD.29
+			owner = "SPR"
+			amount = 25
+		}
+	}
+
+	167 = {
+		# Escuadra No.3
+		Naval_Bomber_equipment_1925 = { # Dornier Do J Wal
+			owner = "SPR"
+			amount = 15
+		}
+	}
+
+	# Base Naval Cartagena
+	"Dédalo" = {
+		
+	}
+}
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = Small_Arms_equipment_1916
+			creator = "SPR"
+		}
+		requested_factories = 3
+		progress = 0.38
+		efficiency = 100
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = Light_Tank_equipment_1926
+			creator = "SPR"
+		}
+		requested_factories = 2
+		progress = 0.22
+		efficiency = 100
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = Artillery_equipment_1916
+			creator = "SPR"
+		}
+		requested_factories = 2
+		progress = 0.24
+		efficiency = 100
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = Fighter_equipment_1924
+			creator = "SPR"
+		}
+		requested_factories = 1
+		progress = 0.74
+		efficiency = 100
+	}
+	### Under Contruction Notes ###
+	# DD: Churucca class (x3) ("ARE Almirante Miranda" "ARE Gravina" "ARE Escaño" "ARE Císcar" "ARE Jorge Juan" "ARE Ulloa")
+	add_equipment_production = {
+		equipment = {
+			type = DD_equipment_1912
+			creator = "SPR"
+		}
+		requested_factories = 1
+		progress = 0.80
+		amount = 3
+	}
+}

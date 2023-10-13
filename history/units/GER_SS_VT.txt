@@ -1,0 +1,81 @@
+﻿division_template = {
+	name = "SS-Verfügungstruppe"
+	
+	regiments = {
+		SS_infantry = { x = 0 y = 0 } # 'Deutschland' Regiment
+		SS_infantry = { x = 0 y = 1 }
+		SS_infantry = { x = 0 y = 2 }
+		SS_infantry = { x = 1 y = 0 } # 'Germania' Regiment
+		SS_infantry = { x = 1 y = 1 }
+		SS_infantry = { x = 1 y = 2 }
+		#SS_motorized = { x = 2 y = 0 } # 'Der Fuhrer' Regiment added in 1938
+		#SS_motorized = { x = 2 y = 1 }
+		#SS_motorized = { x = 2 y = 2 }
+		#bicycle_battalion = { x = 2 y = 3 } # Represents Motorcycle Battalion
+		#motorized_artillery_battalion = { x = 3 y = 0 }
+		#motorized_artillery_battalion = { x = 3 y = 1 }
+		#motorized_artillery_battalion = { x = 3 y = 2 }
+		#motorized_anti_tank_battalion = { x = 3 y = 3 } # SS-VT formed the artillery regiment, Pioneer battalion, recon battalion, anti-air battalion, anti-tank battalion in May 1939 when they were authorized to form a division.
+		#motorized_anti_air_battalion = { x = 3 y = 4 } # SS-VT formed the artillery regiment, Pioneer battalion, recon battalion, anti-air battalion, anti-tank battalion in May 1939 when they were authorized to form a division.
+	}
+	support = {
+		signal_company = { x = 0 y = 0 } # Signals units were raised at the formation of the SS-VT in 1934.
+		#armored_car_recon = { x = 0 y = 1 }
+		#engineer = { x = 0 y = 2 }
+	}
+	is_locked = yes
+	priority = 0
+}
+
+division_template = {
+	name = "SS-Standarte"
+	
+	regiments = {
+		SS_motorized = { x = 0 y = 0 }
+		SS_motorized = { x = 0 y = 1 }
+		SS_motorized = { x = 0 y = 2 }
+	}
+	support = {
+		armored_car_recon = { x = 0 y = 0 }
+		signal_company = { x = 0 y = 1 }
+	}
+	is_locked = yes
+	priority = 0
+}
+
+units = {
+	division= {
+		name = "SS-Verfügungstruppe"
+		unique={
+			"Paul Hausser"
+		}
+		portraits={
+			army={
+				small="GFX_M_Paul_Hausser"
+				large="GFX_M_Paul_Hausser"
+			}
+		}
+		location = 692 # Munich
+		division_template = "SS-Verfügungstruppe"
+		start_experience_factor = 0.14
+		start_equipment_factor = 1.0 # 
+	}
+
+	division= {
+		name = "Leibstandarte-SS Adolf Hitler"
+		unique={
+			"Sepp Dietrich"
+		}
+		portraits={
+			army={
+				small="GFX_M_Sepp_Dietrich"
+				large="GFX_M_Sepp_Dietrich"
+			}
+		}
+		location = 6521 # Berlin
+		division_template = "SS-Standarte"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.84 # 2531 men when formed in 1934
+	}
+	
+}

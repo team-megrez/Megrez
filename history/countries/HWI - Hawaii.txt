@@ -1,0 +1,47 @@
+﻿#########################################################################
+# Hawaii - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 629
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		Small_Arms_1916 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = authoritarian
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 48
+		democratic = 52
+		socialist = 0
+		communist = 0
+	}
+	#######################
+	# Leaders
+	#######################
+	# Authoritarianism
+	create_country_leader = {
+		name = "Theresa Laʻanui"
+		desc = ""
+		picture = GFX_P_A_Theresa_Laanui
+		expire = "1944.1.5"
+		ideology = monarchism
+		traits = {
+			POSITION_Queen
+			SUBIDEOLOGY_Monarchism
+		}
+	}
+	#######################
+	# Generals
+	#######################
+}

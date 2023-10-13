@@ -1,0 +1,1369 @@
+﻿# French generals are as close as I can get. As long as they were CO plus/minus one year, I've included them.  If anybody has a more complete list of French division commanders, I'd be happy to update.
+division_template = {
+	name = "Division de Cavalerie"
+	division_names_group = FRA_CAV_01
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		bicycle_battalion = { x = 2 y = 0 } # One battalion of Dragoons, but based on number of trucks, motorcycles, total division manpower, this is probably better to have both the motorcycles and motorized.
+		motorized = { x = 2 y = 1 }
+		artillery_battalion_light = { x = 3 y = 0 }
+		artillery_battalion_light = { x = 3 y = 1 }
+	}
+	support = {
+		armored_car_recon = { x = 0 y = 0 } # Schneider P 16s made up 4 of the 5 EACM
+		anti_tank_company = { x = 0 y = 1 }
+		engineer = { x = 0 y = 2 }
+		field_hospital = { x = 0 y = 3 }
+		signal_company = { x = 0 y = 4 }
+		logistics_company = { x = 1 y = 0 }
+		maintenance_company = { x = 1 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Division d'Infanterie"
+	division_names_group = FRA_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }  
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		artillery_battalion_light = { x = 3 y = 0 }
+		artillery_battalion_light = { x = 3 y = 1 }
+		artillery_battalion_light = { x = 3 y = 2 }
+		artillery_battalion = { x = 3 y = 3 }
+		artillery_battalion = { x = 3 y = 4 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+		anti_tank_company = { x = 0 y = 1 }
+		engineer = { x = 0 y = 2 }
+		field_hospital = { x = 0 y = 3 }
+		signal_company = { x = 0 y = 4 }
+		logistics_company = { x = 1 y = 0 }
+	}
+}
+division_template = {
+	name = "Division d'Infanterie avec Régiment de Chars de Combat"
+	division_names_group = FRA_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }  
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		artillery_battalion_light = { x = 3 y = 0 }
+		artillery_battalion_light = { x = 3 y = 1 }
+		artillery_battalion_light = { x = 3 y = 2 }
+		artillery_battalion = { x = 3 y = 3 }
+		artillery_battalion = { x = 3 y = 4 }
+		light_armor = { x = 4 y = 0 }  # The light tank regiments were independent formations but were attached to infantry units for close support.  Since it's arbitrary anyway, I added them to the infantry divisions that were converted to motorized. Gives us just about the right number of tanks this way also.
+		light_armor = { x = 4 y = 1 }
+		light_armor = { x = 4 y = 2 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+		anti_tank_company = { x = 0 y = 1 }
+		engineer = { x = 0 y = 2 }
+		field_hospital = { x = 0 y = 3 }
+		signal_company = { x = 0 y = 4 }
+		logistics_company = { x = 1 y = 0 }
+	}
+}
+
+division_template = {
+	name = "Division d'Infanterie Alpine"	# Mountain Division
+	division_names_group = FRA_MTN_01
+
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }	
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+		mountaineers = { x = 2 y = 0 }
+		mountaineers = { x = 2 y = 1 }
+		mountaineers = { x = 2 y = 2 }
+		mountaineers = { x = 3 y = 0 }
+		mountaineers = { x = 3 y = 1 }
+		mountaineers = { x = 3 y = 2 }
+		artillery_battalion_light = { x = 4 y = 0 }
+		artillery_battalion_light = { x = 4 y = 1 }
+		artillery_battalion = { x = 4 y = 2 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+		anti_tank_company = { x = 0 y = 1 }
+		engineer = { x = 0 y = 2 }
+		field_hospital = { x = 0 y = 3 }
+		signal_company = { x = 0 y = 4 }
+		logistics_company = { x = 1 y = 0 }
+	}
+}
+
+division_template = {
+	name = "Division d'Infanterie Nord-Africaine"
+	division_names_group = FRA_CINF_03
+
+	regiments = {
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 }  
+		light_infantry = { x = 0 y = 2 }
+		light_infantry = { x = 1 y = 0 }
+		light_infantry = { x = 1 y = 1 }
+		light_infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		artillery_battalion_light = { x = 3 y = 0 }
+		artillery_battalion_light = { x = 3 y = 1 }
+		artillery_battalion_light = { x = 3 y = 2 }
+		artillery_battalion_light = { x = 3 y = 3 }
+		artillery_battalion = { x = 4 y = 0 }
+		artillery_battalion = { x = 4 y = 1 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+		anti_tank_company = { x = 0 y = 1 }
+		engineer = { x = 0 y = 2 }
+		field_hospital = { x = 0 y = 3 }
+		signal_company = { x = 0 y = 4 }
+		logistics_company = { x = 1 y = 0 }
+	}
+}
+division_template = {
+	name = "Division d'Infanterie Coloniale"
+	division_names_group = FRA_CINF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		light_infantry = { x = 1 y = 0 }
+		light_infantry = { x = 1 y = 1 }  
+		light_infantry = { x = 1 y = 2 }
+		light_infantry = { x = 2 y = 0 }
+		light_infantry = { x = 2 y = 1 }
+		light_infantry = { x = 2 y = 2 }
+		light_infantry = { x = 3 y = 0 }
+		light_infantry = { x = 3 y = 1 }
+		light_infantry = { x = 3 y = 2 }
+		artillery_battalion_light = { x = 4 y = 0 }
+		artillery_battalion_light = { x = 4 y = 1 }
+		artillery_battalion_light = { x = 4 y = 2 }
+		artillery_battalion = { x = 4 y = 3 }
+		artillery_battalion = { x = 4 y = 4 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+	}
+}
+division_template = {
+	name = "Division d'Infanterie d'Afrique"
+	division_names_group = FRA_CAF_04
+
+	regiments = {
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 }
+		light_infantry = { x = 0 y = 2 }
+		light_infantry = { x = 1 y = 0 }
+		light_infantry = { x = 1 y = 1 }  
+		light_infantry = { x = 1 y = 2 }
+		light_infantry = { x = 2 y = 0 }
+		light_infantry = { x = 2 y = 1 }
+		light_infantry = { x = 2 y = 2 }
+		light_infantry = { x = 3 y = 0 }
+		light_infantry = { x = 3 y = 1 }
+		light_infantry = { x = 3 y = 2 }
+		light_infantry = { x = 4 y = 0 }
+		light_infantry = { x = 4 y = 1 }
+		light_infantry = { x = 4 y = 2 }
+	}
+	priority = 0
+}
+division_template = {
+	name = "Division d'Infanterie d'Afrique (Tunisie)"
+	division_names_group = FRA_CAF_04
+	foreign_template_tag = TUN
+	origin_type=subject
+
+	regiments = {
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 }
+		light_infantry = { x = 0 y = 2 }
+		light_infantry = { x = 1 y = 0 }
+		light_infantry = { x = 1 y = 1 }  
+		light_infantry = { x = 1 y = 2 }
+		light_infantry = { x = 2 y = 0 }
+		light_infantry = { x = 2 y = 1 }
+		light_infantry = { x = 2 y = 2 }
+	}
+	priority = 0
+}
+division_template = {
+	name = "Brigade Mixte du Levant"
+	division_names_group = FRA_CAF_04
+
+	regiments = {
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 }
+		light_infantry = { x = 0 y = 2 }
+		light_infantry = { x = 1 y = 0 }
+		light_infantry = { x = 1 y = 1 }  
+		light_infantry = { x = 1 y = 2 }
+		light_infantry = { x = 2 y = 0 }
+		light_infantry = { x = 2 y = 1 }
+		light_infantry = { x = 2 y = 2 }
+		artillery_battalion_light = { x = 3 y = 0 }
+		artillery_battalion_light = { x = 4 y = 1 }
+		artillery_battalion_light = { x = 4 y = 2 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+	}
+	priority = 0
+}
+division_template = {
+	name = "Division Marocaine"
+	division_names_group = FRA_CMAR_02
+	foreign_template_tag = MOR
+	origin_type=subject
+	
+	regiments = {
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 }
+		light_infantry = { x = 0 y = 2 }
+		light_infantry = { x = 1 y = 0 }
+		light_infantry = { x = 1 y = 1 }  
+		light_infantry = { x = 1 y = 2 }
+		light_infantry = { x = 2 y = 0 }
+		light_infantry = { x = 2 y = 1 }
+		light_infantry = { x = 2 y = 2 }
+		artillery_battalion_light = { x = 3 y = 0 }
+		artillery_battalion_light = { x = 3 y = 1 }
+		artillery_battalion_light = { x = 3 y = 2 }
+	}
+	priority = 0
+}
+division_template = {
+	name = "Division Coloniale"
+
+	regiments = {
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 }  
+		light_infantry = { x = 0 y = 2 }
+		light_infantry = { x = 1 y = 0 }
+		light_infantry = { x = 1 y = 1 }
+		light_infantry = { x = 1 y = 2 }
+		light_infantry = { x = 2 y = 0 }
+		light_infantry = { x = 2 y = 1 }
+		light_infantry = { x = 2 y = 2 }
+		light_infantry = { x = 3 y = 0 }
+		light_infantry = { x = 3 y = 1 }
+		light_infantry = { x = 3 y = 2 }
+		artillery_battalion_light = { x = 4 y = 0 }
+		artillery_battalion_light = { x = 4 y = 1 }
+		artillery_battalion_light = { x = 4 y = 2 }
+		artillery_battalion_light = { x = 4 y = 3 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		signal_company = { x = 0 y = 1 }
+		logistics_company = { x = 0 y = 2 }
+		armored_car_recon = { x = 0 y = 3 }
+		medium_armor_company = { x = 0 y = 4 }
+	}
+	priority = 0
+}
+
+division_template = {
+	name = "Division Coloniale (Indochine)"
+	foreign_template_tag = VIN
+	origin_type=subject
+	
+	regiments = {
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 }  
+		light_infantry = { x = 0 y = 2 }
+		light_infantry = { x = 1 y = 0 }
+		light_infantry = { x = 1 y = 1 }
+		light_infantry = { x = 1 y = 2 }
+		light_infantry = { x = 2 y = 0 }
+		light_infantry = { x = 2 y = 1 }
+		light_infantry = { x = 2 y = 2 }
+		light_infantry = { x = 3 y = 0 }
+		light_infantry = { x = 3 y = 1 }
+		light_infantry = { x = 3 y = 2 }
+		artillery_battalion_light = { x = 4 y = 0 }
+		artillery_battalion_light = { x = 4 y = 1 }
+		artillery_battalion_light = { x = 4 y = 2 }
+		artillery_battalion_light = { x = 4 y = 3 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		signal_company = { x = 0 y = 1 }
+		logistics_company = { x = 0 y = 2 }
+		armored_car_recon = { x = 0 y = 3 }
+		medium_armor_company = { x = 0 y = 4 }
+	}
+	priority = 0
+}
+division_template = {
+	name = "Secteur Fortifié"
+    is_locked = yes
+
+	regiments = {
+		garrison = { x = 0 y = 0 }
+		garrison = { x = 0 y = 1 }  
+		garrison = { x = 0 y = 2 }
+		garrison = { x = 1 y = 0 }
+		garrison = { x = 1 y = 1 }
+		garrison = { x = 1 y = 2 }
+		garrison = { x = 2 y = 0 }
+		garrison = { x = 2 y = 1 }
+		garrison = { x = 2 y = 2 }
+		artillery_battalion = { x = 3 y = 0 }
+		artillery_battalion = { x = 3 y = 1 }
+		artillery_battalion_light = { x = 3 y = 2 }
+		artillery_battalion_heavy = { x = 3 y = 3 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		signal_company = { x = 0 y = 1 }
+		logistics_company = { x = 0 y = 2 }
+	}
+}
+units = {
+###Cavalry
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		unique={
+			"François René Boullaire"
+		}
+		location = 9523 # Paris
+		division_template = "Division de Cavalerie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+ 		unique={
+			"Guy de Marin de Montmarin"
+		}
+		location = 11516 # Lunéville
+		division_template = "Division de Cavalerie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		unique={
+			"Louis-Alexandre Audibert"
+		}
+		location = 5291 # Longwy
+		division_template = "Division de Cavalerie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		unique={
+			"Joseph Lafont"
+		}
+		location = 3546 # Reims
+		division_template = "Division de Cavalerie" # The effort to convert the 4e DC to a mechanized unit didn't start unti the spring of 1933.
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 5
+		}
+		location = 11518 # Meaux
+		division_template = "Division de Cavalerie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { armored_car_equipment_1916 = { owner = "FRA" } } # I don't know which of the 5 cav divisions still had White AM's, so I picked one.
+	}
+
+###Infantry
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		unique={
+			"Charles-Marie Condé"
+		}
+		portraits = {
+			army = {
+				small = GFX_M_Charles_Marie_Conde
+				large = GFX_M_Charles_Marie_Conde
+			}
+		}
+		location = 11483 # Lille
+		division_template = "Division d'Infanterie avec Régiment de Chars de Combat"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Light_Tank_equipment_1919 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 11420 # Amiens
+		division_template = "Division d'Infanterie avec Régiment de Chars de Combat"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Light_Tank_equipment_1919 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 5
+		}
+		unique={
+			"Gaston Duffour"
+		}
+		location = 11535 # Caen
+		division_template = "Division d'Infanterie avec Régiment de Chars de Combat"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Light_Tank_equipment_1919 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 9
+		}
+		location = 11611 # Bourges - unable to confirm
+		division_template = "Division d'Infanterie avec Régiment de Chars de Combat"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Light_Tank_equipment_1919 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 10
+		}
+		unique={
+			"Charles Noguès"
+		}
+		portraits = {
+			army = {
+				small = GFX_M_Charles_Nogues
+				large = GFX_M_Charles_Nogues
+			}
+		}
+		location = 9523 # Paris
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 11
+		}
+		unique={
+			"Édouard Jean Requin"
+		}
+		portraits = {
+			army = {
+				small = GFX_M_Edouard_Requin
+				large = GFX_M_Edouard_Requin
+			}
+		}
+		location = 11516 # Nancy
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 12
+		}
+		unique={
+			"Louis Colson"
+		}
+		location = 3546 # Mourmelon-le-Grand
+		division_template = "Division d'Infanterie avec Régiment de Chars de Combat"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Light_Tank_equipment_1919 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 13
+		}
+		location = 9642 # Besançon
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 14
+		}
+		unique={
+			"Henri Joseph Léon Herscher"
+		}
+		portraits = {
+			army = {
+				small = GFX_M_Henri_Herscher
+				large = GFX_M_Henri_Herscher
+			}
+		}
+		location = 6529 # Colmar
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 15
+		}
+		unique={
+			"Benoît Besson"
+		}
+		portraits = {
+			army = {
+				small = GFX_M_Benoit_Besson
+				large = GFX_M_Benoit_Besson
+			}
+		}
+		location = 3652 # Dijon
+		division_template = "Division d'Infanterie avec Régiment de Chars de Combat"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Light_Tank_equipment_1919 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 19
+		}
+		unique={
+			"Léon Auguste Victor Leroy"
+		}
+		location = 9495 # Rennes
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 21
+		}
+		location = 11465 # Nantes
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 23
+		}
+		location = 620 # Limoges
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 25
+		}
+		unique={
+			"Henri Joseph Meulle-Desjardins"
+		}
+		location = 590 # Clermont-Ferrand
+		division_template = "Division d'Infanterie avec Régiment de Chars de Combat"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+		force_equipment_variants = { Light_Tank_equipment_1919 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 27
+		}
+		unique={
+			"François Pellegrin"
+		}
+		location = 6784 # Grenoble - unable to confirm
+		division_template = "Division d'Infanterie Alpine"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 29
+		}
+		unique={
+			"Charles Joseph Chédeville"
+		}
+		location = 9909 # Nice
+		division_template = "Division d'Infanterie Alpine"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 31
+		}
+		unique={
+			"Eugène-Henri-Jaques Pagézy"
+		}
+		location = 9898 # Montpellier
+		division_template = "Division d'Infanterie Alpine"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.1
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 36
+		}
+		unique={
+			"Paul Détrie"
+		}
+		portraits = {
+			army = {
+				small = GFX_M_Paul_Detrie
+				large = GFX_M_Paul_Detrie
+			}
+		}
+		location = 743 # Bayonne
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 42
+		}
+		location = 9559 # Metz
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 43
+		}
+		unique={
+			"Louis-Gaston Zopff"
+		}
+		location = 9503 # Strasbourg - unable to confirm
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+	}
+###DINA
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 201
+		}
+		location = 6613 # Lyon
+		division_template = "Division d'Infanterie Nord-Africaine"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 202
+		}
+		unique={
+			"René Pichot-Duclos"
+		}
+		location = 5291 # Toul
+		division_template = "Division d'Infanterie Nord-Africaine"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+	}
+###DIC
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 301
+		}
+		location = 9737 # Bordeaux
+		division_template = "Division d'Infanterie Coloniale"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 302
+		}
+		location = 911 # Toulon
+		division_template = "Division d'Infanterie Coloniale"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 303
+		}
+		location = 9523 # Paris
+		division_template = "Division d'Infanterie Coloniale"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+	}
+##### Divisions d'Afrique
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 81
+		}
+		unique={
+			"André Georges Corap"
+		}
+		portraits = {
+			army = {
+				small = GFX_M_Andre_Georges_Corap
+				large = GFX_M_Andre_Georges_Corap
+			}
+		}
+		location = 1145 # Algiers
+		division_template = "Division d'Infanterie d'Afrique"
+		start_experience_factor = 0.10 #"these units were for the most part large, mediocre units, just capable of ensuring the defense of the colonies, of repressing robbery but certainly not of taking part in a modern conflict in Europe"
+		start_equipment_factor = 0.8
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 82
+		}
+		unique={
+			"Henri Giraud"
+		}
+		portraits = {
+			army = {
+				small = GFX_M_Henri_Giraud
+				large = GFX_M_Henri_Giraud
+			}
+		}
+		location = 7132 # Oran
+		division_template = "Division d'Infanterie d'Afrique"
+		start_experience_factor = 0.10 #"these units were for the most part large, mediocre units, just capable of ensuring the defense of the colonies, of repressing robbery but certainly not of taking part in a modern conflict in Europe"
+		start_equipment_factor = 0.8
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 83
+		}
+		unique={
+			"Eugène Jules Rochard"
+		}
+		location = 13878 # Constantine
+		division_template = "Division d'Infanterie d'Afrique"
+		start_experience_factor = 0.10 #"these units were for the most part large, mediocre units, just capable of ensuring the defense of the colonies, of repressing robbery but certainly not of taking part in a modern conflict in Europe"
+		start_equipment_factor = 0.8
+	}
+	##### Division de Tunis #####
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 84
+		}
+		location = 7180 # Tunis
+		division_template = "Division d'Infanterie d'Afrique (Tunisie)"
+		start_experience_factor = 0.10 #"these units were for the most part large, mediocre units, just capable of ensuring the defense of the colonies, of repressing robbery but certainly not of taking part in a modern conflict in Europe"
+		start_equipment_factor = 0.8 #3 regiments only
+		army_manpower={
+			army_manpower_value={
+				value={ tag="FRA" value=2700 }
+				value={ tag="TUN" value=6300 }
+			}
+			army_manpower_need={
+				value={ tag="FRA" value=2700 }
+				value={ tag="TUN" value=6300 }
+			}
+		}
+	}
+	##### Division de Sousse #####
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 88
+		}
+		location = 7162 # Sousse
+		division_template = "Division d'Infanterie d'Afrique (Tunisie)"
+		start_experience_factor = 0.10 #"these units were for the most part large, mediocre units, just capable of ensuring the defense of the colonies, of repressing robbery but certainly not of taking part in a modern conflict in Europe"
+		start_equipment_factor = 0.8 #3 regiments only
+		army_manpower={
+			army_manpower_value={
+				value={ tag="FRA" value=2700 }
+				value={ tag="TUN" value=6300 }
+			}
+			army_manpower_need={
+				value={ tag="FRA" value=2700 }
+				value={ tag="TUN" value=6300 }
+			}
+		}
+	}
+	### Levant - The Mixed Brigades of the Levant were only created in July 1939, but all the component units existed and were stationed in the region throughout the interwar period. This is the only way I've found to organize them.
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 191
+		}
+		location = 4111 # Damascus
+		division_template = "Brigade Mixte du Levant"
+		start_experience_factor = 0.12
+		start_equipment_factor = 0.6
+	}
+
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 192
+		}
+		location = 4550 # Homs
+		division_template = "Brigade Mixte du Levant"
+		start_experience_factor = 0.12
+		start_equipment_factor = 0.6
+	}
+
+###Morocco
+	##### Division de Meknès #####
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 221
+		}
+		location = 10070 # Rabat
+		division_template = "Division Marocaine"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.5
+		army_manpower={
+			army_manpower_value={
+				value={ tag="FRA" value=3132 }
+				value={ tag="MOR" value=7308 }
+			}
+			army_manpower_need={
+				value={ tag="FRA" value=3132 }
+				value={ tag="MOR" value=7308 }
+			}
+		}
+	}
+	##### Division de Fès #####
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 222
+		}
+		location = 11987 # Fez
+		division_template = "Division Marocaine"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.5
+		army_manpower={
+			army_manpower_value={
+				value={ tag="FRA" value=3132 }
+				value={ tag="MOR" value=7308 }
+			}
+			army_manpower_need={
+				value={ tag="FRA" value=3132 }
+				value={ tag="MOR" value=7308 }
+			}
+		}
+	}
+	##### Division de Marrakech #####
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 223
+		}
+		location = 13668 # Marrakech
+		division_template = "Division Marocaine"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.5
+		army_manpower={
+			army_manpower_value={
+				value={ tag="FRA" value=3132 }
+				value={ tag="MOR" value=7308 }
+			}
+			army_manpower_need={
+				value={ tag="FRA" value=3132 }
+				value={ tag="MOR" value=7308 }
+			}
+		}
+	}
+###Indochine
+	division = {
+		name = "Division du Tonkin"
+		location = 4075 # Hanoi
+		division_template = "Division Coloniale (Indochine)"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.8
+		army_manpower={
+			army_manpower_value={
+				value={ tag="FRA" value=4692 }
+				value={ tag="VIN" value=10948 }
+			}
+			army_manpower_need={
+				value={ tag="FRA" value=4692 }
+				value={ tag="VIN" value=10948 }
+			}
+		}
+	}
+	division = {
+		name = "Division de Cochinchine-Cambodge"
+		location = 4401 # Saigon
+		division_template = "Division Coloniale (Indochine)"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.8
+		army_manpower={
+			army_manpower_value={
+				value={ tag="FRA" value=4692 }
+				value={ tag="VIN" value=10948 }
+			}
+			army_manpower_need={
+				value={ tag="FRA" value=4692 }
+				value={ tag="VIN" value=10948 }
+			}
+		}
+	}
+	division = {
+		name = "Brigade d'Annam-Laos"
+		location = 4379 # Hue
+		division_template = "Division Coloniale (Indochine)"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.4
+		army_manpower={
+			army_manpower_value={
+				value={ tag="FRA" value=3000 }
+				value={ tag="VIN" value=7000 }
+			}
+			army_manpower_need={
+				value={ tag="FRA" value=4692 }
+				value={ tag="VIN" value=10948 }
+			}
+		}
+	}
+		##### West Africa #####
+	division = {
+		name = "Forces de l'Afrique Occidentale Française" # Roughly a division in West Africa, but no unified headquarters found
+		location = 12710 # Saint Louis
+		division_template = "Division Coloniale"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.8
+	}
+		##### Equatorial Africa #####
+	division = {
+		name = "Forces de l'Afrique Equatoriale Française" # Two regiments and two independent battalions throughout the colonies. Grouped into one onmap unit for gameplay.
+		location = 2081 # Fort Lamy
+		division_template = "Division Coloniale"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.4
+	}
+	division = {
+		name = "Forces Malgaches" # Two regiments, one independent battalion, two artillery battalions
+		location = 11015 # Tananarive
+		division_template = "Division Coloniale"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.35
+	}
+##Negligible forces in French West Indies - total of 3202 troops of all types on Martinique in 1942, including two forts containing a total of 6 artillery pieces.
+##Fortified Sectors - these were the first projects from the first Maginot law of January 1930 of the Anciens fronts
+	division = {
+		name = "Secteur fortifié de Thionville"
+		location = 9559
+		division_template = "Secteur Fortifié"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+	}
+	division = {
+		name = "Secteur fortifié de Boulay"
+		location = 3629
+		division_template = "Secteur Fortifié"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+	}
+	division = {
+		name = "Secteur fortifié de Rohrbach"
+		location = 549
+		division_template = "Secteur Fortifié"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+	}
+	division = {
+		name = "Secteur fortifié des Vosges"
+		location = 549
+		division_template = "Secteur Fortifié"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+	}
+	division = {
+		name = "Secteur fortifié d'Haguenau"
+		location = 549
+		division_template = "Secteur Fortifié"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+	}
+	division = {
+		name = "Secteur fortifié du Bas-Rhin"
+		location = 9503
+		division_template = "Secteur Fortifié"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+	}
+	division = {
+		name = "Secteur fortifié de Colmar"
+		location = 6529
+		division_template = "Secteur Fortifié"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+	}
+	division = {
+		name = "Secteur fortifié de Mulhouse"
+		location = 678
+		division_template = "Secteur Fortifié"
+		start_experience_factor = 0.14 # the early 30s was a very low point for the French Army
+		start_equipment_factor = 0.75
+	}
+	##### navy oob #####
+	fleet = {
+		name = "Flotte de la Méditerranée"
+		naval_base = 911 # Toulon
+		task_force = {
+			name = "Flotte de la Méditerranée"
+			location = 911 # Toulon
+			ship = { name = "Bretagne" definition = battleship equipment = { BB_equipment_1906 = { amount = 1 owner = FRA } } }
+			ship = { name = "Provence" definition = battleship equipment = { BB_equipment_1906 = { amount = 1 owner = FRA } } }
+			ship = { name = "Lorraine" definition = battleship equipment = { BB_equipment_1906 = { amount = 1 owner = FRA } } }
+			ship = { name = "Courbet" definition = battleship equipment = { BB_equipment_1900 = { amount = 1 owner = FRA } } }
+			ship = { name = "Jean Bart" definition = battleship equipment = { BB_equipment_1900 = { amount = 1 owner = FRA } } }
+			ship = { name = "Paris" definition = battleship equipment = { BB_equipment_1900 = { amount = 1 owner = FRA } } }
+			ship = { name = "Béarn" definition = escort_carrier equipment = { CV_equipment_1916 = { amount = 1 owner = FRA } } }
+			ship = { name = "Commandant Teste" definition = escort_carrier equipment = { CV_equipment_1916 = { amount = 1 owner = FRA } } }
+			ship = { name = "Colbert" definition = heavy_cruiser equipment = { CA_equipment_1922 = { amount = 1 owner = FRA } } }
+			ship = { name = "Dupleix" definition = heavy_cruiser equipment = { CA_equipment_1922 = { amount = 1 owner = FRA } } }
+			ship = { name = "Foch" definition = heavy_cruiser equipment = { CA_equipment_1922 = { amount = 1 owner = FRA } } }
+			ship = { name = "Duquesne" definition = heavy_cruiser equipment = { CA_equipment_1922 = { amount = 1 owner = FRA } } }
+			ship = { name = "Tourville" definition = heavy_cruiser equipment = { CA_equipment_1922 = { amount = 1 owner = FRA } } }
+			ship = { name = "7 Division de contre-torpilleurs" definition = destroyer equipment = { DD_equipment_1922 = { amount = 1 owner = FRA } } }
+			ship = { name = "1 Division de torpilleurs" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = FRA } } }
+			ship = { name = "3 Division de torpilleurs" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = FRA } } }
+			ship = { name = "7 Division de torpilleurs" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = FRA } } } 
+		}		
+	}
+
+	fleet = {
+		name = "Flotte de l'Atlantique"
+		naval_base = 3552 # Brest
+		task_force = {
+			name = "Flotte de l'Atlantique"
+			location = 3552 # Brest
+			ship = { name = "Diderot" definition = battleship equipment = { BB_equipment_1895 = { amount = 1 owner = FRA } } }
+			ship = { name = "Voltaire" definition = battleship equipment = { BB_equipment_1895 = { amount = 1 owner = FRA } } }
+			ship = { name = "Condé" definition = heavy_cruiser equipment = { CA_equipment_1895 = { amount = 1 owner = FRA } } }
+			ship = { name = "Gueydon" definition = heavy_cruiser equipment = { CA_equipment_1895 = { amount = 1 owner = FRA } } }
+			ship = { name = "Duguay-Trouin" definition = light_cruiser equipment = { CL_equipment_1922 = { amount = 1 owner = FRA } } }
+			ship = { name = "Lamotte-Picquet" definition = light_cruiser equipment = { CL_equipment_1922 = { amount = 1 owner = FRA } } }
+			ship = { name = "Metz" definition = light_cruiser equipment = { CL_equipment_1912 = { amount = 1 owner = FRA } } }
+			ship = { name = "Thionville" definition = light_cruiser equipment = { CL_equipment_1912 = { amount = 1 owner = FRA } } }
+			ship = { name = "Mulhouse" definition = light_cruiser equipment = { CL_equipment_1912 = { amount = 1 owner = FRA } } }
+		}	 
+	}
+
+	fleet = {
+		name = "I Région navale"
+		naval_base = 6449 # Cherbourg
+		task_force = {
+			name = "I Région navale"
+			location = 6449 # Cherbourg
+			ship = { name = "11 Division de torpilleurs" definition = destroyer equipment = { DD_equipment_1912 = { amount = 1 owner = FRA } } }
+		}
+	}
+
+	fleet = {
+		name = "II Région navale"
+		naval_base = 3552 # Brest
+		task_force = {
+			name = "II Région navale"
+			location = 3552 # Brest
+			ship = { name = "2 Division de contre-torpilleurs" definition = destroyer equipment = { DD_equipment_1922 = { amount = 1 owner = FRA } } }
+			ship = { name = "2 Division de torpilleurs" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = FRA } } }
+			ship = { name = "4 Division de torpilleurs" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = FRA } } }
+			ship = { name = "6 Division de torpilleurs" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = FRA } } }
+			ship = { name = "5 Division de torpilleurs" definition = destroyer equipment = { DD_equipment_1912 = { amount = 1 owner = FRA } } }
+			ship = { name = "2 Division de sous-marins" definition = submarine equipment = { SS_equipment_1922 = { amount = 1 owner = FRA } } }
+			ship = { name = "6 Division de sous-marins" definition = submarine equipment = { SS_equipment_1922 = { amount = 1 owner = FRA } } }
+		}	  
+	}
+
+	fleet = {
+		name = "III Région navale"
+		naval_base = 911 # Toulon
+		task_force = {
+			name = "III Région navale"
+			location = 911 # Toulon
+			ship = { name = "13 Division de torpilleurs" definition = destroyer equipment = { DD_equipment_1912 = { amount = 1 owner = FRA } } }
+			ship = { name = "1 Division de sous-marins" definition = submarine equipment = { SS_equipment_1922 = { amount = 1 owner = FRA } } }
+			ship = { name = "3 Division de sous-marins" definition = submarine equipment = { SS_equipment_1922 = { amount = 1 owner = FRA } } }
+			ship = { name = "13 Division de sous-marins" definition = submarine equipment = { SS_equipment_1922 = { amount = 1 owner = FRA } } }
+			ship = { name = "7 Division de sous-marins" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = FRA } } }
+			ship = { name = "19 Division de sous-marins" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = FRA } } }
+		}  
+	}
+
+	fleet = {
+		name = "IV Région navale"
+		naval_base = 11969 # Bizerte
+		task_force = {
+			name = "IV Région navale"
+			location = 11969 # Bizerte
+			ship = { name = "1 Division de contre-torpilleurs" definition = destroyer equipment = { DD_equipment_1922 = { amount = 1 owner = FRA } } }
+			ship = { name = "8 Division de torpilleurs" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = FRA } } }
+			ship = { name = "9 Division de torpilleurs" definition = destroyer equipment = { DD_equipment_1912 = { amount = 1 owner = FRA } } }
+			ship = { name = "12 Division de torpilleurs" definition = destroyer equipment = { DD_equipment_1912 = { amount = 1 owner = FRA } } }
+			ship = { name = "4 Division de sous-marins" definition = submarine equipment = { SS_equipment_1922 = { amount = 1 owner = FRA } } }
+			ship = { name = "12 Division de sous-marins" definition = submarine equipment = { SS_equipment_1922 = { amount = 1 owner = FRA } } }
+			ship = { name = "14 Division de sous-marins" definition = submarine equipment = { SS_equipment_1922 = { amount = 1 owner = FRA } } }
+			ship = { name = "17 Division de sous-marins" definition = submarine equipment = { SS_equipment_1922 = { amount = 1 owner = FRA } } }
+			ship = { name = "18 Division de sous-marins" definition = submarine equipment = { SS_equipment_1922 = { amount = 1 owner = FRA } } }
+			ship = { name = "9 Division de sous-marins" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = FRA } } }
+			ship = { name = "10 Division de sous-marins" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = FRA } } }
+		}  
+	}
+
+	fleet = {
+		name = "V Région navale"
+		naval_base = 15216 # Saint-Nazaire
+		task_force = {
+			name = "V Région navale"
+			location = 15216 # Saint-Nazaire
+			ship = { name = "14 Division de torpilleurs" definition = destroyer equipment = { DD_equipment_1912 = { amount = 1 owner = FRA } } }
+		}
+	}
+
+	fleet = {
+		name = "Forces navales d'Extrême-Orient"
+		naval_base = 4119 # Haiphong
+		task_force = {
+			name = "Forces navales d'Extrême-Orient"
+			location = 4119 # Haiphong
+			ship = { name = "Suffren" definition = heavy_cruiser equipment = { CA_equipment_1922 = { amount = 1 owner = FRA } } }
+			ship = { name = "Primauguet" definition = light_cruiser equipment = { CL_equipment_1922 = { amount = 1 owner = FRA } } }
+		}
+			
+	}
+
+	fleet = {
+		name = "Station navale d'Afrique occidentale"
+		naval_base = 4948 # Dakar
+		task_force = {
+			name = "Station navale d'Afrique occidentale"
+			location = 4948 # Dakar
+			ship = { name = "Jeanne d'Arc" definition = light_cruiser equipment = { CL_equipment_1922 = { amount = 1 owner = FRA } } }
+		}
+	}
+
+	fleet = {
+		name = "Station navale du Levant"
+		naval_base = 792 # Beirut 
+		task_force = {
+			name = "Station navale du Levant"
+			location = 792 # Beirut
+			ship = { name = "11 Division de sous-marins" definition = submarine equipment = { SS_equipment_1912 = { amount = 1 owner = FRA } } }
+		}
+	}
+}
+
+air_wings = {
+	28 = {
+		# Groupement de Chasse 21
+		Fighter_equipment_1933 = { # Dewoitine D.500
+			owner = "FRA"
+			amount = 80
+		}
+		# Groupement de Chasse 23
+		Fighter_equipment_1933 = { # Dewoitine D.500
+			owner = "FRA"
+			amount = 75
+		}
+		# Groupement de Chasse 25
+		Fighter_equipment_1933 = { # Nieuport-Delage NiD.29
+			owner = "FRA"
+			amount = 25
+		}
+		 # Groupement de Bombardement 1
+		 Tactical_Bomber_equipment_1933 = { # Amiot 143
+		 owner = "FRA"
+		 amount = 90
+		}
+	}
+
+	16 = {
+		# Groupement de Chasse 22
+		Fighter_equipment_1933 = { # Hanriot HD.7
+			owner = "FRA"
+			amount = 75
+		}
+	}
+
+	18 = {
+		# Groupement de Chasse 24
+		Fighter_equipment_1933 = { # Hanriot HD.7
+			owner = "FRA"
+			amount = 100
+		}
+		# Groupement de Bombardement 3
+		Tactical_Bomber_equipment_1933 = { # Amiot 143
+			owner = "FRA"
+			amount = 90
+		}
+	}
+
+	# Flotte de la Méditerranée
+	"Béarn" = {
+
+	}
+	"Commandant Teste" = {
+
+	}
+}
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = Small_Arms_equipment_1916
+			creator = "FRA"
+		}
+		requested_factories = 2
+		progress = 0.1
+		efficiency = 50
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = Artillery_equipment_1916
+			creator = "FRA"
+		}
+		requested_factories = 2
+		progress = 0.3
+		efficiency = 50
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = Light_Tank_equipment_1926
+			creator = "FRA"
+		}
+		requested_factories = 1
+		progress = 0.3
+		efficiency = 50
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = Motorized_equipment_1916
+			creator = "FRA"
+		}
+		requested_factories = 1
+		progress = 0.3
+		efficiency = 50
+	}
+	#### Ship Production   ########
+	
+	add_equipment_production = {
+		equipment = {
+			type = SS_equipment_1933
+			creator = "FRA" 
+		}
+		requested_factories = 3
+		progress = 0.80
+		amount = 2
+	}
+	
+	add_equipment_production = {
+		equipment = {
+			type = DD_equipment_1933
+			creator = "FRA" 
+		}
+		requested_factories = 1
+		progress = 0.70
+		amount = 1
+	}
+	
+	
+	add_equipment_production = {
+		equipment = {
+			type = BC_equipment_1933
+			creator = "FRA" 
+		}
+		requested_factories = 1
+		progress = 0.20
+		amount = 1
+	}
+	
+	add_equipment_production = {
+		equipment = {
+			type = CL_equipment_1933
+			creator = "FRA" 
+		}
+		requested_factories = 2
+		progress = 0.10
+		amount = 5
+	}
+	###Stockpiled Tanks
+	add_equipment_to_stockpile = {
+		type = Super_Heavy_Tank_equipment_1917
+	    amount = 10
+	    producer = FRA
+	}
+	add_equipment_to_stockpile = {
+		type = Medium_Tank_equipment_1926
+	    amount = 100
+	    producer = FRA
+	}
+}

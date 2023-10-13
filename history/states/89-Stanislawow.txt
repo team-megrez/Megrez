@@ -1,0 +1,66 @@
+
+state={
+	id=89
+	name="STATE_89"
+
+	resources = {
+			oil = 6
+	}
+
+	history={
+		owner = POL
+		victory_points = {
+	        11411 2
+		}
+		victory_points = {
+	        6431 1
+		}
+		buildings = {
+			infrastructure = 2
+			air_base = 3
+
+		}
+		add_core_of = POL
+		add_core_of = UKR
+		1940.5.10 = {
+			owner = SOV
+			set_state_name = Stanislav
+			set_province_name = { id = 11411 name = "Stanislav" }
+			set_province_name = { id = 6431 name = "Boryslav" }
+			
+		}
+		1942.11.22 = {
+			controller = GGP
+
+		}
+		1944.6.20 = {
+			SOV = {
+				set_province_controller = 11550 
+				set_province_controller = 3743
+				set_province_controller = 11411
+				set_province_controller = 9425
+			}
+
+		}
+		1945.1.1 = {
+			controller = SOV
+
+		}
+		1972.1.1 = {
+			set_state_name = Ivano-Frankivsk
+			set_province_name = { id = 11411 name = "Ivano-Frankivsk" }
+		}
+		2000.1.1 = {
+			owner = UKR
+			controller = UKR
+			remove_core_of = SOV
+		}		
+	}
+
+	provinces={
+		3743 6431 6460 6483 9425 11411 11550 
+	}
+	manpower=2180300
+	buildings_max_level_factor=1.000
+	state_category=town
+}

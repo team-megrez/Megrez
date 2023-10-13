@@ -1,0 +1,26 @@
+﻿division_template = {
+	name = "Dokuritsu Konsei Ryodan (Kiko Butai)" # Independent Mixed Brigade (armor and motorized)
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+		motorized_artillery_battalion = { x = 2 y = 0 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		field_hospital = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+		armored_car_recon = { x = 0 y = 3 }
+	}
+}
+units = {
+	division = {
+		name = "Dokuritsu Konsei Dai 1 Ryodan"		
+		location = 4572 # Gongzhuling
+		division_template = "Dokuritsu Konsei Ryodan (Kiko Butai)"
+		start_experience_factor = 0.18 # Some parts of this unit had experience, but still largely an experimental force that would not see combat until later in 1936.
+		start_equipment_factor = 0.95 # Based on actual number of tanks and troops.
+	}
+}

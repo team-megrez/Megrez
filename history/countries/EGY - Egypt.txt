@@ -1,0 +1,183 @@
+﻿#########################################################################
+# Egypt - 1933
+#########################################################################
+1933.1.1 = {
+	oob = "EGY_1933"
+	capital = 446
+	add_to_variable = { money = 50 }
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		### Infantry Tech
+		Small_Arms_1900 = 1
+		Small_Arms_1916 = 1
+		Infantry_Kit_1914 = 1
+		Infantry_Kit_1918 = 1
+
+		Heavy_Weapons_1905 = 1
+		Heavy_Weapons_1916 = 1
+		
+		
+		### Armour Tech
+		Motorized_1916 = 1
+		Armored_Car_1911 = 1
+        Armored_Car_1916 = 1
+        Armored_Car_1926 = 1
+		### Artillery Tech
+		Artillery_1910 = 1
+        Artillery_Range_Finding_and_Surveying_Tools = 1
+        Artillery_1916 = 1
+		### Air Tech
+		Unarmed_Recon_1910 = 1
+        Fighter_1914 = 1
+        Fighter_1916 = 1
+        Fighter_1918 = 1
+        Fighter_1924 = 1
+		Fighter_1933 = 1
+		### Industry
+		Basic_Construction_Machines = 1
+		### Land Doctrines
+		Twentieth_Century_Warfare = 1
+		Leading_by_Order = 1
+		Strongpoint = 1
+        Mass_Charge = 1
+        Static_Defence = 1
+        Counterattack = 1
+		Defence_In_Depth = 1
+		Separate_Arms_Force = 1
+        Combined_Arms_Effort = 1
+		Specialized_Branch_Tactical_Experience = 1
+	}
+
+	set_convoys = 20
+
+	set_politics = {
+		ruling_party = authoritarian
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 70
+		democratic = 30
+		socialist = 0
+		communist = 0
+	}
+	set_cosmetic_tag = EGY_KINGDOM
+	add_ideas = {
+		agrarian_economy
+	}
+	###############################
+	# Leaders 
+	###############################
+	# Fascism
+	create_country_leader = {
+		name = "Ahmed Husayn"
+		desc = ""
+		picture = GFX_
+		expire = "1965.1.1"
+		ideology = fascism
+		traits = {}
+	}
+	# Authoritarian
+	create_country_leader = {
+		name = "Fuad I"
+		desc = ""
+		picture = GFX_P_A_Fuad_I
+		expire = "1936.4.28"
+		ideology = monarchism
+		traits = { POSITION_King SUBIDEOLOGY_Monarchism L_Autocratic_Charmer }
+	}
+	# Democracy
+	create_country_leader = {
+		name = "Mostafa el-Nahas"
+		desc = ""
+		picture = GFX_P_D_Mostafa_el_Nahas
+		expire = "1965.8.23"
+		ideology = classical_liberalism
+		traits = {
+			POSITION_President 
+			SUBIDEOLOGY_Classical_Liberalism
+		}
+	}
+	# Socialism
+	create_country_leader = {
+		name = "Gamal Abdel Nasser"
+		desc = ""
+		picture = GFX_P_S_Gamel_Abdul_Nasser
+		expire = "1965.1.1"
+		ideology = socialism
+		traits = {}
+	}
+	# Communism
+	create_country_leader = {
+		name = "Abdel Hakim Amer"
+		desc = ""
+		picture = GFX_
+		expire = "1965.1.1"
+		ideology = trotskyism
+		traits = {}
+	}
+}
+
+#########################################################################
+# Egypt - 1939
+#########################################################################
+1939.1.1 = {
+	###############################
+	# Leaders 
+	###############################
+	# Authoritarianism
+	create_country_leader = {
+		name = "Farouk I"
+		desc = ""
+		picture = GFX_P_A_Farouk_I
+		expire = "1965.3.8"
+		ideology = monarchism
+		traits = { POSITION_King SUBIDEOLOGY_Monarchism }
+	}
+}
+
+#########################################################################
+# Egypt - 1953
+#########################################################################
+1953.1.1 = {
+	set_cosmetic_tag = EGY_ARABREP
+	###############################
+	# Leaders 
+	###############################
+	# Paternal Autocracy
+	create_country_leader = {
+		name = "Mohamed Naguib"
+		desc = ""
+		picture = GFX_P_A_Mohamed_Naguib
+		expire = "1965.1.1"
+		ideology = military_dictatorship
+		traits = {}
+	}
+}
+#########################################################################
+# Egypt - 1960
+#########################################################################
+1960.1.1 = {
+	###############################
+	# Politics 
+	###############################
+	set_cosmetic_tag = EGY_UAR
+	set_politics = {
+		ruling_party = socialist
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 5
+		authoritarian = 15
+		democratic = 0
+		socialist = 80
+		communist = 0
+	}
+}

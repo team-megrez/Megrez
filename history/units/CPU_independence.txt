@@ -1,0 +1,78 @@
+﻿division_template = {
+	name = "Karpatska Sich"  #Only 2000 of the 15k members were organized to fight.  On the fence about whether this should be light infantry or militia, but I think the militia label fits better.  And it's not like this force was even remotely effective in combat.
+	force_allow_recruiting = yes
+	division_cap = 8
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+	}
+}
+division_template = {
+	name = "Pikhotna Dyviziya"					# Copying over the division structures of the Czechoslovakian Army, since that is where most of these individuals got their military experience and likely the structures they would use to create their own army.
+	
+	division_names_group = UKRN_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 3 y = 0 }
+		infantry = { x = 3 y = 1 }
+		infantry = { x = 3 y = 2 }
+		artillery_battalion = { x = 4 y = 0 }
+		artillery_battalion = { x = 4 y = 1 }
+		artillery_battalion = { x = 4 y = 2 }
+	}
+	support = {
+		field_hospital = { x = 0 y = 0 }
+		logistics_company = { x = 0 y = 1 }
+	}
+}
+division_template = {
+	name = "Hirska Bryhada"					# Mountain Brigade
+	division_names_group = UKRN_MTN_02
+
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+		artillery_battalion_light = { x = 2 y = 0 }
+		artillery_battalion_light = { x = 2 y = 1 }
+	}
+}
+division_template = {
+	name = "Kavaleriyska Bryhada"	#Cavalry Brigade
+	division_names_group = UKRN_CAV_02
+    
+    regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 0 y = 3 }
+		artillery_battalion_light = { x = 1 y = 0 }
+	}
+    support = {
+		recon = { x = 0 y = 0 }
+	}
+}
+
+units = {
+
+	division = {
+		name = "Orhanizatsiia Narodnoii Oborony Karpatska Sich"
+		location = 3548  # Khust
+		division_template = "Karpatska Sich"
+		start_experience_factor = 0.14 # This organization had regular training, even prior to the brief independence, and the permanent garrisons were largely made up of ethnic Ukrainians who were serving in the Czech military or border guard.
+		start_equipment_factor = 0.2 # Only about 300-400 were armed.
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "CPU" creator = "CZE" } }  #Almost exclusively used weapons they retained from the disintegrated Czechoslovakia
+	}
+}

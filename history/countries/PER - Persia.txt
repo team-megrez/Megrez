@@ -1,0 +1,204 @@
+﻿#########################################################################
+# Persia - 1933
+#########################################################################
+1933.1.1 = {
+	oob = "PER_1933"
+	capital = 266
+	set_convoys = 10
+	add_to_variable = { money = 70 }
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		### Infantry Tech
+		Small_Arms_1900 = 1
+		Small_Arms_1916 = 1
+		Infantry_Kit_1914 = 1
+		Infantry_Kit_1918 = 1
+
+		Heavy_Weapons_1905 = 1
+		Heavy_Weapons_1916 = 1
+		### Artillery Tech
+		Artillery_1910 = 1
+		### Armour Tech
+		Armored_Car_1911 = 1
+		### Air Tech
+		Unarmed_Recon_1910 = 1
+		Fighter_1914 = 1
+		Fighter_1916 = 1
+		### Industry
+		Motorized_Plowing = 1
+		### Land Doctrines
+		Twentieth_Century_Warfare = 1
+		Leading_by_Order = 1
+		Strongpoint = 1
+		Mass_Charge = 1
+		Static_Defence = 1
+		Counterattack = 1
+		Defence_In_Depth = 1
+		Separate_Arms_Force = 1
+		Combined_Arms_Effort = 1
+		Specialized_Branch_Tactical_Experience = 1
+		### Support Companies
+		tech_engineers = 1
+		tech_assault_weapons_1 = 1
+		tech_assault_weapons_2 = 1
+		tech_assault_weapons_3 = 1
+		tech_entrenchment_1 = 1
+		tech_entrenchment_2 = 1
+		tech_entrenchment_3 = 1
+		tech_amphibious_1 = 1
+		tech_amphibious_2 = 1
+		tech_amphibious_3 = 1
+		tech_recon = 1
+		tech_recon2 = 1
+		tech_recon3 = 1
+		tech_recon4 = 1
+		tech_military_police = 1
+		tech_military_police2 = 1
+		tech_military_police3 = 1
+		tech_military_police4 = 1
+		tech_signal_company = 1
+		tech_field_hospital = 1
+		tech_field_hospital_psychology_1 = 1
+		tech_field_hospital_psychology_2 = 1
+		tech_field_hospital_health_1 = 1
+		tech_field_hospital_health_2 = 1
+		tech_logistics_company = 1
+		tech_logistics_company2 = 1
+		tech_logistics_company3 = 1
+		tech_logistics_company4 = 1
+		tech_maintenance_company = 1
+		tech_maintenance_company2 = 1
+		tech_maintenance_company3 = 1
+		tech_maintenance_company4 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = authoritarian
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 63
+		democratic = 35
+		socialist = 2
+		communist = 0
+	}
+	add_ideas = {
+		PER_D_Mehdi_Qoli_Hedayat
+		industrializing_economy
+		repressive_system
+	}
+	#######################
+	# Leaders
+	#######################
+	# Fascism
+	create_country_leader = {
+		name = "Abdolhossein Teymourtash"
+		desc = ""
+		picture = GFX_P_A_Teymourtash
+		expire = "1965.1.1"
+		ideology = national_socialism
+		traits = { POSITION_Leader SUBIDEOLOGY_National_Socialism L_Political_Protege }
+	}
+	# Autocracy
+	create_country_leader = {
+		name = "Reza Shah Pahlavi"
+		desc = ""
+		picture = GFX_P_A_Reza_Shah_Pahlavi
+		expire = "1965.1.1"
+		ideology = monarchism
+		traits = { POSITION_Shah SUBIDEOLOGY_Monarchism L_Ruthless_Powermonger }
+	}
+	# Democracy
+	create_country_leader = {
+		name = "Mohammad Mosaddegh"
+		desc = ""
+		picture = GFX_P_D_Mohammad_Mosaddegh
+		expire = "1965.1.1"
+		ideology = social_democracy
+		traits = { POSITION_Prime_Minister SUBIDEOLOGY_Social_Democracy L_Smiling_Oilman }
+	}
+	# Socialism
+	create_country_leader = {
+		name = "Khalil Maleki"
+		desc = ""
+		picture = GFX_P_S_Khalil_Maleki
+		expire = "1965.1.1"
+		ideology = socialism
+		traits = { POSITION_Prime_Minister SUBIDEOLOGY_Democratic_Socialism L_Backroom_Backstabber }
+	}
+	# Communism
+	create_country_leader = {
+		name = "Iraj Eskandari"
+		desc = ""
+		picture = GFX_P_C_Iraj_Eskandari
+		expire = "1965.1.1"
+		ideology = marxism_leninism
+		traits = { POSITION_General_Secretary SUBIDEOLOGY_Marxism_Leninism L_Silent_Workhorse }
+	}
+	#######################
+	# Generals
+	#######################
+	create_field_marshal = {
+		name = "Reza Shah Pahlavi"
+	    id = 208000
+		GFX = GFX_M_Reza_Shah_Pahlavi
+		traits = { old_guard defensive_doctrine }
+		skill = 3
+		attack_skill = 2
+		defense_skill = 4
+		planning_skill = 2
+		logistics_skill = 1
+	}
+	create_corps_commander = {
+		name = "Hasan Arfa"
+	    id = 208001
+		GFX = GFX_P_Vacant
+		traits = { desert_fox }
+		skill = 3
+		attack_skill = 3
+		defense_skill = 3
+		planning_skill = 2
+		logistics_skill = 2
+	}
+}
+#########################################################################
+# Persia - 1936
+#########################################################################
+1936.1.1 = {
+	oob = "PER_1936"
+	set_cosmetic_tag = PER_IRAN
+	#######################
+	# Research
+	#######################
+	set_technology = {
+		Small_Arms_1935 = 1
+	}
+	add_ideas = {
+		PER_D_Mahmud_Jam
+		industrializing_economy
+		repressive_system
+	}
+}
+#########################################################################
+# Persia - 1939
+#########################################################################
+1939.9.1 = {
+	oob = "PER_1939"
+	#######################
+	# Diplomacy
+	#######################
+	### Treaty of Saadabad
+	diplomatic_relation = {
+		country = IRQ
+		relation = non_aggression_pact
+		active = yes
+	}
+}

@@ -1,0 +1,153 @@
+﻿division_template = {
+	name = "Divisione Bersaglieri"
+	division_names_group = RSI_CIV_01
+	
+	regiments = {
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 }
+		light_infantry = { x = 0 y = 2 }
+		light_infantry = { x = 1 y = 0 }
+		light_infantry = { x = 1 y = 1 }
+		light_infantry = { x = 1 y = 2 }
+		artillery_battalion = { x = 2 y = 0 }
+		artillery_battalion = { x = 2 y = 1 }
+		artillery_battalion = { x = 2 y = 2 }
+		artillery_battalion = { x = 2 y = 3 }
+		anti_tank_battalion = { x = 2 y = 4 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		mot_recon = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+		logistics_company = { x = 0 y = 3 }
+		military_police = { x = 0 y = 4 }
+	}
+}
+
+division_template = {
+	name = "Divisione Granatieri"
+	division_names_group = RSI_CIV_01
+	
+	regiments = {
+		infantry = { x = 0 y = 0 } # Granatieri was largely a propaganda title for this division
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+		artillery_battalion = { x = 2 y = 0 }
+		artillery_battalion = { x = 2 y = 1 }
+		artillery_battalion = { x = 2 y = 2 }
+		artillery_battalion = { x = 2 y = 3 }
+		anti_tank_battalion = { x = 2 y = 4 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		mot_recon = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+		logistics_company = { x = 0 y = 3 }
+		military_police = { x = 0 y = 4 }
+	}
+}
+
+division_template = {
+	name = "Divisione Fanteria di Marina"
+	division_names_group = RSI_CIV_01
+	
+	regiments = {
+		marine = { x = 0 y = 0 }
+		marine = { x = 0 y = 1 }
+		marine = { x = 0 y = 2 }
+		marine = { x = 1 y = 0 }
+		marine = { x = 1 y = 1 }
+		marine = { x = 1 y = 2 }
+		artillery_battalion = { x = 2 y = 0 }
+		artillery_battalion = { x = 2 y = 1 }
+		artillery_battalion = { x = 2 y = 2 }
+		artillery_battalion = { x = 2 y = 3 }
+		anti_tank_battalion = { x = 2 y = 4 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		mot_recon = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+		logistics_company = { x = 0 y = 3 }
+		military_police = { x = 0 y = 4 }
+	}
+}
+
+division_template = {
+	name = "Divisione Alpina"
+	division_names_group = RSI_CIV_01
+	
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+		artillery_battalion = { x = 2 y = 0 }
+		artillery_battalion = { x = 2 y = 1 }
+		artillery_battalion = { x = 2 y = 2 }
+		artillery_battalion = { x = 2 y = 3 }
+		anti_tank_battalion = { x = 2 y = 4 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		mot_recon = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+		logistics_company = { x = 0 y = 3 }
+		military_police = { x = 0 y = 4 }
+	}
+}
+
+units = {
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+        location = 9652 # Heuberg
+        division_template = "Divisione Bersaglieri"
+        start_experience_factor = 0.66
+		start_equipment_factor = 0.6 # Units did have a shortage of weapons
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+        location = 11431 # Paderborn
+        division_template = "Divisione Granatieri"
+        start_experience_factor = 0.66
+		start_equipment_factor = 0.6 # The troops all needed to be reequipped with British weapons and uniforms
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+        location = 586 # Grafenwöhr
+        division_template = "Divisione Fanteria di Marina"
+        start_experience_factor = 0.66
+		start_equipment_factor = 0.6 # Units did have a shortage of weapons
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+        location = 11499 # Münsingen
+        division_template = "Divisione Alpina"
+        start_experience_factor = 0.66
+		start_equipment_factor = 0.6 # The troops all needed to be reequipped with British weapons and uniforms
+    }
+    division = {
+		name = "Xª Flottiglia MAS"		
+        location = 6973 # La Spezia
+        division_template = "Divisione Fanteria di Marina"
+        start_experience_factor = 0.78
+		start_equipment_factor = 0.8 # These units did need some supplies but largely had their equipment, since many of the troops did not get interred.
+    }
+}

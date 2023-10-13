@@ -1,0 +1,395 @@
+﻿division_template = {
+	name = "Pěší Divise"					# Infantry Division
+	division_names_group = CZE_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 3 y = 0 }
+		infantry = { x = 3 y = 1 }
+		infantry = { x = 3 y = 2 }
+		artillery_battalion = { x = 4 y = 0 }
+		artillery_battalion = { x = 4 y = 1 }
+		artillery_battalion = { x = 4 y = 2 }
+	}
+	support = {
+		field_hospital = { x = 0 y = 0 }
+		logistics_company = { x = 0 y = 1 }
+	}
+}
+division_template = {
+	name = "Pěší Divise (Hraničářské Prapory)"					# Infantry Division with border battalions attached
+	division_names_group = CZE_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		light_infantry = { x = 0 y = 3 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		light_infantry = { x = 2 y = 3 }
+		infantry = { x = 3 y = 0 }
+		infantry = { x = 3 y = 1 }
+		infantry = { x = 3 y = 2 }
+		artillery_battalion = { x = 4 y = 0 }
+		artillery_battalion = { x = 4 y = 1 }
+		artillery_battalion = { x = 4 y = 2 }
+	}
+	support = {
+		field_hospital = { x = 0 y = 0 }
+		logistics_company = { x = 0 y = 1 }
+	}
+}
+division_template = {
+	name = "Pěší Divise (Hraničářský Prapor)"					# Infantry Division with border battalion attached
+	division_names_group = CZE_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		light_infantry = { x = 0 y = 3 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 3 y = 0 }
+		infantry = { x = 3 y = 1 }
+		infantry = { x = 3 y = 2 }
+		artillery_battalion = { x = 4 y = 0 }
+		artillery_battalion = { x = 4 y = 1 }
+		artillery_battalion = { x = 4 y = 2 }
+	}
+	support = {
+		field_hospital = { x = 0 y = 0 }
+		logistics_company = { x = 0 y = 1 }
+	}
+}
+division_template = {
+	name = "Pěší Divise (Prapor Útočné Vozby)"					# Infantry Division with assault vehicle battalion, also had one border battalion.
+	division_names_group = CZE_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+		light_infantry = { x = 0 y = 4 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 1 y = 3 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 2 y = 3 }
+		artillery_battalion = { x = 3 y = 0 }
+		artillery_battalion = { x = 3 y = 1 }
+		artillery_battalion = { x = 3 y = 2 }
+		armored_car_battalion = { x = 4 y = 0 }
+	}
+	support = {
+		field_hospital = { x = 0 y = 0 }
+		logistics_company = { x = 0 y = 1 }
+	}
+}
+division_template = {
+	name = "Horská Brigáda"					# Mountain Brigade
+	division_names_group = CZE_MTNB_01
+
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+		artillery_battalion_light = { x = 2 y = 0 }
+		artillery_battalion_light = { x = 2 y = 1 }
+	}
+}
+division_template = {
+	name = "Jezdecká Brigáda"	#Cavalry Brigade
+	division_names_group = CZE_CAV_01
+    
+    regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 0 y = 3 }
+		artillery_battalion_light = { x = 1 y = 0 }
+	}
+    support = {
+		recon = { x = 0 y = 0 }
+	}
+}
+
+units = {
+	##Infantry
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+        location = 11542 # Prague
+        division_template = "Pěší Divise"
+        start_experience_factor = 0.18 # A fairly competent military in 1933
+        start_equipment_factor = 0.8 # No major equipment shortages noted in my research 
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+        location = 6418 # Plzeň
+        division_template = "Pěší Divise (Hraničářské Prapory)"
+        start_experience_factor = 0.18 # A fairly competent military in 1933
+        start_equipment_factor = 0.8 # No major equipment shortages noted in my research 
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+        location = 14680 # Litoměřice
+        division_template = "Pěší Divise (Prapor Útočné Vozby)"
+        start_experience_factor = 0.18 # A fairly competent military in 1933
+        start_equipment_factor = 0.8 # No major equipment shortages noted in my research 
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+        location = 583 # Hradec Králové
+        division_template = "Pěší Divise (Hraničářský Prapor)"
+        start_experience_factor = 0.18 # A fairly competent military in 1933
+        start_equipment_factor = 0.8 # No major equipment shortages noted in my research 
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 5
+		}
+        location = 13657 # České Budějovice
+        division_template = "Pěší Divise"
+        start_experience_factor = 0.18 # A fairly competent military in 1933
+        start_equipment_factor = 0.8 # No major equipment shortages noted in my research 
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 6
+		}
+        location = 3569 # Brno
+        division_template = "Pěší Divise"
+        start_experience_factor = 0.18 # A fairly competent military in 1933
+        start_equipment_factor = 0.8 # No major equipment shortages noted in my research 
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 7
+		}
+        location = 3553 # Olomouc
+        division_template = "Pěší Divise"
+        start_experience_factor = 0.18 # A fairly competent military in 1933
+        start_equipment_factor = 0.8 # No major equipment shortages noted in my research 
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 8
+		}
+        location = 15104 # Hranice
+        division_template = "Pěší Divise"
+        start_experience_factor = 0.18 # A fairly competent military in 1933
+        start_equipment_factor = 0.8 # No major equipment shortages noted in my research 
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 9
+		}
+        location = 9692 # Bratislava
+        division_template = "Pěší Divise"
+        start_experience_factor = 0.18 # A fairly competent military in 1933
+        start_equipment_factor = 0.8 # No major equipment shortages noted in my research 
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 10
+		}
+        location = 3537 # Banská Bystrica
+        division_template = "Pěší Divise (Hraničářský Prapor)"
+        start_experience_factor = 0.18 # A fairly competent military in 1933
+        start_equipment_factor = 0.8 # No major equipment shortages noted in my research 
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 11
+		}
+        location = 6573 # Košice
+        division_template = "Pěší Divise"
+        start_experience_factor = 0.18 # A fairly competent military in 1933
+        start_equipment_factor = 0.8 # No major equipment shortages noted in my research 
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 12
+		}
+        location = 13634 # Užhorod
+        division_template = "Pěší Divise"
+        start_experience_factor = 0.18 # A fairly competent military in 1933
+        start_equipment_factor = 0.8 # No major equipment shortages noted in my research 
+    }
+	##Mountain
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+        location = 11554 # Ružomberok
+        division_template = "Horská Brigáda"
+        start_experience_factor = 0.18 # A fairly competent military in 1933
+        start_equipment_factor = 0.8 # No major equipment shortages noted in my research 
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+        location = 3550 # Spišská Nová Ves
+        division_template = "Horská Brigáda"
+        start_experience_factor = 0.18 # A fairly competent military in 1933
+        start_equipment_factor = 0.8 # No major equipment shortages noted in my research 
+    }
+	##Cavalry
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+        location = 11542 # Prague
+        division_template = "Jezdecká Brigáda"
+        start_experience_factor = 0.18 # A fairly competent military in 1933
+        start_equipment_factor = 0.8 # No major equipment shortages noted in my research 
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+        location = 3569 # Brno
+        division_template = "Jezdecká Brigáda"
+        start_experience_factor = 0.18 # A fairly competent military in 1933
+        start_equipment_factor = 0.8 # No major equipment shortages noted in my research 
+    }
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+        location = 9692 # Bratislava
+        division_template = "Jezdecká Brigáda"
+        start_experience_factor = 0.18 # A fairly competent military in 1933
+        start_equipment_factor = 0.8 # No major equipment shortages noted in my research 
+    }
+}
+
+air_wings = {
+    9 = {
+        # 4. Letecky Pluk
+        Fighter_equipment_1924 = { # Aero A.18
+            owner = "CZE"
+            amount = 45
+        }
+         # 2. Letecky Pluk
+        Fighter_equipment_1924 = { # Aero A.18
+			owner = "CZE"
+			amount = 45
+        }
+    }
+
+    70 = {
+        # 4. Letecky Pluk
+        Fighter_equipment_1924 = { # Aero A.18
+            owner = "CZE"
+            amount = 40
+        }
+        # 1. Letecky Pluk
+        Fighter_Bomber_equipment_1924 = { # Avia BH.21
+            owner = "CZE"
+            amount = 25
+        }
+    }
+}
+### Starting Production ###
+instant_effect = {
+    add_equipment_production = {
+        equipment = {
+            type = Small_Arms_equipment_1916
+            creator = "CZE"
+        }
+        requested_factories = 3
+        progress = 0.18
+        efficiency = 100
+    }
+
+    add_equipment_production = {
+        equipment = {
+            type = support_equipment_1
+            creator = "CZE"
+        }
+        requested_factories = 1
+        progress = 0.48
+        efficiency = 100
+    }
+
+    add_equipment_production = {
+        equipment = {
+            type = Artillery_equipment_1916
+            creator = "CZE"
+        }
+        requested_factories = 2
+        progress = 0.24
+        efficiency = 100
+    }
+
+    add_equipment_production = {
+        equipment = {
+            type = Anti_Aircraft_Gun_equipment_1914
+            creator = "CZE"
+        }
+        requested_factories = 1
+        progress = 0.22
+        efficiency = 100
+    }
+
+    add_equipment_production = {
+        equipment = {
+            type = Light_Tank_equipment_1926
+            creator = "CZE"
+        }
+        requested_factories = 2
+        progress = 0.10
+        efficiency = 100
+    }
+}

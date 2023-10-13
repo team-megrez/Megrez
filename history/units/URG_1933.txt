@@ -1,0 +1,61 @@
+﻿division_template = {
+	name = "División de Infanteria"			# Infantry Division
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+}
+
+units = {
+    ##### Ejercito Nacional #####
+    division = {
+        name = "1a Division de Infanteria"
+        location = 10362 # Montevideo
+        division_template = "División de Infanteria"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.25
+    }
+
+    division = {
+        name = "2a Division de Infanteria"
+        location = 10362 # Montevideo
+        division_template = "División de Infanteria"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.25
+    }
+    ##### navy oob #####
+    fleet = {
+        name = "Armada Nacional"
+        naval_base = 10362 # Montevideo
+        task_force = {
+            name = "Armada Nacional"
+            location = 10362 # Montevideo
+            ship = { name = "ROU Montevideo" definition = light_cruiser equipment = { CL_equipment_1885 = { amount = 1 owner = URG } } }
+        }
+    }
+}
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = Small_Arms_equipment_1900
+			creator = "URG"
+		}
+		requested_factories = 1
+		progress = 0.68
+		efficiency = 100
+    }
+    
+    add_equipment_production = {
+        equipment = {
+            type = DD_equipment_1885
+            creator = "URG"
+        }
+        requested_factories = 1
+        progress = 0.42
+        amount = 1
+    }
+}

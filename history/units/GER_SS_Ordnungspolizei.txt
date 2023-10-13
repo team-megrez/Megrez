@@ -1,0 +1,25 @@
+﻿division_template = {
+	name = "SS-Abschnitt"  	# In 1939 the average SS-Abschnitt had three Standarte and the average Standarte had 2000 members.
+	division_names_group = GER_ASS_01
+    is_locked = yes
+	force_allow_recruiting = yes
+	priority = 0
+
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 1 y = 0 }
+		militia = { x = 1 y = 1 }
+		militia = { x = 2 y = 0 }
+		militia = { x = 2 y = 1 }
+	}
+}
+units = {
+	division= {
+		name = "Polizei-Division"
+		location = 6521 # Berlin
+		division_template = "SS-Division"
+		start_experience_factor = 0.14
+		start_equipment_factor = 1.0 
+	}
+}

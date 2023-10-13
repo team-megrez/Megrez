@@ -1,0 +1,75 @@
+﻿# International Brigade : 4x Infantry Batallions with a MP company to represent the Political Commisars
+division_template = {
+	name = "Brigada Internacional"
+	division_names_group = SPR_CIV_02
+	division_cap = 8	
+	
+	regiments = {
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 }
+		light_infantry = { x = 0 y = 2 }
+		light_infantry = { x = 0 y = 3 }
+		artillery_battalion_light = { x = 1 y = 0 }	# 75mm howitzer Bn
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		recon = { x = 0 y = 1 }
+		field_hospital = { x = 0 y = 2 }
+		logistics_company = { x = 0 y = 3 }
+		signal_company = { x = 0 y = 4 }
+		artillery_battery = { x = 1 y = 0 }  # Single battery of 105mm
+        military_police = { x = 1 y = 1 }
+	}
+}
+units = {
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 11
+		}
+		location = 9764  # Barcelona
+		division_template = "Brigada Internacional"
+		start_experience_factor = 0.12
+		start_equipment_factor = 0.70
+	}	
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 12
+		}
+		location = 9764  # Barcelona
+		division_template = "Brigada Internacional"
+		start_experience_factor = 0.12
+		start_equipment_factor = 0.70
+	}	
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 13
+		}
+		location = 9764  # Barcelona
+		division_template = "Brigada Internacional"
+		start_experience_factor = 0.12
+		start_equipment_factor = 0.70
+	}	
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 14
+		}
+		location = 9764  # Barcelona
+		division_template = "Brigada Internacional"
+		start_experience_factor = 0.12
+		start_equipment_factor = 0.70
+	}
+	 division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 15
+		}
+		location = 9764  # Barcelona
+		division_template = "Brigada Internacional"
+		start_experience_factor = 0.12
+		start_equipment_factor = 0.70
+	}		
+}

@@ -1,0 +1,52 @@
+﻿#########################################################################
+# Andorra - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 752
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		Small_Arms_1916 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = authoritarian
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 100
+		democratic = 0
+		socialist = 0
+		communist = 0
+	}
+	add_ideas = {
+		# Laws & Government
+		isolationism
+		# Economic Policy
+		army_spending_level_2
+	}
+	#######################
+	# Leaders
+	#######################
+	create_country_leader = {
+		name = "Justí Guitart i Vilardebó"
+		desc = ""
+		picture = GFX_P_Europe_16
+		expire = "1940.1.30"
+		ideology = theocracy_auth
+		traits = {
+			POSITION_Bishop
+			SUBIDEOLOGY_Theocracy
+		}
+	}
+	#######################
+	# Generals
+	#######################
+}

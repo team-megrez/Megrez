@@ -1,0 +1,392 @@
+﻿focus = {
+	current = "GER_Chancellor_Hitler"
+	progress = 0
+}
+
+##############################################
+## German Templates
+##############################################
+division_template = {
+	name = "Infanterie-Division"
+	division_names_group = GER_INF_02
+	
+	regiments = {
+		infantry = { x = 0 y = 0 } 
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		artillery_battalion = { x = 3 y = 0 }	# Called a Regiment but they were all battalion strength units
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		field_hospital = { x = 0 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Kavallerie-Division"
+	division_names_group = GER_CAV_01
+	
+	regiments = {
+		cavalry = { x = 0 y = 0 } # Called a Regiment but they were all battalion strength units
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+	}
+}
+##############################################
+## German Land Units
+##############################################
+units = {
+	# Wehrkreiskommando I
+	division= { # 1. Infanterie-Division
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		unique={
+			"Werner von Blomberg"
+			"Walther von Brauchitsch"
+		}
+		portraits = {
+            army={
+				small="GFX_M_Werner_von_Blomberg"
+				large="GFX_M_Werner_von_Blomberg"
+			}
+        }
+		location = 6332 # Koenigsberg
+		division_template = "Infanterie-Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+	# Wehrkreiskommando II
+	division= { # 2. Infanterie-Division
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		unique={
+			"Fedor von Bock"
+		}
+		portraits = {
+            army = {
+                small= "GFX_M_Fedor_Von_Bock"
+				large= "GFX_M_Fedor_Von_Bock"
+            }
+        }
+		location = 6282 # Stettin
+		division_template = "Infanterie-Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	} 
+	# Wehrkreiskommando III
+	division= { # 3. Infanterie-Division
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		unique={
+			"Werner Freiherr von Fritsch"
+			"Erwin von Witzleben"
+		}
+		portraits={
+			army={
+				small="GFX_M_Werner_von_Fritsch"
+				large="GFX_M_Werner_von_Fritsch"
+			}
+		}
+		location = 6521 # Berlin
+		division_template = "Infanterie-Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+	# Wehrkreiskommando IV
+	division= { # 4. Infanterie-Division
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		unique={
+			"Curt Freiherr von Gienanth"
+			"Wilhelm List"
+		}
+		portraits={
+			army={
+				small="GFX_M_Curt_von_Gienanth"
+				large="GFX_M_Curt_von_Gienanth"
+			}
+		}
+		location = 514 # Dresden
+		division_template = "Infanterie-Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+	# Wehrkreiskommando V
+	division= { # 5. Infanterie-Division
+		division_name = {
+			is_name_ordered = yes
+			name_order = 5
+		}
+		unique={
+			"Curt Liebmann"
+			"Hermann Geyer"
+		}
+		portraits={
+			army={
+				small="GFX_M_Curt_Liebmann"
+				large="GFX_M_Curt_Liebmann"
+			}
+		}
+		location = 9517 # Stuttgart
+		division_template = "Infanterie-Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+	# Wehrkreiskommando VI
+	division= { # 6. Infanterie-Division
+		division_name = {
+			is_name_ordered = yes
+			name_order = 6
+		}
+		unique={
+			"Wolfgang Fleck"
+			"Günther von Kluge"
+		}
+		portraits={
+			army={
+				small = "GFX_M_Wolfgang_Fleck"
+				large = "GFX_M_Wolfgang_Fleck"
+			}
+		}
+		location = 6535 # Muenster
+		division_template = "Infanterie-Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+	# Wehrkreiskommando VII
+	division= { # 7. Infanterie-Division
+		division_name = {
+			is_name_ordered = yes
+			name_order = 7
+		}
+		unique={
+			"Wilhelm Ritter von Leeb"
+			"Wilhelm Adam"
+		}
+		portraits={
+			army={
+				small = "GFX_M_Wilhelm_Ritter_von_Leeb"
+				large = "GFX_M_Wilhelm_Ritter_von_Leeb"
+			}
+		}
+		location = 692 # Munich
+		division_template = "Infanterie-Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+	
+	# Gruppenkommando 1
+	division= { # 1. Kavallerie-Division
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		unique={
+			"Ludwig Beck"
+			"Maximilian Freiherr von Weichs"
+		}
+		portraits = {
+			army={
+				small="GFX_M_Ludwig_Beck"
+				large="GFX_M_Ludwig_Beck"
+			}
+		}
+		location = 9496 # Frankfurt (Oder)
+		division_template = "Kavallerie-Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+	division= { # 2. Kavallerie-Division
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		unique={
+			"Ewald von Kleist"
+		}
+		portraits={
+			army={
+				small="GFX_M_Paul_Ludwig_Ewald_von_Kleist"
+				large="GFX_M_Paul_Ludwig_Ewald_von_Kleist"
+			}
+		}
+		location = 9570 # Breslau
+		division_template = "Kavallerie-Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+	# Gruppenkommando 2
+	division= { # 3. Kavallerie-Division
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		unique={
+			"Wilhelm Knochenhauer"
+		}
+		portraits={
+			army={
+				small = "GFX_M_Wilhelm_Knochenhauer"
+				large = "GFX_M_Wilhelm_Knochenhauer"
+			}
+		}
+		location = 6524 # Weimar
+		division_template = "Kavallerie-Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}	
+
+##############################################
+## Naval OOB
+##############################################
+	fleet = {
+		name = "Reichsmarine"
+		naval_base = 241 # Wilhemshaven
+		task_force = {
+			name = "Reichsmarine"
+			location = 241 # Wilhemshaven
+			ship = { name = "Schlesien" definition = battleship equipment = { BB_equipment_1895 = { amount = 1 owner = GER } } }
+			ship = { name = "Schleswig-Holstein" definition = battleship equipment = { BB_equipment_1895 = { amount = 1 owner = GER } } }	
+			ship = { name = "Hessen" definition = light_cruiser equipment = { BB_equipment_1895 = { amount = 1 owner = GER } } }
+			
+			ship = { name = "Leipzig" definition = light_cruiser equipment = { CL_equipment_1922 = { amount = 1 owner = GER } } }
+			ship = { name = "Königsberg" definition = light_cruiser equipment = { CL_equipment_1922 = { amount = 1 owner = GER } } }
+			ship = { name = "Karlsruhe" definition = light_cruiser equipment = { CL_equipment_1922 = { amount = 1 owner = GER } } }
+			ship = { name = "Köln" definition = light_cruiser equipment = { CL_equipment_1922 = { amount = 1 owner = GER } } }
+			ship = { name = "Emden" definition = light_cruiser equipment = { CL_equipment_1912 = { amount = 1 owner = GER } } }
+			ship = { name = "Berlin" definition = light_cruiser equipment = { CL_equipment_1900 = { amount = 1 owner = GER } } }
+			
+			ship = { name = "1. Torpedobootsflottille" definition = destroyer equipment = { DD_equipment_1900 = { amount = 1 owner = GER } } }
+			ship = { name = "2. Torpedobootsflottille" definition = destroyer equipment = { DD_equipment_1912 = { amount = 1 owner = GER } } }
+			ship = { name = "3. Torpedobootsflottille" definition = destroyer equipment = { DD_equipment_1912 = { amount = 1 owner = GER } } }
+			ship = { name = "4. Torpedobootsflottille" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = GER } } }
+			ship = { name = "5. Torpedobootsflottille" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = GER } } }
+			ship = { name = "6. Torpedobootsflottille" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = GER } } }
+		}
+	}	
+}
+##############################################
+## German Air Units
+##############################################
+air_wings = {	
+	### Kampffliegerschule - Berlin
+	64 = { 
+		# Kampffliegerschule (Fokker D.XIII)	
+		Fighter_Bomber_equipment_1924 =  {
+			owner = "GER" 
+			amount = 50
+		}
+		name = "Kampffliegerschule"	
+	}
+}
+##############################################
+## German Production
+##############################################
+instant_effect = {
+	# MP 18
+	add_equipment_production = {
+		equipment = {
+			type = Small_Arms_equipment_1916
+			creator = "GER"
+		}
+		requested_factories = 10
+		progress = 0.1
+		efficiency = 50
+	}
+	# MP 18
+	add_equipment_production = {
+		equipment = {
+			type = Heavy_Weapons_equipment_1916
+			creator = "GER"
+		}
+		requested_factories = 5
+		progress = 0.1
+		efficiency = 50
+	}
+	# Support Equipment
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "GER"
+		}
+		requested_factories = 2
+		progress = 0.3
+		efficiency = 50
+	}
+	# leFH18
+	add_equipment_production = {
+		equipment = {
+			type = Artillery_equipment_1916
+			creator = "GER"
+		}
+		requested_factories = 3
+		progress = 0.3
+		efficiency = 50
+	}
+	# leFH18
+	add_equipment_production = {
+		equipment = {
+			type = Anti_Aircraft_Gun_equipment_1914
+			creator = "GER"
+		}
+		requested_factories = 1
+		progress = 0.3
+		efficiency = 50
+	}
+	# Opel Blitz
+	add_equipment_production = {
+		equipment = {
+			type = Motorized_equipment_1916
+			creator = "GER"
+		}
+		requested_factories = 4
+		progress = 0.4
+		efficiency = 50
+	}
+	# Opel Blitz
+	add_equipment_production = {
+		equipment = {
+			type = armored_car_equipment_1926
+			creator = "GER"
+		}
+		requested_factories = 1
+		progress = 0.4
+		efficiency = 50
+	}
+	# Fokker D.XIII
+	add_equipment_production = {
+		equipment = {
+			type = Fighter_Bomber_equipment_1924
+			creator = "GER"
+		}
+		requested_factories = 1
+		progress = 0.15
+		efficiency = 50
+	}
+
+	
+	#########################################################################
+	#  Ships Under Contruction
+	#########################################################################	
+	## The Formula used is X=100-(100Y)/T ; X= Progress, Y= Time Left, T= Total Building time
+}

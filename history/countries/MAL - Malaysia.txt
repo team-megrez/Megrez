@@ -1,0 +1,104 @@
+﻿######################################################################
+# Federated Malay States - 1933
+######################################################################
+1933.1.1 = {
+	capital = 1009
+	oob = "MAL_1933"
+	set_research_slots = 3
+	set_convoys = 25
+	add_to_variable = { money = 40 }
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		Small_Arms_1916 = 1
+		Small_Arms_1935 = 1
+		tech_support = 1
+		tech_engineers = 1
+		tech_recon = 1
+		Armored_Car_1911 = 1
+		Armored_Car_1916 = 1
+		Armored_Car_1926 = 1
+		Motorized_1916 = 1
+		Artillery_1910 = 1
+		Anti_Aircraft_Gun_1935 = 1
+		Fighter_1933 = 1
+		Torpedo_bomber_1936 = 1
+		Naval_Bomber_1936 = 1
+		Tactical_Bomber_1933 = 1
+		Attacker_1936 = 1
+		Trench_Warfare = 1
+		transport = 1
+		fleet_in_being = 1
+		computing_4 = 1
+		radar_1 = 1
+		radar_2 = 1
+	}
+	#######################
+	# Diplomacy
+	#######################
+	if = {
+		limit = { has_dlc = "Together for Victory" }
+		add_to_tech_sharing_group = commonwealth_research
+	}
+	set_cosmetic_tag = MAL_FMS
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = authoritarian
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 59
+		democratic = 26
+		socialist = 4
+		communist = 11
+	}
+	#######################
+	# Leaders
+	#######################
+	# Authoritarian
+	create_country_leader = {
+		name = "Andrew Caldecott"
+		desc = ""
+		picture = GFX_P_A_Andrew_Caldecott
+		expire = "1951.7.14"
+		ideology = despotism
+		traits = {
+			POSITION_Chief_Secretary
+			SUBIDEOLOGY_Despotism
+			L_Benevolent_Gentleman
+		}
+	}
+	# Democracy
+	create_country_leader = {
+		name = "Tunku Abdul Rahman"
+		desc = ""
+		picture = GFX_P_D_Tunku_Abdul_Rahman
+		expire = "1990.12.6"
+		ideology = national_conservatism
+		traits = { 
+			POSITION_Prime_Minister
+			SUBIDEOLOGY_National_Conservatism
+			L_Popular_Figurehead
+		 }
+	}
+	# Communism
+	create_country_leader = {
+		name = "Chin Peng"
+		desc = ""
+		picture = GFX_P_D_Tunku_Abdul_Rahman #Needs custom portrait
+		expire = "2013.9.16"
+		ideology = maoism
+		traits = { 
+			POSITION_General_Secretary
+			SUBIDEOLOGY_Maoism
+			L_Inexperienced_Revolutionary
+		}
+	}
+}

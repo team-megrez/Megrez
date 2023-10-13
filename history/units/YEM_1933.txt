@@ -1,0 +1,170 @@
+﻿division_template = {
+	name = "Jaysh Al-Defaa"		# The formally trained army
+###QUESTION OF NAME
+	division_names_group = ARBC_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Fursan Al-Defaa"		# Trained Cavalry
+	division_names_group = ARBC_CAV_01
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Al-Jaysh Al-Muzaffar"		# Tribal militias
+###QUESTION OF SIZE AND NAME
+	division_names_group = ARBC_INF_01
+
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 0 y = 2 }
+		militia = { x = 1 y = 0 }
+		militia = { x = 1 y = 1 }
+		militia = { x = 1 y = 2 }
+		militia = { x = 2 y = 0 }
+		militia = { x = 2 y = 1 }
+		militia = { x = 2 y = 2 }
+		militia = { x = 3 y = 0 }
+    }
+    priority = 0
+}
+
+units = {
+    ##### Jaysh Al-Defaa #####
+    division = {
+        name = "Jund Sanaa \"Haras Al-Imam\""
+###QUESTION OF NAME
+        location = 10840 # Sanaa
+        division_template = "Jaysh Al-Defaa"
+        start_experience_factor = 0.02
+        start_equipment_factor = 0.5
+		acclimatization={
+			hot_climate=2000.000
+			max_acclimatization=2000.000
+		}
+    }
+
+    division = {
+        name = "Jund Sanaa Al-Thani \"Dhaffar\""
+###QUESTION OF NAME
+        location = 10840 # Sanaa
+        division_template = "Jaysh Al-Defaa"
+        start_experience_factor = 0.02
+        start_equipment_factor = 0.5
+		acclimatization={
+			hot_climate=2000.000
+			max_acclimatization=2000.000
+		}
+    }
+
+    division = {
+        name = "Jund Taiz \"Al-Yemen Al-Kabeer\""
+###QUESTION OF NAME
+        location = 13552 # Taiz
+        division_template = "Jaysh Al-Defaa"
+        start_experience_factor = 0.02
+        start_equipment_factor = 0.5
+		acclimatization={
+			hot_climate=2000.000
+			max_acclimatization=2000.000
+		}
+    }
+
+    division = {
+        name = "Jund Al-Hudaydah"
+###QUESTION OF NAME
+        location = 13553 # al-Hudaydah
+        division_template = "Jaysh Al-Defaa"
+        start_experience_factor = 0.02
+        start_equipment_factor = 0.5
+		acclimatization={
+			hot_climate=2000.000
+			max_acclimatization=2000.000
+		}
+    }
+
+    division = {
+        name = "Fursan Sadah"
+###QUESTION OF NAME
+        location = 1920 # Sa'dah
+        division_template = "Fursan Al-Defaa"
+        start_experience_factor = 0.04
+        start_equipment_factor = 0.5
+		acclimatization={
+			hot_climate=1600.000
+			max_acclimatization=1600.000
+		}
+    }
+
+    ##### Al-Jaysh Al-Muzaffar #####
+    division = {
+        name = "Firqat Mushat Sanaa"
+        location = 10840 # Sanaa
+        division_template = "Al-Jaysh Al-Muzaffar"
+        start_experience_factor = 0.02
+        start_equipment_factor = 0.9
+		acclimatization={
+			hot_climate=10000.000
+			max_acclimatization=10000.000
+		}
+    }
+
+    division = {
+        name = "Firqat Taiz \"Khuddam Amir Al-Muminin\""
+        location = 13552 # Taiz
+        division_template = "Al-Jaysh Al-Muzaffar"
+        start_experience_factor = 0.02
+        start_equipment_factor = 0.9
+ 		acclimatization={
+			hot_climate=10000.000
+			max_acclimatization=10000.000
+		}
+   }
+ 
+	division = {
+        name = "Firqat Al-Hudaydah \"Humat Al-Din\""
+        location = 13553 # al-Hudaydah
+        division_template = "Al-Jaysh Al-Muzaffar"
+        start_experience_factor = 0.02
+        start_equipment_factor = 0.9
+		acclimatization={
+			hot_climate=10000.000
+			max_acclimatization=10000.000
+		}
+    }
+
+	division = {
+        name = "Firqat Sadah \"Ebaa\""
+        location = 1920 # Sa'dah
+        division_template = "Al-Jaysh Al-Muzaffar"
+        start_experience_factor = 0.02
+        start_equipment_factor = 0.9
+		acclimatization={
+			hot_climate=10000.000
+			max_acclimatization=10000.000
+		}
+    }
+}
+
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = Small_Arms_equipment_1900
+			creator = "YEM"
+		}
+		requested_factories = 1
+		progress = 0.2
+		efficiency = 82
+	}
+}

@@ -1,0 +1,42 @@
+﻿division_template = {
+	name = "Bùbīng shī"				# Represents: two-division infantry corps (generally poorly-equipped militias), and local militia groups
+
+	regiments = {
+		light_infantry = { x = 0 y = 0 }	# Note: Chinese divisions were brigade-sized compared other nations' armies
+		light_infantry = { x = 0 y = 1 }
+		light_infantry = { x = 1 y = 0 }
+		light_infantry = { x = 1 y = 1 }
+	}
+}
+units = {
+	division = {
+		name ="Guizhou Bùbīng shī 1"
+		location = 10763
+		division_template = "Bùbīng shī"
+		start_equipment_factor = 0.3
+	}
+	division = {
+		name ="Guizhou Bùbīng shī 2"
+		location = 4504
+		division_template = "Bùbīng shī"
+		start_equipment_factor = 0.3
+	}
+	division = {
+		name ="Guizhou Bùbīng shī 3"
+		location = 10616
+		division_template = "Bùbīng shī"
+		start_equipment_factor = 0.3
+	}
+}
+### STARTING PRODUCTION ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = Small_Arms_equipment_1900
+			creator = "GUZ"
+		}
+		requested_factories = 1
+		progress = 0.79
+		efficiency = 100
+	}	
+}

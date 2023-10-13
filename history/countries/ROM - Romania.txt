@@ -1,0 +1,697 @@
+﻿#########################################################################
+# Romania - 1933
+#########################################################################
+1933.1.1 = {
+	oob = "ROM_1933"
+	capital = 46
+	set_stability = 0.6
+	set_war_support = 0.6
+	set_research_slots = 3
+	set_convoys = 10
+	add_manpower = 150000
+	add_to_variable = { money = 130 }
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		### Infantry Tech
+		Small_Arms_1916 = 1
+		Small_Arms_1900 = 1
+		Infantry_Kit_1914 = 1
+		Infantry_Kit_1918 = 1
+
+		Heavy_Weapons_1905 = 1
+		Heavy_Weapons_1916 = 1
+		### Artillery Tech
+		Artillery_1910 = 1
+		Anti_Aircraft_Gun_1914 = 1
+		Artillery_Range_Finding_and_Surveying_Tools = 1
+		Infantry_Support_Gun_1914 = 1
+		Artillery_1916 = 1
+		### Armour Tech
+		Motorized_1916 = 1
+		Armored_Car_1911 = 1
+		Armored_Car_1916 = 1
+		Heavy_Tank_1916 = 1
+		Heavy_Tank_1917 = 1
+		Super_Heavy_Tank_1917 = 1
+		Light_Tank_1917 = 1
+		Light_Tank_1919 = 1
+		Light_Tank_1926 = 1
+		### Air Tech
+		Unarmed_Recon_1910 = 1
+		Fighter_1914 = 1
+		Fighter_1916 = 1
+		Fighter_1918 = 1
+		Fighter_1924 = 1
+		Fighter_Bomber_1916 = 1
+		Fighter_Bomber_1918 = 1
+		Fighter_Bomber_1924 = 1
+		Tactical_Bomber_1914 = 1
+		Tactical_Bomber_1916 = 1
+		Tactical_Bomber_1918 = 1
+		Tactical_Bomber_1925 = 1
+		Strategic_Bomber_1916 = 1
+		Naval_Bomber_1918 = 1
+		Naval_Bomber_1925 = 1
+		### Naval Stuff
+		DD_1885 = 1
+		DD_1900 = 1
+		DD_1912 = 1
+		DD_1916 = 1
+		SS_1895 = 1
+		SS_1912 = 1
+		SS_1922 = 1
+		transport = 1
+		### Industry
+		Industrial_Management = 1
+		Factory_Electrification = 1
+		Facilities_Design = 1
+		Moving_Assembly_Line = 1
+		Skilled_Workforce = 1
+		Basic_Construction_Machines = 1
+		Novel_Drills = 1
+		Contemporary_Construction_Standards = 1
+		Advanced_Drilling_Method = 1
+		Motorized_Plowing = 1
+		Farm_Tractors = 1
+		Scientific_Agricultural_Processes = 1
+		Rudimentary_Oil_Refining = 1
+		### Land Doctrines
+		Twentieth_Century_Warfare = 1
+		Leading_by_Order = 1
+		Strongpoint = 1
+		Mass_Charge = 1
+		Static_Defence = 1
+		Counterattack = 1
+		Defence_In_Depth = 1
+		Separate_Arms_Force = 1
+		Combined_Arms_Effort = 1
+		Specialized_Branch_Tactical_Experience = 1
+		Beyond_Trench_Warfare = 1
+		### Engineering
+		computing_1 = 1
+		computing_2 = 1
+		computing_3 = 1
+		decryption_encryption_1 = 1
+		### Support Companies
+		tech_engineers = 1
+		tech_assault_weapons_1 = 1
+		tech_assault_weapons_2 = 1
+		tech_assault_weapons_3 = 1
+		tech_entrenchment_1 = 1
+		tech_entrenchment_2 = 1
+		tech_entrenchment_3 = 1
+		tech_amphibious_1 = 1
+		tech_amphibious_2 = 1
+		tech_amphibious_3 = 1
+		tech_recon = 1
+		tech_recon2 = 1
+		tech_recon3 = 1
+		tech_recon4 = 1
+		tech_military_police = 1
+		tech_military_police2 = 1
+		tech_military_police3 = 1
+		tech_military_police4 = 1
+		tech_signal_company = 1
+		tech_signal_company2 = 1
+		tech_field_hospital = 1
+		tech_field_hospital_psychology_1 = 1
+		tech_field_hospital_psychology_2 = 1
+		tech_field_hospital_psychology_3 = 1
+		tech_field_hospital_health_1 = 1
+		tech_field_hospital_health_2 = 1
+		tech_field_hospital_health_3 = 1
+		tech_logistics_company = 1
+		tech_logistics_company2 = 1
+		tech_logistics_company3 = 1
+		tech_logistics_company4 = 1
+		tech_maintenance_company = 1
+		tech_maintenance_company2 = 1
+		tech_maintenance_company3 = 1
+		tech_maintenance_company4 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1933.12.20"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		fascist = 5
+		authoritarian = 35
+		democratic = 60
+		socialist = 0
+		communist = 0
+	}
+	add_ideas = {
+		# Spirit
+		ROM_Agrarian_Society
+		ROM_Shockwaves_of_the_Depression
+		ROM_Unequal_Education
+		# Cabinet
+		ROM_D_Carol_II
+		ROM_FM_Nicolae_Titulescu
+		ROM_AM_Victor_Slavescu
+		ROM_HoI_Constantin_Angelescu
+		ROM_MoS_Victor_Antonescu
+		industrializing_economy
+		legalistic_restrictions
+	}
+	#######################
+	# Diplomacy
+	#######################
+	give_guarantee = CZE
+	give_guarantee = YUG
+	give_guarantee = GRE
+	give_guarantee = TUR
+	give_military_access = POL
+	#######################
+	# Leaders
+	#######################
+	# Fascism
+	create_country_leader = {
+		name = "Horia Sima"
+		desc = ""
+		picture = GFX_P_F_Horia_Sima
+		expire = "1956.1.1"
+		ideology = legionarism
+		traits = {
+			SUBIDEOLOGY_Legionarism
+		}
+	}
+	create_country_leader = {
+		name = "Corneliu Zelea Codreanu"
+		desc = ""
+		picture = GFX_P_F_Corneliu_Zelea_Codreanu
+		expire = "1956.1.1"
+		ideology = legionarism
+		traits = {
+			SUBIDEOLOGY_Legionarism
+		}
+	}
+	# Authoritian
+	create_country_leader = {
+		name = "Carol II"
+		desc = ""
+		picture = GFX_P_A_Carol_II
+		expire = "1965.1.1"
+		ideology = monarchism
+		traits = {
+			POSITION_King
+			SUBIDEOLOGY_Monarchism
+			L_Carols_Extravagance
+			L_Benevolent_Gentleman
+		}
+	}
+	# Democracy
+	create_country_leader = {
+		name = "Gheorghe Tatarescu"
+		desc = ""
+		picture = GFX_P_D_Gheorghe_Tatarescu
+		expire = "1965.1.1"
+		ideology = social_conservatism
+		traits = {
+			POSITION_Prime_Minister
+			SUBIDEOLOGY_Social_Conservatism
+			L_Silent_Workhorse
+		}
+	}
+	create_country_leader = {
+		name = "Ion G. Duca"
+		desc = ""
+		picture = GFX_P_D_Ion_G_Duca
+		expire = "1953.2.5"
+		ideology = social_conservatism
+		traits = {
+			POSITION_Prime_Minister
+			SUBIDEOLOGY_Social_Conservatism
+			L_Ambitious_Union_Boss
+		}
+	}
+	create_country_leader = {
+		name = "Alexandru Vaida-Voevod"
+		desc = ""
+		picture = GFX_P_D_Alexandru_Vaida_Voevod
+		expire = "1953.2.5"
+		ideology = social_conservatism
+		traits = {
+			POSITION_Prime_Minister
+			SUBIDEOLOGY_Social_Conservatism
+			L_Naive_Optimist
+		}
+	}
+	create_country_leader = {
+		name = "Iuliu Maniu"
+		desc = ""
+		picture = GFX_P_D_Iuliu_Maniu
+		expire = "1953.2.5"
+		ideology = social_conservatism
+		traits = {
+			POSITION_Prime_Minister
+			SUBIDEOLOGY_Social_Conservatism
+			L_Naive_Optimist
+		}
+	}
+	# Socialist
+	create_country_leader = {
+		name = "Teohari Georgescu"
+		desc = ""
+		picture = GFX_P_S_Teohari_Georgescu
+		expire = "1965.1.1"
+		ideology = socialism
+		traits = {
+		}
+	}
+	# Communism
+	create_country_leader = {
+		name = "Ion Parhon"
+		desc = ""
+		picture = GFX_P_C_Ion_Parhon
+		expire = "1965.1.1"
+		ideology = marxism_leninism
+		traits = {
+		}
+	}
+	#######################
+	# Generals
+	#######################
+	create_field_marshal = {
+		name = "Petre Dumitrescu"
+	    id = 230000
+		GFX = GFX_M_Petre_Dumitrescu
+		traits = {
+			offensive_doctrine
+			logistics_wizard
+			inspirational_leader
+		}
+		skill = 4
+		attack_skill = 4
+		defense_skill = 4
+		planning_skill = 2
+		logistics_skill = 3
+	}
+	create_field_marshal = {
+		name = "Ion Antonescu"
+	    id = 230001
+		GFX = GFX_M_Ion_Antonescu
+		traits = {
+			offensive_doctrine
+			war_hero
+		}
+		skill = 4
+		attack_skill = 4
+		defense_skill = 4
+		planning_skill = 2
+		logistics_skill = 3
+	}
+	create_field_marshal = {
+		name = "Constantin Constantinescu-Claps"
+	    id = 230002
+		GFX = GFX_M_Constantin_Constantinescu_Claps
+		traits = {
+			brilliant_strategist
+			aggressive_assaulter
+		}
+		skill = 3
+		attack_skill = 3
+		defense_skill = 2
+		planning_skill = 2
+		logistics_skill = 3
+	}
+	create_field_marshal = {
+		name = "Nicolae Ciuperca"
+	    id = 230003
+		GFX = GFX_M_Nicolae_Ciuperca
+		traits = {
+			career_officer
+			infantry_officer
+			defensive_doctrine
+		}
+		skill = 2
+		attack_skill = 2
+		defense_skill = 2
+		planning_skill = 1
+		logistics_skill = 1
+	}
+	create_corps_commander = {
+		name = "Constantin Sănătescu"
+	    id = 230004
+		GFX = GFX_M_Constantin_Sanatescu
+		traits = {
+			brilliant_strategist
+			trickster
+		}
+		skill = 3
+		attack_skill = 1
+		defense_skill = 5
+		planning_skill = 3
+		logistics_skill = 3
+	}
+	create_corps_commander = {
+		name = "Gheorghe Avramescu"
+	    id = 230005
+		GFX = GFX_M_Gheorghe_Avramescu
+		traits = {
+		}
+		skill = 3
+		attack_skill = 3
+		defense_skill = 2
+		planning_skill = 2
+		logistics_skill = 3
+	}
+	create_corps_commander = {
+		name = "Ioan Mihail Racoviţă"
+	    id = 230006
+		GFX = GFX_M_Ioan_Mihail_Racovita
+		traits = {
+			hill_fighter
+			infantry_officer
+			trait_engineer
+		}
+		skill = 3
+		attack_skill = 2
+		defense_skill = 3
+		planning_skill = 3
+		logistics_skill = 2
+	}
+	create_corps_commander = {
+		name = "Emanoil Bârzotescu"
+	    id = 230007
+		GFX = GFX_M_Emanoil_Barzotescu
+		traits = {
+			infantry_leader
+			ranger
+		}
+		skill = 2
+		attack_skill = 3
+		defense_skill = 1
+		planning_skill = 3
+		logistics_skill = 2
+	}
+	create_corps_commander = {
+		name = "Corneliu Dragalina"
+	    id = 230008
+		GFX = GFX_M_Corneliu_Dragalina
+		traits = {
+		}
+		skill = 2
+		attack_skill = 3
+		defense_skill = 1
+		planning_skill = 2
+		logistics_skill = 1
+	}
+	create_corps_commander = {
+		name = "Emanoil Ionescu"
+	    id = 230009
+		GFX = GFX_M_Emanoil_Ionescu
+		traits = {
+			camouflage_expert
+		}
+		skill = 2
+		attack_skill = 2
+		defense_skill = 3
+		planning_skill = 2
+		logistics_skill = 1
+	}
+	create_corps_commander = {
+		name = "Gheorghe Manoliu"
+	    id = 230010
+		GFX = GFX_M_Gheorghe_Manoliu
+		traits = {
+			armor_officer
+			panzer_leader
+		}
+		skill = 2
+		attack_skill = 3
+		defense_skill = 1
+		planning_skill = 2
+		logistics_skill = 3
+	}
+	create_corps_commander = {
+		name = "Leonard Mociulschi"
+	    id = 230011
+		GFX = GFX_M_Leonard_Mociulschi
+		traits = {
+			infantry_officer
+			trait_mountaineer
+		}
+		skill = 2
+		attack_skill = 3
+		defense_skill = 2
+		planning_skill = 2
+		logistics_skill = 1
+	}
+	create_corps_commander = {
+		name = "Ioan Dumitrache"
+	    id = 230012
+		GFX = GFX_M_Ioan_Dumitrache
+		traits = {
+		}
+		skill = 2
+		attack_skill = 1
+		defense_skill = 2
+		planning_skill = 2
+		logistics_skill = 1
+	}
+	create_corps_commander = {
+		name = "Ilie Steflea"
+	    id = 230013
+		GFX = GFX_M_Ilie_Steflea
+		traits = {
+		}
+		skill = 2
+		attack_skill = 1
+		defense_skill = 1
+		planning_skill = 2
+		logistics_skill = 1
+	}
+	create_corps_commander = {
+		name = "Emil Bodnăraş"
+	    id = 230014
+		GFX = GFX_M_Emil_Bodnaras
+		traits = {
+			infantry_officer
+		}
+		skill = 1
+		attack_skill = 1
+		defense_skill = 2
+		planning_skill = 2
+		logistics_skill = 1
+	}
+	create_corps_commander = {
+		name = "Dumitru Dămăceanu"
+	    id = 230015
+		GFX = GFX_M_Dumitru_Damaceanu
+		traits = {
+			fortress_buster
+		}
+		skill = 2
+		attack_skill = 2
+		defense_skill = 3
+		planning_skill = 2
+		logistics_skill = 2
+	}
+	create_corps_commander = {
+		name = "Corneliu Teodorini"
+	    id = 230016
+		GFX = GFX_M_Corneliu_Teodorini
+		traits = {
+			camouflage_expert
+		}
+		skill = 1
+		attack_skill = 1
+		defense_skill = 3
+		planning_skill = 2
+		logistics_skill = 1
+	}
+	#######################
+	# Admirals
+	#######################
+	create_navy_leader = {
+		name = "Horia Macellariu"
+		GFX = GFX_M_Horia_Macellariu
+		traits = {
+			spotter
+		}
+		skill = 2
+	}
+	create_navy_leader = {
+		name = "Nicolae Macici"
+		GFX = GFX_M_Nicolae_Macici
+		traits = {
+			seawolf
+		}
+		skill = 2
+	}
+}
+#########################################################################
+# Romania - 1936
+#########################################################################
+1936.1.1 = {
+	oob = "ROM_1936"
+	#######################
+	# Research
+	#######################
+	set_technology = {
+		Small_Arms_1935 = 1
+	}
+	#######################
+	# Diplomacy
+	#######################
+	### Romanian–Turkish Non-Aggression Pact
+	diplomatic_relation = {
+		country = TUR
+		relation = non_aggression_pact
+		active = yes
+	}
+	#######################
+	# Politics
+	#######################
+	add_ideas = {
+		industrializing_economy
+		legalistic_restrictions
+	}
+	#######################
+	# Leaders
+	#######################
+	# Democracy
+	create_country_leader = {
+		name = "Gheorghe Tatarescu"
+		desc = ""
+		picture = GFX_P_D_Gheorghe_Tatarescu
+		expire = "1965.1.1"
+		ideology = social_conservatism
+		traits = {
+			POSITION_Prime_Minister
+			SUBIDEOLOGY_Social_Conservatism
+			L_Silent_Workhorse
+		}
+	}
+}
+#########################################################################
+# Romania - 1939
+#########################################################################
+1939.9.1 = {
+	oob = "ROM_1939"
+	#######################
+	# Diplomacy
+	#######################
+	### Bled agreement
+	diplomatic_relation = {
+		country = YUG
+		relation = non_aggression_pact
+		active = yes
+	}
+}
+#########################################################################
+# Romania - 1941
+########################################################################
+1941.6.22 = {
+	set_politics = {
+		ruling_party = authoritarian
+		last_election = "1933.12.20"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 20
+		authoritarian = 75
+		democratic = 5
+		socialist = 0
+		communist = 0
+	}
+	#######################
+	# Leaders
+	#######################
+	# Fascism
+	create_country_leader = {
+		name = "Ion Antonescu"
+		desc = ""
+		picture = GFX_P_F_Ion_Antonescu
+		expire = "1956.1.1"
+		ideology = military_dictatorship
+		traits = {
+			POSITION_ROM_Conducator
+			SUBIDEOLOGY_Military_Dictatorship
+			L_Resigned_Generalissimo
+		}
+	}
+	#######################
+	# Diplomacy
+	#######################
+}
+if = {
+	limit = {
+		has_start_date > 1941.6.21
+		has_start_date < 1946.1.1
+	}
+	declare_war_on = {
+		target = BEL
+		type = annex_everything
+	}
+	declare_war_on = {
+		target = LUX
+		type = annex_everything
+	}
+	declare_war_on = {
+		target = HOL
+		type = annex_everything
+	}
+	declare_war_on = {
+		target = SOV
+		type = annex_everything
+	}
+	declare_war_on = {
+		target = USA
+		type = annex_everything
+	}
+	declare_war_on = {
+		target = POL
+		type = annex_everything
+	}
+	declare_war_on = {
+		target = DEN
+		type = annex_everything
+	}
+	declare_war_on = {
+		target = NOR
+		type = annex_everything
+	}
+}
+#########################################################################
+# Romania - 1946
+########################################################################
+1946.1.1 = {
+	#######################
+	# Politics
+	#######################
+	set_cosmetic_tag = ROM_SOV_1946
+	set_politics = {
+		ruling_party = communist
+		last_election = "1935.9.15"
+		election_frequency = 36
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 0
+		democratic = 0
+		socialist = 0
+		communist = 100
+	}
+}
+#########################################################################
+# Romania - 1950
+########################################################################
+1950.1.1 = {
+	#######################
+	# Politics
+	#######################
+	drop_cosmetic_tag = yes
+	set_cosmetic_tag = ROM_SOV
+}

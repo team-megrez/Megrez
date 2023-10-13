@@ -1,0 +1,59 @@
+﻿#########################################################################
+# Saxony - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 65
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		Small_Arms_1916 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 25
+		authoritarian = 15
+		democratic = 60
+		socialist = 0
+		communist = 0
+	}
+	#######################
+	# Leaders
+	#######################
+	# Fascism
+	create_country_leader = {
+		name = "Manfred Freiherr von Killinger"
+		desc = ""
+		picture = GFX_P_F_Manfred_Freiherr_von_Killinger
+		expire = "1944.9.2"
+		ideology = national_socialism
+		traits = { 
+			POSITION_President
+			SUBIDEOLOGY_National_Socialism 
+		}
+	}
+	# Democracy
+	create_country_leader = {
+		name = "Walther Schieck"
+		desc = ""
+		picture = GFX_P_D_Walther_Schieck
+		expire = "1946.4.23"
+		ideology = classical_liberalism
+		traits = {
+			POSITION_President 
+			SUBIDEOLOGY_Classical_Liberalism
+		}
+	}
+	#######################
+	# Generals
+	#######################
+}

@@ -1,0 +1,53 @@
+﻿division_template = {
+	name = "Ustaška Zdrug"				# Infantry Division
+	division_names_group = CRO_MIL_01
+
+	regiments = {
+		SS_infantry = { x = 0 y = 0 }
+		SS_infantry = { x = 0 y = 1 }
+		SS_infantry = { x = 0 y = 2 }
+        SS_infantry = { x = 0 y = 3 }
+	}
+	support = {
+		artillery_battery = { x = 0 y = 0 }   # A single battery of mountain guns
+	}
+}
+
+units = {
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 11899  # Sarajevo
+		division_template = "Ustaška Zdrug"
+		start_experience_factor = 0.08
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 6647  # Našice
+		division_template = "Ustaška Zdrug"
+		start_experience_factor = 0.08
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 3592  # Karlovac
+		division_template = "Ustaška Zdrug"
+		start_experience_factor = 0.08
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 6611  # Gospić
+		division_template = "Ustaška Zdrug"
+		start_experience_factor = 0.08
+	}
+}

@@ -1,0 +1,978 @@
+﻿##### Division Templates #####
+division_template = {
+	name = "Infantry Division"  	# US infantry divisions were organized into square formations until the winter 39-40
+	division_names_group = USA_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 1 y = 3 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 2 y = 3 }
+		artillery_battalion = { x = 3 y = 0 }	# 155mm howitzer Bn
+		artillery_battalion = { x = 3 y = 1 }	# 155mm howitzer Bn
+		artillery_battalion = { x = 4 y = 0 }	# 105mm howitzer Bn
+		artillery_battalion = { x = 4 y = 1 }	# 105mm howitzer Bn
+		artillery_battalion = { x = 4 y = 2 }	# 105mm howitzer Bn
+		artillery_battalion = { x = 4 y = 3 }	# 105mm howitzer Bn
+	}
+	support = {
+		engineer = { x = 0 y = 0 }   # US Eng Rgt consisted of 2 Bns
+		field_hospital = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+		maintenance_company = { x = 0 y = 3 }
+		logistics_company = { x = 0 y = 4 }
+		military_police = { x = 1 y = 0 }
+	}
+}
+division_template = {
+	name = "Infantry Division (Regular Army Inactive)"  	# Infantry divisions with one active brigade, and limited support units.
+	division_names_group = USA_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		artillery_battalion = { x = 2 y = 0 }	# 105mm howitzer Bn
+	}
+	support = {
+		engineer = { x = 0 y = 0 }   # US Eng Rgt consisted of 2 Bns
+	}
+}
+division_template = {
+	name = "Infantry Division (Philippine Scouts)"  	# One regiment of regular US infantry, combined with two regiments of Philippine Scouts
+	division_names_group = USA_LGH_01
+	division_cap = 1	
+
+	foreign_template_tag = PHI
+	origin_type=subject
+	
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		light_infantry = { x = 1 y = 0 }	#Philippine Scouts Bn, lacked the heavy weapons of standard infantry
+		light_infantry = { x = 1 y = 1 }	#Philippine Scouts Bn, lacked the heavy weapons of standard infantry
+		light_infantry = { x = 1 y = 2 }	#Philippine Scouts Bn, lacked the heavy weapons of standard infantry
+		light_infantry = { x = 2 y = 0 }	#Philippine Scouts Bn, lacked the heavy weapons of standard infantry
+		light_infantry = { x = 2 y = 1 }	#Philippine Scouts Bn, lacked the heavy weapons of standard infantry
+		light_infantry = { x = 2 y = 2 }	#Philippine Scouts Bn, lacked the heavy weapons of standard infantry
+		artillery_battalion_light = { x = 3 y = 0 }	# 2.95in mountain howitzer Bn
+		artillery_battalion_light = { x = 3 y = 1 }	# 75mm howitzer Bn
+		artillery_battalion_light = { x = 3 y = 2 }	# 75mm howitzer Bn
+	}
+	support = {
+		engineer = { x = 0 y = 0 }   # US Eng Rgt consisted of 2 Bns
+		field_hospital = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+		maintenance_company = { x = 0 y = 3 }
+		logistics_company = { x = 0 y = 4 }
+		military_police = { x = 1 y = 0 }
+	}
+}
+division_template = {
+	name = "Cavalry Division"  		# 1st Cavalry Division only
+	division_names_group = USA_CAV_01
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 0 y = 3 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+		cavalry = { x = 1 y = 3 }
+		motorized_artillery_battalion = { x = 2 y = 0 }	# 105mm truck-drawn howitzer Bn
+		artillery_battalion_light = { x = 2 y = 1 }	# 75mm horse-drawn howitzer Bn
+		artillery_battalion_light = { x = 2 y = 2 }	# 75mm horse-drawn howitzer Bn
+	}
+	support = {
+		armored_car_recon = { x = 0 y = 0 }      # US Cav Recon consisted of 52 ACs, 13 L Arm
+		engineer = { x = 0 y = 1 }   # US Eng Bn
+		field_hospital = { x = 0 y = 2 }
+		logistics_company = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "Cavalry Division (Regular Army Inactive)"  		# 2nd and 3rd Cavalry Divisions were paper formations.  Their cavalry regiments were all operational, but their support forces were made up of reserve troops.  And neither division had a permanently staffed HQ.
+	division_names_group = USA_CAV_01
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 0 y = 3 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+		cavalry = { x = 1 y = 3 }
+	}
+	support = {
+	}
+}
+division_template = {
+	name = "Cavalry Brigade (Mechanized)"  		# 7th Cavalry Brigade only
+	division_names_group = USA_ARM_01
+
+	regiments = {
+		armored_car_battalion = { x = 0 y = 0 }		# 1st Cavalry Regiment (Mechanized)
+		armored_car_battalion = { x = 0 y = 1 }		# The mechanized cavalry squadrons were a mix of armored car, motorcycle, and truck.  But it would be best described as equipped with armored cars.
+		armored_car_battalion = { x = 1 y = 0 }		# 4th Cavalry Regiment (Horse and Mechanized)
+		cavalry = { x = 1 y = 1 }
+	}
+}
+division_template = {
+	name = "Garrison Brigade"  		# used for fixed defense (older equipment, lower experience)
+	division_names_group = USA_GAR_01
+
+	regiments = {
+		garrison = { x = 0 y = 0 }
+		garrison = { x = 0 y = 1 }
+		garrison = { x = 0 y = 2 }
+		garrison = { x = 1 y = 0 }
+		garrison = { x = 1 y = 1 }
+		garrison = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery_battery = { x = 0 y = 1 }  # Panama Canal Department had some mobile artillery units assigned from the time that the Panama Canal Division was disbanded.
+
+	}
+	priority = 0
+}
+division_template = {
+	name = "Garrison Force"  		# Regimental size or smaller units
+	division_names_group = USA_GAR_01
+    is_locked = yes
+
+	regiments = {
+		garrison = { x = 0 y = 0 }
+		garrison = { x = 0 y = 1 }
+		garrison = { x = 0 y = 2 }
+	}
+	support = {
+	}
+	priority = 0
+}
+division_template = {
+	name = "Marines" 		# 1st, 2nd Marine Brigades, precursors to 1st, 2nd USMC Divisions
+	division_names_group = USA_MAR_03
+	division_cap = 3	# Historically the USMC was pretty limited in size until the wartime expansion.  There were only two prewar brigades, but a third brigade is within reason.
+
+	regiments = {
+		marine = { x = 0 y = 0 }
+		marine = { x = 0 y = 1 }
+		marine = { x = 1 y = 0 }
+		marine = { x = 1 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }  
+		recon = { x = 0 y = 1 }
+		artillery_battery = { x = 0 y = 2 }
+	}
+	priority = 0 # I'm aware that marines are considered elite, but throughout its history the USMC has been the last to receive new equipment.  So this priority level reflects historical accuracy.
+}
+division_template = {
+	name = "Armored Regiment (Light)"
+	division_names_group = USA_ARM_02
+
+	regiments = {
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+		light_armor = { x = 0 y = 2 }
+	}
+}
+division_template = {
+	name = "Armored Regiment (Heavy)"
+	division_names_group = USA_ARM_02
+
+	regiments = {
+		heavy_armor = { x = 0 y = 0 }
+		heavy_armor = { x = 0 y = 1 }
+		heavy_armor = { x = 0 y = 2 }
+	}
+}
+###### OOB ######
+units = {
+	####### Cavalry #######
+	division= {			
+		name = "1st Cavalry Division \"The First Team\""		
+		unique={
+			"Walter Cowen Short" # Not the more famous Walter C. Short, middle name Campbell
+			"Hamilton S. Hawkins Jr."
+		}
+		location = 10740  # Ft. Bliss, TX
+		division_template = "Cavalry Division"
+		start_experience_factor = 0.26
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "USA" } } #The standard US rifle was the M1903 Springfield.  The few M1917s left over equipped the Chemical Mortar Corps.
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		unique={
+			"Terry de la Mesa Allen"
+		} # 1st CO when the division was actually organized in 1941
+		portraits = {
+			army = {
+				small = GFX_M_Terry_de_la_Mesa_Allen
+				large = GFX_M_Terry_de_la_Mesa_Allen
+			}
+		}
+		location = 1753  # Ft. Riley, KS was designated mobilization site
+		division_template = "Cavalry Division (Regular Army Inactive)"
+		start_experience_factor = 0.26
+		start_equipment_factor = 0.8 #Units were filled out with Reserve personnel
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "USA" } } #The standard US rifle was the M1903 Springfield.  The few M1917s left over equipped the Chemical Mortar Corps.
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		} #Division never organized, no CO
+		location = 1770  # Ft. Des Moines, IA was designated mobilization site but individual units were scattered ALL over the country.
+		division_template = "Cavalry Division (Regular Army Inactive)"
+		start_experience_factor = 0.18
+		start_equipment_factor = 0.6 #3rd Cav had a large Reserve component, with several of the cav units Regular Army Inactive.
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "USA" } } #The standard US rifle was the M1903 Springfield.  The few M1917s left over equipped the Chemical Mortar Corps.
+	}			
+	### Mechanized ###
+	division= {			
+		name = "7th Cavalry Brigade (Mecz.)"		
+		unique={
+			"Daniel Van Voorhis"
+			"Adna R. Chaffee Jr."
+		}
+		portraits = {
+			army = {
+				small = GFX_M_Daniel_van_Voorhis
+				large = GFX_M_Daniel_van_Voorhis
+			}
+		}
+		location = 1770  # Ft. Knox, KY
+		division_template = "Cavalry Brigade (Mechanized)"
+		start_experience_factor = 0.14 # Experimental force brand new in 1933
+		start_equipment_factor = 0.4 # Only one regiment operational
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "USA" } } #The standard US rifle was the M1903 Springfield.  The few M1917s left over equipped the Chemical Mortar Corps.
+	}			
+	####### Infantry #######
+	### Regular Army ###
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		unique={
+			"Lucius R. Holbrook"
+			"Charles DuVal Roberts"
+		}
+		portraits = {
+			army = {
+				small = GFX_M_Lucius_Holbrook
+				large = GFX_M_Lucius_Holbrook
+			}
+		}
+		location = 3878  # Ft. Hamilton, NY
+		division_template = "Infantry Division"
+		start_experience_factor = 0.26
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "USA" } } #The standard US rifle was the M1903 Springfield.  The few M1917s left over equipped the Chemical Mortar Corps.
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		unique={
+			"Halstead Dorey"
+			"Charles R. Howland"
+			"Frank C. Bolles"
+			"Alexander T. Ovenshine"
+		}
+		portraits = {
+			army = {
+				large = "GFX_M_Halstead_Dorey"
+			}
+		}
+		location = 12782  # Ft. Sam Houston, TX
+		division_template = "Infantry Division"
+		start_experience_factor = 0.26
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "USA" } } #The standard US rifle was the M1903 Springfield.  The few M1917s left over equipped the Chemical Mortar Corps.
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		unique={
+			"Joseph C. Castner"
+			"Henry W. Butner"
+			"Otho B. Rosenbaum"
+		}
+		location = 7386  # Ft. Lewis, WA
+		division_template = "Infantry Division"
+		start_experience_factor = 0.26
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "USA" } } #The standard US rifle was the M1903 Springfield.  The few M1917s left over equipped the Chemical Mortar Corps.
+	}
+	division = {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 24
+		} # Hawaiian Division.  Good triggers should make the split happen fairly decently.
+		unique={
+			"Albert J. Bowley"
+			"James C. Gowen"
+		}
+		portraits = {
+			army = {
+				small = GFX_M_Albert_Bowley
+				large = GFX_M_Albert_Bowley
+			}
+		}
+		location = 4180 # Schofield Barracks, TH
+		division_template = "Infantry Division"
+		start_experience_factor = 0.18
+		start_equipment_factor = 0.8		# funding limitations meant this division spent more time on make work than on training
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "USA" } } #The standard US rifle was the M1903 Springfield.  The few M1917s left over equipped the Chemical Mortar Corps.
+	}
+	division = {										
+		division_name = {
+			is_name_ordered = yes
+			name_order = 12
+		}  # Philippine Division did actually have the number 12 reserved, and utilized it when reconstituted.
+		unique={
+			"Caspar H. Conrad"
+			"Frank S. Cocheu"
+			"Stanley H. Ford"
+		}
+		portraits = {
+			army = {
+				small = GFX_M_Casper_Conrad
+				large = GFX_M_Casper_Conrad
+			}
+		}
+		location = 10265 # Fort McKinley, PI
+		division_template = "Infantry Division (Philippine Scouts)"
+		start_experience_factor = 0.18
+		start_equipment_factor = 0.8
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "USA" } } #The standard US rifle was the M1903 Springfield.  The few M1917s left over equipped the Chemical Mortar Corps.
+		army_manpower={
+			army_manpower_value={
+				value={ tag="USA" value=1335 }
+				value={ tag="PHI" value=12015 }
+			}
+			army_manpower_need={
+				value={ tag="USA" value=1335 }
+				value={ tag="PHI" value=12015 }
+			}
+		}
+	}				
+	### Regular Army Inactive ###
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		unique={
+			"Walter E. Prosser"
+		} # 1st CO when the division was actually organized in 1940
+		portraits = {
+			army = {
+				small = GFX_M_Walter_Prosser
+				large = GFX_M_Walter_Prosser
+			}
+		}
+		location = 12384  # Ft. McPherson, GA
+		division_template = "Infantry Division (Regular Army Inactive)"
+		start_experience_factor = 0.26
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "USA" } } #The standard US rifle was the M1903 Springfield.  The few M1917s left over equipped the Chemical Mortar Corps.
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 5
+		}
+		unique={
+			"Campbell B. Hodges"
+		} # 1st CO when the division was actually organized in 1939
+		portraits = {
+			army = {
+				small = GFX_M_Campbell_Hodges
+				large = GFX_M_Campbell_Hodges
+			}
+		}
+		location = 6855  # Columbus, OH
+		division_template = "Infantry Division (Regular Army Inactive)"
+		start_experience_factor = 0.26
+		start_equipment_factor = 0.9 # No organized Divison-level assets
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "USA" } } #The standard US rifle was the M1903 Springfield.  The few M1917s left over equipped the Chemical Mortar Corps.
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 6
+		}
+		unique={
+			"Clement A. Trott"
+		} # 1st CO when the division was actually organized in 1939
+		portraits = {
+			army = {
+				large = "GFX_M_Clement_Trott"
+			}
+		}
+		location = 9450  # Chicago, IL
+		division_template = "Infantry Division (Regular Army Inactive)"
+		start_experience_factor = 0.26
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "USA" } } #The standard US rifle was the M1903 Springfield.  The few M1917s left over equipped the Chemical Mortar Corps.
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 7
+		}
+		unique={
+			"Joseph W. Stilwell"
+		} # 1st CO when the division was actually organized in 1940
+		portraits={
+			army={
+				small="GFX_M_Joseph_Stilwell"
+				large="GFX_M_Joseph_Stilwell"
+			}
+		}
+		location = 1866  # Fort Snelling, MN
+		division_template = "Infantry Division (Regular Army Inactive)"
+		start_experience_factor = 0.26
+		start_equipment_factor = 0.8 # 7th Infantry Division did not have an organized HQ.
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "USA" } } #The standard US rifle was the M1903 Springfield.  The few M1917s left over equipped the Chemical Mortar Corps.
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 8
+		}
+		unique={
+			"Philip B. Peyton"
+		} # 1st CO when the division was actually organized in 1940
+		portraits = {
+			army = {
+				large = "GFX_M_Philip_Peyton"
+			}
+		}
+		location = 6845  # Philadelphia, PA
+		division_template = "Infantry Division (Regular Army Inactive)"
+		start_experience_factor = 0.26
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "USA" } } #The standard US rifle was the M1903 Springfield.  The few M1917s left over equipped the Chemical Mortar Corps.
+	}			
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 9
+		}
+		unique={
+			"Charles B. Elliot"
+		} # 1st CO when the division was actually organized in 1940
+		location = 6732  # Boston, MA
+		division_template = "Infantry Division (Regular Army Inactive)"
+		start_experience_factor = 0.26
+		start_equipment_factor = 0.9 # No organized Divison-level assets
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "USA" } } #The standard US rifle was the M1903 Springfield.  The few M1917s left over equipped the Chemical Mortar Corps.
+	}			
+	####### Armor #######
+	division = {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 66
+		}
+		unique={
+			"Robert L. Spragins"
+			"John P. McAdams"
+			"Bruce Magruder"
+		}
+		portraits = {
+			army = {
+				large = "GFX_M_Robert_Spragins"
+			}
+		}
+		location = 6984 # Fort George G. Meade, MD
+		division_template = "Armored Regiment (Light)"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.65 # Primarily an active regiment
+		force_equipment_variants = { Light_Tank_equipment_1917 = { owner = "USA" } } #M1917 Renault FT-17s were the bulk of the US armor throughout the interwar period.
+	}			
+	division = {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 67
+		}
+		unique={
+			"Clarence A. Will"
+		} # First CO when HQ organized in 1936
+		location = 7583 # Columbus, GA
+		division_template = "Armored Regiment (Heavy)"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.20 # Mostly Regular Army Inactive, not organized until 1936
+		force_equipment_variants = { Heavy_Tank_equipment_1917 = { owner = "USA" } } #These weren't phased out completely until 1934
+	}			
+	####### Garrison Forces #######
+	### Carribean ###
+	division = {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 105
+		}
+		location = 1440 # San Juan, PR
+		division_template = "Garrison Brigade" # 42d Infantry Regiment RAI and 65th Infantry Regiment
+		start_experience_factor = 0.18
+		start_equipment_factor = 0.4 # One regiment of active troops and one reserve
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "USA" } } #The standard US rifle was the M1903 Springfield.  The few M1917s left over equipped the Chemical Mortar Corps.
+	}			
+	division = {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 107
+		}
+		location = 7617 # Panama Canal Zone
+		division_template = "Garrison Brigade" # Consisted of 14th and 33d Infantry Regiments plus support units, organized into an Atlantic Sector and Pacific Sector.
+		start_experience_factor = 0.18
+		start_equipment_factor = 0.7
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "USA" } } #The standard US rifle was the M1903 Springfield.  The few M1917s left over equipped the Chemical Mortar Corps.
+	}
+	division= {				
+		name = "Guantanamo Bay Garrison"
+		location = 8206
+		division_template = "Garrison Force"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.2 # Miscellaneous troops and support personnel
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "USA" } } #The standard US rifle was the M1903 Springfield.  The few M1917s left over equipped the Chemical Mortar Corps.
+	}				
+	####### Pacific Theater	#######
+	division = {			
+		name = "Alaska Defense Command"		
+		unique={
+			"Simon Bolivar Buckner Jr."
+		} # 1st CO when organized into a unified command in 1941
+		portraits = {
+			army = {
+				large = "GFX_M_Simon_Bolivar_Buckner_Jr"
+			}
+		}
+		location = 13091
+		division_template = "Garrison Force"
+		start_experience_factor = 0.14
+		start_equipment_factor = 0.3 # Only a single infantry battalion
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "USA" } } #The standard US rifle was the M1903 Springfield.  The few M1917s left over equipped the Chemical Mortar Corps.
+	}			
+	division= {				
+		name = "Guam Garrison" # Guam did have some US Navy and Marines during this time.
+		location = 12140
+		division_template = "Garrison Force"
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.15 # Miscellaneous troops and support personnel
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "USA" } } #The standard US rifle was the M1903 Springfield.  The few M1917s left over equipped the Chemical Mortar Corps.
+	}				
+	####### Marines #######
+	division= {			
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		unique={
+			"Louis M. Little"
+			"Holland Smith" # 1st CO of the 1st Marine Division in 1941
+		}
+		portraits = {
+			army = {
+				large = GFX_M_Louis_Little
+			}
+		}
+		location = 4641  # 4641 Port Au Prince, Haiti until August 1934 then September 1935 at Quantico, VA
+		division_template = "Marines"
+		start_experience_factor = 0.26
+		start_equipment_factor = 0.8
+		force_equipment_variants = { Small_Arms_equipment_1900 = { owner = "USA" } } #The standard US rifle was the M1903 Springfield.  The few M1917s left over equipped the Chemical Mortar Corps.
+	}			
+
+
+    ##### navy oob #####
+    fleet = {
+        name = "Battle Force"
+        naval_base = 1562 # San Diego
+        task_force = {
+            name = "Battle Force"
+            location = 1562 # San Diego
+            ship = { name = "USS Lexington" definition = carrier equipment = { CV_equipment_1922 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Saratoga" definition = carrier equipment = { CV_equipment_1922 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Langley" definition = escort_carrier equipment = { CV_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Colorado" definition = battleship equipment = { BB_equipment_1922 = { amount = 1 owner = USA } } }
+            ship = { name = "USS West Virginia" definition = battleship equipment = { BB_equipment_1922 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Maryland" definition = battleship equipment = { BB_equipment_1922 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Tennessee" definition = battleship equipment = { BB_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "USS California" definition = battleship equipment = { BB_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Pennsylvania" definition = battleship equipment = { BB_equipment_1912 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Arizona" definition = battleship equipment = { BB_equipment_1912 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Nevada" definition = battleship equipment = { BB_equipment_1912 = { amount = 1 owner = USA } } }
+            ship = { name = "USS New York" definition = battleship equipment = { BB_equipment_1906 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Texas" definition = battleship equipment = { BB_equipment_1906 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Salt Lake City" definition = heavy_cruiser equipment = { CA_equipment_1922 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Northampton" definition = heavy_cruiser equipment = { CA_equipment_1922 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Chester" definition = heavy_cruiser equipment = { CA_equipment_1922 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Louisville" definition = heavy_cruiser equipment = { CA_equipment_1922 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Chicago" definition = heavy_cruiser equipment = { CA_equipment_1922 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Concord" definition = light_cruiser equipment = { CL_equipment_1922 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Detroit" definition = light_cruiser equipment = { CL_equipment_1922 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Milwaukee" definition = light_cruiser equipment = { CL_equipment_1922 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Cincinnati" definition = light_cruiser equipment = { CL_equipment_1922 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Memphis" definition = light_cruiser equipment = { CL_equipment_1922 = { amount = 1 owner = USA } } }
+            ship = { name = "Destroyer Division 1" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "Destroyer Division 2" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "Destroyer Division 5" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "Destroyer Division 6" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "Destroyer Division 7" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "Destroyer Division 8" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "Destroyer Division 9" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "Destroyer Division 10" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "Destroyer Division 11" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "Destroyer Division 12" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "Destroyer Division 19" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "Destroyer Division 20" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "Destroyer Division 23" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "Destroyer Division 24" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+        }
+    }
+
+    fleet = {
+        name = "Scouting Force"
+        naval_base = 788 # Norfolk
+        task_force = {
+            name = "Scouting Force"
+            location = 788 # Norfolk
+            ship = { name = "USS Oklahoma" definition = battleship equipment = { BB_equipment_1912 = { amount = 1 owner = USA } } }
+            ship = { name = "USS New Mexico" definition = battleship equipment = { BB_equipment_1912 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Pensacola" definition = heavy_cruiser equipment = { CA_equipment_1922 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Augusta" definition = heavy_cruiser equipment = { CA_equipment_1922 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Indianapolis" definition = heavy_cruiser equipment = { CA_equipment_1922 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Portland" definition = heavy_cruiser equipment = { CA_equipment_1922 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Richmond" definition = light_cruiser equipment = { CL_equipment_1922 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Trenton" definition = light_cruiser equipment = { CL_equipment_1922 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Marblehead" definition = light_cruiser equipment = { CL_equipment_1922 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Raleigh" definition = light_cruiser equipment = { CL_equipment_1922 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Omaha" definition = light_cruiser equipment = { CL_equipment_1922 = { amount = 1 owner = USA } } }
+            ship = { name = "Destroyer Division 13" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "Destroyer Division 14" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "Destroyer Division 17" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "Destroyer Division 18" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "Destroyer Division 21" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "Destroyer Division 22" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "Destroyer Division 25" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "Destroyer Division 26" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+        }
+    }
+
+    fleet = {
+        name = "Asiatic Squadron"
+        naval_base = 10265 # Manila
+        task_force = {
+            name = "Asiatic Squadron"
+            location = 10265 # Manila
+            ship = { name = "USS Rochester" definition = battleship equipment = { BB_equipment_1906 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Houston" definition = heavy_cruiser equipment = { CA_equipment_1922 = { amount = 1 owner = USA } } }
+            ship = { name = "Destroyer Division 27" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "Destroyer Division 28" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "Destroyer Division 29" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+        }
+    }
+
+    fleet = {
+        name = "Training Squadron"
+        naval_base = 788 # Norfolk
+        task_force = {
+            name = "Training Squadron"
+            location = 788 # Norfolk
+            ship = { name = "USS Arkansas" definition = battleship equipment = { BB_equipment_1900 = { amount = 1 owner = USA } } }
+            ship = { name = "USS Wyoming" definition = battleship equipment = { BB_equipment_1900 = { amount = 1 owner = USA } } }
+            ship = { name = "Destroyer Division 31" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "Destroyer Division 32" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+        }
+    }
+
+    fleet = {
+        name = "Submarine Squadron 1"
+        naval_base = 3878 # New York
+        task_force = {
+            name = "Submarine Squadron 1"
+            location = 3878 # New York
+            ship = { name = "Submarine Division 11" definition = submarine equipment = { SS_equipment_1912 = { amount = 1 owner = USA } } }
+            ship = { name = "Submarine Division 12" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = USA } } }
+        }
+    }
+
+    fleet = {
+        name = "Submarine Squadron 5"
+        naval_base = 3878 # New York
+        task_force = {
+            name = "Submarine Squadron 5"
+            location = 3878 # New York
+            ship = { name = "Submarine Division 51" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = USA } } }
+        }
+    }
+
+    fleet = {
+        name = "Submarine Squadron 7"
+        naval_base = 3878 # New York
+        task_force = {
+            name = "Submarine Squadron 7"
+            location = 3878 # New York
+            ship = { name = "Submarine Division 71" definition = submarine equipment = { SS_equipment_1912 = { amount = 1 owner = USA } } }
+        }
+    }
+
+    fleet = {
+        name = "Submarine Squadron 3"
+        naval_base = 7617 # Colon (Balboa)
+        task_force = {
+            name = "Submarine Squadron 3"
+            location = 7617 # Colon (Balboa)
+            ship = { name = "Submarine Division 31" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = USA } } }
+        }
+    }
+
+    fleet = {
+        name = "Submarine Squadron 4"
+        naval_base = 4180 # Pearl Harbor (Honolulu)
+        task_force = {
+            name = "Submarine Squadron 4"
+            location = 4180 # Pearl Harbor (Honolulu)
+            ship = { name = "Submarine Division 41" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "Submarine Division 42" definition = submarine equipment = { SS_equipment_1922 = { amount = 1 owner = USA } } }
+        } 
+    }
+
+    fleet = {
+        name = "Submarine Squadron 6"
+        naval_base = 4180 # Pearl Harbor (Honolulu)
+        task_force = {
+            name = "Submarine Squadron 6"
+            location = 4180 # Pearl Harbor (Honolulu)
+            ship = { name = "Submarine Division 61" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = USA } } }
+        }
+    }
+
+    fleet = {
+        name = "Submarine Squadron 2"
+        naval_base = 10265 # Manila
+        task_force = {
+            name = "Submarine Squadron 2"
+            location = 10265 # Manila
+            ship = { name = "Submarine Division 21" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "Submarine Division 22" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "Submarine Division 23" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = USA } } }
+        }
+    }
+
+    fleet = {
+        name = "11th Naval District"
+        naval_base = 1562 # San Diego
+        task_force = {
+            name = "11th Naval District"
+            location = 1562 # San Diego
+            ship = { name = "Destroyer Division 33" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+        }
+    }
+
+    fleet = {
+        name = "12th Naval District"
+        naval_base = 9671 # San Francisco
+        task_force = {
+            name = "12th Naval District"
+            location = 9671 # San Francisco
+            ship = { name = "Destroyer Division 30" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+        }
+    }
+
+    fleet = {
+        name = "13th Naval District"
+        naval_base = 7315 # Seattle
+        task_force = {
+            name = "12th Naval District"
+            location = 7315 # Seattle
+            ship = { name = "Destroyer Division 3" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+        }
+    }
+
+    fleet = {
+        name = "14th Naval District"
+        naval_base = 4180 # Pearl Harbor (Honolulu)
+        task_force = {
+            name = "14th Naval District"
+            location = 4180 # Pearl Harbor (Honolulu)
+            ship = { name = "Destroyer Division 4" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+        }
+    }
+
+    fleet = {
+        name = "15th Naval District"
+        naval_base = 7617 # Colon (Balboa)
+        task_force = {
+            name = "15th Naval District"
+            location = 7617 # Colon (Balboa)
+            ship = { name = "Destroyer Division 15" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+            ship = { name = "Destroyer Division 16" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = USA } } }
+        }
+    }
+}
+
+air_wings = {
+    362 = {
+        # 2nd Bombardment Wing
+        Tactical_Bomber_equipment_1925 = { # Keystone B-3
+            owner = "USA"
+            amount = 85
+        }
+        # 8th Pursuit Group
+        Fighter_Bomber_equipment_1924 = { # Boeing P-12
+            owner = "USA"
+            amount = 90
+        }
+        # Patrol Wing 1
+        Naval_Bomber_equipment_1925 = { # Consolidated P2Y
+            owner = "USA"
+            amount = 65
+        }
+    }
+
+    1648 = {
+        # 7th Bombardment Wing
+        Tactical_Bomber_equipment_1925 = { # Keystone B-3
+            owner = "USA"
+            amount = 50
+        }
+        # Marine Air Wing 2
+        Fighter_Bomber_equipment_1924 = { # Boeing P-12
+            owner = "USA"
+            amount = 85
+        }
+    }
+
+    393 = {
+        # 1st Pursuit Group
+        Fighter_Bomber_equipment_1924 = { # # Boeing P-12
+            owner = "USA"
+            amount = 90
+        }
+    }
+
+    629 = {
+        # 18th Pursuit Group
+        Fighter_equipment_1933 = { # Curtiss P-6 Hawk
+            owner = "USA"
+            amount = 90
+        }
+    }
+
+	# Battle Force
+	"USS Lexington" = {
+
+	}
+	"USS Saratoga" = {
+
+	}
+	"USS Langley" = {
+
+	}
+}
+### Starting Production ###
+instant_effect = {
+		
+	add_equipment_production = {
+		equipment = {
+			type = Small_Arms_equipment_1900
+			creator = "USA"
+		}
+		requested_factories = 4
+		progress = 0.1
+		efficiency = 50
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "USA" 
+		}
+		requested_factories = 3
+		progress = 0.25
+		efficiency = 50
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = Artillery_equipment_1916
+			creator = "USA" 
+		}
+		requested_factories = 2
+		progress = 0.22
+		efficiency = 50
+    }
+    
+    add_equipment_production = {
+        equipment = {
+            type = Fighter_equipment_1933
+            creator = "USA"
+        }
+        requested_factories = 1
+        progress = 0.12
+        efficiency = 50
+    }
+
+	add_equipment_production = {
+		equipment = {
+			type = DD_equipment_1933
+			creator = "USA"
+		}
+		requested_factories = 11
+		progress = 0.76
+		amount = 13
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = SS_equipment_1916
+			creator = "USA"
+		}
+		requested_factories = 5
+		progress = 0.44
+		amount = 10
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = CA_equipment_1933
+			creator = "USA"
+		}
+		requested_factories = 5
+		progress = 0.77
+		amount = 3
+	}
+	add_equipment_to_stockpile = {
+		type = Light_Tank_equipment_1917
+	    amount = 818
+	    producer = USA
+	}  # Numbers taken from a 1933 General Staff study of the total Army tank force.  Added here because, while obsolete, they are useful as training tanks.  A couple hundred were sold to Canada in 1940 to train their armored forces.
+
+	add_equipment_to_stockpile = {
+		type = Heavy_Tank_equipment_1917
+	    amount = 60
+	    producer = USA
+	}  # Numbers taken from a 1933 General Staff study of the total Army tank force.  Added here because, while obsolete, they are useful as training tanks.  The stockpiled examples were offered for sale to Canada in 1940 to train their armored forces.
+}
+

@@ -1,0 +1,52 @@
+﻿#########################################################################
+# SS Burgundy - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 7
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		Small_Arms_1916 = 2
+		Small_Arms_1935 = 2
+		tech_mountaineers = 2
+		tech_support = 1
+		tech_recon = 1
+		transport = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = fascist
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 100
+		authoritarian = 0
+		democratic = 0
+		socialist = 0
+		communist = 0
+	}
+	#######################
+	# Leaders
+	#######################
+	# Fascism
+	create_country_leader = {
+		name = "Arthur Seyss-Inquart"
+		desc = ""
+		picture = GFX_P_GER_F_Arthur_Seyss_Inquart
+		expire = "1950.5.23"
+		ideology = national_socialism
+		traits = {	
+			POSITION_GER_Reichskommissar
+			SUBIDEOLOGY_National_Socialism
+		}
+	}
+	#######################
+	# Generals
+	#######################
+}

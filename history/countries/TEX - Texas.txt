@@ -1,0 +1,44 @@
+﻿#########################################################################
+# Texas - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 375
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		Small_Arms_1916 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 10
+		democratic = 90
+		socialist = 0
+		communist = 0
+	}
+	#######################
+	# Leaders
+	#######################
+	# Democracy
+	create_country_leader = {
+		name = "Miriam A. Ferguson"
+		desc = ""
+		picture = GFX_P_D_Miriam_A_Ferguson
+		expire = "1961.6.25"
+		ideology = social_liberalism
+		traits = { POSITION_President SUBIDEOLOGY_Social_Liberalism L_Democratic_Idealist }
+	}
+	#######################
+	# Generals
+	#######################
+}

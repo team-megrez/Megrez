@@ -1,0 +1,218 @@
+﻿division_template = {
+	name = "infanteriuppdelning"			# Infantry Division 
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+	}
+}
+
+division_template = {
+	name = "infanteriuppdelning med ingenjörer"			# Infantry Division with Engineers
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+    }
+    support = {
+        engineer = { x = 0 y = 0 }
+    }
+}
+
+division_template = {
+	name = "infanteriuppdelning med anti-luft"			# Infantry Division with Anti air
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		anti_air_battalion = { x = 2 y = 0 }
+		anti_air_battalion = { x = 2 y = 1 }
+	}
+}
+
+division_template = {
+	name = "infanteriuppdelning med artilleri"			# Infantry Division with Artillery
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		artillery_battalion = { x = 2 y = 0 }
+		artillery_battalion = { x = 2 y = 1 }
+	}
+}
+
+division_template = {
+	name = "garnison division"			# Garrison Division 
+
+	regiments = {
+		garrison = { x = 0 y = 0 }
+		garrison = { x = 0 y = 1 }
+		garrison = { x = 0 y = 2 }
+		garrison = { x = 1 y = 0 }
+		garrison = { x = 1 y = 1 }
+		garrison = { x = 1 y = 2 }
+    }
+    priority = 0
+}
+
+units = {
+    ##### Södra Distrikt #####
+    division = {
+        name = "Södra Arméfördelning"
+        location = 9279 # Malmo
+        division_template = "infanteriuppdelning med anti-luft"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.3
+    }
+    ##### Västra Distrikt #####
+    division = {
+        name = "Västra Arméfördelning"
+        location = 383 # Gothenburg
+        division_template = "infanteriuppdelning med artilleri"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.3
+    }
+    ##### Östra Distrikt #####
+    division = {
+        name = "Östra Arméfördelning"
+        location = 6050 # Stockholm
+        division_template = "infanteriuppdelning med ingenjörer"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.3
+    }
+
+    division = {
+        name = "Östra Brigade"
+        location = 6050 # Stockholm
+        division_template = "infanteriuppdelning med artilleri"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.15
+    }
+    ##### Norra Distrikt #####
+    division = {
+        name = "Norra Arméfördelning"
+        location = 6132 # Umea
+        division_template = "infanteriuppdelning"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.3
+    }
+    ##### Övre Norrland Militär Område #####
+    division = {
+        name = "Övre Norrlandstrupper"
+        location = 9108 # Lulea
+        division_template = "infanteriuppdelning"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.15
+    }
+    ##### Gotland Militär Område #####
+    division = {
+        name = "Gotlandstrupper"
+        location = 408 # Visby
+        division_template = "garnison division"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.05
+    }
+    ##### navy oob #####
+    fleet = {
+        name = "Marinen"
+        naval_base = 6050 # Stockholm
+        task_force = {
+            name = "Marinen"
+            location = 6050 # Stockholm
+            ship = { name = "HMS Äran" definition = heavy_cruiser equipment = { CA_equipment_1906 = { amount = 1 owner = SWE } } }
+            ship = { name = "HMS Wasa" definition = heavy_cruiser equipment = { CA_equipment_1906 = { amount = 1 owner = SWE } } }
+            ship = { name = "HMS Tapperheten" definition = heavy_cruiser equipment = { CA_equipment_1906 = { amount = 1 owner = SWE } } }
+            ship = { name = "HMS Manligheten" definition = heavy_cruiser equipment = { CA_equipment_1906 = { amount = 1 owner = SWE } } }
+            ship = { name = "HMS Oden" definition = heavy_cruiser equipment = { CA_equipment_1906 = { amount = 1 owner = SWE } } }
+            ship = { name = "HMS Thor" definition = heavy_cruiser equipment = { CA_equipment_1906 = { amount = 1 owner = SWE } } }
+            ship = { name = "HMS Oscar II" definition = heavy_cruiser equipment = { CA_equipment_1906 = { amount = 1 owner = SWE } } }
+            ship = { name = "HMS Sverige" definition = heavy_cruiser equipment = { CA_equipment_1906 = { amount = 1 owner = SWE } } }
+            ship = { name = "HMS Drottning Victoria" definition = heavy_cruiser equipment = { CA_equipment_1906 = { amount = 1 owner = SWE } } }
+            ship = { name = "HMS Gustaf V" definition = heavy_cruiser equipment = { CA_equipment_1906 = { amount = 1 owner = SWE } } }
+            ship = { name = "HMS Fylgia" definition = light_cruiser equipment = { CL_equipment_1900 = { amount = 1 owner = SWE } } }
+            ship = { name = "5. Jagaresflottilj" definition = destroyer equipment = { DD_equipment_1900 = { amount = 1 owner = SWE } } }
+            ship = { name = "4. Jagaresflottilj" definition = destroyer equipment = { DD_equipment_1916 = { amount = 1 owner = SWE } } }
+            ship = { name = "3. Jagaresflottilj" definition = destroyer equipment = { DD_equipment_1912 = { amount = 1 owner = SWE } } }
+            ship = { name = "2. Jagaresflottilj" definition = destroyer equipment = { DD_equipment_1933 = { amount = 1 owner = SWE } } }
+            ship = { name = "1. Jagaresflottilj" definition = destroyer equipment = { DD_equipment_1885 = { amount = 1 owner = SWE } } }
+            ship = { name = "4. Ubåtsflottilj" definition = submarine equipment = { SS_equipment_1922 = { amount = 1 owner = SWE } } }
+            ship = { name = "3. Ubåtsflottilj" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = SWE } } }
+            ship = { name = "2. Ubåtsflottilj" definition = submarine equipment = { SS_equipment_1916 = { amount = 1 owner = SWE } } }
+            ship = { name = "1. Ubåtsflottilj" definition = submarine equipment = { SS_equipment_1912 = { amount = 1 owner = SWE } } }
+        }
+    }
+}
+
+air_wings = {
+    141 = {
+        # 1. Flyggruppen
+        Fighter_equipment_1933 = { # Fokker D.VII
+            owner = "SWE"
+            amount = 30
+        }
+    }
+}
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = Small_Arms_equipment_1900
+			creator = "SWE"
+		}
+		requested_factories = 1
+		progress = 0.66
+		efficiency = 100
+	}
+    
+    add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "SWE"
+		}
+		requested_factories = 1
+		progress = 0.19
+		efficiency = 100
+    }
+    
+    add_equipment_production = {
+        equipment = {
+            type = Artillery_equipment_1916
+            creator = "SWE"
+        }
+        requested_factories = 1
+        progress = 0.16
+        efficiency = 100
+    }
+	
+	add_equipment_production = {
+		equipment = {
+			type = DD_equipment_1912
+			creator = "SWE"
+		}
+		requested_factories = 1
+		progress = 0.50
+		amount = 1
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = SS_equipment_1912
+			creator = "SWE"
+		}
+		requested_factories = 2
+		progress = 0.80
+		amount = 3
+	}
+}

@@ -1,0 +1,76 @@
+﻿#########################################################################
+# Sikkim - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 1340
+	#######################
+	# Research
+	#######################
+	set_technology = {
+	basic_train = 1
+		Small_Arms_1916 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = authoritarian
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 0
+		authoritarian = 100
+		democratic = 0
+		socialist = 0
+		communist = 0
+	}
+	add_ideas = {
+		# Laws & Government
+		isolationism
+		legalistic_restrictions
+		civilian_economy
+		volunteer_only
+		# Economic Policy
+		agrarian_economy
+		export_focus
+		taxation_level_2
+		social_spending_level_2
+		research_spending_level_1
+		army_spending_level_2
+	}
+	#######################
+	# Leaders
+	#######################
+	# Authoritarianism
+	create_country_leader = {
+		name = "Tashi Namgyal"
+		desc = ""
+		picture = GFX_P_A_Tashi_Namgyal
+		expire = "1963.12.2"
+		ideology = monarchism
+		traits = { POSITION_Chogyal SUBIDEOLOGY_Monarchism L_Autocratic_Charmer }
+	}
+	#######################
+	# Generals
+	#######################
+}
+
+##########################################################
+# Sikkim - 1972
+##########################################################
+1972.1.1 = {
+	#######################
+	# Leaders
+	#######################
+	# Authoritarianism
+	create_country_leader = {
+		name = "Palden Thondup Namgyal"
+		desc = ""
+		picture = GFX_P_A_Palden_Thondup_Namgyal
+		expire = "1982.1.29"
+		ideology = monarchism
+		traits = { POSITION_Chogyal SUBIDEOLOGY_Monarchism }
+	}
+}

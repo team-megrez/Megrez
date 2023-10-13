@@ -1,0 +1,213 @@
+﻿division_template = {
+	name = "Divisão de Infanteria"		# Infantry Division
+	division_names_group = BRA_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 1 y = 3 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 2 y = 3 }
+		artillery_battalion = { x = 3 y = 0 }
+		artillery_battalion = { x = 3 y = 1 }
+		artillery_battalion = { x = 3 y = 2 }
+		artillery_battalion = { x = 3 y = 3 }
+		cavalry = { x = 4 y = 0 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }  
+		field_hospital = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+		logistics_company = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "Brigada de Cavalaria Independente"
+	division_names_group = BRA_CAVB_01
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		artillery_battalion_light = { x = 1 y = 0 }
+	}
+	support = {
+		logistics_company = { x = 0 y = 0 }
+	}
+}
+
+### OOB ###
+units = {
+    ##### 1a Regiao Militar #####
+    division = {
+        division_name = {
+            is_name_ordered = yes
+            name_order = 1
+        }
+        location = 10980 # Rio de Janeiro
+        division_template = "Divisão de Infanteria"
+        start_experience_factor = 0.08
+        start_equipment_factor = 0.70
+    }
+    ##### 2a Regiao Militar #####
+    division = {
+        division_name = {
+            is_name_ordered = yes
+            name_order = 2
+        }
+        location = 10513 # Sao Paulo
+        division_template = "Divisão de Infanteria"
+        start_experience_factor = 0.08
+        start_equipment_factor = 0.70
+    }
+    ##### 3a Regiao Militar #####
+    division = {
+        division_name = {
+            is_name_ordered = yes
+            name_order = 3
+        }
+        location = 10447 # Porto Alegre
+        division_template = "Divisão de Infanteria"
+        start_experience_factor = 0.08
+        start_equipment_factor = 0.70
+    }
+
+    division = { # 1a Divisão de Cavalaria
+        division_name = {
+            is_name_ordered = yes
+            name_order = 1
+        }
+        location = 10447 # Porto Alegre
+        division_template = "Brigada de Cavalaria Independente"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.6
+    }
+
+    division = { # 2a Divisão de Cavalaria
+        division_name = {
+            is_name_ordered = yes
+            name_order = 2
+        }
+        location = 10447 # Porto Alegre
+        division_template = "Brigada de Cavalaria Independente"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.6
+    }
+
+    division = { # 3a Divisão de Cavalaria
+        division_name = {
+            is_name_ordered = yes
+            name_order = 3
+        }
+        location = 10447 # Porto Alegre
+        division_template = "Brigada de Cavalaria Independente"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.6
+    }
+    ##### 4a Regiao Militar #####
+    division = {
+        division_name = {
+            is_name_ordered = yes
+            name_order = 4
+        }
+       location = 8148 # Belo Horizonte
+        division_template = "Divisão de Infanteria"
+        start_experience_factor = 0.08
+        start_equipment_factor = 0.70
+    }
+    ##### 5a Regiao Militar #####
+    division = {
+        division_name = {
+            is_name_ordered = yes
+            name_order = 5
+        }
+        location = 5168 # Recife
+        division_template = "Divisão de Infanteria"
+        start_experience_factor = 0.08
+        start_equipment_factor = 0.70
+    }
+    ##### navy oob #####
+    fleet = {
+        name = "Marinha do Brasil"
+        naval_base = 10447 # Porto Alegre
+        task_force = {
+            name = "Marinha do Brasil"
+            location = 10447 # Porto Alegre
+            ship = { name = "NRB São Paulo" definition = battleship equipment = { BB_equipment_1916 = { amount = 1 owner = BRA } } }
+            ship = { name = "NRB Floriano" definition = heavy_cruiser equipment = { CA_equipment_1906 = { amount = 1 owner = BRA } } }
+            ship = { name = "NRB Bahia" definition = light_cruiser equipment = { CL_equipment_1912 = { amount = 1 owner = BRA } } }
+            ship = { name = "NRB Rio Grande do Sul" definition = light_cruiser equipment = { CL_equipment_1912 = { amount = 1 owner = BRA } } }
+            ship = { name = "NRB Maranhao" definition = destroyer equipment = { DD_equipment_1912 = { amount = 1 owner = BRA } } }
+            ship = { name = "1 Flotilha de Contratorpedeiros" definition = destroyer equipment = { DD_equipment_1900 = { amount = 1 owner = BRA } } }
+            ship = { name = "2 Flotilha de Contratorpedeiros" definition = destroyer equipment = { DD_equipment_1900 = { amount = 1 owner = BRA } } }
+            ship = { name = "NRB Humayta" definition = submarine equipment = { SS_equipment_1922 = { amount = 1 owner = BRA } } }
+            ship = { name = "1 Flotilha de Submarinos" definition = submarine equipment = { SS_equipment_1912 = { amount = 1 owner = BRA } } }
+        }
+    }
+}
+
+air_wings = {
+    500 = {
+        # 1. Grupo de Aviaçao
+        Fighter_Bomber_equipment_1918 = { # Boeing Model 256
+            owner = "BRA"
+            amount = 35
+        }
+    }
+
+    502 = {
+        # 2. Grupo de Aviaçao
+        Naval_Bomber_equipment_1925 = { # Dornier Do J Wal
+            owner = "BRA"
+            amount = 10
+        }
+    }
+}
+
+### starting production ###
+instant_effect = {
+    add_equipment_production = {
+        equipment = {
+            type = Small_Arms_equipment_1916
+            creator = "BRA"
+        }
+        requested_factories = 1
+        progress = 0.59
+        efficiency = 100
+    }
+
+    add_equipment_production = {
+        equipment = {
+            type = support_equipment_1
+            creator = "BRA"
+        }
+        requested_factories = 1
+        progress = 0.22
+        efficiency = 100
+    }
+
+    add_equipment_production = {
+        equipment = {
+            type = Artillery_equipment_1916
+            creator = "BRA"
+        }
+        requested_factories = 1
+        progress = 0.30
+        efficiency = 100
+    }
+
+    add_equipment_production = {
+        equipment = {
+            type = DD_equipment_1916
+            creator = "BRA"
+        }
+        requested_factories = 2
+        progress = 0.18
+        efficiency = 100
+    }
+}

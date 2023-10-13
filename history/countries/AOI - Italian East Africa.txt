@@ -1,0 +1,53 @@
+﻿recruit_character = AOI_Pietro_Badoglio
+recruit_character = AOI_Rodolfo_Graziani
+recruit_character = AOI_Amedeo_di_Savoia
+#########################################################################
+# Italian East Africa - 1933
+#########################################################################
+1933.1.1 = {
+	capital = 271
+	set_research_slots = 1
+	set_convoys = 50
+	#######################
+	# Research
+	#######################
+	set_technology = {
+		basic_train = 1
+
+		### Infantry Tech
+		Small_Arms_1900 = 1
+		Small_Arms_1916 = 1
+		Infantry_Kit_1914 = 1
+		Infantry_Kit_1918 = 1
+
+		Heavy_Weapons_1905 = 1
+		Heavy_Weapons_1916 = 1
+	}
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = fascist
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		fascist = 100
+		authoritarian = 0
+		democratic = 0
+		socialist = 0
+		communist = 0
+	}
+	add_ideas = {
+		# Laws and Policies
+		one_year_service
+		export_focus
+		industrializing_economy
+		war_economy
+		legalistic_restrictions
+	}
+	#######################
+	# Generals
+	#######################
+}

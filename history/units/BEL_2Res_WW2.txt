@@ -1,0 +1,97 @@
+﻿division_template = {
+	name = "Division d'Infanterie de Réserve"		# Same for Active and 1st Reserve Infantry Divisions
+	division_names_group = BEL_INF_01
+	
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		artillery_battalion_light = { x = 3 y = 0 }
+		artillery_battalion_light = { x = 3 y = 1 }
+		anti_tank_battalion = { x = 3 y = 2 }
+		anti_air_battalion = { x = 3 y = 3 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }  
+		field_hospital = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+		logistics_company = { x = 0 y = 3 }
+		mot_recon = { x = 0 y = 4 } # Motorcycle Company
+		military_police = { x = 1 y = 0 }  
+	}
+}
+### OOB ###
+units = {
+	division= {	# 13ème Division d'Infanterie
+		division_name = {
+			is_name_ordered = yes
+			name_order = 13
+		}
+		location = 6598  # Antwerpen
+		division_template = "Division d'Infanterie de Réserve"
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "BEL" } }
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.8
+	}
+	division= {	# 14ème Division d'Infanterie
+		division_name = {
+			is_name_ordered = yes
+			name_order = 14
+		}
+		location = 13068  # Herk
+		division_template = "Division d'Infanterie de Réserve"
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "BEL" } }
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.8
+	}
+	division= {	# 15ème Division d'Infanterie
+		division_name = {
+			is_name_ordered = yes
+			name_order = 15
+		}
+		location = 6598  # Kessel
+		division_template = "Division d'Infanterie de Réserve"
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "BEL" } }
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.8
+	}
+	division= {	# 16ème Division d'Infanterie
+		division_name = {
+			is_name_ordered = yes
+			name_order = 16
+		}
+		location = 6560  # Gent
+		division_template = "Division d'Infanterie de Réserve"
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "BEL" } }
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.8
+	}
+	division= {	# 17ème Division d'Infanterie
+		division_name = {
+			is_name_ordered = yes
+			name_order = 17
+		}
+		location = 6598  # Antwerpen
+		division_template = "Division d'Infanterie de Réserve"
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "BEL" } }
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.8
+	}
+	division= {	# 18ème Division d'Infanterie
+		division_name = {
+			is_name_ordered = yes
+			name_order = 18
+		}
+		location = 11419  # Turnhout
+		division_template = "Division d'Infanterie de Réserve"
+		force_equipment_variants = { Small_Arms_equipment_1916 = { owner = "BEL" } }
+		start_experience_factor = 0.10
+		start_equipment_factor = 0.8
+	}
+}
