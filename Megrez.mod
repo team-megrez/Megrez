@@ -16,5 +16,8 @@ replace_path="history/states"
 replace_path="history/units"
 replace_path="map/strategicregions"
 replace_path="map/supplyareas"
+dependencies={
+	"Korean Language"
+}
 supported_version="1.13.*"
 path="D:/Documents/Paradox Interactive/Hearts of Iron IV/mod/megrez"
