@@ -1,0 +1,68 @@
+﻿#########################################################################
+# Chaoxianzu
+#########################################################################
+capital = 328
+oob = ""
+set_convoys = 0
+#######################
+# Research
+#######################
+set_technology = {
+	basic_train = 1
+
+	Small_Arms_1916 = 1
+	Artillery_1910 = 1
+}
+
+add_ideas = {
+	### Laws ###
+	interventionism
+	closed_economy
+	agrarian_economy
+	tot_economic_mobilisation
+	two_year_service
+	legalistic_restrictions
+	### Cabinet ###
+	FUJ_D_Cai_Tingkai
+	FUJ_FM_Chen_Youren
+	FUJ_AM_Jiang_Guangnai
+	### Staff ###
+	FUJ_CoStaff_Cai_Tingkai
+}
+
+set_politics = {
+	ruling_party = socialist
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+set_popularities = {
+	fascist = 0
+	authoritarian = 0
+	democratic = 0
+	socialist = 100
+	communist = 0
+}
+
+create_country_leader = {
+	name = "Li Jishen"
+	desc = ""
+	picture = GFX_P_S_Li_Jishen
+	expire = "1965.1.1"
+	ideology = socialism
+	traits = { SUBIDEOLOGY_Socialism POSITION_Chairman }
+}
+
+create_corps_commander = {
+	name = "Huang Chihsiang"
+    id = 98000
+	picture = GFX_P_S_Huang_Qixiang
+	traits = {
+	}
+	skill = 2
+	attack_skill = 2
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 3
+}
