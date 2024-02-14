@@ -1,5 +1,5 @@
-NDefines.NGame.START_DATE = "1962.1.1.1"
-NDefines.NGame.END_DATE = "1976.12.31.1"
+NDefines.NGame.START_DATE = "1996.1.1.1"
+NDefines.NGame.END_DATE = "2010.12.31.1"
 NDefines.NGame.SAVE_VERSION = 7
 NDefines.NGame.MAX_SCRIPTED_LOC_RECURSION = 60
 NDefines.NGame.HANDS_OFF_START_TAG = "ZZZ"

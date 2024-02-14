@@ -778,24 +778,28 @@ save_party_popularities = { # Use this before puppeting
 	log = "[GetDateText]: [THIS.GetName]: Running save_party_popularities command"
 	set_temp_variable = { PartyPopTotal = 0 }
 	add_to_array = { PartyPops = party_popularity@communist }
-	add_to_array = { PartyPops = party_popularity@socialist }
+	add_to_array = { PartyPops = party_popularity@revolutionary_socialist }
+	add_to_array = { PartyPops = party_popularity@moderate_socialist }
 	add_to_array = { PartyPops = party_popularity@progressivism }
 	add_to_array = { PartyPops = party_popularity@liberalism }
 	add_to_array = { PartyPops = party_popularity@liberal_conservatism }
 	add_to_array = { PartyPops = party_popularity@conservatism }
 	add_to_array = { PartyPops = party_popularity@paternalism }
 	add_to_array = { PartyPops = party_popularity@despotism }
+	add_to_array = { PartyPops = party_popularity@ultranationalism }
 	add_to_array = { PartyPops = party_popularity@fascism }
 	add_to_array = { PartyPops = party_popularity@national_socialism }
-	add_to_array = { PartyPops = party_popularity@ultranationalism }
+	add_to_array = { PartyPops = party_popularity@theocracy }
 
 	# Alt Ideologies
 	add_to_array = { PartyPops = party_popularity@communist_1 }
 	add_to_array = { PartyPops = party_popularity@communist_2 }
 	add_to_array = { PartyPops = party_popularity@communist_3 }
 	add_to_array = { PartyPops = party_popularity@communist_4 }
-	add_to_array = { PartyPops = party_popularity@socialist_1 }
-	add_to_array = { PartyPops = party_popularity@socialist_2 }
+	add_to_array = { PartyPops = party_popularity@revolutionary_socialist_1 }
+	add_to_array = { PartyPops = party_popularity@revolutionary_socialist_2 }
+	add_to_array = { PartyPops = party_popularity@moderate_socialist_1 }
+	add_to_array = { PartyPops = party_popularity@moderate_socialist_2 }
 	add_to_array = { PartyPops = party_popularity@progressivism_1 }
 	add_to_array = { PartyPops = party_popularity@progressivism_2 }
 	add_to_array = { PartyPops = party_popularity@liberalism_1 }
@@ -808,6 +812,8 @@ save_party_popularities = { # Use this before puppeting
 	add_to_array = { PartyPops = party_popularity@despotism_2 }
 	add_to_array = { PartyPops = party_popularity@despotism_3 }
 	add_to_array = { PartyPops = party_popularity@despotism_4 }
+	add_to_array = { PartyPops = party_popularity@ultranationalism_1 }
+	add_to_array = { PartyPops = party_popularity@ultranationalism_2 }
 	add_to_array = { PartyPops = party_popularity@fascism_1 }
 	add_to_array = { PartyPops = party_popularity@fascism_2 }
 	add_to_array = { PartyPops = party_popularity@fascism_3 }
@@ -816,8 +822,10 @@ save_party_popularities = { # Use this before puppeting
 	add_to_array = { PartyPops = party_popularity@national_socialism_2 }
 	add_to_array = { PartyPops = party_popularity@national_socialism_3 }
 	add_to_array = { PartyPops = party_popularity@national_socialism_4 }
-	add_to_array = { PartyPops = party_popularity@ultranationalism_1 }
-	add_to_array = { PartyPops = party_popularity@ultranationalism_2 }
+	add_to_array = { PartyPops = party_popularity@theocracy_1 }
+	add_to_array = { PartyPops = party_popularity@theocracy_2 }
+	add_to_array = { PartyPops = party_popularity@theocracy_3 }
+	add_to_array = { PartyPops = party_popularity@theocracy_4 }
 
 	for_each_loop = {
 		array = PartyPops
@@ -860,46 +868,54 @@ apply_party_popularities = { # Use this after puppeting
 	hidden_effect = {
 		set_popularities = {
 			communist = PartyPops^0
-			socialist = PartyPops^1
-			progressivism = PartyPops^2
-			liberalism = PartyPops^3
-			liberal_conservatism = PartyPops^4
-			conservatism = PartyPops^5
-			paternalism = PartyPops^6
-			despotism = PartyPops^7
-			fascism = PartyPops^8
-			national_socialism = PartyPops^9
-			ultranationalism = PartyPops^10
+			revolutionary_socialist = PartyPops^1
+			moderate_socialist = PartyPops^2
+			progressivism = PartyPops^3
+			liberalism = PartyPops^4
+			liberal_conservatism = PartyPops^5
+			conservatism = PartyPops^6
+			paternalism = PartyPops^7
+			despotism = PartyPops^8
+			ultranationalism = PartyPops^9
+			fascism = PartyPops^10
+			national_socialism = PartyPops^11
+			theocracy = PartyPops^12
 
 			# Alt Ideologies
-			communist_1 = PartyPops^11
-			communist_2 = PartyPops^12
-			communist_3 = PartyPops^13
-			communist_4 = PartyPops^14
-			socialist_1 = PartyPops^15
-			socialist_2 = PartyPops^16
-			progressivism_1 = PartyPops^17
-			progressivism_2 = PartyPops^18
-			liberalism_1 = PartyPops^19
-			liberalism_2 = PartyPops^20
-			conservatism_1 = PartyPops^21
-			conservatism_2 = PartyPops^22
-			paternalism_1 = PartyPops^23
-			paternalism_2 = PartyPops^24
-			despotism_1 = PartyPops^25
-			despotism_2 = PartyPops^26
-			despotism_3 = PartyPops^27
-			despotism_4 = PartyPops^28
-			fascism_1 = PartyPops^29
-			fascism_2 = PartyPops^30
-			fascism_3 = PartyPops^31
-			fascism_4 = PartyPops^32
-			national_socialism_1 = PartyPops^33
-			national_socialism_2 = PartyPops^34
-			national_socialism_3 = PartyPops^35
-			national_socialism_4 = PartyPops^36
-			ultranationalism_1 = PartyPops^37
-			ultranationalism_2 = PartyPops^38
+			communist_1 = PartyPops^13
+			communist_2 = PartyPops^14
+			communist_3 = PartyPops^15
+			communist_4 = PartyPops^16
+			revolutionary_socialist_1 = PartyPops^17
+			revolutionary_socialist_2 = PartyPops^18
+			moderate_socialist_1 = PartyPops^19
+			moderate_socialist_2 = PartyPops^20
+			progressivism_1 = PartyPops^21
+			progressivism_2 = PartyPops^22
+			liberalism_1 = PartyPops^23
+			liberalism_2 = PartyPops^24
+			conservatism_1 = PartyPops^25
+			conservatism_2 = PartyPops^26
+			paternalism_1 = PartyPops^27
+			paternalism_2 = PartyPops^28
+			despotism_1 = PartyPops^29
+			despotism_2 = PartyPops^30
+			despotism_3 = PartyPops^31
+			despotism_4 = PartyPops^32
+			ultranationalism_1 = PartyPops^33
+			ultranationalism_2 = PartyPops^34
+			fascism_1 = PartyPops^35
+			fascism_2 = PartyPops^36
+			fascism_3 = PartyPops^37
+			fascism_4 = PartyPops^38
+			national_socialism_1 = PartyPops^39
+			national_socialism_2 = PartyPops^40
+			national_socialism_3 = PartyPops^41
+			national_socialism_4 = PartyPops^42
+			theocracy_1 = PartyPops^43
+			theocracy_2 = PartyPops^44
+			theocracy_3 = PartyPops^45
+			theocracy_4 = PartyPops^46
 		}
 		clear_array = PartyPops
 	}
