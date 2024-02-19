@@ -1,4 +1,8 @@
 recruit_character = SOV_Mikhail_Gorbachev
+recruit_character = SOV_Eduard_Shevardnadze
+recruit_character = SOV_Boris_Pankin
+recruit_character = SOV_Yuri_Maslyukov
+recruit_character = SOV_Nikolai_Golushko
 #########################################################################
 # Soviet Union - 1996
 #########################################################################
@@ -35,21 +39,16 @@ recruit_character = SOV_Mikhail_Gorbachev
 	}
 
 	add_ideas = {
-		
+		SOV_Eduard_Shevardnadze_hog
+		SOV_Boris_Pankin_for
+		SOV_Boris_Pankin_eco
+		SOV_Nikolai_Golushko_sec
 	}
 	#######################
 	# Diplomacy
 	#######################
-	create_faction = FACTION_Communist_International
+	create_faction = FACTION_CSTO
 	add_to_faction = SOV
-	set_autonomy = {
-		target = MON
-		autonomy_state = AUTONOMY_Satellite
-	}
-	set_autonomy = {
-		target = TAN
-		autonomy_state = AUTONOMY_Satellite
-	}
 #	diplomatic_relation = {
 #		country = FIN
 #		relation = non_aggression_pact
