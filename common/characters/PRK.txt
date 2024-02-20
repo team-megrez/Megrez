@@ -20,4 +20,27 @@ characters = {
 			id = -1
 		}
 	}
+
+		# Ministers #
+		PRK_Hwang_Jangyop = {
+			name = PRK_Hwang_Jangyop
+			portraits = {
+				civilian = {
+					small = "GFX_idea_PRK_minister_Hwang_Jangyop"
+				}
+			}
+			advisor = {
+				slot = head_of_government
+				idea_token = PRK_Hwang_Jangyop_hog
+				allowed = { original_tag = PRK }
+				traits = {
+					head_of_government
+					hog_silent_workhorse
+				}
+				ledger = civilian
+				cost = -1
+				can_be_fired = no
+				ai_will_do = { factor = 0 }
+			}
+		}
 }
