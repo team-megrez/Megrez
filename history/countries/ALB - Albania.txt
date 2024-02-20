@@ -1,7 +1,6 @@
 ﻿#########################################################################
 # Albania - 1933
 #########################################################################
-1933.1.1 = {
 	capital = 44
 	oob = "ALB_1933"
 	set_convoys = 5
@@ -85,93 +84,3 @@
 	# Leaders
 	#######################
 	# Fascism
-	create_country_leader = {
-		name = "Tefik Mborja"
-		desc = ""
-		picture = GFX_P_F_Shefqet_Verlaci
-		expire = "1943.1.11"
-		ideology = fascism
-		traits = {
-			POSITION_General_Secretary
-			SUBIDEOLOGY_Fascism
-			L_Pig_Headed_Isolationist
-		}
-	}
-	# Autocracy
-	create_country_leader = {
-		name = "Zog I"
-		desc = ""
-		picture = GFX_P_A_Zog_I
-		expire = "1965.1.1"
-		ideology = monarchism
-		traits = { POSITION_King SUBIDEOLOGY_Monarchism L_Insignificant_Layman }
-	}
-	# Democracy
-	create_country_leader = {
-		name = "Fan S. Noli"
-		desc = ""
-		picture = GFX_
-		expire = "1965.1.11"
-		ideology = social_democracy
-		traits = { POSITION_Prime_Minister SUBIDEOLOGY_Social_Democracy L_Naive_Optimist }
-	}
-	# Socialism
-	create_country_leader = {
-		name = "Sejfulla Malëshova"
-		desc = ""
-		picture = GFX_P_S_Sejfulla_Maleshova
-		expire = "1965.1.11"
-		ideology = socialism
-		traits = { POSITION_General_Secretary SUBIDEOLOGY_Socialism L_Popular_Figurehead }
-	}
-	# Communism
-	create_country_leader = {
-		name = "Enver Hoxha"
-		desc = ""
-		picture = GFX_P_C_Enver_Hoxha
-		expire = "1965.1.11"
-		ideology = stalinism
-		traits = { POSITION_General_Secretary SUBIDEOLOGY_Stalinism L_Ruthless_Powermonger }
-	}
-	#######################
-	# Generals
-	#######################
-	create_field_marshal = {
-		name = "Xhemal Aranitasi"
-		id = 8000
-		GFX = GFX_P_Vacant
-		traits = { }
-		skill = 2
-		attack_skill = 1
-		defense_skill = 3
-		planning_skill = 2
-		logistics_skill = 1
-	}
-}
-1936.1.1 = {
-	oob = "ALB_1936"
-	add_ideas = {
-		ALB_D_Mehdi_Frasheri
-		agrarian_economy
-		isolationism
-		legalistic_restrictions
-	}
-}
-############################################
-# Albania - 1946
-############################################
-1946.1.1 = {
-	set_politics = {
-		ruling_party = communist
-		last_election = "1935.9.15"
-		election_frequency = 36
-		elections_allowed = no
-	}
-	set_popularities = {
-#	#	authoritarian
-	#	authoritarian = 0
-#	#	democratic = 0
-		socialist = 0
-		communist = 100
-	}
-}
