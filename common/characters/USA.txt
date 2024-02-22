@@ -1,0 +1,82 @@
+characters = {
+	# Country leaders #
+	USA_Michael_Dukakis = {
+		name = USA_Michael_Dukakis
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/USA/Portrait_USA_Michael_Dukakis.dds"
+			}
+		}
+		country_leader = {
+			expire = "1999.1.1"
+			desc = "POLITICS_MICHAEL_DUKAKIS_DESC"
+			ideology = liberalism_subtype
+			id = -1
+		}
+	}
+	
+	# Ministers #
+	USA_Lloyd_Bentsen = {
+		name = USA_Lloyd_Bentsen
+		portraits = {
+			civilian = {
+				small = "GFX_idea_USA_Lloyd_Bentsen"
+			}
+		}
+		advisor = {
+			slot = head_of_government
+			idea_token = USA_Lloyd_Bentsen_hog
+			allowed = { original_tag = USA }
+			traits = {
+				head_of_government
+				hog_silent_workhorse
+			}
+			ledger = civilian
+			cost = -1
+			can_be_fired = no
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	USA_Paul_Sarbanes = {
+		name = USA_Paul_Sarbanes
+		portraits = {
+			civilian = {
+				small = "GFX_idea_USA_minister_Paul_Sarbanes"
+			}
+		}
+		advisor = {
+			slot = foreign_minister
+			idea_token = USA_Paul_Sarbanes_for
+			allowed = { original_tag = USA }
+			traits = {
+				foreign_minister
+			}
+			ledger = civilian
+			cost = -1
+			can_be_fired = no
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	USA_Lawrence_Summers = {
+		name = USA_Lawrence_Summers
+		portraits = {
+			civilian = {
+				small = "GFX_idea_USA_minister_Lawrence_Summers"
+			}
+		}
+		advisor = {
+			slot = economy_minister
+			idea_token = USA_Lawrence_Summers_eco
+			allowed = { original_tag = USA }
+			traits = {
+				economy_minister
+			}
+			ledger = civilian
+			cost = -1
+			can_be_fired = no
+			ai_will_do = { factor = 0 }
+		}
+	}
+}

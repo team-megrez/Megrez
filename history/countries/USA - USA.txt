@@ -206,6 +206,10 @@ recruit_character = USA_Preston_Brown
 recruit_character = USA_Frank_Parker
 recruit_character = USA_Johnson_Hagood
 recruit_character = USA_Edwin_B_Winans
+recruit_character = USA_Michael_Dukakis
+recruit_character = USA_Lloyd_Bentsen
+recruit_character = USA_Paul_Sarbanes
+recruit_character = USA_Lawrence_Summers
 
 #########################################################################
 # United States of America - 1933
@@ -395,17 +399,19 @@ recruit_character = USA_Edwin_B_Winans
 	# Politics
 	#######################
 	set_politics = {
-		ruling_party = democratic
-		last_election = "1932.11.8"
+		ruling_party = liberalism
+		last_election = "1992.11.3"
 		election_frequency = 48
 		elections_allowed = yes
 	}
 	set_popularities = {
-	#	fascist = 0
-#	#	authoritarian = 0
-#	#	democratic = 98
-		socialist = 2
-		communist = 0
+		liberalism = 100
+	}
+	update_unemployment_modifier = yes
+	add_ideas = {
+		USA_Lloyd_Bentsen_hog
+		USA_Paul_Sarbanes_for
+		USA_Lawrence_Summers_eco
 	}
 	### Great Depression/Unemployment
 	set_variable = { unemployment_value_modifier = 2 }
