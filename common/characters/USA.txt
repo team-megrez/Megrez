@@ -20,7 +20,7 @@ characters = {
 		name = USA_Lloyd_Bentsen
 		portraits = {
 			civilian = {
-				small = "GFX_idea_USA_Lloyd_Bentsen"
+				small = "GFX_idea_USA_minister_Lloyd_Bentsen"
 			}
 		}
 		advisor = {
@@ -72,6 +72,27 @@ characters = {
 			allowed = { original_tag = USA }
 			traits = {
 				economy_minister
+			}
+			ledger = civilian
+			cost = -1
+			can_be_fired = no
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	USA_William_Perry = {
+		name = USA_William_Perry
+		portraits = {
+			civilian = {
+				small = "GFX_idea_USA_minister_William_Perry"
+			}
+		}
+		advisor = {
+			slot = security_minister
+			idea_token = USA_William_Perry_sec
+			allowed = { original_tag = USA }
+			traits = {
+				security_minister
 			}
 			ledger = civilian
 			cost = -1
