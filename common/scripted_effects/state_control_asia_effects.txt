@@ -710,7 +710,7 @@ state_control_effect_812 = {
 	}
 }
 
-#MEN
+#INM
 state_control_effect_330 = {
 	if = {
 		limit = {
@@ -728,7 +728,7 @@ state_control_effect_330 = {
 	}
 	else_if = {
 		limit = {
-			is_controlled_by = MEN
+			is_controlled_by = INM
 		}
 		reset_province_name = 1728
 		reset_province_name = 1859
@@ -748,7 +748,7 @@ state_control_effect_330 = {
 state_control_effect_612 = {
 	if = {
 		limit = {
-			is_controlled_by = MEN
+			is_controlled_by = INM
 		}
 		reset_province_name = 1590
 		reset_province_name = 10372
@@ -762,7 +762,7 @@ state_control_effect_621 = {
 	if = {
 		limit = {
 			OR = {
-				is_controlled_by = MEN
+				is_controlled_by = INM
 				is_controlled_by = MON
 				is_controlled_by = JAP #put here until we get japanese names for these
 			}
@@ -785,7 +785,7 @@ state_control_effect_814 = {
 	if = {
 		limit = {
 			OR = {
-				is_controlled_by = MEN
+				is_controlled_by = INM
 				is_controlled_by = MON
 				is_controlled_by = JAP #put here until we get japanese names for these
 				NOT = { has_global_flag = TNO_endonym_mode }
@@ -807,7 +807,7 @@ state_control_effect_815 = {
 	if = {
 		limit = {
 			OR = {
-				is_controlled_by = MEN
+				is_controlled_by = INM
 				is_controlled_by = MON
 				is_controlled_by = JAP #put here until we get japanese names for these
 				NOT = { has_global_flag = TNO_endonym_mode }
@@ -827,7 +827,7 @@ state_control_effect_955 = {
 	if = {
 		limit = {
 			OR = {
-				is_controlled_by = MEN
+				is_controlled_by = INM
 				is_controlled_by = MON
 			}
 		}
@@ -1271,7 +1271,7 @@ state_control_effect_610 = {
 		limit = {
 			OR = {
 				is_controlled_by = MAN
-				is_controlled_by = MEN
+				is_controlled_by = INM
 				is_controlled_by = MON
 				is_controlled_by = JAP
 			}

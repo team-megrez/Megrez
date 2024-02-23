@@ -949,9 +949,9 @@ CHI_GAW_release_warlord = {
 		}
 	}
 	else_if = {
-		limit = {original_tag = MEN}
+		limit = {original_tag = INM}
 		JAP = {
-			end_puppet = MEN
+			end_puppet = INM
 		}
 	}
 }
@@ -1033,7 +1033,7 @@ WI_Japan_is_happy = {
 		transfer_state = 1464
 		add_to_faction = CHI
 		add_to_faction = SHX
-		add_to_faction = MEN
+		add_to_faction = INM
 		add_to_faction = GUX
 		add_to_faction = GAN
 		add_to_faction = YUN
@@ -1123,13 +1123,13 @@ WI_Japan_is_happy = {
 	}
 	if = {
 		limit = {
-			NOT = {country_exists = MEN}
+			NOT = {country_exists = INM}
 		}
 		every_state = {
-			limit = { is_core_of = MEN }
-			MEN = { transfer_state = PREV }
+			limit = { is_core_of = INM }
+			INM = { transfer_state = PREV }
 		}
-		MEN = {
+		INM = {
 			CHI_save_pre_puppet_politics = yes
 			CHI = {
 				set_autonomy = {
@@ -1318,7 +1318,7 @@ WI_Japan_is_angry = {
 		add_to_faction = SIC
 		add_to_faction = GAN
 		add_to_faction = YUN
-		add_to_faction = MEN
+		add_to_faction = INM
 		add_to_faction = CHI
 		add_to_faction = XIN
 	}
@@ -1460,11 +1460,11 @@ WI_Japan_is_angry = {
 			MAN = { transfer_state = PREV }
 		}
 	}
-	MEN = {
+	INM = {
 		add_ideas = Sphere_Fully_Dependent
 		every_state = {
-			limit = { is_core_of = MEN }
-			MEN = { transfer_state = PREV }
+			limit = { is_core_of = INM }
+			INM = { transfer_state = PREV }
 		}
 	}
 	SIC = {
@@ -1626,7 +1626,7 @@ WI_Japan_is_crazy = {
 				is_core_of = GAN
 				is_core_of = SHX
 				is_core_of = YUN
-				is_core_of = MEN
+				is_core_of = INM
 			}
 			NOT = {
 				is_core_of = GNG
@@ -1790,7 +1790,7 @@ WI_Japan_is_crazy = {
 			remove_core_of = XIN
 		}
 		else_if = {
-			limit = { NOT = { is_owned_by = MEN } }
+			limit = { NOT = { is_owned_by = INM } }
 			remove_core_of = XIN
 		}
 		else_if = {

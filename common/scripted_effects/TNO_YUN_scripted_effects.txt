@@ -1668,7 +1668,7 @@ WI_GAW_Start_Effects = {
 			OR = {
 				original_tag = JAP
 				original_tag = MAN
-				original_tag = MEN
+				original_tag = INM
 				original_tag = GNG
 				original_tag = NCC
 				original_tag = GAN
@@ -1750,7 +1750,7 @@ YUN_WI_Victory_Map_Effects = {
 		transfer_troops = no
 	}
 	annex_country = {
-		target = MEN
+		target = INM
 		transfer_troops = no
 	}
 	annex_country = {
@@ -1819,7 +1819,7 @@ YUN_WI_Victory_Map_Effects = {
 	every_owned_state = {
 		remove_core_of = GAN
 		remove_core_of = NCC
-		remove_core_of = MEN
+		remove_core_of = INM
 		remove_core_of = MAN
 		remove_core_of = GNG
 	}
@@ -1845,9 +1845,9 @@ YUN_WI_partial_victory = {
 		YUN = { transfer_state = 1464 }
 	}
 	if = {
-		limit = { MEN = { has_capitulated = yes } }
+		limit = { INM = { has_capitulated = yes } }
 		annex_country = {
-			target = MEN
+			target = INM
 			transfer_troops = no
 		}
 	}
@@ -3049,7 +3049,7 @@ greater_china_states_control_change = {
 						is_controlled_by = MAN
 						is_controlled_by = GNG
 						is_controlled_by = GAN
-						is_controlled_by = MEN
+						is_controlled_by = INM
 						controller = { has_war_with = YUN }
 					}
 				}
@@ -3911,7 +3911,7 @@ WI_calc_momentum_tick = {
 		add_to_temp_variable = { WI_momentum_tick_calc_2 = GAN.surrender_progress }
 		add_to_temp_variable = { WI_momentum_tick_calc_2 = GNG.surrender_progress }
 		add_to_temp_variable = { WI_momentum_tick_calc_2 = MAN.surrender_progress }
-		add_to_temp_variable = { WI_momentum_tick_calc_2 = MEN.surrender_progress }
+		add_to_temp_variable = { WI_momentum_tick_calc_2 = INM.surrender_progress }
 		multiply_temp_variable = { WI_momentum_tick_calc_2 = 2 }
 		set_variable = { global.WI_momentum_tick = WI_momentum_tick_calc }
 		add_to_variable = { global.WI_momentum_tick = WI_momentum_tick_calc_2 }

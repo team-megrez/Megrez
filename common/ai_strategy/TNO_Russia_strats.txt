@@ -584,7 +584,7 @@ Ignore_Sphere_strat = {
 	abort = {
 		tag = PRC
 		OR = {
-			has_war_with = MEN
+			has_war_with = INM
 			AND = {
 				owns_state = 814
 				NOT = { has_global_flag = PRC_MEN_peace_deal }
@@ -594,7 +594,7 @@ Ignore_Sphere_strat = {
 
 	ai_strategy = {
 		type = front_unit_request
-		tag = MEN
+		tag = INM
 		value = -10000
 	}
 	ai_strategy = {

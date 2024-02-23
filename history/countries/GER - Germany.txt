@@ -145,7 +145,7 @@ recruit_character = GER_Wilhelm_III
 	add_to_variable = {
 		money = 70
 	}
-	oob = "GER_1933"
+	oob = ""
 	set_research_slots = 4
 	set_convoys = 200
 	add_to_variable = {
@@ -428,7 +428,7 @@ recruit_character = GER_Wilhelm_III
 1936.1.1 = {
 	set_stability = 0.5
 	set_war_support = 0.3
-	oob = "GER_1936"
+	oob = ""
 	set_research_slots = 4
 	set_convoys = 200
 	#######################
@@ -619,7 +619,7 @@ recruit_character = GER_Wilhelm_III
 # German Reich - 1939
 #########################################################################
 1939.9.1 = {
-	oob = "GER_1939"
+	oob = ""
 	set_research_slots = 5
 	#######################
 	# Research
@@ -781,7 +781,7 @@ recruit_character = GER_Wilhelm_III
 # German Reich - 1940
 #########################################################################
 1940.5.10 = {
-	oob = "GER_1940"
+	oob = ""
 	add_to_faction = ITA
 	add_to_faction = HUN
 	set_technology = {
@@ -800,10 +800,6 @@ recruit_character = GER_Wilhelm_III
 		Tactical_Bomber_1940 = 1
 		Naval_Bomber_1940 = 1
 		Strategic_Bomber_1940 = 1
-	}
-	set_autonomy = {
-		target = GGP
-		autonomy_state = AUTONOMY_Reichskommissariat
 	}
 	if = {
 		limit = {
@@ -836,7 +832,7 @@ recruit_character = GER_Wilhelm_III
 # German Reich - 1941
 #########################################################################
 1941.6.22 = {
-	#oob = "GER_1941"
+	#oob = ""
 	set_technology = {
 		GER_Waffen_SS = 1
 		# Infantry Tech
@@ -893,7 +889,7 @@ recruit_character = GER_Wilhelm_III
 # German Reich - 1942
 #########################################################################
 1942.12.21 = {
-	oob = "GER_1942"
+	oob = ""
 	set_technology = {
 		# Infantry Tech
 		Small_Arms_1942 = 1
@@ -966,7 +962,7 @@ recruit_character = GER_Wilhelm_III
 #########################################################################
 1943.7.26 = {
 	
-	oob = "GER_1943"
+	oob = ""
 	set_technology = {
 		# Infantry Tech
 		paratroopers3 = 1
@@ -1000,7 +996,7 @@ recruit_character = GER_Wilhelm_III
 # German Reich - 1944
 #########################################################################
 1944.6.20 = {
-	oob = "GER_1944"
+	oob = ""
 	add_ideas = {
 		all_adults_serve
 		war_economy
@@ -1008,10 +1004,6 @@ recruit_character = GER_Wilhelm_III
 	set_technology = {
 		# Armour Tech
 		Super_Heavy_Tank_1944 = 1
-	}
-	set_autonomy = {
-		target = RSI
-		autonomy_state = AUTONOMY_Satellite
 	}
 	if = {
 		limit = {
@@ -1032,7 +1024,7 @@ recruit_character = GER_Wilhelm_III
 # German Reich - 1945
 #########################################################################
 1945.1.1 = {
-	oob = "GER_1945"
+	oob = ""
 	#######################
 	# Leaders
 	#######################
@@ -1079,10 +1071,6 @@ recruit_character = GER_Wilhelm_III
 	}
 	set_autonomy = {
 		target = BOH
-		autonomy_state = autonomy_free
-	}
-	set_autonomy = {
-		target = RSI
 		autonomy_state = autonomy_free
 	}
 	set_autonomy = {

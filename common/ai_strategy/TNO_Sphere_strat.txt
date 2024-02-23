@@ -105,7 +105,7 @@ SPHERE_ignore_YUN = { # Irrelavent countries, entire WI
 			tag = MAN
 			tag = GNG
 			tag = GAN
-			tag = MEN
+			tag = INM
 		}
 	}
 
@@ -170,7 +170,7 @@ CHI_Prep_WI = { # China, Stage 1
 	}
 	ai_strategy = {
 		type = dont_defend_ally_borders
-		id = MEN
+		id = INM
 		value = 1000
 	}
 	ai_strategy = {
@@ -225,7 +225,7 @@ SPHERE_ignore_YUN = { # Japan and Allies, Stage 1-2
 			tag = MAN
 			tag = GNG
 			tag = GAN
-			tag = MEN
+			tag = INM
 		}
 	}
 
@@ -532,7 +532,7 @@ JAP_GAW_Prep = { # Japan and Allies, Stage 3 and 4
 			tag = NCC
 			tag = GAN
 			tag = GNG
-			tag = MEN
+			tag = INM
 			tag = MAN
 		}
 	}
@@ -633,7 +633,7 @@ YUN_GAW_strat = { # Yunnan and Allies, Stage 5
 
 	ai_strategy = {
 		type = conquer
-		id = MEN
+		id = INM
 		value = 1000
 	}
 
@@ -651,7 +651,7 @@ JAP_GAW_Strat = { # Japan and Allies, Stage 5
 			tag = CHI
 			tag = NCC
 			tag = GAN
-			tag = MEN
+			tag = INM
 			tag = MAN
 		}
 	}
@@ -686,7 +686,7 @@ JAP_GAW_Strat = { # Japan and Allies, Stage 5
 
 MEN_PRC_invade = {
 	allowed = {
-		tag = MEN
+		tag = INM
 	}
 	abort = {
 		always = no
@@ -714,16 +714,16 @@ PRC_MEN_invade = {
 		always = no
 	}
 	enable = {
-		has_war_with = MEN
+		has_war_with = INM
 	}
 
 	abort = {
-		NOT = { has_war_with = MEN }
+		NOT = { has_war_with = INM }
 	}
 
 	ai_strategy = {
 		type = conquer
-		id = MEN
+		id = INM
 		value = 1000
 	}
 }
@@ -738,7 +738,7 @@ SPHERE_ignore_PRC = {
 			tag = JAP
 			tag = MAN
 			tag = CHI
-			tag = MEN
+			tag = INM
 		}
 	}
 	abort = {
