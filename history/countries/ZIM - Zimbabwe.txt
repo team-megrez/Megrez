@@ -2,50 +2,37 @@
 
 oob = ""
 
-# Starting tech
-set_technology = {
-	basic_train = 1
-
-	Small_Arms_1916 = 1
-	tech_mountaineers = 1
-}
-
-set_convoys = 5
-
+	#######################
+	# Research
+	#######################
 	set_technology = {
 
-		#doctrines
-		grand_battle_plan = 1
-		Trench_Warfare = 1
-
-		#electronics
-		computing_4 = 1
-		radar_1 = 1
-		radar_2 = 1
-		computing_1 = 1
-
-		#industry
 	}
-set_politics = {
-	ruling_party = authoritarian
-	last_election = "1936.1.1"
-	election_frequency = 48
-	elections_allowed = yes
-}
-set_popularities = {
-	fascist = 0
-#	authoritarian = 100
-#	democratic = 0
-	socialist = 0
-	communist = 0
-}
-create_country_leader = {
-	
-	name = " Marcus James Hugins"
-	picture = GFX_gfx/leaders/Europe/Portrait_Europe_Generic_land_4
-	expire = "1965.1.1"
-	ideology = national_socialism
-	traits = { 
-		prince_of_terror		
+	#######################
+	# Diplomacy
+	#######################
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = conservatism
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = yes
 	}
-}
+	set_popularities = {
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
+	}
+	add_ideas = {
+	}

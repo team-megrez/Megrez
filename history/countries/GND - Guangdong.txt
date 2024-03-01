@@ -1,127 +1,39 @@
-﻿#########################################################################
-# Guangdong - 1933
-#########################################################################
-1933.1.1 = {
-	capital = 592
+﻿	capital = 592
 	set_stability = 0.6
 	set_war_support = 0.4
 	oob = ""
 	set_convoys = 5
-	add_to_variable = { money = 40 }
 	#######################
 	# Research
 	#######################
 	set_technology = {
-	basic_train = 1
 
-		Small_Arms_1916 = 1
-		Mass_Assault = 1
-	#Naval Stuff
-		DD_1885 = 1	
-		CL_1885 = 1
-		CL_1900 = 1
-		CL_1912 = 1
-		CL_1922 = 1
-		BB_1885 = 1
-		BB_1895 = 1
-		CA_1885 = 1
-		CA_1895 = 1
 	}
+	#######################
+	# Diplomacy
+	#######################
 	#######################
 	# Politics
 	#######################
 	set_politics = {
-		ruling_party = authoritarian
+		ruling_party = conservatism
 		last_election = "1933.1.1"
 		election_frequency = 48
-		elections_allowed = no
+		elections_allowed = yes
 	}
 	set_popularities = {
-#	#	authoritarian
-	#	authoritarian = 100
-#	#	democratic = 0
-		socialist = 0
-		communist = 0
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
 	add_ideas = {
-		GND_D_Chen_Jitang
-		agrarian_economy
 	}
-
-	#######################
-	# Leaders
-	#######################
-	# Paternal Autocracy
-	create_country_leader = {
-		name = "Chen Jitang"
-		desc = "Chen_Jitang_desc"
-		picture = GFX_P_A_Chen_Jitang
-		expire = "1936.12.5"
-		ideology = military_dictatorship
-		traits = { 
-			POSITION_Civil_Governor
-			SUBIDEOLOGY_Military_Dictatorship
-			L_Political_Protege
-		}
-	}
-	create_country_leader = {
-		name = "Hu Hanmin"
-		desc = "Hu_Hanmin_desc"
-		picture = GFX_P_A_Hu_Hanmin
-		expire = "1936.12.5"
-		ideology = despotism
-		traits = { 
-			POSITION_Civil_Governor
-			SUBIDEOLOGY_Despotism
-			L_Patron_of_the_South
-			L_Veteran_of_the_Central_Plains_War
-		}
-	}
-	#######################
-	# Generals
-	#######################
-	create_field_marshal = {
-		name = "Chen Jitang"
-	    id = 109000
-		picture = GFX_P_A_Chen_Jitang
-		traits = { }
-		skill = 3
-		attack_skill = 2
-		defense_skill = 3
-		planning_skill = 3
-		logistics_skill = 2
-	}
-	create_corps_commander = {
-		name = "Yu Hanmou"
-	    id = 109001
-		GFX = GFX_M_Yu_Hanmou
-		traits = { }
-		skill = 3
-		attack_skill = 4
-		defense_skill = 2
-		planning_skill = 1
-		logistics_skill = 3
-	}
-	create_corps_commander = {
-		name = "Xiang Hanping"
-	    id = 109002
-		GFX = GFX_M_Xiang_Hanping
-		traits = { }
-		skill = 1
-		attack_skill = 2
-		defense_skill = 2
-		planning_skill = 1
-		logistics_skill = 2
-	}
-	create_corps_commander = {
-		name = "Li Yangjing"
-	    id = 109003
-		GFX = GFX_M_Li_Yangjing
-		traits = { }
-		skill = 3
-		attack_skill = 3
-		defense_skill = 3
-		planning_skill = 2
-		logistics_skill = 2
-	}
-}

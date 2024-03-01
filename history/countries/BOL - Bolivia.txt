@@ -1,250 +1,37 @@
-﻿#########################################################################
-# Bolivia - 1933
-#########################################################################
-1933.1.1 = {
+﻿
 	oob = ""
 	capital = 302
-	add_to_variable = { money = 100 }
 	#######################
 	# Research
 	#######################
 	set_technology = {
-	basic_train = 1
 
-		### Infantry Tech
-		Small_Arms_1900 = 1
-		Small_Arms_1916 = 1
-		Infantry_Kit_1914 = 1
-		Heavy_Weapons_1905 = 1
-		### Support Company Tech
-		tech_support = 1		
-		tech_engineers = 1
-		tech_mountaineers = 1
-		### Arty Tech
-		Artillery_1910 = 1
-		Unarmed_Recon_1910 = 1
-        Fighter_1914 = 1
-        Fighter_1916 = 1
-        Fighter_1918 = 1
-        Fighter_1924 = 1
-		### Armor Tech
-		Armored_Car_1911 = 1
-		Armored_Car_1916 = 1
-		Armored_Car_1926 = 1
-        ### Light Air Tech
-        Unarmed_Recon_1910 = 1
-        Fighter_1914 = 1
-        Fighter_1916 = 1
-        Fighter_1918 = 1
-        Fighter_1924 = 1
-		### Land Doctrine Tech
-		Twentieth_Century_Warfare = 1
-		Leading_by_Order = 1
-		Strongpoint = 1
-		Mass_Charge = 1
-		Static_Defence = 1
-		Counterattack = 1
-		Defence_In_Depth = 1
-		Separate_Arms_Force = 1
-		Combined_Arms_Effort = 1
-		Specialized_Branch_Tactical_Experience = 1
-		### Industry
-		Basic_Construction_Machines = 1
-		Motorized_Plowing = 1
-		Farm_Tractors = 1
-		Scientific_Agricultural_Processes = 1
 	}
+	#######################
+	# Diplomacy
+	#######################
 	#######################
 	# Politics
 	#######################
 	set_politics = {
-		ruling_party = democratic
-		last_election = "1934.11.11"
-		election_frequency = 72
+		ruling_party = conservatism
+		last_election = "1933.1.1"
+		election_frequency = 48
 		elections_allowed = yes
 	}
 	set_popularities = {
-#	#	authoritarian
-	#	authoritarian = 10
-#	#	democratic = 85
-		socialist = 5
-		communist = 0
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
 	add_ideas = {
-		BOL_D_Jose_Tejada_Sorzano
-		# Laws and Policies
-		export_focus
-		one_year_service
-		agrarian_economy
-		limited_civil_liberties
 	}
-	#######################
-	# Diplomacy
-	#######################
-	set_country_flag = monroe_doctrine
-	declare_war_on = {
-		target = PAR
-		type = annex_everything
-	}	
-	#######################
-	# Leaders
-	#######################
-	# Authoritarian
-	create_country_leader = {
-		name = "Germán Busch Beccera"
-		desc = ""
-		picture = GFX_P_A_German_Busch
-		expire = "1965.1.1"
-		ideology = military_dictatorship
-		traits = {
-			POSITION_President
-			SUBIDEOLOGY_Military_Dictatorship
-			L_Popular_Figurehead
-		}
-	}	
-	# Democracy
-	create_country_leader = {
-		name = "Daniel Salamanca Urey"
-		desc = ""
-		picture = GFX_P_D_Daniel_Salamanca_Urey
-		expire = "1965.1.1"
-		ideology = social_liberalism
-		traits = {
-			POSITION_President
-			SUBIDEOLOGY_Social_Liberalism
-			L_Stern_Imperialist
-		}
-	}		
-}
-#########################################################################
-# Bolivia - 1936
-#########################################################################
-1936.1.1 = {
-	oob = ""
-	#######################
-	# Politics
-	#######################
-	add_ideas = {
-		# Laws and Policies
-		export_focus
-		volunteer_only
-		free_market_economy
-		civilian_economy
-	}
-	#######################
-	# Diplomacy
-	#######################
-	diplomatic_relation = { country = PAR relation = war_relation active = no }
-	#######################
-	# Leaders
-	#######################
-	# Democracy
-	create_country_leader = {
-		name = "José Tejada Sorzano"
-		desc = ""
-		picture = GFX_P_D_Jose_Luis_Tejada_Sorzano
-		expire = "1965.1.1"
-		ideology = social_liberalism
-		traits = {
-			POSITION_President
-			SUBIDEOLOGY_Social_Liberalism
-			L_Weary_Stiff_Neck
-		}
-	}
-	add_ideas = {
-		# Laws and Policies
-		export_focus
-		one_year_service
-		agrarian_economy
-		limited_civil_liberties
-	}
-}
-#########################################################################
-# Bolivia - 1939
-#########################################################################
-1939.9.1 = {
-	#######################
-	# Politics
-	#######################
-	set_politics = {
-		ruling_party = authoritarian
-		last_election = "1934.11.11"
-		election_frequency = 72
-		elections_allowed = no
-	}
-	#######################
-	# Leaders
-	#######################
-	# Authoritarian
-	create_country_leader = {
-		name = "Carlos Quintanilla Quiroga"
-		desc = ""
-		picture = GFX_P_D_Carlos_Quintanilla_Quiroga
-		expire = "1965.1.1"
-		ideology = military_dictatorship
-		traits = {
-			POSITION_President
-			SUBIDEOLOGY_Military_Dictatorship
-			L_Resigned_Generalissimo
-		}
-	}
-}
-#########################################################################
-# Bolivia - 1940
-#########################################################################
-1940.5.10 = {
-	#######################
-	# Politics
-	#######################	
-	set_party_name = {
-		ideology = authoritarian
-		long_name = BOL_authoritarian_1940_party_long
-		name = BOL_authoritarian_1940_party
-	}
-	#######################
-	# Leaders
-	#######################
-	# Authoritarian
-	create_country_leader = {
-		name = "Enrique Peñaranda Castillo"
-		desc = ""
-		picture = GFX_P_A_Enrique_Penaranda_Castillo
-		expire = "1965.1.1"
-		ideology = military_dictatorship
-		traits = {
-			POSITION_President
-			SUBIDEOLOGY_Military_Dictatorship
-			L_Stern_Imperialist
-		}
-	}
-}
-#########################################################################
-# Bolivia - 1944
-#########################################################################
-1944.6.20 = {
-	#######################
-	# Politics
-	#######################	
-	set_party_name = {
-		ideology = authoritarian
-		long_name = BOL_authoritarian_party_long
-		name = BOL_authoritarian_party
-	}
-	#######################
-	# Leaders
-	#######################
-	# Authoritarian
-	create_country_leader = {
-		name = "Gualberto Villarroel Lopez"
-		desc = ""
-		picture = GFX_P_A_Gualberto_Villarroel
-		expire = "1965.1.1"
-		ideology = military_dictatorship # Has leftist leanings
-		traits = {
-			POSITION_President
-			SUBIDEOLOGY_Military_Dictatorship
-			L_Die_Hard_Reformer
-		}
-	}
-
-}

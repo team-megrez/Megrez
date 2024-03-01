@@ -1,184 +1,37 @@
 ﻿capital = 824
 
-# Starting tech
-set_technology = {
-	basic_train = 1
+	#######################
+	# Research
+	#######################
+	set_technology = {
 
-	Small_Arms_1916 = 1
-	
-}
-set_convoys = 5
-
-set_politics = {
-	ruling_party = democratic
-	last_election = "1936.1.1"
-	election_frequency = 48
-	elections_allowed = yes
-}
-set_popularities = {
-	fascist = 0
-#	authoritarian = 0
-#	democratic = 59
-	socialist = 37
-	communist = 4
-}
-####################################################
-# Israeli Leaders
-####################################################
-# Fascism
-create_country_leader = {
-	name = "Avraham Stern"
-	desc = ""
-	picture = GFX_P_F_Avraham_Stern
-	ideology = fascism
-	traits = {}
-}
-# Autocracy
-create_country_leader = {
-	name = "Menachem Begin"
-	desc = ""
-	picture = GFX_P_A_Menachem_Begin
-	ideology = authoritarian_democracy
-	traits = {}
-}
-# Democracy
-create_country_leader = {
-	name = "David Ben-Gurion"
-	desc = ""
-	picture = GFX_P_D_David_Ben_Gurion
-	ideology = social_democracy
-	traits = {}
-}
-# Socialism
-create_country_leader = {
-	name = "Meir Ya'ari"
-	desc = ""
-	picture = GFX_P_S_Meir_Yaari
-	ideology = labor_zionism
-	traits = {}
-}
-# Communism
-create_country_leader = {
-	name = "Shmuel Mikunis"
-	desc = ""
-	picture = GFX_P_C_Shmuel_Mikunis
-	ideology = marxism_leninism
-	traits = {}
-}
-
-1948.1.1 = {
-	set#	fascistities = {
-    	fascist = 0
-    #	authoritarian = 0
-    #	democratic = 81.8
-   	 	socialist = 14.7
-   		communist = 3.5
 	}
-}
-
-1951.1.1 = {
-	set#	fascistities = {
-    	fascist = 0
-    #	authoritarian = 0
-    #	democratic = 83.5
-   	 	socialist = 12.5
-   		communist = 4
+	#######################
+	# Diplomacy
+	#######################
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = conservatism
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = yes
 	}
-}
-
-1955.1.1 = {
-	set#	fascistities = {
-    	fascist = 0
-    #	authoritarian = 0
-    #	democratic = 88.2
-   	 	socialist = 7.3
-   		communist = 4.5
+	set_popularities = {
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
-}
-
-1959.1.1 = {
-	set#	fascistities = {
-    	fascist = 0
-    #	authoritarian = 0
-    #	democratic = 90
-   	 	socialist = 7.2
-   		communist = 2.8
+	add_ideas = {
+		
 	}
-}
-
-1969.1.1 = {
-	set#	fascistities = {
-    	fascist = 0
-    #	authoritarian = 0
-    #	democratic = 88.4
-   	 	socialist = 6.5
-   		communist = 5.1
-	}
-	create_country_leader = {
-		name = "Golda Meir"
-		desc = ""
-		picture = GFX_P_Vacant
-		ideology = social_democracy
-		traits = {}
-	}
-}
-
-1977.1.1 = {
-	set#	fascistities = {
-    	fascist = 0
-    #	authoritarian = 2
-    #	democratic = 88.47
-   	 	socialist = 4.93
-   		communist = 4.6
-	}
-}
-
-1980.1.1 = {
-	create_country_leader = {
-		name = "Menachem Begin"
-		desc = ""
-		picture = GFX_P_Vacant
-		ideology = social_conservatism
-		traits = {}
-	}
-}
-
-1988.1.1 = {
-	set#	fascistities = {
-    	fascist = 0
-    #	authoritarian = 5
-    #	democratic = 88.8
-   	 	socialist = 2.5
-   		communist = 3.7
-	}
-}
-
-1991.1.1 = {
-	create_country_leader = {
-		name = "Yitzhak Shamir"
-		desc = ""
-		picture = GFX_P_Vacant
-		ideology = social_conservatism
-		traits = {}
-	}
-}
-
-1999.1.1 = {
-	set#	fascistities = {
-    	fascist = 0
-    #	authoritarian = 3
-    #	democratic = 86.8
-   	 	socialist = 7.6
-   		communist = 2.6
-	}
-}
-
-2000.1.1 = {
-	create_country_leader = {
-		name = "Ehud Barak"
-		desc = ""
-		picture = GFX_P_Vacant
-		ideology = social_democracy
-		traits = {}
-	}
-}

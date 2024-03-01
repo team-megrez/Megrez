@@ -1,112 +1,40 @@
 ﻿#########################################################################
 # Bhutan - 1933
 #########################################################################
-1933.1.1 = {
+
 	capital = 324
 	oob = ""
 	#######################
 	# Research
 	#######################
 	set_technology = {
-	basic_train = 1
 
-		### Infantry Tech
-		Small_Arms_1900 = 1
-		Small_Arms_1916 = 1
-		Infantry_Kit_1914 = 1
-		Infantry_Kit_1918 = 1
-
-		Heavy_Weapons_1905 = 1
-		Heavy_Weapons_1916 = 1
-		
-		
-		### Support Company Tech
-		tech_mountaineers = 1
-		### Arty Tech
-		Artillery_1910 = 1
-		### Armor Tech
-		Armored_Car_1911 = 1
-		### Light Air Tech
-		Unarmed_Recon_1910 = 1
-		Fighter_1914 = 1
-		Fighter_1916 = 1
-		### Land Doctrine Tech
-		Twentieth_Century_Warfare = 1
-		Leading_by_Order = 1
-		Strongpoint = 1
-		Mass_Charge = 1
-		Static_Defence = 1
-		Counterattack = 1
-		Defence_In_Depth = 1
-		Separate_Arms_Force = 1
-		Combined_Arms_Effort = 1
-		Specialized_Branch_Tactical_Experience = 1
-		### Industry
-		Motorized_Plowing = 1
-
-		Planning_Focus = 1		
 	}
+	#######################
+	# Diplomacy
+	#######################
 	#######################
 	# Politics
 	#######################
 	set_politics = {
-		ruling_party = authoritarian
+		ruling_party = conservatism
 		last_election = "1933.1.1"
 		election_frequency = 48
-		elections_allowed = no
+		elections_allowed = yes
 	}
 	set_popularities = {
-#	#	authoritarian
-	#	authoritarian = 100
-#	#	democratic = 0
-		socialist = 0
-		communist = 0
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
 	add_ideas = {
-		# Cabinet
-		BHU_D_Sonam_Tobgay_Dorji
-		BHU_FM_Sonam_Tobgay_Dorji
-		BHU_AM_Ahmad_Akhaz
-		BHU_MoS_Mangpos_Bhurbai_Rgyalpo
-		BHU_HoI_Reginald_B_Stevens
-		# Military Staff
-		BHU_CoStaff_Namgyal_Bahadur
-		BHU_CoArmy_Philip_Toozey
-		BHU_CoNavy_Tommy_Gould
-		BHU_CoAir_Nicky_Barr
-		# Laws & Government
-		isolationism
-		legalistic_restrictions
-		civilian_economy
-		volunteer_only
-		# Economic Policy
-		agrarian_economy
-		export_focus
-		taxation_level_3
-		social_spending_level_2
-		research_spending_level_1
-		army_spending_level_2
 	}
-	#######################
-	# Leaders
-	#######################
-	# Paternal Autocracy
-	create_country_leader = {
-		name = "Jigme Wangchuck"
-		desc = ""
-		picture = GFX_P_A_Jigme_Wangchuck
-		expire = "1952.3.30"
-		ideology = monarchism
-		traits = {
-			POSITION_BHU_Druk_Gyalpo
-			SUBIDEOLOGY_Monarchism
-			L_Ruthless_Powermonger
-		}
-	}
-}
-############################################
-# Bhutan - 1960
-############################################
-#1960.1.1 = {
-#	set_capital = 1223
-#}

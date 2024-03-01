@@ -1,8 +1,4 @@
-﻿#########################################################################
-# Philippines - 1933
-#########################################################################
-1933.1.1 = {
-	capital = 327
+﻿	capital = 327
 	set_convoys = 5
 	oob = ""
 
@@ -10,146 +6,33 @@
 	# Research
 	#######################
 	set_technology = {
-	basic_train = 1
 
-		### Infantry Tech
-		Small_Arms_1900 = 1
-		Small_Arms_1916 = 1
-		Infantry_Kit_1914 = 1
-		Infantry_Kit_1918 = 1
-
-		Heavy_Weapons_1905 = 1
-		Heavy_Weapons_1916 = 1
-		
-		
-		### Artillery Tech
-		Artillery_1910 = 1
-		### Armour Tech
-		Armored_Car_1911 = 1
-		### Air Tech
-		Unarmed_Recon_1910 = 1
-        Fighter_1914 = 1
-        Fighter_1916 = 1
-		### Industry
-		Motorized_Plowing = 1
-		Industrial_Management = 1
-		Basic_Construction_Machines = 1
-		### Land Doctrines
-		Twentieth_Century_Warfare = 1
-		Leading_by_Order = 1
-		Strongpoint = 1
-        Mass_Charge = 1
-        Static_Defence = 1
-        Counterattack = 1
-		Defence_In_Depth = 1
-		Separate_Arms_Force = 1
-        Combined_Arms_Effort = 1
-		Specialized_Branch_Tactical_Experience = 1
 	}
-
+	#######################
+	# Diplomacy
+	#######################
 	#######################
 	# Politics
 	#######################
 	set_politics = {
-		ruling_party = democratic
-		last_election = "1929.9.15"
-		election_frequency = 72
-		elections_allowed = no
+		ruling_party = conservatism
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = yes
 	}
 	set_popularities = {
-	#	fascist = 0
-#	#	authoritarian = 17
-#	#	democratic = 83
-		socialist = 0
-		communist = 0
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
 	add_ideas = {
-		industrializing_economy
-		isolationism
-		legalistic_restrictions
 	}
-	
-	#######################
-	# Leaders
-	#######################
-	# Democracy
-	create_country_leader = {
-		name = "Theodore Roosevelt Jr."
-		desc = ""
-		picture = GFX_P_D_Theodore_Roosevelt_Jr
-		expire = "1935.11.15"
-		ideology = social_conservatism
-		traits = { POSITION_Governor_General SUBIDEOLOGY_Social_Conservatism L_Stern_Imperialist }
-	}
-	# Authoritarianism
-	create_country_leader = {
-		name = "Jose P. Laurel"
-		desc = ""
-		picture = GFX_P_A_Jose_P_Laurel
-		expire = "1945.8.17"
-		ideology = authoritarian_democracy
-		traits = { POSITION_President SUBIDEOLOGY_Authoritarian_Democracy }
-	}
-	# Socialism
-	create_country_leader = {
-		name = "Benigno Ramos"
-		desc = ""
-		picture = GFX_P_S_Benigno_Ramos
-		expire = "1945.8.17"
-		ideology = socialism
-		traits = { POSITION_President SUBIDEOLOGY_Socialism }
-	}
-}
-
-##########################################################
-# Philippines - 1936
-##########################################################
-1936.1.1 = {
-	oob = ""
-	#######################
-	# Politics
-	#######################
-	add_ideas = {
-		PHI_D_Sergio_Osmena
-		industrializing_economy
-		isolationism
-		legalistic_restrictions
-	}
-	#######################
-	# Leaders
-	#######################
-	# Democracy
-	create_country_leader = {
-		name = "Manuel Luis Quezón"
-		desc = ""
-		picture = GFX_P_D_Manuel_Luis_Quezon
-		expire = "1944.8.1"
-		ideology = social_conservatism
-		traits = { POSITION_President SUBIDEOLOGY_Social_Conservatism L_Silent_Workhorse }
-	}
-}
-
-##########################################################
-# Philippines - 1945
-##########################################################
-1945.1.1 = {
-	#######################
-	# Politics
-	#######################
-	remove_ideas = {
-		PHI_D_Sergio_Osmena
-	}
-	#######################
-	# Leaders
-	#######################
-	# Democracy
-	create_country_leader = {
-		name = "Sergio Osmeña"
-		desc = ""
-		picture = GFX_P_D_Sergio_Osmena
-		expire = "1961.10.19"
-		ideology = social_conservatism
-		traits = { POSITION_President SUBIDEOLOGY_Social_Conservatism }
-	}
-}
-

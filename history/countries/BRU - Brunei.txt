@@ -1,82 +1,36 @@
-﻿#########################################################################
-# Brunei - 1933
-#########################################################################
-1933.1.1 = {
+﻿
 	capital = 881
 	#######################
 	# Research
 	#######################
 	set_technology = {
-	basic_train = 1
 
-		Small_Arms_1916 = 1
 	}
+	#######################
+	# Diplomacy
+	#######################
 	#######################
 	# Politics
 	#######################
 	set_politics = {
-		ruling_party = authoritarian
+		ruling_party = conservatism
 		last_election = "1933.1.1"
 		election_frequency = 48
-		elections_allowed = no
+		elections_allowed = yes
 	}
 	set_popularities = {
-#	#	authoritarian
-	#	authoritarian = 90
-#	#	democratic = 10
-		socialist = 0
-		communist = 0
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
-	#######################
-	# Leaders
-	#######################
-	# Authoritarianism
-	create_country_leader = {
-		name = "Ahmad Tajuddin"
-		desc = ""
-		picture = GFX_P_A_Ahmad_Tajuddin
-		expire = "1950.6.4"
-		ideology = monarchism
-		traits = { POSITION_Sultan SUBIDEOLOGY_Monarchism }
+	add_ideas = {
 	}
-	#######################
-	# Generals
-	#######################
-}
-
-##########################################################
-# Brunei - 1953
-##########################################################
-1953.3.7 = {
-	#######################
-	# Leaders
-	#######################
-	# Authoritarianism
-	create_country_leader = {
-		name = "Omar Ali Saifuddien III"
-		desc = ""
-		picture = GFX_P_A_Omar_Ali_Saifuddien_III
-		expire = "1986.9.7"
-		ideology = monarchism
-		traits = { POSITION_Sultan SUBIDEOLOGY_Monarchism }
-	}
-}
-
-##########################################################
-# Brunei - 1972
-##########################################################
-1972.1.1 = {
-	#######################
-	# Leaders
-	#######################
-	# Authoritarianism
-	create_country_leader = {
-		name = "Hassanal Bolkiah"
-		desc = ""
-		picture = GFX_P_A_Hassanal_Bolkiah
-		expire = "2035.1.1"
-		ideology = monarchism
-		traits = { POSITION_Sultan SUBIDEOLOGY_Monarchism }
-	}
-}
-

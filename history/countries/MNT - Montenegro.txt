@@ -4,31 +4,37 @@ oob = ""
 
 set_research_slots = 3
 
-# Starting tech
-# clone of Yugoslavia
-set_technology = {
-	basic_train = 1
+	#######################
+	# Research
+	#######################
+	set_technology = {
 
-	tech_support = 1		
-	tech_engineers = 1
-	tech_mountaineers = 1
-	Fighter_1933 = 1
-	
-	
-	Small_Arms_1916 = 1
-	Small_Arms_1935 = 1
-}
-
-set_politics = {
-	ruling_party = authoritarian
-	last_election = "1934.7.1"
-	election_frequency = 72
-	elections_allowed = no
-}
-set_popularities = {
-	fascist = 33
-#	authoritarian = 34
-#	democratic = 0
-	socialist = 0
-	communist = 33
-}
+	}
+	#######################
+	# Diplomacy
+	#######################
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = conservatism
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
+	}
+	add_ideas = {
+	}

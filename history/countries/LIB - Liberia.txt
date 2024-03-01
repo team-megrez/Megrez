@@ -1,90 +1,38 @@
-﻿#########################################################################
-# Liberia - 1933
-#########################################################################
-1933.1.1 = {
-	capital = 298
+﻿	capital = 298
 	oob = ""
 	add_to_variable = { money = 80 }
-	#######################
+
+		#######################
 	# Research
 	#######################
 	set_technology = {
-	basic_train = 1
 
-		### Infantry Tech
-		Small_Arms_1900 = 1
-		Small_Arms_1916 = 1
-		Infantry_Kit_1914 = 1
-		Infantry_Kit_1918 = 1
-
-		Heavy_Weapons_1905 = 1
-		Heavy_Weapons_1916 = 1
-		### Artillery Tech
-		Artillery_1910 = 1
-		### Armour Tech
-		Armored_Car_1911 = 1
-		### Navy
-		transport = 1
-		### Air Tech
-		Unarmed_Recon_1910 = 1
-		Fighter_1914 = 1
-		Fighter_1916 = 1
-		### Industry
-		Motorized_Plowing = 1
-		### Land Doctrines
-		Twentieth_Century_Warfare = 1
-		Leading_by_Order = 1
-		Strongpoint = 1
-		Mass_Charge = 1
-		Static_Defence = 1
-		Counterattack = 1
-		Defence_In_Depth = 1
-		Separate_Arms_Force = 1
-		Combined_Arms_Effort = 1
-		Specialized_Branch_Tactical_Experience = 1
 	}
+	#######################
+	# Diplomacy
+	#######################
 	#######################
 	# Politics
 	#######################
 	set_politics = {
-		ruling_party = democratic
-		last_election = "1931.1.1"
-		election_frequency = 96
+		ruling_party = conservatism
+		last_election = "1933.1.1"
+		election_frequency = 48
 		elections_allowed = yes
 	}
 	set_popularities = {
-#	#	authoritarian
-	#	authoritarian = 0
-#	#	democratic = 100
-		socialist = 0
-		communist = 0
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
 	add_ideas = {
-		# Cabinet
-		LIB_D_James_Skivring
-		isolationism
-		legalistic_restrictions
 	}
-	#######################
-	# Leaders
-	#######################
-	# Democratic
-	create_country_leader = {
-		name = "Edwin J. Barclay"
-		desc = ""
-		picture = GFX_Liberia_C_Edwin_Barclay
-		expire = "1955.11.6"
-		ideology = social_conservatism
-		traits = {
-			POSITION_President
-			SUBIDEOLOGY_Social_Conservatism
-			L_Silent_Workhorse
-		}
-	}
-}
-#########################################################################
-# Liberia - 1936
-#########################################################################
-1936.1.1 = {
-	oob = ""
-}

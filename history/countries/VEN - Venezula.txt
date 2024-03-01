@@ -1,181 +1,39 @@
-﻿#########################################################################
-# Venezula - 1933
-#########################################################################
-1933.1.1 = {
-	capital = 307
+﻿	capital = 307
 	set_convoys = 10
 	oob = ""
 	add_to_variable = { money = 180 }
-	#######################
+
+		#######################
 	# Research
 	#######################
 	set_technology = {
-	basic_train = 1
 
-		### Infantry Tech
-		Small_Arms_1900 = 1
-		Small_Arms_1916 = 1
-		Infantry_Kit_1914 = 1
-		Infantry_Kit_1918 = 1
-
-		Heavy_Weapons_1905 = 1
-		Heavy_Weapons_1916 = 1
-		### Artillery Tech
-		Artillery_1910 = 1
-		Artillery_Range_Finding_and_Surveying_Tools = 1
-		Artillery_1916 = 1
-		### Armour Tech
-		Armored_Car_1911 = 1
-		Armored_Car_1916 = 1
-		Armored_Car_1926 = 1
-		### Air Tech
-		Unarmed_Recon_1910 = 1
-		Fighter_1914 = 1
-		Fighter_1916 = 1
-		Fighter_1918 = 1
-		### Navy
-		transport = 1
-		### Industry
-		Industrial_Management = 1
-		Factory_Electrification = 1
-		Facilities_Design = 1
-		Basic_Construction_Machines = 1
-		Motorized_Plowing = 1
-		Farm_Tractors = 1
-		Scientific_Agricultural_Processes = 1
-		Mechanized_Agriculture = 1
-		### Land Doctrines
-		Twentieth_Century_Warfare = 1
-		Leading_by_Order = 1
-		Strongpoint = 1
-		Mass_Charge = 1
-		Static_Defence = 1
-		Counterattack = 1
-		Defence_In_Depth = 1
-		Separate_Arms_Force = 1
-		Combined_Arms_Effort = 1
-		Specialized_Branch_Tactical_Experience = 1
 	}
 	#######################
-	# Politics
+	# Diplomacy
 	#######################
-	set_country_flag = monroe_doctrine
-	set_politics = {
-		ruling_party = authoritarian
-		last_election = "1936.1.1"
-		election_frequency = 48
-		elections_allowed = no
-	}
-	set_popularities = {
-#	#	authoritarian
-	#	authoritarian = 65
-#	#	democratic = 20
-		socialist = 15
-		communist = 0
-	}
-	add_ideas = {
-		agrarian_economy
-		neutrality
-		legalistic_restrictions
-	}
-	#######################
-	# Leaders
-	#######################
-	# Autocracy
-	create_country_leader = {
-		name = "Juan Vicente Gómez"
-		desc = ""
-		picture = GFX_P_A_Juan_Vicente_Gomez
-		expire = "1965.1.1"
-		ideology = military_dictatorship
-		traits = {
-			POSITION_President
-			SUBIDEOLOGY_Military_Dictatorship
-			L_Stern_Imperialist
-		}
-	}
-	# Democracy
-	create_country_leader = {
-		name = "Isaías Medina Angarita"
-		desc = ""
-		picture = GFX_P_D_Romulo_Betancourt
-		expire = "1965.1.1"
-		ideology = social_democracy
-		traits = {
-			POSITION_President
-			SUBIDEOLOGY_Social_Democracy
-			L_Autocratic_Charmer
-			# The Father of Venezuelan Democracy
-		}
-	}
-}
-#################################################
-# Venezula - 1936
-#################################################
-1936.1.1 = {
-	oob = ""
-	#######################
-	# Leaders
-	#######################
-	# Autocracy
-	create_country_leader = {
-		name = "Eleazar Contreras"
-		desc = ""
-		picture = GFX_P_A_Elezar_Lopez_Contreras
-		expire = "1965.1.1"
-		ideology = military_dictatorship
-		traits = {
-			POSITION_President
-			SUBIDEOLOGY_Military_Dictatorship
-			L_Barking_Buffoon
-		}
-	}
-}
-#################################################
-# Venezula - 1941
-#################################################
-1941.6.22 = {
-	#######################
-	# Leaders
-	#######################
-	# Autocracy
-	create_country_leader = {
-		name = "Isaías Medina Angarita"
-		desc = ""
-		picture = GFX_P_A_Isaias_Medina_Angarita
-		expire = "1965.1.1"
-		ideology = authoritarian_democracy
-		traits = {
-			POSITION_President
-			SUBIDEOLOGY_Authoritarian_Democracy
-			L_Resigned_Generalissimo
-		}
-	}
-}
-#################################################
-# Venezula - 1944
-#################################################
-1944.6.20 = {
-	#######################
-	# Politics
-	#######################
-	set_party_name = {
-		ideology = authoritarian
-		name = VEN_authoritarian_1943_party
-		long_name = VEN_authoritarian_1943_party_long
-	}
-}
-#################################################
-# Venezula - 1946
-#################################################
-1946.1.1 = {
 	#######################
 	# Politics
 	#######################
 	set_politics = {
-		ruling_party = democratic
-		last_election = "1936.1.1"
+		ruling_party = conservatism
+		last_election = "1933.1.1"
 		election_frequency = 48
 		elections_allowed = yes
 	}
-}
+	set_popularities = {
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
+	}
+	add_ideas = {
+	}

@@ -1,202 +1,39 @@
-﻿################################
-# Colombia - 1933
-################################
-1933.1.1 = {
+﻿
 	oob = ""
 	capital = 306
 	set_convoys = 10
 	add_to_variable = { money = 100 }
-	#######################
+		#######################
 	# Research
 	#######################
 	set_technology = {
-	basic_train = 1
 
-		### Infantry Tech
-		Small_Arms_1900 = 1
-		Small_Arms_1916 = 1
-		Infantry_Kit_1914 = 1
-		Infantry_Kit_1918 = 1
-
-		Heavy_Weapons_1905 = 1
-		Heavy_Weapons_1916 = 1
-		
-		
-		### Artillery Tech
-		Artillery_1910 = 1
-        Artillery_Range_Finding_and_Surveying_Tools = 1
-        Artillery_1916 = 1
-		### Armour Tech
-		Armored_Car_1911 = 1
-        Armored_Car_1916 = 1
-        Armored_Car_1926 = 1
-		Heavy_Tank_1916 = 1
-		Heavy_Tank_1917 = 1
-		### Air Tech
-		Unarmed_Recon_1910 = 1
-        Fighter_1914 = 1
-        Fighter_1916 = 1
-        Fighter_1918 = 1
-        Fighter_1924 = 1
-		### Naval Stuff
-		DD_1885 = 1
-		DD_1900 = 1
-		DD_1912 = 1
-		DD_1916 = 1
-		### Industry
-		Basic_Construction_Machines = 1
-		Motorized_Plowing = 1
-		Farm_Tractors = 1
-		Scientific_Agricultural_Processes = 1
-		### Land Doctrines
-		Twentieth_Century_Warfare = 1
-		Leading_by_Order = 1
-		Strongpoint = 1
-        Mass_Charge = 1
-        Static_Defence = 1
-        Counterattack = 1
-		Defence_In_Depth = 1
-		Separate_Arms_Force = 1
-        Combined_Arms_Effort = 1
-		Specialized_Branch_Tactical_Experience = 1
-	}
-	
-	#######################
-	# Politics
-	#######################
-	set_politics = {
-		ruling_party = democratic
-		last_election = "1934.2.11"
-		election_frequency = 48
-		elections_allowed = yes
-	}
-	set_popularities = {
-#	#	authoritarian
-	#	authoritarian = 0
-#	#	democratic = 71
-		socialist = 19
-		communist = 10
-	}
-	add_ideas = {
-		agrarian_economy
-		neutrality
-		limited_civil_liberties
 	}
 	#######################
 	# Diplomacy
 	#######################
-	set_country_flag = monroe_doctrine
-	#######################
-	# Leaders
-	#######################
-	# Conservatism
-	create_country_leader = {
-		name = "Enrique Olaya Herrera"
-		desc = ""
-		picture = GFX_P_D_Enrique_Olaya_Herrera
-		expire = "1965.1.1"
-		ideology = social_liberalism
-		traits = {
-			POSITION_President
-			SUBIDEOLOGY_Social_Liberalism
-			L_Die_Hard_Reformer
-		}
-	}
-	#######################
-	# Generals
-	#######################
-	create_corps_commander = {
-		name = "Gustavo Rojas Pinilla"
-	    id = 60000
-		GFX = GFX_P_Vacant
-		traits = {  trickster urban_assault_specialist }
-		skill = 3
-		attack_skill = 3
-		defense_skill = 1
-		planning_skill = 3
-		logistics_skill = 3
-	}	
-}
-
-################################
-# Colombia - 1936
-################################
-1936.1.1 = {
-	oob = ""
-
 	#######################
 	# Politics
 	#######################
-	set_party_name = {
-		ideology = authoritarian
-		name = ARG_authoritarian_Military_party
-		long_name = ARG_authoritarian_Military_party_long
+	set_politics = {
+		ruling_party = conservatism
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
 	add_ideas = {
-		agrarian_economy
-		neutrality
-		limited_civil_liberties
 	}
-	#######################
-	# Leaders
-	#######################
-	# Conservatism
-	create_country_leader = {
-		name = "Alfonso López Pumarejo"
-		desc = ""
-		picture = GFX_P_D_Alfonso_Lopez
-		expire = "1965.1.1"
-		ideology = social_democracy
-		traits = {
-			POSITION_President
-			SUBIDEOLOGY_Social_Democracy
-			L_Weary_Stiff_Neck
-		}
-	}
-}
-################################
-# Colombia - 1939
-################################
-1939.9.1 = {
-	oob = ""
-
-	#######################
-	# Leaders
-	#######################
-	# Conservatism
-	create_country_leader = {
-		name = "Eduardo Santos Montejo"
-		desc = ""
-		picture = GFX_P_D_Eduardo_Santos
-		expire = "1965.1.1"
-		ideology = social_liberalism
-		traits = {
-			POSITION_President
-			SUBIDEOLOGY_Social_Liberalism
-			L_Autocratic_Charmer
-		}
-	}	
-}
-################################
-# Colombia - 1942
-################################
-1942.11.22 = {
-	oob = ""
-
-	#######################
-	# Leaders
-	#######################
-	# Conservatism
-	create_country_leader = {
-		name = "Alfonso López Pumarejo"
-		desc = ""
-		picture = GFX_P_D_Alfonso_Lopez
-		expire = "1965.1.1"
-		ideology = social_democracy
-		traits = {
-			POSITION_President
-			SUBIDEOLOGY_Social_Democracy
-			L_Weary_Stiff_Neck
-		}
-	}	
-}

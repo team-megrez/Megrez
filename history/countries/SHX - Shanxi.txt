@@ -1,151 +1,37 @@
-﻿#########################################################################
-# Shanxi - 1933
-#########################################################################
-1933.1.1 = {
-	capital = 615
+﻿	capital = 615
 	oob = ""
 	add_to_variable = { money = 50 }
 	#######################
 	# Research
 	#######################
 	set_technology = {
-	basic_train = 1
 
-		### Infantry Tech
-		Small_Arms_1900 = 1
-		Small_Arms_1916 = 1
-		Infantry_Kit_1914 = 1
-		Infantry_Kit_1918 = 1
-
-		Heavy_Weapons_1905 = 1
-		Heavy_Weapons_1916 = 1
-		### Artillery Tech
-		Artillery_1910 = 1
-		Artillery_Range_Finding_and_Surveying_Tools = 1
-		Artillery_1916 = 1
-		High_Explosive_Shells = 1
-		### Industry
-		Industrial_Management = 1
-		Factory_Electrification = 1
-		Basic_Construction_Machines = 1
-		### Land Doctrines
-		Twentieth_Century_Warfare = 1
-		Leading_by_Order = 1
-		Strongpoint = 1
-		Mass_Charge = 1
-		Static_Defence = 1
-		Counterattack = 1
-		Defence_In_Depth = 1
-		Separate_Arms_Force = 1
-		Combined_Arms_Effort = 1
-		Specialized_Branch_Tactical_Experience = 1
 	}
+	#######################
+	# Diplomacy
+	#######################
 	#######################
 	# Politics
 	#######################
-	add_ideas = {
-		SHX_The_Model_Province
-		SHX_Fortress_Shanxi
-		SHX_Taiyuan_Arsenal_Guns
-		# Cabinet
-		SHX_D_Fu_Zuoyi
-		SHX_FM_Wang_Zuanxu
-		SHX_MoS_Qu_Yangke
-		SHX_AM_Fu_Zuoyi
-		SHX_HoI_Shang_Zhen
-		SHX_CoStaff_Yan_Xishan
-		SHX_CoArmy_Yan_Xishan
-		SHX_CoNavy_Dmitrij_Krolcheff
-		SHX_CoAir_Yan_Xishan
-		agrarian_economy
-		isolationism
-		repressive_system
-	}
 	set_politics = {
-		ruling_party = authoritarian
-		last_election = "1936.1.1"
+		ruling_party = conservatism
+		last_election = "1933.1.1"
 		election_frequency = 48
-		elections_allowed = no
+		elections_allowed = yes
 	}
 	set_popularities = {
-#	#	authoritarian
-	#	authoritarian = 100
-#	#	democratic = 0
-		socialist = 0
-		communist = 0
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
-	#######################
-	# Leaders
-	#######################
-	create_country_leader = {
-		name = "Yan Xishan"
-		desc = ""
-		picture = GFX_P_A_Yan_Xishan
-		expire = "1965.1.1"
-		ideology = despotism
-		traits = {
-			POSITION_Civil_Governor
-			SUBIDEOLOGY_Despotism
-			L_Model_Governor
-			L_Veteran_of_the_Central_Plains_War
-		}
+	add_ideas = {
 	}
-	#######################
-	# Generals
-	#######################
-	create_field_marshal = {
-		name = "Yan Xishan"
-	    id = 251000
-		picture = GFX_P_A_Yan_Xishan
-		traits = { defensive_doctrine }
-		skill = 4
-		attack_skill = 3
-		defense_skill = 4
-		planning_skill = 2
-		logistics_skill = 3
-	}
-	create_corps_commander = {
-		name = "Fu Zuoyi"
-	    id = 251001
-		GFX = GFX_M_Fu_Zuoyi
-		traits = { offensive_doctrine }
-		skill = 3
-		attack_skill = 3
-		defense_skill = 4
-		planning_skill = 2
-		logistics_skill = 3
-	}
-	create_corps_commander = {
-		name = "Xu Yongchang"
-	    id = 251002
-		picture = GFX_M_Xu_Yongchang
-		traits = { }
-		skill = 2
-		attack_skill = 2
-		defense_skill = 3
-		planning_skill = 2
-		logistics_skill = 2
-	}
-	create_corps_commander = {
-		name = "Yang Aiyuan"
-	    id = 251003
-		picture = GFX_M_Yang_Aiyuan
-		traits = { }
-		skill = 2
-		attack_skill = 2
-		defense_skill = 2
-		planning_skill = 1
-		logistics_skill = 2
-	}
-	create_corps_commander = {
-		name = "Shang Zhen"
-	    id = 251004
-		GFX = GFX_M_Shang_Zhen
-		traits = { }
-		skill = 1
-		attack_skill = 3
-		defense_skill = 1
-		planning_skill = 2
-		logistics_skill = 2
-	}
-}

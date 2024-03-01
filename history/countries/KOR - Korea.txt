@@ -1,81 +1,38 @@
-﻿recruit_character = KOR_Kim_Koo
-recruit_character = KOR_Kim_Hong_il
-#########################################################################
-# Korea
-#########################################################################
-capital = 816 #South Korea - Seoul or Busan
+﻿capital = 816 #South Korea - Seoul or Busan
 oob = ""
 set_convoys = 5
-#######################
-# Research
-#######################
-set_technology = {
-	basic_train = 1
 
-	Small_Arms_1916 = 1
-	Mass_Assault = 1
-}
-#######################
-# Politics
-#######################
-set_politics = {
-	ruling_party = authoritarian
-	last_election = "1936.1.1"
-	election_frequency = 48
-	elections_allowed = yes
-}
-set_popularities = {
-	fascist = 2
-#	authoritarian = 91
-#	democratic = 4
-	socialist = 3
-	communist = 0
-}
-#######################
-# Leaders
-#######################
-# Fascism
-create_country_leader = {
-	name = "Hong Sa-ik"
-	desc = ""
-	picture = GFX_P_
-	expire = "1965.1.1"
-	ideology = fascism
-	traits = { POSITION_President SUBIDEOLOGY_Fascism }
-}
-# Autocracy
-create_country_leader = {
-	name = "Syngman Rhee"
-	desc = ""
-	picture = GFX_P_A_Syngman_Rhee
-	expire = "1965.1.1"
-	ideology = authoritarian_democracy
-	traits = { POSITION_President SUBIDEOLOGY_Authoritarian_Democracy L_Autocratic_Charmer }
-}
-# Democracy
-create_country_leader = {
-	name = "Kim Koo"
-	desc = ""
-	picture = GFX_P_C_Syngman_Rhee
-	expire = "1965.1.1"
-	ideology = social_conservatism
-	traits = { POSITION_President SUBIDEOLOGY_Social_Conservatism L_Flamboyant_Tough_Guy }
-}
-# Socialism
-create_country_leader = {
-	name = "Lyuh Woon-Hyung"
-	desc = ""
-	picture = GFX_P_
-	expire = "1965.1.1"
-	ideology = socialism
-	traits = { POSITION_President SUBIDEOLOGY_Democratic_Socialism }
-}
-# Communism
-create_country_leader = {
-	name = "Kim Tu-Boong"
-	desc = ""
-	picture = GFX_P_
-	expire = "1965.1.1"
-	ideology = juche
-	traits = { POSITION_Chairman SUBIDEOLOGY_Juche }
-}
+	#######################
+	# Research
+	#######################
+	set_technology = {
+
+	}
+	#######################
+	# Diplomacy
+	#######################
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = conservatism
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
+	}
+	add_ideas = {
+	}

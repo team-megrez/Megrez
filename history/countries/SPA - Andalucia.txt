@@ -4,218 +4,37 @@ set_research_slots = 3
 set_convoys = 150
 set_stability = 0.5
 
-set_technology = {
-	basic_train = 1
+	#######################
+	# Research
+	#######################
+	set_technology = {
 
-	Small_Arms_1916 = 1
-	Small_Arms_1935 = 1
-	tech_recon = 1
-	tech_support = 1		
-	tech_engineers = 1
-	tech_mountaineers = 1
-	Artillery_1910 = 1
-	Fighter_1933 = 1
-	Tactical_Bomber_1933 = 1
-	Naval_Bomber_1936 = 1
-	# Armour Tech
-	Heavy_Tank_1916 = 1
-	
-	Heavy_Tank_1917 = 1
-	Light_Tank_1926 = 1	
-	#Naval Stuff
-	DD_1885 = 1
-	DD_1900 = 1
-	DD_1912 = 1
-	DD_1916 = 1
-	DD_1922 = 1
-	DD_1933 = 1	
-	
-	CL_1885 = 1
-	CL_1900 = 1
-	CL_1912 = 1
-	CL_1922 = 1
-	
-	CA_1885 = 1
-	CA_1895 = 1
-	CA_1906 = 1
-	CA_1922 = 1
-	CA_1933 = 1
-	
-	SS_1895 = 1
-	SS_1912 = 1
-	SS_1916 = 1
-	SS_1922 = 1
-	
-	BB_1885 = 1
-	BB_1895 = 1
-	BB_1900 = 1
-	BB_1906 = 1
-	BB_1912 = 1
-	BB_1916 = 1
-	BB_1922 = 1	
-	BB_1933 = 1
-	
-	transport = 1
-}
-
-set_politics = {
-	ruling_party = authoritarian
-	last_election = "1933.2.16"
-	election_frequency = 36
-	elections_allowed = yes
-}
-set_popularities = {
-#	fascist = 10
-#	authoritarian = 65
-#	democratic = 25
-	socialist = 0
-	communist = 0
-}
-
-add_ideas = {
-		two_year_service
 	}
-
-####################################################
-# Leaders
-####################################################
-# Fascism
-create_country_leader = {
-	name = "José Antonio Primo de Rivera"
-	desc = ""
-	picture = GFX_P_F_Jose_Antonio_Primo_de_Rivera
-	expire = "1965.1.1"
-	ideology = falangism
-	traits = { POSITION_SPA_Caudillo SUBIDEOLOGY_Falangism L_Silent_Workhorse }
-}
-# Paternal Autocracy
-create_country_leader = {
-	name = "José Sanjurjo Sacanell"
-	desc = ""
-	picture = GFX_P_A_Jose_Sanjurjo
-	expire = "1965.1.1"
-	ideology = military_dictatorship
-	traits = { POSITION_SPA_Caudillo SUBIDEOLOGY_Military_Dictatorship L_Resigned_Generalissimo }
-}
-create_country_leader = {
-	name = "Francisco Franco Bahamonde"
-	desc = Francisco_Franco_Bahamonde_desc
-	picture = GFX_P_A_Francisco_Franco
-	expire = "1965.1.1"
-	ideology = military_dictatorship
-	traits = { POSITION_SPA_Caudillo SUBIDEOLOGY_Military_Dictatorship L_Resigned_Generalissimo }
-}
-# Conservatism
-create_country_leader = {
-	name = "Niceto Alcalá-Zamora"
-	desc = ""
-	picture = GFX_P_D_Niceto_Alcala_Zamora
-	expire = "1965.1.1"
-	ideology = social_conservatism
-	traits = { POSITION_President SUBIDEOLOGY_Social_Conservatism L_Naive_Optimist }
-}
-# Socialism
-create_country_leader = {
-	name = "Francisco Largo Caballero"
-	desc = ""
-	picture = GFX_P_S_Francisco_Largo_Caballero
-	expire = "1965.1.1"
-	ideology = socialism
-	traits = { POSITION_President SUBIDEOLOGY_Democratic_Socialism L_Barking_Buffoon }
-}
-# Communism
-create_country_leader = {
-	name = "Jose Díaz Ramos"
-	desc = ""
-	picture = GFX_P_C_Jose_Diaz
-	expire = "1965.1.1"
-	ideology = marxism_leninism
-	traits = { POSITION_General_Secretary SUBIDEOLOGY_Marxism_Leninism L_Ambitious_Union_Boss }
-}
-####################################################
-# Spanish General Staff
-####################################################
-create_field_marshal = {
-	name = "Franco Bahamonde"
-    id = 267000
-		GFX = GFX_P_Vacant
-	traits = { politically_connected defensive_doctrine }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Mola Vidal"
-    id = 267001
-		GFX = GFX_P_Vacant
-	traits = { politically_connected career_officer }
-	skill = 4
-	attack_skill = 3
-	defense_skill = 3
-	planning_skill = 2
-	logistics_skill = 2
-}
-
-create_field_marshal = {
-	name = "Sanjurjo Sacanell"
-    id = 267002
-		GFX = GFX_P_Vacant
-	traits = { logistics_wizard old_guard }
-	skill = 2
-	attack_skill = 1
-	defense_skill = 2
-	planning_skill = 3
-	logistics_skill = 2
-}
-
-create_field_marshal = {
-	name = "Cabanellas Ferrer"
-    id = 267003
-		GFX = GFX_P_Vacant
-	traits = { defensive_doctrine old_guard }
-	skill = 1
-	attack_skill = 1
-	defense_skill = 1
-	planning_skill = 1
-	logistics_skill = 1
-}
-
-create_corps_commander = {
-	name = "Orgaz Yoldi"
-    id = 267004
-		GFX = GFX_P_Vacant
-	traits = {}
-	skill = 2
-	attack_skill = 2
-	defense_skill = 1
-	planning_skill = 2
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Millán Astray Terreros"
-    id = 267005
-		GFX = GFX_P_Vacant
-	traits = { trickster commando old_guard }
-	skill = 2
-	attack_skill = 3
-	defense_skill = 2
-	planning_skill = 1
-	logistics_skill = 1
-}
-
-create_corps_commander = {
-	name = "Moscardó Ituarte"
-    id = 267006
-		GFX = GFX_P_Vacant
-	traits = {}
-	skill = 2
-	attack_skill = 1
-	defense_skill = 1
-	planning_skill = 3
-	logistics_skill = 2
-}
-
+	#######################
+	# Diplomacy
+	#######################
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = conservatism
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
+	}
+	add_ideas = {
+	}

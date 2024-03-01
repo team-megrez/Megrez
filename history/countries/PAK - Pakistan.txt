@@ -1,108 +1,38 @@
-﻿#########################################################################
-# Pakistan
-#########################################################################
-1933.1.1 = {
-	capital = 443
+﻿	capital = 443
 	oob = ""
 
-	# Starting tech
+	
+		#######################
+	# Research
+	#######################
 	set_technology = {
-		basic_train = 1
 
-		Small_Arms_1916 = 1
-		Small_Arms_1935 = 1
-		tech_support = 1		
-		tech_engineers = 1
-		tech_recon = 1
-		transport = 1
-		Trench_Warfare = 1
-		fleet_in_being = 1
-		Attacker_1936 = 1
-		
 	}
-
-	if = {
-		limit = { has_dlc = "Together for Victory" }
-
-		add_to_tech_sharing_group = commonwealth_research
-	}
-
-	set_convoys = 20
-
+	#######################
+	# Diplomacy
+	#######################
+	#######################
+	# Politics
+	#######################
 	set_politics = {
-		ruling_party = democratic
-		last_election = "1935.11.14"
+		ruling_party = conservatism
+		last_election = "1933.1.1"
 		election_frequency = 48
-		elections_allowed = no
+		elections_allowed = yes
 	}
 	set_popularities = {
-	#	fascist = 0
-#	#	authoritarian = 40
-#	#	democratic = 60
-		socialist = 0
-		communist = 0
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
-
-	create_country_leader = {
-		name = "Qazi Muhammad Essa"
-		picture = GFX_gfx/leaders/RAJ/Portrait_The_Raj_Political_Leader_Generic_2
-		expire = "1960.1.1"
-		ideology = authoritarian_democracy
-		traits = {}
+	add_ideas = {
 	}
-
-	create_country_leader = {
-		name = "Muhammad Ali Jinnah"
-		
-		picture = GFX_P_D_Muhammad_Ali_Jinnah
-		expire = "1960.1.1"
-		ideology = social_liberalism
-		traits = {
-			
-		}
-	}
-
-	create_country_leader = {
-		name = "Haji Mohammad Danesh"
-		
-		picture = GFX_gfx/leaders/RAJ/Portrait_The_Raj_Political_Leader_Generic_2
-		expire = "1960.1.1"
-		ideology = trotskyism
-		traits = {
-			
-		}
-	}
-
-	create_corps_commander = {
-		name = "Muhammad Zia-ul-Haq"
-		id = 204000
-		GFX = GFX_P_Vacant
-		traits = {  }
-		skill = 2
-		
-	}
-
-	create_corps_commander = {
-		name = "Iftikhar Khan Janjua"
-		id = 204001
-		GFX = GFX_P_Vacant
-		traits = {  }
-		skill = 3
-		
-	}
-	create_corps_commander = {
-		name = "Akbar Khan"
-		id = 204002
-		GFX = GFX_P_Vacant
-		traits = { trickster }
-		skill = 3
-		
-	}
-}
-
-############################################
-# Pakistan - 1972
-############################################
-#1972.1.1 = {
-#	set_capital = 1362
-#}

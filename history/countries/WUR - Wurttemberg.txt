@@ -1,60 +1,35 @@
-﻿#########################################################################
-# Baden - 1933
-#########################################################################
-1933.1.1 = {
-	capital = 50
+﻿	capital = 50
 	#######################
 	# Research
 	#######################
 	set_technology = {
-	basic_train = 1
 
-		Small_Arms_1916 = 1
 	}
+	#######################
+	# Diplomacy
+	#######################
 	#######################
 	# Politics
 	#######################
 	set_politics = {
-		ruling_party = democratic
+		ruling_party = conservatism
 		last_election = "1933.1.1"
 		election_frequency = 48
 		elections_allowed = yes
 	}
 	set_popularities = {
-#	#	authoritarian
-	#	authoritarian = 60
-#	#	democratic = 40
-		socialist = 0
-		communist = 0
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
-	#######################
-	# Leaders
-	#######################
-	# Authoritarian
-	create_country_leader = {
-		name = "Albrecht von Württemberg"
-		desc = ""
-		picture = GFX_P_A_Albrecht_von_Wurttemberg
-		expire = "1939.10.31"
-		ideology = monarchism
-		traits = { 
-			POSITION_King
-			SUBIDEOLOGY_Monarchism
-		}
+	add_ideas = {
 	}
-	# Democracy
-	create_country_leader = {
-		name = "Eugen Bolz"
-		desc = ""
-		picture = GFX_P_D_Eugen_Bolz
-		expire = "1945.1.23"
-		ideology = social_conservatism
-		traits = { 
-			POSITION_President
-			SUBIDEOLOGY_Social_Conservatism
-		}
-	}
-	#######################
-	# Generals
-	#######################
-}

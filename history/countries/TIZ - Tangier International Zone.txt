@@ -1,154 +1,36 @@
-﻿#########################################################################
-# Tangier - 1933
-#########################################################################
-1933.1.1 = {
-	capital = 1221
-	#######################
+﻿	capital = 1221
+
+		#######################
 	# Research
 	#######################
 	set_technology = {
-	basic_train = 1
 
-		Small_Arms_1916 = 1
-	}
-	#######################
-	# Politics
-	#######################
-	set_politics = {
-		ruling_party = democratic
-		last_election = "1933.1.1"
-		election_frequency = 48
-		elections_allowed = no
-	}
-	set_popularities = {
-#	#	authoritarian
-	#	authoritarian = 0
-#	#	democratic = 100
-		socialist = 0
-		communist = 0
-	}
-	add_ideas = {
-		# Laws & Government
-		full_civil_liberties
-		isolationism
-		# Economic Policy
-		army_spending_level_2
 	}
 	#######################
 	# Diplomacy
 	#######################
-	give_military_access = FRA
-	give_military_access = SPR
-	give_military_access = ENG
-	FRA = {
-		give_guarantee = TIZ
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = conservatism
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = yes
 	}
-	SPR = {
-		give_guarantee = TIZ
+	set_popularities = {
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
-	ENG = {
-		give_guarantee = TIZ
+	add_ideas = {
 	}
-	#######################
-	# Leaders
-	#######################
-	# Democracy
-	create_country_leader = {
-		name = "Pierre Le Fur"
-		desc = ""
-		picture = GFX_P_Europe_25
-		expire = "1956.7.8"
-		ideology = social_conservatism
-		traits = {
-			POSITION_Administrator
-			SUBIDEOLOGY_Social_Conservatism
-		}
-	}
-	#######################
-	# Generals
-	#######################
-}
-
-#########################################################################
-# Tangier - 1946
-#########################################################################
-1946.1.1 = {
-	#######################
-	# Leaders
-	#######################
-	# Democracy
-	create_country_leader = {
-		name = "Luís Magalhães Correia"
-		desc = ""
-		picture = GFX_
-		expire = "1956.7.8"
-		ideology = social_conservatism
-		traits = {
-			POSITION_Administrator
-			SUBIDEOLOGY_Social_Conservatism
-		}
-	}
-}
-
-#########################################################################
-# Tangier - 1950
-#########################################################################
-1950.1.1 = {
-	#######################
-	# Leaders
-	#######################
-	# Democracy
-	create_country_leader = {
-		name = "Henri van Vredenburch"
-		desc = ""
-		picture = GFX_
-		expire = "1956.7.8"
-		ideology = social_conservatism
-		traits = {
-			POSITION_Administrator
-			SUBIDEOLOGY_Social_Conservatism
-		}
-	}
-}
-
-#########################################################################
-# Tangier - 1953
-#########################################################################
-1953.3.7 = {
-	#######################
-	# Leaders
-	#######################
-	# Democracy
-	create_country_leader = {
-		name = "José Luís Archer"
-		desc = ""
-		picture = GFX_
-		expire = "1956.7.8"
-		ideology = social_conservatism
-		traits = {
-			POSITION_Administrator
-			SUBIDEOLOGY_Social_Conservatism
-		}
-	}
-}
-
-#########################################################################
-# Tangier - 1956
-#########################################################################
-1956.1.1 = {
-	#######################
-	# Leaders
-	#######################
-	# Democracy
-	create_country_leader = {
-		name = "Robert van de Kerckhove d'Hallebast"
-		desc = ""
-		picture = GFX_
-		expire = "1956.7.8"
-		ideology = social_conservatism
-		traits = {
-			POSITION_Administrator
-			SUBIDEOLOGY_Social_Conservatism
-		}
-	}
-}

@@ -1,74 +1,39 @@
-﻿#########################################################################
-# West Germany - 1933
-#########################################################################
-1933.1.1 = {
-	capital = 51
+﻿	capital = 51
 	set_research_slots = 4
 	set_convoys = 50
 	set_stability = 0.7
-	#######################
+
+		#######################
 	# Research
 	#######################
 	set_technology = {
-		basic_train = 1
 
-		Small_Arms_1916 = 1
-		Small_Arms_1935 = 1
-		tech_recon = 1
-		tech_support = 1		
-		tech_engineers = 1
-		tech_mountaineers = 1
-		Motorized_1916 = 1
-		Artillery_1910 = 1
-		Anti_Aircraft_Gun_1935 = 1
-		
-		Fighter_1933 = 1
-		Fighter_1936 = 1
-		Tactical_Bomber_1933 = 1
-		Tactical_Bomber_1936 = 1
-		Strategic_Bomber_1933 = 1
-		Strategic_Bomber_1936 = 1
-		Attacker_1936 = 1
-		Naval_Bomber_1936 = 1
-	
-		Mobility_Focus = 1
-		trade_interdiction = 1
-		formation_flying = 1
-		
-		transport = 1
 	}
+	#######################
+	# Diplomacy
+	#######################
 	#######################
 	# Politics
 	#######################
 	set_politics = {
-		ruling_party = democratic
+		ruling_party = conservatism
 		last_election = "1933.1.1"
 		election_frequency = 48
 		elections_allowed = yes
 	}
 	set_popularities = {
-#	#	authoritarian
-	#	authoritarian = 0
-#	#	democratic = 100
-		socialist = 0
-		communist = 0
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
-	#######################
-	# Leaders
-	#######################
-	# Democracy
-	create_country_leader = {
-		name = "Konrad Adenauer"
-		picture = GFX_P_D_Konrad_Adenauer
-		expire = "1967.4.19"
-		ideology = social_conservatism
-		traits = {
-			POSITION_GER_Reichskanzler
-			SUBIDEOLOGY_Social_Conservatism
-			L_Silent_Workhorse
-		}
+	add_ideas = {
 	}
-	#######################
-	# Generals
-	#######################
-}

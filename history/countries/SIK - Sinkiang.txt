@@ -1,173 +1,37 @@
-﻿#########################################################################
-# Sinkiang 1933
-#########################################################################
-1933.1.1 = {
-	capital = 864
+﻿	capital = 864
 	oob = ""
 	add_to_variable = { money = 50 }
 	#######################
 	# Research
 	#######################
 	set_technology = {
-	basic_train = 1
 
-		### Infantry Tech
-		Small_Arms_1916 = 1
-		Small_Arms_1900 = 1
-		Infantry_Kit_1914 = 1
-		Infantry_Kit_1918 = 1
-
-		Heavy_Weapons_1905 = 1
-		Heavy_Weapons_1916 = 1
-		
-		
-		### Artillery Tech
-		Artillery_1910 = 1
-        Artillery_Range_Finding_and_Surveying_Tools = 1
-        Artillery_1916 = 1
-		### Industry
-		Industrial_Management = 1
-		### Land Doctrines
-		Twentieth_Century_Warfare = 1
-		Leading_by_Order = 1
-		Strongpoint = 1
-        Mass_Charge = 1
-        Static_Defence = 1
-        Counterattack = 1
-		Defence_In_Depth = 1
-		Separate_Arms_Force = 1
-        Combined_Arms_Effort = 1
-		Specialized_Branch_Tactical_Experience = 1
 	}
+	#######################
+	# Diplomacy
+	#######################
 	#######################
 	# Politics
 	#######################
 	set_politics = {
-		ruling_party = authoritarian
-		last_election = "1936.1.1"
+		ruling_party = conservatism
+		last_election = "1933.1.1"
 		election_frequency = 48
-		elections_allowed = no
+		elections_allowed = yes
 	}
 	set_popularities = {
-#	#	authoritarian
-	#	authoritarian = 35
-#	#	democratic = 15
-		socialist = 30
-		communist = 20
-	}	
-	add_ideas = {
-		# Spirits
-		SIK_Opium_Stimulated_Army
-		SIK_Collapsing_Economic_Monopoly
-		SIK_Restless_Turkic_Population
-		SIK_Overwhelming_Illiterracy
-		# Laws and Policies
-		limited_exports
-		one_year_service
-		partial_economic_mobilisation
-		agrarian_economy
-		repressive_system 
-		# Cabinet
-		SIK_D_Sheng_Shicai
-	}	
-	#######################
-	# Leaders
-	#######################
-	# Authoritarian
-	create_country_leader = {
-		name = "Jin Shuren"
-		desc = ""
-		picture = GFX_P_A_Jin_Shuren
-		expire = "1941.1.1"
-		ideology = despotism
-		traits = {
-			POSITION_Civil_Governor
-			SUBIDEOLOGY_Despotism
-			L_Stern_Imperialist
-		}
-	}
-	#######################
-	# Generals
-	#######################
-	create_corps_commander = {
-		name = "Jin Shuren"
-	    id = 255000
-		picture = GFX_P_A_Jin_Shuren
-		traits = { }
-		skill = 3
-		attack_skill = 4
-		defense_skill = 2
-		planning_skill = 2
-		logistics_skill = 2
-	}
-	
-}
-#########################################################################
-# Sinkiang 1936
-#########################################################################
-1936.1.1 = {
-	capital = 864
-	oob = ""
-	#######################
-	# Research
-	#######################
-	set_technology = {
-		Small_Arms_1916 = 1
-	}
-	#######################
-	# Politics
-	#######################
-	set_politics = {
-		ruling_party = communist
-		last_election = "1936.1.1"
-		election_frequency = 48
-		elections_allowed = no
-	}
-	set_popularities = {
-#	#	authoritarian
-	#	authoritarian = 40
-#	#	democratic = 0
-		socialist = 10
-		communist = 50
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
 	add_ideas = {
-		# Laws and Policies
-		limited_exports
-		one_year_service
-		partial_economic_mobilisation
-		agrarian_economy
-		repressive_system 
 	}
-
-	#######################
-	# Leaders
-	#######################
-	# Marxism-Leninism
-	create_country_leader = {
-		name = "Sheng Shicai"
-		desc = ""
-		picture = GFX_P_C_Sheng_Shicai
-		expire = "1965.1.1"
-		ideology = marxism_leninism
-		traits = {
-			POSITION_Civil_Governor
-			SUBIDEOLOGY_Marxism_Leninism
-			L_Resigned_Generalissimo
-		}
-	}
-	#######################
-	# Generals
-	#######################
-	create_corps_commander = {
-		name = "Sheng Shicai"
-	    id = 255001
-		picture = GFX_P_C_Sheng_Shicai
-		traits = { }
-		skill = 3
-		attack_skill = 4
-		defense_skill = 2
-		planning_skill = 2
-		logistics_skill = 2
-	}
-	
-}

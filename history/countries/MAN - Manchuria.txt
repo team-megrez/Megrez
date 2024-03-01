@@ -1,234 +1,37 @@
-﻿recruit_character = MAN_Aisin_Gioro_Puyi
-recruit_character = MAN_Xie_Jieshi
-recruit_character = MAN_Adatchi_Mineichiro
-recruit_character = MAN_Hayashi_Gonsuke
-recruit_character = MAN_Nitobe_Inazo
-recruit_character = MAN_Chin_Chuhan
-recruit_character = MAN_Soume_Tcheng
-recruit_character = MAN_Tang_Tsaifou
-recruit_character = MAN_Chao_Chuwu
-recruit_character = MAN_Aisin_Gioro_Xiqia
-recruit_character = MAN_Saito_Hiroshi
-recruit_character = MAN_Matsuyama_Shinjiro
-recruit_character = MAN_Fukai_Eigo
-recruit_character = MAN_Kawashima_Yoshiko
-recruit_character = MAN_Wang_Chunghui
-recruit_character = MAN_Wei_Chengchen
-recruit_character = MAN_Lan_Fangmei
-recruit_character = MAN_Chang_Sulee
-recruit_character = MAN_Nobosuke_Kishi
-recruit_character = MAN_Nakajima_Kesago
-recruit_character = MAN_Isogai_Ryozhi
-recruit_character = MAN_Chi_Hsing
-recruit_character = MAN_Hsing_Shilien
-recruit_character = MAN_Igor_Chernokoff
-recruit_character = MAN_Chao_Chiuhang
-recruit_character = MAN_Manfred_von_Tscherwelen
-recruit_character = MAN_PuYi
-recruit_character = MAN_Oka_Keijun
-recruit_character = MAN_Oda_Yurozu
-recruit_character = MAN_Kadono_Chokuro
-recruit_character = MAN_Sergei_Ramilcheff
-recruit_character = MAN_Jizu_Hosonoya
-recruit_character = MAN_Yin_Tsuochien
-recruit_character = MAN_Tai_ChiQuo
-recruit_character = MAN_Chao_Hsinchu
-recruit_character = MAN_Miyazaki_Akira
-recruit_character = MAN_Ito_Nobumi
-recruit_character = MAN_Yokoyama_Masayuki
-recruit_character = MAN_Isono_Yuzo
-recruit_character = MAN_Nakajima_Shinji
-recruit_character = MAN_Loh_Tcheng
-recruit_character = MAN_Tsao_Pingsen
-recruit_character = MAN_Zheng_Xiaoxu
-recruit_character = MAN_Zhang_Jinghui
-recruit_character = MAN_Yu_Zhishan
-recruit_character = MAN_Urzhin_Garmaev
-#########################################################################
-# Manchuria - 1933
-#########################################################################
-1933.1.1 = {
-	capital = 328
+﻿	capital = 328
 	oob = ""
 	set_convoys = 5
-	add_to_variable = {
-		money = 100
-	}
-	#######################
+		#######################
 	# Research
 	#######################
 	set_technology = {
-	basic_train = 1
 
-		### Infantry Tech
-		Small_Arms_1900 = 1
-		Small_Arms_1916 = 1
-		Infantry_Kit_1914 = 1
-		Infantry_Kit_1918 = 1
-		Heavy_Weapons_1905 = 1
-		Heavy_Weapons_1916 = 1
-		### Artillery Tech
-		Artillery_1910 = 1
-		### Armour Tech
-		Armored_Car_1911 = 1
-		Heavy_Tank_1916 = 1
-		Heavy_Tank_1917 = 1
-		### Air Tech
-		Unarmed_Recon_1910 = 1
-		Fighter_1914 = 1
-		Fighter_1916 = 1
-		### Navy
-		transport = 1
-		### Industry
-		Industrial_Management = 1
-		Factory_Electrification = 1
-		Basic_Construction_Machines = 1
-		Motorized_Plowing = 1
-		### Land Doctrines
-		Twentieth_Century_Warfare = 1
-		Leading_by_Order = 1
-		Strongpoint = 1
-		Mass_Charge = 1
-		Static_Defence = 1
-		Counterattack = 1
-		Defence_In_Depth = 1
-		Separate_Arms_Force = 1
-		Combined_Arms_Effort = 1
-		Specialized_Branch_Tactical_Experience = 1
-		Beyond_Trench_Warfare = 1
-		### Engineering
-		computing_1 = 1
-		computing_2 = 1
-		computing_3 = 1
 	}
+	#######################
+	# Diplomacy
+	#######################
 	#######################
 	# Politics
 	#######################
 	set_politics = {
-		ruling_party = fascist
+		ruling_party = conservatism
 		last_election = "1933.1.1"
 		election_frequency = 48
-		elections_allowed = no
+		elections_allowed = yes
 	}
 	set_popularities = {
-	#	fascist = 38
-#	#	authoritarian = 45
-#	#	democratic = 0
-		socialist = 0
-		communist = 17
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
-	
 	add_ideas = {
-		# Cabinet
-		MAN_Aisin_Gioro_Puyi_HoG
-		MAN_Xie_Jieshi_FM
-		# Laws & Government
-		industrializing_economy
-		interventionism
-		repressive_system
 	}
-	add_opinion_modifier = {
-		target = CHI
-		modifier = hostile_status
-	}
-	CHI = {
-		add_opinion_modifier = {
-			target = MAN
-			modifier = hostile_status
-		}
-	}
-}
-
-1939.9.1 = {
-	if = {
-		limit = {
-			has_start_date > 1937.7.7
-			has_start_date < 1945.9.2
-		}
-		declare_war_on = {
-			target = CHI
-			type = annex_everything
-		}
-		declare_war_on = {
-			target = PRC
-			type = annex_everything
-		}
-		declare_war_on = {
-			target = SHX
-			type = annex_everything
-		}
-		declare_war_on = {
-			target = YUN
-			type = annex_everything
-		}
-		declare_war_on = {
-			target = XIK
-			type = annex_everything
-		}
-		declare_war_on = {
-			target = GXC
-			type = annex_everything
-		}
-	}
-}
-
-1936.1.1 = {
-	capital = 328
-	oob = ""
-	set_convoys = 5
-	#######################
-	# Research
-	#######################
-	set_technology = {
-		Small_Arms_1916 = 1
-		Small_Arms_1935 = 1
-		tech_support = 1
-		tech_recon = 1
-		tech_engineers = 1
-		Motorized_1916 = 1
-		marines = 1
-		Artillery_1910 = 1
-		# Armour Tech
-		Heavy_Tank_1916 = 1
-		Heavy_Tank_1917 = 1
-		Light_Tank_1926 = 1
-		Light_Tank_1934 = 1
-	}
-	#######################
-	# Politics
-	#######################
-	set_politics = {
-		ruling_party = authoritarian
-		last_election = "1936.1.1"
-		election_frequency = 48
-		elections_allowed = no
-	}
-	set_popularities = {
-	#	fascist = 10
-#	#	authoritarian = 88
-#	#	democratic = 0
-		socialist = 0
-		communist = 2
-	}
-	drop_cosmetic_tag = yes
-	add_ideas = {
-		industrializing_economy
-		interventionism
-		repressive_system
-	}
-	#######################
-	# Leaders
-	#######################
-	# Fascist
-	create_country_leader = {
-		name = "Zhang Jinghui"
-		picture = GFX_P_F_Zhang_Jinghui
-		expire = "1959.11.1"
-		ideology = fascism
-		traits = {
-			POSITION_Prime_Minister
-			SUBIDEOLOGY_Fascism
-			L_Happy_Amateur
-		}
-	}
-}

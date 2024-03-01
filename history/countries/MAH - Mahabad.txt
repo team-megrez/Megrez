@@ -1,47 +1,36 @@
-﻿#########################################################################
-# Mahabad
-#########################################################################
-capital = 895
-#######################
-# Research
-#######################
-set_technology = {
-	basic_train = 1
+﻿capital = 895
 
-	Small_Arms_1916 = 1
-}
-#######################
-# Politics
-#######################
-set_politics = {
-	ruling_party = communist
-	last_election = "1936.1.1"
-	election_frequency = 48
-	elections_allowed = no
-}
-set_popularities = {
-	fascist = 0
-#	authoritarian = 5
-#	democratic = 10
-	socialist = 25
-	communist = 60
-}
 	#######################
-	# Leaders
+	# Research
 	#######################
-	# Fascism
-	create_country_leader = {
-		name = "Qazi Muhammad"
-		desc = ""
-		picture = GFX_P_C_Qazi_Muhammad
-		expire = "1965.1.1"
-		ideology = marxism_leninism
-		traits = { 
-			POSITION_President
-			SUBIDEOLOGY_Marxism_Leninism
-			L_Revolutionary_Leader
-		}
+	set_technology = {
+
 	}
-#######################
-# Generals
-#######################
+	#######################
+	# Diplomacy
+	#######################
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = conservatism
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
+	}
+	add_ideas = {
+	}

@@ -1,7 +1,4 @@
-﻿#########################################################################
-# Guizhou - 1933
-#########################################################################
-1933.1.1 = {
+﻿
 	capital = 603
 	set_stability = 0.6
 	set_war_support = 0.4
@@ -11,73 +8,33 @@
 	# Research
 	#######################
 	set_technology = {
-	basic_train = 1
 
-		Small_Arms_1916 = 1
-		mass_assault = 1
-		#Naval Stuff
-		DD_1885 = 1
-		CL_1885 = 1
-		CL_1900 = 1
-		CL_1912 = 1
-		CL_1922 = 1
-		BB_1885 = 1
-		BB_1895 = 1
-		CA_1885 = 1
-		CA_1895 = 1
-		#
 	}
+	#######################
+	# Diplomacy
+	#######################
 	#######################
 	# Politics
 	#######################
 	set_politics = {
-		ruling_party = authoritarian
-		last_election = "1936.1.1"
+		ruling_party = conservatism
+		last_election = "1933.1.1"
 		election_frequency = 48
-		elections_allowed = no
+		elections_allowed = yes
 	}
 	set_popularities = {
-#	#	authoritarian
-	#	authoritarian = 100
-#	#	democratic = 0
-		socialist = 0
-		communist = 0
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
 	add_ideas = {
-		GUZ_Crossroads_of_the_Southwest
-		agrarian_economy
-		isolationism
-		repressive_system
 	}
-	#######################
-	# Leaders
-	#######################
-	# Paternal Autocracy
-	create_country_leader = {
-		name = "Wang Jialie"
-		desc = "Wang_Jialie_desc"
-		picture = GFX_P_A_Wang_Jialie
-		expire = "1965.1.1"
-		ideology = despotism
-		traits = {
-			POSITION_Civil_Governor
-			SUBIDEOLOGY_Despotism
-			L_Old_General
-		}
-	}
-	#######################
-	# Generals
-	#######################
-	create_field_marshal = {
-		name = "Wang Jialie"
-		id = 116000
-		GFX = GFX_P_Vacant
-		traits = {
-		}
-		skill = 2
-		attack_skill = 2
-		defense_skill = 1
-		planning_skill = 2
-		logistics_skill = 2
-	}
-}

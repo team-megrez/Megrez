@@ -1,326 +1,41 @@
-﻿recruit_character = YUG_Aleksandar_I
-recruit_character = YUG_Petar_II
-recruit_character = YUG_Slobodan_Jovanovic
-recruit_character = YUG_Ivan_Subasic
-recruit_character = YUG_Milan_Grol
-recruit_character = YUG_Bozidar_Puric
-recruit_character = YUG_Momcilo_Nincic
-recruit_character = YUG_Bogoljub_Jevtic
-recruit_character = YUG_Aleksandar_C_Markovic
-recruit_character = YUG_Milan_Stojadinovic
-recruit_character = YUG_Vladeta_Milicevic
-recruit_character = YUG_Sava_Kosanovic
-recruit_character = YUG_Srdan_Budisavljevic
-recruit_character = YUG_Anton_Korosec
-recruit_character = YUG_Dusan_Simovic
-recruit_character = YUG_Vlada_Zecevic
-recruit_character = YUG_Aleksandar_Rankovic
-recruit_character = YUG_Velimir_Popovic
-recruit_character = YUG_Zivojin_Lazic
-recruit_character = YUG_Dragisa_Cvetkovic
-recruit_character = YUG_Milan_Acimovic
-recruit_character = YUG_Sreten_Zujovic
-recruit_character = YUG_Juraj_Sutej
-recruit_character = YUG_Milorad_Dordevic
-recruit_character = YUG_Dusan_Letica
-recruit_character = YUG_Vojin_Duricic
-recruit_character = YUG_Arso_Jovanovic
-recruit_character = YUG_Koca_Popovic
-recruit_character = YUG_Milan_Molovanovic
-recruit_character = YUG_Milan_Nedic
-recruit_character = YUG_Ljubomir_Maric
-recruit_character = YUG_Milutin_Nedic
-recruit_character = YUG_Petar_Kosic
-recruit_character = YUG_Dimitrije_Ljotic
-recruit_character = YUG_Milan_Srskic
-recruit_character = YUG_Zivko_Topalovic
-recruit_character = YUG_Josep_Broz_Tito
-recruit_character = YUG_Vladimir_Cukavac
-recruit_character = YUG_Ivan_Gosnjak
-recruit_character = YUG_Milan_Milovanovic
-recruit_character = YUG_Danilo_Kalafatovic
-recruit_character = YUG_Marijan_Polic
-recruit_character = YUG_Ivan_Ribar
-recruit_character = YUG_Prince_Paul
-
-#########################################################################
-# Yugoslavia - 1933
-#########################################################################
-1933.1.1 = {
-	capital = 107
+﻿	capital = 107
 	oob = ""
 	set_research_slots = 3
 	set_convoys = 10
 	set_stability = 0.6
 	add_manpower = 150000
-	add_to_variable = {
-		money = 160
-	}
-	#######################
+
+		#######################
 	# Research
 	#######################
 	set_technology = {
-	basic_train = 1
 
-		### Infantry Tech
-		Small_Arms_1900 = 1
-		Small_Arms_1916 = 1
-		Infantry_Kit_1914 = 1
-		Infantry_Kit_1918 = 1
-
-		Heavy_Weapons_1905 = 1
-		Heavy_Weapons_1916 = 1
-		### Artillery Tech
-		Artillery_1910 = 1
-		Anti_Aircraft_Gun_1914 = 1
-		Artillery_Range_Finding_and_Surveying_Tools = 1
-		Infantry_Support_Gun_1914 = 1
-		Artillery_1916 = 1
-		### Armour Tech
-		Motorized_1916 = 1
-		Armored_Car_1911 = 1
-		Armored_Car_1916 = 1
-		Armored_Car_1926 = 1
-		Heavy_Tank_1916 = 1
-		Heavy_Tank_1917 = 1
-		### Air Tech
-		Unarmed_Recon_1910 = 1
-		Fighter_1914 = 1
-		Fighter_1916 = 1
-		Fighter_1918 = 1
-		Fighter_1924 = 1
-		Tactical_Bomber_1914 = 1
-		Tactical_Bomber_1916 = 1
-		Tactical_Bomber_1918 = 1
-		Tactical_Bomber_1925 = 1
-		### Naval Stuff
-		DD_1885 = 1
-		DD_1900 = 1
-		DD_1912 = 1
-		DD_1916 = 1
-		DD_1922 = 1
-		DD_1933 = 1
-		CL_1885 = 1
-		SS_1895 = 1
-		SS_1912 = 1
-		transport = 1
-		### Industry
-		Industrial_Management = 1
-		Factory_Electrification = 1
-		Facilities_Design = 1
-		Moving_Assembly_Line = 1
-		Skilled_Workforce = 1
-		Basic_Construction_Machines = 1
-		Novel_Drills = 1
-		Contemporary_Construction_Standards = 1
-		Advanced_Drilling_Method = 1
-		Motorized_Plowing = 1
-		Farm_Tractors = 1
-		Scientific_Agricultural_Processes = 1
-		### Land Doctrines
-		Twentieth_Century_Warfare = 1
-		Leading_by_Order = 1
-		Strongpoint = 1
-		Mass_Charge = 1
-		Static_Defence = 1
-		Counterattack = 1
-		Defence_In_Depth = 1
-		Separate_Arms_Force = 1
-		Combined_Arms_Effort = 1
-		Specialized_Branch_Tactical_Experience = 1
-		Beyond_Trench_Warfare = 1
-		### Engineering
-		computing_1 = 1
-		computing_2 = 1
-		computing_3 = 1
-		decryption_encryption_1 = 1
-		### Support Companies
-		tech_engineers = 1
-		tech_assault_weapons_1 = 1
-		tech_assault_weapons_2 = 1
-		tech_assault_weapons_3 = 1
-		tech_entrenchment_1 = 1
-		tech_entrenchment_2 = 1
-		tech_entrenchment_3 = 1
-		tech_amphibious_1 = 1
-		tech_amphibious_2 = 1
-		tech_amphibious_3 = 1
-		tech_recon = 1
-		tech_recon2 = 1
-		tech_recon3 = 1
-		tech_recon4 = 1
-		tech_military_police = 1
-		tech_military_police2 = 1
-		tech_military_police3 = 1
-		tech_military_police4 = 1
-		tech_signal_company = 1
-		tech_signal_company2 = 1
-		tech_field_hospital = 1
-		tech_field_hospital_psychology_1 = 1
-		tech_field_hospital_psychology_2 = 1
-		tech_field_hospital_psychology_3 = 1
-		tech_field_hospital_health_1 = 1
-		tech_field_hospital_health_2 = 1
-		tech_field_hospital_health_3 = 1
-		tech_logistics_company = 1
-		tech_logistics_company2 = 1
-		tech_logistics_company3 = 1
-		tech_logistics_company4 = 1
-		tech_maintenance_company = 1
-		tech_maintenance_company2 = 1
-		tech_maintenance_company3 = 1
-		tech_maintenance_company4 = 1
 	}
 	#######################
 	# Diplomacy
 	#######################
-	give_guarantee = CZE
-	give_guarantee = ROM
 	#######################
 	# Politics
 	#######################
 	set_politics = {
-		ruling_party = authoritarian
-		last_election = "1935.5.3"
-		election_frequency = 36
-		elections_allowed = no
+		ruling_party = conservatism
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = yes
 	}
 	set_popularities = {
-	#	fascist = 0
-#	#	authoritarian = 100
-#	#	democratic = 0
-		socialist = 0
-		communist = 0
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
 	add_ideas = {
-		YUG_Divided_Nation
-		YUG_Separatist_Terrorists
-		YUG_Inexperienced_Military
-		YUG_Anti_German_Sentiments
-		industrializing_economy
-		limited_civil_liberties
-		# Ministers
-		YUG_Aleksandar_I_HoG
 	}
-	set_country_flag = Allows_Democratic_Ministers
-}
-
-#########################################################################
-# Yugoslavia - 1936
-#########################################################################
-1936.1.1 = {
-	oob = ""
-	#######################
-	# Research
-	#######################
-	set_technology = {
-		tech_support = 1
-		tech_engineers = 1
-		tech_mountaineers = 1
-		# Infantry Tech
-		Small_Arms_1916 = 1
-		Small_Arms_1935 = 1
-		Anti_Tank_Gun_1935 = 1
-		Anti_Aircraft_Gun_1935 = 1
-		Artillery_1910 = 1
-		Superior_Firepower = 1
-		# Armour Tech
-		Heavy_Tank_1916 = 1
-		Heavy_Tank_1917 = 1
-		# Air Tech
-		Fighter_1933 = 1
-		#Naval Stuff
-		DD_1885 = 1
-		DD_1900 = 1
-		DD_1912 = 1
-		DD_1916 = 1
-		DD_1922 = 1
-		DD_1933 = 1
-		CL_1885 = 1
-		SS_1895 = 1
-		SS_1912 = 1
-	}
-	#######################
-	# Politics
-	#######################
-	set_politics = {
-		ruling_party = authoritarian
-		last_election = "1935.5.3"
-		election_frequency = 36
-		elections_allowed = no
-	}
-	set_popularities = {
-	#	fascist = 2
-#	#	authoritarian = 89
-#	#	democratic = 0
-		socialist = 0
-		communist = 9
-	}
-	set_party_name = {
-		ideology = fascist
-		name = YUG_fascist_party_1935
-		long_name = YUG_fascist_party_1935_long
-	}
-	set_party_name = {
-		ideology = authoritarian
-		name = YUG_authoritarian_party_1935
-		long_name = YUG_authoritarian_party_1935_long
-	}
-	set_party_name = {
-		ideology = democratic
-		name = YUG_democratic_party_1936
-		long_name = YUG_democratic_party_1936_long
-	}
-	#######################
-	# Leaders
-	#######################
-	# Authoritarian
-	create_country_leader = {
-		name = "Pavle Karadjordjevic"
-		desc = ""
-		picture = GFX_P_A_Prince_Paul
-		expire = "1965.1.1"
-		ideology = monarchism
-		traits = {
-			POSITION_King
-			SUBIDEOLOGY_Monarchism
-			L_Benevolent_Gentleman
-		}
-	}
-}
-
-#########################################################################
-# Yugoslavia - 1944
-#########################################################################
-1944.6.20 = {
-	set_politics = {
-		ruling_party = communist
-		last_election = "1935.5.3"
-		election_frequency = 36
-		elections_allowed = no
-	}
-	
-}
-
-#########################################################################
-# Yugoslavia - 1946
-#########################################################################
-1946.1.1 = {
-	drop_cosmetic_tag = yes
-	#######################
-	# Politics
-	#######################
-	set_politics = {
-		ruling_party = communist
-		last_election = "1935.5.3"
-		election_frequency = 36
-		elections_allowed = no
-	}
-	set_popularities = {
-	#	fascist = 2
-#	#	authoritarian = 9
-#	#	democratic = 0
-		socialist = 0
-		communist = 89
-	}
-}

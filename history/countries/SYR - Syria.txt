@@ -1,124 +1,37 @@
-﻿#########################################################################
-# Syria - 1933
-#########################################################################
-1933.1.1 = {
-	capital = 554
+﻿	capital = 554
 	set_convoys = 5
-	#######################
+
+		#######################
 	# Research
 	#######################
 	set_technology = {
-	basic_train = 1
 
-		Small_Arms_1916 = 1
 	}
+	#######################
+	# Diplomacy
+	#######################
 	#######################
 	# Politics
 	#######################
 	set_politics = {
-		ruling_party = democratic
-		last_election = "1936.1.1"
+		ruling_party = conservatism
+		last_election = "1933.1.1"
 		election_frequency = 48
 		elections_allowed = yes
 	}
 	set_popularities = {
-	#	fascist = 0
-#	#	authoritarian = 1
-#	#	democratic = 74
-		socialist = 25
-		communist = 0
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
-	#######################
-	# Leaders
-	#######################
-	# Fascism
-	create_country_leader = {
-		name = "Antun Saadeh"
-		desc = ""
-		picture = GFX_P_F_Antun_Saadeh
-		ideology = national_socialism
-		traits = { POSITION_Leader SUBIDEOLOGY_National_Socialism L_Naive_Optimist }
+	add_ideas = {
 	}
-	# Democracy
-	create_country_leader = {
-		name = "Shaykh Taj ad-din al-Hasani"
-		desc = ""
-		picture = GFX_P_D_Shaykh_Taj_addin_alHasani
-		ideology = social_conservatism
-		traits = { POSITION_President SUBIDEOLOGY_Social_Conservatism L_Insignificant_Layman }
-	}
-	# Socialism
-	create_country_leader = {
-		name = "Michel Aflaq"
-		desc = ""
-		picture = GFX_P_S_Michel_Aflaq
-		ideology = arab_socialism
-		traits = { POSITION_President SUBIDEOLOGY_Arab_Socialism L_Silent_Workhorse }
-	}
-	# Communism
-	create_country_leader = {
-		name = "Khalid Bakdash"
-		desc = ""
-		picture = GFX_P_C_Khalid_Bakdash
-		ideology = marxism_leninism
-		traits = { POSITION_General_Secretary SUBIDEOLOGY_Marxism_Leninism L_Ambitious_Union_Boss }
-	}
-}
-#########################################################################
-# Syria - 1953
-#########################################################################
-1953.1.1 = {
-	#######################
-	# Leaders
-	#######################
-	# Democracy
-	create_country_leader = {
-		name = "Adib al-Shishakli"
-		desc = ""
-		picture = GFX_P_D_Adib_alShishakli
-		ideology = social_liberalism
-		traits = { POSITION_President SUBIDEOLOGY_Social_Liberalism L_PowerHungry_Demagogue }
-	}
-}
-#########################################################################
-# Syria - 1956
-#########################################################################
-1956.1.1 = {
-	#######################
-	# Leaders
-	#######################
-	# Democracy
-	create_country_leader = {
-		name = "Shukri al-Kuwaitli"
-		desc = ""
-		picture = GFX_P_D_Shukri_alKuwaitli
-		ideology = social_liberalism
-		traits = { POSITION_President SUBIDEOLOGY_Social_Liberalism L_Benevolent_Gentleman }
-	}
-}
-#########################################################################
-# Syria - 1972
-#########################################################################
-1972.1.1 = {
-	#######################
-	# Politics
-	#######################
-	set_politics = {
-		ruling_party = socialist
-		last_election = "1936.1.1"
-		election_frequency = 48
-		elections_allowed = no
-	
-	set_cosmetic_tag = SYR_ARAB_REP
-	#######################
-	# Leaders
-	#######################
-	# Socialism
-	create_country_leader = {
-		name = "Hafez al-Assad"
-		desc = ""
-		picture = GFX_P_S_Hafez_alAssad
-		ideology = arab_socialism
-		traits = { POSITION_President SUBIDEOLOGY_Arab_Socialism L_Stern_Imperialist }
-	}
-}

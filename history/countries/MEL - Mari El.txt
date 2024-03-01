@@ -2,34 +2,37 @@ capital = 581
 
 oob = ""
 
-# Starting tech
-set_technology = {
-	basic_train = 1
+	#######################
+	# Research
+	#######################
+	set_technology = {
 
-	Small_Arms_1916 = 1
-	tech_mountaineers = 1
-}
-
-set_convoys = 5
-
-set_politics = {
-	ruling_party = authoritarian
-	last_election = "1936.1.1"
-	election_frequency = 48
-	elections_allowed = no
-}
-set_popularities = {
-#	fascist = 0
-#	authoritarian = 60
-#	democratic = 25
-	socialist = 10
-	communist = 5
-}
-create_country_leader = {
-	name = "Jonas Lote"
-	picture = GFX_P_Africa_1
-	expire = "1965.1.1"
-	ideology = authoritarian_democracy
-	traits = {
 	}
-}
+	#######################
+	# Diplomacy
+	#######################
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = conservatism
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
+	}
+	add_ideas = {
+	}

@@ -1,190 +1,39 @@
-﻿#########################################################################
-# Panama - 1933
-#########################################################################
-1933.1.1 = {
-	capital = 304
+﻿	capital = 304
 	set_convoys = 10
 	oob = ""
 	add_to_variable = { money = 20 }
-	#######################
+
+		#######################
 	# Research
 	#######################
 	set_technology = {
-	basic_train = 1
 
-		### Infantry Tech
-		Small_Arms_1900 = 1
-		Small_Arms_1916 = 1
-		Infantry_Kit_1914 = 1
-		Infantry_Kit_1918 = 1
-
-		Heavy_Weapons_1905 = 1
-		Heavy_Weapons_1916 = 1
-		### Artillery Tech
-		Artillery_1910 = 1
-		### Armour Tech
-		Armored_Car_1911 = 1
-		### Air Tech
-		Unarmed_Recon_1910 = 1
-		Fighter_1914 = 1
-		Fighter_1916 = 1
-		### Industry
-		Basic_Construction_Machines = 1
-		Novel_Drills = 1
-		Contemporary_Construction_Standards = 1
-		Advanced_Drilling_Method = 1
-		Construction_Site_Management = 1
-		Motorized_Plowing = 1
-		Farm_Tractors = 1
-		Scientific_Agricultural_Processes = 1
-		### Land Doctrines
-		Twentieth_Century_Warfare = 1
-		Leading_by_Order = 1
-		Strongpoint = 1
-		Mass_Charge = 1
-		Static_Defence = 1
-		Counterattack = 1
-		Defence_In_Depth = 1
-		Separate_Arms_Force = 1
-		Combined_Arms_Effort = 1
-		Specialized_Branch_Tactical_Experience = 1
 	}
+	#######################
+	# Diplomacy
+	#######################
 	#######################
 	# Politics
 	#######################
-	set_country_flag = monroe_doctrine
 	set_politics = {
-		ruling_party = democratic
-		last_election = "1932.6.5"
+		ruling_party = conservatism
+		last_election = "1933.1.1"
 		election_frequency = 48
 		elections_allowed = yes
 	}
 	set_popularities = {
-#	#	authoritarian
-	#	authoritarian = 0
-#	#	democratic = 100
-		socialist = 0
-		communist = 0
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
 	add_ideas = {
-		agrarian_economy
 	}
-	#######################
-	# Leaders
-	#######################
-	# Democracy
-	create_country_leader = {
-		name = "Harmodio Arias Madrid"
-		desc = ""
-		picture = GFX_P_D_Harmodio_Arias_Madrid
-		expire = "1965.1.1"
-		ideology = social_liberalism
-		traits = { POSITION_President SUBIDEOLOGY_Social_Liberalism L_Autocratic_Charmer }
-	}
-}
-#########################################################################
-# Panama - 1936
-#########################################################################
-1936.1.1 = {
-	oob = ""
-}
-#########################################################################
-# Panama - 1939
-#########################################################################
-1939.9.1 = {
-	set_party_name = {
-		ideology = democratic
-		name = PAN_democratic_party_1936
-		long_name = PAN_democratic_party_1936_long
-	}
-	#######################
-	# Leaders
-	#######################
-	# Democracy
-	create_country_leader = {
-		name = "Juan Demóstenes Arosemena"
-		desc = ""
-		picture = GFX_P_D_Juan_Demostenes_Arosemena
-		expire = "1965.1.1"
-		ideology = social_liberalism
-		traits = { POSITION_President SUBIDEOLOGY_Social_Liberalism L_Autocratic_Charmer }
-	}
-}
-#########################################################################
-# Panama - 1940
-#########################################################################
-1940.5.10 = {
-	set_party_name = {
-		ideology = democratic
-		name = PAN_democratic_party_1939
-		long_name = PAN_democratic_party_1939_long
-	}
-	#######################
-	# Leaders
-	#######################
-	# Democracy
-	create_country_leader = {
-		name = "Augusto Samuel Boyd"
-		desc = ""
-		picture = GFX_P_D_Augusto_Samuel_Boyd
-		expire = "1965.1.1"
-		ideology = social_conservatism
-		traits = { POSITION_President SUBIDEOLOGY_Social_Conservatism L_Barking_Buffoon }
-	}
-}
-#########################################################################
-# Panama - 1941
-#########################################################################
-1941.6.22 = {
-	#######################
-	# Leaders
-	#######################
-	# Democracy
-	create_country_leader = {
-		name = "Arnulfo Arías de la Madrid"
-		desc = ""
-		picture = GFX_P_D_Arnulfo_Arias
-		expire = "1965.1.1"
-		ideology = social_conservatism
-		traits = { POSITION_President SUBIDEOLOGY_Social_Conservatism L_Popular_Figurehead }
-	}
-}
-#########################################################################
-# Panama - 1942
-#########################################################################
-1942.11.22 = {
-	#######################
-	# Leaders
-	#######################
-	# Democracy
-	create_country_leader = {
-		name = "Riccardo de la Guardia"
-		desc = ""
-		picture = GFX_P_D_Riccardo_de_la_Guardia
-		expire = "1965.1.1"
-		ideology = social_liberalism
-		traits = { POSITION_President SUBIDEOLOGY_Social_Liberalism L_PowerHungry_Demagogue }
-	}
-}
-#########################################################################
-# Panama - 1946
-#########################################################################
-1946.1.1 = {
-	set_party_name = {
-		ideology = democratic
-		name = PAN_democratic_party_1936
-		long_name = PAN_democratic_party_1936_long
-	}
-	#######################
-	# Leaders
-	#######################
-	# Democracy
-	create_country_leader = {
-		name = "Enrique Adolfo Jiménez"
-		desc = ""
-		picture = GFX_P_D_Henrique_Adolfo_Jimenez
-		expire = "1965.1.1"
-		ideology = social_liberalism
-		traits = { POSITION_President SUBIDEOLOGY_Social_Liberalism L_Stern_Imperialist }
-	}
-}

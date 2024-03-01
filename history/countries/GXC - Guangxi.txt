@@ -1,208 +1,40 @@
-﻿#########################################################################
-# Guangxi
-#########################################################################
-1933.1.1 = {
-	capital = 594
+﻿	capital = 594
 	set_stability = 0.6
 	set_war_support = 0.4
 	oob = ""
 	set_convoys = 10
-	add_to_variable = { money = 50 }
-	#######################
+
+		#######################
 	# Research
 	#######################
 	set_technology = {
-	basic_train = 1
 
-		### Infantry Tech
-		Small_Arms_1900 = 1
-		Small_Arms_1916 = 1
-		Infantry_Kit_1914 = 1
-		Infantry_Kit_1918 = 1
-
-		Heavy_Weapons_1905 = 1
-		Heavy_Weapons_1916 = 1
-		
-		
-		# Artillery Tech
-		Artillery_1910 = 1
-        Artillery_Range_Finding_and_Surveying_Tools = 1
-        Artillery_1916 = 1
-		# Armor
-		Armored_Car_1911 = 1
-        Armored_Car_1916 = 1
-		# Air
-		Unarmed_Recon_1910 = 1
-        Fighter_1914 = 1
-        Fighter_1916 = 1
-        Fighter_1918 = 1
-		Fighter_Bomber_1916 = 1
-        Fighter_Bomber_1918 = 1
-        Tactical_Bomber_1914 = 1
-        Tactical_Bomber_1916 = 1
-        Tactical_Bomber_1918 = 1
-		Strategic_Bomber_1916 = 1
-		### Support Company Tech
-		#Naval Stuff
-		DD_1885 = 1
-		
-		CL_1885 = 1
-		CL_1900 = 1
-		CL_1912 = 1
-		
-		BB_1885 = 1
-		
-		CA_1885 = 1
-		CA_1895 = 1
-		### Industry
-		Industrial_Management = 1
-		Factory_Electrification = 1
-		Basic_Construction_Machines = 1
-		Motorized_Plowing = 1
-		### Land Doctrines
-		Twentieth_Century_Warfare = 1
-		Leading_by_Order = 1
-		Strongpoint = 1
-        Mass_Charge = 1
-        Static_Defence = 1
-        Counterattack = 1
-		Defence_In_Depth = 1
-		Separate_Arms_Force = 1
-        Combined_Arms_Effort = 1
-		Specialized_Branch_Tactical_Experience = 1
 	}
+	#######################
+	# Diplomacy
+	#######################
 	#######################
 	# Politics
 	#######################
 	set_politics = {
-		ruling_party = authoritarian
-		last_election = "1936.1.1"
+		ruling_party = conservatism
+		last_election = "1933.1.1"
 		election_frequency = 48
-		elections_allowed = no
+		elections_allowed = yes
 	}
 	set_popularities = {
-#	#	authoritarian
-	#	authoritarian = 100
-#	#	democratic = 0
-		socialist = 0
-		communist = 0
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
 	add_ideas = {
-		GXC_D_Huang_Xuchu
-		agrarian_economy
-		neutrality
-		repressive_system
 	}
-
-	#######################
-	# Leaders
-	#######################
-	# Paternal Autocracy
-	create_country_leader = {
-		name = "Li Zongren"
-		desc = "Li_Zongren_Desc"
-		picture = GFX_P_A_Li_Zongren
-		expire = "1965.1.1"
-		ideology = despotism
-		traits = { 
-			POSITION_Military_Governor
-			SUBIDEOLOGY_Despotism
-			L_Resigned_Generalissimo
-			L_Veteran_of_the_Central_Plains_War
-		}
-	}
-	#######################
-	# Generals
-	#######################
-	create_field_marshal = {
-		name = "Bai Chongxi"
-	    id = 118000
-		GFX = GFX_M_Bai_Chongxi
-		traits = { inspirational_leader }
-		skill = 3
-		attack_skill = 2
-		defense_skill = 2
-		planning_skill = 3
-		logistics_skill = 3
-	}
-	create_field_marshal = {
-		name = "Li Zongren"
-	    id = 118001
-		picture = GFX_P_A_Li_Zongren
-		traits = { defensive_doctrine trait_cautious politically_connected }
-		skill = 4
-		attack_skill = 3
-		defense_skill = 4
-		planning_skill = 3
-		logistics_skill = 4
-	}
-	create_corps_commander = {
-		name = "Liao Lei"
-	    id = 118002
-		GFX = GFX_M_Liao_Lei
-		traits = { defensive_doctrine }
-		skill = 1
-		attack_skill = 1
-		defense_skill = 1
-		planning_skill = 2
-		logistics_skill = 1
-	}
-	create_corps_commander = {
-		name = "Liu Shiyi"
-	    id = 118003
-		GFX = GFX_M_Liu_Shiyi
-		traits = { }
-		skill = 4
-		attack_skill = 4
-		defense_skill = 3
-		planning_skill = 3
-		logistics_skill = 4
-	}
-	create_corps_commander = {
-		name = "Li Pinxian"
-	    id = 118004
-		GFX = GFX_M_Li_Pinxian
-		traits = { }
-		skill = 4
-		attack_skill = 4
-		defense_skill = 3
-		planning_skill = 4
-		logistics_skill = 5
-	}
-	create_corps_commander = {
-		name = "Huang Shaohong"
-	    id = 118005
-		GFX = GFX_M_Huang_Shaohong
-		traits = { }
-		skill = 3
-		attack_skill = 3
-		defense_skill = 4
-		planning_skill = 3
-		logistics_skill = 3
-	}
-	create_corps_commander = {
-		name = "Hu Zongxi"
-	    id = 118006
-		GFX = GFX_M_Hu_Zongxi
-		traits = { }
-		skill = 3
-		attack_skill = 3
-		defense_skill = 3
-		planning_skill = 3
-		logistics_skill = 2
-	}
-}
-
-############################################
-# Guangxi - 1939
-############################################
-#1939.9.1 = {
-#	set_capital = 599
-#}
-
-############################################
-# Guangxi - 1950
-############################################
-#1950.1.1 = {
-#	set_capital = 594
-#}

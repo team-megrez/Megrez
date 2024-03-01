@@ -1,90 +1,39 @@
-﻿######################################################################
-# Saudi Arabia - 1933
-######################################################################
-1933.1.1 = {
-	capital = 292
+﻿	capital = 292
 	oob = ""
 	add_manpower = 25000
 	set_convoys = 5
-	add_to_variable = { money = 80 }
-	#######################
+
+		#######################
 	# Research
 	#######################
 	set_technology = {
-	basic_train = 1
 
-		### Infantry Tech
-		Small_Arms_1916 = 1
-		Small_Arms_1900 = 1
-		Infantry_Kit_1914 = 1
-		Infantry_Kit_1918 = 1
-
-		Heavy_Weapons_1905 = 1
-		Heavy_Weapons_1916 = 1
-		### Artillery Tech
-		Artillery_1910 = 1
-		### Armour Tech
-		Armored_Car_1911 = 1
-		### Air Tech
-		Unarmed_Recon_1910 = 1
-		Fighter_1914 = 1
-		Fighter_1916 = 1
-		### Industry
-		Motorized_Plowing = 1
-		### Land Doctrines
-		Twentieth_Century_Warfare = 1
-		Leading_by_Order = 1
-		Strongpoint = 1
-		Mass_Charge = 1
-		Static_Defence = 1
-		Counterattack = 1
-		Defence_In_Depth = 1
-		Separate_Arms_Force = 1
-		Combined_Arms_Effort = 1
-		Specialized_Branch_Tactical_Experience = 1
 	}
+	#######################
+	# Diplomacy
+	#######################
 	#######################
 	# Politics
 	#######################
 	set_politics = {
-		ruling_party = authoritarian
-		last_election = "1936.1.1"
+		ruling_party = conservatism
+		last_election = "1933.1.1"
 		election_frequency = 48
-		elections_allowed = no
+		elections_allowed = yes
 	}
 	set_popularities = {
-	#	fascist = 10
-#	#	authoritarian = 85
-#	#	democratic = 3
-		socialist = 2
-		communist = 0
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
 	add_ideas = {
-		SAU_D_Saud_al_Saud
-		agrarian_economy
 	}
-	#######################
-	## Leaders
-	#######################
-	# Paternal Autocracy
-	create_country_leader = {
-		name = "Abdulaziz al Saud"
-		desc = ""
-		picture = GFX_P_A_Abdulaziz_Ibn_Saud
-		expire = "1965.1.1"
-		ideology = monarchism
-		traits = { POSITION_King SUBIDEOLOGY_Monarchism L_Autocratic_Charmer L_Napoleon_of_Arabia }
-	}
-}
-######################################################################
-# Saudi Arabia - 1936
-######################################################################
-1936.1.1 = {
-	oob = ""
-}
-######################################################################
-# Saudi Arabia - 1980
-######################################################################
-1980.1.1 = {
-	
-}

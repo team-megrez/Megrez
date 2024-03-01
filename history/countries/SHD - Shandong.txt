@@ -1,161 +1,37 @@
-﻿#########################################################################
-# Shandong - 1933
-#########################################################################
-1933.1.1 = {
-	capital = 597
+﻿	capital = 597
 	oob = ""
-	#######################
+
+		#######################
 	# Research
 	#######################
 	set_technology = {
-	basic_train = 1
 
-		### Infantry Tech
-		Small_Arms_1900 = 1
-		Small_Arms_1916 = 1
-		Infantry_Kit_1914 = 1
-		Infantry_Kit_1918 = 1
-
-		Heavy_Weapons_1905 = 1
-		Heavy_Weapons_1916 = 1
-		### Artillery Tech
-		Artillery_1910 = 1
-		Anti_Aircraft_Gun_1914 = 1
-		Artillery_Range_Finding_and_Surveying_Tools = 1
-		Infantry_Support_Gun_1914 = 1
-		Artillery_1916 = 1
-		High_Explosive_Shells = 1
-		Split_Trail_Carriage = 1
-		### Armour
-		Motorized_1916 = 1
-		Armored_Car_1911 = 1
-		Armored_Car_1916 = 1
-		# Air Tech
-		Unarmed_Recon_1910 = 1
-		Fighter_1914 = 1
-		Fighter_1916 = 1
-		Fighter_1918 = 1
-		Fighter_Bomber_1916 = 1
-		Fighter_Bomber_1918 = 1
-		Tactical_Bomber_1914 = 1
-		Tactical_Bomber_1916 = 1
-		Tactical_Bomber_1918 = 1
-		Strategic_Bomber_1916 = 1
-		### Naval Stuff
-		DD_1885 = 1
-		CL_1885 = 1
-		CL_1900 = 1
-		CL_1912 = 1
-		CL_1922 = 1
-		CA_1885 = 1
-		CA_1895 = 1
-		BB_1885 = 1
-		### Industry
-		Industrial_Management = 1
-		Factory_Electrification = 1
-		Basic_Construction_Machines = 1
-		### Land Doctrines
-		Twentieth_Century_Warfare = 1
-		Leading_by_Order = 1
-		Strongpoint = 1
-		Mass_Charge = 1
-		Static_Defence = 1
-		Counterattack = 1
-		Defence_In_Depth = 1
-		Separate_Arms_Force = 1
-		Combined_Arms_Effort = 1
-		Specialized_Branch_Tactical_Experience = 1
-		Beyond_Trench_Warfare = 1
-		### Engineering
-		computing_1 = 1
-		computing_2 = 1
-		decryption_encryption_1 = 1
-		### Support Companies
-		tech_engineers = 1
-		tech_assault_weapons_1 = 1
-		tech_assault_weapons_2 = 1
-		tech_assault_weapons_3 = 1
-		tech_entrenchment_1 = 1
-		tech_entrenchment_2 = 1
-		tech_entrenchment_3 = 1
-		tech_amphibious_1 = 1
-		tech_amphibious_2 = 1
-		tech_amphibious_3 = 1
-		tech_recon = 1
-		tech_recon2 = 1
-		tech_recon3 = 1
-		tech_recon4 = 1
-		tech_military_police = 1
-		tech_military_police2 = 1
-		tech_military_police3 = 1
-		tech_military_police4 = 1
-		tech_signal_company = 1
-		tech_signal_company2 = 1
-		tech_field_hospital = 1
-		tech_field_hospital_psychology_1 = 1
-		tech_field_hospital_psychology_2 = 1
-		tech_field_hospital_health_1 = 1
-		tech_field_hospital_health_2 = 1
-		tech_field_hospital_health_3 = 1
-		tech_logistics_company = 1
-		tech_logistics_company2 = 1
-		tech_logistics_company3 = 1
-		tech_logistics_company4 = 1
-		tech_maintenance_company = 1
-		tech_maintenance_company2 = 1
-		tech_maintenance_company3 = 1
-		tech_maintenance_company4 = 1
 	}
+	#######################
+	# Diplomacy
+	#######################
 	#######################
 	# Politics
 	#######################
 	set_politics = {
-		ruling_party = authoritarian
+		ruling_party = conservatism
 		last_election = "1933.1.1"
 		election_frequency = 48
-		elections_allowed = no
+		elections_allowed = yes
 	}
 	set_popularities = {
-#	#	authoritarian
-	#	authoritarian = 100
-#	#	democratic = 0
-		socialist = 0
-		communist = 0
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
 	add_ideas = {
-		SHD_Legacy_of_the_Dogmeat_General
-		SHD_Temporary_Administration
-		agrarian_economy
-		isolationism
-		repressive_system
 	}
-	#######################
-	# Leaders
-	#######################
-	create_country_leader = {
-		name = "Han Fuju"
-		desc = ""
-		picture = GFX_P_A_Han_Fuju
-		expire = "1938.1.24"
-		ideology = despotism
-		traits = {
-			POSITION_Military_Governor
-			SUBIDEOLOGY_Despotism
-		}
-	}
-	#######################
-	# Generals
-	#######################
-	create_field_marshal = {
-		name = "Han Fuju"
-		id = 250000
-		picture = GFX_P_A_Han_Fuju
-		traits = {
-		}
-		skill = 2
-		attack_skill = 2
-		defense_skill = 2
-		planning_skill = 2
-		logistics_skill = 3
-	}
-}

@@ -1,375 +1,41 @@
-﻿######################################################################
-# British Raj - 1933
-######################################################################
-1933.1.1 = {
-	capital = 439
+﻿	capital = 439
 	set_stability = 0.6
 	set_war_support = 0.1
 	oob = ""
 	set_convoys = 20
 	
-	add_to_variable = { money = 100 }
-	#######################
+
+		#######################
 	# Research
 	#######################
 	set_technology = {
-	basic_train = 1
 
-		### Infantry Tech
-		Small_Arms_1900 = 1
-		Small_Arms_1916 = 1
-		Infantry_Kit_1914 = 1
-		Infantry_Kit_1918 = 1
-
-		Heavy_Weapons_1905 = 1
-		Heavy_Weapons_1916 = 1
-		### Artillery Tech
-		Artillery_1910 = 1
-		Anti_Aircraft_Gun_1914 = 1
-		Artillery_Range_Finding_and_Surveying_Tools = 1
-		Infantry_Support_Gun_1914 = 1
-		Artillery_1916 = 1
-		### Armour Tech
-		Motorized_1916 = 1
-		Armored_Car_1911 = 1
-		Armored_Car_1916 = 1
-		Armored_Car_1926 = 1
-		### Air Tech
-		Unarmed_Recon_1910 = 1
-		Fighter_1914 = 1
-		Fighter_1916 = 1
-		Fighter_1918 = 1
-		### Industry
-		Basic_Construction_Machines = 1
-		Motorized_Plowing = 1
-		Farm_Tractors = 1
-		Scientific_Agricultural_Processes = 1
-		### Land Doctrines
-		Twentieth_Century_Warfare = 1
-		Leading_by_Order = 1
-		Strongpoint = 1
-		Mass_Charge = 1
-		Static_Defence = 1
-		Counterattack = 1
-		Defence_In_Depth = 1
-		Separate_Arms_Force = 1
-		Combined_Arms_Effort = 1
-		Specialized_Branch_Tactical_Experience = 1
-		Beyond_Trench_Warfare = 1
-		### Engineering
-		computing_1 = 1
-		computing_2 = 1
-		computing_3 = 1
-		decryption_encryption_1 = 1
-		### Support Companies
-		tech_engineers = 1
-		tech_assault_weapons_1 = 1
-		tech_assault_weapons_2 = 1
-		tech_assault_weapons_3 = 1
-		tech_entrenchment_1 = 1
-		tech_entrenchment_2 = 1
-		tech_entrenchment_3 = 1
-		tech_amphibious_1 = 1
-		tech_amphibious_2 = 1
-		tech_amphibious_3 = 1
-		tech_recon = 1
-		tech_recon2 = 1
-		tech_recon3 = 1
-		tech_recon4 = 1
-		tech_military_police = 1
-		tech_military_police2 = 1
-		tech_military_police3 = 1
-		tech_military_police4 = 1
-		tech_signal_company = 1
-		tech_signal_company2 = 1
-		tech_field_hospital = 1
-		tech_field_hospital_psychology_1 = 1
-		tech_field_hospital_psychology_2 = 1
-		tech_field_hospital_psychology_3 = 1
-		tech_field_hospital_health_1 = 1
-		tech_field_hospital_health_2 = 1
-		tech_field_hospital_health_3 = 1
-		tech_logistics_company = 1
-		tech_logistics_company2 = 1
-		tech_logistics_company3 = 1
-		tech_logistics_company4 = 1
-		tech_maintenance_company = 1
-		tech_maintenance_company2 = 1
-		tech_maintenance_company3 = 1
-		tech_maintenance_company4 = 1
 	}
+	#######################
+	# Diplomacy
+	#######################
 	#######################
 	# Politics
 	#######################
 	set_politics = {
-		ruling_party = authoritarian
+		ruling_party = conservatism
 		last_election = "1933.1.1"
 		election_frequency = 48
-		elections_allowed = no
+		elections_allowed = yes
 	}
 	set_popularities = {
-	#	fascist = 0
-#	#	authoritarian = 32
-#	#	democratic = 38
-		socialist = 19
-		communist = 11
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
 	add_ideas = {
-		RAJ_The_Indian_Empire
-		RAJ_Marginalized_Muslim_Community
-		# Cabinet
-		RAJ_D_George_V
-		# Laws & Government
-		repressive_system
-		# Economic Policy
-		agrarian_economy
-		social_spending_level_2
-		research_spending_level_1
 	}
-	#######################
-	# Leaders
-	#######################
-	# Fascism
-	create_country_leader = {
-		name = "M. S. Golwalkar"
-		desc = ""
-		picture = GFX_P_F_MS_Golwalkar
-		expire = "1965.1.1"
-		ideology = fascism
-		traits = { POSITION_President SUBIDEOLOGY_Fascism L_Silent_Workhorse }
-	}
-	# Authoritarianism
-	create_country_leader = {
-		name = "Freeman Freeman-Thomas"
-		desc = ""
-		picture = GFX_P_A_Freeman_Freeman_Thomas
-		expire = "1941.8.12"
-		ideology = despotism
-		traits = { POSITION_Viceroy SUBIDEOLOGY_Despotism L_Insignificant_Layman }
-	}
-	# Democracy
-	create_country_leader = {
-		name = "Mohandas Gandhi"
-		desc = ""
-		picture = GFX_P_D_Mohandas_Gandhi
-		expire = "1948.1.30"
-		ideology = democratic_socialism
-		traits = { POSITION_Prime_Minister SUBIDEOLOGY_Democratic_Socialism L_Naive_Optimist }
-	}
-	# Socialism
-	create_country_leader = {
-		name = "Subhas Chandra Bose"
-		desc = ""
-		picture = GFX_P_S_Subhas_Chandra_Bose
-		expire = "1945.8.18"
-		ideology = socialism
-		traits = { POSITION_Prime_Minister SUBIDEOLOGY_Socialism L_Naive_Optimist }
-	}
-	# Communism
-	create_country_leader = {
-		name = "P. Krishna Pillai"
-		desc = ""
-		picture = GFX_P_C_Krishna_Pillai
-		expire = "1965.1.1"
-		ideology = marxism_leninism
-		traits = { POSITION_General_Secretary SUBIDEOLOGY_Marxism_Leninism L_Revolutionary_Leader }
-	}
-	#######################
-	# Generals
-	#######################
-	create_corps_commander = {
-		name = "Noel Beresford-Peirse"
-	    id = 222000
-		gfx = "GFX_RAJ_noel_beresford_peirse"
-		traits = { armor_officer }
-		skill = 3
-		attack_skill = 3
-		defense_skill = 3
-		planning_skill = 3
-		logistics_skill = 1
-	}
-	create_corps_commander = {
-		name = "Frank Messervy"
-	    id = 222001
-		picture = GFX__M_Frank_Messervy
-		traits = { hill_fighter }
-		skill = 3
-		attack_skill = 2
-		defense_skill = 2
-		planning_skill = 3
-		logistics_skill = 3
-	}
-	create_corps_commander = {
-		name = "Dudley Russell"
-	    id = 222002
-		GFX = GFX_M_Dudley_Russell
-		traits = {
-			war_hero
-			trait_mountaineer
-			desert_fox
-			infantry_leader
-			expert_improviser
-			career_officer
-		}
-		skill = 3
-		attack_skill = 4
-		defense_skill = 3
-		planning_skill = 2
-		logistics_skill = 2
-	}
-	create_corps_commander = {
-		name = "Geoffry Scoones"
-	    id = 222003
-		GFX = GFX_M_Geoffry_Scoones
-		traits = {
-			infantry_leader
-			jungle_rat
-			war_hero
-			ranger
-			career_officer
-		}
-		skill = 3
-		attack_skill = 2
-		defense_skill = 4
-		planning_skill = 2
-		logistics_skill = 3
-	}
-	create_corps_commander = {
-		name = "Ouvry Lindfield Roberts"
-	    id = 222004
-		GFX = GFX_M_Ouvry_Lindfield_Roberts
-		traits = {
-			infantry_leader
-			expert_improviser
-		}
-		skill = 2
-		attack_skill = 2
-		defense_skill = 3
-		planning_skill = 2
-		logistics_skill = 3
-	}
-	create_corps_commander = {
-		name = "Reginald Savory"
-	    id = 222005
-		GFX = GFX_M_Reginald_Savory
-		traits = {
-			scavenger
-		}
-		skill = 3
-		attack_skill = 2
-		defense_skill = 2
-		planning_skill = 2
-		logistics_skill = 5
-	}
-	create_corps_commander = {
-		name = "Robert Harley Wordsworth"
-	    id = 222006
-		GFX = GFX_M_Robert_Harley_Wordsworth
-		traits = {
-			armor_officer
-			cavalry_officer
-			war_hero
-		}
-		skill = 2
-		attack_skill = 2
-		defense_skill = 1
-		planning_skill = 2
-		logistics_skill = 4
-	}
-	create_corps_commander = {
-		name = "Thomas Wynford Rees"
-	    id = 222007
-		GFX = GFX_M_Thomas_Wynford_Rees
-		traits = {
-			hill_fighter
-			jungle_rat
-			desert_fox
-			infantry_leader
-			war_hero
-		}
-		skill = 3
-		attack_skill = 5
-		defense_skill = 1
-		planning_skill = 2
-		logistics_skill = 2
-	}
-	create_corps_commander = {
-		name = "Douglas Gracey"
-	    id = 222008
-		gfx = "GFX_RAJ_douglas_gracey"
-		traits = { desert_fox }
-		skill = 3
-		attack_skill = 1
-		defense_skill = 3
-		planning_skill = 3
-		logistics_skill = 3
-	}
-	#######################
-	# Admirals
-	#######################
-	create_navy_leader = {
-		name = "Herbert Fitzherbert"
-		gfx = "GFX_RAJ_herbert_fitzherbert"
-		traits = { }
-		skill = 3
-	}
-}
-######################################################################
-# British Raj - 1936
-######################################################################
-1936.1.1 = {
-	oob = ""
-}
-######################################################################
-# British Raj - 1939
-######################################################################
-1939.9.1 = {
-	#######################
-	# Leaders
-	#######################
-	# Democracy
-	create_country_leader = {
-		name = "Lord Linlithgow"
-		desc = ""
-		picture = GFX_P_A_Lord_Linlithgow
-		expire = "1952.1.5"
-		ideology = despotism
-		traits = { POSITION_Viceroy SUBIDEOLOGY_Despotism L_Ruthless_Powermonger }
-	}
-}
-######################################################################
-# British Raj - 1944
-######################################################################
-1944.6.20 = {
-	#######################
-	# Leaders
-	#######################
-	# Democracy
-	create_country_leader = {
-		name = "Archibald Wavell"
-		desc = ""
-		picture = GFX_P_A_Archibald_Wavell
-		expire = "1950.5.24"
-		ideology = despotism
-		traits = { POSITION_Viceroy SUBIDEOLOGY_Despotism L_Resigned_Generalissimo }
-	}
-}
-######################################################################
-# India - 1950
-######################################################################
-1950.1.1 = {
-	drop_cosmetic_tag = yes
-	set_autonomy = {
-		target = SKK
-		autonomous_state = AUTONOMY_Puppet
-	}
-}
-######################################################################
-# India - 1980
-######################################################################
-1980.1.1 = {
-	set_autonomy = {
-		target = SKK
-		autonomous_state = autonomy_free
-	}
-}

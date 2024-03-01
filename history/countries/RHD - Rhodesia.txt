@@ -1,49 +1,36 @@
-﻿#########################################################################
-# Rhodesia - 1933
-#########################################################################
-1933.1.1 = {
-	capital = 771
-	#######################
+﻿	capital = 771
+
+		#######################
 	# Research
 	#######################
 	set_technology = {
-	basic_train = 1
 
-		Small_Arms_1916 = 1
 	}
 	#######################
+	# Diplomacy
+	#######################
+	#######################
 	# Politics
-	
-	set_cosmetic_tag = RHD_ENG
+	#######################
 	set_politics = {
-		ruling_party = democratic
-		last_election = "1928.9.6"
-		election_frequency = 60
+		ruling_party = conservatism
+		last_election = "1933.1.1"
+		election_frequency = 48
 		elections_allowed = yes
 	}
 	set_popularities = {
-	#	fascist = 0
-#	#	authoritarian = 0
-#	#	democratic = 100
-		socialist = 0
-		communist = 0
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
-	#######################
-	# Leaders
-	#######################
-	# Democracy
-	create_country_leader = {
-		name = "Howard Unwin Moffat"
-		desc = ""
-		picture = GFX_P_D_Howard_Unwin_Moffat
-		expire = "1951.1.19"
-		ideology = classical_liberalism
-		traits = {
-			POSITION_Prime_Minister
-			SUBIDEOLOGY_Classical_Liberalism
-		}
+	add_ideas = {
 	}
-	#######################
-	# Generals
-	#######################
-}

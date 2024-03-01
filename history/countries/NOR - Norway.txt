@@ -1,360 +1,40 @@
-﻿#########################################################################
-# Norway - 1933
-#########################################################################
-1933.1.1 = {
-	capital = 110
+﻿	capital = 110
 	set_stability = 0.9
 	set_war_support = 0.1
 	oob = ""
 	set_research_slots = 3
 	set_convoys = 80
-	add_to_variable = { money = 120 }
-	#######################
+		#######################
 	# Research
 	#######################
 	set_technology = {
-	basic_train = 1
 
-		### Infantry Tech
-		Small_Arms_1900 = 1
-		Small_Arms_1916 = 1
-		Infantry_Kit_1914 = 1
-		Infantry_Kit_1918 = 1
-
-		Heavy_Weapons_1905 = 1
-		Heavy_Weapons_1916 = 1
-		### Artillery Tech
-		Artillery_1910 = 1
-		Anti_Aircraft_Gun_1914 = 1
-		Artillery_Range_Finding_and_Surveying_Tools = 1
-		Infantry_Support_Gun_1914 = 1
-		Artillery_1916 = 1
-		# Armour Tech
-		Motorized_1916 = 1
-		Armored_Car_1911 = 1
-		Armored_Car_1916 = 1
-		Armored_Car_1926 = 1
-		Heavy_Tank_1916 = 1
-		Heavy_Tank_1917 = 1
-		Light_Tank_1917 = 1
-		Light_Tank_1919 = 1
-		Light_Tank_1926 = 1
-		### Air Tech
-		Unarmed_Recon_1910 = 1
-		Fighter_1914 = 1
-		Fighter_1916 = 1
-		Fighter_1918 = 1
-		Fighter_1924 = 1
-		Fighter_1933 = 1
-		Fighter_Bomber_1916 = 1
-		Fighter_Bomber_1918 = 1
-		Fighter_Bomber_1924 = 1
-		Tactical_Bomber_1914 = 1
-		Tactical_Bomber_1916 = 1
-		Tactical_Bomber_1918 = 1
-		Tactical_Bomber_1925 = 1
-		Strategic_Bomber_1916 = 1
-		Naval_Bomber_1918 = 1
-		Naval_Bomber_1925 = 1
-		#Naval Stuff
-		DD_1885 = 1
-		DD_1900 = 1
-		DD_1912 = 1
-		DD_1916 = 1
-		CL_1885 = 1
-		CL_1900 = 1
-		CL_1912 = 1
-		CA_1885 = 1
-		CA_1895 = 1
-		CA_1906 = 1
-		SS_1895 = 1
-		SS_1912 = 1
-		SS_1916 = 1
-		BB_1885 = 1
-		BB_1895 = 1
-		BB_1900 = 1
-		BB_1906 = 1
-		BB_1912 = 1
-		BB_1916 = 1
-		BB_1922 = 1
-		transport = 1
-		### Industry
-		Industrial_Management = 1
-		Factory_Electrification = 1
-		Facilities_Design = 1
-		Moving_Assembly_Line = 1
-		Skilled_Workforce = 1
-		Concentrated_Industry = 1
-		Basic_Construction_Machines = 1
-		Novel_Drills = 1
-		Contemporary_Construction_Standards = 1
-		Advanced_Drilling_Method = 1
-		Construction_Site_Management = 1
-		Motorized_Plowing = 1
-		Farm_Tractors = 1
-		Scientific_Agricultural_Processes = 1
-		Mechanized_Agriculture = 1
-		### Land Doctrines
-		Twentieth_Century_Warfare = 1
-		Leading_by_Order = 1
-		Strongpoint = 1
-		Mass_Charge = 1
-		Static_Defence = 1
-		Counterattack = 1
-		Defence_In_Depth = 1
-		Separate_Arms_Force = 1
-		Combined_Arms_Effort = 1
-		Specialized_Branch_Tactical_Experience = 1
-		Beyond_Trench_Warfare = 1
-		### Engineering
-		computing_1 = 1
-		computing_2 = 1
-		computing_3 = 1
-		decryption_encryption_1 = 1
 	}
+	#######################
+	# Diplomacy
+	#######################
 	#######################
 	# Politics
 	#######################
 	set_politics = {
-		ruling_party = democratic
-		last_election = "1930.10.16"
-		election_frequency = 36
+		ruling_party = conservatism
+		last_election = "1933.1.1"
+		election_frequency = 48
 		elections_allowed = yes
 	}
 	set_popularities = {
-#	#	authoritarian
-	#	authoritarian = 0
-#	#	democratic = 94.5
-		socialist = 1.5
-		communist = 1.8
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
 	add_ideas = {
-		one_year_service
-		industrializing_economy
-		neutrality
-		limited_civil_liberties
-		# Cabinet
-		NOR_D_Haakon_VII
-		NOR_FM_Halvdan_Koht
-		NOR_AM_Adolf_Indrebo
-		NOR_HoI_Alfred_RoscherLund
-		# Military Staff
 	}
-	#######################
-	# Leaders
-	#######################
-	# Fascism
-	create_country_leader = {
-		name = "Vidkun Quisling"
-		desc = ""
-		picture = GFX_P_F_Vidkun_Quisling
-		expire = "1945.10.25"
-		ideology = national_socialism
-		traits = {
-			POSITION_NOR_Forer
-			SUBIDEOLOGY_National_Socialism
-			L_Corporate_Suit
-		}
-	}
-	# Authoritarian
-	create_country_leader = {
-		name = "Haakon VII"
-		desc = ""
-		picture = GFX_P_A_Haakon_VII
-		expire = "1957.9.21"
-		ideology = monarchism
-		traits = {
-			POSITION_King
-			SUBIDEOLOGY_Monarchism
-			L_Weary_Stiff_Neck
-		}
-	}
-	# Democracy
-	create_country_leader = {
-		name = "Jens Hundseid"
-		desc = ""
-		picture = GFX_P_D_Jens_Hundseid
-		expire = "1965.4.2"
-		ideology = social_democracy
-		traits = {
-			POSITION_Prime_Minister
-			SUBIDEOLOGY_Social_Democracy
-			L_Backroom_Backstabber
-		}
-	}
-	# Socialism
-	create_country_leader = {
-		name = "Olav Scheflo"
-		desc = ""
-		picture = GFX_P_S_Olav_Scheflo
-		expire = "1943.6.25"
-		ideology = socialism
-		traits = {
-			POSITION_Chairman
-			SUBIDEOLOGY_Socialism
-			L_Revolutionary_Leader
-		}
-	}
-	# Communism
-	create_country_leader = {
-		name = "Emil Løvlien"
-		desc = ""
-		picture = GFX_P_C_Emil_Lovlien
-		expire = "1973.6.4"
-		ideology = marxism_leninism
-		traits = {
-			POSITION_Chairman
-			SUBIDEOLOGY_Marxism_Leninism
-			L_Smiling_Oilman
-		}
-	}
-	#######################
-	# Generals
-	#######################
-	create_corps_commander = {
-		name = "Carl Gustav Fleischer"
-	    id = 200000
-		#picture = GFX_gfx/leaders/Europe/Portrait_Europe_Generic_land_1
-		traits = {
-			trickster
-			winter_specialist
-		}
-		skill = 4
-		attack_skill = 3
-		defense_skill = 4
-		planning_skill = 2
-		logistics_skill = 4
-	}
-	#######################
-	# Admirals
-	#######################
-	create_navy_leader = {
-		name = "Elias Corneliussen"
-		#picture = GFX_gfx/leaders/Europe/Portrait_Europe_Generic_navy_2
-		traits = {
-			navy_career_officer
-			inshore_fighter
-			spotter
-		}
-		skill = 3
-		attack_skill = 2
-		defense_skill = 4
-		maneuvering_skill = 3
-		coordination_skill = 1
-	}
-}
-#########################################################################
-# Norway - 1936
-#########################################################################
-1936.1.1 = {
-	oob = ""
-	#######################
-	# Research
-	#######################
-	set_technology = {
-		Small_Arms_1916 = 1
-		Small_Arms_1935 = 1
-		tech_support = 1
-		tech_engineers = 1
-		Anti_Aircraft_Gun_1935 = 1
-		Fighter_1933 = 1
-		Tactical_Bomber_1933 = 1
-		# Armour Tech
-		Heavy_Tank_1916 = 1
-		Heavy_Tank_1917 = 1
-		#Naval Stuff
-		DD_1885 = 1
-		DD_1900 = 1
-		DD_1912 = 1
-		DD_1916 = 1
-		CL_1885 = 1
-		CL_1900 = 1
-		CL_1912 = 1
-		CA_1885 = 1
-		CA_1895 = 1
-		CA_1906 = 1
-		SS_1895 = 1
-		SS_1912 = 1
-		SS_1916 = 1
-		BB_1885 = 1
-		BB_1895 = 1
-		BB_1900 = 1
-		BB_1906 = 1
-		BB_1912 = 1
-		BB_1916 = 1
-		BB_1922 = 1
-		#
-		tech_recon = 1
-	}
-	#######################
-	# Politics
-	#######################
-	set_politics = {
-		ruling_party = democratic
-		last_election = "1933.10.16"
-		election_frequency = 36
-		elections_allowed = yes
-	}
-	set_popularities = {
-#	#	authoritarian
-	#	authoritarian = 3
-#	#	democratic = 93
-		socialist = 4
-		communist = 0
-	}
-	add_ideas = {
-		one_year_service
-		industrializing_economy
-		neutrality
-		limited_civil_liberties
-	}
-	#######################
-	# Leaders
-	#######################
-	# Democracy
-	create_country_leader = {
-		name = "Johan Nygaardsvold"
-		desc = ""
-		picture = GFX_P_D_Johan_Nygaardsvold
-		expire = "1952.3.13"
-		ideology = social_democracy
-		traits = {
-			POSITION_Prime_Minister
-			SUBIDEOLOGY_Social_Democracy
-			L_Ambitious_Union_Boss
-		}
-	}
-}
-########################################################################
-# Norway - 1939
-########################################################################
-1939.9.1 = {
-	oob = ""
-}
-#########################################################################
-# Norway - 1940
-#########################################################################
-1940.5.10 = {
-	oob = ""
-}
-#########################################################################
-# Norway - 1946
-#########################################################################
-1946.1.1 = {
-	#######################
-	# Leaders
-	#######################
-	# Democracy
-	create_country_leader = {
-		name = "Einar Gerhardsen"
-		desc = ""
-		picture = GFX_P_D_Einar_Gerhardsen
-		expire = "1987.9.19"
-		ideology = social_democracy
-		traits = {
-			POSITION_Prime_Minister
-			SUBIDEOLOGY_Social_Democracy
-			L_Political_Protege
-		}
-	}
-}

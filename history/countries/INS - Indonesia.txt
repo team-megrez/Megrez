@@ -1,129 +1,36 @@
-﻿######################################################################
-# Indonesia - 1933
-######################################################################
-1933.1.1 = {
-	capital = 335
-	#######################
+﻿	capital = 335
+
+		#######################
 	# Research
 	#######################
 	set_technology = {
-	basic_train = 1
 
-		### Infantry Tech
-		Small_Arms_1900 = 1
-		Small_Arms_1916 = 1
-		Infantry_Kit_1914 = 1
-		Infantry_Kit_1918 = 1
-
-		Heavy_Weapons_1905 = 1
-		Heavy_Weapons_1916 = 1
-		### Armor Tech
-		Motorized_1916 = 1
-		Armored_Car_1911 = 1
-		Armored_Car_1916 = 1
-		Armored_Car_1926 = 1
-		Heavy_Tank_1916 = 1
-		Heavy_Tank_1917 = 1
-		Super_Heavy_Tank_1917 = 1
-		Light_Tank_1917 = 1
-		Light_Tank_1919 = 1
-		Light_Tank_1926 = 1
-		### Arty Tech
-		Artillery_1910 = 1
-		Anti_Aircraft_Gun_1914 = 1
-		Artillery_Range_Finding_and_Surveying_Tools = 1
-		Infantry_Support_Gun_1914 = 1
-		Artillery_1916 = 1
-		### Light Air Tech
-		Unarmed_Recon_1910 = 1
-		Fighter_1914 = 1
-		Fighter_1916 = 1
-		Fighter_1918 = 1
-		Fighter_1924 = 1
-		Fighter_1933 = 1
-		Fighter_Bomber_1916 = 1
-		Fighter_Bomber_1918 = 1
-		Fighter_Bomber_1924 = 1
-		### Heavy Air Tech
-		Tactical_Bomber_1914 = 1
-		Tactical_Bomber_1916 = 1
-		Tactical_Bomber_1918 = 1
-		Tactical_Bomber_1925 = 1
-		Strategic_Bomber_1916 = 1
-		tech_support = 1
-		tech_recon = 1
-		### Naval Tech
-		transport = 1
-		DD_1885 = 1
-		DD_1900 = 1
-		DD_1912 = 1
-		DD_1916 = 1
-		DD_1922 = 1
-		DD_1933 = 1
-		CL_1885 = 1
-		CL_1900 = 1
-		CL_1912 = 1
-		CL_1922 = 1
-		CA_1885 = 1
-		CA_1895 = 1
-		CA_1906 = 1
-		CA_1922 = 1
-		CA_1933 = 1
-		SS_1895 = 1
-		SS_1912 = 1
-		SS_1916 = 1
-		SS_1922 = 1
-		BC_1906 = 1
-		BC_1912 = 1
-		BC_1916 = 1
-		BB_1885 = 1
-		BB_1895 = 1
-		BB_1900 = 1
-		BB_1906 = 1
-		BB_1912 = 1
-		BB_1916 = 1
-		BB_1922 = 1
-		### Industry Production
-		Industrial_Management = 1
-		Factory_Electrification = 1
-		Facilities_Design = 1
-		Moving_Assembly_Line = 1
-		Mass_Production = 1
-		Concentrated_Industry = 1
 	}
+	#######################
+	# Diplomacy
+	#######################
 	#######################
 	# Politics
 	#######################
 	set_politics = {
-		ruling_party = socialist
+		ruling_party = conservatism
 		last_election = "1933.1.1"
 		election_frequency = 48
-		elections_allowed = no
+		elections_allowed = yes
 	}
 	set_popularities = {
-#	#	authoritarian
-	#	authoritarian = 0
-#	#	democratic = 41
-		socialist = 59
-		communist = 0
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
 	add_ideas = {
-		# Cabinet
-		INS_D_Mohammad_Hatta
 	}
-	#######################
-	# Leaders
-	#######################
-	# Socialism
-	create_country_leader = {
-		name = "Sukarno"
-		desc = ""
-		picture = GFX_P_S_Sukarno
-		expire = "1975.4.13"
-		ideology = marhaenism
-		traits = {
-			POSITION_President
-			SUBIDEOLOGY_Marhaenism
-		}
-	}
-}

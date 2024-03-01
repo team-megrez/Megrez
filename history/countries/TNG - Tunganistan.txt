@@ -1,137 +1,39 @@
-﻿#########################################################################
-# Tunganistan - 1933
-#########################################################################
-1933.1.1 = {
-	capital = 829
+﻿	capital = 829
 	oob = ""
 	add_manpower = 15000
 	add_to_variable = { money = 20 }
-	#######################
+
+		#######################
 	# Research
 	#######################
 	set_technology = {
-	basic_train = 1
 
-		Small_Arms_1916 = 1
-		mass_assault = 1
-	}
-	#######################
-	# Politics
-	
-	set_cosmetic_tag = TNG_36TH_DIV
-	set_politics = {
-		ruling_party = authoritarian
-		last_election = "1933.1.1"
-		election_frequency = 48
-		elections_allowed = no
-	}
-	set_popularities = {
-	#	fascist = 0
-#	#	authoritarian = 100
-#	#	democratic = 0
-		socialist = 0
-		communist = 0
-	}
-	add_ideas = {
-		TNG_Army_is_the_State
-		TNG_Dungans_Armies
-		TNG_Overwhelming_Illiterracy
-		# Laws and Policies
-		one_year_service
-		agrarian_economy
-		# Cabinet
-		TNG_D_Ma_Hushan
 	}
 	#######################
 	# Diplomacy
 	#######################
-	if = {
-		limit = {
-			has_start_date > 1933.1.1
-			has_start_date < 1936.1.1
-		}
-		declare_war_on = {
-			target = SIK
-			type = annex_everything
-		}
-	}
 	#######################
-	# Leaders
+	# Politics
 	#######################
-	# Authoritarian
-	create_country_leader = {
-		name = "Ma Zhongying"
-		desc = ""
-		picture = GFX_P_A_Ma_Zhongying
-		expire = "1937.1.1"
-		ideology = military_dictatorship
-		traits = {
-			POSITION_Commander
-			SUBIDEOLOGY_Military_Dictatorship
-			L_Little_Commander
-		}
+	set_politics = {
+		ruling_party = conservatism
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = yes
 	}
-	#######################
-	# Generals
-	#######################
-	create_field_marshal = {
-		name = "Ma Zhongying"
-	    id = 291000
-		GFX = GFX_P_A_Ma_Zhongying
-		traits = { }
-		skill = 3
-		attack_skill = 4
-		defense_skill = 1
-		planning_skill = 2
-		logistics_skill = 1
+	set_popularities = {
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
-	create_corps_commander = {
-		name = "Ma Hushan"
-	    id = 291001
-		GFX = GFX_P_A_Ma_Hushan
-		traits = { }
-		skill = 2
-		attack_skill = 3
-		defense_skill = 1
-		planning_skill = 2
-		logistics_skill = 1
-	}
-	create_corps_commander = {
-		name = "Ma Zhancang"
-	    id = 291002
-		GFX = GFX_P_A_Ma_Zhancang
-		traits = { }
-		skill = 2
-		attack_skill = 2
-		defense_skill = 1
-		planning_skill = 1
-		logistics_skill = 1
-	}
-}
-#########################################################################
-# Tunganistan - 1936
-#########################################################################
-1936.1.1 = {
-	capital = 831
-	oob = ""
-	drop_cosmetic_tag = yes
 	add_ideas = {
-		TNG_Uygur_Unrest
 	}
-	#######################
-	# Leaders
-	#######################
-	# Authoritarian
-	create_country_leader = {
-		name = "Ma Hushan"
-		desc = ""
-		picture = GFX_P_A_Ma_Hushan
-		expire = "1954.1.1"
-		ideology = military_dictatorship
-		traits = {
-			POSITION_Commander
-			SUBIDEOLOGY_Military_Dictatorship
-			L_Local_Tyrant
-		}
-	}
-}

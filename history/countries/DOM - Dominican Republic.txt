@@ -1,154 +1,38 @@
-﻿#########################################################################
-# Dominican Republic - 1933
-#########################################################################
-1933.1.1 = {
+﻿
 	capital = 319
 	set_convoys = 5
 	oob = ""
-	add_to_variable = { money = 30 }
-	#######################
+		#######################
 	# Research
-	#######################	
+	#######################
 	set_technology = {
-	basic_train = 1
 
-		### Infantry Tech
-		Small_Arms_1900 = 1
-		Small_Arms_1916 = 1
-		Infantry_Kit_1914 = 1
-		Infantry_Kit_1918 = 1
-
-		Heavy_Weapons_1905 = 1
-		Heavy_Weapons_1916 = 1
-		
-		
-		### Support Units
-		tech_mountaineers = 1
-		### Armour Tech
-		Motorized_1916 = 1
-		Armored_Car_1911 = 1
-        Armored_Car_1916 = 1
-        Armored_Car_1926 = 1
-		### Artillery Tech
-		Artillery_1910 = 1
-        Artillery_Range_Finding_and_Surveying_Tools = 1
-        Artillery_1916 = 1
-		Anti_Aircraft_Gun_1935 = 1
-		### Air Tech
-		Unarmed_Recon_1910 = 1
-        Fighter_1914 = 1
-        Fighter_1916 = 1
-        Fighter_1918 = 1
-        Fighter_1924 = 1
-		### Navy
-		transport = 1
-		### Industry
-		Basic_Construction_Machines = 1
-		Motorized_Plowing = 1
-		Farm_Tractors = 1
-		Scientific_Agricultural_Processes = 1
-		### Land Doctrines
-		Twentieth_Century_Warfare = 1
-		Leading_by_Order = 1
-		Strongpoint = 1
-        Mass_Charge = 1
-        Static_Defence = 1
-        Counterattack = 1
-		Defence_In_Depth = 1
-		Separate_Arms_Force = 1
-        Combined_Arms_Effort = 1
-		Specialized_Branch_Tactical_Experience = 1
-		
 	}
 	#######################
+	# Diplomacy
+	#######################
+	#######################
 	# Politics
-	#######################		
-	set_country_flag = monroe_doctrine
+	#######################
 	set_politics = {
-		ruling_party = authoritarian
-		last_election = "1930.5.16"
+		ruling_party = conservatism
+		last_election = "1933.1.1"
 		election_frequency = 48
 		elections_allowed = yes
 	}
 	set_popularities = {
-#	#	authoritarian
-	#	authoritarian = 100
-#	#	democratic = 0
-		socialist = 0
-		communist = 0
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
 	add_ideas = {
-		agrarian_economy
-		isolationism
-		repressive_system
 	}
-	#######################
-	# Leaders
-	#######################	
-	# Authoritarian
-	create_country_leader = {
-		name = "Rafael Trujillo"
-		desc = ""
-		picture = GFX_P_A_Rafael_Trujillo
-		expire = "1961.5.30"
-		ideology = authoritarian_democracy
-		traits = { POSITION_President SUBIDEOLOGY_Authoritarian_Democracy L_Resigned_Generalissimo }
-	}	
-}
-#########################################################################
-# Dominican Republic - 1936
-#########################################################################
-1936.1.1 = {
-	oob = ""
-}
-#########################################################################
-# Dominican Republic - 1939
-#########################################################################
-1939.9.1 = {
-	#######################
-	# Leaders
-	#######################	
-	# Authoritarian
-	create_country_leader = {
-		name = "Jacinto Peynado"
-		desc = ""
-		picture = GFX_P_A_Jacinto_Peynado
-		expire = "1940.3.7"
-		ideology = authoritarian_democracy
-		traits = { POSITION_President SUBIDEOLOGY_Authoritarian_Democracy L_Barking_Buffoon }
-	}	
-}
-#########################################################################
-# Dominican Republic - 1940
-#########################################################################
-1940.5.10 = {
-	#######################
-	# Leaders
-	#######################	
-	# Paternal Autocracy
-	create_country_leader = {
-		name = "Manuel de Jesús Troncoso"
-		desc = ""
-		picture = GFX_P_A_Manuel_de_Jesus_Troncoso
-		expire = "1965.1.1"
-		ideology = authoritarian_democracy
-		traits = { POSITION_President SUBIDEOLOGY_Authoritarian_Democracy L_Benevolent_Gentleman }
-	}
-}
-#########################################################################
-# Dominican Republic - 1942
-#########################################################################
-1942.11.22 = {
-	#######################
-	# Leaders
-	#######################	
-	# Paternal Autocracy
-	create_country_leader = {
-		name = "Rafael Trujillo"
-		desc = "POLITICS_RAFAEL_TRUJILLO_DESC"
-		picture = GFX_P_A_Rafael_Trujillo
-		expire = "1965.1.1"
-		ideology = authoritarian_democracy
-		traits = { POSITION_President SUBIDEOLOGY_Authoritarian_Democracy L_Barking_Buffoon }
-	}	
-}

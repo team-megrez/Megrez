@@ -1,72 +1,38 @@
-﻿#########################################################################
-# Lebanon - 1933
-#########################################################################
-1933.1.1 = {
+﻿
 	capital = 553
 	set_convoys = 5
-	#######################
+
+		#######################
 	# Research
 	#######################
 	set_technology = {
-	basic_train = 1
 
-		Small_Arms_1916 = 1
 	}
+	#######################
+	# Diplomacy
+	#######################
 	#######################
 	# Politics
 	#######################
 	set_politics = {
-		ruling_party = democratic
-		last_election = "1936.1.1"
+		ruling_party = conservatism
+		last_election = "1933.1.1"
 		election_frequency = 48
 		elections_allowed = yes
 	}
 	set_popularities = {
-#	#	authoritarian
-	#	authoritarian = 23
-#	#	democratic = 74
-		socialist = 3
-		communist = 0
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
-	#######################
-	# Leaders
-	#######################
-	create_country_leader = {
-		name = "Pierre Gemayel"
-		desc = ""
-		picture = GFX_gfx/leaders/SAU/Portrait_Europe_Generic_fascist1
-		ideology = fascism
-		traits = {
-			#
-		}
+	add_ideas = {
 	}
-	create_country_leader = {
-		name = "Melick Yarad"
-		desc = ""
-		picture = GFX_gfx/leaders/SAU/Portrait_Arabia_Generic_land_3
-		ideology = authoritarian_democracy
-		traits = {
-			#
-		}
-	}
-	create_country_leader = {
-		name = "Hashim al-Atassi"
-		desc = ""
-		picture = GFX_P_D_Hashim_AlAtassi
-		ideology = social_liberalism
-		traits = {
-			POSITION_President
-			SUBIDEOLOGY_Social_Liberalism
-			L_Insignificant_Layman
-		}
-	}
-	create_country_leader = {
-		name = "Rami Sarraff"
-		desc = ""
-		picture = GFX_gfx/leaders/SAU/Portrait_Arabia_Generic_land_2
-		ideology = trotskyism
-		traits = {
-			#
-		}
-	}
-}

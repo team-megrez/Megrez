@@ -1,45 +1,36 @@
-﻿#########################################################################
-# Palestine - 1933
-#########################################################################
-1933.1.1 = {
-	capital = 824
-	#######################
+﻿	capital = 824
+
+		#######################
 	# Research
 	#######################
 	set_technology = {
-	basic_train = 1
 
-		Small_Arms_1916 = 1
 	}
+	#######################
+	# Diplomacy
+	#######################
 	#######################
 	# Politics
 	#######################
 	set_politics = {
-		ruling_party = authoritarian
+		ruling_party = conservatism
 		last_election = "1933.1.1"
-		election_frequency = 36
-		elections_allowed = no
+		election_frequency = 48
+		elections_allowed = yes
 	}
 	set_popularities = {
-#	#	authoritarian
-	#	authoritarian = 100
-#	#	democratic = 0
-		socialist = 0
-		communist = 0
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
-	#######################
-	# Leaders
-	#######################
-	# Authoritarian
-	create_country_leader = {
-		name = "Amin al-Husseini"
-		desc = ""
-		picture = GFX_P_A_Amin_al_Hussaini
-		expire = "1974.7.4"
-		ideology = theocracy_auth
-		traits = {
-			POSITION_President
-			SUBIDEOLOGY_Theocracy
-		}
+	add_ideas = {
 	}
-}

@@ -1,47 +1,35 @@
-﻿#########################################################################
-# Kurdistan
-#########################################################################
-capital = 1012
-#######################
-# Research
-#######################
-set_technology = {
-	basic_train = 1
+﻿capital = 1012
+	#######################
+	# Research
+	#######################
+	set_technology = {
 
-	Small_Arms_1916 = 1
-}
-#######################
-# Politics
-#######################
-set_politics = {
-	ruling_party = authoritarian
-	last_election = "1930.1.1"
-	election_frequency = 48
-	elections_allowed = no
-}
-set_popularities = {
-	fascist = 10
-#	authoritarian = 60
-#	democratic = 20
-	socialist = 5
-	communist = 5
-}
-	#######################
-	# Leaders
-	#######################
-	# Authoritarian
-	create_country_leader = {
-		name = "Seyid Riza"
-		desc = ""
-		picture = GFX_P_A_Seyid_Riza
-		expire = "1965.1.1"
-		ideology = military_dictatorship
-		traits = { 
-			POSITION_Commander
-			SUBIDEOLOGY_Military_Dictatorship
-			L_Revolutionary_Leader
-		}
 	}
-#######################
-# Generals
-#######################
+	#######################
+	# Diplomacy
+	#######################
+	#######################
+	# Politics
+	#######################
+	set_politics = {
+		ruling_party = conservatism
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
+	}
+	add_ideas = {
+	}

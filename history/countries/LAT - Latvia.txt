@@ -1,149 +1,40 @@
-﻿#########################################################################
-# Latvia - 1933
-#########################################################################
-1933.1.1 = {
-	capital = 12
+﻿	capital = 12
 	set_research_slots = 3
 	set_convoys = 10
 	oob = ""
 	add_manpower = 15000
-	add_to_variable = { money = 80 }
-	#######################
+
+		#######################
 	# Research
 	#######################
 	set_technology = {
-	basic_train = 1
 
-		### Infantry Tech
-		Small_Arms_1900 = 1
-		Small_Arms_1916 = 1
-		Infantry_Kit_1914 = 1
-		Infantry_Kit_1918 = 1
-
-		Heavy_Weapons_1905 = 1
-		Heavy_Weapons_1916 = 1
-		### Artillery Tech
-		Artillery_1910 = 1
-		Anti_Aircraft_Gun_1914 = 1
-		Artillery_Range_Finding_and_Surveying_Tools = 1
-		Infantry_Support_Gun_1914 = 1
-		Artillery_1916 = 1
-		High_Explosive_Shells = 1
-		### Armour Tech
-		Motorized_1916 = 1
-		Armored_Car_1911 = 1
-		Armored_Car_1916 = 1
-		Armored_Car_1926 = 1
-		Light_Tank_1917 = 1
-		### Air Tech
-		Unarmed_Recon_1910 = 1
-		Fighter_1914 = 1
-		Fighter_1916 = 1
-		Fighter_1918 = 1
-		Fighter_1924 = 1
-		Fighter_Bomber_1916 = 1
-		Fighter_Bomber_1918 = 1
-		### Naval Stuff
-		SS_1895 = 1
-		SS_1912 = 1
-		transport = 1
-		### Industry
-		Industrial_Management = 1
-		Factory_Electrification = 1
-		Basic_Construction_Machines = 1
-		Motorized_Plowing = 1
-		Farm_Tractors = 1
-		Scientific_Agricultural_Processes = 1
-		Mechanized_Agriculture = 1
-		### Land Doctrines
-		Twentieth_Century_Warfare = 1
-		Leading_by_Order = 1
-		Strongpoint = 1
-		Mass_Charge = 1
-		Static_Defence = 1
-		Counterattack = 1
-		Defence_In_Depth = 1
-		Separate_Arms_Force = 1
-		Combined_Arms_Effort = 1
-		Specialized_Branch_Tactical_Experience = 1
 	}
 	#######################
 	# Diplomacy
 	#######################
-	### Soviet–Latvian Non-Aggression Pact
-	diplomatic_relation = {
-		country = SOV
-		relation = non_aggression_pact
-		active = yes
-	}
 	#######################
 	# Politics
 	#######################
-	add_ideas = {
-		LAT_D_Margers_Skujenieks
-		one_year_service
-		industrializing_economy
-		legalistic_restrictions
-	}
 	set_politics = {
-		ruling_party = authoritarian
-		last_election = "1931.10.3"
-		election_frequency = 108
-		elections_allowed = no
+		ruling_party = conservatism
+		last_election = "1933.1.1"
+		election_frequency = 48
+		elections_allowed = yes
 	}
 	set_popularities = {
-#	#	authoritarian
-	#	authoritarian = 86
-#	#	democratic = 9
-		socialist = 2
-		communist = 2
-	}
-	#######################
-	# Leaders
-	#######################
-	create_country_leader = {
-		name = "Alberts Kviesis"
-		desc = ""
-		picture = GFX_P_D_Alberts_Kviesis
-		expire = "1965.1.1"
-		ideology = authoritarian_democracy
-		traits = { POSITION_President SUBIDEOLOGY_Authoritarian_Democracy L_PowerHungry_Demagogue }
-	}
-}
-####################################
-# Latvia - 1936
-####################################
-1936.1.1 = {
-	oob = ""
-	#######################
-	# Tech
-	#######################
-	set_technology = {
-		Small_Arms_1935 = 1
-		Motorized_1916 = 1
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
 	add_ideas = {
-		LAT_D_Karlis_Ulmanis
-		one_year_service
-		industrializing_economy
-		legalistic_restrictions
 	}
-}
-####################################
-# Latvia - 1939
-####################################
-1939.9.1 = {
-	oob = ""
-	#######################
-	# Leaders
-	#######################
-	# Paternal Autocracy
-	create_country_leader = {
-		name = "Karlis Ulmanis"
-		desc = ""
-		picture = GFX_P_A_Karlis_Ulmanis
-		expire = "1965.1.1"
-		ideology = authoritarian_democracy
-		traits = { POSITION_President SUBIDEOLOGY_Authoritarian_Democracy L_Barking_Buffoon }
-	}
-}

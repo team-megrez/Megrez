@@ -1,67 +1,37 @@
-﻿#########################################################################
-# Cambodia - 1933
-#########################################################################
-1933.1.1 = {
+﻿
 	capital = 741
 	set_research_slots = 3
 	#######################
 	# Research
 	#######################
 	set_technology = {
-	basic_train = 1
 
-		Small_Arms_1916 = 1
-		Small_Arms_1935 = 1
-		tech_support = 1
-		tech_recon = 1
-		tech_mountaineers = 1
-		Motorized_1916 = 1
-		Artillery_1910 = 1
-		Anti_Aircraft_Gun_1935 = 1
-		
-		Fighter_1933 = 1
-		Naval_Bomber_1936 = 1
-		Torpedo_bomber_1936 = 1
-		Tactical_Bomber_1933 = 1
-		Tactical_Bomber_1936 = 1
-		Attacker_1936 = 1
-	
-		transport = 1
-		Trench_Warfare = 1
-		fleet_in_being = 1
 	}
+	#######################
+	# Diplomacy
+	#######################
 	#######################
 	# Politics
 	#######################
 	set_politics = {
-		ruling_party = authoritarian
+		ruling_party = conservatism
 		last_election = "1933.1.1"
 		election_frequency = 48
-		elections_allowed = no
+		elections_allowed = yes
 	}
 	set_popularities = {
-#	#	authoritarian
-	#	authoritarian = 45
-#	#	democratic = 20
-		socialist = 10
-		communist = 25
+		theocracy = 8
+		national_socialism = 8
+		fascism = 8
+		ultranationalism = 8
+		despotism = 8
+		paternalism = 8
+		conservatism = 10
+		liberal_conservatism = 8
+		progressivism = 10
+		moderate_socialist = 8
+		revolutionary_socialist = 8
+		communist = 8
 	}
-	#######################
-	# Leaders
-	#######################
-	# Authoritarianism
-	create_country_leader = {
-		name = "Norodom Sihanouk"
-		desc = ""
-		picture = GFX_P_A_Norodom_Sihanouk
-		expire = "2012.10.15"
-		ideology = monarchism
-		traits = { 
-			POSITION_King 
-			SUBIDEOLOGY_Monarchism 
-		}
+	add_ideas = {
 	}
-	#######################
-	# Generals
-	#######################
-}
